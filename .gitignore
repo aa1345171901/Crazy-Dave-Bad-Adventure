@@ -1,0 +1,15 @@
+/Logs
+/obj
+/UserSettings
+/Library
+/.vs
+/Temp
+Assembly-CSharp.csproj
+Assembly-CSharp-firstpass.csproj
+Assembly-CSharp-Editor.csproj
+*.sln
+/ProjectSettings/ProjectVersion.txt
+/[Bb]uild/
+/[Bb]uilds/
+*.csproj
+/Packages
