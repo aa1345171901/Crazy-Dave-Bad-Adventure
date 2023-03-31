@@ -1,0 +1,265 @@
+
+Dave.png
+size: 1238,396
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+CrazyDave_beard
+  rotate: false
+  xy: 243, 7
+  size: 144, 109
+  orig: 146, 111
+  offset: 1, 1
+  index: -1
+CrazyDave_blink1
+  rotate: false
+  xy: 678, 36
+  size: 34, 33
+  orig: 36, 35
+  offset: 1, 1
+  index: -1
+CrazyDave_blink2
+  rotate: false
+  xy: 1122, 18
+  size: 34, 33
+  orig: 36, 35
+  offset: 1, 1
+  index: -1
+CrazyDave_body1
+  rotate: true
+  xy: 2, 118
+  size: 276, 398
+  orig: 277, 400
+  offset: 1, 2
+  index: -1
+CrazyDave_eye
+  rotate: true
+  xy: 567, 2
+  size: 37, 31
+  orig: 40, 33
+  offset: 1, 1
+  index: -1
+CrazyDave_eyebrow
+  rotate: true
+  xy: 714, 40
+  size: 29, 16
+  orig: 32, 20
+  offset: 2, 2
+  index: -1
+CrazyDave_foot1
+  rotate: true
+  xy: 593, 71
+  size: 179, 137
+  orig: 187, 137
+  offset: 7, 0
+  index: -1
+CrazyDave_foot2
+  rotate: true
+  xy: 732, 80
+  size: 173, 105
+  orig: 174, 114
+  offset: 0, 9
+  index: -1
+CrazyDave_head
+  rotate: true
+  xy: 402, 72
+  size: 178, 189
+  orig: 182, 191
+  offset: 3, 1
+  index: -1
+CrazyDave_innerarm
+  rotate: false
+  xy: 961, 29
+  size: 80, 77
+  orig: 80, 77
+  offset: 0, 0
+  index: -1
+CrazyDave_innerfinger1
+  rotate: false
+  xy: 1043, 76
+  size: 41, 30
+  orig: 43, 32
+  offset: 1, 1
+  index: -1
+CrazyDave_innerfinger2
+  rotate: false
+  xy: 641, 35
+  size: 35, 34
+  orig: 37, 36
+  offset: 1, 1
+  index: -1
+CrazyDave_innerfinger3
+  rotate: false
+  xy: 600, 5
+  size: 35, 35
+  orig: 37, 37
+  offset: 1, 1
+  index: -1
+CrazyDave_innerfinger4
+  rotate: true
+  xy: 1158, 22
+  size: 29, 35
+  orig: 31, 37
+  offset: 1, 1
+  index: -1
+CrazyDave_innerhand
+  rotate: false
+  xy: 732, 5
+  size: 83, 73
+  orig: 83, 73
+  offset: 0, 0
+  index: -1
+CrazyDave_mouth1
+  rotate: false
+  xy: 481, 23
+  size: 84, 47
+  orig: 87, 49
+  offset: 1, 1
+  index: -1
+CrazyDave_mouth2
+  rotate: false
+  xy: 592, 42
+  size: 47, 27
+  orig: 49, 29
+  offset: 1, 1
+  index: -1
+CrazyDave_mouth3
+  rotate: false
+  xy: 1150, 53
+  size: 54, 29
+  orig: 57, 31
+  offset: 2, 1
+  index: -1
+CrazyDave_mouth4
+  rotate: false
+  xy: 567, 41
+  size: 23, 29
+  orig: 25, 31
+  offset: 1, 1
+  index: -1
+CrazyDave_mouth5
+  rotate: true
+  xy: 1043, 16
+  size: 58, 36
+  orig: 60, 38
+  offset: 1, 1
+  index: -1
+CrazyDave_mouth6
+  rotate: false
+  xy: 817, 66
+  size: 12, 12
+  orig: 14, 14
+  offset: 1, 1
+  index: -1
+CrazyDave_outerarm
+  rotate: false
+  xy: 839, 30
+  size: 120, 84
+  orig: 124, 84
+  offset: 4, 0
+  index: -1
+CrazyDave_outerfinger1
+  rotate: true
+  xy: 1081, 16
+  size: 36, 39
+  orig: 38, 41
+  offset: 1, 1
+  index: -1
+CrazyDave_outerfinger2
+  rotate: false
+  xy: 817, 2
+  size: 43, 26
+  orig: 45, 30
+  offset: 1, 2
+  index: -1
+CrazyDave_outerfinger3
+  rotate: false
+  xy: 862, 3
+  size: 42, 25
+  orig: 44, 28
+  offset: 1, 1
+  index: -1
+CrazyDave_outerfinger4
+  rotate: true
+  xy: 637, 2
+  size: 31, 28
+  orig: 33, 30
+  offset: 1, 1
+  index: -1
+CrazyDave_outerhand
+  rotate: true
+  xy: 389, 17
+  size: 53, 90
+  orig: 54, 90
+  offset: 0, 0
+  index: -1
+CrazyDave_pot
+  rotate: false
+  xy: 2, 10
+  size: 239, 106
+  orig: 242, 109
+  offset: 2, 2
+  index: -1
+Shadow
+  rotate: false
+  xy: 1086, 54
+  size: 62, 28
+  orig: 86, 36
+  offset: 13, 4
+  index: -1
+body
+  rotate: false
+  xy: 402, 252
+  size: 249, 142
+  orig: 252, 145
+  offset: 0, 3
+  index: -1
+brain
+  rotate: false
+  xy: 1206, 54
+  size: 30, 28
+  orig: 32, 31
+  offset: 1, 2
+  index: -1
+lefthand
+  rotate: true
+  xy: 1086, 84
+  size: 122, 150
+  orig: 122, 151
+  offset: 0, 1
+  index: -1
+leftleg
+  rotate: false
+  xy: 978, 108
+  size: 106, 144
+  orig: 174, 318
+  offset: 0, 0
+  index: -1
+leftleg2
+  rotate: true
+  xy: 892, 254
+  size: 140, 193
+  orig: 145, 193
+  offset: 1, 0
+  index: -1
+righthand
+  rotate: true
+  xy: 653, 255
+  size: 139, 237
+  orig: 139, 237
+  offset: 0, 0
+  index: -1
+rightleg1
+  rotate: false
+  xy: 839, 116
+  size: 137, 136
+  orig: 214, 351
+  offset: 0, 0
+  index: -1
+rightleg2
+  rotate: false
+  xy: 1087, 208
+  size: 145, 186
+  orig: 152, 187
+  offset: 7, 0
+  index: -1

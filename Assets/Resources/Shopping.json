@@ -1,0 +1,1382 @@
+{
+    "PropCards":
+    [
+        {
+            "propName": "jaw",
+            "propImagePath": "Shop/Props/jaw",
+            "defaultPrice": "29",
+            "info": "一个下巴？\n<color=#00ff00>+2肾上腺素</color>\n<color=#00ff00>+2生命恢复</color>\n<color=#00ff00>+5攻击速度</color>\n<color=#ff0000>-2最大生命值</color>\n看起来令人毛骨悚然",
+            "quality": "1",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Adrenaline",
+                "increment": "2"
+                },
+
+                {
+                "attributeTypeString": "LifeRecovery",
+                "increment": "2"
+                },
+
+                {
+                "attributeTypeString": "AttackSpeed",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "MaximumHP",
+                "increment": "-2"
+                }
+            ]
+        },
+
+        {
+            "propName": "sadheart",
+            "propImagePath": "Shop/Props/sadheart",
+            "defaultPrice": "21",
+            "info": "正在哭泣的红心\n<color=#00ff00>+5最大生命值</color>\n<color=#ff0000>-3肾上腺素</color>\n她看起来好可怜",
+            "quality": "1",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "MaximumHP",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "Adrenaline",
+                "increment": "-3"
+                }
+            ]
+        },
+
+        {
+            "propName": "plate",
+            "propImagePath": "Shop/Props/plate",
+            "defaultPrice": "27",
+            "info": "金属盘子\n<color=#00ff00>+2最大生命值</color>\n<color=#00ff00>+10金币</color>\n<color=#00ff00>+1护甲</color>\n<color=#ff0000>-5肾上腺素</color>\n可以用来干饭",
+            "quality": "1",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "MaximumHP",
+                "increment": "2"
+                },
+
+                {
+                "attributeTypeString": "GoldCoins",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "Armor",
+                "increment": "1"
+                },
+
+                {
+                "attributeTypeString": "Adrenaline",
+                "increment": "-5"
+                }
+            ]
+        },
+
+        {
+            "propName": "throat",
+            "propImagePath": "Shop/Props/throat",
+            "defaultPrice": "20",
+            "info": "长牙齿的咽喉？\n<color=#00ff00>+5最大生命值</color>\n<color=#00ff00>+5肾上腺素</color>\n<color=#ff0000>-5生命恢复</color>\n看起来更像一条蛇",
+            "quality": "1",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "MaximumHP",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "Adrenaline",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "LifeRecovery",
+                "increment": "-5"
+                }
+            ]
+        },
+
+        {
+            "propName": "SeaShroom_head",
+            "propImagePath": "Shop/Props/SeaShroom_head",
+            "defaultPrice": "18",
+            "info": "小海菇的帽子\n<color=#00ff00>+2幸运</color>\n<color=#00ff00>+3植物学</color>\n<color=#00ff00>+5肾上腺素</color>\n<color=#ff0000>-3最大生命值</color>\n可以好好研究一下",
+            "quality": "1",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Lucky",
+                "increment": "2"
+                },
+
+                {
+                "attributeTypeString": "Botany",
+                "increment": "3"
+                },
+
+                {
+                "attributeTypeString": "Adrenaline",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "MaximumHP",
+                "increment": "-3"
+                }
+            ]
+        },
+
+        {
+            "propName": "SunShroom_head",
+            "propImagePath": "Shop/Props/SunShroom_head",
+            "defaultPrice": "25",
+            "info": "阳光菇帽子\n<color=#00ff00>+50阳光</color>\n<color=#00ff00>+3植物学</color>\n<color=#00ff00>+4最大生命值</color>\n<color=#ff0000>-2力量</color>\n可以好好研究一下",
+            "quality": "1",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Sunshine",
+                "increment": "50"
+                },
+
+                {
+                "attributeTypeString": "Botany",
+                "increment": "3"
+                },
+
+                {
+                "attributeTypeString": "MaximumHP",
+                "increment": "4"
+                },
+
+                {
+                "attributeTypeString": "Power",
+                "increment": "-2"
+                }
+            ]
+        },
+
+        {
+            "propName": "beard",
+            "propImagePath": "Shop/Props/beard",
+            "defaultPrice": "18",
+            "info": "戴夫的胡须\n<color=#00ff00>+2护甲</color>\n<color=#00ff00>+1幸运</color>\n<color=#ff0000>-3肾上腺素</color>\n这是我的胡子",
+            "quality": "1",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Armor",
+                "increment": "2"
+                },
+
+                {
+                "attributeTypeString": "Lucky",
+                "increment": "1"
+                },
+
+                {
+                "attributeTypeString": "Adrenaline",
+                "increment": "-3"
+                }
+            ]
+        },
+
+        {
+            "propName": "glasses",
+            "propImagePath": "Shop/Props/glasses",
+            "defaultPrice": "25",
+            "info": "眼镜\n<color=#00ff00>+5范围</color>\n<color=#00ff00>+1暴击率</color>\n戴上后视野会变得清晰",
+            "quality": "1",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Range",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "CriticalHitRate",
+                "increment": "1"
+                }
+            ]
+        },
+
+        {
+            "propName": "leaf",
+            "propImagePath": "Shop/Props/leaf",
+            "defaultPrice": "20",
+            "info": "叶子\n<color=#00ff00>+3植物学</color>\n<color=#00ff00>+1幸运</color>\n不知道属于哪个植物",
+            "quality": "1",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Botany",
+                "increment": "3"
+                },
+
+                {
+                "attributeTypeString": "Lucky",
+                "increment": "1"
+                }
+            ]
+        },
+
+        {
+            "propName": "smallflower",
+            "propImagePath": "Shop/Props/smallflower",
+            "defaultPrice": "24",
+            "info": "小花\n<color=#00ff00>+4最大生命值</color>\n看起来很眼熟",
+            "quality": "1",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "MaximumHP",
+                "increment": "4"
+                }
+            ]
+        },
+
+        {
+            "propName": "fertilizer",
+            "propImagePath": "Shop/Props/fertilizer",
+            "defaultPrice": "16",
+            "info": "肥料\n<color=#00ff00>+4植物学</color>\n应该能帮到植物们",
+            "quality": "1",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Botany",
+                "increment": "4"
+                }
+            ]
+        },
+
+        {
+            "propName": "Diamond",
+            "propImagePath": "Shop/Props/Diamond",
+            "defaultPrice": "66",
+            "info": "<color=#0000ff>钻石</color>\n<color=#00ff00>+30金币</color>\n<color=#00ff00>+4幸运</color>\n亮闪亮闪的很漂亮",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "GoldCoins",
+                "increment": "30"
+                },
+
+                {
+                "attributeTypeString": "Lucky",
+                "increment": "4"
+                }
+            ]
+        },
+
+        {
+            "propName": "SunFlower",
+            "propImagePath": "Shop/Props/SunFlower",
+            "defaultPrice": "54",
+            "info": "<color=#0000ff>葵花</color>\n<color=#00ff00>+5植物学</color>\n<color=#00ff00>+3幸运</color>\n<color=#00ff00>+50阳光</color>\n向日葵的花瓣，不知道有没有葵花籽",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Botany",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "Lucky",
+                "increment": "3"
+                },
+
+                {
+                "attributeTypeString": "Sunshine",
+                "increment": "50"
+                }
+            ]
+        },
+
+        {
+            "propName": "basket",
+            "propImagePath": "Shop/Props/basket",
+            "defaultPrice": "55",
+            "info": "<color=#0000ff>篮子</color>\n<color=#00ff00>+10范围</color>\n<color=#00ff00>+3暴击率</color>\n<color=#00ff00>+5植物学</color>\n<color=#ff0000>-3攻击速度</color>\n好像是某个投手的投射器",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Range",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "CriticalHitRate",
+                "increment": "3"
+                },
+
+                {
+                "attributeTypeString": "Botany",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "AttackSpeed",
+                "increment": "-3"
+                }
+            ]
+        },
+
+        {
+            "propName": "rake",
+            "propImagePath": "Shop/Props/rake",
+            "defaultPrice": "80",
+            "info": "<color=#0000ff>耙子</color>\n<color=#00ff00>+5力量</color>\n<color=#00ff00>+3暴击率</color>\n这件兵器很趁手",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Power",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "CriticalHitRate",
+                "increment": "3"
+                }
+            ]
+        },
+
+        {
+            "propName": "wateringcan",
+            "propImagePath": "Shop/Props/wateringcan",
+            "defaultPrice": "51",
+            "info": "<color=#0000ff>水壶</color>\n<color=#00ff00>+4植物学</color>\n<color=#00ff00>+4护甲</color>\n<color=#00ff00>+5生命恢复</color>\n<color=#ff0000>-4攻击速度</color>\n对植物们很有帮助",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Botany",
+                "increment": "4"
+                },
+
+                {
+                "attributeTypeString": "Armor",
+                "increment": "4"
+                },
+
+                {
+                "attributeTypeString": "LifeRecovery",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "AttackSpeed",
+                "increment": "-4"
+                }
+            ]
+        },
+
+        {
+            "propName": "jackbox",
+            "propImagePath": "Shop/Props/jackbox",
+            "defaultPrice": "58",
+            "info": "<color=#0000ff>小丑礼盒</color>\n<color=#00ff00>+5幸运</color>\n<color=#00ff00>+5肾上腺素</color>\n<color=#00ff00>+5速度</color>\n<color=#ff0000>-2最大生命值</color>\n一个会爆炸的礼盒，我得小心收藏",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Lucky",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "Adrenaline",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "Speed",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "MaximumHP",
+                "increment": "-2"
+                }
+            ]
+        },
+
+        {
+            "propName": "splash3",
+            "propImagePath": "Shop/Props/splash3",
+            "defaultPrice": "85",
+            "info": "<color=#0000ff>一朵水花？</color>\n<color=#00ff00>+10最大生命值</color>\n<color=#00ff00>+4生命恢复</color>\n<color=#00ff00>+10攻击速度</color>\n<color=#ff0000>-5肾上腺素</color>\n<color=#ff0000>-2护甲</color>\n哪个跳水队都比不过这一朵",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "MaximumHP",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "LifeRecovery",
+                "increment": "4"
+                },
+
+                {
+                "attributeTypeString": "AttackSpeed",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "Adrenaline",
+                "increment": "-5"
+                },
+
+                {
+                "attributeTypeString": "Armor",
+                "increment": "-2"
+                }
+            ]
+        },
+
+        {
+            "propName": "SodRollCap",
+            "propImagePath": "Shop/Props/SodRollCap",
+            "defaultPrice": "80",
+            "info": "<color=#0000ff>一卷草皮？</color>\n<color=#00ff00>+6生命恢复</color>\n<color=#00ff00>+10速度</color>\n<color=#00ff00>+8攻击速度</color>\n<color=#ff0000>-2力量</color>\n铺开躺上去一定很舒服",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "LifeRecovery",
+                "increment": "6"
+                },
+
+                {
+                "attributeTypeString": "Speed",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "AttackSpeed",
+                "increment": "8"
+                },
+
+                {
+                "attributeTypeString": "Power",
+                "increment": "-2"
+                }
+            ]
+        },
+
+        {
+            "propName": "Spikerock",
+            "propImagePath": "Shop/Props/Spikerock",
+            "defaultPrice": "70",
+            "info": "<color=#0000ff>一根地刺</color>\n<color=#00ff00>+10速度</color>\n<color=#00ff00>+10攻击速度</color>\n<color=#00ff00>+2生命恢复</color>\n<color=#ff0000>-10肾上腺素</color>\n都不想踩在上面",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Speed",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "AttackSpeed",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "LifeRecovery",
+                "increment": "2"
+                },
+
+                {
+                "attributeTypeString": "Adrenaline",
+                "increment": "-10"
+                }
+            ]
+        },
+
+        {
+            "propName": "Stinky_turn1",
+            "propImagePath": "Shop/Props/Stinky_turn1",
+            "defaultPrice": "66",
+            "info": "<color=#0000ff>蜗牛</color>\n<color=#00ff00>+8护甲</color>\n<color=#00ff00>+5植物学</color>\n<color=#ff0000>-5速度</color>\n<color=#ff0000>-3肾上腺素</color>\n应该对植物有所帮助，跑得太慢了",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Armor",
+                "increment": "8"
+                },
+
+                {
+                "attributeTypeString": "Botany",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "Speed",
+                "increment": "-5"
+                },
+
+                {
+                "attributeTypeString": "Adrenaline",
+                "increment": "-3"
+                }
+            ]
+        },
+
+        {
+            "propName": "bugspray",
+            "propImagePath": "Shop/Props/bugspray",
+            "defaultPrice": "70",
+            "info": "<color=#0000ff>杀虫剂</color>\n<color=#00ff00>+10植物学</color>\n<color=#00ff00>+20肾上腺素</color>\n<color=#ff0000>-6生命恢复</color>\n气味很难闻，可以帮助植物对抗虫子",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Botany",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "Adrenaline",
+                "increment": "20"
+                },
+
+                {
+                "attributeTypeString": "LifeRecovery",
+                "increment": "-6"
+                }
+            ]
+        },
+
+        {
+            "propName": "WinterMelon",
+            "propImagePath": "Shop/Props/WinterMelon",
+            "defaultPrice": "130",
+            "info": "<color=#9932CD>冰镇西瓜</color>\n<color=#00ff00>+25最大生命值</color>\n<color=#00ff00>+10肾上腺素</color>\n<color=#00ff00>+10范围</color>\n<color=#ff0000>-10生命恢复</color>\n吃太多会拉肚子",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "MaximumHP",
+                "increment": "25"
+                },
+
+                {
+                "attributeTypeString": "Adrenaline",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "Range",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "LifeRecovery",
+                "increment": "-10"
+                }
+            ]
+        },
+
+        {
+            "propName": "melon",
+            "propImagePath": "Shop/Props/melon",
+            "defaultPrice": "105",
+            "info": "<color=#9932CD>西瓜</color>\n<color=#00ff00>+20最大生命值</color>\n<color=#00ff00>+10生命恢复</color>\n<color=#00ff00>+5范围</color>\n<color=#ff0000>-5护甲</color>\n肚子都要被撑爆了",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "MaximumHP",
+                "increment": "20"
+                },
+
+                {
+                "attributeTypeString": "LifeRecovery",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "Range",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "Armor",
+                "increment": "-5"
+                }
+            ]
+        },
+
+        {
+            "propName": "Pot_Water",
+            "propImagePath": "Shop/Props/Pot_Water",
+            "defaultPrice": "55",
+            "info": "<color=#9932CD>水花盆</color>\n<color=#00ff00>+20植物学</color>\n可以在上面种荷叶",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Botany",
+                "increment": "20"
+                }
+            ]
+        },
+
+
+        {
+            "propName": "Spinacia",
+            "propImagePath": "Shop/Props/Spinacia",
+            "defaultPrice": "145",
+            "info": "<color=#9932CD>菠菜</color>\n<color=#00ff00>+10力量</color>\n<color=#00ff00>+10伤害</color>\n<color=#9932CD>解锁击退，并且僵尸尸体飞行造成碰撞伤害</color>\n吃了它我能把僵尸直接干飞",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Power",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "PercentageDamage",
+                "increment": "10"
+                }
+            ]
+        },
+
+        {
+            "propName": "Marigold_petals",
+            "propImagePath": "Shop/Props/Marigold_petals",
+            "defaultPrice": "128",
+            "info": "<color=#9932CD>金盏花瓣</color>\n<color=#00ff00>+50金币</color>\n<color=#00ff00>+5幸运</color>\n<color=#00ff00>+5植物学</color>\n看看她是这么产生金币的",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "GoldCoins",
+                "increment": "50"
+                },
+
+                {
+                "attributeTypeString": "Lucky",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "Botany",
+                "increment": "5"
+                }
+            ]
+        },
+
+        {
+            "propName": "TreeFood2",
+            "propImagePath": "Shop/Props/TreeFood2",
+            "defaultPrice": "126",
+            "info": "<color=#9932CD>智慧树肥料</color>\n<color=#00ff00>+20植物学</color>\n<color=#00ff00>+5幸运</color>\n<color=#00ff00>+100阳光</color>\n这个好",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Botany",
+                "increment": "20"
+                },
+
+                {
+                "attributeTypeString": "Lucky",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "Sunshine",
+                "increment": "100"
+                }
+            ]
+        },
+
+        {
+            "propName": "basketball",
+            "propImagePath": "Shop/Props/basketball",
+            "defaultPrice": "118",
+            "info": "<color=#9932CD>篮球</color>\n<color=#00ff00>+4力量</color>\n<color=#00ff00>+10攻击速度</color>\n<color=#00ff00>+3暴击率</color>\n<color=#00ff00>+2幸运</color>\n听说鸽鸽很会玩这个",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Power",
+                "increment": "4"
+                },
+
+                {
+                "attributeTypeString": "AttackSpeed",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "CriticalHitRate",
+                "increment": "3"
+                },
+
+                {
+                "attributeTypeString": "Lucky",
+                "increment": "2"
+                }
+            ]
+        },
+
+        {
+            "propName": "LawnMower",
+            "propImagePath": "Shop/Props/LawnMower",
+            "defaultPrice": "144",
+            "info": "<color=#9932CD>小推车</color>\n<color=#00ff00>+2力量</color>\n<color=#00ff00>+8伤害</color>\n<color=#00ff00>+10速度</color>\n并且对某直线上的僵尸造成{0}\n伤害冷却时间{1}",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Power",
+                "increment": "2"
+                },
+
+                {
+                "attributeTypeString": "PercentageDamage",
+                "increment": "8"
+                },
+
+                {
+                "attributeTypeString": "Speed",
+                "increment": "10"
+                }
+            ],
+            "preconditions": "todo",
+            "propDamageTypeString": "LawnMower",
+            "defalutDamage": "10",
+            "coolingTime" : "8"
+        },
+
+        {
+            "propName": "bucket",
+            "propImagePath": "Shop/Props/bucket",
+            "defaultPrice": "125",
+            "info": "<color=#9932CD>铁桶</color>\n<color=#00ff00>+8力量</color>\n<color=#00ff00>+6护甲</color>\n<color=#ff0000>-10范围</color>\n来自铁桶僵尸的战利品，但是会影响到我的视野",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Power",
+                "increment": "8"
+                },
+
+                {
+                "attributeTypeString": "Armor",
+                "increment": "6"
+                },
+
+                {
+                "attributeTypeString": "Range",
+                "increment": "-10"
+                }
+            ],
+            "preconditions": "todo"
+        },
+
+        {
+            "propName": "cone",
+            "propImagePath": "Shop/Props/cone",
+            "defaultPrice": "100",
+            "info": "<color=#9932CD>路障</color>\n<color=#00ff00>+6力量</color>\n<color=#00ff00>+6护甲</color>\n<color=#ff0000>-10范围</color>\n来自路障僵尸的战利品，但是会影响到我的视野",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Power",
+                "increment": "6"
+                },
+
+                {
+                "attributeTypeString": "Armor",
+                "increment": "6"
+                },
+
+                {
+                "attributeTypeString": "Range",
+                "increment": "-10"
+                }
+            ],
+            "preconditions": "todo"
+        },
+
+        {
+            "propName": "screendoor",
+            "propImagePath": "Shop/Props/screendoor",
+            "defaultPrice": "110",
+            "info": "<color=#9932CD>铁栅栏</color>\n<color=#00ff00>+5力量</color>\n<color=#00ff00>+15伤害</color>\n<color=#00ff00>+5护甲</color>\n<color=#ff0000>-8速度</color>\n来自铁栅栏僵尸的战利品，会影响到我正常走路",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Power",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "PercentageDamage",
+                "increment": "15"
+                },
+
+                {
+                "attributeTypeString": "Armor",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "Speed",
+                "increment": "-8"
+                }
+            ],
+            "preconditions": "todo"
+        },
+
+        {
+            "propName": "paper",
+            "propImagePath": "Shop/Props/paper",
+            "defaultPrice": "112",
+            "info": "<color=#9932CD>报纸</color>\n<color=#00ff00>+25植物学</color>\n<color=#00ff00>+25金币</color>\n<color=#00ff00>+5幸运</color>\n<color=#ff0000>-3力量</color>\n来自读报僵尸的战利品，里面蕴含的知识可真不少",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Botany",
+                "increment": "25"
+                },
+
+                {
+                "attributeTypeString": "GoldCoins",
+                "increment": "25"
+                },
+
+                {
+                "attributeTypeString": "Lucky",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "Power",
+                "increment": "-3"
+                }
+            ],
+            "preconditions": "todo"
+        },
+
+        {
+            "propName": "ladder",
+            "propImagePath": "Shop/Props/ladder",
+            "defaultPrice": "136",
+            "info": "<color=#9932CD>扶梯</color>\n<color=#00ff00>+5力量</color>\n<color=#00ff00>+10伤害</color>\n<color=#00ff00>+6暴击率</color>\n<color=#00ff00>+10范围</color>\n<color=#ff0000>-6攻击速度</color>\n来自扶梯僵尸的战利品，能攻击到更远的地方了",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Power",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "PercentageDamage",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "CriticalHitRate",
+                "increment": "6"
+                },
+
+                {
+                "attributeTypeString": "Range",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "AttackSpeed",
+                "increment": "-6"
+                }
+            ],
+            "preconditions": "todo"
+        },
+
+        {
+            "propName": "casque",
+            "propImagePath": "Shop/Props/casque",
+            "defaultPrice": "134",
+            "info": "<color=#9932CD>橄榄球头盔</color>\n<color=#00ff00>+10护甲</color>\n<color=#00ff00>+8幸运</color>\n<color=#00ff00>+30金币</color>\n<color=#ff0000>-20范围</color>\n来自橄榄球僵尸的战利品，会影响到我的视野",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Armor",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "Lucky",
+                "increment": "8"
+                },
+
+                {
+                "attributeTypeString": "GoldCoins",
+                "increment": "30"
+                },
+
+                {
+                "attributeTypeString": "Range",
+                "increment": "-20"
+                }
+            ],
+            "preconditions": "todo"
+        },
+
+        {
+            "propName": "guideboard",
+            "propImagePath": "Shop/Props/guideboard",
+            "defaultPrice": "124",
+            "info": "<color=#9932CD>路牌</color>\n<color=#00ff00>+6力量</color>\n<color=#00ff00>+15范围</color>\n<color=#00ff00>+6暴击率</color>\n<color=#00ff00>+2护甲</color>\n<color=#ff0000>-10速度</color>\n来自巨人僵尸的战利品，这么重的玩意儿太影响我的移动速度了",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Power",
+                "increment": "6"
+                },
+
+                {
+                "attributeTypeString": "Range",
+                "increment": "15"
+                },
+
+                {
+                "attributeTypeString": "CriticalHitRate",
+                "increment": "6"
+                },
+
+                {
+                "attributeTypeString": "Armor",
+                "increment": "2"
+                },
+
+                {
+                "attributeTypeString": "Speed",
+                "increment": "-10"
+                }
+            ],
+            "preconditions": "todo"
+        },
+
+        {
+            "propName": "icetrap",
+            "propImagePath": "Shop/Props/icetrap",
+            "defaultPrice": "286",
+            "info": "<color=#ff0000>冰碎</color>\n<color=#00ff00>+32肾上腺素</color>\n<color=#00ff00>+5幸运</color>\n<color=#00ff00>+60金币</color>\n<color=#00ff00>+7护甲</color>\n<color=#00ff00>+30速度</color>\n<color=#ff0000>-10生命恢复</color>\n<color=#ff0000>-10攻击速度</color>\n看起来就很冷",
+            "quality": "4",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Adrenaline",
+                "increment": "32"
+                },
+
+                {
+                "attributeTypeString": "Speed",
+                "increment": "30"
+                },
+
+                {
+                "attributeTypeString": "Armor",
+                "increment": "7"
+                },
+
+                {
+                "attributeTypeString": "Lucky",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "GoldCoins",
+                "increment": "60"
+                },
+
+                {
+                "attributeTypeString": "LifeRecovery",
+                "increment": "-10"
+                },
+
+                {
+                "attributeTypeString": "AttackSpeed",
+                "increment": "-10"
+                }
+            ],
+            "preconditions": "todo"
+        },
+
+        {
+            "propName": "fire",
+            "propImagePath": "Shop/Props/fire",
+            "defaultPrice": "260",
+            "info": "<color=#ff0000>火焰</color>\n<color=#00ff00>+10暴击率</color>\n<color=#00ff00>+200阳光</color>\n<color=#00ff00>+30伤害</color>\n<color=#00ff00>+15速度</color>\n<color=#00ff00>+15攻击速度</color>\n自身每秒<color=#ff0000>{0}生命值</color>\n火焰正在燃烧",
+            "quality": "4",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "PercentageDamage",
+                "increment": "30"
+                },
+
+                {
+                "attributeTypeString": "CriticalHitRate",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "Speed",
+                "increment": "15"
+                },
+
+                {
+                "attributeTypeString": "AttackSpeed",
+                "increment": "15"
+                },
+
+                {
+                "attributeTypeString": "Sunshine",
+                "increment": "200"
+                }
+            ],
+            "preconditions": "todo",
+            "propDamageTypeString": "Fire",
+            "defalutDamage": "-1"
+        },
+
+        {
+            "propName": "hammer",
+            "propImagePath": "Shop/Props/hammer",
+            "defaultPrice": "320",
+            "info": "<color=#ff0000>木槌</color>\n<color=#00ff00>+10暴击率</color>\n<color=#00ff00>+10力量</color>\n<color=#00ff00>+10攻击速度</color>\n鼠标左键使用木槌造成{0}伤害\n冷却时间{1}s\n这太哇塞了",
+            "quality": "4",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Power",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "CriticalHitRate",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "AttackSpeed",
+                "increment": "10"
+                }
+            ],
+            "preconditions": "todo",
+            "propDamageTypeString": "Hammer",
+            "defalutDamage": "3",
+            "coolingTime" : "2"
+        },
+
+        {
+            "propName": "PortalCard",
+            "propImagePath": "Shop/Props/PortalCard",
+            "defaultPrice": "344",
+            "info": "<color=#ff0000>传送门</color>\n<color=#00ff00>+20伤害</color>\n<color=#00ff00>+100金币</color>\n<color=#00ff00>+10幸运</color>\n可在场上随机位置生成两个传送门，这很酷\n",
+            "quality": "4",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "PercentageDamage",
+                "increment": "20"
+                },
+
+                {
+                "attributeTypeString": "Lucky",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "GoldCoins",
+                "increment": "100"
+                }
+            ],
+            "preconditions": "todo"
+        },
+
+        {
+            "propName": "fogmachine",
+            "propImagePath": "Shop/Props/fogmachine",
+            "defaultPrice": "258",
+            "info": "<color=#ff0000>雾机</color>\n<color=#00ff00>+40最大生命值</color>\n<color=#00ff00>+10伤害</color>\n<color=#00ff00>+6幸运</color>\n<color=#00ff00>+6生命恢复</color>\n<color=#ff0000>-10速度</color>\n有概率产生雾，免疫远程攻击\n",
+            "quality": "4",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "MaximumHP",
+                "increment": "40"
+                },
+
+                {
+                "attributeTypeString": "PercentageDamage",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "Lucky",
+                "increment": "6"
+                },
+
+                {
+                "attributeTypeString": "LifeRecovery",
+                "increment": "6"
+                },
+
+                {
+                "attributeTypeString": "Speed",
+                "increment": "-10"
+                }
+            ],
+            "propDamageTypeString": "VocalConcert"
+        },
+
+        {
+            "propName": "lights",
+            "propImagePath": "Shop/Props/lights",
+            "defaultPrice": "255",
+            "info": "<color=#ff0000>灯光机</color>\n<color=#00ff00>+20最大生命值</color>\n<color=#00ff00>+20伤害</color>\n<color=#00ff00>+100阳光</color>\n<color=#00ff00>+20攻击速度</color>\n<color=#00ff00>+5范围</color>\n<color=#ff0000>-10暴击率</color>\n有灯光才有气氛\n",
+            "quality": "4",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "MaximumHP",
+                "increment": "20"
+                },
+
+                {
+                "attributeTypeString": "PercentageDamage",
+                "increment": "20"
+                },
+
+                {
+                "attributeTypeString": "Sunshine",
+                "increment": "100"
+                },
+
+                {
+                "attributeTypeString": "AttackSpeed",
+                "increment": "20"
+                },
+
+                {
+                "attributeTypeString": "Range",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "CriticalHitRate",
+                "increment": "-10"
+                }
+            ],
+            "propDamageTypeString": "VocalConcert"
+        },
+
+        {
+            "propName": "mic",
+            "propImagePath": "Shop/Props/mic",
+            "defaultPrice": "325",
+            "info": "<color=#ff0000>麦克风</color>\n<color=#00ff00>+20肾上腺素</color>\n<color=#00ff00>+10暴击率</color>\n<color=#00ff00>+100金币</color>\n<color=#00ff00>+10伤害</color>\n<color=#00ff00>+10速度</color>\n<color=#ff0000>-5力量</color>\n使我变成大明星\n",
+            "quality": "4",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Adrenaline",
+                "increment": "20"
+                },
+
+                {
+                "attributeTypeString": "CriticalHitRate",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "GoldCoins",
+                "increment": "100"
+                },
+
+                {
+                "attributeTypeString": "PercentageDamage",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "Speed",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "Power",
+                "increment": "-5"
+                }
+            ],
+            "propDamageTypeString": "VocalConcert"
+        },
+
+        {
+            "propName": "speaker",
+            "propImagePath": "Shop/Props/speaker",
+            "defaultPrice": "340",
+            "info": "<color=#ff0000>音响</color>\n<color=#00ff00>+20范围</color>\n<color=#00ff00>+10力量</color>\n<color=#00ff00>+5护甲</color>\n<color=#00ff00>+20伤害</color>\n<color=#00ff00>+20攻击速度</color>\n<color=#ff0000>-10速度</color>\n使我的声音传的更远\n",
+            "quality": "4",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Range",
+                "increment": "20"
+                },
+
+                {
+                "attributeTypeString": "Power",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "Armor",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "PercentageDamage",
+                "increment": "20"
+                },
+
+                {
+                "attributeTypeString": "AttackSpeed",
+                "increment": "20"
+                },
+
+                {
+                "attributeTypeString": "Speed",
+                "increment": "-10"
+                }
+            ],
+            "propDamageTypeString": "VocalConcert"
+        }
+    ],
+
+    "PlantCards":
+    [
+        {
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/Peashooter_1",
+            "defaultPrice": "2",
+            "defaultSun": "100",
+            "info": "<color=#00ff00>豌豆射手</color>\n购买后使用{0}阳光培养便能随我杀敌\n很划算的啦",
+            "plantTypeString": "Peashooter"
+        },
+
+        {
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/Cactus",
+            "defaultPrice": "2",
+            "defaultSun": "125",
+            "info": "<color=#00ff00>仙人掌</color>\n购买后使用{0}阳光培养\n可以戳破气球僵尸的气球\n这很重要",
+            "plantTypeString": "Cactus"
+        },
+
+        {
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/Blover",
+            "defaultPrice": "2",
+            "defaultSun": "100",
+            "info": "<color=#00ff00>三叶草</color>\n购买后使用{0}阳光培养\n培养成功应该能增加幸运值\n而且可以吹风",
+            "plantTypeString": "Blover"
+        },
+
+        {
+            "plantBgImagePath": "Shop/Plants/strongBg",
+            "plantImagePath": "Shop/Plants/Cattail",
+            "defaultPrice": "2",
+            "defaultSun": "225",
+            "info": "<color=#9932CD>香蒲</color>\n购买后可以使用{0}阳光在<color=#00ff00>荷叶</color>上培养\n必须要有荷叶!!!\n能进行一个全屏的攻击，而且能戳破气球",
+            "plantTypeString": "Cattail"
+        },
+
+        {
+            "plantBgImagePath": "Shop/Plants/strongBg",
+            "plantImagePath": "Shop/Plants/CherryBomb",
+            "defaultPrice": "2",
+            "defaultSun": "150",
+            "info": "<color=#ff0000>樱桃炸弹</color>\n购买后可以使用{0}阳光培养\n培养完可以在战斗中使用\n把僵尸炸成渣渣",
+            "plantTypeString": "CherryBomb"
+        },
+
+        {
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/Chomper",
+            "defaultPrice": "2",
+            "defaultSun": "150",
+            "info": "<color=#00ff00>大嘴花</color>\n购买后可以使用{0}阳光培养\n她可以把僵尸进行一整个的吞\n把僵尸消化干净",
+            "plantTypeString": "Chomper"
+        },
+
+        {
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/CoffeeBean",
+            "defaultPrice": "2",
+            "defaultSun": "75",
+            "info": "<color=#00ff00>咖啡豆</color>\n购买后可以使用{0}阳光培养\n虽然不能消灭僵尸\n但是可以增加我的基础属性",
+            "plantTypeString": "CoffeeBean"
+        },
+
+        {
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/CornpultCard",
+            "defaultPrice": "2",
+            "defaultSun": "100",
+            "info": "<color=#00ff00>玉米投手</color>\n购买后可以使用{0}阳光培养\n概率投出黄油，使僵尸不能动弹\n最重要的是她能合成<color=#9932CD>玉米加农炮</color>",
+            "plantTypeString": "CornpultCard"
+        },
+
+        {
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/FumeShroom",
+            "defaultPrice": "2",
+            "defaultSun": "75",
+            "info": "<color=#00ff00>大喷菇</color>\n购买后可以使用{0}阳光培养\n能攻击一条线的敌人\n她能合成<color=#9932CD>忧郁蘑菇</color>",
+            "plantTypeString": "FumeShroom"
+        },
+
+        {
+            "plantBgImagePath": "Shop/Plants/strongBg",
+            "plantImagePath": "Shop/Plants/GatlingPea",
+            "defaultPrice": "2",
+            "defaultSun": "250",
+            "info": "<color=#9932CD>加特林豌豆射手</color>\n可以使用{0}阳光使双发射手进化成加特林射手\n能一次发射4颗豌豆\n用豌豆塞满僵尸的嘴",
+            "plantTypeString": "GatlingPea"
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "infoList":
+    [
+        {
+            "panelTypeString": "TipsPanel",
+            "path": "UIPanel/TipsPanel"
+        },
+
+        {
+            "panelTypeString": "BattlePanel",
+            "path": "UIPanel/BattlePanel"
+        },
+
+        {
+            "panelTypeString": "AttributePanel",
+            "path": "UIPanel/AttributePanel"
+        },
+
+        {
+            "panelTypeString": "ShopingPanel",
+            "path": "UIPanel/ShopingPanel"
+        },
+
+        {
+            "panelTypeString": "GardenPanel",
+            "path": "UIPanel/GardenPanel"
+        }
+    ]
+}

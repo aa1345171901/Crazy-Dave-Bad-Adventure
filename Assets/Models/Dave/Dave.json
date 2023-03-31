@@ -1,0 +1,1509 @@
+{
+"skeleton": {
+	"hash": "FSm9ahMv2oWD+zQJ5XPgx+9bYKk",
+	"spine": "3.8",
+	"x": -275.31,
+	"y": -21.39,
+	"width": 501.82,
+	"height": 930.43,
+	"images": "./images/",
+	"audio": "D:/0.0/疯狂戴夫的不妙冒险/拼接/Spine/Dave"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "body", "parent": "root", "length": 76.12, "rotation": 87.98, "x": 29.13, "y": 374.4 },
+	{ "name": "CrazyDave_body1", "parent": "body", "length": 284.71, "rotation": 11.25, "x": 75.23, "y": -0.03 },
+	{ "name": "CrazyDave_head", "parent": "CrazyDave_body1", "length": 132.6, "rotation": 14.02, "x": 284.18, "y": 1.12 },
+	{ "name": "CrazyDave_pot", "parent": "CrazyDave_head", "length": 147, "rotation": -99.72, "x": 144.51, "y": 17.83 },
+	{ "name": "CrazyDave_blink1", "parent": "CrazyDave_head", "x": 83.48, "y": 8.34 },
+	{ "name": "CrazyDave_eye", "parent": "CrazyDave_head", "x": 67.22, "y": -67.12 },
+	{ "name": "CrazyDave_beard", "parent": "CrazyDave_head", "length": 35.28, "rotation": -162.88, "x": -7.1, "y": -13.83 },
+	{ "name": "CrazyDave_beard2", "parent": "CrazyDave_head", "length": 35.29, "rotation": -142.09, "x": -5.9, "y": -58.72 },
+	{ "name": "CrazyDave_mouth", "parent": "CrazyDave_head", "x": 11.58, "y": -37.53 },
+	{ "name": "righthand", "parent": "CrazyDave_body1", "length": 173.69, "rotation": 163.2, "x": 251.17, "y": 80.99 },
+	{ "name": "CrazyDave_outerarm", "parent": "righthand", "length": 88.32, "rotation": 114.13, "x": 171.34, "y": 0.27 },
+	{ "name": "CrazyDave_outerhand", "parent": "CrazyDave_outerarm", "length": 52.06, "rotation": 61.39, "x": 86.51, "y": -0.06 },
+	{ "name": "CrazyDave_outerfinger1", "parent": "CrazyDave_outerhand", "length": 33.65, "rotation": -23.26, "x": 66.96, "y": 9.62 },
+	{ "name": "CrazyDave_outerfinger2", "parent": "CrazyDave_outerhand", "length": 31.36, "rotation": -63.15, "x": 60.68, "y": -7.52 },
+	{ "name": "CrazyDave_outerfinger3", "parent": "CrazyDave_outerhand", "length": 25.39, "rotation": -63.6, "x": 51.4, "y": -18.86 },
+	{ "name": "CrazyDave_outerfinger4", "parent": "CrazyDave_outerhand", "length": 26.05, "rotation": -97.18, "x": 37.77, "y": -23.52 },
+	{ "name": "lefthand", "parent": "CrazyDave_body1", "length": 147.87, "rotation": -148.54, "x": 216.13, "y": -60.55 },
+	{ "name": "CrazyDave_innerarm", "parent": "lefthand", "length": 52.63, "rotation": -88.59, "x": 147.53, "y": -1.37 },
+	{ "name": "CrazyDave_innerhand", "parent": "CrazyDave_innerarm", "length": 47.32, "rotation": -45.14, "x": 51.32, "y": -0.51 },
+	{ "name": "CrazyDave_innerfinger1", "parent": "CrazyDave_innerhand", "length": 27.96, "rotation": 17.4, "x": 59.78, "y": -20.79 },
+	{ "name": "CrazyDave_innerfinger4", "parent": "CrazyDave_innerhand", "length": 25.9, "rotation": 44.11, "x": 47.95, "y": 0.03 },
+	{ "name": "CrazyDave_innerfinger3", "parent": "CrazyDave_innerhand", "length": 28.86, "rotation": 39.17, "x": 29.56, "y": 13.56 },
+	{ "name": "CrazyDave_innerfinger2", "parent": "CrazyDave_innerhand", "length": 25.18, "rotation": 61.35, "x": 15.22, "y": 22.26 },
+	{ "name": "rightleg2", "parent": "body", "length": 167.1, "rotation": 173.71, "x": 22.85, "y": 74.34 },
+	{ "name": "rightleg1", "parent": "rightleg2", "length": 99.73, "rotation": 0.92, "x": 172.02, "y": -2.33 },
+	{ "name": "CrazyDave_foot1", "parent": "rightleg1", "length": 113.17, "rotation": 82.71, "x": 126.44, "y": -23.94 },
+	{ "name": "leftleg2", "parent": "body", "length": 147.07, "rotation": 166.84, "x": 27.33, "y": -31.26 },
+	{ "name": "leftleg", "parent": "leftleg2", "length": 98.92, "rotation": 14.3, "x": 155.54, "y": -2.4 },
+	{ "name": "CrazyDave_foot3", "parent": "leftleg", "length": 105.92, "rotation": 83.09, "x": 124.8, "y": -13.95 },
+	{ "name": "CrazyDave_eyebrow", "parent": "CrazyDave_head", "x": 95.4, "y": -64.39 },
+	{ "name": "Shadow", "parent": "root", "x": -33.37, "y": 66.04 }
+],
+"slots": [
+	{ "name": "Shadow", "bone": "Shadow", "attachment": "Shadow" },
+	{ "name": "CrazyDave_foot2", "bone": "CrazyDave_foot3", "attachment": "CrazyDave_foot2" },
+	{ "name": "leftleg", "bone": "leftleg", "attachment": "leftleg" },
+	{ "name": "leftleg2", "bone": "leftleg2", "attachment": "leftleg2" },
+	{ "name": "CrazyDave_foot1", "bone": "CrazyDave_foot1", "attachment": "CrazyDave_foot1" },
+	{ "name": "rightleg1", "bone": "rightleg1", "attachment": "rightleg1" },
+	{ "name": "rightleg2", "bone": "rightleg2", "attachment": "rightleg2" },
+	{ "name": "body", "bone": "body", "attachment": "body" },
+	{ "name": "lefthand", "bone": "lefthand", "attachment": "lefthand" },
+	{ "name": "CrazyDave_body1", "bone": "CrazyDave_body1", "attachment": "CrazyDave_body1" },
+	{ "name": "CrazyDave_innerarm", "bone": "CrazyDave_innerarm", "attachment": "CrazyDave_innerarm" },
+	{ "name": "CrazyDave_innerhand", "bone": "CrazyDave_innerhand", "attachment": "CrazyDave_innerhand" },
+	{ "name": "CrazyDave_innerfinger1", "bone": "CrazyDave_innerfinger1", "attachment": "CrazyDave_innerfinger1" },
+	{ "name": "CrazyDave_innerfinger2", "bone": "CrazyDave_innerfinger2", "attachment": "CrazyDave_innerfinger2" },
+	{ "name": "CrazyDave_innerfinger3", "bone": "CrazyDave_innerfinger3", "attachment": "CrazyDave_innerfinger3" },
+	{ "name": "CrazyDave_innerfinger4", "bone": "CrazyDave_innerfinger4", "attachment": "CrazyDave_innerfinger4" },
+	{ "name": "CrazyDave_head", "bone": "CrazyDave_head", "attachment": "CrazyDave_head" },
+	{ "name": "CrazyDave_blink", "bone": "CrazyDave_blink1" },
+	{ "name": "CrazyDave_eye", "bone": "CrazyDave_eye", "attachment": "CrazyDave_eye" },
+	{ "name": "CrazyDave_eyebrow", "bone": "CrazyDave_eyebrow", "attachment": "CrazyDave_eyebrow" },
+	{ "name": "CrazyDave_beard", "bone": "CrazyDave_beard2", "attachment": "CrazyDave_beard" },
+	{ "name": "CrazyDave_mouth", "bone": "CrazyDave_mouth", "attachment": "CrazyDave_mouth2" },
+	{ "name": "CrazyDave_pot", "bone": "CrazyDave_pot", "attachment": "CrazyDave_pot" },
+	{ "name": "righthand", "bone": "righthand", "attachment": "righthand" },
+	{ "name": "CrazyDave_outerarm", "bone": "CrazyDave_outerarm", "attachment": "CrazyDave_outerarm" },
+	{ "name": "CrazyDave_outerhand", "bone": "CrazyDave_outerhand", "attachment": "CrazyDave_outerhand" },
+	{ "name": "CrazyDave_outerfinger1", "bone": "CrazyDave_outerfinger1", "attachment": "CrazyDave_outerfinger1" },
+	{ "name": "CrazyDave_outerfinger2", "bone": "CrazyDave_outerfinger2", "attachment": "CrazyDave_outerfinger2" },
+	{ "name": "CrazyDave_outerfinger3", "bone": "CrazyDave_outerfinger3", "attachment": "CrazyDave_outerfinger3" },
+	{ "name": "CrazyDave_outerfinger4", "bone": "CrazyDave_outerfinger4", "attachment": "CrazyDave_outerfinger4" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"Shadow": {
+				"Shadow": { "x": 8.98, "y": 17.6, "scaleX": 5.8351, "scaleY": 5.8351, "width": 86, "height": 36 }
+			},
+			"CrazyDave_foot1": {
+				"CrazyDave_foot1": {
+					"type": "mesh",
+					"uvs": [ 0.41719, 0.29889, 0.49191, 0.36021, 0.76479, 0.39069, 0.99003, 0.58305, 0.98899, 0.87916, 0.58004, 1, 0.44527, 1, 0.31943, 0.93754, 0.03889, 0.66245, 0.1655, 0.0068, 0.41758, 0.00708 ],
+					"triangles": [ 6, 1, 5, 5, 2, 4, 5, 1, 2, 6, 7, 1, 7, 8, 0, 4, 2, 3, 7, 0, 1, 8, 9, 0, 0, 9, 10 ],
+					"vertices": [ 1, 25, 95.82, -1.04, 1, 2, 25, 102.35, 13.9, 0.62562, 26, 34.48, 28.7, 0.37438, 2, 25, 99.92, 65.04, 0.02506, 26, 84.9, 37.6, 0.97494, 1, 26, 132.32, 22.78, 1, 1, 26, 142.42, -16.51, 1, 1, 26, 72.64, -51.91, 1, 1, 26, 48.26, -58.3, 1, 1, 26, 23.33, -55.99, 1, 2, 25, 154.31, -64.78, 2.6E-4, 26, -36.97, -32.83, 0.99974, 2, 25, 62.19, -52.86, 0.84201, 26, -36.84, 60.06, 0.15799, 2, 25, 56.16, -6.11, 0.99994, 26, 8.77, 71.98, 6.0E-5 ],
+					"hull": 11,
+					"edges": [ 0, 20, 0, 2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 16, 16, 18, 18, 20 ],
+					"width": 187,
+					"height": 137
+				}
+			},
+			"CrazyDave_foot2": {
+				"CrazyDave_foot2": {
+					"type": "mesh",
+					"uvs": [ 0.33996, 0.28053, 0.72837, 0.28051, 0.93654, 0.46584, 0.98885, 0.66907, 0.73054, 0.91265, 0.31847, 0.91244, 0.04802, 0.80748, 0, 0.72841, 0, 0.67644, 0.09792, 0.0056, 0.33351, 0.00724 ],
+					"triangles": [ 5, 0, 4, 0, 1, 4, 4, 2, 3, 4, 1, 2, 5, 6, 0, 0, 6, 8, 6, 7, 8, 0, 9, 10, 0, 8, 9 ],
+					"vertices": [ 2, 28, 103.99, 5.52, 0.69967, 29, 16.83, 23.01, 0.30033, 2, 28, 102.95, 73.1, 2.5E-4, 29, 83.79, 32.16, 0.99975, 1, 29, 122.54, 16.13, 1, 1, 29, 134.69, -5.59, 1, 1, 29, 93.92, -39.19, 1, 1, 29, 22.88, -48.87, 1, 1, 29, -25.37, -43.39, 1, 1, 29, -34.86, -35.59, 1, 2, 28, 150.02, -52.93, 3.1E-4, 29, -35.67, -29.72, 0.99969, 2, 28, 73.29, -37.07, 0.8962, 29, -29.14, 48.36, 0.1038, 1, 28, 72.85, 3.92, 1 ],
+					"hull": 11,
+					"edges": [ 0, 20, 0, 2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 16, 16, 18, 18, 20 ],
+					"width": 174,
+					"height": 114
+				}
+			},
+			"CrazyDave_innerhand": {
+				"CrazyDave_innerhand": {
+					"type": "mesh",
+					"uvs": [ 0.10281, 0, 0.70876, 0.27562, 1, 0.7342, 1, 0.782, 0.80767, 1, 0.7358, 1, 0.63582, 0.96453, 0.22854, 0.72679, 0, 0.20555, 0, 0.19089, 0.05545, 0 ],
+					"triangles": [ 0, 8, 9, 1, 8, 0, 0, 9, 10, 1, 7, 8, 6, 7, 1, 2, 6, 1, 2, 5, 6, 2, 4, 5, 3, 4, 2 ],
+					"vertices": [ 60.8, -32.02, 9.51, -14.61, -16.41, 17.54, -16.6, 21.02, -1.5, 37.76, 4.45, 38.08, 12.88, 35.94, 47.56, 20.41, 68.53, -16.58, 68.58, -17.65, 64.73, -31.81 ],
+					"hull": 11,
+					"edges": [ 0, 20, 0, 2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 16, 16, 18, 18, 20 ],
+					"width": 83,
+					"height": 73
+				}
+			},
+			"body": {
+				"body": {
+					"type": "mesh",
+					"uvs": [ 0.87449, 0.00171, 0.98559, 0.328, 0.90989, 0.60373, 0.71727, 0.80877, 0.63862, 0.89249, 0.55825, 0.97804, 0.03008, 0.77876, 0.02226, 0.67796, 0.01638, 0.6023, 0.01034, 0.52444, 0.00143, 0.40969, 0.08173, 0.18535, 0.57042, 0.17805, 0.59554, 0.16756, 0.80534, 0.03867 ],
+					"triangles": [ 6, 7, 5, 7, 8, 5, 5, 9, 4, 12, 9, 11, 12, 4, 9, 4, 12, 3, 3, 12, 13, 3, 13, 2, 13, 14, 2, 2, 14, 1, 1, 14, 0, 9, 5, 8, 9, 10, 11 ],
+					"vertices": [ 1, 1, 115.63, -61.29, 1, 1, 1, 69.33, -90.94, 1, 1, 1, 28.7, -73.28, 1, 2, 1, -2.72, -25.82, 0.712, 24, 14.44, 102.36, 0.288, 2, 1, -15.55, -6.44, 0.45086, 24, 29.31, 84.5, 0.54914, 2, 1, -28.66, 13.36, 0.184, 24, 44.52, 66.26, 0.816, 1, 24, 35.17, -69.62, 1, 2, 1, 10.06, 149.88, 0.1748, 24, 20.99, -73.68, 0.8252, 2, 1, 20.97, 151.75, 0.92, 24, 10.35, -76.73, 0.08, 2, 1, 32.2, 153.67, 0.80681, 24, -0.6, -79.87, 0.19319, 2, 1, 48.75, 156.5, 0.64, 24, -16.74, -84.5, 0.36, 1, 1, 81.97, 137.43, 1, 1, 1, 87.37, 14.39, 1, 1, 1, 89.12, 8.12, 1, 1, 1, 109.66, -44.06, 1 ],
+					"hull": 15,
+					"edges": [ 0, 28, 0, 2, 2, 4, 10, 12, 20, 22, 22, 24, 24, 26, 26, 28, 4, 6, 12, 14, 14, 16, 16, 18, 18, 20, 6, 8, 8, 10, 18, 8 ],
+					"width": 252,
+					"height": 145
+				}
+			},
+			"CrazyDave_mouth": {
+				"CrazyDave_mouth1": { "x": -0.95, "y": 7.45, "rotation": -113.24, "width": 87, "height": 49 },
+				"CrazyDave_mouth2": { "x": -2.39, "y": 1.55, "rotation": -113.24, "width": 49, "height": 29 },
+				"CrazyDave_mouth3": { "x": -0.16, "y": 1.68, "rotation": -113.24, "width": 57, "height": 31 },
+				"CrazyDave_mouth4": { "x": -1.35, "y": -1.08, "rotation": -113.24, "width": 25, "height": 31 },
+				"CrazyDave_mouth5": { "x": 3.65, "y": 1.67, "rotation": -113.24, "width": 60, "height": 38 },
+				"CrazyDave_mouth6": { "x": 0.1, "y": 1.02, "rotation": -113.24, "width": 14, "height": 14 }
+			},
+			"CrazyDave_innerarm": {
+				"CrazyDave_innerarm": {
+					"type": "mesh",
+					"uvs": [ 0.53997, 0, 0.89392, 0.23776, 1, 0.36657, 1, 0.38617, 0.78875, 0.89758, 0.40185, 1, 0.36174, 1, 0.04864, 0.67464, 4.7E-4, 0.49344, 0.18963, 0.09702, 0.42499, 0 ],
+					"triangles": [ 4, 1, 3, 0, 1, 7, 10, 7, 9, 7, 5, 6, 7, 8, 9, 1, 4, 7, 4, 5, 7, 0, 7, 10, 1, 2, 3 ],
+					"vertices": [ 3, 17, 123.13, 2.76, 0.12, 18, -4.72, -24.29, 0.88, 19, -22.67, -56.5, 0, 2, 17, 155.47, 12.3, 0.24335, 18, -13.46, 8.27, 0.75665, 2, 17, 168.52, 12.27, 0.09833, 18, -13.11, 21.32, 0.90167, 2, 17, 169.67, 11.28, 0.06311, 18, -12.1, 22.44, 0.93689, 2, 17, 188.51, -27.2, 0.06275, 18, 26.83, 40.34, 0.93725, 3, 17, 174.32, -55.81, 4.0E-5, 18, 55.09, 25.44, 0.56796, 19, -15.74, 20.98, 0.432, 2, 18, 57.47, 23.29, 0.8, 19, -12.54, 21.15, 0.2, 3, 17, 136.9, -60.91, 5.0E-5, 18, 59.27, -12.09, 0.89155, 19, 13.81, -2.53, 0.10839, 3, 17, 123.81, -54.74, 3.8E-4, 18, 52.77, -25.02, 0.85228, 19, 18.4, -16.26, 0.14733, 3, 17, 110.53, -23.37, 0.21513, 18, 21.09, -37.53, 0.72641, 19, 4.92, -47.55, 0.05846, 3, 17, 117.13, -4.22, 0.12102, 18, 2.1, -30.46, 0.87757, 19, -13.49, -56.01, 0.00142 ],
+					"hull": 11,
+					"edges": [ 0, 20, 0, 2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 16, 16, 18, 18, 20 ],
+					"width": 80,
+					"height": 77
+				}
+			},
+			"righthand": {
+				"righthand": {
+					"type": "mesh",
+					"uvs": [ 0.75381, 0.06406, 1, 0.27695, 1, 0.32067, 0.86561, 0.59873, 0.8491, 0.63288, 0.8354, 0.66121, 0.71822, 0.93646, 0.59071, 1, 0.57733, 1, 0.41174, 0.92437, 0.29822, 0.83354, 0.19572, 0.75154, 0.0532, 0.63751, 0, 0.59494, 0, 0.53787, 0.28658, 0.14609, 0.4964, 0.00251 ],
+					"triangles": [ 15, 16, 0, 7, 8, 6, 8, 9, 6, 5, 6, 10, 6, 9, 10, 10, 11, 5, 5, 11, 4, 4, 11, 12, 4, 12, 3, 15, 3, 14, 14, 3, 12, 2, 3, 15, 1, 2, 15, 12, 13, 14, 15, 0, 1 ],
+					"vertices": [ 2, 10, -13.13, 12.64, 0.352, 2, 260.08, 65.1, 0.648, 3, 10, 32.38, 53.2, 0.71194, 11, 105.12, 105.18, 5.0E-5, 2, 204.79, 39.41, 0.288, 3, 10, 42.65, 54.57, 0.67173, 11, 102.16, 95.25, 2.7E-4, 2, 194.56, 41.07, 0.328, 3, 10, 110.44, 44.73, 0.93977, 11, 65.48, 37.41, 5.0E-5, 2, 132.51, 70.07, 0.06018, 3, 10, 118.76, 43.52, 0.97269, 11, 60.97, 30.3, 2.0E-5, 2, 124.89, 73.63, 0.02729, 1, 10, 125.67, 42.52, 1, 2, 10, 192.48, 34.97, 0.864, 11, 23.03, -33.48, 0.136, 2, 10, 209.75, 19.38, 0.912, 11, 1.75, -42.86, 0.088, 2, 10, 209.99, 17.54, 0.736, 11, -0.03, -42.33, 0.264, 2, 10, 195.25, -7.64, 0.784, 11, -16.99, -18.59, 0.216, 1, 10, 175.99, -26.12, 1, 1, 10, 158.61, -42.8, 1, 1, 10, 134.43, -66, 1, 1, 10, 125.4, -74.66, 1, 1, 10, 111.99, -76.44, 1, 2, 10, 14.7, -49.18, 0.56, 2, 251.3, 132.32, 0.44, 2, 10, -22.87, -24.75, 0.248, 2, 280.22, 98.07, 0.752 ],
+					"hull": 17,
+					"edges": [ 0, 32, 0, 2, 2, 4, 10, 12, 12, 14, 14, 16, 16, 18, 26, 28, 28, 30, 30, 32, 8, 10, 22, 8, 18, 20, 20, 22, 22, 24, 24, 26, 4, 6, 6, 8, 24, 6 ],
+					"width": 139,
+					"height": 237
+				}
+			},
+			"CrazyDave_body1": {
+				"CrazyDave_body1": {
+					"type": "mesh",
+					"uvs": [ 0.364, 0, 0.68697, 0.09637, 0.79359, 0.234, 0.83118, 0.28251, 0.87095, 0.33385, 0.96632, 0.51801, 0.99823, 0.75466, 0.95446, 0.81748, 0.28257, 0.99397, 0.0484, 0.96852, 0.0059, 0.93937, 0.05414, 0.84624, 0.07196, 0.77382, 0.05608, 0.60706, 0.10473, 0.34421, 0.11836, 0.27052, 0.12871, 0.21461, 0.13291, 0.19195, 0.14674, 0.11718, 0.30928, 0 ],
+					"triangles": [ 17, 18, 0, 18, 19, 0, 17, 0, 1, 2, 17, 1, 2, 15, 16, 2, 16, 17, 14, 15, 2, 3, 14, 2, 5, 12, 13, 4, 13, 14, 7, 5, 6, 9, 10, 11, 14, 3, 4, 5, 13, 4, 5, 7, 12, 7, 8, 12, 11, 12, 8, 9, 11, 8 ],
+					"vertices": [ 1, 2, 338.49, 29.01, 1, 1, 2, 286.1, -53.12, 1, 1, 2, 227.03, -73.44, 1, 1, 2, 206.2, -80.61, 1, 1, 2, 184.17, -88.19, 1, 1, 2, 107.22, -102.46, 1, 1, 2, 12.37, -96.01, 1, 1, 2, -10.49, -80.01, 1, 1, 2, -50.34, 115.01, 1, 2, 10, 296.93, -11.1, 0.072, 2, -29.89, 177.41, 0.928, 2, 10, 286.92, -24.31, 0.00582, 2, -16.49, 187.16, 0.99418, 1, 2, 18.13, 168, 1, 2, 10, 218.87, -14.89, 0.03652, 2, 45.94, 158.48, 0.96348, 2, 10, 153.32, -28.04, 0.088, 2, 112.48, 152.13, 0.912, 2, 10, 47.33, -28.53, 0.04078, 2, 214.1, 121.97, 0.95922, 2, 10, 17.61, -28.67, 0.02755, 2, 242.59, 113.52, 0.97245, 2, 10, -4.94, -28.77, 0.0175, 2, 264.21, 107.1, 0.9825, 2, 10, -14.08, -28.82, 0.01343, 2, 272.97, 104.5, 0.98657, 1, 2, 301.87, 95.93, 1, 1, 2, 340.92, 43.97, 1 ],
+					"hull": 20,
+					"edges": [ 0, 38, 0, 2, 8, 10, 10, 12, 12, 14, 14, 16, 16, 18, 18, 20, 20, 22, 22, 24, 24, 26, 36, 38, 34, 36, 2, 4, 34, 4, 26, 28, 28, 30, 4, 6, 6, 8, 28, 6, 30, 32, 32, 34 ],
+					"width": 277,
+					"height": 400
+				}
+			},
+			"CrazyDave_outerfinger1": {
+				"CrazyDave_outerfinger1": { "x": 16.64, "y": 0.43, "rotation": -54.69, "width": 38, "height": 41 }
+			},
+			"CrazyDave_outerfinger2": {
+				"CrazyDave_outerfinger2": { "x": 16.56, "y": -1.22, "rotation": -14.8, "width": 45, "height": 30 }
+			},
+			"CrazyDave_outerfinger3": {
+				"CrazyDave_outerfinger3": { "x": 12.89, "y": -0.73, "rotation": -14.35, "width": 44, "height": 28 }
+			},
+			"CrazyDave_outerfinger4": {
+				"CrazyDave_outerfinger4": { "x": 14.71, "y": 1.73, "rotation": 19.23, "width": 33, "height": 30 }
+			},
+			"CrazyDave_pot": {
+				"CrazyDave_pot": { "x": 75.93, "y": -19.39, "rotation": -13.52, "width": 242, "height": 109 }
+			},
+			"CrazyDave_innerfinger1": {
+				"CrazyDave_innerfinger1": { "x": 17.36, "y": 1.47, "rotation": 165.65, "width": 43, "height": 32 }
+			},
+			"CrazyDave_innerfinger2": {
+				"CrazyDave_innerfinger2": { "x": 16.98, "y": -2.05, "rotation": 121.7, "width": 37, "height": 36 }
+			},
+			"CrazyDave_innerfinger3": {
+				"CrazyDave_innerfinger3": { "x": 17.82, "y": 1, "rotation": 143.88, "width": 37, "height": 37 }
+			},
+			"CrazyDave_innerfinger4": {
+				"CrazyDave_innerfinger4": { "x": 16.27, "y": 0.16, "rotation": 138.95, "width": 31, "height": 37 }
+			},
+			"CrazyDave_blink": {
+				"CrazyDave_blink1": { "x": 0.64, "y": -4.14, "rotation": -113.24, "width": 36, "height": 35 },
+				"CrazyDave_blink2": { "x": 0.64, "y": -4.14, "rotation": -113.24, "width": 36, "height": 35 }
+			},
+			"CrazyDave_head": {
+				"CrazyDave_head": { "x": 72.43, "y": -2.75, "rotation": -113.24, "width": 182, "height": 191 },
+				"brain": {
+					"x": 116.51,
+					"y": -13.2,
+					"scaleX": 2.4376,
+					"scaleY": 2.4376,
+					"rotation": -96.17,
+					"width": 32,
+					"height": 31
+				}
+			},
+			"rightleg2": {
+				"rightleg2": {
+					"type": "mesh",
+					"uvs": [ 0.99697, 0.15844, 0.97494, 0.37336, 0.74409, 0.85907, 0.6925, 0.96761, 0.55441, 1, 0.48005, 1, 0.32103, 0.98496, 0.1081, 0.87463, 0.10299, 0.8135, 0.09553, 0.72434, 0.08891, 0.64521, 0.05224, 0.20676, 0.06825, 0.05376, 0.71315, 0.00658, 0.53829, 0.95836 ],
+					"triangles": [ 5, 14, 4, 4, 14, 3, 5, 6, 14, 14, 9, 3, 2, 3, 9, 8, 6, 7, 10, 1, 2, 9, 14, 8, 2, 9, 10, 1, 10, 11, 1, 11, 13, 13, 11, 12, 1, 13, 0, 14, 6, 8 ],
+					"vertices": [ 1, 24, 7.28, 70.78, 1, 1, 24, 47.54, 73.28, 1, 2, 24, 142.48, 51.69, 0.448, 25, -28.67, 54.49, 0.552, 2, 24, 163.7, 46.87, 0.024, 25, -7.53, 49.33, 0.976, 1, 25, 1.18, 29.29, 1, 1, 25, 2.63, 18.08, 1, 1, 24, 175.07, -8.53, 1, 2, 24, 159.34, -43.54, 0.944, 25, -13.34, -41, 0.056, 1, 24, 148.14, -45.96, 1, 2, 24, 131.81, -49.5, 0.9999, 25, -40.97, -46.51, 1.0E-4, 2, 24, 117.31, -52.63, 0.99985, 25, -55.51, -49.41, 1.5E-4, 2, 24, 36.99, -70, 0.99956, 25, -136.1, -65.49, 4.4E-4, 1, 24, 8.32, -71.73, 1, 1, 24, -14.58, 23.99, 1, 1, 25, -6.23, 25.86, 1 ],
+					"hull": 14,
+					"edges": [ 0, 26, 0, 2, 6, 8, 8, 10, 10, 12, 12, 14, 22, 24, 24, 26, 18, 6, 18, 20, 20, 22, 2, 4, 4, 6, 14, 16, 16, 18, 16, 28 ],
+					"width": 152,
+					"height": 187
+				}
+			},
+			"CrazyDave_outerarm": {
+				"CrazyDave_outerarm": {
+					"type": "mesh",
+					"uvs": [ 0.6307, 0, 0.93539, 0.19023, 1, 0.39946, 1, 0.43194, 0.8156, 0.81519, 0.58259, 0.98834, 0.24198, 0.98875, 0.07083, 0.73591, 0.03328, 0.40289, 0.18746, 0.15538, 0.50845, 0 ],
+					"triangles": [ 1, 2, 3, 7, 8, 9, 4, 0, 1, 4, 1, 3, 4, 5, 10, 4, 10, 0, 9, 10, 5, 6, 7, 9, 5, 6, 9 ],
+					"vertices": [ 72.93, 27.78, 104.59, 1.7, 107.26, -17.43, 106.49, -20.05, 75.39, -44.39, 43.55, -50.1, 3.06, -38.09, -11.23, -11.69, -7.72, 16.45, 16.53, 30.93, 58.4, 32.1 ],
+					"hull": 11,
+					"edges": [ 0, 20, 0, 2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 16, 16, 18, 18, 20 ],
+					"width": 124,
+					"height": 84
+				}
+			},
+			"leftleg": {
+				"leftleg": {
+					"type": "mesh",
+					"uvs": [ 0.59986, 0.62125, 0.52993, 0.77443, 0.52964, 0.80723, 0.60378, 0.89333, 0.60358, 0.9308, 0.26824, 0.95744, 0.09187, 1, 0.08121, 1, 6.4E-4, 0.838, 0.05952, 0.55904, 0.17326, 0.54987 ],
+					"triangles": [ 6, 7, 8, 2, 5, 8, 10, 1, 8, 4, 5, 3, 1, 2, 8, 3, 5, 2, 9, 10, 8, 1, 10, 0, 5, 6, 8 ],
+					"vertices": [ 1, 28, 5.05, 38.24, 1, 1, 28, 53.94, 26.82, 1, 1, 28, 64.38, 26.93, 1, 1, 28, 91.56, 40.24, 1, 2, 28, 103.47, 40.39, 0.896, 29, 51.38, 27.71, 0.104, 2, 28, 112.83, -17.82, 0.888, 29, -5.28, 11.42, 0.112, 2, 28, 126.83, -48.3, 0.8, 29, -33.86, -6.15, 0.2, 2, 28, 126.86, -50.16, 0.912, 29, -35.69, -6.4, 0.088, 1, 28, 75.56, -64.96, 1, 1, 28, -13.29, -56.07, 1, 1, 28, -16.51, -36.33, 1 ],
+					"hull": 11,
+					"edges": [ 0, 20, 0, 2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 16, 16, 18, 18, 20 ],
+					"width": 174,
+					"height": 318
+				}
+			},
+			"CrazyDave_outerhand": {
+				"CrazyDave_outerhand": {
+					"type": "mesh",
+					"uvs": [ 0.31525, 0, 0.73648, 0.16786, 0.96363, 0.44917, 0.96334, 0.8681, 0.74018, 1, 0.59652, 1, 0.12702, 0.81817, 0.01378, 0.56843, 0.11146, 0.05068, 0.24207, 0 ],
+					"triangles": [ 8, 1, 7, 2, 6, 7, 8, 9, 1, 1, 9, 0, 2, 3, 6, 2, 7, 1, 3, 5, 6, 4, 5, 3 ],
+					"vertices": [ 73, 11.63, 62.97, -13.77, 40.77, -31.05, 3.9, -38.91, -10.23, -29.6, -11.85, -22.01, -1.14, 6.2, 19.57, 16.87, 66.24, 21.44, 72.17, 15.49 ],
+					"hull": 10,
+					"edges": [ 0, 18, 0, 2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 16, 16, 18 ],
+					"width": 54,
+					"height": 90
+				}
+			},
+			"leftleg2": {
+				"leftleg2": {
+					"type": "mesh",
+					"uvs": [ 0.93026, 0, 0.96916, 0.07885, 0.91615, 0.3016, 0.70151, 0.94135, 0.53369, 1, 0.46341, 1, 0.05924, 0.86861, 0.00893, 0.85094, 0.17084, 0.1971, 0.57139, 0.047, 0.89067, 0 ],
+					"triangles": [ 4, 5, 3, 5, 6, 3, 6, 7, 8, 10, 1, 9, 1, 10, 0, 2, 9, 1, 2, 8, 9, 3, 8, 2, 6, 8, 3 ],
+					"vertices": [ 1, 27, -38.08, 31.77, 1, 1, 27, -24.87, 41.2, 1, 1, 27, 18.64, 45.04, 1, 2, 27, 145.95, 47.33, 0.08, 28, 2.99, 50.55, 0.92, 2, 27, 163.24, 26.81, 0.12, 28, 14.68, 26.39, 0.88, 2, 27, 165.91, 16.97, 0.06451, 28, 14.83, 16.21, 0.93549, 2, 27, 156.78, -46.23, 0.496, 28, -9.63, -42.78, 0.504, 2, 27, 155.4, -54.16, 0.57384, 28, -12.93, -50.13, 0.42616, 2, 27, 27.46, -64.54, 0.9988, 28, -139.46, -28.58, 0.0012, 1, 27, -15.7, -16.07, 1, 1, 27, -36.58, 26.23, 1 ],
+					"hull": 11,
+					"edges": [ 0, 20, 0, 2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 16, 16, 18, 18, 20 ],
+					"width": 145,
+					"height": 193
+				}
+			},
+			"CrazyDave_beard": {
+				"CrazyDave_beard": { "x": -24.5, "y": -20.47, "rotation": 28.84, "width": 146, "height": 111 }
+			},
+			"CrazyDave_eye": {
+				"CrazyDave_eye": { "x": 1.75, "y": 0.56, "rotation": -113.24, "width": 40, "height": 33 }
+			},
+			"CrazyDave_eyebrow": {
+				"CrazyDave_eyebrow": { "x": -2.34, "y": -0.55, "rotation": -113.24, "width": 32, "height": 20 }
+			},
+			"lefthand": {
+				"lefthand": {
+					"type": "mesh",
+					"uvs": [ 0.06587, 0, 0.28761, 0.05933, 0.71911, 0.32981, 0.98989, 0.70637, 0.99492, 0.98824, 0.71828, 0.98669, 0.59014, 0.93757, 0.15092, 0.51873, 0, 0.19521, 0, 0.12584, 0.05021, 0 ],
+					"triangles": [ 5, 6, 3, 5, 3, 4, 6, 2, 3, 6, 7, 2, 7, 1, 2, 0, 8, 9, 0, 9, 10, 1, 7, 8, 1, 8, 0 ],
+					"vertices": [ 2, 2, 236.23, -57.93, 0.952, 17, -18.52, 8.25, 0.048, 1, 17, 5.91, 22.93, 1, 1, 17, 71.2, 36.23, 1, 1, 17, 135.85, 24.22, 1, 2, 17, 168.53, -3.06, 0.944, 18, 2.21, 20.95, 0.056, 2, 17, 146.35, -28.5, 0.912, 18, 27.1, -1.84, 0.088, 2, 17, 130.54, -35.52, 0.952, 18, 33.73, -17.83, 0.048, 2, 2, 157.25, -55.61, 0.904, 17, 47.65, -34.93, 0.096, 2, 2, 208.42, -45.27, 0.968, 17, -1.4, -17.05, 0.032, 1, 2, 218.76, -46.95, 1, 2, 2, 236.54, -56.04, 0.976, 17, -19.76, 6.81, 0.024 ],
+					"hull": 11,
+					"edges": [ 0, 20, 0, 2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 16, 16, 18, 18, 20 ],
+					"width": 122,
+					"height": 151
+				}
+			},
+			"rightleg1": {
+				"rightleg1": {
+					"type": "mesh",
+					"uvs": [ 0.23383, 0.61438, 0.4108, 0.67473, 0.6365, 0.66438, 0.57809, 0.84207, 0.61884, 0.9761, 0.0332, 0.99391, 0, 0.99884, 0, 0.97594, 0.19574, 0.62132 ],
+					"triangles": [ 3, 1, 2, 8, 0, 1, 7, 8, 1, 5, 7, 1, 5, 1, 3, 5, 3, 4, 6, 7, 5 ],
+					"vertices": [ -15.7, -37.67, 0.44, 2.62, -9.38, 50.05, 54.08, 45.68, 99.61, 60.38, 121.94, -63.1, 124.57, -69.92, 116.6, -70.96, -12.23, -45.44 ],
+					"hull": 9,
+					"edges": [ 0, 2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 16, 16, 0 ],
+					"width": 214,
+					"height": 351
+				}
+			}
+		}
+	}
+],
+"animations": {
+	"AttackLeft": {
+		"slots": {
+			"CrazyDave_pot": {
+				"attachment": [
+					{ "time": 0.3, "name": null }
+				]
+			}
+		},
+		"bones": {
+			"lefthand": {
+				"rotate": [
+					{},
+					{ "time": 0.2333, "angle": 129.85 },
+					{ "time": 0.3, "angle": 64.92 }
+				]
+			},
+			"CrazyDave_innerarm": {
+				"rotate": [
+					{},
+					{ "time": 0.2333, "angle": 86.87 },
+					{ "time": 0.3, "angle": 43.43 }
+				],
+				"translate": [
+					{ "time": 0.2333, "x": -9.75, "y": -5.03 }
+				]
+			},
+			"CrazyDave_innerhand": {
+				"rotate": [
+					{ "time": 0.2333, "angle": 11.26 }
+				]
+			},
+			"CrazyDave_head": {
+				"rotate": [
+					{},
+					{ "time": 0.2333, "angle": -11.56 }
+				]
+			},
+			"CrazyDave_pot": {
+				"rotate": [
+					{ "time": 0.2333 },
+					{ "time": 0.2667, "angle": -49.32 },
+					{ "time": 0.3, "angle": -93.28 }
+				],
+				"translate": [
+					{ "time": 0.2333 },
+					{ "time": 0.2667, "x": 3.78, "y": -206.06 },
+					{ "time": 0.3, "x": -146.76, "y": -300.64 }
+				]
+			}
+		}
+	},
+	"AttackRight": {
+		"slots": {
+			"CrazyDave_mouth": {
+				"attachment": [
+					{ "time": 0.2, "name": "CrazyDave_mouth1" }
+				]
+			},
+			"CrazyDave_pot": {
+				"attachment": [
+					{ "time": 0.3, "name": null }
+				]
+			},
+			"CrazyDave_blink": {
+				"attachment": [
+					{ "time": 0.1333, "name": "CrazyDave_blink1" },
+					{ "time": 0.2333, "name": "CrazyDave_blink2" },
+					{ "time": 0.3, "name": null }
+				]
+			}
+		},
+		"bones": {
+			"righthand": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": 106.32 },
+					{ "time": 0.3, "angle": -38.69 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.1667, "x": 11.25, "y": 19.18 },
+					{ "time": 0.3 }
+				]
+			},
+			"CrazyDave_outerarm": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": -56.78 },
+					{ "time": 0.3, "angle": -99.4 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.1667, "x": -2.09, "y": 11.09 },
+					{ "time": 0.2333, "x": -14.12, "y": 6.03 },
+					{ "time": 0.3, "x": -9.19, "y": 2.4 }
+				]
+			},
+			"CrazyDave_outerhand": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": -5.82 },
+					{ "time": 0.3, "angle": -43.29 }
+				]
+			},
+			"CrazyDave_outerfinger1": {
+				"rotate": [
+					{ "time": 0.1667, "angle": -5.4 }
+				]
+			},
+			"CrazyDave_outerfinger2": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": 3.18 },
+					{ "time": 0.3 }
+				]
+			},
+			"CrazyDave_outerfinger3": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": 5.26 },
+					{ "time": 0.3 }
+				]
+			},
+			"CrazyDave_outerfinger4": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": 32.8 },
+					{ "time": 0.3 }
+				]
+			},
+			"CrazyDave_head": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": -13.1 },
+					{ "time": 0.2667 }
+				]
+			},
+			"CrazyDave_pot": {
+				"rotate": [
+					{ "time": 0.1667 },
+					{ "time": 0.2, "angle": -76.34 },
+					{ "time": 0.2333, "angle": -143.68 },
+					{ "time": 0.2667, "angle": 178.85 },
+					{ "time": 0.3, "angle": 117.07 }
+				],
+				"translate": [
+					{ "time": 0.1667 },
+					{ "time": 0.2, "x": -96.07, "y": -187.63 },
+					{ "time": 0.2333, "x": -350.13, "y": -190.66 },
+					{ "time": 0.2667, "x": -464.81, "y": 36.98 },
+					{ "time": 0.3, "x": -425.49, "y": 303.37 }
+				]
+			}
+		}
+	},
+	"Dead": {
+		"slots": {
+			"CrazyDave_outerfinger3": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_innerhand": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_head": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1, "color": "ffffff4d" },
+					{ "time": 1.1667, "color": "ffffffff" }
+				],
+				"attachment": [
+					{ "time": 1.0333, "name": "brain" }
+				]
+			},
+			"CrazyDave_body1": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"lefthand": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_blink": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_outerarm": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"rightleg1": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_innerfinger3": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_foot2": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_foot1": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_eyebrow": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_outerfinger2": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_innerfinger1": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_outerfinger4": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_innerarm": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_mouth": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": "CrazyDave_mouth4" },
+					{ "time": 0.8, "name": "CrazyDave_mouth2" }
+				]
+			},
+			"CrazyDave_innerfinger2": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"leftleg2": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"leftleg": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"body": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_outerhand": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_beard": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"rightleg2": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_eye": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_outerfinger1": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"Shadow": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_innerfinger4": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"righthand": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			}
+		},
+		"bones": {
+			"body": {
+				"rotate": [
+					{},
+					{ "time": 0.0667, "angle": 34.95 },
+					{ "time": 0.2333, "angle": 46.34 },
+					{ "time": 0.5667, "angle": 92.06 },
+					{ "time": 0.7333, "angle": 101.78 },
+					{ "time": 0.9, "angle": 91.19 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.0667, "x": -260.63, "y": 0.58 },
+					{ "time": 0.2333, "x": -428.01, "y": -8.18 },
+					{ "time": 0.5667, "x": -612.35, "y": -181.07 },
+					{ "time": 0.7333, "x": -612.35, "y": -141.95 },
+					{ "time": 0.9, "x": -612.35, "y": -181.07 }
+				]
+			},
+			"lefthand": {
+				"rotate": [
+					{},
+					{ "time": 0.0667, "angle": 22.15, "curve": "stepped" },
+					{ "time": 0.2333, "angle": 22.15 },
+					{ "time": 0.5667, "angle": -5.65 }
+				]
+			},
+			"CrazyDave_innerarm": {
+				"rotate": [
+					{},
+					{ "time": 0.0667, "angle": 50.87, "curve": "stepped" },
+					{ "time": 0.2333, "angle": 50.87 },
+					{ "time": 0.5667, "angle": 18.09 }
+				]
+			},
+			"CrazyDave_body1": {
+				"rotate": [
+					{},
+					{ "time": 0.0667, "angle": -46.23, "curve": "stepped" },
+					{ "time": 0.2333, "angle": -46.23 },
+					{ "time": 0.5667, "angle": -6.33 },
+					{ "time": 0.7333, "angle": -19.06 },
+					{ "time": 0.9, "angle": 0.77 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.0667, "x": -35.03, "y": 5.86, "curve": "stepped" },
+					{ "time": 0.2333, "x": -35.03, "y": 5.86 },
+					{ "time": 0.5667, "x": 30.17, "y": 5.82 },
+					{ "time": 0.7333, "x": 19.43, "y": 1.05 }
+				]
+			},
+			"leftleg2": {
+				"rotate": [
+					{},
+					{ "time": 0.0667, "angle": 36.42, "curve": "stepped" },
+					{ "time": 0.2333, "angle": 36.42 },
+					{ "time": 0.5667, "angle": 18.2 },
+					{ "time": 0.7333, "angle": -2.71 },
+					{ "time": 0.9, "angle": 16.18 }
+				]
+			},
+			"leftleg": {
+				"rotate": [
+					{},
+					{ "time": 0.0667, "angle": -46.97, "curve": "stepped" },
+					{ "time": 0.2333, "angle": -46.97 },
+					{ "time": 0.5667, "angle": -49.6 },
+					{ "time": 0.7333, "angle": -31.47 },
+					{ "time": 0.9, "angle": -44.84 }
+				]
+			},
+			"rightleg2": {
+				"rotate": [
+					{},
+					{ "time": 0.0667, "angle": 22.62, "curve": "stepped" },
+					{ "time": 0.2333, "angle": 22.62 },
+					{ "time": 0.5667, "angle": 2.29 },
+					{ "time": 0.7333, "angle": 22.47 },
+					{ "time": 0.9, "angle": 0.73 }
+				]
+			},
+			"rightleg1": {
+				"rotate": [
+					{},
+					{ "time": 0.0667, "angle": -30.71, "curve": "stepped" },
+					{ "time": 0.2333, "angle": -30.71 },
+					{ "time": 0.5667, "angle": 3.84 },
+					{ "time": 0.7333, "angle": -34.5 },
+					{ "time": 0.9, "angle": 2.95 }
+				]
+			},
+			"righthand": {
+				"rotate": [
+					{ "angle": 34.52 },
+					{ "time": 0.0667, "angle": 54.86, "curve": "stepped" },
+					{ "time": 0.2333, "angle": 54.86 },
+					{ "time": 0.5667, "angle": 2.28 },
+					{ "time": 0.7333, "angle": 9.91 }
+				]
+			},
+			"CrazyDave_outerarm": {
+				"rotate": [
+					{ "angle": -35.16 },
+					{ "time": 0.0667, "angle": -48.85, "curve": "stepped" },
+					{ "time": 0.2333, "angle": -48.85 },
+					{ "time": 0.5667, "angle": -83.72 }
+				]
+			},
+			"CrazyDave_outerhand": {
+				"rotate": [
+					{},
+					{ "time": 0.0667, "angle": -11.59 }
+				]
+			},
+			"CrazyDave_head": {
+				"rotate": [
+					{},
+					{ "time": 0.0667, "angle": 6.11, "curve": "stepped" },
+					{ "time": 0.2333, "angle": 6.11 },
+					{ "time": 0.5667, "angle": -13.34 },
+					{ "time": 0.7333, "angle": -45.24 },
+					{ "time": 0.9, "angle": 0.8 }
+				]
+			},
+			"CrazyDave_pot": {
+				"rotate": [
+					{},
+					{ "time": 0.0667, "angle": 21.38 },
+					{ "time": 0.2333, "angle": 26.22 },
+					{ "time": 0.2667, "angle": 67.02 },
+					{ "time": 0.3, "angle": 111.58 },
+					{ "time": 0.3333, "angle": 155.15 },
+					{ "time": 0.3667, "angle": -160.72 },
+					{ "time": 0.4, "angle": -115.92 },
+					{ "time": 0.4333, "angle": -71.91 },
+					{ "time": 0.4667, "angle": -27.91 },
+					{ "time": 0.5, "angle": 16.42 },
+					{ "time": 0.5333, "angle": 60.26 },
+					{ "time": 0.5667, "angle": 104.1 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.0667, "x": 78.48, "y": 63.99 },
+					{ "time": 0.5667, "x": 406.8, "y": -47.44 },
+					{ "time": 0.6, "x": 408.8, "y": 4.94 },
+					{ "time": 0.6333, "x": 407.19, "y": 51.29 },
+					{ "time": 0.6667, "x": 386.72, "y": 155.56 },
+					{ "time": 0.7, "x": 349.22, "y": 255.45 },
+					{ "time": 0.7333, "x": 317.69, "y": 308.79 },
+					{ "time": 0.7667, "x": 380.38, "y": 187.67 },
+					{ "time": 0.8, "x": 413.39, "y": 59.38 },
+					{ "time": 0.8333, "x": 419.43, "y": -37.06 },
+					{ "time": 0.8667, "x": 406.77, "y": -143.92 },
+					{ "time": 0.9, "x": 367.9, "y": -260.11 }
+				]
+			},
+			"Shadow": {
+				"translate": [
+					{},
+					{ "time": 0.2333, "x": -446.5 },
+					{ "time": 0.5667, "x": -666.9 }
+				],
+				"scale": [
+					{},
+					{ "time": 0.2333, "x": 1.714, "y": 0.658 },
+					{ "time": 0.5667, "x": 2.875, "y": 0.758 },
+					{ "time": 0.7333, "x": 2.329, "y": 0.758 },
+					{ "time": 0.9, "x": 2.875, "y": 0.758 }
+				]
+			}
+		}
+	},
+	"EnterIdel": {
+		"slots": {
+			"CrazyDave_mouth": {
+				"attachment": [
+					{ "time": 0.2, "name": "CrazyDave_mouth3" },
+					{ "time": 0.2667, "name": "CrazyDave_mouth4" },
+					{ "time": 0.3667, "name": "CrazyDave_mouth5" },
+					{ "time": 0.4333, "name": "CrazyDave_mouth6" },
+					{ "time": 0.4667, "name": "CrazyDave_mouth2" }
+				]
+			}
+		},
+		"bones": {
+			"rightleg2": {
+				"rotate": [
+					{ "angle": 0.97 },
+					{ "time": 0.2333, "angle": -1.29 },
+					{ "time": 0.4667, "angle": 0.97 }
+				]
+			},
+			"rightleg1": {
+				"rotate": [
+					{ "angle": 0.9 },
+					{ "time": 0.2333, "angle": 0.18 },
+					{ "time": 0.4667, "angle": 0.9 }
+				]
+			},
+			"CrazyDave_foot1": {
+				"rotate": [
+					{ "angle": 4.14 },
+					{ "time": 0.2333, "angle": 7.68 },
+					{ "time": 0.4667, "angle": 4.14 }
+				]
+			},
+			"leftleg2": {
+				"rotate": [
+					{ "angle": 8.68 },
+					{ "time": 0.2333, "angle": 20.61 },
+					{ "time": 0.4667, "angle": 8.68 }
+				]
+			},
+			"leftleg": {
+				"rotate": [
+					{ "angle": -7.44 },
+					{ "time": 0.2333, "angle": -12.44 },
+					{ "time": 0.4667, "angle": -7.44 }
+				]
+			},
+			"CrazyDave_pot": {
+				"rotate": [
+					{ "angle": -0.26 },
+					{ "time": 0.2333, "angle": -1.76 },
+					{ "time": 0.4667, "angle": -0.26 }
+				],
+				"translate": [
+					{ "x": 0.56, "y": 1.31 },
+					{ "time": 0.2333, "x": 37.58, "y": -4.82 },
+					{ "time": 0.4667, "x": 0.56, "y": 1.31 }
+				]
+			},
+			"CrazyDave_head": {
+				"rotate": [
+					{},
+					{ "time": 0.2333, "angle": 2.71 },
+					{ "time": 0.4667 }
+				]
+			},
+			"righthand": {
+				"rotate": [
+					{ "angle": -0.74 },
+					{ "time": 0.2333, "angle": 6.1 },
+					{ "time": 0.4667, "angle": -0.74 }
+				]
+			},
+			"CrazyDave_outerarm": {
+				"rotate": [
+					{ "angle": -0.97 },
+					{ "time": 0.2333, "angle": -2.96 },
+					{ "time": 0.4667, "angle": -0.97 }
+				]
+			},
+			"lefthand": {
+				"rotate": [
+					{},
+					{ "time": 0.2333, "angle": -3 },
+					{ "time": 0.4667 }
+				]
+			},
+			"CrazyDave_innerarm": {
+				"rotate": [
+					{},
+					{ "time": 0.2333, "angle": -4.96 },
+					{ "time": 0.4667 }
+				]
+			},
+			"CrazyDave_innerhand": {
+				"rotate": [
+					{},
+					{ "time": 0.2333, "angle": 2.11 },
+					{ "time": 0.4667 }
+				]
+			},
+			"CrazyDave_innerfinger1": {
+				"rotate": [
+					{},
+					{ "time": 0.2333, "angle": 6.59 },
+					{ "time": 0.4667 }
+				]
+			},
+			"CrazyDave_innerfinger4": {
+				"rotate": [
+					{},
+					{ "time": 0.2333, "angle": -9.39 },
+					{ "time": 0.4667 }
+				]
+			},
+			"CrazyDave_innerfinger3": {
+				"rotate": [
+					{},
+					{ "time": 0.2333, "angle": -11.17 },
+					{ "time": 0.4667 }
+				]
+			},
+			"CrazyDave_innerfinger2": {
+				"rotate": [
+					{},
+					{ "time": 0.2333, "angle": 3.87 },
+					{ "time": 0.4667 }
+				]
+			},
+			"CrazyDave_outerhand": {
+				"rotate": [
+					{ "angle": 0.96 },
+					{ "time": 0.2333, "angle": -14.45 },
+					{ "time": 0.4667, "angle": 0.96 }
+				]
+			},
+			"CrazyDave_outerfinger1": {
+				"rotate": [
+					{ "angle": -0.89 },
+					{ "time": 0.4, "angle": 5.12 },
+					{ "time": 0.8, "angle": -0.89 }
+				]
+			},
+			"CrazyDave_outerfinger2": {
+				"rotate": [
+					{ "angle": -0.35 },
+					{ "time": 0.2333, "angle": 4.59 },
+					{ "time": 0.4667, "angle": -0.35 }
+				]
+			},
+			"CrazyDave_outerfinger3": {
+				"rotate": [
+					{},
+					{ "time": 0.2333, "angle": -4.38 },
+					{ "time": 0.4667 }
+				]
+			},
+			"CrazyDave_outerfinger4": {
+				"rotate": [
+					{},
+					{ "time": 0.2333, "angle": 3.32 },
+					{ "time": 0.4667 }
+				]
+			},
+			"CrazyDave_foot3": {
+				"rotate": [
+					{},
+					{ "time": 0.2333, "angle": -0.78 },
+					{ "time": 0.4667 }
+				]
+			},
+			"CrazyDave_body1": {
+				"rotate": [
+					{},
+					{ "time": 0.2333, "angle": -3.42 },
+					{ "time": 0.4667 }
+				]
+			},
+			"body": {
+				"translate": [
+					{},
+					{ "time": 0.2333, "y": 31.41 },
+					{ "time": 0.4667 }
+				]
+			},
+			"Shadow": {
+				"scale": [
+					{},
+					{ "time": 0.2333, "x": 0.948, "y": 0.783 },
+					{ "time": 0.4667 }
+				]
+			}
+		}
+	},
+	"GetPot": {
+		"slots": {
+			"CrazyDave_pot": {
+				"attachment": [
+					{ "time": 0.0667, "name": "CrazyDave_pot" }
+				]
+			}
+		}
+	},
+	"Idel": {
+		"bones": {
+			"rightleg2": {
+				"rotate": [
+					{ "angle": 0.97 },
+					{ "time": 0.2, "angle": 1.2 },
+					{ "time": 0.4, "angle": 0.97 }
+				]
+			},
+			"rightleg1": {
+				"rotate": [
+					{ "angle": 0.9 },
+					{ "time": 0.2, "angle": -0.78 },
+					{ "time": 0.4, "angle": 0.9 }
+				]
+			},
+			"CrazyDave_foot1": {
+				"rotate": [
+					{ "angle": 4.14 },
+					{ "time": 0.2, "angle": 10.48 },
+					{ "time": 0.4, "angle": 4.14 }
+				]
+			},
+			"leftleg2": {
+				"rotate": [
+					{ "angle": 8.68 },
+					{ "time": 0.2, "angle": 15.75 },
+					{ "time": 0.4, "angle": 8.68 }
+				]
+			},
+			"leftleg": {
+				"rotate": [
+					{ "angle": -7.44 },
+					{ "time": 0.2, "angle": -15.03 },
+					{ "time": 0.4, "angle": -7.44 }
+				]
+			},
+			"CrazyDave_pot": {
+				"rotate": [
+					{ "angle": -0.26 },
+					{ "time": 0.2, "angle": 6.66 },
+					{ "time": 0.4, "angle": -0.26 }
+				],
+				"translate": [
+					{ "x": 0.56, "y": 1.31 },
+					{ "time": 0.2, "x": 14.51, "y": 1.33 },
+					{ "time": 0.4, "x": 0.56, "y": 1.31 }
+				]
+			},
+			"CrazyDave_head": {
+				"rotate": [
+					{},
+					{ "time": 0.2, "angle": -2.02 },
+					{ "time": 0.4 }
+				]
+			},
+			"righthand": {
+				"rotate": [
+					{ "angle": -0.74 },
+					{ "time": 0.2, "angle": -4.04 },
+					{ "time": 0.4, "angle": -0.74 }
+				]
+			},
+			"CrazyDave_outerarm": {
+				"rotate": [
+					{ "angle": -0.97 },
+					{ "time": 0.2, "angle": -2.96 },
+					{ "time": 0.4, "angle": -0.97 }
+				]
+			},
+			"lefthand": {
+				"rotate": [
+					{},
+					{ "time": 0.2, "angle": 3.17 },
+					{ "time": 0.4 }
+				]
+			},
+			"CrazyDave_innerarm": {
+				"rotate": [
+					{},
+					{ "time": 0.2, "angle": 3.18 },
+					{ "time": 0.4 }
+				]
+			},
+			"CrazyDave_innerhand": {
+				"rotate": [
+					{},
+					{ "time": 0.2, "angle": 2.11 },
+					{ "time": 0.4 }
+				]
+			},
+			"CrazyDave_innerfinger1": {
+				"rotate": [
+					{},
+					{ "time": 0.2, "angle": 6.59 },
+					{ "time": 0.4 }
+				]
+			},
+			"CrazyDave_innerfinger4": {
+				"rotate": [
+					{},
+					{ "time": 0.2, "angle": -9.39 },
+					{ "time": 0.4 }
+				]
+			},
+			"CrazyDave_innerfinger3": {
+				"rotate": [
+					{},
+					{ "time": 0.2, "angle": -11.17 },
+					{ "time": 0.4 }
+				]
+			},
+			"CrazyDave_innerfinger2": {
+				"rotate": [
+					{},
+					{ "time": 0.2, "angle": 3.87 },
+					{ "time": 0.4 }
+				]
+			},
+			"CrazyDave_outerhand": {
+				"rotate": [
+					{ "angle": 0.96 },
+					{ "time": 0.2, "angle": -4.31 },
+					{ "time": 0.4, "angle": 0.96 }
+				]
+			},
+			"CrazyDave_outerfinger1": {
+				"rotate": [
+					{ "angle": -0.89 },
+					{ "time": 0.2, "angle": 5.12 },
+					{ "time": 0.4, "angle": -0.89 }
+				]
+			},
+			"CrazyDave_outerfinger2": {
+				"rotate": [
+					{ "angle": -0.35 },
+					{ "time": 0.2, "angle": 4.59 },
+					{ "time": 0.4, "angle": -0.35 }
+				]
+			},
+			"CrazyDave_outerfinger3": {
+				"rotate": [
+					{},
+					{ "time": 0.2, "angle": -4.38 },
+					{ "time": 0.4 }
+				]
+			},
+			"CrazyDave_outerfinger4": {
+				"rotate": [
+					{},
+					{ "time": 0.2, "angle": 3.32 },
+					{ "time": 0.4 }
+				]
+			},
+			"CrazyDave_foot3": {
+				"rotate": [
+					{},
+					{ "time": 0.2, "angle": 6.66 },
+					{ "time": 0.4 }
+				]
+			},
+			"CrazyDave_body1": {
+				"rotate": [
+					{},
+					{ "time": 0.2, "angle": -2.55 },
+					{ "time": 0.4 }
+				]
+			},
+			"Shadow": {
+				"translate": [
+					{},
+					{ "time": 0.2, "x": 27.93 },
+					{ "time": 0.4 }
+				],
+				"scale": [
+					{},
+					{ "time": 0.2, "x": 1.165, "y": 0.894 },
+					{ "time": 0.4 }
+				]
+			}
+		}
+	},
+	"Run": {
+		"bones": {
+			"rightleg2": {
+				"rotate": [
+					{ "angle": 19.79 },
+					{ "time": 0.0667, "angle": 41.19 },
+					{ "time": 0.1667, "angle": 63.39 },
+					{ "time": 0.3333, "angle": 19.34 },
+					{ "time": 0.4, "angle": -3.49 },
+					{ "time": 0.5, "angle": -19.28 },
+					{ "time": 0.5667, "angle": -19.17 },
+					{ "time": 0.6667, "angle": 19.79 }
+				],
+				"translate": [
+					{ "x": 32.06, "y": 3.93 },
+					{ "time": 0.5, "x": -4.35, "y": -0.15 },
+					{ "time": 0.6667, "x": 32.06, "y": 3.93 }
+				]
+			},
+			"rightleg1": {
+				"rotate": [
+					{ "angle": -87.93 },
+					{ "time": 0.0667, "angle": -71.75 },
+					{ "time": 0.1667, "angle": -40.79 },
+					{ "time": 0.3333, "angle": -12.08 },
+					{ "time": 0.4, "angle": -9.38 },
+					{ "time": 0.5, "angle": -37.63 },
+					{ "time": 0.5667, "angle": -72.43 },
+					{ "time": 0.6667, "angle": -87.93 }
+				]
+			},
+			"CrazyDave_foot1": {
+				"rotate": [
+					{ "angle": -5.56 },
+					{ "time": 0.1667, "angle": -1.07 },
+					{ "time": 0.2333, "angle": 0.79 },
+					{ "time": 0.3333, "angle": -1.94 },
+					{ "time": 0.4, "angle": -18.92 },
+					{ "time": 0.5, "angle": -17.25 },
+					{ "time": 0.5667, "angle": -0.75 },
+					{ "time": 0.6667, "angle": -5.56 }
+				]
+			},
+			"leftleg2": {
+				"rotate": [
+					{ "angle": 10.5 },
+					{ "time": 0.0667, "angle": -10.55 },
+					{ "time": 0.1667, "angle": -28.37 },
+					{ "time": 0.2333, "angle": -15.2 },
+					{ "time": 0.3333, "angle": -14.7 },
+					{ "time": 0.4, "angle": 28.07 },
+					{ "time": 0.5, "angle": 50.53 },
+					{ "time": 0.5667, "angle": 36.51 },
+					{ "time": 0.6667, "angle": 10.5 }
+				],
+				"translate": [
+					{ "x": 6.31, "y": -0.25 },
+					{ "time": 0.1667, "x": 12.51, "y": 2.84 },
+					{ "time": 0.5, "x": -0.1, "y": 2.83 },
+					{ "time": 0.6667, "x": 6.31, "y": -0.25 }
+				]
+			},
+			"leftleg": {
+				"rotate": [
+					{ "angle": -13.69 },
+					{ "time": 0.0667, "angle": -29.25 },
+					{ "time": 0.1667, "angle": -62.02 },
+					{ "time": 0.2333, "angle": -70.38 },
+					{ "time": 0.3333, "angle": -62.41 },
+					{ "time": 0.4, "angle": -53.21 },
+					{ "time": 0.5, "angle": -38.03 },
+					{ "time": 0.5667, "angle": -32.17 },
+					{ "time": 0.6667, "angle": -13.69 }
+				],
+				"translate": [
+					{ "x": 15.43, "y": 7.19 },
+					{ "time": 0.1667, "x": 1.21, "y": 7.07 },
+					{ "time": 0.5, "x": -5.48, "y": 2.14 },
+					{ "time": 0.6667, "x": 15.43, "y": 7.19 }
+				]
+			},
+			"CrazyDave_foot3": {
+				"rotate": [
+					{ "angle": 8.2 },
+					{ "time": 0.0667, "angle": -40.61 },
+					{ "time": 0.1667, "angle": -9.49 },
+					{ "time": 0.3333, "angle": 2.31 },
+					{ "time": 0.5, "angle": 7.78 },
+					{ "time": 0.5667, "angle": -0.91 },
+					{ "time": 0.6667, "angle": 8.2 }
+				],
+				"translate": [
+					{ "x": -4.18, "y": -4.36 },
+					{ "time": 0.5, "x": -4.69, "y": 12.62 },
+					{ "time": 0.6667, "x": -4.18, "y": -4.36 }
+				]
+			},
+			"righthand": {
+				"rotate": [
+					{ "angle": -12.77 },
+					{ "time": 0.1667, "angle": -26.36 },
+					{ "time": 0.2333, "angle": -19.29 },
+					{ "time": 0.4, "angle": 7.68 },
+					{ "time": 0.5, "angle": 18.4 },
+					{ "time": 0.5667, "angle": 14.54 },
+					{ "time": 0.6667, "angle": -12.77 }
+				]
+			},
+			"CrazyDave_outerarm": {
+				"rotate": [
+					{ "angle": -41.98 },
+					{ "time": 0.0667, "angle": -35.31 },
+					{ "time": 0.1667, "angle": -30.95 },
+					{ "time": 0.4, "angle": -27.23 },
+					{ "time": 0.5, "angle": -28.2 },
+					{ "time": 0.5667, "angle": -36.28 },
+					{ "time": 0.6667, "angle": -41.98 }
+				]
+			},
+			"CrazyDave_outerhand": {
+				"rotate": [
+					{ "angle": -0.43 },
+					{ "time": 0.0667, "angle": -34.49 },
+					{ "time": 0.1667, "angle": -31.17 },
+					{ "time": 0.5, "angle": -24.8 },
+					{ "time": 0.5667, "angle": -29.28 },
+					{ "time": 0.6667, "angle": -0.43 }
+				]
+			},
+			"CrazyDave_outerfinger1": {
+				"rotate": [
+					{ "angle": -20.05 },
+					{ "time": 0.0667, "angle": -8.94 },
+					{ "time": 0.1667, "angle": -6.06 },
+					{ "time": 0.5, "angle": -12.53 },
+					{ "time": 0.6667, "angle": -20.05 }
+				]
+			},
+			"CrazyDave_outerfinger2": {
+				"rotate": [
+					{ "time": 0.1667, "angle": 22.57 },
+					{ "time": 0.5, "angle": -14.79 }
+				]
+			},
+			"CrazyDave_outerfinger3": {
+				"rotate": [
+					{ "time": 0.5, "angle": -15.31 }
+				]
+			},
+			"CrazyDave_outerfinger4": {
+				"rotate": [
+					{ "time": 0.0667, "angle": -6.74 },
+					{ "time": 0.1667, "angle": -0.05 },
+					{ "time": 0.5, "angle": -5.79 }
+				]
+			},
+			"lefthand": {
+				"rotate": [
+					{ "angle": 2.35 },
+					{ "time": 0.1667, "angle": -4.72 },
+					{ "time": 0.3333, "angle": -0.59 },
+					{ "time": 0.4, "angle": 1.93 },
+					{ "time": 0.5, "angle": 8.91 },
+					{ "time": 0.6667, "angle": 2.35 }
+				]
+			},
+			"CrazyDave_innerarm": {
+				"rotate": [
+					{ "angle": 27.22 },
+					{ "time": 0.0667, "angle": -4.52 },
+					{ "time": 0.1667, "angle": -13.84 },
+					{ "time": 0.3333, "angle": 20.67 },
+					{ "time": 0.4, "angle": 32.05 },
+					{ "time": 0.5, "angle": 36.64 },
+					{ "time": 0.5667, "angle": 35.7 },
+					{ "time": 0.6667, "angle": 27.22 }
+				],
+				"translate": [
+					{ "x": 2.14, "y": -5.41 },
+					{ "time": 0.5, "x": 0.62, "y": -14.01 },
+					{ "time": 0.6667, "x": 2.14, "y": -5.41 }
+				]
+			},
+			"CrazyDave_innerhand": {
+				"rotate": [
+					{ "angle": -1.15 },
+					{ "time": 0.0667, "angle": 5.45 },
+					{ "time": 0.1667, "angle": -9.04 },
+					{ "time": 0.5, "angle": 11.01 },
+					{ "time": 0.6667, "angle": -1.15 }
+				]
+			},
+			"CrazyDave_innerfinger1": {
+				"rotate": [
+					{ "angle": -10.76 },
+					{ "time": 0.1667, "angle": 0.33 },
+					{ "time": 0.5, "angle": 6.36 },
+					{ "time": 0.6667, "angle": -10.76 }
+				]
+			},
+			"CrazyDave_innerfinger4": {
+				"rotate": [
+					{ "angle": -32.07 },
+					{ "time": 0.1667, "angle": -32.79 },
+					{ "time": 0.5, "angle": -22.88 },
+					{ "time": 0.6667, "angle": -32.07 }
+				]
+			},
+			"CrazyDave_innerfinger3": {
+				"rotate": [
+					{ "angle": -21.62 },
+					{ "time": 0.5, "angle": -26.54 },
+					{ "time": 0.6667, "angle": -21.62 }
+				]
+			},
+			"CrazyDave_innerfinger2": {
+				"rotate": [
+					{ "angle": -12.11 },
+					{ "time": 0.1667, "angle": -35.6 },
+					{ "time": 0.5, "angle": -21.93 },
+					{ "time": 0.6667, "angle": -12.11 }
+				]
+			},
+			"CrazyDave_pot": {
+				"rotate": [
+					{ "angle": 0.53 },
+					{ "time": 0.1667, "angle": 11.2 },
+					{ "time": 0.5, "angle": -2.19 },
+					{ "time": 0.6667, "angle": 0.53 }
+				],
+				"translate": [
+					{ "x": 8.36, "y": 2.77 },
+					{ "time": 0.1667, "x": 45.41, "y": 14.97 },
+					{ "time": 0.3333, "x": 8.75, "y": 4.59 },
+					{ "time": 0.5, "x": 63.14, "y": -3.03 },
+					{ "time": 0.6667, "x": 8.36, "y": 2.77 }
+				]
+			},
+			"CrazyDave_head": {
+				"rotate": [
+					{ "angle": 0.47 },
+					{ "time": 0.1667, "angle": -1.74 },
+					{ "time": 0.5, "angle": -3.1 },
+					{ "time": 0.6667, "angle": 0.47 }
+				]
+			},
+			"body": {
+				"translate": [
+					{ "y": -25.91 },
+					{ "time": 0.1667, "y": 139.39 },
+					{ "time": 0.3333, "y": -25.91 },
+					{ "time": 0.5, "y": 139.39 },
+					{ "time": 0.6667, "y": -25.91 }
+				]
+			},
+			"CrazyDave_body1": {
+				"rotate": [
+					{ "angle": -1.17 },
+					{ "time": 0.1667, "angle": -0.29 },
+					{ "time": 0.2333, "angle": 1.51 },
+					{ "time": 0.5, "angle": -0.2 },
+					{ "time": 0.6667, "angle": -1.17 }
+				],
+				"translate": [
+					{ "x": -2.6, "y": -0.09 },
+					{ "time": 0.1667, "x": 14.11, "y": 2.74 },
+					{ "time": 0.2333, "x": 1.76, "y": 1.86 },
+					{ "time": 0.5, "x": 1.12, "y": 0.04 },
+					{ "time": 0.6667, "x": -2.6, "y": -0.09 }
+				]
+			},
+			"Shadow": {
+				"translate": [
+					{ "time": 0.3333, "x": -8.11 }
+				],
+				"scale": [
+					{ "y": 0.755 },
+					{ "time": 0.1, "x": 1.33, "y": 0.743 },
+					{ "time": 0.1333, "x": 1.161, "y": 0.535 },
+					{ "time": 0.1667, "x": 0.565, "y": 0.2 },
+					{ "time": 0.2333, "x": 1.075, "y": 0.692 },
+					{ "time": 0.2667, "x": 1.05, "y": 0.673 },
+					{ "time": 0.3333, "x": 1.117, "y": 0.829 },
+					{ "time": 0.5, "x": 0.565, "y": 0.2 },
+					{ "time": 0.5333, "x": 1.235, "y": 0.481 },
+					{ "time": 0.6, "x": 1.369, "y": 0.539 },
+					{ "time": 0.6333, "x": 1.184, "y": 0.679 },
+					{ "time": 0.6667, "y": 0.755 }
+				]
+			}
+		}
+	}
+}
+}
