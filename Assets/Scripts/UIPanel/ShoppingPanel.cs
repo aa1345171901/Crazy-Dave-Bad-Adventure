@@ -20,6 +20,9 @@ public class ShoppingPanel : BasePanel
     public Text DialogText;
     public Text Money;
 
+    [Tooltip("花盆")]
+    public FlowerPotItem FlowerPotItem;
+
     public AudioSource audioSource;
 
     private Animator animator;
@@ -81,6 +84,12 @@ public class ShoppingPanel : BasePanel
     {
         if (shopItems == null || shopItems.Count <= 0)
             return;
+        if (FlowerPotItem.isDown)
+        {
+            this.DialogText.transform.parent.gameObject.SetActive(true);
+            this.DialogText.text = FlowerPotItem.Info;
+            return;
+        }
         this.DialogText.transform.parent.gameObject.SetActive(false);
         bool hasDown = false;
         foreach (var item in shopItems)
@@ -197,7 +206,11 @@ public class ShoppingPanel : BasePanel
             index++;
         }
         if (renovateCount != 0)
+        {
+            // 发钱刷新可点击获取花盆
             ShopManager.Instance.Money -= RenovateMoney;
+            FlowerPotItem.SetActive();
+        }
         RenovateMoney += (autoRefreshWave + renovateCount) * 2 + 1;
         renovateCount++;
     }
