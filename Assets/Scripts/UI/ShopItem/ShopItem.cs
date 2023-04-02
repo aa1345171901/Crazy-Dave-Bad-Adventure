@@ -27,7 +27,7 @@ public class ShopItem : MonoBehaviour
         button = GetComponent<Button>();
         button.onClick.AddListener(OnClick);
 
-        UICamera = GameObject.Find("UICamera").GetComponent<Camera>();
+        UICamera = UIManager.Instance.UICamera;
         rectTransform = GetComponent<RectTransform>();
     }
 

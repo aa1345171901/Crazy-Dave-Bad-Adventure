@@ -11,7 +11,7 @@ public class GardenPanel : BasePanel
     {
         base.OnEnter();
         this.gameObject.SetActive(true);
-        // 创建的下一帧才调用玩start
+        // 创建的下一帧才调用start
         Invoke("CreateFlowerPat", Time.deltaTime);
     }
 

@@ -29,7 +29,7 @@ public class UIButton : MonoBehaviour
         image = this.GetComponent<Image>();
         pressedPos = this.transform.position + offset;
         defaultPos = this.transform.position;
-        UICamera = GameObject.Find("UICamera").GetComponent<Camera>();
+        UICamera = UIManager.Instance.UICamera;
         rectTransform = GetComponent<RectTransform>();
     }
 

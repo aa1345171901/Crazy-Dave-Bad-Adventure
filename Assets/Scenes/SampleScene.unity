@@ -1570,9 +1570,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924bc404fce2b154e97ebb03795f8654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SeedingPrefab: {fileID: 510236188162486127, guid: bbfa7747bb8461a469fed289eeb742b7, type: 3}
   PlantUIPrefabInfos:
   - plantType: 0
-    plantPrefab: {fileID: 510236188162486127, guid: bbfa7747bb8461a469fed289eeb742b7, type: 3}
+    plantPrefab: {fileID: 6769889322668651902, guid: eefbfa86b5dad3a4b85f23c9a7b8c60d, type: 3}
 --- !u!1 &968511682
 GameObject:
   m_ObjectHideFlags: 0
@@ -3066,6 +3067,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f73c3d6322e1bdb4b9be2487e6d1f17a, type: 3}
   - {fileID: 8300000, guid: c6ff33a8923886742bdb1cec4eb1afca, type: 3}
   - {fileID: 8300000, guid: 6b85179f26e0412428c61a97b30e8246, type: 3}
+  - {fileID: 8300000, guid: 90487e9e35b9c094ca4ee3a44cc0c45a, type: 3}
+  - {fileID: 8300000, guid: 86edd56e16c5f1f4f858b133f6e34fda, type: 3}
+  - {fileID: 8300000, guid: 31c43ee0f96a8f64b935ee1ed324ff55, type: 3}
   Boss: {fileID: 8300000, guid: 6b531f7202efb674ba059c0ffc4eedb6, type: 3}
   Shopping: {fileID: 8300000, guid: 432027e311573514db62beb55b0ccfe6, type: 3}
   Garden: {fileID: 8300000, guid: 62a880793f87a884e97f67365b183669, type: 3}

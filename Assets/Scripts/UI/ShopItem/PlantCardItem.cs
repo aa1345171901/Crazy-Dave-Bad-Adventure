@@ -64,6 +64,7 @@ public enum PlantType
 [Serializable]
 public class PlantCard
 {
+    public string plantName;
     public string plantBgImagePath;
     public string plantImagePath;
     public int defaultPrice;

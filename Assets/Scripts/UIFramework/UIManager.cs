@@ -31,6 +31,17 @@ public class UIManager {
         }
     }
 
+    private Camera uiCamera;
+    public Camera UICamera
+    {
+        get
+        {
+            if (uiCamera == null)
+                uiCamera = GameObject.Find("UICamera").GetComponent<Camera>();
+            return uiCamera;
+        }
+    }
+
     private float canvasScaleFactor = 0f;
     public float CanvasScaleFactor
     {

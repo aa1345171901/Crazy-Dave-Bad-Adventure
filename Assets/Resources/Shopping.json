@@ -1290,6 +1290,7 @@
     "PlantCards":
     [
         {
+            "plantName" :"豌豆射手",
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/Peashooter_1",
             "defaultPrice": "15",
@@ -1299,6 +1300,7 @@
         },
 
         {
+            "plantName" :"仙人掌",
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/Cactus",
             "defaultPrice": "50",
@@ -1308,6 +1310,7 @@
         },
 
         {
+            "plantName" :"三叶草",
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/Blover",
             "defaultPrice": "45",
@@ -1317,6 +1320,7 @@
         },
 
         {
+            "plantName" :"香蒲",
             "plantBgImagePath": "Shop/Plants/strongBg",
             "plantImagePath": "Shop/Plants/Cattail",
             "defaultPrice": "90",
@@ -1326,6 +1330,7 @@
         },
 
         {
+            "plantName" :"樱桃炸弹",
             "plantBgImagePath": "Shop/Plants/strongBg",
             "plantImagePath": "Shop/Plants/CherryBomb",
             "defaultPrice": "50",
@@ -1335,6 +1340,7 @@
         },
 
         {
+            "plantName" :"大嘴花",
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/Chomper",
             "defaultPrice": "20",
@@ -1344,6 +1350,7 @@
         },
 
         {
+            "plantName" :"咖啡豆",
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/CoffeeBean",
             "defaultPrice": "40",
@@ -1353,6 +1360,7 @@
         },
 
         {
+            "plantName" :"玉米投手",
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/CornpultCard",
             "defaultPrice": "30",
@@ -1362,6 +1370,7 @@
         },
 
         {
+            "plantName" :"大喷菇",
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/FumeShroom",
             "defaultPrice": "40",
@@ -1371,6 +1380,7 @@
         },
 
         {
+            "plantName" :"加特林豌豆射手",
             "plantBgImagePath": "Shop/Plants/strongBg",
             "plantImagePath": "Shop/Plants/GatlingPea",
             "defaultPrice": "35",
@@ -1380,6 +1390,7 @@
         },
 
         {
+            "plantName" :"多嘴小蘑菇",
             "plantBgImagePath": "Shop/Plants/strongBg",
             "plantImagePath": "Shop/Plants/GloomShroom",
             "defaultPrice": "80",
@@ -1389,6 +1400,7 @@
         },
 
         {
+            "plantName" :"金磁力菇",
             "plantBgImagePath": "Shop/Plants/strongBg",
             "plantImagePath": "Shop/Plants/GoldMagent",
             "defaultPrice": "70",

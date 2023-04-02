@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlantConent : MonoBehaviour
 {
+    [Tooltip("培育页面,这里主要赋值给生成的花盆")]
+    public PlantCultivationPage plantCultivationPage;
+
     /// <summary>
     /// 各个花盆的位置信息
     /// </summary>
@@ -36,7 +39,7 @@ public class PlantConent : MonoBehaviour
     {
         for (int i = 0; i < GardenManager.Instance.NotPlacedFlowerPotCount; i++)
         {
-            // 随机位置生成
+            // 随机位置生成 花盆
             int index = Random.Range(0, canLayUpFlowerPotPos.Count);
             var flowerPotPos = canLayUpFlowerPotPos[index];
             flowerPotPos.CreateFlowerPot();
@@ -56,7 +59,7 @@ public class PlantConent : MonoBehaviour
             int index = Random.Range(0, haveFlowerPotPos.Count);
             var flowerPotPos = haveFlowerPotPos[index];
             PlantUIPrefabInfo plantUIPrefabInfo = GardenManager.Instance.GetPlantUIPrefabInfo(noPlantingPlants[i].plantType);
-            flowerPotPos.FlowerPot.SetPlant(plantUIPrefabInfo, noPlantingPlants[i]);
+            flowerPotPos.FlowerPot.SetPlant(plantUIPrefabInfo.plantPrefab, noPlantingPlants[i], plantCultivationPage);
             haveFlowerPotPos.Remove(flowerPotPos);
         }
         noPlantingPlants.Clear();

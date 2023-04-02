@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class FlowerPotPosition : MonoBehaviour
 {
-
     [Tooltip("ª®≈Ë‘§÷∆ÃÂ")]
     public FlowerPotGardenItem flowerPot;
 

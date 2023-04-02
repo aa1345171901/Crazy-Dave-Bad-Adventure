@@ -12,10 +12,25 @@ public class PlantUIPrefabInfo
 
 public class GardenManager : BaseManager<GardenManager>
 {
-    [Tooltip("花盆中植物类型对应的植物Prefab")]
-    public List<PlantUIPrefabInfo> PlantUIPrefabInfos;
     [Tooltip("植物苗预制体")]
     public GameObject SeedingPrefab;
+    [Tooltip("花盆中植物类型对应的植物Prefab")]
+    public List<PlantUIPrefabInfo> PlantUIPrefabInfos;
+
+    private int sun = 10000;
+    public int Sun
+    {
+        get
+        {
+            return sun;
+        }
+        set
+        {
+            sun = value;
+            SunChanged?.Invoke();
+        }
+    }
+    public Action SunChanged;
 
     /// <summary>
     /// 本次购物购买的没有放置的花盆数量
