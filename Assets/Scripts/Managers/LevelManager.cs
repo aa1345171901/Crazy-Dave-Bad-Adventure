@@ -65,7 +65,7 @@ namespace TopDownPlate
         private float intervalTime;   // 间隔时长
         private int course; // 时间进程
 
-        private readonly float DurationPerWave = 60;
+        private readonly float DurationPerWave = 6;
 
         public int IndexWave { get; set; }
 

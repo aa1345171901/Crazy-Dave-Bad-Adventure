@@ -16,6 +16,7 @@ namespace TopDownPlate
         Fire,
         ZombieFly,
         ZombieHurEachOther,  // 游戏结束后互相伤害
+        PeaBullet,
     }
 
     public class HUDPos
