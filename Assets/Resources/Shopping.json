@@ -1292,7 +1292,7 @@
         {
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/Peashooter_1",
-            "defaultPrice": "2",
+            "defaultPrice": "15",
             "defaultSun": "100",
             "info": "<color=#00ff00>豌豆射手</color>\n购买后使用{0}阳光培养便能随我杀敌\n很划算的啦",
             "plantTypeString": "Peashooter"
@@ -1301,7 +1301,7 @@
         {
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/Cactus",
-            "defaultPrice": "2",
+            "defaultPrice": "50",
             "defaultSun": "125",
             "info": "<color=#00ff00>仙人掌</color>\n购买后使用{0}阳光培养\n可以戳破气球僵尸的气球\n这很重要",
             "plantTypeString": "Cactus"
@@ -1310,7 +1310,7 @@
         {
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/Blover",
-            "defaultPrice": "2",
+            "defaultPrice": "45",
             "defaultSun": "100",
             "info": "<color=#00ff00>三叶草</color>\n购买后使用{0}阳光培养\n培养成功应该能增加幸运值\n而且可以吹风",
             "plantTypeString": "Blover"
@@ -1319,7 +1319,7 @@
         {
             "plantBgImagePath": "Shop/Plants/strongBg",
             "plantImagePath": "Shop/Plants/Cattail",
-            "defaultPrice": "2",
+            "defaultPrice": "90",
             "defaultSun": "225",
             "info": "<color=#9932CD>香蒲</color>\n购买后可以使用{0}阳光在<color=#00ff00>荷叶</color>上培养\n必须要有荷叶!!!\n能进行一个全屏的攻击，而且能戳破气球",
             "plantTypeString": "Cattail"
@@ -1329,7 +1329,7 @@
             "plantBgImagePath": "Shop/Plants/strongBg",
             "plantImagePath": "Shop/Plants/CherryBomb",
             "defaultPrice": "2",
-            "defaultSun": "150",
+            "defaultSun": "50",
             "info": "<color=#ff0000>樱桃炸弹</color>\n购买后可以使用{0}阳光培养\n培养完可以在战斗中使用\n把僵尸炸成渣渣",
             "plantTypeString": "CherryBomb"
         },
@@ -1338,7 +1338,7 @@
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/Chomper",
             "defaultPrice": "2",
-            "defaultSun": "150",
+            "defaultSun": "20",
             "info": "<color=#00ff00>大嘴花</color>\n购买后可以使用{0}阳光培养\n她可以把僵尸进行一整个的吞\n把僵尸消化干净",
             "plantTypeString": "Chomper"
         },
@@ -1346,7 +1346,7 @@
         {
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/CoffeeBean",
-            "defaultPrice": "2",
+            "defaultPrice": "40",
             "defaultSun": "75",
             "info": "<color=#00ff00>咖啡豆</color>\n购买后可以使用{0}阳光培养\n虽然不能消灭僵尸\n但是可以增加我的基础属性",
             "plantTypeString": "CoffeeBean"
@@ -1355,7 +1355,7 @@
         {
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/CornpultCard",
-            "defaultPrice": "2",
+            "defaultPrice": "30",
             "defaultSun": "100",
             "info": "<color=#00ff00>玉米投手</color>\n购买后可以使用{0}阳光培养\n概率投出黄油，使僵尸不能动弹\n最重要的是她能合成<color=#9932CD>玉米加农炮</color>",
             "plantTypeString": "CornpultCard"
@@ -1364,7 +1364,7 @@
         {
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/FumeShroom",
-            "defaultPrice": "2",
+            "defaultPrice": "40",
             "defaultSun": "75",
             "info": "<color=#00ff00>大喷菇</color>\n购买后可以使用{0}阳光培养\n能攻击一条线的敌人\n她能合成<color=#9932CD>忧郁蘑菇</color>",
             "plantTypeString": "FumeShroom"
@@ -1373,10 +1373,28 @@
         {
             "plantBgImagePath": "Shop/Plants/strongBg",
             "plantImagePath": "Shop/Plants/GatlingPea",
-            "defaultPrice": "2",
+            "defaultPrice": "35",
             "defaultSun": "250",
             "info": "<color=#9932CD>加特林豌豆射手</color>\n可以使用{0}阳光使双发射手进化成加特林射手\n能一次发射4颗豌豆\n用豌豆塞满僵尸的嘴",
             "plantTypeString": "GatlingPea"
-        }
+        },
+
+        {
+            "plantBgImagePath": "Shop/Plants/strongBg",
+            "plantImagePath": "Shop/Plants/GloomShroom",
+            "defaultPrice": "80",
+            "defaultSun": "150",
+            "info": "<color=#9932CD>多嘴小蘑菇</color>\n可以使用{0}阳光使大喷菇进化\n围绕四周释放大量延误\n烟雾能造成多段伤害",
+            "plantTypeString": "GloomShroom"
+        },
+
+        {
+            "plantBgImagePath": "Shop/Plants/strongBg",
+            "plantImagePath": "Shop/Plants/GoldMagent",
+            "defaultPrice": "70",
+            "defaultSun": "50",
+            "info": "<color=#9932CD>金磁力菇</color>\n可以使用{0}阳光培养\n有概率吸取场上掉落的金币\n这样就不要一个一个收集钱币了",
+            "plantTypeString": "GoldMagent"
+        },
     ]
 }
