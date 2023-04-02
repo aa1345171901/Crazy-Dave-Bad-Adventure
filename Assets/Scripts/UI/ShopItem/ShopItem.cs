@@ -16,7 +16,7 @@ public class ShopItem : MonoBehaviour
     public Text PriceText;
 
     private Button button;
-    public bool isDown { get; private set; }  // 判断鼠标是否在按钮上
+    public bool isDown { get; protected set; }  // 判断鼠标是否在按钮上
     private Camera UICamera;
     private RectTransform rectTransform;
 

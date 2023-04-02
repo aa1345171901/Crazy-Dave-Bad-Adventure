@@ -21,7 +21,7 @@ public class ShoppingPanel : BasePanel
     public Text Money;
 
     [Tooltip("»¨Åè")]
-    public FlowerPotItem FlowerPotItem;
+    public FlowerPotShopItem FlowerPotItem;
 
     public AudioSource audioSource;
 
@@ -68,6 +68,10 @@ public class ShoppingPanel : BasePanel
         InitItems();
         AudioManager.Instance.AudioLists.Add(audioSource);
         audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
+        FlowerPotItem.CannotAfford += ()=> 
+        {
+            this.DialogText.text = FlowerPotItem.infoNoPurchase;
+        };
     }
 
     private void MoneyChanged()
@@ -89,6 +93,10 @@ public class ShoppingPanel : BasePanel
             this.DialogText.transform.parent.gameObject.SetActive(true);
             this.DialogText.text = FlowerPotItem.Info;
             return;
+        }
+        else
+        {
+            FlowerPotItem.SetDefualtInfo();
         }
         this.DialogText.transform.parent.gameObject.SetActive(false);
         bool hasDown = false;

@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: d30fc05e4d3f0cd488190a060b965513
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - flowerPot: {fileID: 2655542551669746657, guid: 57f97c74d506b264b9f6632575265e28, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

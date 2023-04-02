@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class GardenPanel : BasePanel
 {
+    public PlantConent plantConent;
+
     public override void OnEnter()
     {
         base.OnEnter();
         this.gameObject.SetActive(true);
+        Invoke("CreateFlowerPat", 0.1f);
     }
 
     public override void OnExit()
@@ -21,6 +24,7 @@ public class GardenPanel : BasePanel
     {
         base.OnResume();
         this.gameObject.SetActive(true);
+        CreateFlowerPat();
     }
 
     public override void OnPause()
@@ -39,5 +43,10 @@ public class GardenPanel : BasePanel
     {
         UIManager.Instance.PopPanel();
         GameManager.Instance.NextWave();
+    }
+
+    public void CreateFlowerPat()
+    {
+        plantConent.CreateFlowerPot();
     }
 }

@@ -43,11 +43,6 @@ public class ShopManager : BaseManager<ShopManager>
     /// </summary>
     public List<PropCard> PurchasedProps { get; set; } = new List<PropCard>();
 
-    /// <summary>
-    /// 购买的花盆数量
-    /// </summary>
-    public int FlowerPotCount { get; set; }
-
     protected override void Initialize()
     {
         base.Initialize();

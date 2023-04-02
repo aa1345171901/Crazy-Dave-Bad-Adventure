@@ -8,9 +8,17 @@ using UnityEngine.UI;
 public enum PlantType
 {
     /// <summary>
+    /// √Á
+    /// </summary>
+    Seeding,
+    /// <summary>
     /// Õ„∂π…‰ ÷
     /// </summary>
     Peashooter,
+    /// <summary>
+    /// Õ„∂π…‰ ÷
+    /// </summary>
+    Repeater,
     /// <summary>
     /// œ…»À’∆
     /// </summary>
