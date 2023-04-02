@@ -1328,8 +1328,8 @@
         {
             "plantBgImagePath": "Shop/Plants/strongBg",
             "plantImagePath": "Shop/Plants/CherryBomb",
-            "defaultPrice": "2",
-            "defaultSun": "50",
+            "defaultPrice": "50",
+            "defaultSun": "150",
             "info": "<color=#ff0000>樱桃炸弹</color>\n购买后可以使用{0}阳光培养\n培养完可以在战斗中使用\n把僵尸炸成渣渣",
             "plantTypeString": "CherryBomb"
         },
@@ -1337,8 +1337,8 @@
         {
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/Chomper",
-            "defaultPrice": "2",
-            "defaultSun": "20",
+            "defaultPrice": "20",
+            "defaultSun": "150",
             "info": "<color=#00ff00>大嘴花</color>\n购买后可以使用{0}阳光培养\n她可以把僵尸进行一整个的吞\n把僵尸消化干净",
             "plantTypeString": "Chomper"
         },
@@ -1358,7 +1358,7 @@
             "defaultPrice": "30",
             "defaultSun": "100",
             "info": "<color=#00ff00>玉米投手</color>\n购买后可以使用{0}阳光培养\n概率投出黄油，使僵尸不能动弹\n最重要的是她能合成<color=#9932CD>玉米加农炮</color>",
-            "plantTypeString": "CornpultCard"
+            "plantTypeString": "Cornpult"
         },
 
         {
@@ -1395,6 +1395,6 @@
             "defaultSun": "50",
             "info": "<color=#9932CD>金磁力菇</color>\n可以使用{0}阳光培养\n有概率吸取场上掉落的金币\n这样就不要一个一个收集钱币了",
             "plantTypeString": "GoldMagent"
-        },
+        }
     ]
 }

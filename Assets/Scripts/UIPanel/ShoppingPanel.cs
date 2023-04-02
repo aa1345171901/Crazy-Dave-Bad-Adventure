@@ -58,6 +58,12 @@ public class ShoppingPanel : BasePanel
         "越没钱的时候越想花钱，穷到要吃土l",
         "购物车里的东西只能看着下架"
     };
+    private readonly string[] CannotPlantingStrings = new string[]
+    {
+        "没有花盆植物不能种植",
+        "植物只能在<color=#ff0000>花盆</color>上培养,花盆可以通过<color=#ff0000>刷新</color>进行获取",
+        "花盆肥肠重要！！"
+    };
     private bool isTriggerCannotAfford;
 
     private void Start()
@@ -127,6 +133,7 @@ public class ShoppingPanel : BasePanel
 
             PlantCardItem plant = GameObject.Instantiate(PlantItemPrefab, PlantContent).GetComponent<PlantCardItem>();
             plant.CannotAfford += CannotAfford;
+            plant.CanNotPlanting += CanNotPlanting;
             plant.gameObject.SetActive(false);
             plantCardItems.Add(plant);
         }
@@ -138,6 +145,13 @@ public class ShoppingPanel : BasePanel
     {
         int index = UnityEngine.Random.Range(0, CannotAffordStrings.Length);
         this.DialogText.text = CannotAffordStrings[index];
+        isTriggerCannotAfford = true;
+    }
+
+    private void CanNotPlanting()
+    {
+        int index = UnityEngine.Random.Range(0, CannotPlantingStrings.Length);
+        this.DialogText.text = CannotPlantingStrings[index];
         isTriggerCannotAfford = true;
     }
 

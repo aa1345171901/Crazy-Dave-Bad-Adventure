@@ -83,8 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2076f0e3e4c6fb4dbc788febf40be62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 3883254208326242537}
   animator: {fileID: 4961530936424474073}
+  audioSource: {fileID: 3883254208326242537}
   image: {fileID: 2822969375588917309}
   sliver: {fileID: 21300000, guid: 18ee2d84700f1ad44b62c1fc324ebc91, type: 3}
   goldSprite: {fileID: 21300000, guid: f4d9e2fae251df5408edc6d5bd983795, type: 3}

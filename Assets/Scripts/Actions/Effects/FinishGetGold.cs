@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class FinishGetGold : MonoBehaviour
 {
     public Animator animator;
+    public AudioSource audioSource;
     public Image image;
     public Sprite sliver;
     public Sprite goldSprite;
@@ -17,6 +18,12 @@ public class FinishGetGold : MonoBehaviour
     private int finishGold;
 
     private readonly int MaxAudioCount = 4;  // 最多播放4次
+
+    private void Start()
+    {
+        AudioManager.Instance.AudioLists.Add(this.audioSource);
+        this.audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
+    }
 
     public void GetGold()
     {
@@ -48,7 +55,8 @@ public class FinishGetGold : MonoBehaviour
         {
             animator.SetTrigger("GetMoney");
             yield return new WaitForSeconds(0.5f);
-            AudioManager.Instance.PlayEffectSoundByName("finalGoldCoin", Random.Range(0.8f,1.2f));
+            audioSource.pitch = Random.Range(0.8f, 1.2f);
+            audioSource.Play();
             ShopManager.Instance.Money += gold / playAudioCount;
         }
         ShopManager.Instance.Money = finishGold;

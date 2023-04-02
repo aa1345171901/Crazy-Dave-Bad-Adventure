@@ -3,22 +3,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
+public class PlantAttribute
+{
+    public PlantCard plantCard;
+    public bool isCultivate;
+
+    public PlantAttribute(PlantCard plantCard)
+    {
+        this.plantCard = plantCard;
+    }
+}
+
 public class FlowerPotGardenItem : MonoBehaviour
 {
-    /// <summary>
-    /// 花盆中对应的植物
-    /// </summary>
-    public PlantUIPrefabInfo PlantUIPrefabInfo { get; set; }
-
+    public PlantAttribute PlantAttribute;
     private Animator animator;
+    private PlantUIPrefabInfo plantUIPrefabInfo;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    public void SetPlant(PlantUIPrefabInfo plantUIPrefabInfo)
+    public void SetPlant(PlantUIPrefabInfo plantUIPrefabInfo, PlantCard plantCard)
     {
-        GameObject.Instantiate(plantUIPrefabInfo.plantPrefab, this.transform);
+        this.plantUIPrefabInfo = plantUIPrefabInfo;
+        this.PlantAttribute = new PlantAttribute(plantCard);
+        GameObject.Instantiate(GardenManager.Instance.SeedingPrefab, this.transform);
+        GardenManager.Instance.PlantAttributes.Add(this.PlantAttribute);
     }
 }

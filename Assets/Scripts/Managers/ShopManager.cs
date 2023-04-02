@@ -56,6 +56,12 @@ public class ShopManager : BaseManager<ShopManager>
         SetPropEffect(propCard);
     }
 
+    public void PurchasePlant(PlantCard plantCard, int price)
+    {
+        Money -= price;
+        GardenManager.Instance.AddPlant(plantCard);
+    }
+
     private void SetPropEffect(PropCard propCard)
     {
         if (propCard.propDamageType != PropDamageType.None)

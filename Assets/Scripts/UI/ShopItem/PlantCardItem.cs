@@ -8,21 +8,57 @@ using UnityEngine.UI;
 public enum PlantType
 {
     /// <summary>
-    /// 苗
-    /// </summary>
-    Seeding,
-    /// <summary>
     /// 豌豆射手
     /// </summary>
     Peashooter,
     /// <summary>
-    /// 豌豆射手
+    /// 双发豌豆射手
     /// </summary>
     Repeater,
     /// <summary>
     /// 仙人掌
     /// </summary>
     Cactus,
+    /// <summary>
+    /// 三叶草
+    /// </summary>
+    Blover,
+    /// <summary>
+    /// 香蒲
+    /// </summary>
+    Cattail,
+    /// <summary>
+    /// 樱桃炸弹
+    /// </summary>
+    CherryBomb,
+    /// <summary>
+    /// 大嘴花
+    /// </summary>
+    Chomper,
+    /// <summary>
+    /// 咖啡豆
+    /// </summary>
+    CoffeeBean,
+    /// <summary>
+    /// 玉米投手
+    /// </summary>
+    Cornpult,
+    /// <summary>
+    /// 大喷菇
+    /// </summary>
+    FumeShroom,
+    /// <summary>
+    /// 加特林豌豆
+    /// </summary>
+    GatlingPea,
+    /// <summary>
+    /// 曾哥
+    /// </summary>
+    GloomShroom,
+    /// <summary>
+    /// 金磁力菇
+    /// </summary>
+    GoldMagent,
 }
 
 [Serializable]
@@ -57,8 +93,14 @@ public class PlantCardItem : ShopItem
     public Image Plant;
     public Text Sun;
 
+    public Action CanNotPlanting;
+
+    private PlantCard plantCard;
+
     public void SetPlant(PlantCard plantCard)
     {
+        this.plantCard = plantCard;
+
         Sprite bg = Resources.Load<Sprite>(plantCard.plantBgImagePath);
         this.Bg.sprite = bg;
 
@@ -73,5 +115,28 @@ public class PlantCardItem : ShopItem
         this.Info = string.Format(plantCard.info, plantCard.defaultSun);
 
         UpdateMoney();
+    }
+
+    protected override void OnClick()
+    {
+        if (ShopManager.Instance.Money >= Price)
+        {
+            // 种植的加上刚买的数量小于已有花盆 + 未摆放花盆数量才能购买
+            if (GardenManager.Instance.NoPlantingPlants.Count + GardenManager.Instance.PlantAttributes.Count < GardenManager.Instance.FlowerPotCount + GardenManager.Instance.NotPlacedFlowerPotCount)
+            {
+                ShopManager.Instance.PurchasePlant(plantCard, Price);
+                this.gameObject.SetActive(false);
+                this.isDown = false;
+            }
+            else
+            {
+                // 提醒花盆不足
+                CanNotPlanting?.Invoke();
+            }
+        }
+        else
+        {
+            CannotAfford?.Invoke();
+        }
     }
 }

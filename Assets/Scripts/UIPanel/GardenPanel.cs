@@ -11,7 +11,8 @@ public class GardenPanel : BasePanel
     {
         base.OnEnter();
         this.gameObject.SetActive(true);
-        Invoke("CreateFlowerPat", 0.1f);
+        // 创建的下一帧才调用玩start
+        Invoke("CreateFlowerPat", Time.deltaTime);
     }
 
     public override void OnExit()

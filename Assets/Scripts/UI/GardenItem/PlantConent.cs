@@ -14,6 +14,11 @@ public class PlantConent : MonoBehaviour
     /// </summary>
     private List<FlowerPotPosition> canLayUpFlowerPotPos = new List<FlowerPotPosition>();
 
+    /// <summary>
+    /// 有花盆的位置
+    /// </summary>
+    private List<FlowerPotPosition> haveFlowerPotPos = new List<FlowerPotPosition>();
+
     private void Start()
     {
         flowerPotPositions = new List<FlowerPotPosition>(this.GetComponentsInChildren<FlowerPotPosition>());
@@ -37,7 +42,23 @@ public class PlantConent : MonoBehaviour
             flowerPotPos.CreateFlowerPot();
             canLayUpFlowerPotPos.Remove(flowerPotPos);
             GardenManager.Instance.FlowerPotCount++;
+            haveFlowerPotPos.Add(flowerPotPos);
         }
         GardenManager.Instance.NotPlacedFlowerPotCount = 0;
+        CreatePlant();
+    }
+
+    public void CreatePlant()
+    {
+        var noPlantingPlants = GardenManager.Instance.NoPlantingPlants;
+        for (int i = 0; i < noPlantingPlants.Count; i++)
+        {
+            int index = Random.Range(0, haveFlowerPotPos.Count);
+            var flowerPotPos = haveFlowerPotPos[index];
+            PlantUIPrefabInfo plantUIPrefabInfo = GardenManager.Instance.GetPlantUIPrefabInfo(noPlantingPlants[i].plantType);
+            flowerPotPos.FlowerPot.SetPlant(plantUIPrefabInfo, noPlantingPlants[i]);
+            haveFlowerPotPos.Remove(flowerPotPos);
+        }
+        noPlantingPlants.Clear();
     }
 }
