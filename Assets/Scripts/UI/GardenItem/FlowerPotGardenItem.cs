@@ -14,6 +14,7 @@ public class PlantAttribute
     public int value1;
     public int value2;
     public int value3;
+    public int maxLevel = 10;
 
     public PlantAttribute(PlantCard plantCard)
     {
@@ -26,6 +27,7 @@ public class FlowerPotGardenItem : MonoBehaviour
     public PlantAttribute PlantAttribute = null;
 
     private PlantCultivationPage plantCultivationPage;
+    private bool isPageOpen;
     private GameObject seeding;
     private GameObject taegetPlantPrefab;
     private GameObject taegetPlant;
@@ -39,23 +41,25 @@ public class FlowerPotGardenItem : MonoBehaviour
     private void Start()
     {
         UICamera = UIManager.Instance.UICamera;
-        plantPageRectTransform = plantCultivationPage.GetComponent<RectTransform>();
         rectTransform = this.GetComponent<RectTransform>();
         animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !BoundsUtils.GetAnchorLeftRect(UICamera, plantPageRectTransform).Contains(Input.mousePosition) 
+        if (isPageOpen && plantCultivationPage != null && Input.GetMouseButtonDown(0) 
+            && !BoundsUtils.GetAnchorLeftRect(UICamera, plantPageRectTransform).Contains(Input.mousePosition) 
             && !BoundsUtils.GetSceneRect(UICamera, rectTransform).Contains(Input.mousePosition) && plantCultivationPage.gameObject.activeSelf)
         {
             plantCultivationPage.gameObject.SetActive(false);
-            AudioManager.Instance.PlayEffectSoundByName("pageExpansion", UnityEngine.Random.Range(0.8f, 1.2f));
+            AudioManager.Instance.PlayEffectSoundByName("pageExpansion", UnityEngine.Random.Range(0.8f, 1f));
+            isPageOpen = false;
         }
     }
 
     public void SetPlant(GameObject taegetPlant, PlantCard plantCard, PlantCultivationPage plantCultivationPage)
     {
+        plantPageRectTransform = plantCultivationPage.GetComponent<RectTransform>();
         this.plantCultivationPage = plantCultivationPage;
         this.taegetPlantPrefab = taegetPlant;
         this.PlantAttribute = new PlantAttribute(plantCard);
@@ -65,16 +69,20 @@ public class FlowerPotGardenItem : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (PlantAttribute != null)
+        if (!isPageOpen && plantCultivationPage != null)
         {
-            AudioManager.Instance.PlayEffectSoundByName("pageExpansion", UnityEngine.Random.Range(0.8f, 1.2f));
+            isPageOpen = true;
+            AudioManager.Instance.PlayEffectSoundByName("pageExpansion", UnityEngine.Random.Range(1f, 1.2f));
             plantCultivationPage.gameObject.SetActive(true);
             plantCultivationPage.SetPlantAttribute(this);
             plantCultivationPage.transform.position = this.transform.position;
             Rect bounds = BoundsUtils.GetAnchorLeftRect(UICamera, plantPageRectTransform);
             if (bounds.xMax > Screen.width)
             {
-                plantCultivationPage.transform.position = new Vector3(Screen.width - bounds.width, bounds.y);
+                var pos = plantCultivationPage.transform.position;
+                // 100 为canvas每单位像素
+                pos.x = plantCultivationPage.transform.position.x - bounds.width / 100;
+                plantCultivationPage.transform.position = pos;
             }
         }
     }

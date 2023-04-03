@@ -2,10 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using TopDownPlate;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GardenPanel : BasePanel
 {
     public PlantConent plantConent;
+
+    public Text SunText;
+
+    private void Start()
+    {
+        GardenManager.Instance.SunChanged += () =>
+        {
+            SunText.text = GardenManager.Instance.Sun.ToString();
+        };
+    }
 
     public override void OnEnter()
     {
@@ -13,6 +24,7 @@ public class GardenPanel : BasePanel
         this.gameObject.SetActive(true);
         // 创建的下一帧才调用start
         Invoke("CreateFlowerPat", Time.deltaTime);
+        SunText.text = GardenManager.Instance.Sun.ToString();
     }
 
     public override void OnExit()

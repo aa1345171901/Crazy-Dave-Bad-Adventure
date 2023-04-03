@@ -84,6 +84,7 @@ namespace TopDownPlate
                         battlePanel.GetGold();
                         AudioManager.Instance.PlayEffectSoundByName("winmusic");
                         // todo ั๔นโ
+                        GardenManager.Instance.Sun += UserData.Sunshine;
                     }
                     else
                     {
@@ -152,6 +153,7 @@ namespace TopDownPlate
             LevelManager.Instance.Init();
             AudioManager.Instance.PlayBackMusic(2);
             AudioManager.Instance.PlayEffectSoundByName("startWave");
+            GardenManager.Instance.PlantsGoToWar();
             Reuse();
         }
 

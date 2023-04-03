@@ -1574,6 +1574,9 @@ MonoBehaviour:
   PlantUIPrefabInfos:
   - plantType: 0
     plantPrefab: {fileID: 6769889322668651902, guid: eefbfa86b5dad3a4b85f23c9a7b8c60d, type: 3}
+  PlantPrefabInfos:
+  - plantType: 0
+    plant: {fileID: 3255321644512461494, guid: 6c788df13532deb46869e64fe461b6d3, type: 3}
 --- !u!1 &968511682
 GameObject:
   m_ObjectHideFlags: 0

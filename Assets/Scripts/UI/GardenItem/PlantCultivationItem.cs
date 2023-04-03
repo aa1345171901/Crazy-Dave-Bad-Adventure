@@ -22,6 +22,7 @@ public class PlantCultivationItem : MonoBehaviour
 {
     public Text SunPrice;
     public Text ItemInfo;
+    public Text Level;
 
     private int sunPrice;
     private FlowerPotGardenItem flowerPotGardenItem;
@@ -41,28 +42,56 @@ public class PlantCultivationItem : MonoBehaviour
     {
         if (sunPrice < GardenManager.Instance.Sun)
         {
-            GardenManager.Instance.Sun -= sunPrice;
+            int maxLevel = flowerPotGardenItem.PlantAttribute.maxLevel;
             switch (cultivateAttributeType)
             {
                 case CultivateAttributeType.Cultivate:
+                    GardenManager.Instance.Sun -= sunPrice;
                     flowerPotGardenItem.CultivatePlant();
+                    AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
                     break;
                 case CultivateAttributeType.First:
-                    flowerPotGardenItem.PlantAttribute.value1++;
-                    flowerPotGardenItem.UpdateSunPrice();
+                    if (flowerPotGardenItem.PlantAttribute.value1 < maxLevel)
+                    {
+                        GardenManager.Instance.Sun -= sunPrice;
+                        flowerPotGardenItem.PlantAttribute.value1++;
+                        flowerPotGardenItem.UpdateSunPrice();
+                        AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
+                    }
+                    else
+                    {
+                        AudioManager.Instance.PlayEffectSoundByName("NoSun", Random.Range(0.8f, 1.2f));
+                    }
                     break;
                 case CultivateAttributeType.Second:
-                    flowerPotGardenItem.PlantAttribute.value2++;
-                    flowerPotGardenItem.UpdateSunPrice();
+                    if (flowerPotGardenItem.PlantAttribute.value2 < maxLevel)
+                    {
+                        GardenManager.Instance.Sun -= sunPrice;
+                        flowerPotGardenItem.PlantAttribute.value2++;
+                        flowerPotGardenItem.UpdateSunPrice();
+                        AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
+                    }
+                    else
+                    {
+                        AudioManager.Instance.PlayEffectSoundByName("NoSun", Random.Range(0.8f, 1.2f));
+                    }
                     break;
                 case CultivateAttributeType.Three:
-                    flowerPotGardenItem.PlantAttribute.value3++;
-                    flowerPotGardenItem.UpdateSunPrice();
+                    if (flowerPotGardenItem.PlantAttribute.value3 < maxLevel)
+                    {
+                        GardenManager.Instance.Sun -= sunPrice;
+                        flowerPotGardenItem.PlantAttribute.value3++;
+                        flowerPotGardenItem.UpdateSunPrice();
+                        AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
+                    }
+                    else
+                    {
+                        AudioManager.Instance.PlayEffectSoundByName("NoSun", Random.Range(0.8f, 1.2f));
+                    }
                     break;
                 default:
                     break;
             }
-            AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
         }
         else
         {
@@ -77,7 +106,7 @@ public class PlantCultivationItem : MonoBehaviour
 
     public void UpdateSunPrice()
     {
-        int level = flowerPotGardenItem.PlantAttribute.value1 + flowerPotGardenItem.PlantAttribute.value2 + flowerPotGardenItem.PlantAttribute.value3;
+        int level = flowerPotGardenItem.PlantAttribute.value1 + flowerPotGardenItem.PlantAttribute.value2 + flowerPotGardenItem.PlantAttribute.value3 + 1;
         if (!flowerPotGardenItem.PlantAttribute.isCultivate)
             this.sunPrice = flowerPotGardenItem.PlantAttribute.plantCard.defaultSun;
         else
@@ -87,5 +116,37 @@ public class PlantCultivationItem : MonoBehaviour
             this.SunPrice.color = Color.red;
         else
             this.SunPrice.color = new Color(0.2f, 0.2f, 0.2f);
+
+        int maxLevel = flowerPotGardenItem.PlantAttribute.maxLevel;
+        switch (cultivateAttributeType)
+        {
+            case CultivateAttributeType.Cultivate:
+                Level.text = "0/1";
+                break;
+            case CultivateAttributeType.First:
+                SetLevel(flowerPotGardenItem.PlantAttribute.value1 + "/" + maxLevel, flowerPotGardenItem.PlantAttribute.value1 < maxLevel);
+                break;
+            case CultivateAttributeType.Second:
+                SetLevel(flowerPotGardenItem.PlantAttribute.value2 + "/" + maxLevel, flowerPotGardenItem.PlantAttribute.value2 < maxLevel);
+                break;
+            case CultivateAttributeType.Three:
+                SetLevel(flowerPotGardenItem.PlantAttribute.value3 + "/" + maxLevel, flowerPotGardenItem.PlantAttribute.value3 < maxLevel);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void SetLevel(string str, bool isNoMax)
+    {
+        Level.text = str;
+        if (isNoMax)
+            Level.color = Color.green;
+        else
+        {
+            Level.color = Color.red;
+            SunPrice.text = "+¡Þ";
+            SunPrice.color = Color.red;
+        }
     }
 }

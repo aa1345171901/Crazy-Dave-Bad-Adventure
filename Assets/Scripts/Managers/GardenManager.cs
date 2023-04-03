@@ -4,10 +4,38 @@ using TopDownPlate;
 using UnityEngine;
 
 [Serializable]
-public class PlantUIPrefabInfo
+public class PlantInfo
 {
     public PlantType plantType;
+}
+
+[Serializable]
+public class PlantUIPrefabInfo : PlantInfo
+{
     public GameObject plantPrefab;
+}
+
+[Serializable]
+public class PlantPrefabInfo : PlantInfo
+{
+    public Plant plant;
+}
+
+public static class PlantInfoExpand
+{
+    public static T GetPlantInfo<T>(this List<T> list, PlantType plantType) where T : PlantInfo
+    {
+        T plantPrefabInfo = null;
+        foreach (var item in list)
+        {
+            if (item.plantType == plantType)
+            {
+                plantPrefabInfo = item;
+                break;
+            }
+        }
+        return plantPrefabInfo;
+    }
 }
 
 public class GardenManager : BaseManager<GardenManager>
@@ -16,8 +44,10 @@ public class GardenManager : BaseManager<GardenManager>
     public GameObject SeedingPrefab;
     [Tooltip("花盆中植物类型对应的植物Prefab")]
     public List<PlantUIPrefabInfo> PlantUIPrefabInfos;
+    [Tooltip("场景中的植物合集")]
+    public List<PlantPrefabInfo> PlantPrefabInfos;
 
-    private int sun = 10000;
+    private int sun;
     public int Sun
     {
         get
@@ -54,22 +84,34 @@ public class GardenManager : BaseManager<GardenManager>
     /// </summary>
     public List<PlantAttribute> PlantAttributes { get; set; } = new List<PlantAttribute>();
 
+    /// <summary>
+    /// 战斗的植物集合
+    /// </summary>
+    public Dictionary<PlantAttribute, Plant> PlantDict { get; set; } = new Dictionary<PlantAttribute, Plant>();
+
     public void AddPlant(PlantCard plantCard)
     {
         NoPlantingPlants.Add(plantCard);
     }
 
-    public PlantUIPrefabInfo GetPlantUIPrefabInfo(PlantType plantType)
+    public void PlantsGoToWar()
     {
-        PlantUIPrefabInfo plantUIPrefabInfo = null;
-        foreach (var item in PlantUIPrefabInfos)
+        if (PlantDict.Count != PlantAttributes.Count)
         {
-            if (item.plantType == plantType)
+            foreach (var item in PlantAttributes)
             {
-                plantUIPrefabInfo = item;
-                break;
+                if (!PlantDict.ContainsKey(item) && item.isCultivate)
+                {
+                    var plant = GameObject.Instantiate(PlantPrefabInfos.GetPlantInfo(item.plantCard.plantType).plant);
+                    plant.plantAttribute = item;
+                    PlantDict.Add(item, plant);
+                }
             }
         }
-        return plantUIPrefabInfo;
+
+        foreach (var item in PlantDict)
+        {
+            item.Value.Reuse();
+        }
     }
 }

@@ -12,6 +12,7 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateBasicDamage = "»ù´¡ÉËº¦";
     private readonly string CultivatePercentageDamage = "°Ù·Ö±ÈÉËº¦";
     private readonly string CultivateRange = "¹¥»÷·¶Î§";
+    private readonly string CultivateCoolTime = "¹¥»÷ÀäÈ´";
 
     public void SetPlantAttribute(FlowerPotGardenItem flowerPotGardenItem)
     {
@@ -32,7 +33,7 @@ public class PlantCultivationPage : MonoBehaviour
             switch (flowerPotGardenItem.PlantAttribute.plantCard.plantType)
             {
                 case PlantType.Peashooter:
-                    SetItemInfo(flowerPotGardenItem, new string[] {CultivateBasicDamage, CultivatePercentageDamage, CultivateRange});
+                    SetItemInfo(flowerPotGardenItem, new string[] {CultivateBasicDamage, CultivateRange, CultivateCoolTime });
                     break;
                 case PlantType.Repeater:
                     break;
