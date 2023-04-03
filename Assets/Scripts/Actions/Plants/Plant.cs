@@ -7,6 +7,8 @@ public class Plant : MonoBehaviour
 {
     public PlantAttribute plantAttribute;
 
+    protected SpriteRenderer spriteRenderer;
+
     private FacingDirections facingDirections;
     public virtual FacingDirections FacingDirections 
     { 
@@ -27,8 +29,24 @@ public class Plant : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
+    }
+
     public virtual void Reuse()
     {
-
+        var levelBounds = LevelManager.Instance.LevelBounds;
+        float randomX = Random.Range(levelBounds.min.x, levelBounds.max.x);
+        // 0.5 刚好站在格子上
+        float randomY = (int)Random.Range(levelBounds.min.y, levelBounds.max.y - 0.5f) + 0.5f;
+        this.transform.position = new Vector3(randomX, randomY, 0);
+        int y = (int)((-randomY + 10) * 10);
+        spriteRenderer.sortingOrder = y;
+        // 如果在右半部分则面向左
+        if (randomX > levelBounds.center.x)
+            FacingDirections = FacingDirections.Left;
+        else
+            FacingDirections = FacingDirections.Right;
     }
 }

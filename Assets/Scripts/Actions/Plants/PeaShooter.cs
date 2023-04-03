@@ -6,7 +6,6 @@ using UnityEngine;
 public class PeaShooter : Plant
 {
     public Animator animator;
-    public SpriteRenderer spriteRenderer;
     public Sprite attack0Trigger;
     public Sprite attack1Trigger;
     public Sprite attack2Trigger;
@@ -39,18 +38,6 @@ public class PeaShooter : Plant
     public override void Reuse()
     {
         base.Reuse();
-        var levelBounds = LevelManager.Instance.LevelBounds;
-        float randomX = Random.Range(levelBounds.min.x, levelBounds.max.x);
-        // 0.5 刚好站在格子上
-        float randomY = (int)Random.Range(levelBounds.min.y, levelBounds.max.y - 0.5f) + 0.5f;
-        this.transform.position = new Vector3(randomX, randomY, 0);
-        int y = (int)((-randomY + 10) * 10);
-        spriteRenderer.sortingOrder = y;
-        // 如果在右半部分则面向左
-        if (randomX > levelBounds.max.x / 2)
-            FacingDirections = FacingDirections.Left;
-        else
-            FacingDirections = FacingDirections.Right;
 
         // 属性顺序需要与PlantCultivationPage设计的文字相对应
         finalDamage = Damage;
@@ -98,7 +85,8 @@ public class PeaShooter : Plant
     {
         if (Time.time - timer > finalCoolTime)
         {
-            var hit = Physics2D.Raycast(this.transform.position, Vector2.right, finalRage, TargetLayer);
+            var direction = FacingDirections == FacingDirections.Right ? Vector2.right : Vector2.left;
+            var hit = Physics2D.Raycast(this.transform.position, direction, finalRage, TargetLayer);
             if (hit)
             {
                 if (spriteRenderer.sprite == attack0Trigger)
@@ -117,13 +105,11 @@ public class PeaShooter : Plant
         }
     }
 
-    private void Attack(string trigger)
+    protected virtual void Attack(string trigger)
     {
         animator.SetTrigger(trigger);
         timer = Time.time;
         Invoke("CreatePeaBullet", 0.05f);
-        // 双发
-        // Invoke("CreatePeaBullet", 0.15f);
     }
 
     private void CreatePeaBullet()
@@ -132,6 +118,6 @@ public class PeaShooter : Plant
         peaBullet.Damage = finalDamage;
         peaBullet.SplashPercentage = splashPercentage;
         float speedMul = FacingDirections == FacingDirections.Right ? 1 : -1;
-        peaBullet.Speed *= speedMul * bulletSpeedMul;
+        peaBullet.Speed *= 1 * bulletSpeedMul;
     }
 }

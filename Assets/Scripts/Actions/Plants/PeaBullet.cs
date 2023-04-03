@@ -50,7 +50,7 @@ public class PeaBullet : MonoBehaviour
             if (SplashPercentage > 0)
             {
                 // 因为前面的1*1面积是大概率没人的, 所有是对该位置的后1*1方格造成伤害，
-                var colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(2, 1), 0, TargetLayer);
+                var colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(3, 1), 0, TargetLayer);
                 foreach (var item in colliders)
                 {
                     // 僵尸有两个collider，只对trigger那个造成伤害

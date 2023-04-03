@@ -38,12 +38,12 @@ public class TransferGate : BaseProp
     {
         base.Reuse();
         var levelBounds = LevelManager.Instance.LevelBounds;
-        float randomX = Random.Range(levelBounds.min.x, levelBounds.max.x / 2);
-        float randomY = Random.Range(levelBounds.min.y, levelBounds.max.y / 2);
+        float randomX = Random.Range(levelBounds.min.x, levelBounds.center.x);
+        float randomY = Random.Range(levelBounds.min.y, levelBounds.center.y);
         transferGate1.transform.position = new Vector3(randomX, randomY, 0);
 
-        randomX = Random.Range(levelBounds.max.x / 2, levelBounds.max.x);
-        randomY = Random.Range(levelBounds.max.y / 2, levelBounds.max.y);
+        randomX = Random.Range(levelBounds.center.x, levelBounds.max.x);
+        randomY = Random.Range(levelBounds.center.y, levelBounds.max.y);
         transferGate2.transform.position = new Vector3(randomX, randomY, 0);
     }
 

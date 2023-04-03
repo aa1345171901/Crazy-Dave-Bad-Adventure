@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 3439143846644530325}
   - component: {fileID: 3439143846644530324}
   - component: {fileID: 3439143846644530327}
-  - component: {fileID: 3439143846644530346}
+  - component: {fileID: 1864005620943170618}
   m_Layer: 0
   m_Name: Repeater
   m_TagString: Untagged
@@ -138,7 +138,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3439143846644530346
+--- !u!114 &1864005620943170618
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,16 +147,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 3439143846644530326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39fda476e6a8f1546ba393f834e313ed, type: 3}
+  m_Script: {fileID: 11500000, guid: ac13b04c5322c974a9c89a6f18ae5747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plantAttribute:
+    plantCard:
+      plantName: 
+      plantBgImagePath: 
+      plantImagePath: 
+      defaultPrice: 0
+      defaultSun: 0
+      info: 
+      plantType: 0
+      plantTypeString: 
+    isCultivate: 0
+    level1: 0
+    level2: 0
+    level3: 0
+    maxLevel: 0
+    attribute: 
   animator: {fileID: 3439143846644530327}
-  spriteRenderer: {fileID: 3439143846644530324}
   attack0Trigger: {fileID: 21300000, guid: 4d92fbbcff0a85c47afc60551428c5c3, type: 3}
   attack1Trigger: {fileID: 21300000, guid: 42840b081f8835e4e90bda723e6e9e83, type: 3}
   attack2Trigger: {fileID: 21300000, guid: d34f2d15603e43d42be85a161d2755c5, type: 3}
-  Range: 5
   Damage: 5
+  Range: 5
   CoolTime: 2
   TargetLayer:
     serializedVersion: 2
