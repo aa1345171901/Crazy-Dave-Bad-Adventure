@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TopDownPlate;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,14 +9,38 @@ public class PlantCultivationPage : MonoBehaviour
     public List<PlantCultivationItem> plantCultivationItems;
     public Text InfoText;
 
+    /// <summary>
+    /// 主要用于页面显示的正确
+    /// </summary>
+    public FlowerPotGardenItem FlowerPotGardenItem { get; private set; }
+
+    private Camera UICamera;
+    private RectTransform rectTransform;
+
     private readonly string CultivateInfo = "培育";
     private readonly string CultivateBasicDamage = "基础伤害";
     private readonly string CultivatePercentageDamage = "百分比伤害";
-    private readonly string CultivateRange = "攻击范围";
+    private readonly string CultivateRange = "攻击检测范围";
     private readonly string CultivateCoolTime = "攻击冷却";
+    private readonly string CultivateBulletSpeed = "子弹速度";
+    private readonly string CultivateSplashDamage = "溅射伤害";
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && FlowerPotGardenItem != null && gameObject.activeSelf
+            && !BoundsUtils.GetSceneRect(UICamera, FlowerPotGardenItem.GetComponent<RectTransform>()).Contains(Input.mousePosition)
+            && !BoundsUtils.GetAnchorLeftRect(UICamera, rectTransform).Contains(Input.mousePosition))
+        {
+            gameObject.SetActive(false);
+            FlowerPotGardenItem = null;
+            AudioManager.Instance.PlayEffectSoundByName("pageExpansion", Random.Range(0.8f, 1f));
+        }
+    }
 
     public void SetPlantAttribute(FlowerPotGardenItem flowerPotGardenItem)
     {
+        UpdatePos(flowerPotGardenItem);
+        this.FlowerPotGardenItem = flowerPotGardenItem;
         this.InfoText.text = flowerPotGardenItem.PlantAttribute.plantCard.plantName;
         // 还未培育成型
         if (!flowerPotGardenItem.PlantAttribute.isCultivate)
@@ -33,7 +58,7 @@ public class PlantCultivationPage : MonoBehaviour
             switch (flowerPotGardenItem.PlantAttribute.plantCard.plantType)
             {
                 case PlantType.Peashooter:
-                    SetItemInfo(flowerPotGardenItem, new string[] {CultivateBasicDamage, CultivateRange, CultivateCoolTime });
+                    SetItemInfo(flowerPotGardenItem, new string[] {CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage });
                     break;
                 case PlantType.Repeater:
                     break;
@@ -65,12 +90,30 @@ public class PlantCultivationPage : MonoBehaviour
         }
     }
 
+    private void UpdatePos(FlowerPotGardenItem flowerPotGardenItem)
+    {
+        if (UICamera == null)
+        {
+            UICamera = UIManager.Instance.UICamera;
+            rectTransform = this.GetComponent<RectTransform>();
+        }
+        rectTransform.position = flowerPotGardenItem.transform.position;
+        Rect bounds = BoundsUtils.GetAnchorLeftRect(UICamera, rectTransform);
+        if (bounds.xMax > Screen.width)
+        {
+            var pos = transform.position;
+            // 100 为canvas每单位像素
+            pos.x = transform.position.x - bounds.width / 100;
+            transform.position = pos;
+        }
+    }
+
     private void SetItemInfo(FlowerPotGardenItem flowerPotGardenItem, string[] infos)
     {
         for (int i = 0; i < plantCultivationItems.Count; i++)
         {
             plantCultivationItems[i].gameObject.SetActive(true);
-            plantCultivationItems[i].SetInfo((CultivateAttributeType)(i + 1), flowerPotGardenItem, infos[i]);
+            plantCultivationItems[i].SetInfo((CultivateAttributeType)(i + 1), flowerPotGardenItem, infos[flowerPotGardenItem.PlantAttribute.attribute[i]]);
         }
     }
 

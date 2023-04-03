@@ -110,3 +110,22 @@ public class ShopManager : BaseManager<ShopManager>
         return count;
     }
 }
+
+public static class RandomUtils
+{
+    public static HashSet<int> RandomCreateNumber(int len, int count)
+    {
+        // 随机取4个不同的随机数
+        HashSet<int> hashSet = new HashSet<int>();
+        int RmNum = count;
+        for (; hashSet.Count < RmNum;)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, len);
+            if (!hashSet.Contains(randomIndex))
+            {
+                hashSet.Add(randomIndex);
+            }
+        }
+        return hashSet;
+    }
+}

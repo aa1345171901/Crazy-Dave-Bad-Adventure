@@ -11,10 +11,13 @@ public class PlantAttribute
     public bool isCultivate;
 
     // 为了泛用性，在生成的时候按顺序取值，可能每个植物增加的属性都不相同，一般取三个属性增长，如有特殊则后续再设计,其中value为等级，等级增长后属性如何增加由具体植物中设计
-    public int value1;
-    public int value2;
-    public int value3;
+    public int level1;
+    public int level2;
+    public int level3;
     public int maxLevel = 10;
+
+    // attribute为随机属性顺序，对应目标植物的对应属性，在培育完成后即设置，只能一次
+    public int[] attribute = new int[3];
 
     public PlantAttribute(PlantCard plantCard)
     {
@@ -27,39 +30,17 @@ public class FlowerPotGardenItem : MonoBehaviour
     public PlantAttribute PlantAttribute = null;
 
     private PlantCultivationPage plantCultivationPage;
-    private bool isPageOpen;
     private GameObject seeding;
     private GameObject taegetPlantPrefab;
     private GameObject taegetPlant;
 
     private Animator animator;
 
-    private Camera UICamera;
-    private RectTransform rectTransform;
-    private RectTransform plantPageRectTransform;
-
-    private void Start()
-    {
-        UICamera = UIManager.Instance.UICamera;
-        rectTransform = this.GetComponent<RectTransform>();
-        animator = GetComponent<Animator>();
-    }
-
-    private void Update()
-    {
-        if (isPageOpen && plantCultivationPage != null && Input.GetMouseButtonDown(0) 
-            && !BoundsUtils.GetAnchorLeftRect(UICamera, plantPageRectTransform).Contains(Input.mousePosition) 
-            && !BoundsUtils.GetSceneRect(UICamera, rectTransform).Contains(Input.mousePosition) && plantCultivationPage.gameObject.activeSelf)
-        {
-            plantCultivationPage.gameObject.SetActive(false);
-            AudioManager.Instance.PlayEffectSoundByName("pageExpansion", UnityEngine.Random.Range(0.8f, 1f));
-            isPageOpen = false;
-        }
-    }
-
     public void SetPlant(GameObject taegetPlant, PlantCard plantCard, PlantCultivationPage plantCultivationPage)
     {
-        plantPageRectTransform = plantCultivationPage.GetComponent<RectTransform>();
+        // 重新播放，与植物动画一致
+        animator = GetComponent<Animator>();
+        animator.Play("Idel");
         this.plantCultivationPage = plantCultivationPage;
         this.taegetPlantPrefab = taegetPlant;
         this.PlantAttribute = new PlantAttribute(plantCard);
@@ -69,21 +50,11 @@ public class FlowerPotGardenItem : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!isPageOpen && plantCultivationPage != null)
+        if (plantCultivationPage != null && plantCultivationPage.FlowerPotGardenItem != this)
         {
-            isPageOpen = true;
             AudioManager.Instance.PlayEffectSoundByName("pageExpansion", UnityEngine.Random.Range(1f, 1.2f));
             plantCultivationPage.gameObject.SetActive(true);
             plantCultivationPage.SetPlantAttribute(this);
-            plantCultivationPage.transform.position = this.transform.position;
-            Rect bounds = BoundsUtils.GetAnchorLeftRect(UICamera, plantPageRectTransform);
-            if (bounds.xMax > Screen.width)
-            {
-                var pos = plantCultivationPage.transform.position;
-                // 100 为canvas每单位像素
-                pos.x = plantCultivationPage.transform.position.x - bounds.width / 100;
-                plantCultivationPage.transform.position = pos;
-            }
         }
     }
 
@@ -91,8 +62,49 @@ public class FlowerPotGardenItem : MonoBehaviour
     {
         if (!PlantAttribute.isCultivate)
         {
+            // 培育成型设置培养的属性
+            switch (PlantAttribute.plantCard.plantType)
+            {
+                case PlantType.Peashooter:
+                    var hash = RandomUtils.RandomCreateNumber(6, 3);
+                    int index = 0;
+                    foreach (var item in hash)
+                    {
+                        PlantAttribute.attribute[index] = item;
+                        index++;
+                    }
+                    break;
+                case PlantType.Repeater:
+                    break;
+                case PlantType.Cactus:
+                    break;
+                case PlantType.Blover:
+                    break;
+                case PlantType.Cattail:
+                    break;
+                case PlantType.CherryBomb:
+                    break;
+                case PlantType.Chomper:
+                    break;
+                case PlantType.CoffeeBean:
+                    break;
+                case PlantType.Cornpult:
+                    break;
+                case PlantType.FumeShroom:
+                    break;
+                case PlantType.GatlingPea:
+                    break;
+                case PlantType.GloomShroom:
+                    break;
+                case PlantType.GoldMagent:
+                    break;
+                default:
+                    break;
+            }
+
             PlantAttribute.isCultivate = true;
             GameObject.Destroy(seeding);
+            animator.Play("Idel", 0, 0);
             taegetPlant = GameObject.Instantiate(taegetPlantPrefab, this.transform);
             plantCultivationPage.SetPlantAttribute(this);
             UpdateSunPrice();

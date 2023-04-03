@@ -29,8 +29,11 @@ public class PeaShooter : Plant
     private int finalDamage;
     private float finalRage;
     private float finalCoolTime;
+    private float bulletSpeedMul = 1;
+    private float splashPercentage;
 
-    private readonly int LevelRange = 10;
+    private readonly int LevelBasicDamage = 1;
+    private readonly float LevelPercentage = 10;
     private readonly float LevelCoolTime = 0.2f;
 
     public override void Reuse()
@@ -43,10 +46,52 @@ public class PeaShooter : Plant
         this.transform.position = new Vector3(randomX, randomY, 0);
         int y = (int)((-randomY + 10) * 10);
         spriteRenderer.sortingOrder = y;
+        // 如果在右半部分则面向左
+        if (randomX > levelBounds.max.x / 2)
+            FacingDirections = FacingDirections.Left;
+        else
+            FacingDirections = FacingDirections.Right;
 
-        finalDamage = (int)((plantAttribute.value1 + Damage) * (GameManager.Instance.UserData.Botany + 100) / 100f);
-        finalRage = (int)(Range * (plantAttribute.value2 * LevelRange + 100) / 100f);
-        finalCoolTime = CoolTime - plantAttribute.value3 * LevelCoolTime;
+        // 属性顺序需要与PlantCultivationPage设计的文字相对应
+        finalDamage = Damage;
+        finalRage = Range;
+        finalCoolTime = CoolTime;
+        int[] attributes = plantAttribute.attribute;
+        for (int i = 0; i < attributes.Length; i++)
+        {
+            // 字段映射
+            var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
+            switch (attributes[i])
+            {
+                // 0 为基础伤害
+                case 0:
+                    finalDamage = (int)fieldInfo.GetValue(plantAttribute) * LevelBasicDamage + finalDamage;
+                    break;
+                // 1 为百分比伤害
+                case 1:
+                    finalDamage = (int)(finalDamage * ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100);
+                    break;
+                // 检测范围
+                case 2:
+                    finalRage = Range * ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100;
+                    break;
+                // 冷却时间
+                case 3:
+                    finalCoolTime = CoolTime - (int)fieldInfo.GetValue(plantAttribute) * LevelCoolTime;
+                    break;
+                // 子弹速度
+                case 4:
+                    bulletSpeedMul = ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100 ) / 100;
+                    break;
+                // 溅射伤害
+                case 5:
+                    splashPercentage = (int)fieldInfo.GetValue(plantAttribute) * LevelPercentage;
+                    break;
+                default:
+                    break;
+            }
+        }
+        finalDamage = (int)(finalDamage * (GameManager.Instance.UserData.Botany + 100) / 100f);
     }
 
     private void Update()
@@ -85,5 +130,8 @@ public class PeaShooter : Plant
     {
         var peaBullet = GameObject.Instantiate(PeaBullet, BulletPos);
         peaBullet.Damage = finalDamage;
+        peaBullet.SplashPercentage = splashPercentage;
+        float speedMul = FacingDirections == FacingDirections.Right ? 1 : -1;
+        peaBullet.Speed *= speedMul * bulletSpeedMul;
     }
 }

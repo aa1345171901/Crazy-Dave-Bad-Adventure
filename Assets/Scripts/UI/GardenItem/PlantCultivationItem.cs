@@ -51,10 +51,10 @@ public class PlantCultivationItem : MonoBehaviour
                     AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
                     break;
                 case CultivateAttributeType.First:
-                    if (flowerPotGardenItem.PlantAttribute.value1 < maxLevel)
+                    if (flowerPotGardenItem.PlantAttribute.level1 < maxLevel)
                     {
                         GardenManager.Instance.Sun -= sunPrice;
-                        flowerPotGardenItem.PlantAttribute.value1++;
+                        flowerPotGardenItem.PlantAttribute.level1++;
                         flowerPotGardenItem.UpdateSunPrice();
                         AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
                     }
@@ -64,10 +64,10 @@ public class PlantCultivationItem : MonoBehaviour
                     }
                     break;
                 case CultivateAttributeType.Second:
-                    if (flowerPotGardenItem.PlantAttribute.value2 < maxLevel)
+                    if (flowerPotGardenItem.PlantAttribute.level2 < maxLevel)
                     {
                         GardenManager.Instance.Sun -= sunPrice;
-                        flowerPotGardenItem.PlantAttribute.value2++;
+                        flowerPotGardenItem.PlantAttribute.level2++;
                         flowerPotGardenItem.UpdateSunPrice();
                         AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
                     }
@@ -77,10 +77,10 @@ public class PlantCultivationItem : MonoBehaviour
                     }
                     break;
                 case CultivateAttributeType.Three:
-                    if (flowerPotGardenItem.PlantAttribute.value3 < maxLevel)
+                    if (flowerPotGardenItem.PlantAttribute.level3 < maxLevel)
                     {
                         GardenManager.Instance.Sun -= sunPrice;
-                        flowerPotGardenItem.PlantAttribute.value3++;
+                        flowerPotGardenItem.PlantAttribute.level3++;
                         flowerPotGardenItem.UpdateSunPrice();
                         AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
                     }
@@ -106,7 +106,7 @@ public class PlantCultivationItem : MonoBehaviour
 
     public void UpdateSunPrice()
     {
-        int level = flowerPotGardenItem.PlantAttribute.value1 + flowerPotGardenItem.PlantAttribute.value2 + flowerPotGardenItem.PlantAttribute.value3 + 1;
+        int level = flowerPotGardenItem.PlantAttribute.level1 + flowerPotGardenItem.PlantAttribute.level2 + flowerPotGardenItem.PlantAttribute.level3 + 1;
         if (!flowerPotGardenItem.PlantAttribute.isCultivate)
             this.sunPrice = flowerPotGardenItem.PlantAttribute.plantCard.defaultSun;
         else
@@ -124,13 +124,13 @@ public class PlantCultivationItem : MonoBehaviour
                 Level.text = "0/1";
                 break;
             case CultivateAttributeType.First:
-                SetLevel(flowerPotGardenItem.PlantAttribute.value1 + "/" + maxLevel, flowerPotGardenItem.PlantAttribute.value1 < maxLevel);
+                SetLevel(flowerPotGardenItem.PlantAttribute.level1 + "/" + maxLevel, flowerPotGardenItem.PlantAttribute.level1 < maxLevel);
                 break;
             case CultivateAttributeType.Second:
-                SetLevel(flowerPotGardenItem.PlantAttribute.value2 + "/" + maxLevel, flowerPotGardenItem.PlantAttribute.value2 < maxLevel);
+                SetLevel(flowerPotGardenItem.PlantAttribute.level2 + "/" + maxLevel, flowerPotGardenItem.PlantAttribute.level2 < maxLevel);
                 break;
             case CultivateAttributeType.Three:
-                SetLevel(flowerPotGardenItem.PlantAttribute.value3 + "/" + maxLevel, flowerPotGardenItem.PlantAttribute.value3 < maxLevel);
+                SetLevel(flowerPotGardenItem.PlantAttribute.level3 + "/" + maxLevel, flowerPotGardenItem.PlantAttribute.level3 < maxLevel);
                 break;
             default:
                 break;

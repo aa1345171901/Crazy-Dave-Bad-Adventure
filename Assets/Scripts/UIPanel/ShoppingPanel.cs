@@ -186,7 +186,7 @@ public class ShoppingPanel : BasePanel
         blueProbability += purpleProbability;
 
         // 从1000中选4个数，决定4个道具的品质
-        HashSet<int> hashSet = RandomCreateNumber(1000, 4);
+        HashSet<int> hashSet = RandomUtils.RandomCreateNumber(1000, 4);
         // 按品质分类
         Dictionary<int, int> propDicts = new Dictionary<int, int>();
         foreach (var item in hashSet)
@@ -207,7 +207,7 @@ public class ShoppingPanel : BasePanel
         foreach (var item in propDicts)
         {
             var dicts = ShopManager.Instance.PropDicts;
-            HashSet<int> propHashSet = RandomCreateNumber(dicts[item.Key].Count, item.Value);
+            HashSet<int> propHashSet = RandomUtils.RandomCreateNumber(dicts[item.Key].Count, item.Value);
             foreach (var hash in propHashSet)
             {
                 propCardItems[index].gameObject.SetActive(true);
@@ -219,7 +219,7 @@ public class ShoppingPanel : BasePanel
 
         // 植物 todo
         var plantCards = ShopManager.Instance.shopLists.PlantCards;
-        hashSet = RandomCreateNumber(plantCards.Count, 4);
+        hashSet = RandomUtils.RandomCreateNumber(plantCards.Count, 4);
         index = 0;
         foreach (var item in hashSet)
         {
@@ -235,22 +235,6 @@ public class ShoppingPanel : BasePanel
         }
         RenovateMoney += (autoRefreshWave + renovateCount) * 2 + 1;
         renovateCount++;
-    }
-
-    private HashSet<int> RandomCreateNumber(int len, int count)
-    {
-        // 随机取4个不同的随机数
-        HashSet<int> hashSet = new HashSet<int>();
-        int RmNum = count;
-        for (; hashSet.Count < RmNum;)
-        {
-            int randomIndex = UnityEngine.Random.Range(0, len);
-            if (!hashSet.Contains(randomIndex))
-            {
-                hashSet.Add(randomIndex);
-            }
-        }
-        return hashSet;
     }
 
     public override void OnEnter()
