@@ -1573,14 +1573,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SeedingPrefab: {fileID: 510236188162486127, guid: bbfa7747bb8461a469fed289eeb742b7, type: 3}
   PlantUIPrefabInfos:
-  - plantType: 0
-    plantPrefab: {fileID: 6769889322668651902, guid: eefbfa86b5dad3a4b85f23c9a7b8c60d, type: 3}
   - plantType: 1
+    plantPrefab: {fileID: 6769889322668651902, guid: eefbfa86b5dad3a4b85f23c9a7b8c60d, type: 3}
+  - plantType: 2
     plantPrefab: {fileID: 4552053639962518578, guid: f3faafa8b99ccb148863e73179d18b27, type: 3}
   PlantPrefabInfos:
-  - plantType: 0
-    plant: {fileID: 3255321644512461494, guid: 6c788df13532deb46869e64fe461b6d3, type: 3}
   - plantType: 1
+    plant: {fileID: 3255321644512461494, guid: 6c788df13532deb46869e64fe461b6d3, type: 3}
+  - plantType: 2
     plant: {fileID: 1864005620943170618, guid: b55f71fb9cb6daf468002bf4c8264708, type: 3}
 --- !u!1 &968511682
 GameObject:

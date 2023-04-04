@@ -7,6 +7,7 @@ using UnityEngine.UI;
 [Serializable]
 public enum PlantType
 {
+    None,
     /// <summary>
     /// Õ„∂π…‰ ÷
     /// </summary>

@@ -58,23 +58,14 @@ public class PlantCultivationPage : MonoBehaviour
         }
         else
         {
-            var purchasedPlantEvolutionDicts = ShopManager.Instance.PurchasedPlantEvolutionDicts;
-            var plantEvolutionDict = ShopManager.Instance.PlantEvolutionDict;
             // 根据植物进行属性培养提示以及进化按钮展示
             switch (flowerPotGardenItem.PlantAttribute.plantCard.plantType)
             {
                 case PlantType.Peashooter:
-                    SetItemInfo(flowerPotGardenItem, new string[] {CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage });
-                    if (purchasedPlantEvolutionDicts.ContainsKey(PlantType.Repeater))
-                    {
-                        if (purchasedPlantEvolutionDicts[PlantType.Repeater] > 0)
-                        {
-                            EvolutionItem.gameObject.SetActive(true);
-                            EvolutionItem.SetTarget(flowerPotGardenItem, plantEvolutionDict[PlantType.Repeater]);
-                        }
-                    }
+                    SetItemInfo(flowerPotGardenItem, PlantType.Repeater, new string[] {CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage });
                     break;
                 case PlantType.Repeater:
+                    SetItemInfo(flowerPotGardenItem, PlantType.GatlingPea, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage });
                     break;
                 case PlantType.Cactus:
                     break;
@@ -122,12 +113,23 @@ public class PlantCultivationPage : MonoBehaviour
         }
     }
 
-    private void SetItemInfo(FlowerPotGardenItem flowerPotGardenItem, string[] infos)
+    private void SetItemInfo(FlowerPotGardenItem flowerPotGardenItem,PlantType plantType, string[] infos)
     {
         for (int i = 0; i < plantCultivationItems.Count; i++)
         {
             plantCultivationItems[i].gameObject.SetActive(true);
             plantCultivationItems[i].SetInfo((CultivateAttributeType)(i + 1), flowerPotGardenItem, infos[flowerPotGardenItem.PlantAttribute.attribute[i]]);
+        }
+
+        var purchasedPlantEvolutionDicts = ShopManager.Instance.PurchasedPlantEvolutionDicts;
+        var plantEvolutionDict = ShopManager.Instance.PlantEvolutionDict;
+        if (purchasedPlantEvolutionDicts.ContainsKey(plantType))
+        {
+            if (purchasedPlantEvolutionDicts[plantType] > 0)
+            {
+                EvolutionItem.gameObject.SetActive(true);
+                EvolutionItem.SetTarget(flowerPotGardenItem, plantEvolutionDict[plantType]);
+            }
         }
     }
 
