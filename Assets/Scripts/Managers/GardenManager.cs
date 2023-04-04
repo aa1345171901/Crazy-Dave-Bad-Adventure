@@ -109,9 +109,25 @@ public class GardenManager : BaseManager<GardenManager>
             }
         }
 
+        // 不能在遍历时修改值，所以新建一个字典存储
+        Dictionary<PlantAttribute, Plant> destroyPlants = new Dictionary<PlantAttribute, Plant>();
         foreach (var item in PlantDict)
         {
+            if (item.Key.plantCard.plantType != item.Value.PlantType)
+            {
+                var plant = GameObject.Instantiate(PlantPrefabInfos.GetPlantInfo(item.Key.plantCard.plantType).plant);
+                plant.plantAttribute = item.Key;
+                destroyPlants.Add(item.Key, plant);
+                GameObject.Destroy(item.Value.gameObject);
+            }
             item.Value.Reuse();
         }
+
+        foreach (var item in destroyPlants)
+        {
+            PlantDict[item.Key] = item.Value;
+            item.Value.Reuse();
+        }
+        destroyPlants.Clear();
     }
 }

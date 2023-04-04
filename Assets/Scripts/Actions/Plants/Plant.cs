@@ -7,6 +7,8 @@ public class Plant : MonoBehaviour
 {
     public PlantAttribute plantAttribute;
 
+    public virtual PlantType PlantType => PlantType.None;
+
     protected SpriteRenderer spriteRenderer;
 
     private FacingDirections facingDirections;

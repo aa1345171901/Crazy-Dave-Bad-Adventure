@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PeaShooter : Plant
 {
+    public override PlantType PlantType => PlantType.Peashooter;
+
     public Animator animator;
     public Sprite attack0Trigger;
     public Sprite attack1Trigger;
@@ -83,7 +85,7 @@ public class PeaShooter : Plant
 
     private void Update()
     {
-        if (Time.time - timer > finalCoolTime)
+        if (Time.time - timer > finalCoolTime && spriteRenderer != null)
         {
             var direction = FacingDirections == FacingDirections.Right ? Vector2.right : Vector2.left;
             var hit = Physics2D.Raycast(this.transform.position, direction, finalRage, TargetLayer);
@@ -117,7 +119,6 @@ public class PeaShooter : Plant
         var peaBullet = GameObject.Instantiate(PeaBullet, BulletPos);
         peaBullet.Damage = finalDamage;
         peaBullet.SplashPercentage = splashPercentage;
-        float speedMul = FacingDirections == FacingDirections.Right ? 1 : -1;
-        peaBullet.Speed *= 1 * bulletSpeedMul;
+        peaBullet.Speed *= bulletSpeedMul;
     }
 }

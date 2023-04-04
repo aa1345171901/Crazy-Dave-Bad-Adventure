@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Repeater : PeaShooter
 {
+    public override PlantType PlantType => PlantType.Repeater;
+
     protected override void Attack(string trigger)
     {
         base.Attack(trigger);

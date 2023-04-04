@@ -40,7 +40,7 @@ public class PlantCultivationItem : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (sunPrice < GardenManager.Instance.Sun)
+        if (sunPrice <= GardenManager.Instance.Sun)
         {
             int maxLevel = flowerPotGardenItem.PlantAttribute.maxLevel;
             switch (cultivateAttributeType)

@@ -20,7 +20,7 @@ public class EvolutionItem : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (sunPrice < GardenManager.Instance.Sun)
+        if (sunPrice <= GardenManager.Instance.Sun)
         {
             AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
 
