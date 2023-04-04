@@ -62,7 +62,7 @@ public enum PlantType
 }
 
 [Serializable]
-public class PlantCard
+public class PlantCard : ISerializationCallbackReceiver
 {
     public string plantName;
     public string plantBgImagePath;
@@ -73,12 +73,15 @@ public class PlantCard
 
     public PlantType plantType;
     [HideInInspector]
-    public string plantTypeString;
+    public string plantTypeString = "Peashooter";
 
     public void OnAfterDeserialize()
     {
-        PlantType type = (PlantType)System.Enum.Parse(typeof(PlantType), plantTypeString);
-        plantType = type;
+        if (!string.IsNullOrEmpty(plantTypeString))
+        {
+            PlantType type = (PlantType)System.Enum.Parse(typeof(PlantType), plantTypeString);
+            plantType = type;
+        }
     }
 
     public void OnBeforeSerialize()
@@ -122,17 +125,26 @@ public class PlantCardItem : ShopItem
     {
         if (ShopManager.Instance.Money >= Price)
         {
-            // 种植的加上刚买的数量小于已有花盆 + 未摆放花盆数量才能购买
-            if (GardenManager.Instance.NoPlantingPlants.Count + GardenManager.Instance.PlantAttributes.Count < GardenManager.Instance.FlowerPotCount + GardenManager.Instance.NotPlacedFlowerPotCount)
+            // 购买的进化卡
+            if (ShopManager.Instance.PurchasePlant(plantCard, Price))
             {
-                ShopManager.Instance.PurchasePlant(plantCard, Price);
                 this.gameObject.SetActive(false);
                 this.isDown = false;
             }
             else
             {
-                // 提醒花盆不足
-                CanNotPlanting?.Invoke();
+                // 种植的加上刚买的数量小于已有花盆 + 未摆放花盆数量才能购买
+                if (GardenManager.Instance.NoPlantingPlants.Count + GardenManager.Instance.PlantAttributes.Count < GardenManager.Instance.FlowerPotCount + GardenManager.Instance.NotPlacedFlowerPotCount)
+                {
+                    ShopManager.Instance.PurchasePlant(plantCard, Price, true);
+                    this.gameObject.SetActive(false);
+                    this.isDown = false;
+                }
+                else
+                {
+                    // 提醒花盆不足
+                    CanNotPlanting?.Invoke();
+                }
             }
         }
         else

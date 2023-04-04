@@ -1300,6 +1300,16 @@
         },
 
         {
+            "plantName" :"双发豌豆",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/Repeater",
+            "defaultPrice": "25",
+            "defaultSun": "100",
+            "info": "<color=#00ff00>双发豌豆射手</color>\n购买后使用{0}阳光可将豌豆射手进化成双发射手\n一次性可以发射两枚豌豆",
+            "plantTypeString": "Repeater"
+        },
+
+        {
             "plantName" :"仙人掌",
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/Cactus",

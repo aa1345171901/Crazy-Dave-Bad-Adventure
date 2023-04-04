@@ -100,6 +100,8 @@ namespace TopDownPlate
 
         public int PotDamage { get; set; }  // Æ½µ×¹øµÄÉËº¦£¬·ÉÍ·ÉËº¦ÎªÆ½µ×¹øÉËº¦ * ²¤²ËÊý/4 ×î´ó1;
 
+        public bool IsOpenVocalConcert => vocalConcert.OpenVocalConcert;
+
         private BattlePanel battlePanel;
         private VocalConcert vocalConcert;
 

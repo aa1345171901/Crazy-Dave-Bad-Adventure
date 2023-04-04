@@ -29,13 +29,11 @@ public class Plant : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        spriteRenderer = this.GetComponent<SpriteRenderer>();
-    }
-
     public virtual void Reuse()
     {
+        if (spriteRenderer == null)
+            spriteRenderer = this.GetComponent<SpriteRenderer>();
+
         var levelBounds = LevelManager.Instance.LevelBounds;
         float randomX = Random.Range(levelBounds.min.x, levelBounds.max.x);
         // 0.5 刚好站在格子上

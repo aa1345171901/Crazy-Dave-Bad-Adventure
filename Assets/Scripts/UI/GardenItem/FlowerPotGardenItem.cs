@@ -32,7 +32,7 @@ public class FlowerPotGardenItem : MonoBehaviour
     private PlantCultivationPage plantCultivationPage;
     private GameObject seeding;
     private GameObject taegetPlantPrefab;
-    private GameObject taegetPlant;
+    private GameObject targetPlant;
 
     private Animator animator;
 
@@ -105,10 +105,21 @@ public class FlowerPotGardenItem : MonoBehaviour
             PlantAttribute.isCultivate = true;
             GameObject.Destroy(seeding);
             animator.Play("Idel", 0, 0);
-            taegetPlant = GameObject.Instantiate(taegetPlantPrefab, this.transform);
+            targetPlant = GameObject.Instantiate(taegetPlantPrefab, this.transform);
             plantCultivationPage.SetPlantAttribute(this);
             UpdateSunPrice();
         }
+    }
+
+    public void Evolution(PlantCard plantCard)
+    {
+        taegetPlantPrefab = GardenManager.Instance.PlantUIPrefabInfos.GetPlantInfo(plantCard.plantType).plantPrefab;
+        GameObject.Destroy(targetPlant);
+        animator.Play("Idel", 0, 0);
+        targetPlant = GameObject.Instantiate(taegetPlantPrefab, this.transform);
+        PlantAttribute.plantCard = plantCard;
+        plantCultivationPage.SetPlantAttribute(this);
+        UpdateSunPrice();
     }
 
     public void UpdateSunPrice()

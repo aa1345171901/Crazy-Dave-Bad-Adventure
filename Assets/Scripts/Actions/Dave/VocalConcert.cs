@@ -31,6 +31,11 @@ public class VocalConcert : BaseProp
     [Tooltip("音乐会使僵尸受伤的声音")]
     public AudioSource audioSource;
 
+    /// <summary>
+    /// 是否开启了演唱会
+    /// </summary>
+    public bool OpenVocalConcert { get; private set; }
+
     private bool isFog;
     private float fogTimer;
     private float micY;
@@ -38,7 +43,6 @@ public class VocalConcert : BaseProp
 
     private int finalDamage;
     private float incrementRange = 1;
-    private bool openVocalConcert;
     private float vocalConcertTimer;
     private Vector3 defaultRangeScale;
 
@@ -71,9 +75,9 @@ public class VocalConcert : BaseProp
         Mic.SetActive(shop.PurchasePropCount("mic") >= 1);
         Lights.SetActive(shop.PurchasePropCount("lights") >= 1);
         Speaker.SetActive(shop.PurchasePropCount("speaker") >= 1);
-        openVocalConcert = Fogmachine.activeSelf && Mic.activeSelf && Lights.activeSelf && Speaker.activeSelf;
-        range.SetActive(openVocalConcert);
-        if (openVocalConcert)
+        OpenVocalConcert = Fogmachine.activeSelf && Mic.activeSelf && Lights.activeSelf && Speaker.activeSelf;
+        range.SetActive(OpenVocalConcert);
+        if (OpenVocalConcert)
         {
             AudioManager.Instance.PlayVocalConcertMusic(2);
             blueLight.gameObject.SetActive(true);
@@ -111,7 +115,7 @@ public class VocalConcert : BaseProp
             fog.Stop();
         }
 
-        if (!openVocalConcert)
+        if (!OpenVocalConcert)
             return;
         // 灯光
         for (int i = 0; i < LightItems.Count; i++)

@@ -122,6 +122,7 @@ public class PlantCultivationItem : MonoBehaviour
         {
             case CultivateAttributeType.Cultivate:
                 Level.text = "0/1";
+                Level.color = Color.green;
                 break;
             case CultivateAttributeType.First:
                 SetLevel(flowerPotGardenItem.PlantAttribute.level1 + "/" + maxLevel, flowerPotGardenItem.PlantAttribute.level1 < maxLevel);

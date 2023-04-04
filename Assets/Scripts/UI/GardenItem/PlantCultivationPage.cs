@@ -8,6 +8,8 @@ public class PlantCultivationPage : MonoBehaviour
 {
     public List<PlantCultivationItem> plantCultivationItems;
     public Text InfoText;
+    [Tooltip("进化按钮")]
+    public EvolutionItem EvolutionItem;
 
     /// <summary>
     /// 主要用于页面显示的正确
@@ -40,6 +42,7 @@ public class PlantCultivationPage : MonoBehaviour
     public void SetPlantAttribute(FlowerPotGardenItem flowerPotGardenItem)
     {
         UpdatePos(flowerPotGardenItem);
+        EvolutionItem.gameObject.SetActive(false);
         this.FlowerPotGardenItem = flowerPotGardenItem;
         this.InfoText.text = flowerPotGardenItem.PlantAttribute.plantCard.plantName;
         // 还未培育成型
@@ -55,10 +58,21 @@ public class PlantCultivationPage : MonoBehaviour
         }
         else
         {
+            var purchasedPlantEvolutionDicts = ShopManager.Instance.PurchasedPlantEvolutionDicts;
+            var plantEvolutionDict = ShopManager.Instance.PlantEvolutionDict;
+            // 根据植物进行属性培养提示以及进化按钮展示
             switch (flowerPotGardenItem.PlantAttribute.plantCard.plantType)
             {
                 case PlantType.Peashooter:
                     SetItemInfo(flowerPotGardenItem, new string[] {CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage });
+                    if (purchasedPlantEvolutionDicts.ContainsKey(PlantType.Repeater))
+                    {
+                        if (purchasedPlantEvolutionDicts[PlantType.Repeater] > 0)
+                        {
+                            EvolutionItem.gameObject.SetActive(true);
+                            EvolutionItem.SetTarget(flowerPotGardenItem, plantEvolutionDict[PlantType.Repeater]);
+                        }
+                    }
                     break;
                 case PlantType.Repeater:
                     break;

@@ -159,6 +159,8 @@ public class ShoppingPanel : BasePanel
     {
         if (ShopManager.Instance.Money < RenovateMoney)
             return;
+        // 刷新前更新卡池
+        ShopManager.Instance.UpdateCardPool();
 
         audioSource.Play();
         animator.SetTrigger("refresh");
@@ -218,7 +220,7 @@ public class ShoppingPanel : BasePanel
         }
 
         // 植物 todo
-        var plantCards = ShopManager.Instance.shopLists.PlantCards;
+        var plantCards = ShopManager.Instance.PlantLists;
         hashSet = RandomUtils.RandomCreateNumber(plantCards.Count, 4);
         index = 0;
         foreach (var item in hashSet)
