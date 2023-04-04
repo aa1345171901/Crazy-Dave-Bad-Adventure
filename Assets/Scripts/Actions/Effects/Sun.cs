@@ -25,6 +25,7 @@ public class Sun : MoneyClick
     protected override void NumAdd()
     {
         GardenManager.Instance.Sun += Price;
+        audioSource.pitch = Random.Range(1f, 1.5f);
     }
 
     protected override void PlayAnimation()

@@ -362,10 +362,19 @@ MonoBehaviour:
   PlantItemPrefab: {fileID: 3899185410755225431, guid: dc0a9440c23c32a429d2b477840b8aaf, type: 3}
   BtnRenovate: {fileID: 5048601517365056689}
   RenovateMoneyText: {fileID: 2174584241167138187}
+  renovateSounds: {fileID: 8300000, guid: 0836da75074ded947b9904808fe64694, type: 3}
   DialogText: {fileID: 2174584242642289174}
   Money: {fileID: 2174584241095894337}
   FlowerPotItem: {fileID: 3670250336877392704}
   audioSource: {fileID: 5707184715326355597}
+  Dave: {fileID: 2174584242458207874}
+  daveAudioClips:
+  - {fileID: 8300000, guid: 211b9a7229d72384188111781da4a179, type: 3}
+  - {fileID: 8300000, guid: 2f0c07a22c517f648ad50938926de730, type: 3}
+  - {fileID: 8300000, guid: 5ddd1832075d06042a407e9e6e8d1835, type: 3}
+  - {fileID: 8300000, guid: a369626c3ae2f7741bba3f0e4725bc0a, type: 3}
+  - {fileID: 8300000, guid: 7fa3f44e40cbcd84db91d6104dcdcd32, type: 3}
+  - {fileID: 8300000, guid: 88a65bd72816a604989d102b6d0425e8, type: 3}
 --- !u!95 &639843903
 Animator:
   serializedVersion: 4
@@ -809,12 +818,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: dc256eadded527f4c80ff9b34a180e35, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 568146fcaf3158f4aa89ca822fdc4fd3, type: 2}
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
-  startingAnimation: Idel
-  startingLoop: 0
+  startingAnimation: ShopingIdel
+  startingLoop: 1
   timeScale: 1
   freeze: 0
   updateWhenInvisible: 3

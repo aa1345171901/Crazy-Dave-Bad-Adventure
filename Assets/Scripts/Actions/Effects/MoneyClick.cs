@@ -48,8 +48,8 @@ public class MoneyClick : MonoBehaviour
         if (IsExit)
             return;
         audioSource.pitch = Random.Range(0.8f, 1.5f);
-        audioSource.Play();
         NumAdd();
+        audioSource.Play();
         IsExit = true;
         target = Camera.main.ViewportToWorldPoint(new Vector3(-10, 10f, -Camera.main.transform.position.z));
         speed = (target - transform.position) / destroyTime / 10;

@@ -1,3 +1,4 @@
+using Spine.Unity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ public class ShoppingPanel : BasePanel
 
     public UIButton BtnRenovate;
     public Text RenovateMoneyText;
+    public AudioClip renovateSounds;
 
     public Text DialogText;
     public Text Money;
@@ -24,6 +26,11 @@ public class ShoppingPanel : BasePanel
     public FlowerPotShopItem FlowerPotItem;
 
     public AudioSource audioSource;
+
+    public SkeletonGraphic Dave;
+    public List<AudioClip> daveAudioClips;
+    private object nowItem;        // 当前播放语音的item,后续道具的展示也放shopping这里，所以使用object
+    private object lastDownItem;  // 上次播放语音的Item,如果相同则不再播放
 
     private Animator animator;
 
@@ -115,11 +122,38 @@ public class ShoppingPanel : BasePanel
                 if (!isTriggerCannotAfford)
                     this.DialogText.text = item.Info;
                 hasDown = true;
+                nowItem = item;
                 break;
             }
         }
         if (!hasDown)
             isTriggerCannotAfford = false;
+        else
+            Invoke("PlayDaveSounds", 0.3f);
+    }
+
+    private void PlayDaveSounds()
+    {
+        if (!audioSource.isPlaying && nowItem != lastDownItem)
+        {
+            lastDownItem = nowItem;
+            int index = UnityEngine.Random.Range(0, daveAudioClips.Count);
+            audioSource.clip = daveAudioClips[index];
+            audioSource.Play();
+            var track = Dave.AnimationState.SetAnimation(1, "ShopingSpeak", false);
+            // 前三个为长语音
+            if (index < 3)
+            {
+                track.Complete += (e) =>
+                {
+                    var track = Dave.AnimationState.SetAnimation(1, "ShopingSpeak", false);
+                    track.Complete += (e) =>
+                    {
+                        Dave.AnimationState.SetAnimation(1, "ShopingSpeak", false);
+                    };
+                };
+            }
+        }
     }
 
     private void InitItems()
@@ -146,6 +180,7 @@ public class ShoppingPanel : BasePanel
         int index = UnityEngine.Random.Range(0, CannotAffordStrings.Length);
         this.DialogText.text = CannotAffordStrings[index];
         isTriggerCannotAfford = true;
+        lastDownItem = null;  // 买不起重新播放语音
     }
 
     private void CanNotPlanting()
@@ -153,6 +188,7 @@ public class ShoppingPanel : BasePanel
         int index = UnityEngine.Random.Range(0, CannotPlantingStrings.Length);
         this.DialogText.text = CannotPlantingStrings[index];
         isTriggerCannotAfford = true;
+        lastDownItem = null;
     }
 
     public void Refresh()
@@ -161,7 +197,7 @@ public class ShoppingPanel : BasePanel
             return;
         // 刷新前更新卡池
         ShopManager.Instance.UpdateCardPool();
-
+        audioSource.clip = renovateSounds;
         audioSource.Play();
         animator.SetTrigger("refresh");
 

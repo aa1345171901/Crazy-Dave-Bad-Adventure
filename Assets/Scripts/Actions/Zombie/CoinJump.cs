@@ -73,6 +73,7 @@ public class CoinJump : MonoBehaviour
 
         int sunCount = lucky / 10 + 1;
         sunCount = sunCount > 6 ? 6 : sunCount;
+        sunCount = Random.Range(1, sunCount + 1);
         for (int i = 0; i < sunCount; i++)
         {
             var targetSun = GameObject.Instantiate(Sun).GetComponent<MoneyClick>();

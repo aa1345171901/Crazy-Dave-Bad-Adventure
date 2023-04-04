@@ -46,6 +46,8 @@ public class VocalConcert : BaseProp
     private float vocalConcertTimer;
     private Vector3 defaultRangeScale;
 
+    private Character character;
+
     private float[] spectrum = new float[64];
     private readonly float FogDuration = 5;
 
@@ -65,6 +67,7 @@ public class VocalConcert : BaseProp
         DefaultAttackCoolingTime = 1;  // 每秒对周围僵尸造成伤害
         DefaultDamage = 10;
         defaultRangeScale = range.transform.localScale;
+        character = GetComponentInParent<Character>();
     }
 
     public override void Reuse()
@@ -82,6 +85,7 @@ public class VocalConcert : BaseProp
             AudioManager.Instance.PlayVocalConcertMusic(2);
             blueLight.gameObject.SetActive(true);
             this.audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
+            character.SkeletonAnimation.AnimationState.SetAnimation(2, "Speak", true);
         }
 
         var userData = GameManager.Instance.UserData;
