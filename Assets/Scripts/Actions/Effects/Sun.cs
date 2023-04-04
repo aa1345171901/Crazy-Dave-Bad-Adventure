@@ -13,8 +13,8 @@ public class Sun : MoneyClick
 
     private void OnMouseEnter()
     {
-        // todo µÀ¾ß½âËø
-        OnClick();
+        if (GameManager.Instance.HaveBlackHole)
+            OnClick();
     }
 
     private void OnMouseDown()

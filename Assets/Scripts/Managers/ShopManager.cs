@@ -94,6 +94,15 @@ public class ShopManager : BaseManager<ShopManager>
                 case "Spinacia":
                     GameManager.Instance.IsZombieShock = true;
                     break;
+                case "magnetic":
+                    GameManager.Instance.HaveMagnetic = true;
+                    // 由于是降属性的，所以解锁完能力后不再刷新
+                    PropDicts[propCard.quality].Remove(propCard);
+                    break;
+                case "blackhole":
+                    GameManager.Instance.HaveBlackHole = true;
+                    PropDicts[propCard.quality].Remove(propCard);
+                    break;
                 default:
                     break;
             }

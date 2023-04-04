@@ -98,6 +98,10 @@ namespace TopDownPlate
 
         public bool IsZombieShock { get; set; } // ÊÇ·ñÓÐPot´òËÀ½©Ê¬ºó£¬½©Ê¬²¿Î»³å»÷ÉËº¦
 
+        public bool HaveMagnetic { get; set; } // ÊÇ·ñÓÐÎü½ð±Ò´ÅÌå
+
+        public bool HaveBlackHole { get; set; } // ÊÇ·ñÓÐÎüÑô¹âºÚ¶´
+
         public int PotDamage { get; set; }  // Æ½µ×¹øµÄÉËº¦£¬·ÉÍ·ÉËº¦ÎªÆ½µ×¹øÉËº¦ * ²¤²ËÊý/4 ×î´ó1;
 
         public bool IsOpenVocalConcert => vocalConcert.OpenVocalConcert;

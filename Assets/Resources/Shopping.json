@@ -52,6 +52,36 @@
         },
 
         {
+            "propName": "magnetic",
+            "propImagePath": "Shop/Props/magnetic",
+            "defaultPrice": "35",
+            "info": "牵引金币的磁铁\n<color=#ff0000>-3速度</color>\n有了它我就不需要一个一个点击收集<color=#ff00ff>金币</color>了\n但是相互作用力之下，我的速度也收到了影响",
+            "quality": "1",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Speed",
+                "increment": "-3"
+                }
+            ]
+        },
+
+        {
+            "propName": "blackhole",
+            "propImagePath": "Shop/Props/blackhole",
+            "defaultPrice": "35",
+            "info": "吸收阳光的黑洞\n<color=#ff0000>-4植物学</color>\n有了它我就不需要一个一个点击收集<color=#ff00ff>阳光</color>了\n植物好像非常害怕它",
+            "quality": "1",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Botany",
+                "increment": "-4"
+                }
+            ]
+        },
+
+        {
             "propName": "plate",
             "propImagePath": "Shop/Props/plate",
             "defaultPrice": "27",

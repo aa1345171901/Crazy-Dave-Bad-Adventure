@@ -34,8 +34,8 @@ public class MoneyClick : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        // todo µÀ¾ß½âËø
-        OnClick();
+        if (GameManager.Instance.HaveMagnetic)
+            OnClick();
     }
 
     private void OnMouseDown()
