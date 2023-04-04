@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MoneyClick : MonoBehaviour
 {
-    [Tooltip("钱币价格")]
+    [Tooltip("钱币或阳光价格")]
     public int Price;
 
     [Tooltip("可存在时间")]
@@ -13,11 +13,11 @@ public class MoneyClick : MonoBehaviour
 
     public AudioSource audioSource;
 
-    public bool IsExit { get; private set; }
+    public bool IsExit { get; protected set; }
 
-    private Vector3 target;
-    private Vector3 speed;
-    private readonly float destroyTime = 0.5f;
+    protected Vector3 target;
+    protected Vector3 speed;
+    protected readonly float destroyTime = 0.5f;
 
     private void Start()
     {
@@ -34,6 +34,7 @@ public class MoneyClick : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        // todo 道具解锁
         OnClick();
     }
 
@@ -44,13 +45,20 @@ public class MoneyClick : MonoBehaviour
 
     protected virtual void OnClick()
     {
+        if (IsExit)
+            return;
         audioSource.pitch = Random.Range(0.8f, 1.5f);
         audioSource.Play();
-        ShopManager.Instance.Money += Price;
+        NumAdd();
         IsExit = true;
         target = Camera.main.ViewportToWorldPoint(new Vector3(-10, 10f, -Camera.main.transform.position.z));
         speed = (target - transform.position) / destroyTime / 10;
         Destroy(gameObject, destroyTime);
+    }
+
+    protected virtual void NumAdd()
+    {
+        ShopManager.Instance.Money += Price;
     }
 
     protected virtual void PlayAnimation()

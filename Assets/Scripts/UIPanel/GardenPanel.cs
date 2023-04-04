@@ -33,21 +33,9 @@ public class GardenPanel : BasePanel
         this.gameObject.SetActive(false);
     }
 
-    public override void OnResume()
-    {
-        base.OnResume();
-        this.gameObject.SetActive(true);
-        CreateFlowerPat();
-    }
-
-    public override void OnPause()
-    {
-        base.OnPause();
-        this.gameObject.SetActive(false);
-    }
-
     public void GoShopping()
     {
+        UIManager.Instance.PopPanel();
         UIManager.Instance.PushPanel(UIPanelType.ShopingPanel);
         AudioManager.Instance.PlayShoppingMusic(0);
     }

@@ -1457,7 +1457,7 @@ ParticleSystem:
     fps: 30
     frameOverTime:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 1
       scalar: 0.9999
       minScalar: 0
       maxCurve:
@@ -5001,6 +5001,7 @@ MonoBehaviour:
   SliverCoin: {fileID: 282936756250688089, guid: 9992f0d2d89b5ec45888a31a3e8d819f, type: 3}
   GoldCoin: {fileID: 3714592406380599363, guid: e62a603e03247b64e9dc4a1d07829907, type: 3}
   Diamond: {fileID: 9125087109418112107, guid: 7a3fe7e4cae170c4e9862147812d35bd, type: 3}
+  Sun: {fileID: 5666489161069203378, guid: 874700ab6f59d2c4ab5162b31a75beff, type: 3}
 --- !u!1 &571199463
 GameObject:
   m_ObjectHideFlags: 0

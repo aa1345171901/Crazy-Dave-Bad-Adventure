@@ -13,6 +13,8 @@ public class BattlePanel : BasePanel
     public Slider RunBar;
     [Tooltip("钱")]
     public Text MoneyText;
+    [Tooltip("阳光")]
+    public Text SunText;
     [Tooltip("获取钱动画和音效")]
     public FinishGetGold getGold;
 
@@ -21,6 +23,10 @@ public class BattlePanel : BasePanel
         ShopManager.Instance.MoneyChanged += () =>
         {
             MoneyText.text = ShopManager.Instance.Money.ToString();
+        };
+        GardenManager.Instance.SunChanged += () =>
+        {
+            SunText.text = GardenManager.Instance.Sun.ToString();
         };
     }
 

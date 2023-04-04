@@ -27,7 +27,7 @@ public class AttributePanel : BasePanel
     {
         base.OnExit();
         this.gameObject.SetActive(false);
-        UIManager.Instance.PopPanel();  // 不是单个出现的Panel，出栈时使前一个也出
+        UIManager.Instance.PopPanel();
     }
 
     private void Start()
