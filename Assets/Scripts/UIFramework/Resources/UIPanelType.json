@@ -24,6 +24,11 @@
         {
             "panelTypeString": "GardenPanel",
             "path": "UIPanel/GardenPanel"
+        },
+
+        {
+            "panelTypeString": "PausePanel",
+            "path": "UIPanel/PausePanel"
         }
     ]
 }

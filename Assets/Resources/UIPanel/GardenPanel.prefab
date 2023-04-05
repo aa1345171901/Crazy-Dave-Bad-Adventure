@@ -1364,7 +1364,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowMaterial: {fileID: 2100000, guid: 4cc992c8f07851442b62729a96e09475, type: 2}
+  graphic: {fileID: 1285638282}
   offset: {x: 0.02, y: -0.02, z: 0}
+  effectSoundsPressed: btnPressed
+  effectSoundsHighlight: btnHighlight
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -4763,7 +4766,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowMaterial: {fileID: 2100000, guid: b5d3c1d2f7978f9469761ff42aeb3c61, type: 2}
+  graphic: {fileID: 5429653895027378334}
   offset: {x: 0.02, y: -0.02, z: 0}
+  effectSoundsPressed: btnPressed
+  effectSoundsHighlight: btnHighlight
   OnClick:
     m_PersistentCalls:
       m_Calls:

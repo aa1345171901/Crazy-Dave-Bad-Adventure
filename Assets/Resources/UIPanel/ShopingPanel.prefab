@@ -91,7 +91,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowMaterial: {fileID: 2100000, guid: 191d9dbf271f5544ca649211ab5f4f3c, type: 2}
+  graphic: {fileID: 1049922593}
   offset: {x: 0.02, y: -0.02, z: 0}
+  effectSoundsPressed: btnPressed
+  effectSoundsHighlight: btnHighlight
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -735,7 +738,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowMaterial: {fileID: 2100000, guid: 778717957f760df4bb20d2d14d799449, type: 2}
+  graphic: {fileID: 2174584242071293485}
   offset: {x: 0.02, y: -0.02, z: 0}
+  effectSoundsPressed: btnPressed
+  effectSoundsHighlight: btnHighlight
   OnClick:
     m_PersistentCalls:
       m_Calls:

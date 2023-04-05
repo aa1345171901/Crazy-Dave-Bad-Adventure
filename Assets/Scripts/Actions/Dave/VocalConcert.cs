@@ -98,7 +98,7 @@ public class VocalConcert : BaseProp
         base.ProcessAbility();
         // 获取频谱
         AudioManager.Instance.BackmusicPlayer.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
-        float maxSpectrum = GetMaxSpectrum();
+        float maxSpectrum = GetMaxByArray.GetMaxSpectrum(spectrum);
         if (AudioManager.Instance.BackmusicPlayer.volume != 0)
             maxSpectrum /= AudioManager.Instance.BackmusicPlayer.volume;
 
@@ -172,13 +172,25 @@ public class VocalConcert : BaseProp
         }
     }
 
+    public override void DayEnd()
+    {
+        foreach (var item in LightItems)
+        {
+            item.SetActive(false);
+        }
+        blueLight.intensity = 0;
+    }
+}
+
+public static class GetMaxByArray
+{
     /// <summary>
     /// 从频谱中获取频率中分贝最大的，做简单的音乐可视化 
     /// 频谱数组大小表示采样分辨率最小64 最大8196，为2的次幂
     /// 频谱数组对应某赫兹下的谱密度
     /// </summary>
     /// <returns></returns>
-    private float GetMaxSpectrum()
+    public static float GetMaxSpectrum(float[] spectrum)
     {
         float result = 0;
         for (int i = 0; i < spectrum.Length; i++)
@@ -187,14 +199,5 @@ public class VocalConcert : BaseProp
                 result = spectrum[i];
         }
         return result;
-    }
-
-    public override void DayEnd()
-    {
-        foreach (var item in LightItems)
-        {
-            item.SetActive(false);
-        }
-        blueLight.intensity = 0;
     }
 }

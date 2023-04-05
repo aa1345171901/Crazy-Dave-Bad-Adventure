@@ -53,6 +53,8 @@ public class UIManager {
         }
     }
 
+    public BasePanel TopPanel => panelStack.Peek();
+
     private Dictionary<UIPanelType, string> panelPathDict;   //用于存储panel类型与path的对应
     private Dictionary<UIPanelType, BasePanel> panelDict;    //用于存储panel类型与实例的游戏物体的对应
     private Stack<BasePanel> panelStack;                  //用于存储显示的panel

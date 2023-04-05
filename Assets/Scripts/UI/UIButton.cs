@@ -9,15 +9,22 @@ public class UIButton : MonoBehaviour
 {
     [Tooltip("高亮时使用的材质")]
     public Material glowMaterial;
+    [Tooltip("常态时使用的材质")]
+    public Material normalMaterial;
+    [Tooltip("改变材质的目标UI")]
+    public MaskableGraphic graphic;
 
     [Tooltip("按下按钮时偏移")]
     public Vector3 offset;
 
+    [Tooltip("按下按钮时播放的音效名")]
+    public string effectSoundsPressed = "btnPressed";
+    [Tooltip("高亮时播放的音效名")]
+    public string effectSoundsHighlight = "btnHighlight";
+
     [Header("Event")]
     [Space(10)]
     public UnityEvent OnClick;
-
-    private Image image;
     private Vector3 pressedPos;
     private Vector3 defaultPos;
 
@@ -26,7 +33,6 @@ public class UIButton : MonoBehaviour
 
     private void Start()
     {
-        image = this.GetComponent<Image>();
         pressedPos = this.transform.position + offset;
         defaultPos = this.transform.position;
         UICamera = UIManager.Instance.UICamera;
@@ -36,12 +42,12 @@ public class UIButton : MonoBehaviour
     private void OnMouseDown()
     {
         this.transform.position = pressedPos;
-        AudioManager.Instance.PlayEffectSoundByName("btnPressed");
+        AudioManager.Instance.PlayEffectSoundByName(effectSoundsPressed);
     }
 
     private void OnMouseUp()
     {
-        image.material = null;
+        graphic.material = normalMaterial;
         // 判断鼠标是否在按钮范围内
         if (BoundsUtils.GetSceneRect(UICamera, rectTransform).Contains(Input.mousePosition))
         {
@@ -52,13 +58,13 @@ public class UIButton : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        image.material = glowMaterial;
-        AudioManager.Instance.PlayEffectSoundByName("btnHighlight");
+        graphic.material = glowMaterial;
+        AudioManager.Instance.PlayEffectSoundByName(effectSoundsHighlight);
     }
 
     private void OnMouseExit()
     {
-        image.material = null;
+        graphic.material = normalMaterial;
         this.transform.position = defaultPos;
     }
 }

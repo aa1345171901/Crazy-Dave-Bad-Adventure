@@ -9,4 +9,5 @@ public enum UIPanelType
     ShopingPanel,
     AttributePanel,
     GardenPanel,
+    PausePanel,
 }

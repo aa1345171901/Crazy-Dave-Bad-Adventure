@@ -44,6 +44,9 @@ namespace TopDownPlate
 
         private float fadeBeforeVolume;
 
+        private float beforePauseMusicTime;
+        private AudioClip beforePauseClip;
+
         protected override void Initialize()
         {
             base.Initialize();
@@ -55,8 +58,10 @@ namespace TopDownPlate
             BackmusicPlayer = gameObject.AddComponent<AudioSource>();
             BackmusicPlayer.loop = true;
             BackmusicPlayer.playOnAwake = false;
+            BackmusicPlayer.volume = SaveManager.Instance.SoundVolumeData.MusicVolume;
             EffectPlayer = gameObject.AddComponent<AudioSource>();
             EffectPlayer.playOnAwake = false;
+            EffectPlayer.volume = SaveManager.Instance.SoundVolumeData.SoundEffectVolume;
             AudioLists.AddRange(ZombieSounds);
         }
 
@@ -74,7 +79,14 @@ namespace TopDownPlate
             }
         }
 
-        public void PlayBackMusic(float delay)
+        public void SaveVolumeData()
+        {
+            SaveManager.Instance.SoundVolumeData.MusicVolume = BackmusicPlayer.volume;
+            SaveManager.Instance.SoundVolumeData.SoundEffectVolume = EffectPlayer.volume;
+            SaveManager.Instance.SaveVolumeData();
+        }
+
+        public void PlayBackMusic(float delay = 0)
         {
             int index = Random.Range(0, BackgroundMusics.Count);
             BackmusicPlayer.clip = BackgroundMusics[index];
@@ -119,6 +131,21 @@ namespace TopDownPlate
             BackmusicPlayer.PlayDelayed(delay);
         }
 
+        public void PlayMenuMusic(float delay)
+        {
+            beforePauseMusicTime = BackmusicPlayer.time;
+            beforePauseClip = BackmusicPlayer.clip;
+            BackmusicPlayer.clip = Menu;
+            BackmusicPlayer.PlayDelayed(delay);
+        }
+
+        public void ResumeMusic()
+        {
+            BackmusicPlayer.clip = beforePauseClip;
+            BackmusicPlayer.time = beforePauseMusicTime;
+            BackmusicPlayer.Play();
+        }
+
         public void PlayGardenMusic()
         {
             BackmusicPlayer.clip = Garden;
@@ -133,6 +160,8 @@ namespace TopDownPlate
 
         public void PlayEffectSoundByName(string effectName, float pitch = 1)
         {
+            if (string.IsNullOrEmpty(effectName))
+                return;
             AudioClip clip = null;
             foreach (var item in SoundEffects)
             {

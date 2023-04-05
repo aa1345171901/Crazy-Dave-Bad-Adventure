@@ -9,7 +9,7 @@ public class PlantCardPage : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (!isExpand)
+        if (!isExpand && Time.timeScale != 0)
         {
             animator.SetTrigger("Enter");
         }

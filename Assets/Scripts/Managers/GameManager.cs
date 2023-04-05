@@ -107,6 +107,7 @@ namespace TopDownPlate
         public bool IsOpenVocalConcert => vocalConcert.OpenVocalConcert;
 
         private BattlePanel battlePanel;
+        private PausePanel pausePanel;
         private VocalConcert vocalConcert;
 
         private void Start()
@@ -219,6 +220,17 @@ namespace TopDownPlate
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (pausePanel != null && pausePanel.gameObject.activeSelf)
+                {
+                    UIManager.Instance.PopPanel();
+                }
+                else
+                {
+                    pausePanel = UIManager.Instance.PushPanel(UIPanelType.PausePanel) as PausePanel;
+                }
+            }
             if (!IsDaytime)
             {
                 foreach (var item in specialPropLists)
