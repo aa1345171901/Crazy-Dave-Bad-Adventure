@@ -84,7 +84,7 @@ namespace TopDownPlate
         public override void ProcessAbility()
         {
             base.ProcessAbility();
-            if (character.IsDead)
+            if (character != null && character.IsDead)
                 return;
 
             // ¹¥»÷Ö±ÏßÎ»ÒÆ

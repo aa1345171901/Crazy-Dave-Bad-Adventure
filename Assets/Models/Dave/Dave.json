@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "cR5S9k2VqqGVr2kMZ/7SjtA8/PQ",
+	"hash": "O+8A/PJm1y4Arv8YqcJCCPUfOCo",
 	"spine": "3.8",
 	"x": -275.31,
 	"y": -21.39,
@@ -41,7 +41,9 @@
 	{ "name": "leftleg", "parent": "leftleg2", "length": 98.92, "rotation": 14.3, "x": 155.54, "y": -2.4 },
 	{ "name": "CrazyDave_foot3", "parent": "leftleg", "length": 105.92, "rotation": 83.09, "x": 124.8, "y": -13.95 },
 	{ "name": "CrazyDave_eyebrow", "parent": "CrazyDave_head", "x": 95.4, "y": -64.39 },
-	{ "name": "Shadow", "parent": "root", "x": -33.37, "y": 66.04 }
+	{ "name": "Shadow", "parent": "root", "x": -33.37, "y": 66.04 },
+	{ "name": "Zombie_head", "parent": "root", "x": 439.15, "y": 872.99 },
+	{ "name": "Zombie_jaw3", "parent": "Zombie_head", "x": -12.25, "y": -58.4 }
 ],
 "slots": [
 	{ "name": "Shadow", "bone": "Shadow", "attachment": "Shadow" },
@@ -73,7 +75,9 @@
 	{ "name": "CrazyDave_outerfinger1", "bone": "CrazyDave_outerfinger1", "attachment": "CrazyDave_outerfinger1" },
 	{ "name": "CrazyDave_outerfinger2", "bone": "CrazyDave_outerfinger2", "attachment": "CrazyDave_outerfinger2" },
 	{ "name": "CrazyDave_outerfinger3", "bone": "CrazyDave_outerfinger3", "attachment": "CrazyDave_outerfinger3" },
-	{ "name": "CrazyDave_outerfinger4", "bone": "CrazyDave_outerfinger4", "attachment": "CrazyDave_outerfinger4" }
+	{ "name": "CrazyDave_outerfinger4", "bone": "CrazyDave_outerfinger4", "attachment": "CrazyDave_outerfinger4" },
+	{ "name": "Zombie_head", "bone": "Zombie_head" },
+	{ "name": "Zombie_jaw", "bone": "Zombie_jaw3" }
 ],
 "skins": [
 	{
@@ -137,6 +141,9 @@
 				"CrazyDave_mouth4": { "x": -1.35, "y": -1.08, "rotation": -113.24, "width": 25, "height": 31 },
 				"CrazyDave_mouth5": { "x": 3.65, "y": 1.67, "rotation": -113.24, "width": 60, "height": 38 },
 				"CrazyDave_mouth6": { "x": 0.1, "y": 1.02, "rotation": -113.24, "width": 14, "height": 14 }
+			},
+			"Zombie_jaw": {
+				"Zombie_jaw": { "x": 8.44, "y": 5.34, "scaleX": 0.6, "scaleY": 0.6, "width": 135, "height": 65 }
 			},
 			"CrazyDave_innerarm": {
 				"CrazyDave_innerarm": {
@@ -298,6 +305,9 @@
 					"height": 151
 				}
 			},
+			"Zombie_head": {
+				"Zombie_head": { "x": 1.31, "y": 7.06, "scaleX": 0.6, "scaleY": 0.6, "width": 223, "height": 202 }
+			},
 			"rightleg1": {
 				"rightleg1": {
 					"type": "mesh",
@@ -374,14 +384,14 @@
 					{ "time": 0.3, "name": null }
 				]
 			},
-			"CrazyDave_pot": {
-				"attachment": [
-					{ "time": 0.3, "name": null }
-				]
-			},
 			"CrazyDave_mouth": {
 				"attachment": [
 					{ "time": 0.2, "name": "CrazyDave_mouth1" }
+				]
+			},
+			"CrazyDave_pot": {
+				"attachment": [
+					{ "time": 0.3, "name": null }
 				]
 			}
 		},
@@ -471,137 +481,7 @@
 	},
 	"Dead": {
 		"slots": {
-			"CrazyDave_blink": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"rightleg2": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_innerhand": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"Shadow": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_outerfinger2": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_outerfinger3": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_innerfinger1": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_foot1": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_innerfinger2": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"righthand": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_foot2": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_innerfinger3": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_outerfinger4": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_beard": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"leftleg2": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_outerfinger1": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_innerarm": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_eyebrow": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_outerarm": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"rightleg1": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_mouth": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				],
-				"attachment": [
-					{ "name": "CrazyDave_mouth4" },
-					{ "time": 0.8, "name": "CrazyDave_mouth2" }
-				]
-			},
-			"body": {
+			"lefthand": {
 				"color": [
 					{ "time": 0.9, "color": "ffffffff" },
 					{ "time": 1.2333, "color": "ffffff00" }
@@ -617,7 +497,7 @@
 					{ "time": 1.0333, "name": "brain" }
 				]
 			},
-			"lefthand": {
+			"righthand": {
 				"color": [
 					{ "time": 0.9, "color": "ffffffff" },
 					{ "time": 1.2333, "color": "ffffff00" }
@@ -635,7 +515,73 @@
 					{ "time": 1.2333, "color": "ffffff00" }
 				]
 			},
-			"CrazyDave_eye": {
+			"Shadow": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"rightleg1": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_outerarm": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"body": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_outerfinger1": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_eyebrow": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_beard": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_blink": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_foot2": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_innerfinger2": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_innerhand": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_innerfinger3": {
 				"color": [
 					{ "time": 0.9, "color": "ffffffff" },
 					{ "time": 1.2333, "color": "ffffff00" }
@@ -647,7 +593,71 @@
 					{ "time": 1.2333, "color": "ffffff00" }
 				]
 			},
+			"CrazyDave_mouth": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": "CrazyDave_mouth4" },
+					{ "time": 0.8, "name": "CrazyDave_mouth2" }
+				]
+			},
+			"leftleg2": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_foot1": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_outerfinger4": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_outerfinger3": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_innerarm": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_outerfinger2": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_innerfinger1": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
 			"CrazyDave_outerhand": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_eye": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"rightleg2": {
 				"color": [
 					{ "time": 0.9, "color": "ffffffff" },
 					{ "time": 1.2333, "color": "ffffff00" }
@@ -1209,6 +1219,477 @@
 					{},
 					{ "time": 0.2, "x": 1.165, "y": 0.894 },
 					{ "time": 0.4 }
+				]
+			}
+		}
+	},
+	"MainMenuIdel": {
+		"slots": {
+			"Zombie_jaw": {
+				"attachment": [
+					{ "name": "Zombie_jaw" }
+				]
+			},
+			"Zombie_head": {
+				"attachment": [
+					{ "name": "Zombie_head" }
+				]
+			},
+			"CrazyDave_mouth": {
+				"attachment": [
+					{ "name": "CrazyDave_mouth1" },
+					{ "time": 0.1667, "name": "CrazyDave_mouth4" },
+					{ "time": 0.8333, "name": "CrazyDave_mouth1" }
+				]
+			}
+		},
+		"bones": {
+			"righthand": {
+				"rotate": [
+					{ "angle": 32.13 },
+					{ "time": 0.3333, "angle": 55.74 },
+					{ "time": 0.6667, "angle": 31.12 },
+					{ "time": 1, "angle": 32.13 }
+				]
+			},
+			"CrazyDave_outerarm": {
+				"rotate": [
+					{ "angle": -64.73 },
+					{ "time": 0.3333, "angle": -48.64 },
+					{ "time": 0.6667, "angle": -76.58 },
+					{ "time": 1, "angle": -64.73 }
+				],
+				"translate": [
+					{ "x": -4.88, "y": 15.28 },
+					{ "time": 0.6667, "x": -7.5, "y": 11.87 },
+					{ "time": 1, "x": -4.88, "y": 15.28 }
+				]
+			},
+			"CrazyDave_outerhand": {
+				"rotate": [
+					{ "angle": -31.26 },
+					{ "time": 0.3333, "angle": -13.32 },
+					{ "time": 0.6667, "angle": -50.2 },
+					{ "time": 1, "angle": -31.26 }
+				]
+			},
+			"CrazyDave_pot": {
+				"rotate": [
+					{ "angle": -176.6 },
+					{ "time": 0.1667, "angle": -170.17 },
+					{ "time": 0.3333, "angle": -167.93 },
+					{ "time": 0.5, "angle": 159.16 },
+					{ "time": 0.6667, "angle": 125.92 },
+					{ "time": 0.8333, "angle": 154.7 },
+					{ "time": 1, "angle": -176.6 }
+				],
+				"translate": [
+					{ "x": -383.94, "y": -292.19 },
+					{ "time": 0.1667, "x": -331.13, "y": -278.88 },
+					{ "time": 0.3333, "x": -287.15, "y": -277.58 },
+					{ "time": 0.5, "x": -458.35, "y": -177.71 },
+					{ "time": 0.6667, "x": -563.54, "y": -45.38 },
+					{ "time": 0.7, "x": -557.68, "y": -80.16 },
+					{ "time": 0.8333, "x": -494.01, "y": -189.29 },
+					{ "time": 1, "x": -383.94, "y": -292.19 }
+				],
+				"scale": [
+					{ "y": -1 }
+				]
+			},
+			"lefthand": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 5.07 },
+					{ "time": 0.6667, "angle": -2.99 },
+					{ "time": 1 }
+				]
+			},
+			"CrazyDave_innerarm": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 12.02 },
+					{ "time": 0.6667, "angle": -2.24 },
+					{ "time": 1 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": -6.94, "y": -6.76 },
+					{ "time": 1 }
+				]
+			},
+			"CrazyDave_body1": {
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": 9.25, "y": 0.33 },
+					{ "time": 0.6667, "x": -9.25, "y": -0.33 },
+					{ "time": 1 }
+				]
+			},
+			"rightleg2": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 3.68 },
+					{ "time": 0.6667, "angle": -0.26 },
+					{ "time": 1 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": -0.36, "y": 10.1 },
+					{ "time": 0.6667, "x": 0.12, "y": -3.37 },
+					{ "time": 1 }
+				]
+			},
+			"leftleg2": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 4.18 },
+					{ "time": 0.6667, "angle": 0.74 },
+					{ "time": 1 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": 3.37, "y": 0.12 },
+					{ "time": 0.6667, "x": -2.36, "y": 3.29 },
+					{ "time": 1 }
+				]
+			},
+			"Zombie_head": {
+				"rotate": [
+					{ "angle": 167.43 }
+				],
+				"translate": [
+					{ "x": -161.95, "y": -250.16 },
+					{ "time": 0.0333, "x": -161.95, "y": -184.77 },
+					{ "time": 0.0667, "x": -161.95, "y": -127.23 },
+					{ "time": 0.1, "x": -161.95, "y": -75.17 },
+					{ "time": 0.1333, "x": -161.95, "y": -24.29 },
+					{ "time": 0.1667, "x": -161.95, "y": 27.33 },
+					{ "time": 0.2, "x": -161.95, "y": 79.35 },
+					{ "time": 0.2333, "x": -161.95, "y": 145.61 },
+					{ "time": 0.2667, "x": -161.95, "y": 195.35 },
+					{ "time": 0.3, "x": -161.95, "y": 243.92 },
+					{ "time": 0.3333, "x": -161.95, "y": 278.26 },
+					{ "time": 0.3667, "x": -161.95, "y": 303.64 },
+					{ "time": 0.5, "x": -161.95, "y": 356.14 },
+					{ "time": 0.6667, "x": -161.95, "y": 233.51 },
+					{ "time": 1, "x": -161.95, "y": -250.16 }
+				],
+				"scale": [
+					{ "time": 0.0333 },
+					{ "time": 0.1333, "y": 0.8 },
+					{ "time": 0.2333, "y": 1.1 },
+					{ "time": 0.3333 }
+				]
+			},
+			"Zombie_jaw3": {
+				"translate": [
+					{ "x": -1.89, "y": 8.5 },
+					{ "time": 0.1667, "x": 2.03, "y": -11.08 },
+					{ "time": 0.5, "x": 1.32, "y": -7.88 },
+					{ "time": 0.6667, "x": 0.25, "y": -3.07 },
+					{ "time": 1, "x": -2.25, "y": 8.14 }
+				]
+			},
+			"CrazyDave_head": {
+				"rotate": [
+					{ "angle": -16.42 },
+					{ "time": 0.3333, "angle": 15.85 },
+					{ "time": 0.5, "angle": 20.11 },
+					{ "time": 0.6667, "angle": 11.48 },
+					{ "time": 1, "angle": -16.42 }
+				]
+			},
+			"CrazyDave_eyebrow": {
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": 9.26, "y": -0.58 },
+					{ "time": 0.6667, "x": 2.54, "y": 0.14 },
+					{ "time": 1 }
+				]
+			},
+			"CrazyDave_outerfinger1": {
+				"rotate": [
+					{ "angle": -20.49 }
+				]
+			},
+			"CrazyDave_outerfinger2": {
+				"rotate": [
+					{ "angle": 24.71 },
+					{ "time": 0.9, "angle": 7.03 }
+				]
+			},
+			"CrazyDave_outerfinger3": {
+				"rotate": [
+					{ "angle": 18.76 },
+					{ "time": 0.9, "angle": 5.97 }
+				]
+			},
+			"CrazyDave_outerfinger4": {
+				"rotate": [
+					{ "angle": 39.09 },
+					{ "time": 0.9, "angle": 24.35 }
+				]
+			}
+		}
+	},
+	"MainMenuSelect": {
+		"slots": {
+			"Zombie_jaw": {
+				"attachment": [
+					{ "name": "Zombie_jaw" },
+					{ "time": 1.1667, "name": null }
+				]
+			},
+			"Zombie_head": {
+				"attachment": [
+					{ "name": "Zombie_head" },
+					{ "time": 1.1667, "name": null }
+				]
+			},
+			"CrazyDave_mouth": {
+				"attachment": [
+					{ "name": "CrazyDave_mouth1" },
+					{ "time": 0.1667, "name": "CrazyDave_mouth4" },
+					{ "time": 0.8333, "name": "CrazyDave_mouth1" }
+				]
+			}
+		},
+		"bones": {
+			"righthand": {
+				"rotate": [
+					{ "angle": 32.13 },
+					{ "time": 0.3333, "angle": 55.74 },
+					{ "time": 0.6667, "angle": 83.55 },
+					{ "time": 0.8, "angle": 90.01 },
+					{ "time": 1, "angle": 72.97 },
+					{ "time": 1.3333, "angle": -0.74 }
+				]
+			},
+			"CrazyDave_outerarm": {
+				"rotate": [
+					{ "angle": -64.73 },
+					{ "time": 0.3333, "angle": -48.64 },
+					{ "time": 0.6667, "angle": -45.81 },
+					{ "time": 0.8, "angle": -62.91 },
+					{ "time": 1, "angle": -43.78 },
+					{ "time": 1.3333, "angle": -0.97 }
+				],
+				"translate": [
+					{ "x": -4.88, "y": 15.28 },
+					{ "time": 0.6667, "x": -7.5, "y": 11.87 },
+					{ "time": 1, "x": -4.88, "y": 15.28 }
+				]
+			},
+			"CrazyDave_outerhand": {
+				"rotate": [
+					{ "angle": -31.26 },
+					{ "time": 0.3333, "angle": -13.32 },
+					{ "time": 0.6667, "angle": -1.77 },
+					{ "time": 1, "angle": -45.79 },
+					{ "time": 1.3333, "angle": 0.96 }
+				]
+			},
+			"CrazyDave_pot": {
+				"rotate": [
+					{ "angle": -176.6 },
+					{ "time": 0.1667, "angle": -170.17 },
+					{ "time": 0.3333, "angle": -167.93 },
+					{ "time": 0.5, "angle": -158.57 },
+					{ "time": 0.6667, "angle": -136.94 },
+					{ "time": 0.8333, "angle": -130.21 },
+					{ "time": 1, "angle": -91.44 },
+					{ "time": 1.0667, "angle": -129 },
+					{ "time": 1.1333, "angle": 126.89 },
+					{ "time": 1.2, "angle": -51.76 },
+					{ "time": 1.2333, "angle": -98.24 },
+					{ "time": 1.2667, "angle": -156.01 },
+					{ "time": 1.3, "angle": 119.43 },
+					{ "time": 1.3333, "angle": -0.26 }
+				],
+				"translate": [
+					{ "x": -383.94, "y": -292.19 },
+					{ "time": 0.1667, "x": -331.13, "y": -278.88 },
+					{ "time": 0.3333, "x": -287.15, "y": -277.58 },
+					{ "time": 0.5, "x": -233.61, "y": -283.81 },
+					{ "time": 0.6667, "x": -110.79, "y": -291.06 },
+					{ "time": 0.8333, "x": -64.45, "y": -336.35 },
+					{ "time": 1, "x": 68.7, "y": -515.92 },
+					{ "time": 1.2, "x": 184.84, "y": -253.11 },
+					{ "time": 1.3333, "x": 0.56, "y": 1.31 }
+				],
+				"scale": [
+					{ "y": -1, "curve": "stepped" },
+					{ "time": 0.3333, "y": -1 },
+					{ "time": 0.5 }
+				]
+			},
+			"lefthand": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 34.54 },
+					{ "time": 0.6667, "angle": 33.28 },
+					{ "time": 1 }
+				]
+			},
+			"CrazyDave_innerarm": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -45.76 },
+					{ "time": 0.6667, "angle": -47.2 },
+					{ "time": 1, "angle": -43.56 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": -6.94, "y": -6.76 },
+					{ "time": 1 }
+				]
+			},
+			"CrazyDave_body1": {
+				"rotate": [
+					{ "time": 0.8 },
+					{ "time": 1, "angle": -29.01 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": 9.25, "y": 0.33 },
+					{ "time": 0.6667, "x": -9.25, "y": -0.33 },
+					{ "time": 1 }
+				]
+			},
+			"rightleg2": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 3.68 },
+					{ "time": 0.6667, "angle": -0.26 },
+					{ "time": 1 },
+					{ "time": 1.3333, "angle": 0.97 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": -0.36, "y": 10.1 },
+					{ "time": 0.6667, "x": 0.12, "y": -3.37 },
+					{ "time": 1 }
+				]
+			},
+			"leftleg2": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 4.18 },
+					{ "time": 0.6667, "angle": 0.74 },
+					{ "time": 1 },
+					{ "time": 1.3333, "angle": 8.68 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": 3.37, "y": 0.12 },
+					{ "time": 0.6667, "x": -2.36, "y": 3.29 },
+					{ "time": 1 }
+				]
+			},
+			"Zombie_head": {
+				"rotate": [
+					{ "angle": 167.43 }
+				],
+				"translate": [
+					{ "x": -160.95, "y": -250.16 },
+					{ "time": 0.0333, "x": -159.95, "y": -184.77 },
+					{ "time": 0.0667, "x": -158.95, "y": -127.23 },
+					{ "time": 0.1, "x": -157.95, "y": -75.17 },
+					{ "time": 0.1333, "x": -156.95, "y": -24.29 },
+					{ "time": 0.1667, "x": -155.95, "y": 27.33 },
+					{ "time": 0.2, "x": -154.95, "y": 79.35 },
+					{ "time": 0.2333, "x": -153.95, "y": 145.61 },
+					{ "time": 0.2667, "x": -152.95, "y": 195.35 },
+					{ "time": 0.3, "x": -151.95, "y": 243.92 },
+					{ "time": 0.3333, "x": -150.95, "y": 278.26 },
+					{ "time": 0.3667, "x": -149.95, "y": 303.64 },
+					{ "time": 0.5, "x": -131.87, "y": 356.14 },
+					{ "time": 0.6667, "x": -110.82, "y": 233.51 },
+					{ "time": 0.8333, "x": -63.92, "y": 39.8 },
+					{ "time": 1.1333, "x": 1339.08, "y": -152.67 }
+				],
+				"scale": [
+					{ "time": 0.0333 },
+					{ "time": 0.1333, "y": 0.8 },
+					{ "time": 0.2333, "y": 1.1 },
+					{ "time": 0.3333, "curve": "stepped" },
+					{ "time": 0.8333 },
+					{ "time": 0.9333, "x": 0.8 },
+					{ "time": 1.0333, "x": 1.1 },
+					{ "time": 1.1333 }
+				]
+			},
+			"Zombie_jaw3": {
+				"translate": [
+					{ "x": -1.89, "y": 8.5 },
+					{ "time": 0.1667, "x": 2.03, "y": -11.08 },
+					{ "time": 0.5, "x": 1.32, "y": -7.88 },
+					{ "time": 0.6667, "x": 0.25, "y": -3.07 },
+					{ "time": 1, "x": -2.25, "y": 8.14 }
+				]
+			},
+			"CrazyDave_head": {
+				"rotate": [
+					{ "angle": -16.42 },
+					{ "time": 0.3333, "angle": 15.85 },
+					{ "time": 0.5, "angle": 20.11 },
+					{ "time": 0.6667, "angle": 11.48 },
+					{ "time": 1, "angle": -16.42 },
+					{ "time": 1.3333 }
+				]
+			},
+			"CrazyDave_eyebrow": {
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": 9.26, "y": -0.58 },
+					{ "time": 0.6667, "x": 2.54, "y": 0.14 },
+					{ "time": 1 }
+				]
+			},
+			"CrazyDave_outerfinger1": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -19.19 },
+					{ "time": 1.3333, "angle": -0.89 }
+				]
+			},
+			"CrazyDave_outerfinger2": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 32.71 },
+					{ "time": 1.3333, "angle": -0.35 }
+				]
+			},
+			"CrazyDave_outerfinger3": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 41.2 },
+					{ "time": 1.3333 }
+				]
+			},
+			"CrazyDave_outerfinger4": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 72.54 },
+					{ "time": 1.3333 }
+				]
+			},
+			"rightleg1": {
+				"rotate": [
+					{ "time": 1.3333, "angle": 0.9 }
+				]
+			},
+			"CrazyDave_foot1": {
+				"rotate": [
+					{ "time": 1.3333, "angle": 4.14 }
+				]
+			},
+			"leftleg": {
+				"rotate": [
+					{ "time": 1.3333, "angle": -7.44 }
 				]
 			}
 		}

@@ -88,6 +88,7 @@ namespace TopDownPlate
 
         public void PlayBackMusic(float delay = 0)
         {
+            BackmusicPlayer.time = 0;
             int index = Random.Range(0, BackgroundMusics.Count);
             BackmusicPlayer.clip = BackgroundMusics[index];
             BackmusicPlayer.PlayDelayed(delay);
@@ -120,6 +121,7 @@ namespace TopDownPlate
 
         public void PlayVocalConcertMusic(float delay)
         {
+            BackmusicPlayer.time = 0;
             int index = Random.Range(0, VocalConcert.Count);
             BackmusicPlayer.clip = VocalConcert[index];
             BackmusicPlayer.PlayDelayed(delay);
@@ -128,6 +130,7 @@ namespace TopDownPlate
         public void PlayShoppingMusic(float delay)
         {
             BackmusicPlayer.clip = Shopping;
+            BackmusicPlayer.time = 0;
             BackmusicPlayer.PlayDelayed(delay);
         }
 
