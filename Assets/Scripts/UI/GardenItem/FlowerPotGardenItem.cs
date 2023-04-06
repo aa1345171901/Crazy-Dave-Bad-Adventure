@@ -74,8 +74,6 @@ public class FlowerPotGardenItem : MonoBehaviour
                         index++;
                     }
                     break;
-                case PlantType.Repeater:
-                    break;
                 case PlantType.Cactus:
                     break;
                 case PlantType.Blover:
@@ -91,8 +89,6 @@ public class FlowerPotGardenItem : MonoBehaviour
                 case PlantType.Cornpult:
                     break;
                 case PlantType.FumeShroom:
-                    break;
-                case PlantType.GatlingPea:
                     break;
                 case PlantType.GloomShroom:
                     break;

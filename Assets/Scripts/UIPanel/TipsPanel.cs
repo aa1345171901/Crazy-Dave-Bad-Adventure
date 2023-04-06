@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum TipsType
@@ -80,5 +81,15 @@ public class TipsPanel : BasePanel
             }
             OnExit();
         }
+    }
+
+    public void ReStartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void ReturnMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

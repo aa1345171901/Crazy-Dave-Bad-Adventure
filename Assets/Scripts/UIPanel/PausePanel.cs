@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TopDownPlate;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PausePanel : BasePanel
@@ -48,5 +49,17 @@ public class PausePanel : BasePanel
         {
             item.volume = value;
         }
+    }
+
+    public void ReStartGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
+    }
+
+    public void ReturnMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
     }
 }

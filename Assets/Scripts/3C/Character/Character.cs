@@ -187,7 +187,7 @@ namespace TopDownPlate
         {
             foreach (CharacterAbility ability in characterAbilities)
             {
-                if (ability.enabled)
+                if (ability.enabled && ability.IsInit)
                 {
                     ability.ProcessAbility();
                 }
@@ -207,7 +207,8 @@ namespace TopDownPlate
             }
             foreach (var item in characterAbilities)
             {
-                item.UpdateAnimator();
+                if (item.IsInit)
+                    item.UpdateAnimator();
             }
 
             if (!string.IsNullOrEmpty(CharacterAnimationState))

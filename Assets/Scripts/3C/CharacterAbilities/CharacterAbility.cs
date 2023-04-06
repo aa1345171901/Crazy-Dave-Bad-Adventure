@@ -9,6 +9,8 @@ namespace TopDownPlate
         protected CharacterController controller;
         protected SkeletonAnimation skeletonAnimation;
 
+        public bool IsInit { get; set; }
+
         private void Start()
         {
             Initialization();
@@ -22,6 +24,7 @@ namespace TopDownPlate
             {
                 skeletonAnimation = character.SkeletonAnimation;
             }
+            IsInit = true;
         }
 
         /// <summary>

@@ -25,7 +25,7 @@ public class UIButton : MonoBehaviour
     [Header("Event")]
     [Space(10)]
     public UnityEvent OnClick;
-    private Vector3 pressedPos;
+
     private Vector3 defaultPos;
 
     private Camera UICamera;
@@ -33,15 +33,13 @@ public class UIButton : MonoBehaviour
 
     private void Start()
     {
-        pressedPos = this.transform.position + offset;
-        defaultPos = this.transform.position;
         UICamera = UIManager.Instance.UICamera;
         rectTransform = GetComponent<RectTransform>();
     }
 
     private void OnMouseDown()
     {
-        this.transform.position = pressedPos;
+        this.transform.position = defaultPos + offset;
         AudioManager.Instance.PlayEffectSoundByName(effectSoundsPressed);
     }
 
@@ -58,6 +56,7 @@ public class UIButton : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        defaultPos = this.transform.position;
         graphic.material = glowMaterial;
         AudioManager.Instance.PlayEffectSoundByName(effectSoundsHighlight);
     }

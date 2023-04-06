@@ -1577,6 +1577,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SeedingPrefab: {fileID: 510236188162486127, guid: bbfa7747bb8461a469fed289eeb742b7, type: 3}
   PlantUIPrefabInfos:
+  - plantType: 0
+    plantPrefab: {fileID: 6769889322668651902, guid: eefbfa86b5dad3a4b85f23c9a7b8c60d, type: 3}
   - plantType: 1
     plantPrefab: {fileID: 6769889322668651902, guid: eefbfa86b5dad3a4b85f23c9a7b8c60d, type: 3}
   - plantType: 2

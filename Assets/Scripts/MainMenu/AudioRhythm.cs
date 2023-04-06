@@ -26,6 +26,12 @@ public class AudioRhythm : MonoBehaviour
             musicAudioSource = AudioManager.Instance.BackmusicPlayer;
             return;
         }
+        // 更换分辨率后会发生位置偏移
+        if ((transform.position - origin).magnitude > 0.8f)
+        {
+            origin = targetPos = transform.position;
+        }
+
         if (musicAudioSource.volume > 0)
         {
             musicAudioSource.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);

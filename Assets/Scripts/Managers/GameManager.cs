@@ -113,6 +113,7 @@ namespace TopDownPlate
         private void Start()
         {
             LevelManager.Instance.Init();
+            UIManager.Instance.ClearDict();
         }
 
         public void SetPlayer(Character character)

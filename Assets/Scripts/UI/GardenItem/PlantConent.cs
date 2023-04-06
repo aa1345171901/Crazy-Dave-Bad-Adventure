@@ -59,6 +59,8 @@ public class PlantConent : MonoBehaviour
             int index = Random.Range(0, haveFlowerPotPos.Count);
             var flowerPotPos = haveFlowerPotPos[index];
             PlantUIPrefabInfo plantUIPrefabInfo = GardenManager.Instance.PlantUIPrefabInfos.GetPlantInfo(noPlantingPlants[i].plantType);
+            if (plantUIPrefabInfo == null)
+                plantUIPrefabInfo = GardenManager.Instance.PlantUIPrefabInfos.GetPlantInfo(PlantType.None);
             flowerPotPos.FlowerPot.SetPlant(plantUIPrefabInfo.plantPrefab, noPlantingPlants[i], plantCultivationPage);
             haveFlowerPotPos.Remove(flowerPotPos);
         }

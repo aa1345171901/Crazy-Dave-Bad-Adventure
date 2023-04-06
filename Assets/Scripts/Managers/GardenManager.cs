@@ -102,9 +102,13 @@ public class GardenManager : BaseManager<GardenManager>
             {
                 if (!PlantDict.ContainsKey(item) && item.isCultivate)
                 {
-                    var plant = GameObject.Instantiate(PlantPrefabInfos.GetPlantInfo(item.plantCard.plantType).plant);
-                    plant.plantAttribute = item;
-                    PlantDict.Add(item, plant);
+                    var plantPrefab = PlantPrefabInfos.GetPlantInfo(item.plantCard.plantType).plant;
+                    if (plantPrefab != null)
+                    {
+                        var plant = GameObject.Instantiate(plantPrefab);
+                        plant.plantAttribute = item;
+                        PlantDict.Add(item, plant);
+                    }
                 }
             }
         }

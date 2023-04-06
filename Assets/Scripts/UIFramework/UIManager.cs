@@ -153,4 +153,11 @@ public class UIManager {
         return go.GetComponent<BasePanel>();
     }
 
+    public void ClearDict()
+    {
+        if (panelDict != null)
+        {
+            panelDict.Clear();
+        }
+    }
 }
