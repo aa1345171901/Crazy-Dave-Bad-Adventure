@@ -364,26 +364,121 @@ MonoBehaviour:
     - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       GenerateCount: 2
       CountIncrement: 1
-    IntervalTime: 4
-    TimeIncrement: 0
+      IntervalTime: 4
+      TimeIncrement: 0
+      lastGenerateTime: -4
+  - zombieData:
+    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 2
+      CountIncrement: 1
+      IntervalTime: 4
+      TimeIncrement: 0.5
+      lastGenerateTime: -4
+  - zombieData:
+    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 2
+      CountIncrement: 1
+      IntervalTime: 4
+      TimeIncrement: 1
+      lastGenerateTime: -4
   - zombieData:
     - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       GenerateCount: 3
       CountIncrement: 1
-    IntervalTime: 4
-    TimeIncrement: -1
+      IntervalTime: 4
+      TimeIncrement: 0.5
+      lastGenerateTime: -4
   - zombieData:
     - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       GenerateCount: 3
       CountIncrement: 1
-    IntervalTime: 4
-    TimeIncrement: -1
+      IntervalTime: 4
+      TimeIncrement: 1
+      lastGenerateTime: -4
   - zombieData:
     - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       GenerateCount: 3
       CountIncrement: 1
-    IntervalTime: 4
-    TimeIncrement: -1
+      IntervalTime: 4
+      TimeIncrement: 1.25
+      lastGenerateTime: -4
+  - zombieData:
+    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 3
+      CountIncrement: 1
+      IntervalTime: 4
+      TimeIncrement: 1.5
+      lastGenerateTime: -4
+  - zombieData:
+    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 3
+      CountIncrement: 2
+      IntervalTime: 3
+      TimeIncrement: 0.5
+      lastGenerateTime: -4
+  - zombieData:
+    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 3
+      CountIncrement: 2
+      IntervalTime: 3
+      TimeIncrement: 0.5
+      lastGenerateTime: -4
+  - zombieData:
+    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 3
+      CountIncrement: 2
+      IntervalTime: 3
+      TimeIncrement: 1
+      lastGenerateTime: -4
+  - zombieData:
+    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 3
+      CountIncrement: 3
+      IntervalTime: 3
+      TimeIncrement: 1
+      lastGenerateTime: -4
+  - zombieData:
+    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 4
+      CountIncrement: 3
+      IntervalTime: 3
+      TimeIncrement: 1
+      lastGenerateTime: -4
+  - zombieData:
+    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 5
+      CountIncrement: 3
+      IntervalTime: 3
+      TimeIncrement: 1
+      lastGenerateTime: -4
+  - zombieData:
+    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 6
+      CountIncrement: 4
+      IntervalTime: 3
+      TimeIncrement: 1.5
+      lastGenerateTime: -4
+  - zombieData:
+    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 7
+      CountIncrement: 4
+      IntervalTime: 3
+      TimeIncrement: 1.5
+      lastGenerateTime: -4
+  - zombieData:
+    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 8
+      CountIncrement: 4
+      IntervalTime: 3
+      TimeIncrement: 2
+      lastGenerateTime: -4
+  - zombieData:
+    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 8
+      CountIncrement: 5
+      IntervalTime: 3
+      TimeIncrement: 2
+      lastGenerateTime: -4
   Enemys: []
   CacheEnemys: []
   DurationPerWave: 60

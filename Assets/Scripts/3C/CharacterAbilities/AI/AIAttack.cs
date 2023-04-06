@@ -9,8 +9,8 @@ namespace TopDownPlate
     public class AIAttack : CharacterAbility
     {
         [Space(10)]
-        [Tooltip("该僵尸攻击前摇冲刺速度")]
-        public float RushSpeed = 4f;
+        [Tooltip("该僵尸攻击前摇冲刺速度倍率")]
+        public float RushSpeedMul = 2f;
 
         [Tooltip("会发动攻击的距离")]
         public float AttackRange = 5f;
@@ -41,6 +41,10 @@ namespace TopDownPlate
         private float timer;
         private Trigger2D attackTrigger;
 
+        private int realDamage;
+        private float realAttackRange;
+        public float realAttackProbability;
+
         private AudioSource audioSource;
 
         protected override void Initialization()
@@ -54,6 +58,34 @@ namespace TopDownPlate
 
         public override void Reuse()
         {
+            trackEntry = null;
+            int waveIndex = LevelManager.Instance.IndexWave + 1;
+            this.realAttackRange = AttackRange + waveIndex / 10f;
+            realAttackProbability = AttackProbability + waveIndex * 0.02f;
+            if (waveIndex < 4)
+            {
+                this.realDamage = Damage;
+            }
+            else if (waveIndex < 9)
+            {
+                this.realDamage = (int)((Damage + 2) * (waveIndex / 4f));
+            }
+            else if (waveIndex < 13)
+            {
+                this.realDamage = (int)((Damage + 4) * (waveIndex / 3f));
+            }
+            else if (waveIndex < 17)
+            {
+                this.realDamage = (int)((Damage + 7) * (waveIndex / 1.5f));
+            }
+            else if (waveIndex < 21)
+            {
+                this.realDamage = (Damage + 11) * waveIndex;
+            }
+            else
+            {
+                this.realDamage = (int)((Damage + 16) * waveIndex * 1.5f);
+            }
             SetTrailAndColliderActive(false, false);
         }
 
@@ -73,11 +105,11 @@ namespace TopDownPlate
                 {
                     var target = attackTrigger.Target.GetComponent<Character>();
                     if (target != null)
-                        target.Health.DoDamage(Damage, DamageType.ZombieHurEachOther);
+                        target.Health.DoDamage(realDamage, DamageType.ZombieHurEachOther);
                 }
                 else
                 {
-                    GameManager.Instance.DoDamage(Damage);
+                    GameManager.Instance.DoDamage(realDamage);
                 }
             }
             if (Time.time - timer < AttackJudgmentTime)
@@ -87,7 +119,7 @@ namespace TopDownPlate
                 return;
             // 判断此时是否攻击
             float random = Random.Range(0, 1f);
-            if (random > AttackProbability)
+            if (random > realAttackProbability)
                 return;
             Attack();
         }
@@ -95,13 +127,13 @@ namespace TopDownPlate
         private void Attack()
         {
             float distance = Vector3.Distance(this.transform.position, Target.transform.position);
-            if (distance < AttackRange)
+            if (distance < realAttackRange)
             {
                 // 前摇时随机选择僵尸AudioSource,如果没在播放则播放
                 audioSource = AudioManager.Instance.RandomPlayZombieSounds();
 
                 // 攻击前摇，冲刺
-                aiMove.MoveSpeed = RushSpeed;
+                aiMove.MoveSpeed *= RushSpeedMul;
                 controller.BoxCollider.enabled = false;
                 SetTrailAndColliderActive(true, false);
                 trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackBeforeAnimation, false);

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace TopDownPlate
@@ -7,16 +8,25 @@ namespace TopDownPlate
     /// 生成敌人的数据，包括预制体和生成数量
     /// </summary>
     [System.Serializable]
-    public struct ZombieData
+    public class ZombieData
     {
         [Tooltip("敌人预制体")]
         public GameObject EnemyPrefab;
 
         [Tooltip("一次生成敌人数量")]
-        public float GenerateCount;
+        public int GenerateCount;
 
         [Tooltip("每20s加强波，生成数量增加多少")]
-        public float CountIncrement;
+        public int CountIncrement;
+
+        [Tooltip("该僵尸该波间隔多长时间生成一次")]
+        public float IntervalTime;
+
+        [Tooltip("每20s加强波，生成间隔时间减少多少")]
+        public float TimeIncrement;
+
+        [Tooltip("僵尸上次生成时间")]
+        public float lastGenerateTime = -4;
     }
 
     /// <summary>
@@ -27,12 +37,6 @@ namespace TopDownPlate
     {
         [Tooltip("生成的僵尸的数据")]
         public List<ZombieData> zombieData;
-
-        [Tooltip("该波间隔多长时间生成一次")]
-        public float IntervalTime;
-
-        [Tooltip("每20s加强波，生成间隔时间减少多少")]
-        public float TimeIncrement;
     }
 
     [AddComponentMenu("TopDownPlate/Managers/LevelManager")]
@@ -60,12 +64,14 @@ namespace TopDownPlate
         public List<Character> CacheEnemys; // 敌人死后的对象池
 
         private bool isCreatePlayer = false;
-        private float lastGenerateTime;
         private float timer;   // 每波时间计时
-        private float intervalTime;   // 间隔时长
         private int course; // 时间进程
 
+        private Wave nowWave;
+
         public float DurationPerWave = 60;
+
+        private readonly float MaxEnemyCount = 80;
 
         public int IndexWave { get; set; }
 
@@ -73,8 +79,16 @@ namespace TopDownPlate
         {
             CreatePlayer();
             timer = 0;
-            intervalTime = waves[IndexWave].IntervalTime;
-            lastGenerateTime = -intervalTime;
+            if (IndexWave < waves.Count)
+                nowWave = waves[IndexWave];
+            else
+            {
+                nowWave = waves[waves.Count - 1];
+                for (int i = 0; i < nowWave.zombieData.Count; i++)
+                {
+                    nowWave.zombieData[i].lastGenerateTime = -nowWave.zombieData[i].IntervalTime;
+                }
+            }
             course = 0;
         }
 
@@ -89,16 +103,23 @@ namespace TopDownPlate
 
                     if ((timer >= DurationPerWave / 3 && course == 0) || (timer >= DurationPerWave * 2 / 3 && course == 1))
                     {
-                        intervalTime += waves[IndexWave].TimeIncrement;
                         course++;
                         GameManager.Instance.ShowTipsPanel(course == 1 ? TipsType.Approaching : TipsType.FinalWave);
                         AudioManager.Instance.PlayEffectSoundByName(course == 1 ? "approachingWave" : "finalWave");
                     }
 
-                    if (timer - intervalTime >= lastGenerateTime)
+                    // 遍历该波僵尸
+                    for (int i = 0; i < nowWave.zombieData.Count; i++)
                     {
-                        CreateEnemies();
-                        lastGenerateTime = timer;
+                        var zombie = nowWave.zombieData[i];
+                        if (timer - zombie.IntervalTime - zombie.TimeIncrement * course >= zombie.lastGenerateTime)
+                        {
+                            if (Enemys.Count < MaxEnemyCount)
+                            {
+                                zombie.lastGenerateTime = timer;
+                                StartCoroutine("CreateEnemies", zombie);
+                            }
+                        }
                     }
 
                     // 如果不是最后一波，留两秒背景音乐淡出
@@ -138,36 +159,33 @@ namespace TopDownPlate
             }
         }
 
-        private void CreateEnemies()
+        IEnumerator CreateEnemies(ZombieData zombieData)
         {
-            List<ZombieData> zombieData = waves[IndexWave].zombieData;
-            foreach (var item in zombieData)
+            for (int i = 0; i < zombieData.GenerateCount + zombieData.CountIncrement * course; i++)
             {
-                for (int i = 0; i < item.GenerateCount + item.CountIncrement * course; i++)
+                float randomX = Random.Range(LevelBounds.min.x, LevelBounds.max.x);
+                float randomY = Random.Range(LevelBounds.min.y, LevelBounds.max.y);
+
+                bool cacheUsed = false;
+
+                // 重置对象池中的物体
+                if (CacheEnemys.Count > 0)
                 {
-                    float randomX = Random.Range(LevelBounds.min.x, LevelBounds.max.x);
-                    float randomY = Random.Range(LevelBounds.min.y, LevelBounds.max.y);
-
-                    bool cacheUsed = false;
-
-                    // 重置对象池中的物体
-                    if (CacheEnemys.Count > 0)
+                    var go = CacheEnemys[0];
+                    ZombieAnimation zombieAnimation = go.GetComponentInChildren<ZombieAnimation>();
+                    if (zombieAnimation != null)
                     {
-                        var go = CacheEnemys[0];
-                        ZombieAnimation zombieAnimation = go.GetComponentInChildren<ZombieAnimation>();
-                        if (zombieAnimation != null)
-                        {
-                            CacheEnemys.RemoveAt(0);
-                            zombieAnimation.Reuse();
-                            go.transform.position = new Vector3(randomX, randomY, 0);
-                            cacheUsed = true;
-                        }
+                        CacheEnemys.RemoveAt(0);
+                        zombieAnimation.Reuse();
+                        go.transform.position = new Vector3(randomX, randomY, 0);
+                        cacheUsed = true;
                     }
-
-                    // 没有使用到对象池才实例化
-                    if (!cacheUsed)
-                        Instantiate(item.EnemyPrefab, new Vector3(randomX, randomY, 0), Quaternion.identity);
                 }
+
+                // 没有使用到对象池才实例化
+                if (!cacheUsed)
+                    Instantiate(zombieData.EnemyPrefab, new Vector3(randomX, randomY, 0), Quaternion.identity);
+                yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
             }
         }
 

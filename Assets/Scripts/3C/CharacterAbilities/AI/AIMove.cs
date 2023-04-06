@@ -50,12 +50,13 @@ namespace TopDownPlate
         public float RepulsiveForce { get; set; }
 
         private Vector3 direction;
+        public float realSpeed;
 
         protected override void Initialization()
         {
             base.Initialization();
             Target = GameManager.Instance.Player.transform;
-            MoveSpeed = moveSpeed;
+            SetRealSpeed();
             AIParameter.HeadPos = HeadPos;
             AIParameter.BodyPos = BodyPos;
             AIParameter.Distance = float.MaxValue;
@@ -65,7 +66,17 @@ namespace TopDownPlate
         {
             canMove = true;
             AIParameter.Distance = float.MaxValue;
+            SetRealSpeed();
             SpeedRecovery();
+        }
+
+        private void SetRealSpeed()
+        {
+            int waveIndex = LevelManager.Instance.IndexWave + 1;
+            if (waveIndex < 5)
+                realSpeed = MoveSpeed = moveSpeed;
+            else
+                realSpeed = MoveSpeed = moveSpeed * ((waveIndex - 4) * 8 + 100) / 100;
         }
 
         public override void ProcessAbility()
@@ -128,7 +139,7 @@ namespace TopDownPlate
 
         public void SpeedRecovery()
         {
-            MoveSpeed = moveSpeed;
+            MoveSpeed = realSpeed;
         }
 
         public void SetBrainPos()

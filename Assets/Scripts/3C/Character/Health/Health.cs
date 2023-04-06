@@ -56,9 +56,12 @@ namespace TopDownPlate
         private float hudShowTime = 0.5f;
         private int fontSize;
 
+        private int defaultMaxHealth;
+
         private void Start()
         {
             character = this.GetComponent<Character>();
+            defaultMaxHealth = maxHealth;
             Reuse();
             float scale = Screen.height / 1080;
             fontSize = (int)(scale * 20);
@@ -71,6 +74,34 @@ namespace TopDownPlate
                 this.maxHealth = GameManager.Instance.UserData.MaximumHP;
                 finalArmor = GameManager.Instance.UserData.Armor / (50f + GameManager.Instance.UserData.Armor);
                 finalArmor = finalArmor > 0.9f ? 0.9f : finalArmor;
+            }
+            else
+            {
+                int waveIndex = LevelManager.Instance.IndexWave + 1;
+                if (waveIndex < 5)
+                {
+                    this.maxHealth = defaultMaxHealth;
+                }
+                else if (waveIndex < 9)
+                {
+                    this.maxHealth = (int)(defaultMaxHealth * (waveIndex / 3f));
+                }
+                else if (waveIndex < 13)
+                {
+                    this.maxHealth = (int)(defaultMaxHealth * waveIndex);
+                }
+                else if (waveIndex < 17)
+                {
+                    this.maxHealth = (int)(defaultMaxHealth * waveIndex * 1.5f);
+                }
+                else if (waveIndex < 21)
+                {
+                    this.maxHealth = defaultMaxHealth * waveIndex * 3;
+                }
+                else
+                {
+                    this.maxHealth = (int)(defaultMaxHealth * waveIndex * 5f);
+                }
             }
             this.health = maxHealth;
         }

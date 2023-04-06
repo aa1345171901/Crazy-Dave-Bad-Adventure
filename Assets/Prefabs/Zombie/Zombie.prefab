@@ -5932,6 +5932,7 @@ GameObject:
   - component: {fileID: 4108507704349745145}
   - component: {fileID: 69481907}
   - component: {fileID: 605363035}
+  - component: {fileID: 3899614135714791903}
   m_Layer: 7
   m_Name: Zombie
   m_TagString: Untagged
@@ -6064,6 +6065,7 @@ MonoBehaviour:
     HeadPos: {fileID: 0}
     BodyPos: {fileID: 0}
     attackPos: 0
+  realSpeed: 0
 --- !u!50 &4108507704349745145
 Rigidbody2D:
   serializedVersion: 4
@@ -6097,7 +6099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2cc1a4cffb214046b6912726733eac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RushSpeed: 4
+  RushSpeedMul: 2
   AttackRange: 5
   Damage: 2
   AttackProbability: 0.2
@@ -6108,6 +6110,7 @@ MonoBehaviour:
   Trails:
   - {fileID: 1453894757}
   - {fileID: 1855601729}
+  realAttackRange: 0
 --- !u!114 &605363035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6165,6 +6168,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3899614135714791903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141669757839713235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f875fe528c8e75245a993fa49840edf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger2D: {fileID: 8036112148403769018}
+  Damage: 1
+  realDamage: 0
 --- !u!1 &709301794697351485
 GameObject:
   m_ObjectHideFlags: 0
@@ -6176,7 +6194,6 @@ GameObject:
   - component: {fileID: 2371900985216954229}
   - component: {fileID: 7658716408384724384}
   - component: {fileID: 8036112148403769018}
-  - component: {fileID: 6898607422003726889}
   m_Layer: 0
   m_Name: CollisionTrigger
   m_TagString: Untagged
@@ -6243,20 +6260,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   Target: {fileID: 0}
---- !u!114 &6898607422003726889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 709301794697351485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f875fe528c8e75245a993fa49840edf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger2D: {fileID: 8036112148403769018}
-  Damage: 1
 --- !u!1 &3179494253676175945
 GameObject:
   m_ObjectHideFlags: 0
