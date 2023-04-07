@@ -1678,11 +1678,15 @@ MonoBehaviour:
     plantPrefab: {fileID: 6769889322668651902, guid: eefbfa86b5dad3a4b85f23c9a7b8c60d, type: 3}
   - plantType: 2
     plantPrefab: {fileID: 4552053639962518578, guid: f3faafa8b99ccb148863e73179d18b27, type: 3}
+  - plantType: 11
+    plantPrefab: {fileID: 2264890958860470334, guid: 0c9470147c7ce3841b6f569b2f0684be, type: 3}
   PlantPrefabInfos:
   - plantType: 1
     plant: {fileID: 3255321644512461494, guid: 6c788df13532deb46869e64fe461b6d3, type: 3}
   - plantType: 2
     plant: {fileID: 1864005620943170618, guid: b55f71fb9cb6daf468002bf4c8264708, type: 3}
+  - plantType: 11
+    plant: {fileID: 9213535032027896378, guid: eda83c5b6451cca489b5fc18d4b1f154, type: 3}
 --- !u!1 &968511682
 GameObject:
   m_ObjectHideFlags: 0

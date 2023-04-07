@@ -87,7 +87,7 @@ namespace TopDownPlate
 
                         GardenManager.Instance.Sun += UserData.Sunshine;
 
-                        SaveManager.Instance.SaveUserData();  // 每波结束时保存
+                        Invoke("SaveData", 3f);  // 3s后金币必能能加完
                     }
                     else
                     {
@@ -118,6 +118,11 @@ namespace TopDownPlate
             LevelManager.Instance.Init();
             UIManager.Instance.ClearDict();  // 到主菜单后UIManager由于不是MonoBehaviour所以需要手动进行字典清空
             LoadData();
+        }
+
+        private void SaveData()
+        {
+            SaveManager.Instance.SaveUserData();  // 每波结束时保存
         }
 
         private void LoadData()

@@ -10,6 +10,8 @@ public class GardenPanel : BasePanel
 
     public Text SunText;
 
+    public Text NowWave;
+
     private void Start()
     {
         GardenManager.Instance.SunChanged += () =>
@@ -25,6 +27,7 @@ public class GardenPanel : BasePanel
         // 创建的下一帧才调用start
         Invoke("CreateFlowerPat", Time.deltaTime);
         SunText.text = GardenManager.Instance.Sun.ToString();
+        NowWave.text = "当前为第<color=#ffff00>" + (LevelManager.Instance.IndexWave + 1) + "</color>波";
     }
 
     public override void OnExit()

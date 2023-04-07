@@ -68,7 +68,7 @@ public class UIButton : MonoBehaviour
     private void OnMouseExit()
     {
         graphic.material = normalMaterial;
-        if (CanMove)
+        if (CanMove && defaultPos != Vector3.zero)
             this.transform.position = defaultPos;
     }
 }
