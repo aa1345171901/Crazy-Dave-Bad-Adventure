@@ -48,6 +48,11 @@ namespace TopDownPlate
             return inputData.GetValue(name);
         }
 
+        public static AxisKey GetAxisKey(string name)
+        {
+            return inputData.GetAxisKey(name);
+        }
+
         #region ¸Ä¼ü
         public static void SetKey(string name, KeyCode key)
         {
@@ -59,9 +64,12 @@ namespace TopDownPlate
             inputData.SetValueKey(name, key);
         }
 
-        public static void SetAxisKey(string name, KeyCode a, KeyCode b)
+        public static void SetAxisKey(string name, KeyCode key, bool isMin)
         {
-            inputData.SetAxisKey(name, a, b);
+            if (isMin)
+                inputData.SetAxisKey(name, key, KeyCode.None);
+            else
+                inputData.SetAxisKey(name, KeyCode.None, key);
         }
         #endregion
     }

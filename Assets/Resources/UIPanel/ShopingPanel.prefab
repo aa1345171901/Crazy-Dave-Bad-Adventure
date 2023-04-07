@@ -96,6 +96,7 @@ MonoBehaviour:
   offset: {x: 0.02, y: -0.02, z: 0}
   effectSoundsPressed: btnPressed
   effectSoundsHighlight: btnHighlight
+  CanMove: 1
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -745,6 +746,7 @@ MonoBehaviour:
   offset: {x: 0.02, y: -0.02, z: 0}
   effectSoundsPressed: btnPressed
   effectSoundsHighlight: btnHighlight
+  CanMove: 1
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1171,7 +1173,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u73B0\u5728\u8FD8\u53EA\u6709\u8C4C\u8C46\u5C04\u624B\u548C\u53CC\u53D1\u5C04\u624B\n\u5176\u4ED6\u690D\u7269\u57F9\u517B\u4E0D\u51FA\u6765"
+  m_Text: "\u73B0\u5728\u8FD8\u53EA\u6709\u8C4C\u8C46\u5C04\u624B\u53CA\u8C4C\u8C46\u5C04\u624B\u7684\u8FDB\u5316\n\u5176\u4ED6\u690D\u7269\u57F9\u517B\u4E0D\u51FA\u6765"
 --- !u!1 &4738473343978186000
 GameObject:
   m_ObjectHideFlags: 0

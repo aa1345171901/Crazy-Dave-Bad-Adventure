@@ -82,7 +82,10 @@ namespace TopDownPlate
             AxisKey axisKey = GetAxisKey(name);
             if (axisKey != null)
             {
-                axisKey.SetKey(a, b);
+                if (a == KeyCode.None)
+                    axisKey.SetKey(axisKey.min, b);
+                if (b == KeyCode.None)
+                    axisKey.SetKey(a, axisKey.max);
             }
         }
 

@@ -75,6 +75,17 @@ public class SaveManager
         }
     }
 
+    public bool JudgeData()
+    {
+        bool result = false;
+        string userDataStr = PlayerPrefs.GetString("UserData");
+        if (!string.IsNullOrEmpty(userDataStr))
+        {
+            result = true;
+        }
+        return result;
+    }
+
     public void SaveUserData()
     {
         PlayerPrefs.SetString("UserData", JsonUtility.ToJson(GameManager.Instance.UserData));

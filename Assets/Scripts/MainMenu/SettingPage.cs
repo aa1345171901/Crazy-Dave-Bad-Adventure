@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TopDownPlate;
@@ -8,12 +9,19 @@ public class SettingPage : MonoBehaviour
 {
     public Slider musicSlider;
     public Slider effectSoundSlider;
-    public List<Collider2D> Buttons;
     public Toggle fullScreen;
 
     public Dropdown dropdown;
 
     public GameObject ReadMe;
+
+    public GameObject KeyChangePage;
+
+    public KeyChangeItem nowKeyChangeItem;
+    public GameObject anyKeyDownPage;
+    public GameObject keyChangeErrorPage;
+
+    public List<KeyChangeItem> keyChangeItems;
 
     private List<int[]> resolution = new List<int[]>()
     {
@@ -42,6 +50,27 @@ public class SettingPage : MonoBehaviour
         }
     }
 
+    private void OnGUI()
+    {
+        if (anyKeyDownPage.activeSelf)
+        {
+            if (Input.anyKeyDown)
+            {
+                var keyCode = Event.current.keyCode;
+                if (keyCode != KeyCode.None)
+                {
+                    nowKeyChangeItem.nowKey.text = keyCode.ToString();
+                    anyKeyDownPage.SetActive(false);
+                }
+            }
+        }
+        if (keyChangeErrorPage.activeSelf)
+        {
+            if (Input.anyKeyDown)
+                keyChangeErrorPage.SetActive(false);
+        }
+    }
+
     public void MusicVolumeChanged(float value)
     {
         AudioManager.Instance.ChangeMusicVolume(value);
@@ -61,10 +90,6 @@ public class SettingPage : MonoBehaviour
         this.gameObject.SetActive(false);
         AudioManager.Instance.SaveVolumeData();
         Time.timeScale = 1;
-        foreach (var item in Buttons)
-        {
-            item.enabled = true;
-        }
     }
 
     public void FullScreen(bool isValue)
@@ -108,11 +133,91 @@ public class SettingPage : MonoBehaviour
 
     public void OpenRead()
     {
-        ReadMe.gameObject.SetActive(true);
+        ReadMe.SetActive(true);
     }
 
     public void CloseRead()
     {
-        ReadMe.gameObject.SetActive(false);
+        ReadMe.SetActive(false);
+    }
+
+    public void OpenKeyPage()
+    {
+        KeyChangePage.SetActive(true);
+        foreach (var item in keyChangeItems)
+        {
+            item.nowKey.text = "";
+            item.SetKeyText();
+        }
+    }
+
+    public void CloseKeyPage()
+    {
+        if (JudgeKey())
+        {
+            foreach (var item in keyChangeItems)
+            {
+                switch (item.keyEnum)
+                {
+                    case KeyEnum.Key:
+                        if (!string.IsNullOrEmpty(item.nowKey.text))
+                            InputManager.SetKey(item.KeyName, (KeyCode)Enum.Parse(typeof(KeyCode), item.nowKey.text));
+                        break;
+                    case KeyEnum.Axis:
+                        if (!string.IsNullOrEmpty(item.nowKey.text))
+                            InputManager.SetAxisKey(item.KeyName, (KeyCode)Enum.Parse(typeof(KeyCode), item.nowKey.text), item.isMin);
+                        break;
+                    case KeyEnum.KeyValue:
+                        if (!string.IsNullOrEmpty(item.nowKey.text))
+                            InputManager.SetValueKey(item.KeyName, (KeyCode)Enum.Parse(typeof(KeyCode), item.nowKey.text));
+                        break;
+                    default:
+                        break;
+                }
+            }
+            KeyChangePage.SetActive(false);
+        }
+        else
+        {
+            keyChangeErrorPage.SetActive(true);
+        }
+    }
+
+    private bool JudgeKey()
+    {
+        bool result = true;
+        HashSet<string> hashset = new HashSet<string>();
+        foreach (var item in keyChangeItems)
+        {
+            if (!string.IsNullOrEmpty(item.nowKey.text))
+            {
+                if (!hashset.Contains(item.nowKey.text))
+                {
+                    hashset.Add(item.nowKey.text);
+                }
+                else
+                {
+                    result = false;
+                }
+            }
+            else
+            {
+                if (!hashset.Contains(item.lastKey.text))
+                {
+                    hashset.Add(item.lastKey.text);
+                }
+                else
+                {
+                    result = false;
+                }
+            }
+        }
+        return result;
+    }
+
+    public void ChangeKeyItemClick(KeyChangeItem keyChangeItem)
+    {
+        nowKeyChangeItem = keyChangeItem;
+        anyKeyDownPage.SetActive(true);
     }
 }

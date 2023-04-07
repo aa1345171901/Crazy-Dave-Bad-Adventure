@@ -22,6 +22,8 @@ public class UIButton : MonoBehaviour
     [Tooltip("高亮时播放的音效名")]
     public string effectSoundsHighlight = "btnHighlight";
 
+    public bool CanMove = true;
+
     [Header("Event")]
     [Space(10)]
     public UnityEvent OnClick;
@@ -39,7 +41,8 @@ public class UIButton : MonoBehaviour
 
     private void OnMouseDown()
     {
-        this.transform.position = defaultPos + offset;
+        if (CanMove)
+            this.transform.position = defaultPos + offset;
         AudioManager.Instance.PlayEffectSoundByName(effectSoundsPressed);
     }
 
@@ -51,7 +54,8 @@ public class UIButton : MonoBehaviour
         {
             OnClick?.Invoke();
         }
-        this.transform.position = defaultPos;
+        if (CanMove)
+            this.transform.position = defaultPos;
     }
 
     private void OnMouseEnter()
@@ -64,6 +68,7 @@ public class UIButton : MonoBehaviour
     private void OnMouseExit()
     {
         graphic.material = normalMaterial;
-        this.transform.position = defaultPos;
+        if (CanMove)
+            this.transform.position = defaultPos;
     }
 }

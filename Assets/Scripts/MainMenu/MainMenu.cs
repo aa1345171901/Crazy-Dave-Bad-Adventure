@@ -1,3 +1,4 @@
+using Spine;
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,34 +14,93 @@ public class MainMenu : MonoBehaviour
     public ParticleSystem particleSystem1;
     public GameObject SettingPage;
     public GameObject AchievementPage;
+    public GameObject StartGamePage;
 
-    public List<Collider2D> Buttons;
+    private AsyncOperation asyncOperation;
 
     private void Start()
     {
         AudioManager.Instance.PlayBackMusic();
         audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
         AudioManager.Instance.AudioLists.Add(audioSource);
-        Dave.AnimationState.Complete += (e) =>
-        {
-            audioSource.pitch = Random.Range(0.8f, 1.2f);
-            audioSource.Play();
-        };
+        Dave.AnimationState.Complete += PlayPotAudio;
+    }
+
+    private void PlayPotAudio(TrackEntry e)
+    {
+        audioSource.pitch = Random.Range(0.8f, 1.2f);
+        audioSource.Play();
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        if (SaveManager.Instance.JudgeData())
+        {
+            StartGamePage.SetActive(true);
+        }
+        else
+        {
+            PlayStartGameAnim();
+        }
+        StartCoroutine(LoadScene());
+    }
+
+    IEnumerator LoadScene()
+    {
+        // 使用协程异步加载场景
+        asyncOperation = SceneManager.LoadSceneAsync(1);
+        asyncOperation.allowSceneActivation = false; // 如果为true，那么加载结束后直接就会跳转
+        yield return null;
+    }
+
+    public void RestartGame()
+    {
+        StartGamePage.SetActive(false);
+        SaveManager.Instance.DeleteUserData();
+        PlayStartGameAnim();
+    }
+
+    public void ContinueGame()
+    {
+        StartGamePage.SetActive(false);
+        PlayStartGameAnim();
+    }
+
+    private void PlayStartGameAnim()
+    {
+        var track = Dave.AnimationState.SetAnimation(0, "MainMenuSelect", false);
+        track.TimeScale = 2;
+        track.Complete += (e) =>
+        {
+            Dave.AnimationState.SetAnimation(0, "ShopingIdel", true);
+            Dave.AnimationState.Complete -= PlayPotAudio;
+            PlayPotAudio(null);
+            AudioManager.Instance.StopBackMusic();
+            animator.SetTrigger("StartGame");
+            Invoke("SetAllowActivation", 0.9f);
+        };
+    }
+
+    private void SetAllowActivation()
+    {
+        asyncOperation.allowSceneActivation = true;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (StartGamePage.activeSelf)
+            {
+                StartGamePage.SetActive(false);
+            }
+        }
     }
 
     public void Setting()
     {
         Time.timeScale = 0;
         SettingPage.SetActive(true);
-        foreach (var item in Buttons)
-        {
-            item.enabled = false;
-        }
     }
 
     public void Achievement()
@@ -52,6 +112,7 @@ public class MainMenu : MonoBehaviour
     public void ExitGame()
     {
         var track = Dave.AnimationState.SetAnimation(0, "MainMenuSelect", false);
+        track.TimeScale = 2;
         track.Complete += (e) =>
         {
             animator.SetTrigger("Exit");
