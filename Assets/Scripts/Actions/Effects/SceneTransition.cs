@@ -25,13 +25,9 @@ public class SceneTransition : MonoBehaviour
     public readonly float TransitionTime = 1f;   // 过渡时间
     private readonly float GradientInterval = 0.1f;  // 渐变间隔
 
-    private void Start()
-    {
-        defaultGlobalIntensity = GlobalLight.intensity;
-    }
-
     public void TransitionToDaytime()
     {
+        defaultGlobalIntensity = GlobalLight.intensity;
         StartCoroutine(TransitionDayTime());
     }
 

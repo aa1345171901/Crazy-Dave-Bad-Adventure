@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundVolumeData
+public class SystemData
 {
     /// <summary>
     /// 背景音乐大小
@@ -13,4 +13,9 @@ public class SoundVolumeData
     /// 音效大小
     /// </summary>
     public float SoundEffectVolume = 1;
+
+    /// <summary>
+    /// 是否开启伤害显示
+    /// </summary>
+    public bool IsHUD = true;
 }

@@ -676,7 +676,7 @@
             "propName": "Spinacia",
             "propImagePath": "Shop/Props/Spinacia",
             "defaultPrice": "145",
-            "info": "<color=#9932CD>菠菜</color>\n<color=#00ff00>+10力量</color>\n<color=#00ff00>+10伤害</color>\n<color=#9932CD>解锁击退，并且僵尸尸体飞行造成碰撞伤害</color>\n吃了它我能把僵尸直接干飞",
+            "info": "<color=#9932CD>菠菜</color>\n<color=#00ff00>+10力量</color>\n<color=#00ff00>+10伤害</color>\n<color=#9932CD>解锁击退，并且僵尸尸体飞行造成碰撞伤害(每有一个伤害增加25%,最大100%)</color>\n吃了它我能把僵尸直接干飞",
             "quality": "3",
             "attributes":
             [

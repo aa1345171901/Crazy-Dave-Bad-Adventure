@@ -97,7 +97,7 @@ public class ZombieFly : MonoBehaviour
             Character zombie = trigger.Target.GetComponent<Character>();
             if (zombie != null)
             {
-                zombie.Health.DoDamage(GameManager.Instance.PotDamage, DamageType.ZombieFly);
+                zombie.Health.DoDamage(GameManager.Instance.ZombieFlyDamage, DamageType.ZombieFly);
                 audioSource.pitch = Random.Range(0.9f, 1.1f);
                 audioSource.Play();
                 isTrigger = true;

@@ -26,23 +26,23 @@ namespace TopDownPlate
             }
             else if (waveIndex < 9)
             {
-                this.realDamage = (int)((Damage + 2) * (waveIndex / 4f));
+                this.realDamage = (int)(Damage * (waveIndex / 4f));
             }
             else if (waveIndex < 13)
             {
-                this.realDamage = (int)((Damage + 5) * (waveIndex / 3f));
+                this.realDamage = (int)((Damage + 1) * (waveIndex / 3f));
             }
             else if (waveIndex < 17)
             {
-                this.realDamage = (int)((Damage + 10) * (waveIndex / 1.5f));
+                this.realDamage = (int)((Damage + 2) * (waveIndex / 1.5f));
             }
             else if (waveIndex < 21)
             {
-                this.realDamage = (Damage + 16) * waveIndex;
+                this.realDamage = (Damage + 3) * waveIndex;
             }
             else
             {
-                this.realDamage = (int)((Damage + 25) * waveIndex * 1.5f);
+                this.realDamage = (int)((Damage + 4) * waveIndex * 1.5f);
             }
         }
 

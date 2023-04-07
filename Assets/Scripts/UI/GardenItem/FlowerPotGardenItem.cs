@@ -31,21 +31,36 @@ public class FlowerPotGardenItem : MonoBehaviour
 
     private PlantCultivationPage plantCultivationPage;
     private GameObject seeding;
-    private GameObject taegetPlantPrefab;
+    private GameObject targetPlantPrefab;
     private GameObject targetPlant;
 
     private Animator animator;
 
-    public void SetPlant(GameObject taegetPlant, PlantCard plantCard, PlantCultivationPage plantCultivationPage)
+    public void SetPlant(GameObject targetPlant, PlantCard plantCard, PlantCultivationPage plantCultivationPage)
     {
         // 重新播放，与植物动画一致
         animator = GetComponent<Animator>();
         animator.Play("Idel");
         this.plantCultivationPage = plantCultivationPage;
-        this.taegetPlantPrefab = taegetPlant;
+        this.targetPlantPrefab = targetPlant;
         this.PlantAttribute = new PlantAttribute(plantCard);
         seeding = GameObject.Instantiate(GardenManager.Instance.SeedingPrefab, this.transform);
         GardenManager.Instance.PlantAttributes.Add(this.PlantAttribute);
+    }
+
+    public void LoadPlant(PlantAttribute plantAttribute, GameObject targetPlant, PlantCultivationPage plantCultivationPage)
+    {
+        animator = GetComponent<Animator>();
+        animator.Play("Idel");
+        this.PlantAttribute = plantAttribute;
+        if (plantAttribute.isCultivate)
+            this.targetPlant = GameObject.Instantiate(targetPlant, this.transform);
+        else
+        {
+            this.targetPlantPrefab = targetPlant;
+            seeding = GameObject.Instantiate(GardenManager.Instance.SeedingPrefab, this.transform);
+        }
+        this.plantCultivationPage = plantCultivationPage;
     }
 
     private void OnMouseDown()
@@ -101,7 +116,7 @@ public class FlowerPotGardenItem : MonoBehaviour
             PlantAttribute.isCultivate = true;
             GameObject.Destroy(seeding);
             animator.Play("Idel", 0, 0);
-            targetPlant = GameObject.Instantiate(taegetPlantPrefab, this.transform);
+            targetPlant = GameObject.Instantiate(targetPlantPrefab, this.transform);
             plantCultivationPage.SetPlantAttribute(this);
             UpdateSunPrice();
         }
@@ -109,10 +124,10 @@ public class FlowerPotGardenItem : MonoBehaviour
 
     public void Evolution(PlantCard plantCard)
     {
-        taegetPlantPrefab = GardenManager.Instance.PlantUIPrefabInfos.GetPlantInfo(plantCard.plantType).plantPrefab;
+        targetPlantPrefab = GardenManager.Instance.PlantUIPrefabInfos.GetPlantInfo(plantCard.plantType).plantPrefab;
         GameObject.Destroy(targetPlant);
         animator.Play("Idel", 0, 0);
-        targetPlant = GameObject.Instantiate(taegetPlantPrefab, this.transform);
+        targetPlant = GameObject.Instantiate(targetPlantPrefab, this.transform);
         PlantAttribute.plantCard = plantCard;
         plantCultivationPage.SetPlantAttribute(this);
         UpdateSunPrice();

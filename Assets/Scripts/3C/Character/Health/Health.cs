@@ -134,7 +134,8 @@ namespace TopDownPlate
             }
 
             // …À∫¶hud
-            SetHUD(-damage, isCriticalHit);
+            if (SaveManager.Instance.SystemData.IsHUD)
+                SetHUD(-damage, isCriticalHit);
         }
 
         private void SetHUD(int hudValue, bool isCriticalHit = false)
@@ -202,7 +203,8 @@ namespace TopDownPlate
             else
             {
                 health += value;
-                SetHUD(value);
+                if (SaveManager.Instance.SystemData.IsHUD)
+                    SetHUD(value);
             }
         }
     }

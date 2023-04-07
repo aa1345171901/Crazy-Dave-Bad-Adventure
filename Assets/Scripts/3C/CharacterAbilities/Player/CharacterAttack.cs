@@ -78,7 +78,7 @@ namespace TopDownPlate
 
             int spinaciaCount = ShopManager.Instance.PurchasePropCount("Spinacia");
             spinaciaCount = spinaciaCount > 4 ? 4 : spinaciaCount;
-            GameManager.Instance.PotDamage = spinaciaCount * finalDamage / 4;
+            GameManager.Instance.ZombieFlyDamage = spinaciaCount * finalDamage / 4;
         }
 
         public override void ProcessAbility()

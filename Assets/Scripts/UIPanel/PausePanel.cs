@@ -9,6 +9,10 @@ public class PausePanel : BasePanel
 {
     public Slider musicSlider;
     public Slider effectSoundSlider;
+    public Toggle hudToggle;
+
+    public GameObject mainMenuPage;
+    public GameObject restartPage;
 
     public override void OnEnter()
     {
@@ -21,6 +25,7 @@ public class PausePanel : BasePanel
         musicSlider.value = AudioManager.Instance.BackmusicPlayer.volume;
         effectSoundSlider.value = AudioManager.Instance.EffectPlayer.volume;
         UIManager.Instance.PushPanel(UIPanelType.AttributePanel);
+        hudToggle.isOn = SaveManager.Instance.SystemData.IsHUD;
     }
 
     public override void OnExit()
@@ -55,11 +60,30 @@ public class PausePanel : BasePanel
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
+        SaveManager.Instance.DeleteUserData();
     }
 
     public void ReturnMainMenu()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
+    }
+
+    public void SetHUD(bool value)
+    {
+        SaveManager.Instance.SystemData.IsHUD = value;
+    }
+
+    public void Close()
+    {
+        if (mainMenuPage.activeSelf || restartPage.activeSelf)
+        {
+            mainMenuPage.SetActive(false);
+            restartPage.SetActive(false);
+        }
+        else
+        {
+            UIManager.Instance.PopPanel();
+        }
     }
 }

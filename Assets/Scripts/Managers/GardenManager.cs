@@ -89,6 +89,10 @@ public class GardenManager : BaseManager<GardenManager>
     /// </summary>
     public Dictionary<PlantAttribute, Plant> PlantDict { get; set; } = new Dictionary<PlantAttribute, Plant>();
 
+    /// <summary>
+    /// 是否读取了存档，在PlantContent时进行花盆和植物的载入
+    /// </summary>
+    public bool IsLoadPlantData { get; set; }
     public void AddPlant(PlantCard plantCard)
     {
         NoPlantingPlants.Add(plantCard);

@@ -41,8 +41,8 @@ namespace TopDownPlate
         private float timer;
         private Trigger2D attackTrigger;
 
-        private int realDamage;
-        private float realAttackRange;
+        public int realDamage;
+        public float realAttackRange;
         public float realAttackProbability;
 
         private AudioSource audioSource;
@@ -61,30 +61,30 @@ namespace TopDownPlate
             trackEntry = null;
             int waveIndex = LevelManager.Instance.IndexWave + 1;
             this.realAttackRange = AttackRange + waveIndex / 10f;
-            realAttackProbability = AttackProbability + waveIndex * 0.02f;
+            realAttackProbability = AttackProbability + waveIndex * 0.01f;
             if (waveIndex < 4)
             {
                 this.realDamage = Damage;
             }
             else if (waveIndex < 9)
             {
-                this.realDamage = (int)((Damage + 2) * (waveIndex / 4f));
+                this.realDamage = (int)((Damage + 1) * (waveIndex / 4f));
             }
             else if (waveIndex < 13)
             {
-                this.realDamage = (int)((Damage + 4) * (waveIndex / 3f));
+                this.realDamage = (int)((Damage + 2) * (waveIndex / 3f));
             }
             else if (waveIndex < 17)
             {
-                this.realDamage = (int)((Damage + 7) * (waveIndex / 1.5f));
+                this.realDamage = (int)((Damage + 3) * (waveIndex / 1.5f));
             }
             else if (waveIndex < 21)
             {
-                this.realDamage = (Damage + 11) * waveIndex;
+                this.realDamage = (Damage + 4) * waveIndex;
             }
             else
             {
-                this.realDamage = (int)((Damage + 16) * waveIndex * 1.5f);
+                this.realDamage = (int)((Damage + 5) * waveIndex * 1.5f);
             }
             SetTrailAndColliderActive(false, false);
         }

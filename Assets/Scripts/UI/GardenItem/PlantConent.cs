@@ -37,6 +37,33 @@ public class PlantConent : MonoBehaviour
 
     public void CreateFlowerPot()
     {
+        // 本次加载是否是读取存档
+        if (GardenManager.Instance.IsLoadPlantData)
+        {
+            int flowerpotCount = GardenManager.Instance.FlowerPotCount;
+            // 先把花盆随机生成
+            for (int i = 0; i < flowerpotCount; i++)
+            {
+                int index = Random.Range(0, canLayUpFlowerPotPos.Count);
+                var flowerPotPos = canLayUpFlowerPotPos[index];
+                flowerPotPos.CreateFlowerPot();
+                canLayUpFlowerPotPos.Remove(flowerPotPos);
+                haveFlowerPotPos.Add(flowerPotPos);
+            }
+            // 植物位置随机生成，以及加载属性以及是否培养
+            var plants = GardenManager.Instance.PlantAttributes;
+            foreach (var item in plants)
+            {
+                int index = Random.Range(0, haveFlowerPotPos.Count);
+                var flowerPotPos = haveFlowerPotPos[index];
+                PlantUIPrefabInfo plantUIPrefabInfo = GardenManager.Instance.PlantUIPrefabInfos.GetPlantInfo(item.plantCard.plantType);
+                if (plantUIPrefabInfo == null)
+                    plantUIPrefabInfo = GardenManager.Instance.PlantUIPrefabInfos.GetPlantInfo(PlantType.None);
+                flowerPotPos.FlowerPot.LoadPlant(item, plantUIPrefabInfo.plantPrefab, plantCultivationPage);
+                haveFlowerPotPos.Remove(flowerPotPos);
+            }
+            GardenManager.Instance.IsLoadPlantData = false;
+        }
         for (int i = 0; i < GardenManager.Instance.NotPlacedFlowerPotCount; i++)
         {
             // 随机位置生成 花盆

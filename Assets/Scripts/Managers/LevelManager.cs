@@ -92,6 +92,11 @@ namespace TopDownPlate
             course = 0;
         }
 
+        public void LoadTimer()
+        {
+            timer = DurationPerWave + 1;
+        }
+
         private void Update()
         {
             if (!GameManager.Instance.IsEnd)

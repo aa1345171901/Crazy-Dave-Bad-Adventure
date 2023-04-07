@@ -6102,7 +6102,7 @@ MonoBehaviour:
   RushSpeedMul: 2
   AttackRange: 5
   Damage: 2
-  AttackProbability: 0.2
+  AttackProbability: 0.144
   AttackJudgmentTime: 1
   AttackBeforeAnimation: Attack_Before
   AttackAnimation: Attack
@@ -6110,7 +6110,9 @@ MonoBehaviour:
   Trails:
   - {fileID: 1453894757}
   - {fileID: 1855601729}
+  realDamage: 0
   realAttackRange: 0
+  realAttackProbability: 0
 --- !u!114 &605363035
 MonoBehaviour:
   m_ObjectHideFlags: 0

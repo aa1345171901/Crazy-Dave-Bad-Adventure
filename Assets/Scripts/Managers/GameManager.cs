@@ -29,7 +29,7 @@ namespace TopDownPlate
 
         public Character Player { get; protected set; }
 
-        public UserData UserData;// { get; protected set; } = new UserData();
+        public UserData UserData;// { get; set; }
 
         private bool isEnd;
         /// <summary>
@@ -52,6 +52,7 @@ namespace TopDownPlate
                         ShowTipsPanel(TipsType.GameOver);
                         AudioManager.Instance.StopBackMusic();
                         AudioManager.Instance.PlayEffectSoundByName("GameOver");
+                        SaveManager.Instance.DeleteUserData();  // 死亡需要删档
                     }
                 }
             }
@@ -83,8 +84,10 @@ namespace TopDownPlate
                         Invoke("OpenShop", SceneTransition.TransitionTime * 2);
                         battlePanel.GetGold();
                         AudioManager.Instance.PlayEffectSoundByName("winmusic");
-                        // todo 阳光
+
                         GardenManager.Instance.Sun += UserData.Sunshine;
+
+                        SaveManager.Instance.SaveUserData();  // 每波结束时保存
                     }
                     else
                     {
@@ -102,7 +105,7 @@ namespace TopDownPlate
 
         public bool HaveBlackHole { get; set; } // 是否有吸阳光黑洞
 
-        public int PotDamage { get; set; }  // 平底锅的伤害，飞头伤害为平底锅伤害 * 菠菜数/4 最大1;
+        public int ZombieFlyDamage { get; set; }  // 飞头伤害为平底锅伤害 * 菠菜数/4 最大1;
 
         public bool IsOpenVocalConcert => vocalConcert.OpenVocalConcert;
 
@@ -113,7 +116,77 @@ namespace TopDownPlate
         private void Start()
         {
             LevelManager.Instance.Init();
-            UIManager.Instance.ClearDict();
+            UIManager.Instance.ClearDict();  // 到主菜单后UIManager由于不是MonoBehaviour所以需要手动进行字典清空
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            SaveManager.Instance.LoadUserData();  // 读取用户数据
+            LoadPropMsg();
+            if (SaveManager.Instance.IsLoadUserData)
+            {
+                foreach (var item in specialPropLists)
+                {
+                    item.DayEnd();
+                }
+                SceneTransition.TransitionToDaytime();
+                OpenShop();
+                LevelManager.Instance.LoadTimer();
+                isDaytime = true;
+                SaveManager.Instance.IsLoadUserData = false;
+            }
+        }
+
+        /// <summary>
+        /// 读取特殊道具是否拥有
+        /// </summary>
+        private void LoadPropMsg()
+        {
+            var purchasedProps = ShopManager.Instance.PurchasedProps;
+            foreach (var item in purchasedProps)
+            {
+                if (item.propDamageType != PropDamageType.None)
+                    SetPropDamage(item.propDamageType, item.defalutDamage, item.coolingTime);
+                else
+                {
+                    switch (item.propName)
+                    {
+                        case "PortalCard":
+                            SetTransferGate();
+                            break;
+                        case "Spinacia":
+                            IsZombieShock = true;
+                            break;
+                        case "magnetic":
+                            HaveMagnetic = true;
+                            // 由于是降属性的，所以解锁完能力后不再刷新
+                            RemoveShopPropDict(item);
+                            break;
+                        case "blackhole":
+                            HaveBlackHole = true;
+                            RemoveShopPropDict(item);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+
+        private void RemoveShopPropDict(PropCard item)
+        {
+            var propDictsQuality = ShopManager.Instance.PropDicts[item.quality];
+            PropCard remove = null;
+            foreach (var prop in propDictsQuality)
+            {
+                if (prop.propName == item.propName)
+                {
+                    remove = prop;
+                }
+            }
+            if (remove != null)
+                propDictsQuality.Remove(remove);
         }
 
         public void SetPlayer(Character character)
@@ -225,7 +298,7 @@ namespace TopDownPlate
             {
                 if (pausePanel != null && pausePanel.gameObject.activeSelf)
                 {
-                    UIManager.Instance.PopPanel();
+                    pausePanel.Close();
                 }
                 else
                 {
