@@ -26,6 +26,10 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateCoolTime = "攻击冷却";
     private readonly string CultivateBulletSpeed = "子弹速度";
     private readonly string CultivateSplashDamage = "溅射伤害";
+    private readonly string CultivateDigestiveSpeed = "消化速度";
+    private readonly string CultivateSwallowCount = "一次性吞噬个数";
+    private readonly string CultivateCoinConversionRate = "金币率转换";
+    private readonly string CultivateSunConversionRate = "阳光率转换";
 
     private void Update()
     {
@@ -79,6 +83,7 @@ public class PlantCultivationPage : MonoBehaviour
                 case PlantType.CherryBomb:
                     break;
                 case PlantType.Chomper:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateDigestiveSpeed, CultivateRange, CultivateSwallowCount, CultivateCoinConversionRate, CultivateSunConversionRate, CultivateBasicDamage, CultivatePercentageDamage });
                     break;
                 case PlantType.CoffeeBean:
                     break;

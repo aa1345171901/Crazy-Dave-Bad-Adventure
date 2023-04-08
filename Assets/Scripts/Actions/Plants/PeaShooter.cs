@@ -87,8 +87,10 @@ public class PeaShooter : Plant
     {
         if (Time.time - timer > finalCoolTime && spriteRenderer != null)
         {
-            var direction = FacingDirections == FacingDirections.Right ? Vector2.right : Vector2.left;
-            var hit = Physics2D.Raycast(this.transform.position, direction, finalRage, TargetLayer);
+            var realRange = FacingDirections == FacingDirections.Right ? finalRage : -finalRage;
+            var pos = new Vector3(this.transform.position.x + realRange / 2, this.transform.position.y - 0.5f);
+            var size = new Vector2(finalRage, 1);
+            var hit = Physics2D.OverlapBox(pos, size, 0, TargetLayer);
             if (hit)
             {
                 if (spriteRenderer.sprite == attack0Trigger)

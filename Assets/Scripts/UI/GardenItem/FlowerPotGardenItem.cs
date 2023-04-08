@@ -81,13 +81,7 @@ public class FlowerPotGardenItem : MonoBehaviour
             switch (PlantAttribute.plantCard.plantType)
             {
                 case PlantType.Peashooter:
-                    var hash = RandomUtils.RandomCreateNumber(6, 3);
-                    int index = 0;
-                    foreach (var item in hash)
-                    {
-                        PlantAttribute.attribute[index] = item;
-                        index++;
-                    }
+                    SetAttribute(6);
                     break;
                 case PlantType.Cactus:
                     break;
@@ -98,6 +92,7 @@ public class FlowerPotGardenItem : MonoBehaviour
                 case PlantType.CherryBomb:
                     break;
                 case PlantType.Chomper:
+                    SetAttribute(7);
                     break;
                 case PlantType.CoffeeBean:
                     break;
@@ -119,6 +114,17 @@ public class FlowerPotGardenItem : MonoBehaviour
             targetPlant = GameObject.Instantiate(targetPlantPrefab, this.transform);
             plantCultivationPage.SetPlantAttribute(this);
             UpdateSunPrice();
+        }
+    }
+
+    private void SetAttribute(int len)
+    {
+        var hash = RandomUtils.RandomCreateNumber(len, 3);
+        int index = 0;
+        foreach (var item in hash)
+        {
+            PlantAttribute.attribute[index] = item;
+            index++;
         }
     }
 
