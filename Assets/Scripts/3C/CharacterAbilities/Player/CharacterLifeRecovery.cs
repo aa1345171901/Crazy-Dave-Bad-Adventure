@@ -15,7 +15,7 @@ namespace TopDownPlate
         private int purchaseFireCount;
         private float fireTimer;
 
-        private readonly float howManySecondsRecoverty = 20;
+        private readonly float howManySecondsRecoverty = 10;
         private readonly string fireName = "fire";
 
         protected override void Initialization()

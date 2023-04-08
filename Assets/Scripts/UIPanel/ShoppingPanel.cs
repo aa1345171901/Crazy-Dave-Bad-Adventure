@@ -29,6 +29,7 @@ public class ShoppingPanel : BasePanel
 
     public SkeletonGraphic Dave;
     public List<AudioClip> daveAudioClips;
+    private bool hasOtherDown;    // 鼠标是否在物品和属性上
     private object nowItem;        // 当前播放语音的item,后续道具的展示也放shopping这里，所以使用object
     private object lastDownItem;  // 上次播放语音的Item,如果相同则不再播放
 
@@ -128,7 +129,7 @@ public class ShoppingPanel : BasePanel
         }
         if (!hasDown)
             isTriggerCannotAfford = false;
-        else
+        if (hasDown || hasOtherDown)
             Invoke("PlayDaveSounds", 0.3f);
     }
 
@@ -290,6 +291,7 @@ public class ShoppingPanel : BasePanel
         {
             // 从花园进入
             attributePanel = UIManager.Instance.PushPanel(UIPanelType.AttributePanel) as AttributePanel;
+            attributePanel.ShoppingPanel = this;
         }
     }
 
@@ -299,6 +301,7 @@ public class ShoppingPanel : BasePanel
         {
             BtnRenovate.gameObject.SetActive(true);
             attributePanel = UIManager.Instance.PushPanel(UIPanelType.AttributePanel) as AttributePanel;
+            attributePanel.ShoppingPanel = this;
             Money.text = ShopManager.Instance.Money.ToString();
             renovateCount = 0;
             Refresh();
@@ -321,6 +324,14 @@ public class ShoppingPanel : BasePanel
 
     public void OpenBag()
     {
-        UIManager.Instance.PushPanel(UIPanelType.BagPanel);
+        BagPanel bagpanel = UIManager.Instance.PushPanel(UIPanelType.BagPanel) as BagPanel;
+        bagpanel.ShoppingPanel = this;
+        bagpanel.AutoClose = true;
+    }
+
+    public void SetSoundsItem(bool hasDown, object nowItem = null)
+    {
+        this.nowItem = nowItem;
+        this.hasOtherDown = hasDown;
     }
 }

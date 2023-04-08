@@ -25,6 +25,8 @@ public class PausePanel : BasePanel
         musicSlider.value = AudioManager.Instance.BackmusicPlayer.volume;
         effectSoundSlider.value = AudioManager.Instance.EffectPlayer.volume;
         UIManager.Instance.PushPanel(UIPanelType.AttributePanel);
+        BagPanel bagpanel = UIManager.Instance.PushPanel(UIPanelType.BagPanel) as BagPanel;
+        bagpanel.AutoClose = false;
         hudToggle.isOn = SaveManager.Instance.SystemData.IsHUD;
     }
 
@@ -39,7 +41,7 @@ public class PausePanel : BasePanel
 
     public void ReturnGame()
     {
-        UIManager.Instance.PopPanel();
+        Close();
     }
 
     public void MusicVolumeChanged(float value)
@@ -83,6 +85,7 @@ public class PausePanel : BasePanel
         }
         else
         {
+            UIManager.Instance.PopPanel();
             UIManager.Instance.PopPanel();
         }
     }

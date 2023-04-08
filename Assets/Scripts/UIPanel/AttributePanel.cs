@@ -3,12 +3,43 @@ using System.Collections;
 using System.Collections.Generic;
 using TopDownPlate;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AttributePanel : BasePanel
 {
     public Dictionary<AttributeType, AttributeItem> AttributeDicts;
 
     public Transform AttributeContent;
+    public Text InfoText;
+
+    public ShoppingPanel ShoppingPanel { get; set; }
+
+    private string info;
+    public string Info
+    {
+        get
+        {
+            return info;
+        }
+        set
+        {
+            if (info != value)
+            {
+                info = value;
+                if (string.IsNullOrEmpty(info))
+                {
+                    InfoText.transform.parent.gameObject.SetActive(false);
+                    ShoppingPanel?.SetSoundsItem(false);
+                }
+                else
+                {
+                    ShoppingPanel?.SetSoundsItem(true, info);
+                    InfoText.transform.parent.gameObject.SetActive(true);
+                    InfoText.text = info;
+                }
+            }
+        }
+    }
 
     public override void OnEnter()
     {
@@ -50,6 +81,7 @@ public class AttributePanel : BasePanel
         foreach (var item in AttributeDicts)
         {
             SetAttribute(item.Key, (int)typeof(UserData).GetField(Enum.GetName(typeof(AttributeType), item.Key)).GetValue(userData));
+            item.Value.SetInit(this, item.Key);
         }
     }
 }

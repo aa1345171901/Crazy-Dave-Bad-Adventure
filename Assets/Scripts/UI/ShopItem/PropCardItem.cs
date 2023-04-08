@@ -127,10 +127,9 @@ public class PropCardItem : ShopItem
                 case PropDamageType.LawnMower:
                     finalDamage = Mathf.RoundToInt((userData.Power + propCard.defalutDamage) * (100f + userData.PercentageDamage) / 100);
                     finalAttackCoolingTime = propCard.coolingTime * (1 - userData.Speed / (100f + userData.Speed));
-                    finalAttackCoolingTime.ToString("F2");
                     this.Info = string.Format(this.propCard.info,
                         "<color=#ff0000>" + finalDamage + "</color><color=#9932CD>（(100%力量+" + propCard.defalutDamage + ") * 伤害）</color>",
-                        "<color=#ff0000>" + finalAttackCoolingTime + "</color><color=#9932CD>（" + propCard.coolingTime + "*（1-速度/（速度+100））</color>");
+                        "<color=#ff0000>" + (int)finalAttackCoolingTime + "</color><color=#9932CD>（" + propCard.coolingTime + "*（1-速度/（速度+100））</color>");
                     break;
                 case PropDamageType.Fire:
                     this.Info = string.Format(this.propCard.info, propCard.defalutDamage);
@@ -138,11 +137,10 @@ public class PropCardItem : ShopItem
                 case PropDamageType.Hammer:
                     finalDamage = Mathf.RoundToInt((userData.Power * 1.5f + propCard.defalutDamage) * (100f + userData.PercentageDamage) / 100);
                     finalAttackCoolingTime = propCard.coolingTime - userData.AttackSpeed / 100f;
-                    finalAttackCoolingTime.ToString("F2");
                     finalAttackCoolingTime = finalAttackCoolingTime < 0.5f ? 0.5f : finalAttackCoolingTime;
                     this.Info = string.Format(this.propCard.info,
                         "<color=#ff0000>" + finalDamage + "</color><color=#9932CD>（(150%力量+" + propCard.defalutDamage + ") * 伤害）</color>",
-                        "<color=#ff0000>" + finalAttackCoolingTime + "</color><color=#9932CD>（" + propCard.coolingTime + "-攻击速度%）</color>");
+                        "<color=#ff0000>" + (int)finalAttackCoolingTime + "</color><color=#9932CD>（" + propCard.coolingTime + "-攻击速度%）</color>");
                     break;
                 case PropDamageType.VocalConcert:
                     break;

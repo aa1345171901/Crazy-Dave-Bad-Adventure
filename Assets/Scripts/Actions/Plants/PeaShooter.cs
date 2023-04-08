@@ -80,7 +80,7 @@ public class PeaShooter : Plant
                     break;
             }
         }
-        finalDamage = (int)(finalDamage * (GameManager.Instance.UserData.Botany + 100) / 100f);
+        finalDamage = (int)(finalDamage * (GameManager.Instance.UserData.Botany * 2 + 100) / 100f);
     }
 
     private void Update()

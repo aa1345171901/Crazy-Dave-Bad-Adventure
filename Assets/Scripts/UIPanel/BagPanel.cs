@@ -10,6 +10,10 @@ public class BagPanel : BasePanel
     public GameObject content;
     public PropBagItem propBagItem;
 
+    public bool AutoClose { get; set; }
+
+    public ShoppingPanel ShoppingPanel { get; set; }
+
     private PropCard nowShowPropCard;
     public PropCard NowShowPropCard 
     { 
@@ -25,9 +29,11 @@ public class BagPanel : BasePanel
                 if (nowShowPropCard == null)
                 {
                     InfoText.transform.parent.gameObject.SetActive(false);
+                    ShoppingPanel?.SetSoundsItem(false);
                 }
                 else
                 {
+                    ShoppingPanel?.SetSoundsItem(true, nowShowPropCard);
                     InfoText.transform.parent.gameObject.SetActive(true);
                     InfoText.text = nowShowPropCard.info;
                     if (nowShowPropCard.propDamageType != PropDamageType.None)
@@ -84,7 +90,7 @@ public class BagPanel : BasePanel
     private void Update()
     {
         // 判断鼠标是否在按钮范围内
-        if (!BoundsUtils.GetSceneRect(UICamera, rectTransform).Contains(Input.mousePosition))
+        if (AutoClose && !BoundsUtils.GetSceneRect(UICamera, rectTransform).Contains(Input.mousePosition))
         {
             UIManager.Instance.PopPanel();
         }
@@ -94,6 +100,7 @@ public class BagPanel : BasePanel
     {
         base.OnEnter();
         this.gameObject.SetActive(true);
+        this.transform.SetSiblingIndex(this.transform.parent.childCount - 1);  // 设置最后一个渲染
         // 先将已有的道具数目清零
         foreach (var item in propDicts)
         {
