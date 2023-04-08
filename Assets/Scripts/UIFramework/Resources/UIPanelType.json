@@ -29,6 +29,11 @@
         {
             "panelTypeString": "PausePanel",
             "path": "UIPanel/PausePanel"
+        },
+
+        {
+            "panelTypeString": "BagPanel",
+            "path": "UIPanel/BagPanel"
         }
     ]
 }

@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
     public GameObject SettingPage;
     public GameObject AchievementPage;
     public GameObject StartGamePage;
+    public Collider2D collider2d;
 
     private AsyncOperation asyncOperation;
 
@@ -48,6 +49,9 @@ public class MainMenu : MonoBehaviour
     IEnumerator LoadScene()
     {
         // 使用协程异步加载场景
+        Resources.UnloadUnusedAssets();
+        System.GC.Collect();
+        Application.backgroundLoadingPriority = ThreadPriority.Normal;
         asyncOperation = SceneManager.LoadSceneAsync(1);
         asyncOperation.allowSceneActivation = false; // 如果为true，那么加载结束后直接就会跳转
         yield return null;
@@ -68,6 +72,7 @@ public class MainMenu : MonoBehaviour
 
     private void PlayStartGameAnim()
     {
+        collider2d.enabled = true;
         var track = Dave.AnimationState.SetAnimation(0, "MainMenuSelect", false);
         track.TimeScale = 2;
         track.Complete += (e) =>

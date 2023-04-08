@@ -35,6 +35,7 @@ public class UIButton : MonoBehaviour
 
     private void Start()
     {
+        defaultPos = this.transform.position;
         UICamera = UIManager.Instance.UICamera;
         rectTransform = GetComponent<RectTransform>();
     }

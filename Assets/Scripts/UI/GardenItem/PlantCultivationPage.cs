@@ -67,6 +67,9 @@ public class PlantCultivationPage : MonoBehaviour
                 case PlantType.Repeater:
                     SetItemInfo(flowerPotGardenItem, PlantType.GatlingPea, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage });
                     break;
+                case PlantType.GatlingPea:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage });
+                    break;
                 case PlantType.Cactus:
                     break;
                 case PlantType.Blover:
@@ -82,8 +85,6 @@ public class PlantCultivationPage : MonoBehaviour
                 case PlantType.Cornpult:
                     break;
                 case PlantType.FumeShroom:
-                    break;
-                case PlantType.GatlingPea:
                     break;
                 case PlantType.GloomShroom:
                     break;
@@ -113,7 +114,7 @@ public class PlantCultivationPage : MonoBehaviour
         }
     }
 
-    private void SetItemInfo(FlowerPotGardenItem flowerPotGardenItem,PlantType plantType, string[] infos)
+    private void SetItemInfo(FlowerPotGardenItem flowerPotGardenItem, PlantType plantType, string[] infos)
     {
         for (int i = 0; i < plantCultivationItems.Count; i++)
         {

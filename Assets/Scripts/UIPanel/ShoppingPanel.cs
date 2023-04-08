@@ -318,4 +318,9 @@ public class ShoppingPanel : BasePanel
         UIManager.Instance.PushPanel(UIPanelType.GardenPanel);
         AudioManager.Instance.PlayGardenMusic();
     }
+
+    public void OpenBag()
+    {
+        UIManager.Instance.PushPanel(UIPanelType.BagPanel);
+    }
 }

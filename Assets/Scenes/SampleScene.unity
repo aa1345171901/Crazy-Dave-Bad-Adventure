@@ -2767,7 +2767,7 @@ MonoBehaviour:
     Armor: 0
     Lucky: 0
     Sunshine: 0
-    GoldCoins: 0
+    GoldCoins: 2222
     Botany: 0
 --- !u!1 &1590276643
 GameObject:
