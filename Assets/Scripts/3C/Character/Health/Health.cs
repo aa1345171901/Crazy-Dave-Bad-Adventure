@@ -6,6 +6,9 @@ using UnityEngine.Events;
 
 namespace TopDownPlate
 {
+    /// <summary>
+    /// 伤害类型，也可作于成就的统计
+    /// </summary>
     public enum DamageType
     {
         Zombie,
@@ -16,7 +19,8 @@ namespace TopDownPlate
         Fire,
         ZombieFly,
         ZombieHurEachOther,  // 游戏结束后互相伤害
-        PeaBullet,
+        PeaBullet,  // 豌豆
+        Chomper,   // 大嘴花
     }
 
     public class HUDPos
@@ -56,6 +60,7 @@ namespace TopDownPlate
         private float hudShowTime = 0.5f;
         private int fontSize;
 
+        private float timer;
         private int defaultMaxHealth;
 
         private void Start()
@@ -123,6 +128,10 @@ namespace TopDownPlate
                 health -= damage;
             }
 
+            // 伤害hud
+            if (SaveManager.Instance.SystemData.IsHUD)
+                SetHUD(-damage, isCriticalHit);
+
             if (health <= 0)
             {
                 character.IsDead = true;
@@ -132,10 +141,6 @@ namespace TopDownPlate
             {
                 Injured?.Invoke();
             }
-
-            // 伤害hud
-            if (SaveManager.Instance.SystemData.IsHUD)
-                SetHUD(-damage, isCriticalHit);
         }
 
         private void SetHUD(int hudValue, bool isCriticalHit = false)
@@ -155,6 +160,7 @@ namespace TopDownPlate
             hudPos.offset = Vector3.up * Time.deltaTime * UnityEngine.Random.Range(0.3f, 0.6f);
             hudLists.Add(hudPos);
             StartCoroutine(CloseHUD(hudPos));
+            timer = 0;
         }
 
         IEnumerator CloseHUD(HUDPos hudPos)
@@ -193,6 +199,12 @@ namespace TopDownPlate
                 GUI.skin.label.fontSize = fontSize;
                 GUI.skin.label.font = GameManager.Instance.HUDFont;
                 GUI.Label(new Rect(item.guiPos.x, item.guiPos.y, Screen.width, Screen.height), item.hudValue);
+            }
+            if (hudLists.Count >= 0)
+            {
+                timer += Time.deltaTime;
+                if (timer > hudShowTime)
+                    hudLists.Clear();
             }
         }
 

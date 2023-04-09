@@ -6,10 +6,15 @@ using UnityEngine;
 public class Plant : MonoBehaviour
 {
     public PlantAttribute plantAttribute;
+    public Animator animator;
 
     public virtual PlantType PlantType => PlantType.None;
 
     protected SpriteRenderer spriteRenderer;
+    // ºÏ≤‚∑∂Œßº∞Œª÷√
+    protected float realRange;
+    protected Vector2 pos;
+    protected Vector2 size;
 
     private FacingDirections facingDirections;
     public virtual FacingDirections FacingDirections 

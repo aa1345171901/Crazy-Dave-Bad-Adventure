@@ -60,6 +60,10 @@ public enum PlantType
     /// ½ğ´ÅÁ¦¹½
     /// </summary>
     GoldMagent,
+    /// <summary>
+    /// ºÉÒ¶
+    /// </summary>
+    Lilypad,
 }
 
 [Serializable]

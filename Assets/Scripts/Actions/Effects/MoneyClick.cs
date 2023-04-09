@@ -56,6 +56,11 @@ public class MoneyClick : MonoBehaviour
         Destroy(gameObject, destroyTime);
     }
 
+    public void Digest()
+    {
+        OnClick();
+    }
+
     protected virtual void NumAdd()
     {
         ShopManager.Instance.Money += Price;

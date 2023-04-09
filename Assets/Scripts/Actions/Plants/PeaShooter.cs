@@ -7,7 +7,6 @@ public class PeaShooter : Plant
 {
     public override PlantType PlantType => PlantType.Peashooter;
 
-    public Animator animator;
     public Sprite attack0Trigger;
     public Sprite attack1Trigger;
     public Sprite attack2Trigger;
@@ -81,15 +80,16 @@ public class PeaShooter : Plant
             }
         }
         finalDamage = (int)(finalDamage * (GameManager.Instance.UserData.Botany * 2 + 100) / 100f);
+
+        realRange = FacingDirections == FacingDirections.Right ? finalRage : -finalRage;
+        pos = new Vector3(this.transform.position.x + realRange / 2, this.transform.position.y - 0.5f);
+        size = new Vector2(finalRage, 1);
     }
 
     private void Update()
     {
         if (Time.time - timer > finalCoolTime && spriteRenderer != null)
-        {
-            var realRange = FacingDirections == FacingDirections.Right ? finalRage : -finalRage;
-            var pos = new Vector3(this.transform.position.x + realRange / 2, this.transform.position.y - 0.5f);
-            var size = new Vector2(finalRage, 1);
+        {          
             var hit = Physics2D.OverlapBox(pos, size, 0, TargetLayer);
             if (hit)
             {

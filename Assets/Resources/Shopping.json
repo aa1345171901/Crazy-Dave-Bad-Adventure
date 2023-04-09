@@ -1331,7 +1331,7 @@
 
         {
             "plantName" :"双发豌豆",
-            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantBgImagePath": "Shop/Plants/strongBg",
             "plantImagePath": "Shop/Plants/Repeater",
             "defaultPrice": "25",
             "defaultSun": "100",
@@ -1371,7 +1371,7 @@
 
         {
             "plantName" :"樱桃炸弹",
-            "plantBgImagePath": "Shop/Plants/strongBg",
+            "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/CherryBomb",
             "defaultPrice": "50",
             "defaultSun": "150",
@@ -1440,13 +1440,23 @@
         },
 
         {
-            "plantName" :"金磁力菇",
-            "plantBgImagePath": "Shop/Plants/strongBg",
+            "plantName" :"吸金菇",
+            "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/GoldMagent",
             "defaultPrice": "70",
-            "defaultSun": "50",
-            "info": "<color=#9932CD>金磁力菇</color>\n可以使用{0}阳光培养\n有概率吸取场上掉落的金币\n这样就不要一个一个收集钱币了",
+            "defaultSun": "150",
+            "info": "<color=#9932CD>吸金菇</color>\n可以使用{0}阳光培养\n有概率吸取场上掉落的金币\n这样就不要一个一个收集钱币了",
             "plantTypeString": "GoldMagent"
+        },
+
+        {
+            "plantName" :"荷叶",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/LilyPad",
+            "defaultPrice": "15",
+            "defaultSun": "25",
+            "info": "<color=#00ff00>荷叶</color>\n可以使用{0}阳光培养\n有了荷叶就能种植香蒲了",
+            "plantTypeString": "Lilypad"
         }
     ]
 }

@@ -33,8 +33,11 @@ public class CoinJump : MonoBehaviour
     private GameObject ExplosionGO;  // 可能会爆的钱币
     private List<ItemJump> targets = new List<ItemJump>();  // 包含钱币和阳光
 
-    public void DeadExplosionRate()
+    public void DeadExplosionRate(DamageType damageType)
     {
+        // 大嘴花吃掉不扣
+        if (damageType == DamageType.Chomper)
+            return;
         /*
         * 是否掉落银币，金币，钻石，与幸运挂钩，  
         * 掉落概率为  银币 （15 + 幸运）%  , 
@@ -106,5 +109,7 @@ public class CoinJump : MonoBehaviour
                 }
             }
         }
+        if (curTime > 0.6f)
+            targets.Clear();
     }
 }

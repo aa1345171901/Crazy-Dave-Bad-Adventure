@@ -34,6 +34,8 @@ public class BattlePanel : BasePanel
     {
         base.OnEnter();
         this.gameObject.SetActive(true);
+        MoneyText.text = ShopManager.Instance.Money.ToString();
+        SunText.text = GardenManager.Instance.Sun.ToString();
     }
 
     public override void OnExit()

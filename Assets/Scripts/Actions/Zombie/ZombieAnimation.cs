@@ -118,45 +118,54 @@ public class ZombieAnimation : MonoBehaviour
 
     public void Dead(DamageType damageType)
     {
-        character.SkeletonAnimation.ClearState();
-        int index = Random.Range(0, 11);
-        string deadStr = index >= 6 ? DeadFlyAfterAnimation : DeadAnimation;
-        bool isBodyFly = false;
-        bool isZombieShock = GameManager.Instance.IsZombieShock;
-
-        if (damageType == DamageType.Pot && isZombieShock)
+        if (damageType == DamageType.Chomper)
         {
-            if (aiMove.AIParameter.attackPos == AIParameter.AttackPos.Body)
-            {
-                isBodyFly = true;
-                deadStr = DeadFlyAnimation;
-                zombieFly.SetZombieFly(aiMove.RepulsiveForce, false, () => {
-                    var entry = character.SkeletonAnimation.AnimationState.SetAnimation(0, DeadFlyAfterAnimation, false);
-                    entry.Complete += (e) =>
-                    {
-                        zombieFly.CloseFly();
-                        character.gameObject.SetActive(false);
-                        LevelManager.Instance.CacheEnemys.Add(character);
-                        character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;
-                    };
-                });
-            }
-            else
-            {
-                deadStr = DeadAnimation2;
-                zombieFly.SetZombieFly(aiMove.RepulsiveForce);
-            }
+            character.gameObject.SetActive(false);
+            LevelManager.Instance.CacheEnemys.Add(character);
+            character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;
         }
+        else
+        {
+            character.SkeletonAnimation.ClearState();
+            int index = Random.Range(0, 11);
+            string deadStr = index >= 6 ? DeadFlyAfterAnimation : DeadAnimation;
+            bool isBodyFly = false;
+            bool isZombieShock = GameManager.Instance.IsZombieShock;
 
-        var entry = character.SkeletonAnimation.AnimationState.SetAnimation(0, deadStr, false);
-        if (!isBodyFly)
-            entry.Complete += (e) =>
+            if (damageType == DamageType.Pot && isZombieShock)
             {
-                zombieFly.CloseFly();
-                character.gameObject.SetActive(false);
-                LevelManager.Instance.CacheEnemys.Add(character);
-                character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;
-            };
+                if (aiMove.AIParameter.attackPos == AIParameter.AttackPos.Body)
+                {
+                    isBodyFly = true;
+                    deadStr = DeadFlyAnimation;
+                    zombieFly.SetZombieFly(aiMove.RepulsiveForce, false, () => {
+                        var entry = character.SkeletonAnimation.AnimationState.SetAnimation(0, DeadFlyAfterAnimation, false);
+                        entry.Complete += (e) =>
+                        {
+                            zombieFly.CloseFly();
+                            character.gameObject.SetActive(false);
+                            LevelManager.Instance.CacheEnemys.Add(character);
+                            character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;
+                        };
+                    });
+                }
+                else
+                {
+                    deadStr = DeadAnimation2;
+                    zombieFly.SetZombieFly(aiMove.RepulsiveForce);
+                }
+            }
+
+            var entry = character.SkeletonAnimation.AnimationState.SetAnimation(0, deadStr, false);
+            if (!isBodyFly)
+                entry.Complete += (e) =>
+                {
+                    zombieFly.CloseFly();
+                    character.gameObject.SetActive(false);
+                    LevelManager.Instance.CacheEnemys.Add(character);
+                    character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;
+                };
+        }
 
         LevelManager.Instance.Enemys.Remove(character);
         CollisionAttack.enabled = false;

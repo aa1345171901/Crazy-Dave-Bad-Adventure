@@ -231,6 +231,7 @@ public class ShopManager : BaseManager<ShopManager>
                     case PlantType.Repeater:
                     case PlantType.Cornpult:
                     case PlantType.FumeShroom:
+                    case PlantType.Lilypad:
                         DicExistJudge(plantCount, item.plantCard.plantType);
                         break;
                     default:
@@ -256,6 +257,9 @@ public class ShopManager : BaseManager<ShopManager>
                     break;
                 case PlantType.FumeShroom:
                     PlantListsAddEvolution(PlantType.GloomShroom, item.Value);
+                    break;
+                case PlantType.Lilypad:
+                    PlantListsAddEvolution(PlantType.Cattail, item.Value);
                     break;
                 default:
                     break;
