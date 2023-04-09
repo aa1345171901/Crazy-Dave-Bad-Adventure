@@ -30,6 +30,8 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateSwallowCount = "一次性吞噬个数";
     private readonly string CultivateCoinConversionRate = "金币率转换";
     private readonly string CultivateSunConversionRate = "阳光率转换";
+    private readonly string CultivatePenetrationCount = "穿透数量";
+    private readonly string CultivateCriticalDamage = "暴击伤害";
 
     private void Update()
     {
@@ -75,6 +77,7 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage });
                     break;
                 case PlantType.Cactus:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePenetrationCount, CultivateCoolTime, CultivateBasicDamage, CultivatePercentageDamage, CultivateBulletSpeed, CultivateCriticalDamage });
                     break;
                 case PlantType.Blover:
                     break;

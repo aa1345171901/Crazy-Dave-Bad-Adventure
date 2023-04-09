@@ -21,6 +21,7 @@ namespace TopDownPlate
         ZombieHurEachOther,  // 游戏结束后互相伤害
         PeaBullet,  // 豌豆
         Chomper,   // 大嘴花
+        Cactus,
     }
 
     public class HUDPos

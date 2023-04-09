@@ -84,6 +84,7 @@ public class FlowerPotGardenItem : MonoBehaviour
                     SetAttribute(6);
                     break;
                 case PlantType.Cactus:
+                    SetAttribute(6);
                     break;
                 case PlantType.Blover:
                     break;

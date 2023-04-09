@@ -101,9 +101,9 @@ public class Chomper : Plant
         }
         finalDamage = (int)(finalDamage * (GameManager.Instance.UserData.Botany * 2 + 100) / 100f);
 
-        realRange = FacingDirections == FacingDirections.Right ? finalRage : -finalRage;
-        pos = new Vector3(this.transform.position.x + realRange / 2 + 0.5f, this.transform.position.y - finalRage / 2);
-        size = new Vector2(finalRage + 1, finalRage);
+        realRange = FacingDirections == FacingDirections.Right ? finalRage + 0.5f: -finalRage - 0.5f;
+        pos = new Vector3(this.transform.position.x + realRange / 2, this.transform.position.y - 0.5f);
+        size = new Vector2(finalRage + 0.5f, 1f);
     }
 
     private void Update()

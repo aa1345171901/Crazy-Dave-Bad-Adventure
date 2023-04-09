@@ -1813,6 +1813,8 @@ MonoBehaviour:
     plant: {fileID: 9213535032027896378, guid: eda83c5b6451cca489b5fc18d4b1f154, type: 3}
   - plantType: 7
     plant: {fileID: 9031529050747785387, guid: 6da5626f92bbec54c9e93953c11f2a47, type: 3}
+  - plantType: 3
+    plant: {fileID: 336363494, guid: 36cc2f12bf9e6d448b7cda015b2f36b4, type: 3}
 --- !u!224 &959595739 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5429653895413740588, guid: 5ba3fa0b8a5967b4f9041152ae029877, type: 3}
