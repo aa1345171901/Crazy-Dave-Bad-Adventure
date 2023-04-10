@@ -18,10 +18,15 @@ public class PlantAttribute
 
     // attribute为随机属性顺序，对应目标植物的对应属性，在培育完成后即设置，只能一次
     public int[] attribute = new int[3];
+    // 植物是否是手动的
+    public bool isManual;
+    // 手动的该植物是否出战
+    public bool isGoToWar;
 
-    public PlantAttribute(PlantCard plantCard)
+    public PlantAttribute(PlantCard plantCard, bool isManual = false)
     {
         this.plantCard = plantCard;
+        this.isManual = isManual;
     }
 
     /// <summary>
@@ -75,7 +80,15 @@ public class FlowerPotGardenItem : MonoBehaviour
         animator.Play("Idel");
         this.plantCultivationPage = plantCultivationPage;
         this.targetPlantPrefab = targetPlant;
-        this.PlantAttribute = new PlantAttribute(plantCard);
+        switch (plantCard.plantType)
+        {
+            case PlantType.CherryBomb:
+                this.PlantAttribute = new PlantAttribute(plantCard, true);
+                break;
+            default:
+                this.PlantAttribute = new PlantAttribute(plantCard);
+                break;
+        }
         seeding = GameObject.Instantiate(GardenManager.Instance.SeedingPrefab, this.transform);
         GardenManager.Instance.PlantAttributes.Add(this.PlantAttribute);
     }
@@ -143,6 +156,7 @@ public class FlowerPotGardenItem : MonoBehaviour
                     SetAttribute(7);
                     break;
                 case PlantType.CherryBomb:
+                    SetAttribute(9);
                     break;
                 case PlantType.Chomper:
                     SetAttribute(7);

@@ -10,6 +10,8 @@ public class PlantCultivationPage : MonoBehaviour
     public Text InfoText;
     [Tooltip("进化按钮")]
     public EvolutionItem EvolutionItem;
+    [Tooltip("出战按钮")]
+    public GoToWarItem GoToWarItem;
 
     /// <summary>
     /// 主要用于页面显示的正确
@@ -38,6 +40,11 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateWindResume = "逆风恢复";
     private readonly string CultivateWindage = "僵尸风阻";
     private readonly string CultivateLifeResume = "生命恢复";
+    private readonly string CultivateExplosionRange = "爆炸范围";
+    private readonly string CultivateAdrenaline = "肾上腺素";
+    private readonly string CultivateImmediateMortalityRate = "普通僵尸即死率";
+    private readonly string CultivateIncreasedInjury = "大型僵尸增伤";
+    private readonly string CultivateSunReduced = "消耗阳光减少";
 
     private void Update()
     {
@@ -55,6 +62,7 @@ public class PlantCultivationPage : MonoBehaviour
     {
         UpdatePos(flowerPotGardenItem);
         EvolutionItem.gameObject.SetActive(false);
+        GoToWarItem.gameObject.SetActive(false);
         this.FlowerPotGardenItem = flowerPotGardenItem;
         this.InfoText.text = flowerPotGardenItem.PlantAttribute.plantCard.plantName;
         // 还未培育成型
@@ -92,6 +100,7 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivatePenetrationCount, CultivateCriticalDamage, CultivateCoolTime, CultivateBulletSpeed, CultivateLifeResume });
                     break;
                 case PlantType.CherryBomb:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateExplosionRange, CultivateBasicDamage, CultivatePercentageDamage, CultivateCoolTime, CultivateSunConversionRate, CultivateAdrenaline, CultivateImmediateMortalityRate, CultivateIncreasedInjury, CultivateSunReduced });
                     break;
                 case PlantType.Chomper:
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateDigestiveSpeed, CultivateRange, CultivateSwallowCount, CultivateCoinConversionRate, CultivateSunConversionRate, CultivateBasicDamage, CultivatePercentageDamage });
@@ -148,6 +157,8 @@ public class PlantCultivationPage : MonoBehaviour
                 EvolutionItem.SetTarget(flowerPotGardenItem, plantEvolutionDict[plantType]);
             }
         }
+
+        GoToWarItem.SetTarget(flowerPotGardenItem);
     }
 
     public void UpdateSunPrice()

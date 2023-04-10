@@ -99,6 +99,16 @@ public class GardenManager : BaseManager<GardenManager>
     public Dictionary<PlantAttribute, Plant> PlantDict { get; set; } = new Dictionary<PlantAttribute, Plant>();
 
     /// <summary>
+    /// 卡槽的植物
+    /// </summary>
+    public List<PlantAttribute> CardslotPlant { get; set; } = new List<PlantAttribute>();
+
+    /// <summary>
+    ///  最大插槽
+    /// </summary>
+    public int MaxSlot { get; set; } = 2;
+
+    /// <summary>
     /// 是否读取了存档，在PlantContent时进行花盆和植物的载入
     /// </summary>
     public bool IsLoadPlantData { get; set; }
@@ -126,19 +136,16 @@ public class GardenManager : BaseManager<GardenManager>
         Windspeed = 0;
         Windage = 0;
         BloverResume = 0;
-        if (PlantDict.Count != PlantAttributes.Count)
+        foreach (var item in PlantAttributes)
         {
-            foreach (var item in PlantAttributes)
+            if (!item.isManual && item.plantCard.plantType != PlantType.Lilypad && !PlantDict.ContainsKey(item) && item.isCultivate)
             {
-                if (item.plantCard.plantType != PlantType.Lilypad && !PlantDict.ContainsKey(item) && item.isCultivate)
+                var plantPrefab = PlantPrefabInfos.GetPlantInfo(item.plantCard.plantType).plant;
+                if (plantPrefab != null)
                 {
-                    var plantPrefab = PlantPrefabInfos.GetPlantInfo(item.plantCard.plantType).plant;
-                    if (plantPrefab != null)
-                    {
-                        var plant = GameObject.Instantiate(plantPrefab);
-                        plant.plantAttribute = item;
-                        PlantDict.Add(item, plant);
-                    }
+                    var plant = GameObject.Instantiate(plantPrefab);
+                    plant.plantAttribute = item;
+                    PlantDict.Add(item, plant);
                 }
             }
         }
