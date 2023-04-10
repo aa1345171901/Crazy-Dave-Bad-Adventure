@@ -14,7 +14,7 @@ public class CattailSpikeBullet : SpikeBullet
     private float angle;
     private Vector2 direction;
 
-    private GameObject target;
+    private Character target;
     private bool isEnd;
     private bool isInit;
 
@@ -27,7 +27,7 @@ public class CattailSpikeBullet : SpikeBullet
             if (enemys.Count > 0)
             {
                 int randomIndex = Random.Range(0, enemys.Count);
-                target = enemys[randomIndex].gameObject;
+                target = enemys[randomIndex];
                 endPos = target.transform.position;
             }
             else
@@ -41,7 +41,7 @@ public class CattailSpikeBullet : SpikeBullet
         }
         direction = endPos - startPos;
         controlPoint = GetControlPoint(startPos, endPos);
-        percentSpeed = 1 / (direction.magnitude / Speed / Time.deltaTime);
+        percentSpeed = 1 / (direction.magnitude / Speed);
         currentPercent = 0;
         angle = this.transform.eulerAngles.z;
     }
@@ -57,7 +57,7 @@ public class CattailSpikeBullet : SpikeBullet
         Vector3 m = Vector3.Lerp(startPos, endPos, 0.1f);
         Vector3 normal = Vector2.Perpendicular(startPos - endPos).normalized;
 
-        float rd = Random.Range(-2, 2);
+        float rd = Random.Range(0, 4);
         float curveRatio = 0.3f;
 
         return m + (startPos - endPos).magnitude * curveRatio * rd * normal;
@@ -72,15 +72,17 @@ public class CattailSpikeBullet : SpikeBullet
         }
         if (isEnd)
         {
+            direction = Vector2.right;
             transform.Translate(direction * Speed * Time.deltaTime);
+            this.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
         else
         {
             if (currentPercent < 1)
             {
-                currentPercent += percentSpeed;
+                currentPercent += percentSpeed * Time.deltaTime;
                 // 目标还在则一直跟踪，否则就按当前方向直线运动
-                if (target != null && target.activeSelf)
+                if (target != null && !target.IsDead)
                     endPos = target.transform.position;
                 else
                     isEnd = true;
@@ -92,7 +94,7 @@ public class CattailSpikeBullet : SpikeBullet
             }
             else
             {
-                if (target.activeSelf)
+                if (!target.IsDead)
                     InitBezier();
             }
         }

@@ -60,17 +60,48 @@ public class PlantConent : MonoBehaviour
                 canLayUpFlowerPotPos.Remove(flowerPotPos);
                 haveFlowerPotPos.Add(flowerPotPos);
             }
+            //  SaveManager 中设置GardenManager.Instance.WaterFlowerPotCount = ShopManager.Instance.PurchasePropCount("Pot_Water");
+            int waterFlowerpotCount = GardenManager.Instance.WaterFlowerPotCount;
+            // 水花盆随机生成
+            for (int i = 0; i < waterFlowerpotCount; i++)
+            {
+                int index = Random.Range(0, canLayUpFlowerPotPos.Count);
+                var flowerPotPos = canLayUpFlowerPotPos[index];
+                flowerPotPos.CreateWaterFlowerPot();
+                canLayUpFlowerPotPos.Remove(flowerPotPos);
+                haveWaterFlowerPotPos.Add(flowerPotPos);
+            }
+
             // 植物位置随机生成，以及加载属性以及是否培养
             var plants = GardenManager.Instance.PlantAttributes;
+            var waterPlant = new List<PlantAttribute>();
             foreach (var item in plants)
             {
-                int index = Random.Range(0, haveFlowerPotPos.Count);
-                var flowerPotPos = haveFlowerPotPos[index];
+                // 找到水生植物
+                if (item.plantCard.plantType == PlantType.Lilypad || item.plantCard.plantType == PlantType.Cattail)
+                {
+                    waterPlant.Add(item);
+                }
+                else
+                {
+                    int index = Random.Range(0, haveFlowerPotPos.Count);
+                    var flowerPotPos = haveFlowerPotPos[index];
+                    PlantUIPrefabInfo plantUIPrefabInfo = GardenManager.Instance.PlantUIPrefabInfos.GetPlantInfo(item.plantCard.plantType);
+                    if (plantUIPrefabInfo == null)
+                        plantUIPrefabInfo = GardenManager.Instance.PlantUIPrefabInfos.GetPlantInfo(PlantType.None);
+                    flowerPotPos.FlowerPot.LoadPlant(item, plantUIPrefabInfo.plantPrefab, plantCultivationPage);
+                    haveFlowerPotPos.Remove(flowerPotPos);
+                }
+            }
+            foreach (var item in waterPlant)
+            {
+                int index = Random.Range(0, haveWaterFlowerPotPos.Count);
+                var flowerPotPos = haveWaterFlowerPotPos[index];
                 PlantUIPrefabInfo plantUIPrefabInfo = GardenManager.Instance.PlantUIPrefabInfos.GetPlantInfo(item.plantCard.plantType);
                 if (plantUIPrefabInfo == null)
                     plantUIPrefabInfo = GardenManager.Instance.PlantUIPrefabInfos.GetPlantInfo(PlantType.None);
                 flowerPotPos.FlowerPot.LoadPlant(item, plantUIPrefabInfo.plantPrefab, plantCultivationPage);
-                haveFlowerPotPos.Remove(flowerPotPos);
+                haveWaterFlowerPotPos.Remove(flowerPotPos);
             }
             GardenManager.Instance.IsLoadPlantData = false;
         }

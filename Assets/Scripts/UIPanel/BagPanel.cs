@@ -77,7 +77,7 @@ public class BagPanel : BasePanel
         } 
     }
 
-    private Dictionary<PropCard, PropBagItem> propDicts = new Dictionary<PropCard, PropBagItem>();
+    private Dictionary<string, PropBagItem> propDicts = new Dictionary<string, PropBagItem>();
     private Camera UICamera;
     private RectTransform rectTransform;
 
@@ -111,9 +111,9 @@ public class BagPanel : BasePanel
         var purchasedProps = ShopManager.Instance.PurchasedProps;
         foreach (var item in purchasedProps)
         {
-            if (propDicts.ContainsKey(item))
+            if (propDicts.ContainsKey(item.propName))
             {
-                propDicts[item].Count++;
+                propDicts[item.propName].Count++;
             }
             else
             {
@@ -121,7 +121,7 @@ public class BagPanel : BasePanel
                 bagItem.SetPropCard(item);
                 bagItem.Count = 1;
                 bagItem.BagPanel = this;
-                propDicts.Add(item, bagItem) ;
+                propDicts.Add(item.propName, bagItem) ;
             }
         }
     }

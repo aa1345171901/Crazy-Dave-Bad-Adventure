@@ -69,6 +69,7 @@ public class SaveManager
             GardenManager.Instance.PlantAttributes = saveDataStruct.PlantAttributes;
             ShopManager.Instance.Money = saveDataStruct.Money;
             GardenManager.Instance.FlowerPotCount = saveDataStruct.FlowerPotCount;
+            GardenManager.Instance.WaterFlowerPotCount = ShopManager.Instance.PurchasePropCount("Pot_Water");
             GardenManager.Instance.Sun = saveDataStruct.Sun;
             LevelManager.Instance.IndexWave = saveDataStruct.WaveIndex;
             GardenManager.Instance.IsLoadPlantData = true;
