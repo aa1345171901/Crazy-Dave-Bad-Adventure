@@ -4,6 +4,8 @@ public class FlowerPotPosition : MonoBehaviour
 {
     [Tooltip("花盆预制体")]
     public FlowerPotGardenItem flowerPot;
+    [Tooltip("水花盆预制体")]
+    public FlowerPotGardenItem waterFlowerPot;
 
     [Tooltip("泥土")]
     public GameObject earth;
@@ -34,5 +36,10 @@ public class FlowerPotPosition : MonoBehaviour
     public void CreateFlowerPot()
     {
         FlowerPot = GameObject.Instantiate(flowerPot, this.transform);
+    }
+
+    public void CreateWaterFlowerPot()
+    {
+        FlowerPot = GameObject.Instantiate(waterFlowerPot, this.transform);
     }
 }

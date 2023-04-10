@@ -22,6 +22,16 @@ public class PlantConent : MonoBehaviour
     /// </summary>
     private List<FlowerPotPosition> haveFlowerPotPos = new List<FlowerPotPosition>();
 
+    /// <summary>
+    /// 水花盆的位置
+    /// </summary>
+    private List<FlowerPotPosition> haveWaterFlowerPotPos = new List<FlowerPotPosition>();
+
+    /// <summary>
+    /// 荷叶的位置
+    /// </summary>
+    private List<FlowerPotPosition> lilypadPos = new List<FlowerPotPosition>();
+
     private void Start()
     {
         flowerPotPositions = new List<FlowerPotPosition>(this.GetComponentsInChildren<FlowerPotPosition>());
@@ -74,7 +84,20 @@ public class PlantConent : MonoBehaviour
             GardenManager.Instance.FlowerPotCount++;
             haveFlowerPotPos.Add(flowerPotPos);
         }
+
+        for (int i = 0; i < GardenManager.Instance.NotPlacedWaterFlowerPotCount; i++)
+        {
+            // 随机位置生成 水花盆
+            int index = Random.Range(0, canLayUpFlowerPotPos.Count);
+            var flowerPotPos = canLayUpFlowerPotPos[index];
+            flowerPotPos.CreateWaterFlowerPot();
+            canLayUpFlowerPotPos.Remove(flowerPotPos);
+            GardenManager.Instance.WaterFlowerPotCount++;
+            haveWaterFlowerPotPos.Add(flowerPotPos);
+        }
+
         GardenManager.Instance.NotPlacedFlowerPotCount = 0;
+        GardenManager.Instance.NotPlacedWaterFlowerPotCount = 0;
         CreatePlant();
     }
 
@@ -83,14 +106,29 @@ public class PlantConent : MonoBehaviour
         var noPlantingPlants = GardenManager.Instance.NoPlantingPlants;
         for (int i = 0; i < noPlantingPlants.Count; i++)
         {
-            int index = Random.Range(0, haveFlowerPotPos.Count);
-            var flowerPotPos = haveFlowerPotPos[index];
+            var haveflowerPotPosList = noPlantingPlants[i].plantType == PlantType.Lilypad ? haveWaterFlowerPotPos : haveFlowerPotPos;
+            int index = Random.Range(0, haveflowerPotPosList.Count);
+            var flowerPotPos = haveflowerPotPosList[index];
             PlantUIPrefabInfo plantUIPrefabInfo = GardenManager.Instance.PlantUIPrefabInfos.GetPlantInfo(noPlantingPlants[i].plantType);
             if (plantUIPrefabInfo == null)
                 plantUIPrefabInfo = GardenManager.Instance.PlantUIPrefabInfos.GetPlantInfo(PlantType.None);
             flowerPotPos.FlowerPot.SetPlant(plantUIPrefabInfo.plantPrefab, noPlantingPlants[i], plantCultivationPage);
-            haveFlowerPotPos.Remove(flowerPotPos);
+            haveflowerPotPosList.Remove(flowerPotPos);
+            if (noPlantingPlants[i].plantType == PlantType.Lilypad)
+                lilypadPos.Add(flowerPotPos);
         }
         noPlantingPlants.Clear();
+
+        var purchasedPlantEvolutionDicts = ShopManager.Instance.PurchasedPlantEvolutionDicts;
+        int cattailCount = 0;
+        if (purchasedPlantEvolutionDicts.ContainsKey(PlantType.Cattail))
+        {
+            cattailCount = purchasedPlantEvolutionDicts[PlantType.Cattail];
+            purchasedPlantEvolutionDicts[PlantType.Cattail] = 0;
+        }
+        for (int i = 0; i < cattailCount; i++)
+        {
+            lilypadPos[i].FlowerPot.SetCattail(GardenManager.Instance.PlantUIPrefabInfos.GetPlantInfo(PlantType.Cattail).plantPrefab, ShopManager.Instance.PlantEvolutionDict[PlantType.Cattail]);
+        }
     }
 }

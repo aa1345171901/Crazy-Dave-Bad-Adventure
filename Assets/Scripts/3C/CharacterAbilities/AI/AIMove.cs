@@ -96,7 +96,10 @@ namespace TopDownPlate
                     character.FacingDirection = direction.x < 0 ? FacingDirections.Right : FacingDirections.Left;
                     AIParameter.IsPlayerRight = character.FacingDirection == FacingDirections.Right ? true : false ;
                     //this.transform.Translate(direction * moveSpeed * Time.deltaTime);
-                    controller.Rigidbody.velocity = direction * MoveSpeed;
+
+                    // ÈýÒ¶²Ý·ç×è
+                    float finalMoveSpeed = character.FacingDirection == FacingDirections.Right ? MoveSpeed - GardenManager.Instance.Windage : MoveSpeed;
+                    controller.Rigidbody.velocity = direction * finalMoveSpeed;
                 }
             }
         }

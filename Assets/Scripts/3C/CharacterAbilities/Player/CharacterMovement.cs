@@ -122,7 +122,9 @@ namespace TopDownPlate
 
                     if (vectorInput.x != 0 && vectorInput.y != 0)
                         vectorInput = vectorInput.normalized;
-                    float xSpeed = vectorInput.x * finalMoveSpeed;
+                    // ÈýÒ¶²Ý·çËÙ
+                    float realMoveSpeed = character.FacingDirection == FacingDirections.Right ? finalMoveSpeed + GardenManager.Instance.Windspeed : finalMoveSpeed;
+                    float xSpeed = vectorInput.x * realMoveSpeed;
                     float ySpeed = vectorInput.y * finalMoveSpeed;
                     controller.Rigidbody.velocity = new Vector2(xSpeed, ySpeed) * speedMultiple;
                 }

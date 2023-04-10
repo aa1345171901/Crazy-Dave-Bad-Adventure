@@ -103,6 +103,9 @@ public class ShopManager : BaseManager<ShopManager>
                     GameManager.Instance.HaveBlackHole = true;
                     PropDicts[propCard.quality].Remove(propCard);
                     break;
+                case "Pot_Water":
+                    GardenManager.Instance.NotPlacedWaterFlowerPotCount++;
+                    break;
                 default:
                     break;
             }

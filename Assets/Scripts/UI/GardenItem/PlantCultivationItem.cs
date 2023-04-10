@@ -55,6 +55,7 @@ public class PlantCultivationItem : MonoBehaviour
                     {
                         GardenManager.Instance.Sun -= sunPrice;
                         flowerPotGardenItem.PlantAttribute.level1++;
+                        flowerPotGardenItem.PlantAttribute.AddAttribute(0);
                         flowerPotGardenItem.UpdateSunPrice();
                         AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
                     }
@@ -68,6 +69,7 @@ public class PlantCultivationItem : MonoBehaviour
                     {
                         GardenManager.Instance.Sun -= sunPrice;
                         flowerPotGardenItem.PlantAttribute.level2++;
+                        flowerPotGardenItem.PlantAttribute.AddAttribute(1);
                         flowerPotGardenItem.UpdateSunPrice();
                         AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
                     }
@@ -81,6 +83,7 @@ public class PlantCultivationItem : MonoBehaviour
                     {
                         GardenManager.Instance.Sun -= sunPrice;
                         flowerPotGardenItem.PlantAttribute.level3++;
+                        flowerPotGardenItem.PlantAttribute.AddAttribute(2);
                         flowerPotGardenItem.UpdateSunPrice();
                         AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
                     }

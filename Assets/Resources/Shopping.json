@@ -659,7 +659,7 @@
         {
             "propName": "Pot_Water",
             "propImagePath": "Shop/Props/Pot_Water",
-            "defaultPrice": "55",
+            "defaultPrice": "80",
             "info": "<color=#9932CD>水花盆</color>\n<color=#00ff00>+20植物学</color>\n可以在上面种荷叶",
             "quality": "3",
             "attributes":

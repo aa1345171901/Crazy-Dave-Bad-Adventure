@@ -69,6 +69,15 @@ public class GardenManager : BaseManager<GardenManager>
 
     public int FlowerPotCount { get; set; }
 
+    public int NotPlacedWaterFlowerPotCount { get; set; }
+
+    public int WaterFlowerPotCount { get; set; }
+
+    /// <summary>
+    /// 现在已经有的花盆数
+    /// </summary>
+    public int AllFlowerPotCount => NotPlacedFlowerPotCount + FlowerPotCount + NotPlacedWaterFlowerPotCount + WaterFlowerPotCount;
+
     /// <summary>
     /// 最大花盆摆放数量
     /// </summary>
@@ -93,6 +102,20 @@ public class GardenManager : BaseManager<GardenManager>
     /// 是否读取了存档，在PlantContent时进行花盆和植物的载入
     /// </summary>
     public bool IsLoadPlantData { get; set; }
+
+    /// <summary>
+    /// 三叶草的提供的逆风时对僵尸的风阻，可叠加，超过1的部分需要/10
+    /// </summary>
+    public float Windage { get; set; }
+    /// <summary>
+    /// 三叶草的提供的顺风时对玩家的风速，可叠加，超过1的部分需要/5
+    /// </summary>
+    public float Windspeed { get; set; }
+    /// <summary>
+    /// 三叶草的提供的逆风时对玩家的生命恢复
+    /// </summary>
+    public int BloverResume { get; set; }
+
     public void AddPlant(PlantCard plantCard)
     {
         NoPlantingPlants.Add(plantCard);
@@ -100,6 +123,9 @@ public class GardenManager : BaseManager<GardenManager>
 
     public void PlantsGoToWar()
     {
+        Windspeed = 0;
+        Windage = 0;
+        BloverResume = 0;
         if (PlantDict.Count != PlantAttributes.Count)
         {
             foreach (var item in PlantAttributes)
@@ -137,5 +163,27 @@ public class GardenManager : BaseManager<GardenManager>
             item.Value.Reuse();
         }
         destroyPlants.Clear();
+    }
+
+    public int GetNoPlantingPlantsLilypadCount()
+    {
+        int count = 0;
+        foreach (var item in NoPlantingPlants)
+        {
+            if (item.plantType == PlantType.Lilypad)
+                count++;
+        }
+        return count;
+    }
+
+    public int GetPlantsCount(PlantType plantType)
+    {
+        int count = 0;
+        foreach (var item in PlantAttributes)
+        {
+            if (item.plantCard.plantType == plantType)
+                count++;
+        }
+        return count;
     }
 }

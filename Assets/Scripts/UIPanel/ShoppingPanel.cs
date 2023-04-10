@@ -72,6 +72,7 @@ public class ShoppingPanel : BasePanel
         "植物只能在<color=#ff0000>花盆</color>上培养,花盆可以通过<color=#ff0000>刷新</color>进行获取",
         "花盆肥肠重要！！"
     };
+    private readonly string CannotPlantLilypad = "荷叶需要种植在<color=#ff0000>水花盆</color>里\n需要先购买<color=#ff0000>水花盆</color>";
     private bool isTriggerCannotAfford;
 
     private void Start()
@@ -163,12 +164,19 @@ public class ShoppingPanel : BasePanel
         {
             PropCardItem propItem = GameObject.Instantiate(PropItemPrefab, PropContent).GetComponent<PropCardItem>();
             propItem.CannotAfford += CannotAfford;
+            propItem.CanNotPurchaseWaterPot += () =>
+            {
+                this.DialogText.text = FlowerPotItem.infoNoPurchase;
+                isTriggerCannotAfford = true;
+                lastDownItem = null;
+            };
             propItem.gameObject.SetActive(false);
             propCardItems.Add(propItem);
 
             PlantCardItem plant = GameObject.Instantiate(PlantItemPrefab, PlantContent).GetComponent<PlantCardItem>();
             plant.CannotAfford += CannotAfford;
             plant.CanNotPlanting += CanNotPlanting;
+            plant.CanNotPlantingLilypad += CanNotPlantingLilypad;
             plant.gameObject.SetActive(false);
             plantCardItems.Add(plant);
         }
@@ -188,6 +196,13 @@ public class ShoppingPanel : BasePanel
     {
         int index = UnityEngine.Random.Range(0, CannotPlantingStrings.Length);
         this.DialogText.text = CannotPlantingStrings[index];
+        isTriggerCannotAfford = true;
+        lastDownItem = null;
+    }
+
+    private void CanNotPlantingLilypad()
+    {
+        this.DialogText.text = CannotPlantLilypad;
         isTriggerCannotAfford = true;
         lastDownItem = null;
     }

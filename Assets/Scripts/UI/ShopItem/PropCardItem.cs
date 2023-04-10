@@ -76,6 +76,8 @@ public class PropCardItem : ShopItem
 
     public AttributePanel attributePanel;
 
+    public Action CanNotPurchaseWaterPot;
+
     private PropCard propCard;
 
     public void SetProp(PropCard propCard)
@@ -152,17 +154,38 @@ public class PropCardItem : ShopItem
 
     protected override void OnClick()
     {
-        base.OnClick();
         if (ShopManager.Instance.Money >= Price)
         {
-            ShopManager.Instance.PurchaseProp(propCard, Price);
-            var userData = GameManager.Instance.UserData;
-            foreach (var item in AttributeDicts)
+            if (propCard.propName == "Pot_Water")
             {
-                var fieldInfo = typeof(UserData).GetField(Enum.GetName(typeof(AttributeType), item.attributeType));
-                fieldInfo.SetValue(userData, (int)fieldInfo.GetValue(userData) + item.increment);
-                attributePanel.SetAttribute(item.attributeType, (int)fieldInfo.GetValue(userData));
+                // 如果购买的道具是水花盆，则需要判断花园中是否能够摆放
+                if (GardenManager.Instance.AllFlowerPotCount < GardenManager.Instance.MaxFlowerPotCount)
+                {
+                    Shop();
+                }
+                else
+                    CanNotPurchaseWaterPot?.Invoke();
             }
+            else
+                Shop();
         }
+        else
+        {
+            CannotAfford?.Invoke();
+        }
+    }
+
+    private void Shop()
+    {
+        ShopManager.Instance.PurchaseProp(propCard, Price);
+        var userData = GameManager.Instance.UserData;
+        foreach (var item in AttributeDicts)
+        {
+            var fieldInfo = typeof(UserData).GetField(Enum.GetName(typeof(AttributeType), item.attributeType));
+            fieldInfo.SetValue(userData, (int)fieldInfo.GetValue(userData) + item.increment);
+            attributePanel.SetAttribute(item.attributeType, (int)fieldInfo.GetValue(userData));
+        }
+        this.isDown = false;
+        this.gameObject.SetActive(false);
     }
 }

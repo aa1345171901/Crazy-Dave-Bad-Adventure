@@ -49,6 +49,10 @@ namespace TopDownPlate
                 }
             }
 
+            if (character.FacingDirection == FacingDirections.Left)
+                lifeRecoveryValue = GameManager.Instance.UserData.LifeRecovery + GardenManager.Instance.BloverResume;
+            else
+                lifeRecoveryValue = GameManager.Instance.UserData.LifeRecovery;
             if (lifeRecoveryValue > 0)
             {
                 lifeRecoveryTimer += Time.deltaTime;

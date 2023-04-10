@@ -14,7 +14,7 @@ public class FlowerPotShopItem : ShopItem
 
     protected override void OnClick()
     {
-        if (GardenManager.Instance.FlowerPotCount + GardenManager.Instance.NotPlacedFlowerPotCount < GardenManager.Instance.MaxFlowerPotCount)
+        if (GardenManager.Instance.AllFlowerPotCount < GardenManager.Instance.MaxFlowerPotCount)
         {
             this.Info = info;
             isDown = false;

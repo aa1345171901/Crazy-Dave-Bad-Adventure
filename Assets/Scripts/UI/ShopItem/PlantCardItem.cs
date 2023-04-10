@@ -103,6 +103,7 @@ public class PlantCardItem : ShopItem
     public Text Sun;
 
     public Action CanNotPlanting;
+    public Action CanNotPlantingLilypad;
 
     private PlantCard plantCard;
 
@@ -138,17 +139,36 @@ public class PlantCardItem : ShopItem
             }
             else
             {
-                // 种植的加上刚买的数量小于已有花盆 + 未摆放花盆数量才能购买
-                if (GardenManager.Instance.NoPlantingPlants.Count + GardenManager.Instance.PlantAttributes.Count < GardenManager.Instance.FlowerPotCount + GardenManager.Instance.NotPlacedFlowerPotCount)
+                if (plantCard.plantType == PlantType.Lilypad)
                 {
-                    ShopManager.Instance.PurchasePlant(plantCard, Price, true);
-                    this.gameObject.SetActive(false);
-                    this.isDown = false;
+                    // 种植的荷叶和香蒲 加上刚刚购买的荷叶小于水花盆数量才能购买
+                    if (GardenManager.Instance.GetNoPlantingPlantsLilypadCount() + GardenManager.Instance.GetPlantsCount(PlantType.Lilypad) + GardenManager.Instance.GetPlantsCount(PlantType.Cattail)
+                        < GardenManager.Instance.WaterFlowerPotCount + GardenManager.Instance.NotPlacedWaterFlowerPotCount)
+                    {
+                        ShopManager.Instance.PurchasePlant(plantCard, Price, true);
+                        this.gameObject.SetActive(false);
+                        this.isDown = false;
+                    }
+                    else
+                    {
+                        // 提醒需要种植在水花盆里
+                        CanNotPlantingLilypad?.Invoke();
+                    }
                 }
                 else
                 {
-                    // 提醒花盆不足
-                    CanNotPlanting?.Invoke();
+                    // 种植的加上刚买的数量小于已有花盆 + 未摆放花盆数量才能购买
+                    if (GardenManager.Instance.NoPlantingPlants.Count + GardenManager.Instance.PlantAttributes.Count < GardenManager.Instance.AllFlowerPotCount)
+                    {
+                        ShopManager.Instance.PurchasePlant(plantCard, Price, true);
+                        this.gameObject.SetActive(false);
+                        this.isDown = false;
+                    }
+                    else
+                    {
+                        // 提醒花盆不足
+                        CanNotPlanting?.Invoke();
+                    }
                 }
             }
         }

@@ -23,6 +23,38 @@ public class PlantAttribute
     {
         this.plantCard = plantCard;
     }
+
+    /// <summary>
+    /// 培养时调用，增加玩家属性
+    /// </summary>
+    /// <param name="index">目标等级索引</param>
+    public void AddAttribute(int index)
+    {
+        switch (plantCard.plantType)
+        {
+            // 三叶草 属性增益0 为主角增加幸运， 1为主角增加攻击速度， 出售时直接减去level  todo
+            case PlantType.Blover:
+                if (attribute[index] == 0)
+                {
+                    GameManager.Instance.UserData.Lucky++;
+                }
+
+                if (attribute[index] == 1)
+                {
+                    GameManager.Instance.UserData.AttackSpeed++;
+                }
+                break;
+            // 香蒲 属性6 为生命恢复活血止痛
+            case PlantType.Cattail:
+                if (attribute[index] == 6)
+                {
+                    GameManager.Instance.UserData.LifeRecovery++;
+                }
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 public class FlowerPotGardenItem : MonoBehaviour
@@ -48,6 +80,18 @@ public class FlowerPotGardenItem : MonoBehaviour
         GardenManager.Instance.PlantAttributes.Add(this.PlantAttribute);
     }
 
+    public void SetCattail(GameObject targetPlant, PlantCard plantCard)
+    {
+        // 重新播放，与植物动画一致
+        animator = GetComponent<Animator>();
+        animator.Play("Idel");
+        seeding = this.targetPlant;
+        this.targetPlantPrefab = targetPlant;
+        GardenManager.Instance.PlantAttributes.Remove(this.PlantAttribute);
+        this.PlantAttribute = new PlantAttribute(plantCard);
+        GardenManager.Instance.PlantAttributes.Add(this.PlantAttribute);
+    }
+
     public void LoadPlant(PlantAttribute plantAttribute, GameObject targetPlant, PlantCultivationPage plantCultivationPage)
     {
         animator = GetComponent<Animator>();
@@ -65,6 +109,12 @@ public class FlowerPotGardenItem : MonoBehaviour
 
     private void OnMouseDown()
     {
+        // 已经培养的荷叶不需要打开培养页面，后续种植香蒲，直接将PlantAttribute替换荷叶的
+        if (PlantAttribute.plantCard.plantType == PlantType.Lilypad)
+        {
+            if (PlantAttribute.isCultivate)
+                return;
+        }
         if (plantCultivationPage != null && plantCultivationPage.FlowerPotGardenItem != this)
         {
             AudioManager.Instance.PlayEffectSoundByName("pageExpansion", UnityEngine.Random.Range(1f, 1.2f));
@@ -87,8 +137,10 @@ public class FlowerPotGardenItem : MonoBehaviour
                     SetAttribute(6);
                     break;
                 case PlantType.Blover:
+                    SetAttribute(5);
                     break;
                 case PlantType.Cattail:
+                    SetAttribute(7);
                     break;
                 case PlantType.CherryBomb:
                     break;
@@ -114,7 +166,11 @@ public class FlowerPotGardenItem : MonoBehaviour
             animator.Play("Idel", 0, 0);
             targetPlant = GameObject.Instantiate(targetPlantPrefab, this.transform);
             plantCultivationPage.SetPlantAttribute(this);
-            UpdateSunPrice();
+            // 荷叶不需要更新
+            if (PlantAttribute.plantCard.plantType != PlantType.Lilypad)
+                UpdateSunPrice();
+            else
+                plantCultivationPage.gameObject.SetActive(false);
         }
     }
 

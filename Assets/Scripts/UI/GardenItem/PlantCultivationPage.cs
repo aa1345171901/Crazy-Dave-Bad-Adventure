@@ -32,6 +32,12 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateSunConversionRate = "阳光率转换";
     private readonly string CultivatePenetrationCount = "穿透数量";
     private readonly string CultivateCriticalDamage = "暴击伤害";
+    private readonly string CultivateLucky = "幸运";
+    private readonly string CultivateAttackSpeed = "玩家攻击速度";
+    private readonly string CultivateWindSpeed = "风速";
+    private readonly string CultivateWindResume = "逆风恢复";
+    private readonly string CultivateWindage = "僵尸风阻";
+    private readonly string CultivateLifeResume = "生命恢复";
 
     private void Update()
     {
@@ -80,8 +86,10 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePenetrationCount, CultivateCoolTime, CultivateBasicDamage, CultivatePercentageDamage, CultivateBulletSpeed, CultivateCriticalDamage });
                     break;
                 case PlantType.Blover:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateLucky, CultivateAttackSpeed, CultivateWindSpeed, CultivateWindResume, CultivateWindage});
                     break;
                 case PlantType.Cattail:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivatePenetrationCount, CultivateCriticalDamage, CultivateCoolTime, CultivateBulletSpeed, CultivateLifeResume });
                     break;
                 case PlantType.CherryBomb:
                     break;
