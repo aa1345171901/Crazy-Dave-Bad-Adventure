@@ -15,32 +15,34 @@ public class CattailSpikeBullet : SpikeBullet
     private Vector2 direction;
 
     private GameObject target;
-    private bool bezierInit;
-
-    private void Start()
-    {
-        InitBezier();
-    }
+    private bool isEnd;
+    private bool isInit;
 
     private void InitBezier()
     {
         lastPos = startPos = this.transform.position;
-        var enemys = LevelManager.Instance.Enemys;
-        if (enemys.Count > 0)
+        if (target == null)
         {
-            int randomIndex = Random.Range(0, enemys.Count);
-            target = enemys[randomIndex].gameObject;
-            endPos = target.transform.position;
+            var enemys = LevelManager.Instance.Enemys;
+            if (enemys.Count > 0)
+            {
+                int randomIndex = Random.Range(0, enemys.Count);
+                target = enemys[randomIndex].gameObject;
+                endPos = target.transform.position;
+            }
+            else
+            {
+                endPos = startPos.normalized * 100;
+            }
         }
         else
         {
-            endPos = startPos.normalized * 100;
+            endPos = target.transform.position;
         }
         direction = endPos - startPos;
         controlPoint = GetControlPoint(startPos, endPos);
         percentSpeed = 1 / (direction.magnitude / Speed / Time.deltaTime);
         currentPercent = 0;
-        bezierInit = true;
         angle = this.transform.eulerAngles.z;
     }
 
@@ -61,22 +63,38 @@ public class CattailSpikeBullet : SpikeBullet
         return m + (startPos - endPos).magnitude * curveRatio * rd * normal;
     }
 
-    void Update()
+    private void Update()
     {
-        if (currentPercent < 1)
+        if (!isInit)
         {
-            currentPercent += percentSpeed;
-            if (target != null && target.activeSelf)
-                endPos = target.transform.position;
-            this.transform.position = BezierUtils.BezierPoint(startPos, controlPoint, endPos, currentPercent);
-            direction = (transform.position - lastPos).normalized;
-            angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            this.transform.rotation = Quaternion.Euler(0, 0, angle);
-            lastPos = this.transform.position;
+            InitBezier();
+            isInit = true;
+        }
+        if (isEnd)
+        {
+            transform.Translate(direction * Speed * Time.deltaTime);
         }
         else
         {
-            this.gameObject.SetActive(false);
+            if (currentPercent < 1)
+            {
+                currentPercent += percentSpeed;
+                // 目标还在则一直跟踪，否则就按当前方向直线运动
+                if (target != null && target.activeSelf)
+                    endPos = target.transform.position;
+                else
+                    isEnd = true;
+                this.transform.position = BezierUtils.BezierPoint(startPos, controlPoint, endPos, currentPercent);
+                direction = (transform.position - lastPos).normalized;
+                angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                this.transform.rotation = Quaternion.Euler(0, 0, angle);
+                lastPos = this.transform.position;
+            }
+            else
+            {
+                if (target.activeSelf)
+                    InitBezier();
+            }
         }
     }
 }

@@ -130,7 +130,7 @@ public class GardenManager : BaseManager<GardenManager>
         {
             foreach (var item in PlantAttributes)
             {
-                if (!PlantDict.ContainsKey(item) && item.isCultivate)
+                if (item.plantCard.plantType != PlantType.Lilypad && !PlantDict.ContainsKey(item) && item.isCultivate)
                 {
                     var plantPrefab = PlantPrefabInfos.GetPlantInfo(item.plantCard.plantType).plant;
                     if (plantPrefab != null)

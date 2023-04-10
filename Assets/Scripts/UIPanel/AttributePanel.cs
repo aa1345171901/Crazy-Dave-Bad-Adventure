@@ -49,6 +49,12 @@ public class AttributePanel : BasePanel
         SetAttributes();
     }
 
+    public override void OnResume()
+    {
+        base.OnResume();
+        this.gameObject.SetActive(true);
+    }
+
     public void SetAttribute(AttributeType attributeType, int value)
     {
         AttributeDicts[attributeType].SetValue(value);

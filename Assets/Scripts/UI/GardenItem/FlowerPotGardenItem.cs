@@ -115,7 +115,7 @@ public class FlowerPotGardenItem : MonoBehaviour
             if (PlantAttribute.isCultivate)
                 return;
         }
-        if (plantCultivationPage != null && plantCultivationPage.FlowerPotGardenItem != this)
+        if (plantCultivationPage != null &&(plantCultivationPage.FlowerPotGardenItem != this || !plantCultivationPage.gameObject.activeSelf))
         {
             AudioManager.Instance.PlayEffectSoundByName("pageExpansion", UnityEngine.Random.Range(1f, 1.2f));
             plantCultivationPage.gameObject.SetActive(true);

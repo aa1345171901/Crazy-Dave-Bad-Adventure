@@ -13,14 +13,18 @@ public class SpikeBullet : MonoBehaviour
     public AudioClip hit1;
     public AudioClip hit2;
 
-    private List<Health> healths = new List<Health>();
+    /// <summary>
+    /// 目标Health以及上次受伤时间
+    /// </summary>
+    private Dictionary<Health, float> healths = new Dictionary<Health, float>();
     public bool isCritical;
+    public int damageCount;
 
     private readonly float MaxLiveTime = 15;
 
     private void Start()
     {
-        Invoke("DestroyPeaBullet", MaxLiveTime);
+        Invoke("DestroyBullet", MaxLiveTime);
         audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
     }
 
@@ -31,19 +35,41 @@ public class SpikeBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (healths.Count >= penetrationCount)
+        if (damageCount >= penetrationCount)
             return;
+
         if (TargetLayer.Contains(collision.gameObject.layer) && collision.isTrigger)
         {
             var health = collision.GetComponent<Health>();
-            health.DoDamage(Damage, DamageType.Cactus, isCritical);
-            audioSource.clip = Random.Range(0, 2) == 0 ? hit1 : hit2;
-            audioSource.Play();
-            healths.Add(health);
-            if (healths.Count >= penetrationCount)
+            if (healths.ContainsKey(health))
+            {
+                if (Time.time - healths[health] > 1)
+                {
+                    DoDamage(health);
+                }
+            }
+            else
+            {
+                DoDamage(health);
+                healths.Add(health, Time.time);
+            }
+            if (damageCount >= penetrationCount)
             {
                 GameObject.Destroy(this.gameObject);
             }
         }
+    }
+
+    private void DoDamage(Health health)
+    {
+        health.DoDamage(Damage, DamageType.Cactus, isCritical);
+        audioSource.clip = Random.Range(0, 2) == 0 ? hit1 : hit2;
+        audioSource.Play();
+        damageCount++;
+    }
+
+    private void DestroyBullet()
+    {
+        Destroy(this.gameObject);
     }
 }

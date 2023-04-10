@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2941655797747001766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6493516143700932323}
+  m_Layer: 0
+  m_Name: BulletPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6493516143700932323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2941655797747001766}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.115, y: 0.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4022727273531020008}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6651558513236289383
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,6 +42,7 @@ GameObject:
   - component: {fileID: 4022727273531020008}
   - component: {fileID: 8828383103120104153}
   - component: {fileID: 8099837538800091581}
+  - component: {fileID: 2500715066603840448}
   m_Layer: 0
   m_Name: Cattail
   m_TagString: Untagged
@@ -29,7 +61,8 @@ Transform:
   m_LocalPosition: {x: -10.12, y: 3.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6493516143700932323}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -105,3 +138,39 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2500715066603840448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6651558513236289383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11fa7de724b5424b90ea963050fe6ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantAttribute:
+    plantCard:
+      plantName: 
+      plantBgImagePath: 
+      plantImagePath: 
+      defaultPrice: 0
+      defaultSun: 0
+      info: 
+      plantType: 1
+      plantTypeString: Peashooter
+    isCultivate: 0
+    level1: 0
+    level2: 0
+    level3: 0
+    maxLevel: 0
+    attribute: 
+  animator: {fileID: 8099837538800091581}
+  Damage: 8
+  CoolTime: 1.1
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  BulletPos: {fileID: 6493516143700932323}
+  CattailSpikeBullet: {fileID: 9016442098559116838, guid: afcb8e26d3f1e514cac4efc1e1d0f2aa, type: 3}
