@@ -22,6 +22,8 @@ public class PlantAttribute
     public bool isManual;
     // 手动的该植物是否出战
     public bool isGoToWar;
+    // 手动植物阳光消耗更改
+    public Action SunChanged;
 
     public PlantAttribute(PlantCard plantCard, bool isManual = false)
     {
@@ -35,6 +37,7 @@ public class PlantAttribute
     /// <param name="index">目标等级索引</param>
     public void AddAttribute(int index)
     {
+        SunChanged?.Invoke();
         switch (plantCard.plantType)
         {
             // 三叶草 属性增益0 为主角增加幸运， 1为主角增加攻击速度， 出售时直接减去level  todo
@@ -54,6 +57,13 @@ public class PlantAttribute
                 if (attribute[index] == 6)
                 {
                     GameManager.Instance.UserData.LifeRecovery++;
+                }
+                break;
+            // 樱桃炸弹 属性5 为肾上腺素
+            case PlantType.CherryBomb:
+                if (attribute[index] == 5)
+                {
+                    GameManager.Instance.UserData.Adrenaline++;
                 }
                 break;
             default:

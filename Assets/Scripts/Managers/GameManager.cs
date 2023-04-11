@@ -240,6 +240,7 @@ namespace TopDownPlate
             AudioManager.Instance.PlayBackMusic(2);
             AudioManager.Instance.PlayEffectSoundByName("startWave");
             GardenManager.Instance.PlantsGoToWar();
+            battlePanel.UpdatePlantPage();
             Reuse();
         }
 

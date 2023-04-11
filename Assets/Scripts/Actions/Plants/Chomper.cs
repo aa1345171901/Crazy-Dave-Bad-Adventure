@@ -125,14 +125,14 @@ public class Chomper : Plant
                         }
                         if (sunConversionRate != 0)
                         {
-                            var sunItem = GameObject.Instantiate(sun);
+                            var sunItem = GameObject.Instantiate(sun, this.transform);
                             sunItem.Price = (int)(sunConversionRate * sumHealth * 5);
                             sunItem.Digest();
                         }
 
                         if (coinConversionRate != 0)
                         {
-                            var coinItem = GameObject.Instantiate(Coin);
+                            var coinItem = GameObject.Instantiate(Coin, this.transform);
                             coinItem.Price = (int)(coinConversionRate * sumHealth * 2);
                             coinItem.Digest();
                         }

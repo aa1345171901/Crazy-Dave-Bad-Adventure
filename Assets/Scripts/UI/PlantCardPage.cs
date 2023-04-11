@@ -12,6 +12,9 @@ public class PlantCardPage : MonoBehaviour
     public Animator animator;
     private bool isExpand;
 
+    [Tooltip("卡片是否在花园中")]
+    public bool IsGarden;
+
     private void Start()
     {
         CreateCard();
@@ -48,9 +51,7 @@ public class PlantCardPage : MonoBehaviour
         for (int i = 0; i < GardenManager.Instance.MaxSlot; i++)
         {
             var card = GameObject.Instantiate(PlantCardItem, content);
-            card.Bg.enabled = false;
-            card.Plant.enabled = false;
-            card.Sun.enabled = false;
+            card.UnSetPlant();
             Cards.Add(card);
         }
     }
@@ -60,14 +61,12 @@ public class PlantCardPage : MonoBehaviour
         int index = 0;
         foreach (var item in GardenManager.Instance.CardslotPlant)
         {
-            Cards[index].SetPlant(item);
+            Cards[index].SetPlant(item, IsGarden);
             index++;
         }
         for (int i = index; i < GardenManager.Instance.MaxSlot; i++)
         {
-            Cards[i].Bg.enabled = false;
-            Cards[i].Plant.enabled = false;
-            Cards[i].Sun.enabled = false;
+            Cards[i].UnSetPlant();
         }
     }
 }

@@ -44,7 +44,7 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateAdrenaline = "肾上腺素";
     private readonly string CultivateImmediateMortalityRate = "普通僵尸即死率";
     private readonly string CultivateIncreasedInjury = "大型僵尸增伤";
-    private readonly string CultivateSunReduced = "消耗阳光减少";
+    private readonly string CultivateSunReduced = "阳光";
 
     private void Update()
     {

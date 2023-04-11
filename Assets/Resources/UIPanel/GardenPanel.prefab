@@ -703,6 +703,7 @@ MonoBehaviour:
   content: {fileID: 1389215987}
   Cards: []
   animator: {fileID: 0}
+  IsGarden: 1
 --- !u!1 &601280594
 GameObject:
   m_ObjectHideFlags: 0
@@ -5927,7 +5928,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8186605, y: 0.16100001}
   m_AnchorMax: {x: 0.8186605, y: 0.16100001}
-  m_AnchoredPosition: {x: -2, y: -4}
+  m_AnchoredPosition: {x: -2, y: -3.9999924}
   m_SizeDelta: {x: 124.5, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5429653895539069205
@@ -6534,7 +6535,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.30357206, y: 0.16100001}
   m_AnchorMax: {x: 0.30357206, y: 0.16100001}
-  m_AnchoredPosition: {x: -2, y: -4}
+  m_AnchoredPosition: {x: -2, y: -3.9999924}
   m_SizeDelta: {x: 124.5, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5429653896110215792

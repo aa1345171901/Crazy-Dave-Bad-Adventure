@@ -22,6 +22,7 @@ namespace TopDownPlate
         PeaBullet,  // Íã¶¹
         Chomper,   // ´ó×ì»¨
         Cactus,
+        CherryBomb,
     }
 
     public class HUDPos

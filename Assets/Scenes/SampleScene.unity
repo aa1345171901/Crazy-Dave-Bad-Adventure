@@ -1718,7 +1718,7 @@ MonoBehaviour:
   - plantType: 5
     plant: {fileID: 2500715066603840448, guid: 4969b145daa17f642ace25e5e7c2df25, type: 3}
   - plantType: 6
-    plant: {fileID: 2500715066603840448, guid: 4969b145daa17f642ace25e5e7c2df25, type: 3}
+    plant: {fileID: 331588206469063072, guid: e9a0df77bc923f24192e9587d7900a5b, type: 3}
 --- !u!1 &968511682
 GameObject:
   m_ObjectHideFlags: 0

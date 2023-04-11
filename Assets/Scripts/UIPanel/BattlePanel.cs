@@ -17,6 +17,8 @@ public class BattlePanel : BasePanel
     public Text SunText;
     [Tooltip("获取钱动画和音效")]
     public FinishGetGold getGold;
+    [Tooltip("植物卡片页面")]
+    public PlantCardPage plantCardPage;
 
     private void Start()
     {
@@ -62,5 +64,10 @@ public class BattlePanel : BasePanel
     public void GetGold()
     {
         getGold.GetGold();
+    }
+
+    public void UpdatePlantPage()
+    {
+        plantCardPage.SetCard();
     }
 }
