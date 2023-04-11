@@ -12,6 +12,10 @@ public class PlantCultivationPage : MonoBehaviour
     public EvolutionItem EvolutionItem;
     [Tooltip("出战按钮")]
     public GoToWarItem GoToWarItem;
+    [Tooltip("吃按钮")]
+    public EatItem EatItem;
+
+    public PlantConent PlantConent { get; set; }
 
     /// <summary>
     /// 主要用于页面显示的正确
@@ -34,17 +38,24 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateSunConversionRate = "阳光率转换";
     private readonly string CultivatePenetrationCount = "穿透数量";
     private readonly string CultivateCriticalDamage = "暴击伤害";
-    private readonly string CultivateLucky = "幸运";
     private readonly string CultivateAttackSpeed = "玩家攻击速度";
     private readonly string CultivateWindSpeed = "风速";
     private readonly string CultivateWindResume = "逆风恢复";
     private readonly string CultivateWindage = "僵尸风阻";
-    private readonly string CultivateLifeResume = "生命恢复";
     private readonly string CultivateExplosionRange = "爆炸范围";
-    private readonly string CultivateAdrenaline = "肾上腺素";
     private readonly string CultivateImmediateMortalityRate = "普通僵尸即死率";
     private readonly string CultivateIncreasedInjury = "大型僵尸增伤";
     private readonly string CultivateSunReduced = "阳光";
+
+    private readonly string CultivatePlayerAdrenaline = "肾上腺素";
+    private readonly string CultivatePlayerLifeResume = "生命恢复";
+    private readonly string CultivatePlayerLucky = "幸运";
+    private readonly string CultivatePlayerBotany = "植物学";
+    private readonly string CultivatePlayerRange = "范围";
+    private readonly string CultivatePlayerDamage = "伤害";
+    private readonly string CultivatePlayerAttackSpeed = "攻击速度";
+    private readonly string CultivatePlayerSpeed = "速度";
+    private readonly string CultivatePlayerPower = "力量";
 
     private void Update()
     {
@@ -63,6 +74,7 @@ public class PlantCultivationPage : MonoBehaviour
         UpdatePos(flowerPotGardenItem);
         EvolutionItem.gameObject.SetActive(false);
         GoToWarItem.gameObject.SetActive(false);
+        EatItem.gameObject.SetActive(false);
         this.FlowerPotGardenItem = flowerPotGardenItem;
         this.InfoText.text = flowerPotGardenItem.PlantAttribute.plantCard.plantName;
         // 还未培育成型
@@ -94,18 +106,19 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePenetrationCount, CultivateCoolTime, CultivateBasicDamage, CultivatePercentageDamage, CultivateBulletSpeed, CultivateCriticalDamage });
                     break;
                 case PlantType.Blover:
-                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateLucky, CultivateAttackSpeed, CultivateWindSpeed, CultivateWindResume, CultivateWindage});
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePlayerLucky, CultivateAttackSpeed, CultivateWindSpeed, CultivateWindResume, CultivateWindage});
                     break;
                 case PlantType.Cattail:
-                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivatePenetrationCount, CultivateCriticalDamage, CultivateCoolTime, CultivateBulletSpeed, CultivateLifeResume });
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivatePenetrationCount, CultivateCriticalDamage, CultivateCoolTime, CultivateBulletSpeed, CultivatePlayerLifeResume });
                     break;
                 case PlantType.CherryBomb:
-                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateExplosionRange, CultivateBasicDamage, CultivatePercentageDamage, CultivateCoolTime, CultivateSunConversionRate, CultivateAdrenaline, CultivateImmediateMortalityRate, CultivateIncreasedInjury, CultivateSunReduced });
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateExplosionRange, CultivateBasicDamage, CultivatePercentageDamage, CultivateCoolTime, CultivateSunConversionRate, CultivatePlayerAdrenaline, CultivateImmediateMortalityRate, CultivateIncreasedInjury, CultivateSunReduced });
                     break;
                 case PlantType.Chomper:
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateDigestiveSpeed, CultivateRange, CultivateSwallowCount, CultivateCoinConversionRate, CultivateSunConversionRate, CultivateBasicDamage, CultivatePercentageDamage });
                     break;
                 case PlantType.CoffeeBean:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePlayerAdrenaline, CultivatePlayerLucky, CultivatePlayerBotany, CultivatePlayerRange, CultivatePlayerDamage, CultivatePlayerAttackSpeed, CultivatePlayerSpeed, CultivatePlayerPower }, true);
                     break;
                 case PlantType.Cornpult:
                     break;
@@ -139,7 +152,7 @@ public class PlantCultivationPage : MonoBehaviour
         }
     }
 
-    private void SetItemInfo(FlowerPotGardenItem flowerPotGardenItem, PlantType plantType, string[] infos)
+    private void SetItemInfo(FlowerPotGardenItem flowerPotGardenItem, PlantType plantType, string[] infos, bool canEat = false)
     {
         for (int i = 0; i < plantCultivationItems.Count; i++)
         {
@@ -159,6 +172,9 @@ public class PlantCultivationPage : MonoBehaviour
         }
 
         GoToWarItem.SetTarget(flowerPotGardenItem);
+
+        if (canEat)
+            EatItem.SetTarget(flowerPotGardenItem);
     }
 
     public void UpdateSunPrice()
@@ -167,5 +183,10 @@ public class PlantCultivationPage : MonoBehaviour
         {
             item.UpdateSunPrice();
         }
+    }
+
+    public void EmptyFlowerPot(FlowerPotPosition flowerPotPosition)
+    {
+        PlantConent.EmptyFlowerPot(flowerPotPosition);
     }
 }

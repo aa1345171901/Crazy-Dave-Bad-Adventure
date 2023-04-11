@@ -43,6 +43,7 @@ public class PlantConent : MonoBehaviour
                 canLayUpFlowerPotPos.Add(item);
             }
         }
+        plantCultivationPage.PlantConent = this;
     }
 
     public void CreateFlowerPot()
@@ -161,5 +162,10 @@ public class PlantConent : MonoBehaviour
         {
             lilypadPos[i].FlowerPot.SetCattail(GardenManager.Instance.PlantUIPrefabInfos.GetPlantInfo(PlantType.Cattail).plantPrefab, ShopManager.Instance.PlantEvolutionDict[PlantType.Cattail]);
         }
+    }
+
+    public void EmptyFlowerPot(FlowerPotPosition flowerPotPosition)
+    {
+        haveFlowerPotPos.Add(flowerPotPosition);
     }
 }

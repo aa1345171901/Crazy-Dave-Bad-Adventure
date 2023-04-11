@@ -172,6 +172,7 @@ public class FlowerPotGardenItem : MonoBehaviour
                     SetAttribute(7);
                     break;
                 case PlantType.CoffeeBean:
+                    SetAttribute(8);
                     break;
                 case PlantType.Cornpult:
                     break;
@@ -218,6 +219,15 @@ public class FlowerPotGardenItem : MonoBehaviour
         PlantAttribute.plantCard = plantCard;
         plantCultivationPage.SetPlantAttribute(this);
         UpdateSunPrice();
+    }
+
+    public void Eat()
+    {
+        GameObject.Destroy(targetPlant);
+        GardenManager.Instance.PlantAttributes.Remove(this.PlantAttribute);
+        this.PlantAttribute = null;
+        plantCultivationPage.EmptyFlowerPot(this.GetComponentInParent<FlowerPotPosition>());
+        plantCultivationPage.gameObject.SetActive(false);
     }
 
     public void UpdateSunPrice()

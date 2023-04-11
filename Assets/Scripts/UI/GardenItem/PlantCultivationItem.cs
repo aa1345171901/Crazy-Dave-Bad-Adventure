@@ -114,6 +114,15 @@ public class PlantCultivationItem : MonoBehaviour
             this.sunPrice = flowerPotGardenItem.PlantAttribute.plantCard.defaultSun;
         else
             this.sunPrice = level * defalutLevelUpPrice;
+        // 吃的植物培养阳光消耗值不变
+        switch (flowerPotGardenItem.PlantAttribute.plantCard.plantType)
+        {
+            case PlantType.CoffeeBean:
+                this.sunPrice = defalutLevelUpPrice;
+                break;
+            default:
+                break;
+        }
         this.SunPrice.text = sunPrice.ToString();
         if (GardenManager.Instance.Sun < this.sunPrice)
             this.SunPrice.color = Color.red;

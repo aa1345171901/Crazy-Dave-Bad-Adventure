@@ -1395,7 +1395,7 @@
             "plantImagePath": "Shop/Plants/CoffeeBean",
             "defaultPrice": "40",
             "defaultSun": "75",
-            "info": "<color=#00ff00>咖啡豆</color>\n购买后可以使用{0}阳光培养\n虽然不能消灭僵尸\n但是可以增加我的基础属性",
+            "info": "<color=#00ff00>咖啡豆</color>\n购买后可以使用{0}阳光培养\n虽然不能消灭僵尸\n但是吃下可以增加我的基础属性\n<color=#ff0000>会减少8最大生命值和5护甲</color>",
             "plantTypeString": "CoffeeBean"
         },
 

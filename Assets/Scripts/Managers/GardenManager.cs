@@ -138,9 +138,9 @@ public class GardenManager : BaseManager<GardenManager>
         BloverResume = 0;
         foreach (var item in PlantAttributes)
         {
-            if (!item.isManual && item.plantCard.plantType != PlantType.Lilypad && !PlantDict.ContainsKey(item) && item.isCultivate)
+            if (!item.isManual && !PlantDict.ContainsKey(item) && item.isCultivate)
             {
-                var plantPrefab = PlantPrefabInfos.GetPlantInfo(item.plantCard.plantType).plant;
+                var plantPrefab = PlantPrefabInfos.GetPlantInfo(item.plantCard.plantType)?.plant;
                 if (plantPrefab != null)
                 {
                     var plant = GameObject.Instantiate(plantPrefab);
