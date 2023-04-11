@@ -185,8 +185,7 @@ public class FlowerPotGardenItem : MonoBehaviour
                     SetAttribute(7);
                     break;
                 case PlantType.FumeShroom:
-                    break;
-                case PlantType.GloomShroom:
+                    SetAttribute(7);
                     break;
                 case PlantType.GoldMagent:
                     break;

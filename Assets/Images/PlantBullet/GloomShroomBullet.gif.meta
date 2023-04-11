@@ -1,0 +1,387 @@
+fileFormatVersion: 2
+guid: d7776b0e4dd8eae46801d828826b9eda
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GloomShroomBullet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2216
+        width: 210
+        height: 139
+      alignment: 9
+      pivot: {x: 0.5130146, y: 0.54915833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7f8151b36832654084e7f5aba754a3f
+      internalID: -2139500954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GloomShroomBullet_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2004
+        width: 210
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b36e1a72db694ac48ae86ee1d2f8bd3a
+      internalID: 492315367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GloomShroomBullet_2
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1784
+        width: 207
+        height: 216
+      alignment: 9
+      pivot: {x: 0.5132033, y: 0.51265407}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be77cc03d6cf9bc47bb10be7f4c08297
+      internalID: 1337986310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GloomShroomBullet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1616
+        width: 210
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea6db2e3fca974d418a63e58270f4222
+      internalID: 170044934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GloomShroomBullet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1406
+        width: 210
+        height: 189
+      alignment: 9
+      pivot: {x: 0.50661415, y: 0.47795114}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61de45b6bfbdcc84e96a099874bee12e
+      internalID: -1765985676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GloomShroomBullet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1195
+        width: 210
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e0045cf321bb874b962f51931ca4c1a
+      internalID: -812341227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GloomShroomBullet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1008
+        width: 210
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d812c724babb484e8f1fa17bcf90b9d
+      internalID: 1114055390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GloomShroomBullet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 210
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5129373}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fdbcc9e1486b2e4ab6b6d4f7a38980b
+      internalID: -1809808783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GloomShroomBullet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 588
+        width: 210
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87df76085fffd194c9e424f177b433ca
+      internalID: 63228646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GloomShroomBullet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 407
+        width: 210
+        height: 170
+      alignment: 9
+      pivot: {x: 0.50606805, y: 0.51499164}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b72aa8f9436f849a1b5bc81b7917cc
+      internalID: -590436695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GloomShroomBullet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 203
+        width: 210
+        height: 198
+      alignment: 9
+      pivot: {x: 0.5121361, y: 0.45494926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a45cc1c0c125449b7e783cf49673aa
+      internalID: -25617755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GloomShroomBullet_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 210
+        height: 203
+      alignment: 9
+      pivot: {x: 0.50606805, y: 0.4748908}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944dac7ec7f4565478fd3794ee35decf
+      internalID: 2081174500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GloomShroomBullet_2: 1337986310
+      GloomShroomBullet_5: -812341227
+      GloomShroomBullet_1: 492315367
+      GloomShroomBullet_4: -1765985676
+      GloomShroomBullet_6: 1114055390
+      GloomShroomBullet_11: 2081174500
+      GloomShroomBullet_0: -2139500954
+      GloomShroomBullet_7: -1809808783
+      GloomShroomBullet_8: 63228646
+      GloomShroomBullet_3: 170044934
+      GloomShroomBullet_9: -590436695
+      GloomShroomBullet_10: -25617755
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

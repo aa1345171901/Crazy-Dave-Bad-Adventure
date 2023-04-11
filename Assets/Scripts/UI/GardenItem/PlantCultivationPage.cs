@@ -48,6 +48,8 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateSunReduced = "阳光";
     private readonly string CultivateButterProbability = "黄油概率";
     private readonly string CultivateControlTime = "控制时间";
+    private readonly string CultivateCriticalHitRate = "暴击率";
+    private readonly string CultivateDamageDoubleRate = "伤害段数*2概率";
 
     private readonly string CultivatePlayerAdrenaline = "肾上腺素";
     private readonly string CultivatePlayerLifeResume = "生命恢复";
@@ -127,8 +129,10 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePlayerMaxHp, CultivateBasicDamage, CultivatePercentageDamage, CultivateButterProbability, CultivateCoolTime, CultivateBulletSpeed, CultivateControlTime });
                     break;
                 case PlantType.FumeShroom:
+                    SetItemInfo(flowerPotGardenItem, PlantType.GloomShroom, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateCriticalHitRate, CultivateCriticalDamage, CultivateDamageDoubleRate });
                     break;
                 case PlantType.GloomShroom:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateCriticalHitRate, CultivateCriticalDamage, CultivateDamageDoubleRate });
                     break;
                 case PlantType.GoldMagent:
                     break;

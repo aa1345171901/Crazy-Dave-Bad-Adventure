@@ -24,6 +24,7 @@ namespace TopDownPlate
         Cactus,
         CherryBomb,
         Cornpult,
+        FumeShroom,
     }
 
     public class HUDPos
