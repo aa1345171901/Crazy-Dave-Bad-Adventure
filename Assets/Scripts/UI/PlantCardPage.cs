@@ -54,6 +54,7 @@ public class PlantCardPage : MonoBehaviour
             card.UnSetPlant();
             Cards.Add(card);
         }
+        SetCard();
     }
 
     public void SetCard()

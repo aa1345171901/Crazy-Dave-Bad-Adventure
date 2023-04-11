@@ -11,6 +11,8 @@ public class PurchasedPropsAndPlants
     public int FlowerPotCount;
     public List<PropCard> PurchasedProps;
     public List<PlantAttribute> PlantAttributes;
+    public int MaxSolt = 2;
+    public List<int> SoltIndex;  // 卡槽对应在PlantAttributes中,list值对应下标，形成新的引用
 }
 
 public class SaveManager
@@ -73,6 +75,11 @@ public class SaveManager
             GardenManager.Instance.Sun = saveDataStruct.Sun;
             LevelManager.Instance.IndexWave = saveDataStruct.WaveIndex;
             GardenManager.Instance.IsLoadPlantData = true;
+            GardenManager.Instance.MaxSlot = saveDataStruct.MaxSolt;
+            foreach (var item in saveDataStruct.SoltIndex)
+            {
+                GardenManager.Instance.CardslotPlant.Add(saveDataStruct.PlantAttributes[item]);
+            }
         }
     }
 
@@ -98,6 +105,20 @@ public class SaveManager
         saveDataStruct.FlowerPotCount = GardenManager.Instance.FlowerPotCount;
         saveDataStruct.Sun = GardenManager.Instance.Sun;
         saveDataStruct.WaveIndex = LevelManager.Instance.IndexWave;
+        saveDataStruct.MaxSolt = GardenManager.Instance.MaxSlot;
+        List<int> soltPlantIndex = new List<int>();
+        int index = 0;
+        for (int i = 0; i < GardenManager.Instance.PlantAttributes.Count; i++)
+        {
+            if (GardenManager.Instance.PlantAttributes[i] == GardenManager.Instance.CardslotPlant[index])
+            {
+                soltPlantIndex.Add(i);
+                index++;
+            }
+            if (index >= GardenManager.Instance.CardslotPlant.Count)
+                break;
+        }
+        saveDataStruct.SoltIndex = soltPlantIndex;
         PlayerPrefs.SetString("PurchasedPropsAndPlants", JsonUtility.ToJson(saveDataStruct));
     }
 

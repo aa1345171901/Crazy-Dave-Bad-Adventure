@@ -234,7 +234,7 @@ MonoBehaviour:
   Range: 1
   BigTargetLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   sun: {fileID: 5666489161069203381, guid: 874700ab6f59d2c4ab5162b31a75beff, type: 3}
   boom: {fileID: 8300000, guid: 7369db74adcdab04e8dd0872516e99b1, type: 3}
 --- !u!82 &1296039486768929883
