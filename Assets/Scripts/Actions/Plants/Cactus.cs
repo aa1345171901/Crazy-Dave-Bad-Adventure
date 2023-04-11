@@ -89,13 +89,13 @@ public class Cactus : Plant
             {
                 animator.SetTrigger("Attack");
                 animator.speed = finalAttackAnimSpeed;
-                Invoke("CreatePeaBullet", 0.88f / finalAttackAnimSpeed);
+                Invoke("CreateBullet", 0.88f / finalAttackAnimSpeed);
                 timer = Time.time;
             }
         }
     }
 
-    private void CreatePeaBullet()
+    private void CreateBullet()
     {
         var spikeBullet = GameObject.Instantiate(SpikeBullet, BulletPos);
         spikeBullet.Speed *= bulletSpeedMul;

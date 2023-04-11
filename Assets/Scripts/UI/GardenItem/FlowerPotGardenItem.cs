@@ -66,6 +66,13 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Adrenaline++;
                 }
                 break;
+            // 玉米投手 属性0 为最大生命值
+            case PlantType.Cornpult:
+                if (attribute[index] == 0)
+                {
+                    GameManager.Instance.UserData.MaximumHP++;
+                }
+                break;
             default:
                 break;
         }
@@ -175,6 +182,7 @@ public class FlowerPotGardenItem : MonoBehaviour
                     SetAttribute(8);
                     break;
                 case PlantType.Cornpult:
+                    SetAttribute(7);
                     break;
                 case PlantType.FumeShroom:
                     break;

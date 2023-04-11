@@ -70,6 +70,6 @@ public class SpikeBullet : MonoBehaviour
 
     private void DestroyBullet()
     {
-        Destroy(this.gameObject);
+        GameObject.Destroy(this.gameObject);
     }
 }

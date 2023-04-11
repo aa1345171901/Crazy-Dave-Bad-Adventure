@@ -23,6 +23,7 @@ namespace TopDownPlate
         Chomper,   // ´ó×ì»¨
         Cactus,
         CherryBomb,
+        Cornpult,
     }
 
     public class HUDPos

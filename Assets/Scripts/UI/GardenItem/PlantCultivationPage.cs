@@ -46,6 +46,8 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateImmediateMortalityRate = "普通僵尸即死率";
     private readonly string CultivateIncreasedInjury = "大型僵尸增伤";
     private readonly string CultivateSunReduced = "阳光";
+    private readonly string CultivateButterProbability = "黄油概率";
+    private readonly string CultivateControlTime = "控制时间";
 
     private readonly string CultivatePlayerAdrenaline = "肾上腺素";
     private readonly string CultivatePlayerLifeResume = "生命恢复";
@@ -56,6 +58,7 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivatePlayerAttackSpeed = "攻击速度";
     private readonly string CultivatePlayerSpeed = "速度";
     private readonly string CultivatePlayerPower = "力量";
+    private readonly string CultivatePlayerMaxHp = "最大生命值";
 
     private void Update()
     {
@@ -121,6 +124,7 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePlayerAdrenaline, CultivatePlayerLucky, CultivatePlayerBotany, CultivatePlayerRange, CultivatePlayerDamage, CultivatePlayerAttackSpeed, CultivatePlayerSpeed, CultivatePlayerPower }, true);
                     break;
                 case PlantType.Cornpult:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePlayerMaxHp, CultivateBasicDamage, CultivatePercentageDamage, CultivateButterProbability, CultivateCoolTime, CultivateBulletSpeed, CultivateControlTime });
                     break;
                 case PlantType.FumeShroom:
                     break;

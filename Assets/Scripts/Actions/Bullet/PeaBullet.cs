@@ -66,6 +66,6 @@ public class PeaBullet : MonoBehaviour
 
     private void DestroyPeaBullet()
     {
-        Destroy(this.gameObject);
+        GameObject.Destroy(this.gameObject);
     }
 }

@@ -102,6 +102,10 @@ namespace TopDownPlate
                     controller.Rigidbody.velocity = direction * finalMoveSpeed;
                 }
             }
+            else
+            {
+                controller.Rigidbody.velocity = Vector2.zero;
+            }
         }
 
         public override void UpdateAnimator()
