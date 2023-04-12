@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TopDownPlate;
 using UnityEngine;
 
 public class Coin : MoneyClick
@@ -7,6 +8,11 @@ public class Coin : MoneyClick
     public float RotationAngle;
 
     private float angle;
+
+    private void Start()
+    {
+        GameManager.Instance.Coins.Add(this);
+    }
 
     protected override void PlayAnimation()
     {
@@ -17,7 +23,17 @@ public class Coin : MoneyClick
 
     protected override void OnClick()
     {
-        base.OnClick();
-        this.transform.rotation = Quaternion.Euler(0, 0, 0);
+        if (GameManager.Instance.Coins.Contains(this))
+        {
+            base.OnClick();
+            GameManager.Instance.Coins.Remove(this);
+            this.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (GameManager.Instance != null)
+            GameManager.Instance.Coins.Remove(this);
     }
 }

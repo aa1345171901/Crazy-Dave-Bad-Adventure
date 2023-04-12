@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3714592406380599363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.058, y: 0.208, z: 0}
+  m_LocalPosition: {x: -1.058, y: 0.208, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -117,8 +117,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Price: 50
   AvailableTime: 10
-  RotationAngle: 2
   audioSource: {fileID: 1433346557248235672}
+  RotationAngle: 2
 --- !u!82 &1433346557248235672
 AudioSource:
   m_ObjectHideFlags: 0

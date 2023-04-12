@@ -1443,7 +1443,7 @@
             "plantName" :"吸金菇",
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/GoldMagent",
-            "defaultPrice": "70",
+            "defaultPrice": "50",
             "defaultSun": "150",
             "info": "<color=#9932CD>吸金菇</color>\n可以使用{0}阳光培养\n有概率吸取场上掉落的金币\n这样就不要一个一个收集钱币了",
             "plantTypeString": "GoldMagent"

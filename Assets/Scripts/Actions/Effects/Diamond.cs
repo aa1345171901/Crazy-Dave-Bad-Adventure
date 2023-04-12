@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TopDownPlate;
 using UnityEngine;
 
-public class Diamond : MoneyClick
+public class Diamond : Coin
 {
     public float BlinkingIntervalTime; // …¡À∏º‰∏Ù ±º‰
 
@@ -13,11 +14,11 @@ public class Diamond : MoneyClick
     private void Start()
     {
         this.animator = GetComponent<Animator>();
+        GameManager.Instance.Coins.Add(this);
     }
 
     protected override void PlayAnimation()
     {
-        base.PlayAnimation();
         if (Time.time - timer > BlinkingIntervalTime)
         {
             animator.SetTrigger("Flash");

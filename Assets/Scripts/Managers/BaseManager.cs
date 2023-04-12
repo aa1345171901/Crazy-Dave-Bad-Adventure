@@ -13,16 +13,6 @@ namespace TopDownPlate
         {
             get
             {
-                if (_instance == null)
-                {
-                    _instance = FindObjectOfType<T>();
-                    if (_instance == null)
-                    {
-                        GameObject obj = new GameObject();
-                        obj.name = typeof(T).Name + "_AutoCreated";
-                        _instance = obj.AddComponent<T>();
-                    }
-                }
                 return _instance;
             }
         }

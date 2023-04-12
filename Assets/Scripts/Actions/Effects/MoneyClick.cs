@@ -61,6 +61,14 @@ public class MoneyClick : MonoBehaviour
         OnClick();
     }
 
+    public void Collect()
+    {
+        audioSource.pitch = Random.Range(0.8f, 1.5f);
+        NumAdd();
+        audioSource.Play();
+        Destroy(gameObject, 0.1f);
+    }
+
     protected virtual void NumAdd()
     {
         ShopManager.Instance.Money += Price;

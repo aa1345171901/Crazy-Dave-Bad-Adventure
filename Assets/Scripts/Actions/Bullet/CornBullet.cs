@@ -23,7 +23,6 @@ public class CornBullet : MonoBehaviour
     private float timer;
     public float upTimer;  // 计算上升时间，大致为初始时到目标地的一半时间
     private Vector3 startPos;
-    private bool isEnd;
 
     private readonly float MaxLiveTime = 15;
 
@@ -55,18 +54,13 @@ public class CornBullet : MonoBehaviour
                 float down = (timer - upTimer) / upTimer * 20;
                 transform.Translate(Vector3.down * down * Time.deltaTime);
             }
-            if (!isEnd &&(TargetZombie == null || TargetZombie.IsDead))
-            {
-                timer = upTimer * 2;
-                isEnd = true;
-            }
             float process = timer / (upTimer * 2);
             var lerp = Vector3.Lerp(startPos, TargetZombie.transform.position, process);
             transform.position = new Vector3(lerp.x, transform.position.y, 0);
 
             timer += Time.deltaTime;
         }
-        else if (!isEnd)
+        else
         {
             if (TargetZombie == null || TargetZombie.IsDead)
                 GameObject.Destroy(this.gameObject);
@@ -91,7 +85,6 @@ public class CornBullet : MonoBehaviour
             }
             audioSource.clip = Random.Range(0, 2) == 0 ? hit1 : hit2;
             audioSource.Play();
-            isEnd = true;
         }
     }
 

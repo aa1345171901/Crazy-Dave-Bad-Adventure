@@ -127,7 +127,6 @@ public class ShopManager : BaseManager<ShopManager>
             case PlantType.Cattail:
             case PlantType.GatlingPea:
             case PlantType.GloomShroom:
-            case PlantType.GoldMagent:
                 DicExistJudge(PurchasedPlantEvolutionDicts, plantCard.plantType);
                 Money -= price;
                 result = true;
@@ -184,7 +183,6 @@ public class ShopManager : BaseManager<ShopManager>
                 case PlantType.Cattail:
                 case PlantType.GatlingPea:
                 case PlantType.GloomShroom:
-                case PlantType.GoldMagent:
                     PlantEvolutionDict.Add(item.plantType, item);
                     break;
                 default:

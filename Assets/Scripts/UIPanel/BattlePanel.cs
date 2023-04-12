@@ -46,6 +46,13 @@ public class BattlePanel : BasePanel
         this.gameObject.SetActive(false);
     }
 
+    public override void OnResume()
+    {
+        base.OnResume();
+        MoneyText.text = ShopManager.Instance.Money.ToString();
+        SunText.text = GardenManager.Instance.Sun.ToString();
+    }
+
     public void SetHPBar(int hp, int maxHp)
     {
         HPBar.SetHPBar(hp, maxHp);

@@ -99,7 +99,6 @@ public class CherryBomb : ManualPlant
             {
                 var health = item.GetComponent<Health>();
                 float random = Random.Range(0, 1f);
-                Debug.Log(random);
                 // Á¢¼´ËÀÍö
                 if (random < immediateMortalityRate && TargetLayer.Contains(item.gameObject.layer))
                 {

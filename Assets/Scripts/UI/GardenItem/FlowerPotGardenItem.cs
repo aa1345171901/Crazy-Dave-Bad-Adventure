@@ -73,6 +73,21 @@ public class PlantAttribute
                     GameManager.Instance.UserData.MaximumHP++;
                 }
                 break;
+            // 吸金菇 属性0 为金币,1为幸运，2为植物学
+            case PlantType.GoldMagent:
+                if (attribute[index] == 0)
+                {
+                    GameManager.Instance.UserData.GoldCoins++;
+                }
+                if (attribute[index] == 1)
+                {
+                    GameManager.Instance.UserData.Lucky++;
+                }
+                if (attribute[index] == 2)
+                {
+                    GameManager.Instance.UserData.Botany++;
+                }
+                break;
             default:
                 break;
         }
@@ -188,6 +203,7 @@ public class FlowerPotGardenItem : MonoBehaviour
                     SetAttribute(7);
                     break;
                 case PlantType.GoldMagent:
+                    SetAttribute(6);
                     break;
                 default:
                     break;

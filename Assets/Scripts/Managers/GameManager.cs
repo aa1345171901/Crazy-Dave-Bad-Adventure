@@ -109,6 +109,8 @@ namespace TopDownPlate
 
         public bool IsOpenVocalConcert => vocalConcert.OpenVocalConcert;
 
+        public List<Coin> Coins { get; set; } = new List<Coin>();  // 用于吸金菇吸收，在金币生成时加入，消失时Remove
+
         private BattlePanel battlePanel;
         private PausePanel pausePanel;
         private VocalConcert vocalConcert;

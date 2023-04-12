@@ -50,6 +50,8 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateControlTime = "控制时间";
     private readonly string CultivateCriticalHitRate = "暴击率";
     private readonly string CultivateDamageDoubleRate = "伤害段数*2概率";
+    private readonly string CultivateCoinGoldCount = "吸取金币个数";
+    private readonly string CultivateDuration = "吸取持续时间";
 
     private readonly string CultivatePlayerAdrenaline = "肾上腺素";
     private readonly string CultivatePlayerLifeResume = "生命恢复";
@@ -61,6 +63,7 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivatePlayerSpeed = "速度";
     private readonly string CultivatePlayerPower = "力量";
     private readonly string CultivatePlayerMaxHp = "最大生命值";
+    private readonly string CultivatePlayerCoinGold = "金币";
 
     private void Update()
     {
@@ -135,6 +138,7 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateCriticalHitRate, CultivateCriticalDamage, CultivateDamageDoubleRate });
                     break;
                 case PlantType.GoldMagent:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePlayerCoinGold, CultivatePlayerLucky, CultivatePlayerBotany, CultivateCoinGoldCount, CultivateCoolTime, CultivateDuration });
                     break;
                 default:
                     break;
