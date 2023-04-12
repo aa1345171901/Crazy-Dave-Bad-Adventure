@@ -1702,6 +1702,56 @@ MonoBehaviour:
     plantPrefab: {fileID: 5625214423682229152, guid: ff7fb824cb1417644a71fd73a6ef7096, type: 3}
   - plantType: 14
     plantPrefab: {fileID: 601949337845117713, guid: d791d87b1dc812749be888d7abc5e33e, type: 3}
+  - plantType: 15
+    plantPrefab: {fileID: 6857212843273050247, guid: 7f1cba58d42af034ea7c8f78d4289703, type: 3}
+  - plantType: 16
+    plantPrefab: {fileID: 8672578722961716848, guid: 5ed24458d6e65894bacc56f56fc73628, type: 3}
+  - plantType: 17
+    plantPrefab: {fileID: 6866197686087167089, guid: 519f24a5b603d0a4fba2cd67201dbc5d, type: 3}
+  - plantType: 18
+    plantPrefab: {fileID: 1400336288630921100, guid: 91022fd579e90a0438c763a9d74ef133, type: 3}
+  - plantType: 19
+    plantPrefab: {fileID: 8635436660394554481, guid: b424ddfcf5b2b1549b7d07220cfc83e3, type: 3}
+  - plantType: 20
+    plantPrefab: {fileID: 5270096581311620184, guid: f1ea066b9c20a004da29c513ebe9ad20, type: 3}
+  - plantType: 21
+    plantPrefab: {fileID: 3465403545923682310, guid: 65bf74955b07bc54cacaf6ccdf628bf8, type: 3}
+  - plantType: 22
+    plantPrefab: {fileID: 5646731275571050872, guid: 0bc988f068122c042a23b4dc2a4868c7, type: 3}
+  - plantType: 23
+    plantPrefab: {fileID: 1705098704578661143, guid: be54e8581d8976e46bdae0d9c31b96c7, type: 3}
+  - plantType: 24
+    plantPrefab: {fileID: 7783392155417825308, guid: 6b0e74f09097fa9428509de87fba3ddf, type: 3}
+  - plantType: 25
+    plantPrefab: {fileID: 5697348494372754398, guid: ecbc923bafeb68f4d987c488a84a1cdc, type: 3}
+  - plantType: 26
+    plantPrefab: {fileID: 8998029540091105460, guid: 8ef34223633c26448bb672a745057b80, type: 3}
+  - plantType: 27
+    plantPrefab: {fileID: 5485852477420180144, guid: 8882f390cab0c9740bff09117f1cdc8b, type: 3}
+  - plantType: 28
+    plantPrefab: {fileID: 4011695873249712060, guid: 1fe5de6bfe650574d8430b7c4d514ef0, type: 3}
+  - plantType: 29
+    plantPrefab: {fileID: 5245887738041888777, guid: d237f4eb57e6ecf46b77e5cb0ae11e1c, type: 3}
+  - plantType: 30
+    plantPrefab: {fileID: 2260823390497124741, guid: 9db1e43cb5ce35c4ca820a893cf66a97, type: 3}
+  - plantType: 31
+    plantPrefab: {fileID: 8302075252799768687, guid: 5b71fe49c26e1434a864af42c4e56dda, type: 3}
+  - plantType: 32
+    plantPrefab: {fileID: 6535653979569538590, guid: 6289d7b2a314c3347bf4f9997fe503f7, type: 3}
+  - plantType: 33
+    plantPrefab: {fileID: 2991554318310985249, guid: 01a4b09f53951264a92d668a2b307c81, type: 3}
+  - plantType: 34
+    plantPrefab: {fileID: 4550828615220762310, guid: ad0351ebef4dd0b40ba7d2d2dd34e3d6, type: 3}
+  - plantType: 35
+    plantPrefab: {fileID: 6863218602523302925, guid: 505ccb7acbb1be1438dff232170b06b5, type: 3}
+  - plantType: 36
+    plantPrefab: {fileID: 7413965366447557871, guid: 679cfd98d2d216343bb180c4ea116abd, type: 3}
+  - plantType: 37
+    plantPrefab: {fileID: 8222106798158436898, guid: ec3ae1abd4e31754dbc0bbe9e10aa42c, type: 3}
+  - plantType: 38
+    plantPrefab: {fileID: 5419482068675955797, guid: f2e9691e411e583418d9e1610dffcfcc, type: 3}
+  - plantType: 39
+    plantPrefab: {fileID: 7534690133100930344, guid: 8f1e9126e7506994cbce01bd301a523c, type: 3}
   PlantPrefabInfos:
   - plantType: 1
     plant: {fileID: 3255321644512461494, guid: 6c788df13532deb46869e64fe461b6d3, type: 3}
@@ -1726,7 +1776,7 @@ MonoBehaviour:
   - plantType: 12
     plant: {fileID: 110868986157140156, guid: a036fc463602b7a40a10d19f5b7392db, type: 3}
   - plantType: 13
-    plant: {fileID: 110868986157140156, guid: a036fc463602b7a40a10d19f5b7392db, type: 3}
+    plant: {fileID: 629843795230397179, guid: e4c4ebffd110e25409a670b5f7ace50f, type: 3}
 --- !u!1 &968511682
 GameObject:
   m_ObjectHideFlags: 0
@@ -3423,56 +3473,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
---- !u!1 &2009696085812958182
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8106290129823655529}
-  - component: {fileID: 4406910089202216536}
-  - component: {fileID: 4018527650430498108}
-  - component: {fileID: 2640483258707175584}
-  m_Layer: 0
-  m_Name: GoldMagent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2640483258707175584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009696085812958182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4d2fedbdd587e541be8af38aa99ff2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plantAttribute:
-    plantCard:
-      plantName: 
-      plantBgImagePath: 
-      plantImagePath: 
-      defaultPrice: 0
-      defaultSun: 0
-      info: 
-      plantType: 1
-      plantTypeString: Peashooter
-    isCultivate: 0
-    level1: 0
-    level2: 0
-    level3: 0
-    maxLevel: 0
-    attribute: 
-    isManual: 0
-    isGoToWar: 0
-  animator: {fileID: 4018527650430498108}
 --- !u!1001 &3801651020321776341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3534,26 +3534,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c5212398395afa4b94e9cdbbb84936c, type: 3}
---- !u!95 &4018527650430498108
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009696085812958182}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9c70092ff843d1d48a1ebfd02cd99a0d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4280164561201803868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3611,58 +3591,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fc7c003a6e936645b3f31f30fb2d3f2, type: 3}
---- !u!212 &4406910089202216536
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009696085812958182}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6189e992e6fe25b4bb9aee837f8bb054, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.86, y: 0.84}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1001 &5953563103512116873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3720,18 +3648,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
---- !u!4 &8106290129823655529
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009696085812958182}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.01, y: -0.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

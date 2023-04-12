@@ -127,6 +127,8 @@ public class ShopManager : BaseManager<ShopManager>
             case PlantType.Cattail:
             case PlantType.GatlingPea:
             case PlantType.GloomShroom:
+            case PlantType.TwinSunflower:
+            case PlantType.Spikerock:
                 DicExistJudge(PurchasedPlantEvolutionDicts, plantCard.plantType);
                 Money -= price;
                 result = true;
@@ -183,6 +185,8 @@ public class ShopManager : BaseManager<ShopManager>
                 case PlantType.Cattail:
                 case PlantType.GatlingPea:
                 case PlantType.GloomShroom:
+                case PlantType.TwinSunflower:
+                case PlantType.Spikerock:
                     PlantEvolutionDict.Add(item.plantType, item);
                     break;
                 default:
@@ -233,6 +237,8 @@ public class ShopManager : BaseManager<ShopManager>
                     case PlantType.Cornpult:
                     case PlantType.FumeShroom:
                     case PlantType.Lilypad:
+                    case PlantType.SunFlower:
+                    case PlantType.Spikeweed:
                         DicExistJudge(plantCount, item.plantCard.plantType);
                         break;
                     default:
@@ -261,6 +267,12 @@ public class ShopManager : BaseManager<ShopManager>
                     break;
                 case PlantType.Lilypad:
                     PlantListsAddEvolution(PlantType.Cattail, item.Value);
+                    break;
+                case PlantType.SunFlower:
+                    PlantListsAddEvolution(PlantType.TwinSunflower, item.Value);
+                    break;
+                case PlantType.Spikeweed:
+                    PlantListsAddEvolution(PlantType.Spikerock, item.Value);
                     break;
                 default:
                     break;

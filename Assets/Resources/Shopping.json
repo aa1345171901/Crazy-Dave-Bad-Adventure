@@ -1335,7 +1335,7 @@
             "plantImagePath": "Shop/Plants/Repeater",
             "defaultPrice": "25",
             "defaultSun": "100",
-            "info": "<color=#00ff00>双发豌豆射手</color>\n购买后使用{0}阳光可将豌豆射手进化成双发射手\n一次性可以发射两枚豌豆",
+            "info": "<color=#9932CD>双发豌豆射手</color>\n购买后使用{0}阳光可将豌豆射手进化成双发射手\n一次性可以发射两枚豌豆",
             "plantTypeString": "Repeater"
         },
 
@@ -1373,7 +1373,7 @@
             "plantName" :"樱桃炸弹",
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/CherryBomb",
-            "defaultPrice": "50",
+            "defaultPrice": "70",
             "defaultSun": "150",
             "info": "<color=#ff0000>樱桃炸弹</color>\n购买后可以使用{0}阳光培养\n培养完可以在战斗中使用\n把僵尸炸成渣渣",
             "plantTypeString": "CherryBomb"
@@ -1445,7 +1445,7 @@
             "plantImagePath": "Shop/Plants/GoldMagent",
             "defaultPrice": "50",
             "defaultSun": "150",
-            "info": "<color=#9932CD>吸金菇</color>\n可以使用{0}阳光培养\n有概率吸取场上掉落的金币\n这样就不要一个一个收集钱币了",
+            "info": "<color=#00ff00>吸金菇</color>\n可以使用{0}阳光培养\n有概率吸取场上掉落的金币\n这样就不要一个一个收集钱币了",
             "plantTypeString": "GoldMagent"
         },
 
@@ -1457,6 +1457,256 @@
             "defaultSun": "25",
             "info": "<color=#00ff00>荷叶</color>\n可以使用{0}阳光培养\n有了荷叶就能种植香蒲了",
             "plantTypeString": "Lilypad"
+        },
+
+        {
+            "plantName" :"大蒜",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/Gralic",
+            "defaultPrice": "40",
+            "defaultSun": "50",
+            "info": "<color=#00ff00>大蒜</color>\n可以使用{0}阳光培养\n虽然不能消灭僵尸\n但是吃下可以增加我的基础属性\n<color=#ff0000>会减少</color>",
+            "plantTypeString": "Gralic"
+        },
+
+        {
+            "plantName" :"墓碑吞噬者",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/Gravebuster",
+            "defaultPrice": "70",
+            "defaultSun": "75",
+            "info": "<color=#00ff00>墓碑吞噬者</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "Gravebuster"
+        },
+
+        {
+            "plantName" :"魅惑菇",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/HypnoShroom",
+            "defaultPrice": "90",
+            "defaultSun": "75",
+            "info": "<color=#00ff00>魅惑菇</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "HypnoShroom"
+        },
+
+        {
+            "plantName" :"磁力菇",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/MagentShroom",
+            "defaultPrice": "35",
+            "defaultSun": "100",
+            "info": "<color=#00ff00>磁力菇</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "MagentShroom"
+        },
+
+        {
+            "plantName" :"金盏花",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/Marigold",
+            "defaultPrice": "50",
+            "defaultSun": "50",
+            "info": "<color=#00ff00>金盏花</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "Marigold"
+        },
+
+        {
+            "plantName" :"路灯",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/Plantern",
+            "defaultPrice": "70",
+            "defaultSun": "25",
+            "info": "<color=#00ff00>路灯</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "Plantern"
+        },
+
+        {
+            "plantName" :"小喷菇",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/PuffShroom",
+            "defaultPrice": "15",
+            "defaultSun": "0",
+            "info": "<color=#00ff00>小喷菇</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "PuffShroom"
+        },
+
+        {
+            "plantName" :"南瓜",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/PumpkinHead",
+            "defaultPrice": "50",
+            "defaultSun": "125",
+            "info": "<color=#00ff00>南瓜</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "PumpkinHead"
+        },
+
+        {
+            "plantName" :"胆小菇",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/ScaredyShroom",
+            "defaultPrice": "20",
+            "defaultSun": "25",
+            "info": "<color=#00ff00>胆小菇</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "ScaredyShroom"
+        },
+
+        {
+            "plantName" :"寒冰豌豆",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/SnowPea",
+            "defaultPrice": "40",
+            "defaultSun": "175",
+            "info": "<color=#00ff00>寒冰豌豆</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "SnowPea"
+        },
+
+        {
+            "plantName" :"地刺王",
+            "plantBgImagePath": "Shop/Plants/strongBg",
+            "plantImagePath": "Shop/Plants/Spikerock",
+            "defaultPrice": "50",
+            "defaultSun": "125",
+            "info": "<color=#00ff00>地刺王</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "Spikerock"
+        },
+
+        {
+            "plantName" :"地刺",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/Spikeweed",
+            "defaultPrice": "20",
+            "defaultSun": "100",
+            "info": "<color=#00ff00>地刺</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "Spikeweed"
+        },
+
+        {
+            "plantName" :"裂荚豌豆",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/SplitPea",
+            "defaultPrice": "50",
+            "defaultSun": "125",
+            "info": "<color=#00ff00>裂荚豌豆</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "SplitPea"
+        },
+
+        {
+            "plantName" :"杨桃",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/Starfruit",
+            "defaultPrice": "90",
+            "defaultSun": "125",
+            "info": "<color=#00ff00>杨桃</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "Starfruit"
+        },
+
+        {
+            "plantName" :"向日葵",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/SunFlower",
+            "defaultPrice": "20",
+            "defaultSun": "50",
+            "info": "<color=#00ff00>向日葵</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "SunFlower"
+        },
+
+        {
+            "plantName" :"高坚果",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/TallNut",
+            "defaultPrice": "40",
+            "defaultSun": "125",
+            "info": "<color=#00ff00>高坚果</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "TallNut"
+        },
+
+        {
+            "plantName" :"三发豌豆",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/Threepeater",
+            "defaultPrice": "50",
+            "defaultSun": "325",
+            "info": "<color=#00ff00>三发豌豆</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "Threepeater"
+        },
+
+        {
+            "plantName" :"火炬树桩",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/Torchwood",
+            "defaultPrice": "90",
+            "defaultSun": "175",
+            "info": "<color=#00ff00>火炬树桩</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "Torchwood"
+        },
+
+        {
+            "plantName" :"双子向日葵",
+            "plantBgImagePath": "Shop/Plants/strongBg",
+            "plantImagePath": "Shop/Plants/TwinSunflower",
+            "defaultPrice": "50",
+            "defaultSun": "150",
+            "info": "<color=#00ff00>双子向日葵</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "TwinSunflower"
+        },
+
+        {
+            "plantName" :"坚果",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/WallNut",
+            "defaultPrice": "30",
+            "defaultSun": "50",
+            "info": "<color=#00ff00>坚果</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "WallNut"
+        },
+
+        {
+            "plantName" :"寒冰菇",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/IceShroom",
+            "defaultPrice": "50",
+            "defaultSun": "75",
+            "info": "<color=#ff0000>寒冰菇</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "IceShroom"
+        },
+
+        {
+            "plantName" :"火爆辣椒",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/Jalapeno",
+            "defaultPrice": "100",
+            "defaultSun": "125",
+            "info": "<color=#ff0000>火爆辣椒</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "Jalapeno"
+        },
+
+        {
+            "plantName" :"毁灭菇",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/DoomShroom",
+            "defaultPrice": "120",
+            "defaultSun": "125",
+            "info": "<color=#ff0000>毁灭菇</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "DoomShroom"
+        },
+
+        {
+            "plantName" :"窝瓜",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/Squash",
+            "defaultPrice": "30",
+            "defaultSun": "50",
+            "info": "<color=#ff0000>窝瓜</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "Squash"
+        },
+
+        {
+            "plantName" :"土豆雷",
+            "plantBgImagePath": "Shop/Plants/normalBg",
+            "plantImagePath": "Shop/Plants/PotatoMine",
+            "defaultPrice": "30",
+            "defaultSun": "25",
+            "info": "<color=#ff0000>土豆雷</color>\n可以使用{0}阳光培养\n",
+            "plantTypeString": "PotatoMine"
         }
     ]
 }

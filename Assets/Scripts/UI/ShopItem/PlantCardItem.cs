@@ -64,6 +64,106 @@ public enum PlantType
     /// 荷叶
     /// </summary>
     Lilypad,
+    /// <summary>
+    /// 大蒜
+    /// </summary>
+    Gralic,
+    /// <summary>
+    /// 墓碑吞噬者
+    /// </summary>
+    Gravebuster,
+    /// <summary>
+    /// 魅惑菇
+    /// </summary>
+    HypnoShroom,
+    /// <summary>
+    /// 磁力菇
+    /// </summary>
+    MagentShroom,
+    /// <summary>
+    /// 金盏花
+    /// </summary>
+    Marigold,
+    /// <summary>
+    /// 路灯
+    /// </summary>
+    Plantern,
+    /// <summary>
+    /// 小喷菇
+    /// </summary>
+    PuffShroom,
+    /// <summary>
+    /// 南瓜
+    /// </summary>
+    PumpkinHead,
+    /// <summary>
+    /// 胆小菇
+    /// </summary>
+    ScaredyShroom,
+    /// <summary>
+    /// 寒冰豌豆
+    /// </summary>
+    SnowPea,
+    /// <summary>
+    /// 地刺王
+    /// </summary>
+    Spikerock,
+    /// <summary>
+    /// 地刺
+    /// </summary>
+    Spikeweed,
+    /// <summary>
+    /// 裂夹豌豆射手
+    /// </summary>
+    SplitPea,
+    /// <summary>
+    /// 杨桃
+    /// </summary>
+    Starfruit,
+    /// <summary>
+    /// 向日葵
+    /// </summary>
+    SunFlower,
+    /// <summary>
+    /// 高坚果
+    /// </summary>
+    TallNut,
+    /// <summary>
+    /// 三发豌豆
+    /// </summary>
+    Threepeater,
+    /// <summary>
+    /// 火炬树桩
+    /// </summary>
+    Torchwood,
+    /// <summary>
+    /// 双子向日葵
+    /// </summary>
+    TwinSunflower,
+    /// <summary>
+    /// 坚果
+    /// </summary>
+    WallNut,
+    /// <summary>
+    /// 寒冰菇
+    /// </summary>
+    IceShroom,
+    /// <summary>
+    /// 火爆辣椒
+    /// </summary>
+    Jalapeno,
+    /// <summary>
+    /// 毁灭菇
+    /// </summary>
+    DoomShroom,
+    /// <summary>
+    /// 窝瓜
+    /// </summary>
+    Squash,
+    /// <summary>
+    /// 土豆雷
+    /// </summary>
+    PotatoMine,
 }
 
 [Serializable]
