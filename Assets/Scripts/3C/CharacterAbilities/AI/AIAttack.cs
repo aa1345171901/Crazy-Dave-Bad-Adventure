@@ -41,6 +41,10 @@ namespace TopDownPlate
         private float timer;
         private Trigger2D attackTrigger;
 
+        // 是否被魅惑菇魅惑
+        private int attackCount;
+        private List<Health> healths = new List<Health>();  // 攻击时清空，防止造成多次伤害
+
         public int realDamage;
         public float realAttackRange;
         public float realAttackProbability;
@@ -101,11 +105,14 @@ namespace TopDownPlate
             // 角色在攻击触发器中且触发器打开
             if (attackTrigger.IsTrigger && AttackBoxColider.enabled)
             {
-                if (GameManager.Instance.IsEnd)
+                if (GameManager.Instance.IsEnd || (aiMove.IsEnchanted))
                 {
                     var target = attackTrigger.Target.GetComponent<Character>();
-                    if (target != null)
+                    if (target != null && !healths.Contains(target.Health))
+                    {
                         target.Health.DoDamage(realDamage, DamageType.ZombieHurEachOther);
+                        healths.Add(target.Health);
+                    }
                 }
                 else
                 {
@@ -126,6 +133,7 @@ namespace TopDownPlate
 
         private void Attack()
         {
+            healths.Clear();
             float distance = Vector3.Distance(this.transform.position, Target.transform.position);
             if (distance < realAttackRange)
             {
@@ -146,6 +154,18 @@ namespace TopDownPlate
                     SetTrailAndColliderActive(true, true);
                     trackEntry.Complete += (e) =>
                     {
+                        // 魅惑攻击次数判断
+                        if (aiMove.IsEnchanted)
+                        {
+                            if (attackCount > 0)
+                                attackCount--;
+                            else
+                            {
+                                LevelManager.Instance.EnchantedEnemys.Remove(this.character);
+                                character.Health.DoDamage(character.Health.maxHealth, DamageType.Zombie);
+                            }
+                        }
+
                         // 攻击完僵直0.2s设置移动
                         Invoke("SpeedRecovery", 0.2f);
                         SetTrailAndColliderActive(false, false);
@@ -170,6 +190,38 @@ namespace TopDownPlate
         private void SpeedRecovery()
         {
             aiMove.SpeedRecovery();
+        }
+
+        public void BeEnchanted(int attackCount, float percentageDamageAdd, int basicDamageAdd)
+        {
+            this.attackCount = attackCount;
+            int waveIndex = LevelManager.Instance.IndexWave + 1;
+            realAttackProbability = 1;
+            if (waveIndex < 4)
+            {
+                this.realDamage = Damage + basicDamageAdd;
+            }
+            else if (waveIndex < 9)
+            {
+                this.realDamage = (int)((Damage + 1 + basicDamageAdd) * (waveIndex / 4f));
+            }
+            else if (waveIndex < 13)
+            {
+                this.realDamage = (int)((Damage + 2 + basicDamageAdd) * (waveIndex / 3f));
+            }
+            else if (waveIndex < 17)
+            {
+                this.realDamage = (int)((Damage + 3 + basicDamageAdd) * (waveIndex / 1.5f));
+            }
+            else if (waveIndex < 21)
+            {
+                this.realDamage = (Damage + 4 + basicDamageAdd) * waveIndex;
+            }
+            else
+            {
+                this.realDamage = (int)((Damage + 5 + basicDamageAdd) * waveIndex * 1.5f);
+            }
+            this.realDamage = (int)(realDamage * percentageDamageAdd);
         }
     }
 }

@@ -6056,6 +6056,7 @@ MonoBehaviour:
   moveSpeed: 2
   moveAnimationName: run_normal
   RepulsiveTime: 0.2
+  hurtFlash: {fileID: 987916743}
   HeadPos: {fileID: 571199464}
   BodyPos: {fileID: 1172497190}
   canMove: 0
@@ -6764,6 +6765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashCount: 1
   flashColor: {r: 1, g: 0, b: 0, a: 1}
+  enchantedColor: {r: 1, g: 0, b: 1, a: 1}
   interval: 0.016666668
   fillPhaseProperty: _FillPhase
   fillColorProperty: _FillColor

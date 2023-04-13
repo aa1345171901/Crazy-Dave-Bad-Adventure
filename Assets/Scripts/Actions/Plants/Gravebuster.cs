@@ -82,7 +82,6 @@ public class Gravebuster : Plant
             result = Random.Range(0, 100) < finalSwallowRate ? true : false;
             if (result)
             {
-                audioSource.Play();
                 timer = Time.time;
             }              
         }
@@ -97,6 +96,7 @@ public class Gravebuster : Plant
 
     public void SetLayer(float y, int health)
     {
+        audioSource.Play();
         int sortingOrder = (int)((-y + 10) * 10);
         spriteRenderer.sortingOrder = sortingOrder;
         Grave.transform.localPosition = new Vector3(0, -0.844f, 0);

@@ -63,6 +63,9 @@ namespace TopDownPlate
         [ReadOnly]
         public List<Character> CacheEnemys; // 敌人死后的对象池
 
+        [ReadOnly]
+        public List<Character> EnchantedEnemys; // 被魅惑的敌人
+
         private bool isCreatePlayer = false;
         private float timer;   // 每波时间计时
         private int course; // 时间进程
@@ -136,6 +139,11 @@ namespace TopDownPlate
                 else
                 {
                     GameManager.Instance.IsDaytime = true;
+                    if (EnchantedEnemys.Count > 0)
+                    {
+                        Enemys.AddRange(EnchantedEnemys);
+                        EnchantedEnemys.Clear();
+                    }
                     // 该波攻势结束，僵尸退场
                     if (Enemys.Count != 0)
                     {

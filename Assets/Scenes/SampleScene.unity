@@ -481,6 +481,7 @@ MonoBehaviour:
       lastGenerateTime: -4
   Enemys: []
   CacheEnemys: []
+  EnchantedEnemys: []
   DurationPerWave: 600
 --- !u!1 &315298691
 GameObject:
@@ -1779,6 +1780,8 @@ MonoBehaviour:
     plant: {fileID: 629843795230397179, guid: e4c4ebffd110e25409a670b5f7ace50f, type: 3}
   - plantType: 16
     plant: {fileID: 8297613726344491526, guid: c87506d783b56fa41a8d84f25854773e, type: 3}
+  - plantType: 17
+    plant: {fileID: 7828107368648532361, guid: 6d08c2f0abf945f4b8d13453a439af33, type: 3}
 --- !u!1 &968511682
 GameObject:
   m_ObjectHideFlags: 0

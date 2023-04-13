@@ -34,6 +34,9 @@ namespace TopDownPlate
         [Tooltip("僵尸受攻击被击退的时间")]
         public float RepulsiveTime = 0.2f;
 
+        [Tooltip("被魅惑变颜色")]
+        public HurtFlash hurtFlash;
+
         public Transform HeadPos;
         public Transform BodyPos;
 
@@ -48,6 +51,12 @@ namespace TopDownPlate
 
         public float MoveSpeed { get; set; }
         public float RepulsiveForce { get; set; }
+
+        /// <summary>
+        /// 是否被魅惑
+        /// </summary>
+        public bool IsEnchanted { get; set; }
+        private Character target;  // 被魅惑随机攻击的目标
 
         private Vector3 direction;
         public float realSpeed;
@@ -66,6 +75,9 @@ namespace TopDownPlate
         {
             canMove = true;
             AIParameter.Distance = float.MaxValue;
+            if (IsEnchanted)
+                hurtFlash.BeResume();
+            IsEnchanted = false;
             SetRealSpeed();
             SpeedRecovery();
         }
@@ -88,7 +100,15 @@ namespace TopDownPlate
             }
             if (canMove)
             {
-                direction = Target.position - this.transform.position;
+                if (IsEnchanted && (target == null || target.IsDead) && LevelManager.Instance.Enemys.Count > 0)
+                {
+                    int index = UnityEngine.Random.Range(0, LevelManager.Instance.Enemys.Count);
+                    target = LevelManager.Instance.Enemys[index];
+                }
+                if (IsEnchanted && target != null)
+                    direction = target.transform.position - this.transform.position;
+                else
+                    direction = Target.position - this.transform.position;
                 AIParameter.Distance = direction.magnitude;
                 if (AIParameter.Distance > 0.5f)
                 {
@@ -152,6 +172,15 @@ namespace TopDownPlate
         public void SetBrainPos()
         {
             Target = GameManager.Instance.BrainPos;
+        }
+
+        public void BeEnchanted(int attackCount, float percentageDamageAdd, int basicDamageAdd)
+        {
+            this.IsEnchanted = true;
+            hurtFlash.BeEnchanted();
+            LevelManager.Instance.Enemys.Remove(this.character);
+            LevelManager.Instance.EnchantedEnemys.Add(this.character);
+            character.FindAbility<AIAttack>().BeEnchanted(attackCount, percentageDamageAdd, basicDamageAdd);
         }
     }
 }
