@@ -25,6 +25,7 @@ namespace TopDownPlate
         CherryBomb,
         Cornpult,
         FumeShroom,
+        Gravebuster,
     }
 
     public class HUDPos
@@ -133,7 +134,7 @@ namespace TopDownPlate
             }
 
             // …À∫¶hud
-            if (SaveManager.Instance.SystemData.IsHUD)
+            if (SaveManager.Instance.SystemData.IsHUD && gameObject.activeSelf)
                 SetHUD(-damage, isCriticalHit);
 
             if (health <= 0)

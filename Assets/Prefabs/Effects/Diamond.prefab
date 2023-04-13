@@ -121,9 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53120b38d527ba846859902ef95f4b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Price: 250
+  Price: 100
   AvailableTime: 20
   audioSource: {fileID: 9044198217526399065}
+  RotationAngle: 0
   BlinkingIntervalTime: 2
 --- !u!61 &7942489949394462638
 BoxCollider2D:

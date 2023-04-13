@@ -168,11 +168,23 @@ namespace TopDownPlate
         {
             for (int i = 0; i < zombieData.GenerateCount + zombieData.CountIncrement * course; i++)
             {
+                Health health = null;
+                Gravebuster gravebuster = null;
+                bool isGravebusterSwallow = false;
+                foreach (var item in GardenManager.Instance.Gravebusters)
+                {
+                    if (item.CanSwallow())
+                    {
+                        isGravebusterSwallow = true;
+                        gravebuster = item;
+                        break;
+                    }
+                }
+
                 float randomX = Random.Range(LevelBounds.min.x, LevelBounds.max.x);
                 float randomY = Random.Range(LevelBounds.min.y, LevelBounds.max.y);
 
                 bool cacheUsed = false;
-
                 // 重置对象池中的物体
                 if (CacheEnemys.Count > 0)
                 {
@@ -181,17 +193,37 @@ namespace TopDownPlate
                     if (zombieAnimation != null)
                     {
                         CacheEnemys.RemoveAt(0);
-                        zombieAnimation.Reuse();
+                        if (!isGravebusterSwallow)
+                            zombieAnimation.Reuse();
                         go.transform.position = new Vector3(randomX, randomY, 0);
                         cacheUsed = true;
+                        health = go.Health;
                     }
                 }
 
                 // 没有使用到对象池才实例化
                 if (!cacheUsed)
-                    Instantiate(zombieData.EnemyPrefab, new Vector3(randomX, randomY, 0), Quaternion.identity);
+                {
+                    var go = Instantiate(zombieData.EnemyPrefab, new Vector3(randomX, randomY, 0), Quaternion.identity);
+                    health = go.GetComponent<Health>();
+                }
+
+                // 墓碑吞噬
+                if (isGravebusterSwallow && health != null)
+                {
+                    StartCoroutine("DelayDoDamage", health);
+                    gravebuster.gameObject.SetActive(true);
+                    gravebuster.transform.position = new Vector3(randomX, randomY + 1, 0);
+                    gravebuster.SetLayer(randomY, health.maxHealth);
+                }
                 yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
             }
+        }
+
+        IEnumerator DelayDoDamage(Health health)
+        {
+            yield return new WaitForSeconds(0.1f);
+            health.DoDamage(health.maxHealth, DamageType.Gravebuster);
         }
 
         /// <summary>

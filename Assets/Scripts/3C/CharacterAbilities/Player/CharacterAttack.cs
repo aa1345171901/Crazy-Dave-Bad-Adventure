@@ -75,6 +75,7 @@ namespace TopDownPlate
             finalRange = AttackRange * (100 + userData.Range) / 100;
             finalCriticalHitRate = userData.CriticalHitRate;
             finalAttackRecovery = userData.Adrenaline;
+            finalDamage = (int)(finalDamage * GardenManager.Instance.GravebusterDamage);
 
             int spinaciaCount = ShopManager.Instance.PurchasePropCount("Spinacia");
             spinaciaCount = spinaciaCount > 4 ? 4 : spinaciaCount;

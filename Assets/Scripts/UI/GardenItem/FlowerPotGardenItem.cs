@@ -88,6 +88,28 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Botany++;
                 }
                 break;
+            // 墓碑 属性3 为金币,4为伤害，5为护甲
+            case PlantType.Gravebuster:
+                if (attribute[index] == 3)
+                {
+                    GameManager.Instance.UserData.GoldCoins++;
+                }
+                if (attribute[index] == 4)
+                {
+                    GameManager.Instance.UserData.PercentageDamage++;
+                }
+                if (attribute[index] == 5)
+                {
+                    GameManager.Instance.UserData.Armor++;
+                }
+                break;
+            // 魅惑菇 属性4为幸运
+            case PlantType.HypnoShroom:
+                if (attribute[index] == 4)
+                {
+                    GameManager.Instance.UserData.Lucky++;
+                }
+                break;
             default:
                 break;
         }
@@ -154,6 +176,8 @@ public class FlowerPotGardenItem : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (PlantAttribute == null)
+            return;
         // 已经培养的荷叶不需要打开培养页面，后续种植香蒲，直接将PlantAttribute替换荷叶的
         if (PlantAttribute.plantCard.plantType == PlantType.Lilypad)
         {
@@ -204,6 +228,59 @@ public class FlowerPotGardenItem : MonoBehaviour
                     break;
                 case PlantType.GoldMagent:
                     SetAttribute(6);
+                    break;
+                case PlantType.Gralic:
+                    SetAttribute(7);
+                    break;
+                case PlantType.Gravebuster:
+                    SetAttribute(7);
+                    break;
+                case PlantType.HypnoShroom:
+                    SetAttribute(5);
+                    break;
+                case PlantType.MagentShroom:
+                    break;
+                case PlantType.Marigold:
+                    break;
+                case PlantType.Plantern:
+                    break;
+                case PlantType.PuffShroom:
+                    break;
+                case PlantType.PumpkinHead:
+                    break;
+                case PlantType.ScaredyShroom:
+                    break;
+                case PlantType.SnowPea:
+                    break;
+                case PlantType.Spikerock:
+                    break;
+                case PlantType.Spikeweed:
+                    break;
+                case PlantType.SplitPea:
+                    break;
+                case PlantType.Starfruit:
+                    break;
+                case PlantType.SunFlower:
+                    break;
+                case PlantType.TallNut:
+                    break;
+                case PlantType.Threepeater:
+                    break;
+                case PlantType.Torchwood:
+                    break;
+                case PlantType.TwinSunflower:
+                    break;
+                case PlantType.WallNut:
+                    break;
+                case PlantType.IceShroom:
+                    break;
+                case PlantType.Jalapeno:
+                    break;
+                case PlantType.DoomShroom:
+                    break;
+                case PlantType.Squash:
+                    break;
+                case PlantType.PotatoMine:
                     break;
                 default:
                     break;

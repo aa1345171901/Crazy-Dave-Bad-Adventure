@@ -1463,9 +1463,9 @@
             "plantName" :"大蒜",
             "plantBgImagePath": "Shop/Plants/normalBg",
             "plantImagePath": "Shop/Plants/Gralic",
-            "defaultPrice": "40",
+            "defaultPrice": "35",
             "defaultSun": "50",
-            "info": "<color=#00ff00>大蒜</color>\n可以使用{0}阳光培养\n虽然不能消灭僵尸\n但是吃下可以增加我的基础属性\n<color=#ff0000>会减少</color>",
+            "info": "<color=#00ff00>大蒜</color>\n可以使用{0}阳光培养\n虽然不能消灭僵尸\n但是吃下可以增加我的基础属性\n<color=#ff0000>会减少10伤害，5幸运</color>",
             "plantTypeString": "Gralic"
         },
 

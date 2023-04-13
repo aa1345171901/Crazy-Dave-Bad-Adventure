@@ -1777,6 +1777,8 @@ MonoBehaviour:
     plant: {fileID: 110868986157140156, guid: a036fc463602b7a40a10d19f5b7392db, type: 3}
   - plantType: 13
     plant: {fileID: 629843795230397179, guid: e4c4ebffd110e25409a670b5f7ace50f, type: 3}
+  - plantType: 16
+    plant: {fileID: 8297613726344491526, guid: c87506d783b56fa41a8d84f25854773e, type: 3}
 --- !u!1 &968511682
 GameObject:
   m_ObjectHideFlags: 0
@@ -3274,6 +3276,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 31c43ee0f96a8f64b935ee1ed324ff55, type: 3}
   - {fileID: 8300000, guid: 3b18b0e0f29ff994d8db51782be47829, type: 3}
   - {fileID: 8300000, guid: 7064ab36a4c97b34cad0fdf55411bb8d, type: 3}
+  - {fileID: 8300000, guid: 5ceb8286f29715a469da39384c6c1ec3, type: 3}
   Boss: {fileID: 8300000, guid: 6b531f7202efb674ba059c0ffc4eedb6, type: 3}
   Shopping: {fileID: 8300000, guid: 432027e311573514db62beb55b0ccfe6, type: 3}
   Garden: {fileID: 8300000, guid: 62a880793f87a884e97f67365b183669, type: 3}

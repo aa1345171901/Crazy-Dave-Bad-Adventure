@@ -118,8 +118,9 @@ public class ZombieAnimation : MonoBehaviour
 
     public void Dead(DamageType damageType)
     {
-        if (damageType == DamageType.Chomper)
+        if (damageType == DamageType.Chomper || damageType == DamageType.Gravebuster)
         {
+            character.SkeletonAnimation.ClearState();
             character.gameObject.SetActive(false);
             LevelManager.Instance.CacheEnemys.Add(character);
             character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;

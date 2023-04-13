@@ -35,8 +35,8 @@ public class CoinJump : MonoBehaviour
 
     public void DeadExplosionRate(DamageType damageType)
     {
-        // 大嘴花吃掉不扣
-        if (damageType == DamageType.Chomper)
+        // 大嘴花\墓碑吃掉不扣
+        if (damageType == DamageType.Chomper || damageType == DamageType.Gravebuster)
             return;
         /*
         * 是否掉落银币，金币，钻石，与幸运挂钩，  

@@ -15,6 +15,7 @@ public class MoneyClick : MonoBehaviour
 
     public bool IsExit { get; protected set; }
 
+    protected bool isDigest;
     protected Vector3 target;
     protected Vector3 speed;
     protected readonly float destroyTime = 0.5f;
@@ -59,6 +60,7 @@ public class MoneyClick : MonoBehaviour
     public void Digest()
     {
         OnClick();
+        isDigest = true;
     }
 
     public void Collect()

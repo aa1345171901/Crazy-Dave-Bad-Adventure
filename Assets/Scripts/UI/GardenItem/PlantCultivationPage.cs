@@ -52,7 +52,11 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateDamageDoubleRate = "伤害段数*2概率";
     private readonly string CultivateCoinGoldCount = "吸取金币个数";
     private readonly string CultivateDuration = "吸取持续时间";
+    private readonly string CultivateZombieReducedRate = "吞噬墓碑概率";
+    private readonly string CultivateAttackCount = "魅惑者可攻击次数";
+    private readonly string CultivateOvereatingRate = "连续触发概率";
 
+    private readonly string CultivatePlayerIncreasedInjury = "玩家对僵尸增伤";
     private readonly string CultivatePlayerAdrenaline = "肾上腺素";
     private readonly string CultivatePlayerLifeResume = "生命恢复";
     private readonly string CultivatePlayerLucky = "幸运";
@@ -64,6 +68,7 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivatePlayerPower = "力量";
     private readonly string CultivatePlayerMaxHp = "最大生命值";
     private readonly string CultivatePlayerCoinGold = "金币";
+    private readonly string CultivatePlayerArmor = "护甲";
 
     private void Update()
     {
@@ -102,7 +107,7 @@ public class PlantCultivationPage : MonoBehaviour
             switch (flowerPotGardenItem.PlantAttribute.plantCard.plantType)
             {
                 case PlantType.Peashooter:
-                    SetItemInfo(flowerPotGardenItem, PlantType.Repeater, new string[] {CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage });
+                    SetItemInfo(flowerPotGardenItem, PlantType.Repeater, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage });
                     break;
                 case PlantType.Repeater:
                     SetItemInfo(flowerPotGardenItem, PlantType.GatlingPea, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage });
@@ -114,7 +119,7 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePenetrationCount, CultivateCoolTime, CultivateBasicDamage, CultivatePercentageDamage, CultivateBulletSpeed, CultivateCriticalDamage });
                     break;
                 case PlantType.Blover:
-                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePlayerLucky, CultivateAttackSpeed, CultivateWindSpeed, CultivateWindResume, CultivateWindage});
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePlayerLucky, CultivateAttackSpeed, CultivateWindSpeed, CultivateWindResume, CultivateWindage });
                     break;
                 case PlantType.Cattail:
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivatePenetrationCount, CultivateCriticalDamage, CultivateCoolTime, CultivateBulletSpeed, CultivatePlayerLifeResume });
@@ -139,6 +144,59 @@ public class PlantCultivationPage : MonoBehaviour
                     break;
                 case PlantType.GoldMagent:
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePlayerCoinGold, CultivatePlayerLucky, CultivatePlayerBotany, CultivateCoinGoldCount, CultivateCoolTime, CultivateDuration });
+                    break;
+                case PlantType.Gralic:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePlayerLifeResume, CultivatePlayerAdrenaline, CultivatePlayerRange, CultivatePlayerBotany, CultivatePlayerMaxHp, CultivatePlayerAttackSpeed, CultivatePlayerSpeed }, true);
+                    break;
+                case PlantType.Gravebuster:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateZombieReducedRate, CultivatePlayerIncreasedInjury, CultivateCoinConversionRate, CultivatePlayerCoinGold, CultivatePlayerDamage, CultivatePlayerArmor, CultivateCoolTime });
+                    break;
+                case PlantType.HypnoShroom:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateAttackCount, CultivateOvereatingRate, CultivatePlayerLucky });
+                    break;
+                case PlantType.MagentShroom:
+                    break;
+                case PlantType.Marigold:
+                    break;
+                case PlantType.Plantern:
+                    break;
+                case PlantType.PuffShroom:
+                    break;
+                case PlantType.PumpkinHead:
+                    break;
+                case PlantType.ScaredyShroom:
+                    break;
+                case PlantType.SnowPea:
+                    break;
+                case PlantType.Spikerock:
+                    break;
+                case PlantType.Spikeweed:
+                    break;
+                case PlantType.SplitPea:
+                    break;
+                case PlantType.Starfruit:
+                    break;
+                case PlantType.SunFlower:
+                    break;
+                case PlantType.TallNut:
+                    break;
+                case PlantType.Threepeater:
+                    break;
+                case PlantType.Torchwood:
+                    break;
+                case PlantType.TwinSunflower:
+                    break;
+                case PlantType.WallNut:
+                    break;
+                case PlantType.IceShroom:
+                    break;
+                case PlantType.Jalapeno:
+                    break;
+                case PlantType.DoomShroom:
+                    break;
+                case PlantType.Squash:
+                    break;
+                case PlantType.PotatoMine:
                     break;
                 default:
                     break;

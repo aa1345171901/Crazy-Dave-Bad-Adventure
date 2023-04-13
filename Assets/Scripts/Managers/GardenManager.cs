@@ -99,6 +99,11 @@ public class GardenManager : BaseManager<GardenManager>
     public Dictionary<PlantAttribute, Plant> PlantDict { get; set; } = new Dictionary<PlantAttribute, Plant>();
 
     /// <summary>
+    /// 墓碑吞噬者
+    /// </summary>
+    public List<Gravebuster> Gravebusters { get; set; } = new List<Gravebuster>();
+
+    /// <summary>
     /// 卡槽的植物
     /// </summary>
     public List<PlantAttribute> CardslotPlant { get; set; } = new List<PlantAttribute>();
@@ -125,6 +130,10 @@ public class GardenManager : BaseManager<GardenManager>
     /// 三叶草的提供的逆风时对玩家的生命恢复
     /// </summary>
     public int BloverResume { get; set; }
+    /// <summary>
+    /// 墓碑提供的增伤
+    /// </summary>
+    public float GravebusterDamage { get; set; }
 
     public void AddPlant(PlantCard plantCard)
     {
@@ -136,6 +145,7 @@ public class GardenManager : BaseManager<GardenManager>
         Windspeed = 0;
         Windage = 0;
         BloverResume = 0;
+        GravebusterDamage = 1;
         foreach (var item in PlantAttributes)
         {
             if (!item.isManual && !PlantDict.ContainsKey(item) && item.isCultivate)
@@ -145,6 +155,10 @@ public class GardenManager : BaseManager<GardenManager>
                 {
                     var plant = GameObject.Instantiate(plantPrefab);
                     plant.plantAttribute = item;
+                    if (item.plantCard.plantType == PlantType.Gravebuster)
+                    {
+                        Gravebusters.Add(plant as Gravebuster);
+                    }
                     PlantDict.Add(item, plant);
                 }
             }

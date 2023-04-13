@@ -11,7 +11,8 @@ public class Coin : MoneyClick
 
     private void Start()
     {
-        GameManager.Instance.Coins.Add(this);
+        if (!isDigest)
+            GameManager.Instance.Coins.Add(this);
     }
 
     protected override void PlayAnimation()

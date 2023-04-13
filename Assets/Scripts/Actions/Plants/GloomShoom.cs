@@ -25,6 +25,7 @@ public class GloomShoom : FumeShroom
                 Invoke("Attack", 0.3f);
                 Invoke("Attack", 0.6f);
                 Invoke("Attack", 0.9f);
+                Invoke("Attack", 1.2f);
             }
         }
     }
