@@ -55,6 +55,14 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateZombieReducedRate = "吞噬墓碑概率";
     private readonly string CultivateAttackCount = "魅惑者可攻击次数";
     private readonly string CultivateOvereatingRate = "连续触发概率";
+    private readonly string CultivateChangeCoin = "换取金币";
+    private readonly string CultivateCutterCount = "吸取铁制品个数";
+    private readonly string CultivateGoldCoinRate = "掉落金币概率";
+    private readonly string CultivateDiamondRate = "掉落钻石概率";
+    private readonly string CultivateTwinRate = "掉落双倍概率";
+    private readonly string CultivateRangeAttackSpeed = "范围攻速提升";
+    private readonly string CultivateRangeLifeResume = "范围生命恢复";
+    private readonly string CultivateRangeDamage = "范围伤害增加";
 
     private readonly string CultivatePlayerIncreasedInjury = "玩家对僵尸增伤";
     private readonly string CultivatePlayerAdrenaline = "肾上腺素";
@@ -155,10 +163,13 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateAttackCount, CultivateOvereatingRate, CultivatePlayerLucky });
                     break;
                 case PlantType.MagentShroom:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePlayerCoinGold, CultivatePlayerLucky, CultivateCoolTime, CultivateChangeCoin, CultivateCutterCount, CultivateDuration });
                     break;
                 case PlantType.Marigold:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePlayerCoinGold, CultivatePlayerLucky, CultivateCoolTime, CultivateGoldCoinRate, CultivateTwinRate, CultivateDiamondRate });
                     break;
                 case PlantType.Plantern:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateRange, CultivateRangeAttackSpeed, CultivateRangeLifeResume, CultivateRangeDamage, CultivatePlayerAttackSpeed, CultivatePlayerRange });
                     break;
                 case PlantType.PuffShroom:
                     break;

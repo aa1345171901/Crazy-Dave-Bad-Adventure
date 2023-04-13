@@ -62,7 +62,7 @@ public class CoinJump : MonoBehaviour
             targetCoin.transform.position = this.transform.position;
             ItemJump itemJump = new ItemJump(targetCoin);
             // µÙ¬‰‘⁄Ω© ¨÷‹Œß∑∂Œß
-            Vector3 offset = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
+            Vector3 offset = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), targetCoin.transform.rotation.z);
             itemJump.height = Random.Range(0.3f, 0.6f);
             itemJump.time = Random.Range(0.4f, 0.6f);
             itemJump.offsetSpeed = offset / itemJump.time;
@@ -83,7 +83,7 @@ public class CoinJump : MonoBehaviour
             targetSun.transform.position = this.transform.position;
             ItemJump itemJump = new ItemJump(targetSun);
             // µÙ¬‰‘⁄Ω© ¨÷‹Œß∑∂Œß
-            Vector3 offset = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
+            Vector3 offset = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), targetSun.transform.rotation.z);
             itemJump.height = Random.Range(0.3f, 0.6f);
             itemJump.time = Random.Range(0.4f, 0.6f);
             itemJump.offsetSpeed = offset / itemJump.time;

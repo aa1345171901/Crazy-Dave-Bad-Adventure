@@ -110,6 +110,39 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Lucky++;
                 }
                 break;
+            // 磁力菇 属性0 为金币,1为幸运
+            case PlantType.MagentShroom:
+                if (attribute[index] == 0)
+                {
+                    GameManager.Instance.UserData.GoldCoins++;
+                }
+                if (attribute[index] == 1)
+                {
+                    GameManager.Instance.UserData.Lucky++;
+                }
+                break;
+            // 金盏花 属性0 为金币,1为幸运
+            case PlantType.Marigold:
+                if (attribute[index] == 0)
+                {
+                    GameManager.Instance.UserData.GoldCoins++;
+                }
+                if (attribute[index] == 1)
+                {
+                    GameManager.Instance.UserData.Lucky++;
+                }
+                break;
+            // 路灯 属性4 攻击速度,5为范围
+            case PlantType.Plantern:
+                if (attribute[index] == 4)
+                {
+                    GameManager.Instance.UserData.AttackSpeed++;
+                }
+                if (attribute[index] == 5)
+                {
+                    GameManager.Instance.UserData.Range++;
+                }
+                break;
             default:
                 break;
         }
@@ -239,10 +272,13 @@ public class FlowerPotGardenItem : MonoBehaviour
                     SetAttribute(5);
                     break;
                 case PlantType.MagentShroom:
+                    SetAttribute(6);
                     break;
                 case PlantType.Marigold:
+                    SetAttribute(6);
                     break;
                 case PlantType.Plantern:
+                    SetAttribute(6);
                     break;
                 case PlantType.PuffShroom:
                     break;

@@ -18,6 +18,8 @@ namespace TopDownPlate
         private readonly float howManySecondsRecoverty = 10;
         private readonly string fireName = "fire";
 
+        public int PlanternLifeRecovery{ get; set; }
+
         protected override void Initialization()
         {
             base.Initialization();
@@ -53,6 +55,7 @@ namespace TopDownPlate
                 lifeRecoveryValue = GameManager.Instance.UserData.LifeRecovery + GardenManager.Instance.BloverResume;
             else
                 lifeRecoveryValue = GameManager.Instance.UserData.LifeRecovery;
+            lifeRecoveryValue += PlanternLifeRecovery;
             if (lifeRecoveryValue > 0)
             {
                 lifeRecoveryTimer += Time.deltaTime;

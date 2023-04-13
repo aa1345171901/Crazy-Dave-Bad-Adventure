@@ -57,6 +57,46 @@ namespace TopDownPlate
         private float finalRange;
         private int finalCriticalHitRate;
 
+        public float planternAttackSpeed;
+        /// <summary>
+        /// 路灯附近提供的攻速
+        /// </summary>
+        public float PlanternAttackSpeed
+        {
+            get
+            {
+                return planternAttackSpeed;
+            }
+            set
+            {
+                if (value == 0)
+                    finalAttackSpped = finalAttackSpped / planternAttackSpeed;
+                planternAttackSpeed = value;
+                if (planternAttackSpeed != 0)
+                    finalAttackSpped = finalAttackSpped * planternAttackSpeed;
+            }
+        }
+
+        private float planternDamage;
+        /// <summary>
+        /// 路灯附近提升的伤害
+        /// </summary>
+        public float PlanternDamage
+        {
+            get
+            {
+                return planternDamage;
+            }
+            set
+            {
+                if (value == 0)
+                    finalDamage = (int)(finalDamage / planternDamage);
+                planternDamage = value;
+                if (planternDamage != 0)
+                    finalDamage = (int)(finalDamage * planternDamage);
+            }
+        }
+
         protected override void Initialization()
         {
             base.Initialization();

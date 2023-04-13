@@ -14,6 +14,8 @@ public class GoldMagent : Plant
     [Tooltip("吸收持续时间")]
     public float DurationTime = 2f;
 
+    public AudioSource audioSource;
+
     private float timer;
     private Dictionary<Vector3, Coin> coins = new Dictionary<Vector3, Coin>();
     private bool isAbsorbing;
@@ -24,6 +26,12 @@ public class GoldMagent : Plant
 
     private readonly int LevelCoinCount = 1;
     private readonly float LevelTime = 0.2f;
+
+    private void Start()
+    {
+        audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
+        AudioManager.Instance.AudioLists.Add(audioSource);
+    }
 
     public override void Reuse()
     {
@@ -65,6 +73,7 @@ public class GoldMagent : Plant
             if (GameManager.Instance.Coins.Count > 0)
             {
                 timer = Time.time;
+                audioSource.Play();
                 animator.SetBool("IsAttack", true);
                 Invoke("StartAbsorbing", 0.5f);
             }
