@@ -281,6 +281,8 @@ public class FlowerPotGardenItem : MonoBehaviour
                     SetAttribute(6);
                     break;
                 case PlantType.PuffShroom:
+                    SetAttribute(8);
+                    PlantAttribute.maxLevel = int.MaxValue;
                     break;
                 case PlantType.PumpkinHead:
                     break;

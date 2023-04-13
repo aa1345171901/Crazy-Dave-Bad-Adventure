@@ -15,12 +15,19 @@ public class PeaBullet : MonoBehaviour
     public AudioClip hit2;
 
     public float SplashPercentage;
+    protected float SplashSizeX = 3;
+    protected float SplashSizeY = 1;
 
     private bool isTrigger;
 
     private readonly float MaxLiveTime = 15;
 
     private void Start()
+    {
+        Init();
+    }
+
+    protected virtual void Init()
     {
         Invoke("DestroyPeaBullet", MaxLiveTime);
         audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
@@ -50,7 +57,7 @@ public class PeaBullet : MonoBehaviour
             if (SplashPercentage > 0)
             {
                 // 因为前面的1*1面积是大概率没人的, 所有是对该位置的后1*1方格造成伤害，
-                var colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(3, 1), 0, TargetLayer);
+                var colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(SplashSizeX, SplashSizeY), 0, TargetLayer);
                 foreach (var item in colliders)
                 {
                     // 僵尸有两个collider，只对trigger那个造成伤害

@@ -114,6 +114,10 @@ public class PlantCultivationItem : MonoBehaviour
             this.sunPrice = flowerPotGardenItem.PlantAttribute.plantCard.defaultSun;
         else
             this.sunPrice = level * defalutLevelUpPrice;
+
+        if (flowerPotGardenItem.PlantAttribute.plantCard.plantType == PlantType.PuffShroom)
+            this.sunPrice /= 5;
+
         // 吃的植物培养阳光消耗值不变
         switch (flowerPotGardenItem.PlantAttribute.plantCard.plantType)
         {
@@ -130,6 +134,7 @@ public class PlantCultivationItem : MonoBehaviour
             this.SunPrice.color = new Color(0.2f, 0.2f, 0.2f);
 
         int maxLevel = flowerPotGardenItem.PlantAttribute.maxLevel;
+        string maxLevelStr = maxLevel == int.MaxValue ? " +∞" : maxLevel.ToString(); ;
         switch (cultivateAttributeType)
         {
             case CultivateAttributeType.Cultivate:
@@ -137,13 +142,13 @@ public class PlantCultivationItem : MonoBehaviour
                 Level.color = Color.green;
                 break;
             case CultivateAttributeType.First:
-                SetLevel(flowerPotGardenItem.PlantAttribute.level1 + "/" + maxLevel, flowerPotGardenItem.PlantAttribute.level1 < maxLevel);
+                SetLevel(flowerPotGardenItem.PlantAttribute.level1 + "/" + maxLevelStr, flowerPotGardenItem.PlantAttribute.level1 < maxLevel);
                 break;
             case CultivateAttributeType.Second:
-                SetLevel(flowerPotGardenItem.PlantAttribute.level2 + "/" + maxLevel, flowerPotGardenItem.PlantAttribute.level2 < maxLevel);
+                SetLevel(flowerPotGardenItem.PlantAttribute.level2 + "/" + maxLevelStr, flowerPotGardenItem.PlantAttribute.level2 < maxLevel);
                 break;
             case CultivateAttributeType.Three:
-                SetLevel(flowerPotGardenItem.PlantAttribute.level3 + "/" + maxLevel, flowerPotGardenItem.PlantAttribute.level3 < maxLevel);
+                SetLevel(flowerPotGardenItem.PlantAttribute.level3 + "/" + maxLevelStr, flowerPotGardenItem.PlantAttribute.level3 < maxLevel);
                 break;
             default:
                 break;
