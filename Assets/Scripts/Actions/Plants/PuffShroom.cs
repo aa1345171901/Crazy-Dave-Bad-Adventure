@@ -89,7 +89,7 @@ public class PuffShroom : Plant
         finalDamage = (int)(finalDamage * (GameManager.Instance.UserData.Botany * 2 + 100) / 100f);
 
         realRange = FacingDirections == FacingDirections.Right ? finalRage : -finalRage;
-        pos = new Vector3(this.transform.position.x + realRange / 2, this.transform.position.y - 0.5f);
+        pos = new Vector3(this.transform.position.x + realRange / 2, this.transform.position.y);
         finalCoolTime = finalCoolTime < 0.1f ? 0.1f : finalCoolTime;
         size = new Vector2(finalRage, bulletSize);
         this.transform.localScale = new Vector3(Mathf.Sign(this.transform.localScale.x) * bulletSize, bulletSize, bulletSize);

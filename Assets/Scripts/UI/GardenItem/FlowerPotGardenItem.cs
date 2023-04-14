@@ -320,6 +320,7 @@ public class FlowerPotGardenItem : MonoBehaviour
                     SetAttribute(6);
                     break;
                 case PlantType.SplitPea:
+                    SetAttribute(6);
                     break;
                 case PlantType.Starfruit:
                     break;

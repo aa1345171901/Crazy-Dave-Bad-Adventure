@@ -197,6 +197,7 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.Spikerock, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivatDestroyingVehiclesCount, CultivateDecelerationPercentage, CultivateDecelerationTime, CultivatePlayerAdrenaline });
                     break;
                 case PlantType.SplitPea:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage });
                     break;
                 case PlantType.Starfruit:
                     break;

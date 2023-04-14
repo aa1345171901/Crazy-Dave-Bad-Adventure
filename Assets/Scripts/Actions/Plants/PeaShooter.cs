@@ -26,11 +26,11 @@ public class PeaShooter : Plant
     public PeaBullet PeaBullet;
 
     private float timer;
-    private int finalDamage;
-    private float finalRage;
-    private float finalCoolTime;
-    private float bulletSpeedMul = 1;
-    private float splashPercentage;
+    protected int finalDamage;
+    protected float finalRage;
+    protected float finalCoolTime;
+    protected float bulletSpeedMul = 1;
+    protected float splashPercentage;
 
     private readonly int LevelBasicDamage = 1;
     private readonly float LevelPercentage = 10;
@@ -82,7 +82,7 @@ public class PeaShooter : Plant
         finalDamage = (int)(finalDamage * (GameManager.Instance.UserData.Botany * 2 + 100) / 100f);
 
         realRange = FacingDirections == FacingDirections.Right ? finalRage : -finalRage;
-        pos = new Vector3(this.transform.position.x + realRange / 2, this.transform.position.y - 0.5f);
+        pos = new Vector3(this.transform.position.x + realRange / 2, this.transform.position.y);
         size = new Vector2(finalRage, 1);
     }
 
