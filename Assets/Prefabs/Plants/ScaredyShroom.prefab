@@ -140,7 +140,7 @@ MonoBehaviour:
     isManual: 0
     isGoToWar: 0
   animator: {fileID: 1136843293780883250}
-  Damage: 4
+  Damage: 5
   Range: 8
   CoolTime: 2
   TargetLayer:

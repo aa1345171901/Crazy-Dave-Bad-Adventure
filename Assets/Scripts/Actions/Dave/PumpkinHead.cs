@@ -11,7 +11,9 @@ public class PumpkinHead : BaseProp
     public float PumpkinAttackRate { get; set; }
 
     private readonly float LevelPercentage = 0.05f;
-    private readonly float LevelAttackRate = 0.05f;
+    private readonly float LevelAttackRate = 0.01f;
+
+    private List<LifeResumeProp> lifeResumeProps = new List<LifeResumeProp>();
 
     public override void Reuse()
     {
@@ -53,6 +55,12 @@ public class PumpkinHead : BaseProp
 
         PumpkinHeadResumeLife = maxLifeResume;
         this.gameObject.SetActive(HasPumpkinHead);
+
+        foreach (var item in lifeResumeProps)
+        {
+            GameObject.Destroy(item.gameObject);
+        }
+        lifeResumeProps.Clear();
     }
 
     public void Falling(Vector3 targetPos)
@@ -63,6 +71,7 @@ public class PumpkinHead : BaseProp
             {
                 var pumpkin = GameObject.Instantiate(LifeResumePumpkin);
                 pumpkin.transform.position = targetPos;
+                lifeResumeProps.Add(pumpkin);
             }
         }
     }

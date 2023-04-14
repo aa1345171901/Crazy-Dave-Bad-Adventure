@@ -482,7 +482,7 @@ MonoBehaviour:
   Enemys: []
   CacheEnemys: []
   EnchantedEnemys: []
-  DurationPerWave: 600
+  DurationPerWave: 60
 --- !u!1 &315298691
 GameObject:
   m_ObjectHideFlags: 0

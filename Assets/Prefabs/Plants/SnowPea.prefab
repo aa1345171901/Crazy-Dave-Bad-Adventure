@@ -141,7 +141,7 @@ MonoBehaviour:
   attack0Trigger: {fileID: 21300000, guid: f6ee6c5dca0a79847837f911f44eb419, type: 3}
   attack1Trigger: {fileID: 21300000, guid: c97462c0b81261745bae25c0acb7a3e1, type: 3}
   attack2Trigger: {fileID: 21300000, guid: d886b6e9503a87d46ad6e1c24e6867e6, type: 3}
-  Damage: 1
+  Damage: 5
   Range: 5
   CoolTime: 2
   TargetLayer:

@@ -1585,7 +1585,7 @@
             "plantImagePath": "Shop/Plants/SplitPea",
             "defaultPrice": "50",
             "defaultSun": "125",
-            "info": "<color=#00ff00>裂荚豌豆</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>裂荚豌豆</color>\n可以使用{0}阳光培养\n有两个头的豌豆，能同时攻击两侧",
             "plantTypeString": "SplitPea"
         },
 
