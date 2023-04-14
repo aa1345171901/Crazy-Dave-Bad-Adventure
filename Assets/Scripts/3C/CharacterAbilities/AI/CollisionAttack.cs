@@ -46,7 +46,7 @@ namespace TopDownPlate
             }
         }
 
-        private void Update()
+        public override void ProcessAbility()
         {
             if (trigger2D.IsTrigger && trigger2D.Target == GameManager.Instance.Player.gameObject)
             {
