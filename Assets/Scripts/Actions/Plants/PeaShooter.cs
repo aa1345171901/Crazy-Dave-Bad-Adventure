@@ -116,11 +116,12 @@ public class PeaShooter : Plant
         Invoke("CreatePeaBullet", 0.05f);
     }
 
-    private void CreatePeaBullet()
+    protected virtual PeaBullet CreatePeaBullet()
     {
         var peaBullet = GameObject.Instantiate(PeaBullet, BulletPos);
         peaBullet.Damage = finalDamage;
         peaBullet.SplashPercentage = splashPercentage;
         peaBullet.Speed *= bulletSpeedMul;
+        return peaBullet;
     }
 }

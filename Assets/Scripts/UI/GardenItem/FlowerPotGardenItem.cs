@@ -303,8 +303,10 @@ public class FlowerPotGardenItem : MonoBehaviour
                     SetAttribute(5);
                     break;
                 case PlantType.ScaredyShroom:
+                    SetAttribute(7);
                     break;
                 case PlantType.SnowPea:
+                    SetAttribute(8);
                     break;
                 case PlantType.Spikerock:
                     break;

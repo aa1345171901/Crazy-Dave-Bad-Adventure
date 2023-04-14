@@ -10,6 +10,7 @@ public class HurtFlash : MonoBehaviour
 	public int flashCount = DefaultFlashCount;
 	public Color flashColor = Color.white;
 	public Color enchantedColor = new Color(1, 0, 1);
+	public Color deceleratedColor = Color.blue;
 	[Range(1f / 120f, 1f / 15f)]
 	public float interval = 1f / 60f;
 	public string fillPhaseProperty = "_FillPhase";
@@ -20,25 +21,38 @@ public class HurtFlash : MonoBehaviour
 	private bool isEnchanted;
 
 	public void Flash()
-	{	if (isEnchanted)
+	{
+		if (isEnchanted)
 			return;
-		if (materials.Length == 0)
-			materials = GetComponent<MeshRenderer>().materials;
+		materials = GetComponent<MeshRenderer>().materials;
 
 		StartCoroutine(FlashRoutine());
 	}
 
 	public void BeEnchanted()
     {
-		if(materials.Length == 0)
-			materials = GetComponent<MeshRenderer>().materials;
-		StopCoroutine(FlashRoutine());
+		materials = GetComponent<MeshRenderer>().materials;
+		StopAllCoroutines();
 		isEnchanted = true;
 		int fillPhase = Shader.PropertyToID(fillPhaseProperty);
 		int fillColor = Shader.PropertyToID(fillColorProperty);
 		for (int j = 0; j < materials.Length; j++)
 		{
 			materials[j].SetColor(fillColor, enchantedColor);
+			materials[j].SetFloat(fillPhase, 0.5f);
+		}
+	}
+
+	public void BeDecelerated()
+	{
+		materials = GetComponent<MeshRenderer>().materials;
+		StopAllCoroutines();
+		isEnchanted = true;
+		int fillPhase = Shader.PropertyToID(fillPhaseProperty);
+		int fillColor = Shader.PropertyToID(fillColorProperty);
+		for (int j = 0; j < materials.Length; j++)
+		{
+			materials[j].SetColor(fillColor, deceleratedColor);
 			materials[j].SetFloat(fillPhase, 0.5f);
 		}
 	}

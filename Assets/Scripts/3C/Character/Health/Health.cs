@@ -19,13 +19,14 @@ namespace TopDownPlate
         Fire,
         ZombieFly,
         ZombieHurEachOther,  // ÓÎÏ·½áÊøºó»¥ÏàÉËº¦
-        PeaBullet,  // Íã¶¹
+        PlantBullet,  // Íã¶¹
         Chomper,   // ´ó×ì»¨
         Cactus,
         CherryBomb,
         Cornpult,
         FumeShroom,
         Gravebuster,
+        ScaredyShroom,  // µ¨Ð¡¹½Ôú
     }
 
     public class HUDPos
@@ -227,11 +228,9 @@ namespace TopDownPlate
             if (health + value > maxHealth)
                 health = maxHealth;
             else
-            {
                 health += value;
-                if (SaveManager.Instance.SystemData.IsHUD)
-                    SetHUD(value);
-            }
+            if (SaveManager.Instance.SystemData.IsHUD)
+                SetHUD(value);
         }
     }
 }

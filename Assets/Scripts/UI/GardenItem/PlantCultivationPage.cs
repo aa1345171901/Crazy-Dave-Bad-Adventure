@@ -67,6 +67,8 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateBulletSize = "子弹大小";
     private readonly string CultivateReStartResumeLife = "触发后生命值恢复比例";
     private readonly string CultivateAttackPumpkinRate = "攻击掉落南瓜概率";
+    private readonly string CultivateDecelerationPercentage = "减速百分比";
+    private readonly string CultivateDecelerationTime = "减速时间";
 
     private readonly string CultivatePlayerIncreasedInjury = "玩家对僵尸增伤";
     private readonly string CultivatePlayerAdrenaline = "肾上腺素";
@@ -182,8 +184,10 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateReStartResumeLife, CultivatePlayerArmor, CultivatePlayerMaxHp, CultivatePlayerLifeResume, CultivateAttackPumpkinRate});
                     break;
                 case PlantType.ScaredyShroom:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage, CultivateAddBulletRate });
                     break;
                 case PlantType.SnowPea:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage, CultivateDecelerationPercentage, CultivateDecelerationTime });
                     break;
                 case PlantType.Spikerock:
                     break;

@@ -114,7 +114,7 @@ namespace TopDownPlate
                         healths.Add(target.Health);
                     }
                 }
-                else
+                else if (attackTrigger.Target == GameManager.Instance.Player.gameObject)
                 {
                     GameManager.Instance.DoDamage(realDamage);
                 }

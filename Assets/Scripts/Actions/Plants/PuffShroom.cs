@@ -21,18 +21,18 @@ public class PuffShroom : Plant
     [Tooltip("×Óµ¯Ô¤ÖÆÌå")]
     public ShroomBullet ShroomBullet;
 
-    private float timer;
-    private int finalDamage;
-    private float finalRage;
-    private float finalCoolTime;
-    private float bulletSpeedMul = 1;
-    private float splashPercentage;
-    private float bulletAddRate;
-    private float bulletSize;
+    protected float timer;
+    protected int finalDamage;
+    protected float finalRage;
+    protected float finalCoolTime;
+    protected float bulletSpeedMul = 1;
+    protected float splashPercentage;
+    protected float bulletAddRate;
+    protected float bulletSize;
 
-    private readonly int LevelBasicDamage = 1;
-    private readonly float LevelPercentage = 10;
-    private readonly float LevelCoolTime = 0.1f;
+    protected readonly int LevelBasicDamage = 1;
+    protected readonly float LevelPercentage = 10;
+    protected readonly float LevelCoolTime = 0.1f;
 
     public override void Reuse()
     {
@@ -108,7 +108,7 @@ public class PuffShroom : Plant
         }
     }
 
-    IEnumerator CreateBullet()
+    protected IEnumerator CreateBullet()
     {
         InitBullet();
         yield return new WaitForSeconds(0.05f);
@@ -125,7 +125,7 @@ public class PuffShroom : Plant
             InitBullet();
     }
 
-    private void InitBullet()
+    protected void InitBullet()
     {
         animator.SetTrigger("Attack");
         var bullet = GameObject.Instantiate(ShroomBullet, BulletPos);

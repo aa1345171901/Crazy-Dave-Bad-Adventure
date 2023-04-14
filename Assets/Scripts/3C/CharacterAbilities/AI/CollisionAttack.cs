@@ -48,10 +48,9 @@ namespace TopDownPlate
 
         private void Update()
         {
-            if (trigger2D.IsTrigger)
+            if (trigger2D.IsTrigger && trigger2D.Target == GameManager.Instance.Player.gameObject)
             {
                 GameManager.Instance.DoDamage(realDamage);
-                trigger2D.IsTrigger = false;
             }
         }
     }

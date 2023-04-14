@@ -58,6 +58,10 @@ namespace TopDownPlate
         public bool IsEnchanted { get; set; }
         private Character target;  // 被魅惑随机攻击的目标
 
+        private float decelerationPercentage = 1; // 减速百分比
+        private float decelerationTime;  // 减速时间
+        private float decelerationTimer;  // 减速时刻
+
         private Vector3 direction;
         public float realSpeed;
 
@@ -88,7 +92,7 @@ namespace TopDownPlate
             if (waveIndex < 5)
                 realSpeed = MoveSpeed = moveSpeed;
             else
-                realSpeed = MoveSpeed = moveSpeed * ((waveIndex - 4) * 3 + 100) / 100;
+                realSpeed = MoveSpeed = moveSpeed * ((waveIndex - 4) * 5 + 100) / 100;
         }
 
         public override void ProcessAbility()
@@ -109,6 +113,7 @@ namespace TopDownPlate
                     direction = target.transform.position - this.transform.position;
                 else
                     direction = Target.position - this.transform.position;
+
                 AIParameter.Distance = direction.magnitude;
                 if (AIParameter.Distance > 0.5f)
                 {
@@ -119,6 +124,16 @@ namespace TopDownPlate
 
                     // 三叶草风阻
                     float finalMoveSpeed = character.FacingDirection == FacingDirections.Right ? MoveSpeed - GardenManager.Instance.Windage : MoveSpeed;
+
+                    if (decelerationPercentage != 1 && Time.time - decelerationTimer > decelerationTime)
+                    {
+                        decelerationPercentage = 1;
+                        hurtFlash.BeResume();
+                        if (IsEnchanted)
+                            hurtFlash.BeEnchanted();
+                    }
+                    // 减速
+                    finalMoveSpeed *= decelerationPercentage;
                     controller.Rigidbody.velocity = direction * finalMoveSpeed;
                 }
             }
@@ -181,6 +196,14 @@ namespace TopDownPlate
             LevelManager.Instance.Enemys.Remove(this.character);
             LevelManager.Instance.EnchantedEnemys.Add(this.character);
             character.FindAbility<AIAttack>().BeEnchanted(attackCount, percentageDamageAdd, basicDamageAdd);
+        }
+
+        public void BeDecelerated(float decelerationPercentage, float decelerationTime)
+        {
+            this.decelerationPercentage = 1 - decelerationPercentage;
+            this.decelerationTime = decelerationTime;
+            decelerationTimer = Time.time;
+            hurtFlash.BeDecelerated();
         }
     }
 }

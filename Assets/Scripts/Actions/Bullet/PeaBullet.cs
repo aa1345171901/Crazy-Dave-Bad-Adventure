@@ -46,7 +46,7 @@ public class PeaBullet : MonoBehaviour
         {
             isTrigger = true;
             var health = collision.GetComponent<Health>();
-            health.DoDamage(Damage, DamageType.PeaBullet);
+            DoDamage(health, Damage);
             spriteRenderer.enabled = false;
             bulletParticleSystem.Play();
             Invoke("DestroyPeaBullet", 1);
@@ -64,14 +64,19 @@ public class PeaBullet : MonoBehaviour
                     if (item != collision && item.isTrigger)
                     {
                         var health2 = item.GetComponent<Health>();
-                        health2.DoDamage((int)(Damage * SplashPercentage / 100));
+                        DoDamage(health2, (int)(Damage * SplashPercentage / 100));
                     }
                 }
             }
         }
     }
 
-    private void DestroyPeaBullet()
+    protected virtual void DoDamage(Health health, int damage)
+    {
+        health.DoDamage(Damage, DamageType.PlantBullet);
+    }
+
+    protected virtual void DestroyPeaBullet()
     {
         GameObject.Destroy(this.gameObject);
     }

@@ -6766,6 +6766,7 @@ MonoBehaviour:
   flashCount: 1
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   enchantedColor: {r: 1, g: 0.48584908, b: 1, a: 1}
+  deceleratedColor: {r: 0.14117648, g: 0.7490196, b: 0.854902, a: 1}
   interval: 0.016666668
   fillPhaseProperty: _FillPhase
   fillColorProperty: _FillColor
