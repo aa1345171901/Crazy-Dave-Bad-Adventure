@@ -27,6 +27,7 @@ namespace TopDownPlate
         FumeShroom,
         Gravebuster,
         ScaredyShroom,  // µ¨Ð¡¹½Ôú
+        Spikeweed,
     }
 
     public class HUDPos

@@ -158,6 +158,14 @@ public class PlantAttribute
                     GameManager.Instance.UserData.LifeRecovery++;
                 }
                 break;
+            // 地刺 属性5为肾上腺素 
+            case PlantType.Spikeweed:
+            case PlantType.Spikerock:
+                if (attribute[index] == 5)
+                {
+                    GameManager.Instance.UserData.Adrenaline++;
+                }
+                break;
             default:
                 break;
         }
@@ -308,9 +316,8 @@ public class FlowerPotGardenItem : MonoBehaviour
                 case PlantType.SnowPea:
                     SetAttribute(8);
                     break;
-                case PlantType.Spikerock:
-                    break;
                 case PlantType.Spikeweed:
+                    SetAttribute(6);
                     break;
                 case PlantType.SplitPea:
                     break;

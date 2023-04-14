@@ -1545,7 +1545,7 @@
             "plantImagePath": "Shop/Plants/ScaredyShroom",
             "defaultPrice": "20",
             "defaultSun": "25",
-            "info": "<color=#00ff00>胆小菇</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>胆小菇</color>\n可以使用{0}阳光培养\n默认射程很远，但是很胆小\n僵尸靠近她时会缩到地底下用菇头进行攻击",
             "plantTypeString": "ScaredyShroom"
         },
 
@@ -1555,7 +1555,7 @@
             "plantImagePath": "Shop/Plants/SnowPea",
             "defaultPrice": "40",
             "defaultSun": "175",
-            "info": "<color=#00ff00>寒冰豌豆</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>寒冰豌豆</color>\n可以使用{0}阳光培养\n能够冰冻住僵尸\n虽然温度对僵尸毫无影响，但是冻住能减缓他们的移动速度",
             "plantTypeString": "SnowPea"
         },
 
@@ -1565,7 +1565,7 @@
             "plantImagePath": "Shop/Plants/Spikerock",
             "defaultPrice": "50",
             "defaultSun": "125",
-            "info": "<color=#00ff00>地刺王</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#9932CD>地刺王</color>\n可以使用{0}阳光将地刺进化\n更加坚硬，可以破坏的载具数量增多了",
             "plantTypeString": "Spikerock"
         },
 
@@ -1575,7 +1575,7 @@
             "plantImagePath": "Shop/Plants/Spikeweed",
             "defaultPrice": "20",
             "defaultSun": "100",
-            "info": "<color=#00ff00>地刺</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>地刺</color>\n可以使用{0}阳光培养\n可以破坏载具\n僵尸踩上去会难以行动",
             "plantTypeString": "Spikeweed"
         },
 

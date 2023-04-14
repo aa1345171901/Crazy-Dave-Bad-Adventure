@@ -69,6 +69,7 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateAttackPumpkinRate = "攻击掉落南瓜概率";
     private readonly string CultivateDecelerationPercentage = "减速百分比";
     private readonly string CultivateDecelerationTime = "减速时间";
+    private readonly string CultivatDestroyingVehiclesCount = "破坏载具数量";
 
     private readonly string CultivatePlayerIncreasedInjury = "玩家对僵尸增伤";
     private readonly string CultivatePlayerAdrenaline = "肾上腺素";
@@ -190,8 +191,10 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage, CultivateDecelerationPercentage, CultivateDecelerationTime });
                     break;
                 case PlantType.Spikerock:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivatDestroyingVehiclesCount, CultivateDecelerationPercentage, CultivateDecelerationTime, CultivatePlayerAdrenaline });
                     break;
                 case PlantType.Spikeweed:
+                    SetItemInfo(flowerPotGardenItem, PlantType.Spikerock, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivatDestroyingVehiclesCount, CultivateDecelerationPercentage, CultivateDecelerationTime, CultivatePlayerAdrenaline });
                     break;
                 case PlantType.SplitPea:
                     break;
