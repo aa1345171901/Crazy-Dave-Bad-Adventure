@@ -139,8 +139,17 @@ namespace TopDownPlate
 
             if (health <= 0)
             {
-                character.IsDead = true;
-                Dead?.Invoke(damageType);
+                if (GameManager.Instance.pumpkinHead.HasPumpkinHead && character == GameManager.Instance.Player)
+                {
+                    GameManager.Instance.pumpkinHead.HasPumpkinHead = false;
+                    GameManager.Instance.pumpkinHead.gameObject.SetActive(false);
+                    GameManager.Instance.AddHP((int)(character.Health.maxHealth * GameManager.Instance.pumpkinHead.PumpkinHeadResumeLife));
+                }
+                else
+                {
+                    character.IsDead = true;
+                    Dead?.Invoke(damageType);
+                }
             }
             else
             {

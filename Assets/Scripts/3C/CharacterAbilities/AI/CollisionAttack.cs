@@ -51,6 +51,7 @@ namespace TopDownPlate
             if (trigger2D.IsTrigger)
             {
                 GameManager.Instance.DoDamage(realDamage);
+                trigger2D.IsTrigger = false;
             }
         }
     }

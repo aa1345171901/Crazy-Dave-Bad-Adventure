@@ -1228,11 +1228,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2128392657613607830, guid: 8e7f933c308343849ad40a6c8d308417, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.15
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 2128392657613607830, guid: 8e7f933c308343849ad40a6c8d308417, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.378
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 2128392657613607830, guid: 8e7f933c308343849ad40a6c8d308417, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1789,6 +1789,8 @@ MonoBehaviour:
   - plantType: 20
     plant: {fileID: 5149086564266242091, guid: 5a54fd1845a2c204f97c26cc5c293995, type: 3}
   - plantType: 21
+    plant: {fileID: 4413325202980577860, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
+  - plantType: 23
     plant: {fileID: 4413325202980577860, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
 --- !u!1 &968511682
 GameObject:
@@ -3315,6 +3317,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca84abf0a2b1ab24b826f61c65667117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &2128357606
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5449657326488101172, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449657326488101172, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449657326488101172, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449657326488101172, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449657326488101172, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449657326488101172, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449657326488101172, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449657326488101172, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449657326488101172, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449657326488101172, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449657326488101172, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449657326488101173, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: aa16113649b01c2408b0a92eb7eba78a, type: 3}
+    - target: {fileID: 5449657326488101174, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 37c14c3e1e31a26419e1a62bb084528b, type: 2}
+    - target: {fileID: 5449657326488101175, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
+      propertyPath: m_Name
+      value: ScaredyShroom
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 912606fbda96abf4c84c942ed4ad67cc, type: 3}
 --- !u!1 &2139332419
 GameObject:
   m_ObjectHideFlags: 0

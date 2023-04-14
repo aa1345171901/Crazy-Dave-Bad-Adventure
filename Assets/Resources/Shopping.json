@@ -1475,7 +1475,7 @@
             "plantImagePath": "Shop/Plants/Gravebuster",
             "defaultPrice": "70",
             "defaultSun": "75",
-            "info": "<color=#00ff00>墓碑吞噬者</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>墓碑吞噬者</color>\n可以使用{0}阳光培养\n有一定概率吞噬掉僵尸的墓碑，使之不能出场",
             "plantTypeString": "Gravebuster"
         },
 
@@ -1485,7 +1485,7 @@
             "plantImagePath": "Shop/Plants/HypnoShroom",
             "defaultPrice": "90",
             "defaultSun": "75",
-            "info": "<color=#00ff00>魅惑菇</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>魅惑菇</color>\n可以使用{0}阳光培养\n可以魅惑一只僵尸攻击同类",
             "plantTypeString": "HypnoShroom"
         },
 
@@ -1495,7 +1495,7 @@
             "plantImagePath": "Shop/Plants/MagentShroom",
             "defaultPrice": "35",
             "defaultSun": "100",
-            "info": "<color=#00ff00>磁力菇</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>磁力菇</color>\n可以使用{0}阳光培养\n可以吸收铁制品换钱~",
             "plantTypeString": "MagentShroom"
         },
 
@@ -1505,7 +1505,7 @@
             "plantImagePath": "Shop/Plants/Marigold",
             "defaultPrice": "50",
             "defaultSun": "50",
-            "info": "<color=#00ff00>金盏花</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>金盏花</color>\n可以使用{0}阳光培养\n每过一段时间会产生钱币",
             "plantTypeString": "Marigold"
         },
 
@@ -1515,7 +1515,7 @@
             "plantImagePath": "Shop/Plants/Plantern",
             "defaultPrice": "70",
             "defaultSun": "25",
-            "info": "<color=#00ff00>路灯</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>路灯</color>\n可以使用{0}阳光培养\n在她附近我变强了很多",
             "plantTypeString": "Plantern"
         },
 
@@ -1525,7 +1525,7 @@
             "plantImagePath": "Shop/Plants/PuffShroom",
             "defaultPrice": "15",
             "defaultSun": "0",
-            "info": "<color=#00ff00>小喷菇</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>小喷菇</color>\n可以使用{0}阳光培养\n可以无限的成长，而且培养需要的资源非常少",
             "plantTypeString": "PuffShroom"
         },
 
@@ -1535,7 +1535,7 @@
             "plantImagePath": "Shop/Plants/PumpkinHead",
             "defaultPrice": "50",
             "defaultSun": "125",
-            "info": "<color=#00ff00>南瓜</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>南瓜</color>\n可以使用{0}阳光培养\n可以保护我的脑子不被僵尸吃掉\n重生效果不能叠加",
             "plantTypeString": "PumpkinHead"
         },
 

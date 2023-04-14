@@ -143,6 +143,21 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Range++;
                 }
                 break;
+            // 南瓜 属性1 护甲,2为最大生命值3生命恢复
+            case PlantType.PumpkinHead:
+                if (attribute[index] == 1)
+                {
+                    GameManager.Instance.UserData.Armor++;
+                }
+                if (attribute[index] == 2)
+                {
+                    GameManager.Instance.UserData.MaximumHP++;
+                }
+                if (attribute[index] == 3)
+                {
+                    GameManager.Instance.UserData.LifeRecovery++;
+                }
+                break;
             default:
                 break;
         }
@@ -285,6 +300,7 @@ public class FlowerPotGardenItem : MonoBehaviour
                     PlantAttribute.maxLevel = int.MaxValue;
                     break;
                 case PlantType.PumpkinHead:
+                    SetAttribute(5);
                     break;
                 case PlantType.ScaredyShroom:
                     break;

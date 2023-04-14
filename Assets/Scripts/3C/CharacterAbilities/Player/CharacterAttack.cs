@@ -150,6 +150,7 @@ namespace TopDownPlate
                     }
                     InitBezier();
                     isInFlight = false;
+                    GameManager.Instance.pumpkinHead.Falling(Pot.transform.position);
                 }
                 else
                 {

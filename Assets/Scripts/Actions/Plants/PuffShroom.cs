@@ -74,7 +74,7 @@ public class PuffShroom : Plant
                 case 5:
                     splashPercentage = (int)fieldInfo.GetValue(plantAttribute) * LevelPercentage;
                     break;
-                // 溅射伤害
+                // 子弹变多概率
                 case 6:
                     bulletAddRate = ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100;
                     break;
@@ -91,7 +91,8 @@ public class PuffShroom : Plant
         realRange = FacingDirections == FacingDirections.Right ? finalRage : -finalRage;
         pos = new Vector3(this.transform.position.x + realRange / 2, this.transform.position.y - 0.5f);
         finalCoolTime = finalCoolTime < 0.1f ? 0.1f : finalCoolTime;
-        size = new Vector2(finalRage, 1);
+        size = new Vector2(finalRage, bulletSize);
+        this.transform.localScale = new Vector3(Mathf.Sign(this.transform.localScale.x) * bulletSize, bulletSize, bulletSize);
     }
 
     private void Update()
@@ -112,14 +113,15 @@ public class PuffShroom : Plant
         InitBullet();
         yield return new WaitForSeconds(0.05f);
         int i = 0;
-        for (; i < bulletAddRate; i++)
+        float bulletAdd = bulletAddRate;
+        for (; i < bulletAdd; i++)
         {
             InitBullet();
             yield return new WaitForSeconds(0.05f);
         }
-        bulletAddRate -= i;
+        bulletAdd -= i - 1;
 
-        if (Random.Range(0, 1f) < bulletAddRate)
+        if (Random.Range(0, 1f) < bulletAdd)
             InitBullet();
     }
 

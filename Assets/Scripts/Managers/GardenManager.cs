@@ -133,7 +133,7 @@ public class GardenManager : BaseManager<GardenManager>
     /// <summary>
     /// 墓碑提供的增伤
     /// </summary>
-    public float GravebusterDamage { get; set; }
+    public float GravebusterDamage { get; set; } = 1;
 
     public void AddPlant(PlantCard plantCard)
     {

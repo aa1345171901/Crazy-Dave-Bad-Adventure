@@ -115,6 +115,8 @@ namespace TopDownPlate
         private PausePanel pausePanel;
         private VocalConcert vocalConcert;
 
+        public PumpkinHead pumpkinHead { get; private set; }
+
         private void Start()
         {
             LevelManager.Instance.Init();
@@ -201,7 +203,10 @@ namespace TopDownPlate
             this.Player = character;
             battlePanel = UIManager.Instance.PushPanel(UIPanelType.BattlePanel) as BattlePanel;
             vocalConcert = Player.GetComponentInChildren<VocalConcert>();
+            pumpkinHead = Player.GetComponentInChildren<PumpkinHead>();
+            pumpkinHead.gameObject.SetActive(false);
             specialPropLists.Add(vocalConcert);
+            specialPropLists.Add(pumpkinHead);
             AudioManager.Instance.PlayEffectSoundByName("startWave");
             AudioManager.Instance.PlayBackMusic(2);
         }

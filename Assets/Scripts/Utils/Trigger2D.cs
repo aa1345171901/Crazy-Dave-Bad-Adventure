@@ -20,7 +20,7 @@ namespace TopDownPlate
         public List<string> tags;
         public LayerMask layerMasks;
 
-        public bool IsTrigger { get; private set; }
+        public bool IsTrigger { get;  set; }
 
         public GameObject Target;
 
