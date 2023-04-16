@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StarBullet : PeaBullet
 {
+    public override BulletType BulletType => BulletType.Star;
+
     public Vector3 StarfruitPos;
     public bool isRight;
 

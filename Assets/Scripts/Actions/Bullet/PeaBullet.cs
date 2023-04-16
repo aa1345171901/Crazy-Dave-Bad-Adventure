@@ -3,8 +3,18 @@ using System.Collections.Generic;
 using TopDownPlate;
 using UnityEngine;
 
+public enum BulletType
+{
+    Pea,
+    Shroom,
+    Star,
+    Snow,
+}
+
 public class PeaBullet : MonoBehaviour
 {
+    public virtual BulletType BulletType => BulletType.Pea;
+
     public float Speed;
     public int Damage = 5;
     public LayerMask TargetLayer;
@@ -13,6 +23,8 @@ public class PeaBullet : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip hit1;
     public AudioClip hit2;
+
+    public Animator animator;
 
     public float SplashPercentage;
     protected float SplashSizeX = 3;
@@ -34,6 +46,26 @@ public class PeaBullet : MonoBehaviour
         Invoke("DestroyPeaBullet", MaxLiveTime);
         audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
         direction = Vector3.right;
+        if (BulletType == BulletType.Pea)
+        {
+            float damageAdd = GardenManager.Instance.TorchwoodEffect.DamageAdd;
+            Debug.Log(damageAdd);
+            if (damageAdd > 1 && damageAdd <= 2)
+            {
+                animator.SetBool("1", true);
+            }
+            else if (damageAdd <= 3)
+            {
+                animator.SetBool("2", true);
+            }
+            else if (damageAdd > 3)
+            {
+                animator.SetBool("3", true);
+            }
+            Damage = (int)(Damage * damageAdd);
+            SplashPercentage += GardenManager.Instance.TorchwoodEffect.SplashDamage;
+            Speed *= GardenManager.Instance.TorchwoodEffect.PeaSpeed;
+        }
     }
 
     private void Update()

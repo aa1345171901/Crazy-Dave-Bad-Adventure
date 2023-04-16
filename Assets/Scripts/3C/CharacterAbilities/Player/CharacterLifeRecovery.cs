@@ -52,7 +52,7 @@ namespace TopDownPlate
             }
 
             if (character.FacingDirection == FacingDirections.Left)
-                lifeRecoveryValue = GameManager.Instance.UserData.LifeRecovery + GardenManager.Instance.BloverResume;
+                lifeRecoveryValue = GameManager.Instance.UserData.LifeRecovery + GardenManager.Instance.BloverEffect.BloverResume;
             else
                 lifeRecoveryValue = GameManager.Instance.UserData.LifeRecovery;
             lifeRecoveryValue += PlanternLifeRecovery;

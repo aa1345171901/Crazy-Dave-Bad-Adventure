@@ -195,6 +195,17 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Armor++;
                 }
                 break;
+            // 火炬树桩 属性3 为阳光,4为肾上腺素
+            case PlantType.Torchwood:
+                if (attribute[index] == 0)
+                {
+                    GameManager.Instance.UserData.Sunshine += 25;
+                }
+                if (attribute[index] == 1)
+                {
+                    GameManager.Instance.UserData.Adrenaline++;
+                }
+                break;
             default:
                 break;
         }
@@ -361,8 +372,10 @@ public class FlowerPotGardenItem : MonoBehaviour
                     SetAttribute(6);
                     break;
                 case PlantType.Threepeater:
+                    SetAttribute(6);
                     break;
                 case PlantType.Torchwood:
+                    SetAttribute(5);
                     break;
                 case PlantType.TwinSunflower:
                     break;

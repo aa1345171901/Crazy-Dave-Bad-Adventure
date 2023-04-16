@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShroomBullet : PeaBullet
 {
+    public override BulletType BulletType => BulletType.Shroom;
+
     public float BulletSize;
 
     protected override void Init()

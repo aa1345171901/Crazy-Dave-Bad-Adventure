@@ -1802,6 +1802,14 @@ MonoBehaviour:
     plant: {fileID: 3914700049029399314, guid: d7fd3361f6bf00d4a87b9dd32cf39fb6, type: 3}
   - plantType: 28
     plant: {fileID: 1252520538614116287, guid: 36e6d411c7b66994f8702dbce7d5fc0d, type: 3}
+  - plantType: 29
+    plant: {fileID: 442959941455216943, guid: ff113a25b29766b45bc74284804f9e46, type: 3}
+  - plantType: 30
+    plant: {fileID: 2036934216672269472, guid: 7c1f9569e4f5ee3458e382285f9c17d2, type: 3}
+  - plantType: 31
+    plant: {fileID: 9205738203197863977, guid: de3ba89113f5b9445a6a501689c3336c, type: 3}
+  - plantType: 32
+    plant: {fileID: 2932529184259789869, guid: 5b9d22be8e612f44cb370678f5574bf0, type: 3}
 --- !u!1 &968511682
 GameObject:
   m_ObjectHideFlags: 0

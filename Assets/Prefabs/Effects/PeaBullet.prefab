@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 592875795}
   - component: {fileID: 987392576}
   - component: {fileID: 1021323965}
+  - component: {fileID: 7826042964707406259}
   m_Layer: 0
   m_Name: PeaBullet
   m_TagString: Untagged
@@ -110,6 +111,7 @@ MonoBehaviour:
   audioSource: {fileID: 1021323965}
   hit1: {fileID: 8300000, guid: fe36554dbc359da46b603da32ebdf562, type: 3}
   hit2: {fileID: 8300000, guid: 3edb69069a36678408fbcdd9f9eeae33, type: 3}
+  animator: {fileID: 7826042964707406259}
   SplashPercentage: 0
 --- !u!61 &987392576
 BoxCollider2D:
@@ -233,6 +235,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &7826042964707406259
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252142256693664323}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9e28a03b0bf2c140b3e67ebfe2e1e4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5910957019070685367
 GameObject:
   m_ObjectHideFlags: 0

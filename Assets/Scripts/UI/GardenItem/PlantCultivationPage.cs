@@ -75,6 +75,9 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivatBoomRate = "×îÖÕ±¬Õ¨¸ÅÂÊ";
     private readonly string CultivatCounterInjury = "·´ÉËÉËº¦";
     private readonly string CultivatCounterInjuryRate = "·´ÉË¸ÅÂÊ";
+    private readonly string CultivatPeaDamage = "Íã¶¹ÔöÉË";
+    private readonly string CultivatPeaSplash = "Íã¶¹½¦ÉäÉËº¦";
+    private readonly string CultivatPeaSpeed = "Íã¶¹ËÙ¶È";
 
     private readonly string CultivatePlayerIncreasedInjury = "Íæ¼Ò¶Ô½©Ê¬ÔöÉË";
     private readonly string CultivatePlayerAdrenaline = "ÉöÉÏÏÙËØ";
@@ -215,8 +218,10 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatTallNutHp, CultivatBoomRate, CultivatCounterInjury, CultivatCounterInjuryRate, CultivatePlayerMaxHp, CultivatePlayerArmor });
                     break;
                 case PlantType.Threepeater:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage });
                     break;
                 case PlantType.Torchwood:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatPeaDamage, CultivatPeaSplash, CultivatPeaSpeed, CultivatePlayerSunshine, CultivatePlayerAdrenaline });
                     break;
                 case PlantType.TwinSunflower:
                     break;

@@ -32,6 +32,8 @@ public class SpikeWeed : Plant
     private float finalDecelerationPercentage;
     private float finalDecelerationTime;
 
+    private float timer;
+
     private readonly float LeverDecelerationPercentage = 0.03f;
     private readonly float LeverDecelerationTime = 0.2f;
     private readonly int LevelBasicDamage = 1;
@@ -84,6 +86,31 @@ public class SpikeWeed : Plant
         finalDamage = (int)(finalDamage * (GameManager.Instance.UserData.Botany * 2 + 100) / 100f);
     }
 
+    private void Update()
+    {
+        if (Time.time - timer > coolTimer)
+        {
+            timer = Time.time;
+            foreach (var item in colliderDict)
+            {
+                if (Time.time - item.Value > coolTimer)
+                {
+                    var health = item.Key.GetComponent<Health>();
+                    if (health)
+                    {
+                        audioSource.Play();
+                        health.DoDamage(finalDamage, DamageType.Spikeweed);
+                        var aiMove = health.GetComponent<AIMove>();
+                        if (aiMove)
+                        {
+                            aiMove.BeDecelerated(finalDecelerationPercentage, finalDecelerationTime);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.isTrigger)
@@ -125,5 +152,11 @@ public class SpikeWeed : Plant
                 }
             }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (colliderDict.ContainsKey(collision))
+            colliderDict.Remove(collision);
     }
 }

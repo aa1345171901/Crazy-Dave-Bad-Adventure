@@ -112,9 +112,17 @@ namespace TopDownPlate
                 if (IsEnchanted && target != null)
                     direction = target.transform.position - this.transform.position;
                 else
-                    direction = Target.position - this.transform.position;
+                {
+                    if (GardenManager.Instance.TallNuts.Count > 0)
+                    {
+                        int index = UnityEngine.Random.Range(0, GardenManager.Instance.TallNuts.Count);
+                        direction = GardenManager.Instance.TallNuts[index].transform.position - this.transform.position;
+                    }
+                    else
+                        direction = Target.position - this.transform.position;
+                }
 
-                AIParameter.Distance = direction.magnitude;
+                AIParameter.Distance = (Target.position - this.transform.position).magnitude;
                 if (AIParameter.Distance > 0.5f)
                 {
                     direction = new Vector3(direction.x, direction.y, transform.position.z).normalized;
@@ -123,7 +131,7 @@ namespace TopDownPlate
                     //this.transform.Translate(direction * moveSpeed * Time.deltaTime);
 
                     // ÈýÒ¶²Ý·ç×è
-                    float finalMoveSpeed = character.FacingDirection == FacingDirections.Right ? MoveSpeed - GardenManager.Instance.Windage : MoveSpeed;
+                    float finalMoveSpeed = character.FacingDirection == FacingDirections.Right ? MoveSpeed - GardenManager.Instance.BloverEffect.Windage : MoveSpeed;
 
                     if (decelerationPercentage != 1 && Time.time - decelerationTimer > decelerationTime)
                     {

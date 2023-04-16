@@ -38,6 +38,44 @@ public static class PlantInfoExpand
     }
 }
 
+public class BloverEffect
+{
+    public void Init()
+    {
+        Windage = Windspeed = BloverResume = 0;
+    }
+
+    /// <summary>
+    /// 三叶草的提供的逆风时对僵尸的风阻，可叠加，超过1的部分需要/10
+    /// </summary>
+    public float Windage { get; set; }
+    /// <summary>
+    /// 三叶草的提供的顺风时对玩家的风速，可叠加，超过1的部分需要/5
+    /// </summary>
+    public float Windspeed { get; set; }
+    /// <summary>
+    /// 三叶草的提供的逆风时对玩家的生命恢复
+    /// </summary>
+    public int BloverResume { get; set; }
+}
+
+/// <summary>
+/// 火炬对豌豆的增益
+/// </summary>
+public class TorchwoodEffect
+{
+    public void Init()
+    {
+        DamageAdd = SplashDamage = PeaSpeed = 1;
+    }
+
+    public float DamageAdd { get; set; }
+
+    public float SplashDamage { get; set; }
+
+    public float PeaSpeed { get; set; }
+}
+
 public class GardenManager : BaseManager<GardenManager>
 {
     [Tooltip("植物苗预制体")]
@@ -104,6 +142,11 @@ public class GardenManager : BaseManager<GardenManager>
     public List<Gravebuster> Gravebusters { get; set; } = new List<Gravebuster>();
 
     /// <summary>
+    /// 高坚果
+    /// </summary>
+    public List<TallNut> TallNuts { get; set; } = new List<TallNut>();
+
+    /// <summary>
     /// 卡槽的植物
     /// </summary>
     public List<PlantAttribute> CardslotPlant { get; set; } = new List<PlantAttribute>();
@@ -119,17 +162,15 @@ public class GardenManager : BaseManager<GardenManager>
     public bool IsLoadPlantData { get; set; }
 
     /// <summary>
-    /// 三叶草的提供的逆风时对僵尸的风阻，可叠加，超过1的部分需要/10
+    ///  三叶草提供的增益
     /// </summary>
-    public float Windage { get; set; }
+    public BloverEffect BloverEffect { get; private set; } = new BloverEffect();
+
     /// <summary>
-    /// 三叶草的提供的顺风时对玩家的风速，可叠加，超过1的部分需要/5
+    /// 火炬树桩
     /// </summary>
-    public float Windspeed { get; set; }
-    /// <summary>
-    /// 三叶草的提供的逆风时对玩家的生命恢复
-    /// </summary>
-    public int BloverResume { get; set; }
+    public TorchwoodEffect TorchwoodEffect { get; private set; } = new TorchwoodEffect();
+
     /// <summary>
     /// 墓碑提供的增伤
     /// </summary>
@@ -142,10 +183,10 @@ public class GardenManager : BaseManager<GardenManager>
 
     public void PlantsGoToWar()
     {
-        Windspeed = 0;
-        Windage = 0;
-        BloverResume = 0;
+        BloverEffect.Init();
+        TorchwoodEffect.Init();
         GravebusterDamage = 1;
+        TallNuts.Clear();
         foreach (var item in PlantAttributes)
         {
             if (!item.isManual && !PlantDict.ContainsKey(item) && item.isCultivate)

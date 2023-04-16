@@ -24,9 +24,9 @@ public class Blover : Plant
         spriteRenderer.sortingOrder = y;
         FacingDirections = FacingDirections.Right;
 
-        float finalWindSpeed = GardenManager.Instance.Windspeed;
-        int finalResume = GardenManager.Instance.BloverResume;
-        float finalWindage = GardenManager.Instance.Windage;
+        float finalWindSpeed = GardenManager.Instance.BloverEffect.Windspeed;
+        int finalResume = GardenManager.Instance.BloverEffect.BloverResume;
+        float finalWindage = GardenManager.Instance.BloverEffect.Windage;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
@@ -59,9 +59,9 @@ public class Blover : Plant
             }
         }
 
-        GardenManager.Instance.Windage = finalWindage;
-        GardenManager.Instance.Windspeed = finalWindSpeed;
-        GardenManager.Instance.BloverResume = finalResume;
+        GardenManager.Instance.BloverEffect.Windage = finalWindage;
+        GardenManager.Instance.BloverEffect.Windspeed = finalWindSpeed;
+        GardenManager.Instance.BloverEffect.BloverResume = finalResume;
         animator.speed = Random.Range(0.8f, 1.2f);
     }
 }
