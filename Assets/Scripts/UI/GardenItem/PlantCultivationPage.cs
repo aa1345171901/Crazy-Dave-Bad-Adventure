@@ -70,6 +70,11 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateDecelerationPercentage = "减速百分比";
     private readonly string CultivateDecelerationTime = "减速时间";
     private readonly string CultivatDestroyingVehiclesCount = "破坏载具数量";
+    private readonly string CultivatSunQuality = "生成阳光质量";
+    private readonly string CultivatTallNutHp = "高坚果生命值（植物学）";
+    private readonly string CultivatBoomRate = "最终爆炸概率";
+    private readonly string CultivatCounterInjury = "反伤伤害";
+    private readonly string CultivatCounterInjuryRate = "反伤概率";
 
     private readonly string CultivatePlayerIncreasedInjury = "玩家对僵尸增伤";
     private readonly string CultivatePlayerAdrenaline = "肾上腺素";
@@ -84,6 +89,7 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivatePlayerMaxHp = "最大生命值";
     private readonly string CultivatePlayerCoinGold = "金币";
     private readonly string CultivatePlayerArmor = "护甲";
+    private readonly string CultivatePlayerSunshine = "阳光";
 
     private void Update()
     {
@@ -200,10 +206,13 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateRange, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage });
                     break;
                 case PlantType.Starfruit:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateCoolTime, CultivateBulletSpeed, CultivateSplashDamage, CultivatePlayerLucky });
                     break;
                 case PlantType.SunFlower:
+                    SetItemInfo(flowerPotGardenItem, PlantType.TwinSunflower, new string[] { CultivatePlayerSunshine, CultivatePlayerLucky, CultivateCoolTime, CultivatSunQuality, CultivateTwinRate});
                     break;
                 case PlantType.TallNut:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatTallNutHp, CultivatBoomRate, CultivatCounterInjury, CultivatCounterInjuryRate, CultivatePlayerMaxHp, CultivatePlayerArmor });
                     break;
                 case PlantType.Threepeater:
                     break;

@@ -22,6 +22,8 @@ public class PeaBullet : MonoBehaviour
 
     private readonly float MaxLiveTime = 15;
 
+    protected Vector3 direction;
+
     private void Start()
     {
         Init();
@@ -31,11 +33,12 @@ public class PeaBullet : MonoBehaviour
     {
         Invoke("DestroyPeaBullet", MaxLiveTime);
         audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
+        direction = Vector3.right;
     }
 
     private void Update()
     {
-        transform.Translate(Vector3.right * Speed * Time.deltaTime);
+        transform.Translate(direction * Speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

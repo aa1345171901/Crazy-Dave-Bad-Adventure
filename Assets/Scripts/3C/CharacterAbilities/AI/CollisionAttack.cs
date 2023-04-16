@@ -8,6 +8,7 @@ namespace TopDownPlate
         public Trigger2D trigger2D;
         public int Damage = 1;
 
+        [ReadOnly]
         public int realDamage;
 
         protected override void Initialization()

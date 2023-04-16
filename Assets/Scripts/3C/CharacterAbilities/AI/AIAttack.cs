@@ -45,8 +45,11 @@ namespace TopDownPlate
         private int attackCount;
         private List<Health> healths = new List<Health>();  // 攻击时清空，防止造成多次伤害
 
+        [ReadOnly]
         public int realDamage;
+        [ReadOnly]
         public float realAttackRange;
+        [ReadOnly]
         public float realAttackProbability;
 
         private AudioSource audioSource;

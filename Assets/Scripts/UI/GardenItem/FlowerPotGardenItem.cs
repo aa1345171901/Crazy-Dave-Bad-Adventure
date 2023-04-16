@@ -166,6 +166,35 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Adrenaline++;
                 }
                 break;
+            // 杨桃 属性5为幸运
+            case PlantType.Starfruit:
+                if (attribute[index] == 5)
+                {
+                    GameManager.Instance.UserData.Lucky++;
+                }
+                break;
+            // 向日葵 属性0 为阳光,1为幸运
+            case PlantType.SunFlower:
+                if (attribute[index] == 0)
+                {
+                    GameManager.Instance.UserData.Sunshine += 25;
+                }
+                if (attribute[index] == 1)
+                {
+                    GameManager.Instance.UserData.Lucky++;
+                }
+                break;
+            // 向日葵 属性4 为最大生命值,5为护甲
+            case PlantType.TallNut:
+                if (attribute[index] == 0)
+                {
+                    GameManager.Instance.UserData.MaximumHP++;
+                }
+                if (attribute[index] == 1)
+                {
+                    GameManager.Instance.UserData.Armor++;
+                }
+                break;
             default:
                 break;
         }
@@ -323,10 +352,13 @@ public class FlowerPotGardenItem : MonoBehaviour
                     SetAttribute(6);
                     break;
                 case PlantType.Starfruit:
+                    SetAttribute(6);
                     break;
                 case PlantType.SunFlower:
+                    SetAttribute(5);
                     break;
                 case PlantType.TallNut:
+                    SetAttribute(6);
                     break;
                 case PlantType.Threepeater:
                     break;

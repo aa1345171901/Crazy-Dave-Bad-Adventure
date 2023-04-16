@@ -3,30 +3,26 @@ using System.Collections.Generic;
 using TopDownPlate;
 using UnityEngine;
 
-public class Marigold : Plant
+public class SunFlower : Plant
 {
-    public override PlantType PlantType => PlantType.Marigold;
+    public override PlantType PlantType => PlantType.SunFlower;
 
     [Tooltip("冷却时间")]
     public float CoolTime = 12f;
-    public Coin Sliver;
-    public Coin Gold;
-    public Coin Diamond;
+    public Sun Sun;
 
     public AudioSource audioSource;
 
     private float timer;
 
     private float finalCoolTime;
-    private float finalGoldCoinRate;
     private float finalTwinRate;
-    private float finalDiamond;
+    private int finalQuality;
 
     private List<ItemJump> itemJumps = new List<ItemJump>();  // 钱币跳出动画参数
 
     private readonly float LevelRate = 0.03f;
-    private readonly float LevelDiamondRate = 0.003f;
-    private readonly float LevelTime = 0.4f;
+    private readonly float LevelTime = 0.6f;
 
     private void Start()
     {
@@ -40,9 +36,7 @@ public class Marigold : Plant
 
         // 属性顺序需要与PlantCultivationPage设计的文字相对应
         finalCoolTime = CoolTime;
-        finalGoldCoinRate = 0;
         finalTwinRate = 0;
-        finalDiamond = 0;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
@@ -54,17 +48,13 @@ public class Marigold : Plant
                 case 2:
                     finalCoolTime -= (int)fieldInfo.GetValue(plantAttribute) * LevelTime;
                     break;
-                // 3 掉落金币概率
+                // 3 阳光质量
                 case 3:
-                    finalGoldCoinRate += (int)fieldInfo.GetValue(plantAttribute) * LevelRate;
+                    finalQuality = (int)fieldInfo.GetValue(plantAttribute);
                     break;
                 // 4 掉落双倍概率
                 case 4:
                     finalTwinRate += (int)fieldInfo.GetValue(plantAttribute) * LevelRate;
-                    break;
-                // 5 掉落钻石概率
-                case 5:
-                    finalDiamond += (int)fieldInfo.GetValue(plantAttribute) * LevelDiamondRate;
                     break;
                 default:
                     break;
@@ -92,37 +82,31 @@ public class Marigold : Plant
         }
     }
 
-    private void DelayCreate()
+    protected virtual void DelayCreate()
     {
         audioSource.Play();
-        CreateCoin();
+        CreateSun();
         if (finalTwinRate > 0)
         {
             if (Random.Range(0, 1f) < finalTwinRate)
-                CreateCoin();
+                CreateSun();
         }
     }
 
-    private void CreateCoin()
+    private void CreateSun()
     {
-        Coin coin = Sliver;
-        if (finalGoldCoinRate > 0)
-        {
-            coin = Random.Range(0, 1f) < finalGoldCoinRate ? Gold : coin;
-        }
-        if (finalDiamond > 0)
-        {
-            coin = Random.Range(0, 1f) < finalDiamond ? Diamond : coin;
-        }
-
-        var targetCoin = GameObject.Instantiate(coin);
-        targetCoin.transform.position = this.transform.position;
-        var itemJump = new ItemJump(targetCoin);
-        Vector3 offset = new Vector3(Random.Range(-0.7f, 0.7f), Random.Range(-1, 1), targetCoin.transform.rotation.z);
+        var sun = GameObject.Instantiate(Sun);
+        sun.transform.position = this.transform.position;
+        var itemJump = new ItemJump(sun);
+        Vector3 offset = new Vector3(Random.Range(-0.7f, 0.7f), Random.Range(-1, 1), sun.transform.rotation.z);
         itemJump.height = Random.Range(0.3f, 0.6f);
         itemJump.time = Random.Range(0.4f, 0.6f);
         itemJump.offsetSpeed = offset / itemJump.time;
         itemJumps.Add(itemJump);
         timer = Time.time;
+
+        sun.Price = 25 + 5 * finalQuality;
+        float scale = 1 + finalQuality / 10f;
+        sun.transform.localScale = Vector3.one * scale;
     }
 }
