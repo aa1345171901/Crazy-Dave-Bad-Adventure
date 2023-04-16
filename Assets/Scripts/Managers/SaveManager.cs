@@ -13,6 +13,7 @@ public class PurchasedPropsAndPlants
     public List<PlantAttribute> PlantAttributes;
     public int MaxSolt = 2;
     public List<int> SoltIndex;  // 卡槽对应在PlantAttributes中,list值对应下标，形成新的引用
+    public List<CraterPos> CraterPoses;  // 毁灭菇造成的坑
 }
 
 public class SaveManager
@@ -80,6 +81,7 @@ public class SaveManager
             {
                 GardenManager.Instance.CardslotPlant.Add(saveDataStruct.PlantAttributes[item]);
             }
+            GardenManager.Instance.CraterPoses = saveDataStruct.CraterPoses;
         }
     }
 
@@ -122,6 +124,7 @@ public class SaveManager
             }
         }
         saveDataStruct.SoltIndex = soltPlantIndex;
+        saveDataStruct.CraterPoses = GardenManager.Instance.CraterPoses;
         PlayerPrefs.SetString("PurchasedPropsAndPlants", JsonUtility.ToJson(saveDataStruct));
     }
 

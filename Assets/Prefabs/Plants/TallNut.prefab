@@ -5021,6 +5021,7 @@ MonoBehaviour:
   audioSource: {fileID: 7953017844335568322}
   injuryClip: {fileID: 8300000, guid: 645f2f47b6eab2043b4e79759373ca7c, type: 3}
   boomClip: {fileID: 8300000, guid: f98bb034b940ec24eafcaa8f372c8885, type: 3}
+  finalHealth: 0
 --- !u!82 &7953017844335568322
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5077,7 +5078,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.4
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpikeWeed : Plant
 {
-    public override PlantType PlantType => PlantType.Spikeweed;
+    public override PlantType PlantType => isSpikeRock ? PlantType.Spikerock : PlantType.Spikeweed;
 
     public AudioSource audioSource;
 

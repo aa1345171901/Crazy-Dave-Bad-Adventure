@@ -83,29 +83,35 @@ public class Card : MonoBehaviour
         switch (PlantAttribute.plantCard.plantType)
         {
             case PlantType.CherryBomb:
-                for (int i = 0; i < PlantAttribute.attribute.Length; i++)
-                {
-                    // ×Ö¶ÎÓ³Éä
-                    var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
-                    switch (PlantAttribute.attribute[i])
-                    {
-                        // 8 Ñô¹â
-                        case 8:
-                            sun = (int)fieldInfo.GetValue(PlantAttribute) * LevelSunReduced + PlantAttribute.plantCard.defaultSun;
-                            this.Sun.text = sun.ToString();
-                            if (sun < 0)
-                            {
-                                this.Sun.text = "+" + -sun;
-                                this.Sun.color = Color.green;
-                            }
-                            break;
-                        default:
-                            break;
-                    }
-                }
+            case PlantType.Jalapeno:
+            case PlantType.DoomShroom:
+                ReducedSun(7);
+                break;
+            case PlantType.IceShroom:
+                ReducedSun(2);
                 break;
             default:
                 break;
+        }
+    }
+
+    private void ReducedSun(int attribute)
+    {
+        for (int i = 0; i < PlantAttribute.attribute.Length; i++)
+        {
+            // ×Ö¶ÎÓ³Éä
+            var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
+            if (PlantAttribute.attribute[i] == attribute)
+            {
+                sun = (int)fieldInfo.GetValue(PlantAttribute) * LevelSunReduced + PlantAttribute.plantCard.defaultSun;
+                this.Sun.text = sun.ToString();
+                if (sun < 0)
+                {
+                    this.Sun.text = "+" + -sun;
+                    this.Sun.color = Color.green;
+                }
+                break;
+            }
         }
     }
 

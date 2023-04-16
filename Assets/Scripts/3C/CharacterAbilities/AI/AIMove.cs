@@ -40,6 +40,9 @@ namespace TopDownPlate
         public Transform HeadPos;
         public Transform BodyPos;
 
+        [Tooltip("被寒冰菇冻住后的冰块")]
+        public GameObject Ice;
+
         private Transform Target;
 
         [ReadOnly]
@@ -61,6 +64,7 @@ namespace TopDownPlate
         private float decelerationPercentage = 1; // 减速百分比
         private float decelerationTime;  // 减速时间
         private float decelerationTimer;  // 减速时刻
+        private float finalMoveSpeed;
 
         private Vector3 direction;
         public float realSpeed;
@@ -77,6 +81,7 @@ namespace TopDownPlate
 
         public override void Reuse()
         {
+            Ice.SetActive(false);
             canMove = true;
             AIParameter.Distance = float.MaxValue;
             if (IsEnchanted)
@@ -131,12 +136,13 @@ namespace TopDownPlate
                     //this.transform.Translate(direction * moveSpeed * Time.deltaTime);
 
                     // 三叶草风阻
-                    float finalMoveSpeed = character.FacingDirection == FacingDirections.Right ? MoveSpeed - GardenManager.Instance.BloverEffect.Windage : MoveSpeed;
+                    finalMoveSpeed = character.FacingDirection == FacingDirections.Right ? MoveSpeed - GardenManager.Instance.BloverEffect.Windage : MoveSpeed;
 
                     if (decelerationPercentage != 1 && Time.time - decelerationTimer > decelerationTime)
                     {
                         decelerationPercentage = 1;
                         hurtFlash.BeResume();
+                        Ice.SetActive(false);
                         if (IsEnchanted)
                             hurtFlash.BeEnchanted();
                     }
@@ -165,7 +171,7 @@ namespace TopDownPlate
                 {
                     character.CharacterAnimationState = moveAnimationName;
                     if (character.NowTrackEntry != null)
-                        character.NowTrackEntry.TimeScale = MoveSpeed;
+                        character.NowTrackEntry.TimeScale = finalMoveSpeed;
                 }
             }
         }
@@ -208,6 +214,13 @@ namespace TopDownPlate
 
         public void BeDecelerated(float decelerationPercentage, float decelerationTime)
         {
+            if (decelerationPercentage < this.decelerationPercentage)
+                return;
+            if (decelerationPercentage == 1)
+            {
+                Ice.SetActive(true);
+                Ice.GetComponent<SpriteRenderer>().sortingOrder = character.LayerOrder + 1;
+            }
             this.decelerationPercentage = 1 - decelerationPercentage;
             this.decelerationTime = decelerationTime;
             decelerationTimer = Time.time;

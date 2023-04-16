@@ -52,12 +52,12 @@ namespace TopDownPlate
 
         private int finalDamage;
         private int finalAttackRecovery;
-        private float finalAttackSpped;
+        public float finalAttackSpped;
         private float finalRepulsiveForce;
         private float finalRange;
         private int finalCriticalHitRate;
 
-        public float planternAttackSpeed;
+        private float planternAttackSpeed;
         /// <summary>
         /// 路灯附近提供的攻速
         /// </summary>
@@ -94,6 +94,26 @@ namespace TopDownPlate
                 planternDamage = value;
                 if (planternDamage != 0)
                     finalDamage = (int)(finalDamage * planternDamage);
+            }
+        }
+
+        private float iceShroomAttackSpeed;
+        /// <summary>
+        /// 寒冰菇提供的攻速
+        /// </summary>
+        public float IceShroomAttackSpeed
+        {
+            get
+            {
+                return iceShroomAttackSpeed;
+            }
+            set
+            {
+                if (value == 0)
+                    finalAttackSpped = finalAttackSpped / iceShroomAttackSpeed;
+                iceShroomAttackSpeed = value;
+                if (iceShroomAttackSpeed != 0)
+                    finalAttackSpped = finalAttackSpped * iceShroomAttackSpeed;
             }
         }
 

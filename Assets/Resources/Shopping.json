@@ -1595,7 +1595,7 @@
             "plantImagePath": "Shop/Plants/Starfruit",
             "defaultPrice": "90",
             "defaultSun": "125",
-            "info": "<color=#00ff00>杨桃</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>杨桃</color>\n可以使用{0}阳光培养\n能同时向五个方向发射子弹，非常强",
             "plantTypeString": "Starfruit"
         },
 
@@ -1605,7 +1605,7 @@
             "plantImagePath": "Shop/Plants/SunFlower",
             "defaultPrice": "20",
             "defaultSun": "50",
-            "info": "<color=#00ff00>向日葵</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>向日葵</color>\n可以使用{0}阳光培养\n每隔一段时间能产生阳光",
             "plantTypeString": "SunFlower"
         },
 
@@ -1615,7 +1615,7 @@
             "plantImagePath": "Shop/Plants/TallNut",
             "defaultPrice": "40",
             "defaultSun": "125",
-            "info": "<color=#00ff00>高坚果</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>高坚果</color>\n可以使用{0}阳光培养\n有高坚果时对僵尸有嘲讽作用",
             "plantTypeString": "TallNut"
         },
 
@@ -1625,7 +1625,7 @@
             "plantImagePath": "Shop/Plants/Threepeater",
             "defaultPrice": "50",
             "defaultSun": "325",
-            "info": "<color=#00ff00>三发豌豆</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>三发豌豆</color>\n可以使用{0}阳光培养\n能向一个方向发射三枚豌豆",
             "plantTypeString": "Threepeater"
         },
 
@@ -1635,7 +1635,7 @@
             "plantImagePath": "Shop/Plants/Torchwood",
             "defaultPrice": "90",
             "defaultSun": "175",
-            "info": "<color=#00ff00>火炬树桩</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>火炬树桩</color>\n可以使用{0}阳光培养\n能加强所有豌豆的伤害，非常强力",
             "plantTypeString": "Torchwood"
         },
 
@@ -1645,7 +1645,7 @@
             "plantImagePath": "Shop/Plants/TwinSunflower",
             "defaultPrice": "50",
             "defaultSun": "150",
-            "info": "<color=#00ff00>双子向日葵</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>双子向日葵</color>\n可以使用{0}阳光培养\n两个头的向日葵，每次产生两阳光",
             "plantTypeString": "TwinSunflower"
         },
 
@@ -1655,7 +1655,7 @@
             "plantImagePath": "Shop/Plants/WallNut",
             "defaultPrice": "30",
             "defaultSun": "50",
-            "info": "<color=#00ff00>坚果</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#00ff00>坚果</color>\n可以使用{0}阳光培养\n像保龄球一样砸飞僵尸",
             "plantTypeString": "WallNut"
         },
 
@@ -1665,7 +1665,7 @@
             "plantImagePath": "Shop/Plants/IceShroom",
             "defaultPrice": "50",
             "defaultSun": "75",
-            "info": "<color=#ff0000>寒冰菇</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#ff0000>寒冰菇</color>\n可以使用{0}阳光培养\n可以冰冻全场的僵尸",
             "plantTypeString": "IceShroom"
         },
 
@@ -1675,7 +1675,7 @@
             "plantImagePath": "Shop/Plants/Jalapeno",
             "defaultPrice": "100",
             "defaultSun": "125",
-            "info": "<color=#ff0000>火爆辣椒</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#ff0000>火爆辣椒</color>\n可以使用{0}阳光培养\n可以将一片僵尸烧为灰烬",
             "plantTypeString": "Jalapeno"
         },
 
@@ -1685,7 +1685,7 @@
             "plantImagePath": "Shop/Plants/DoomShroom",
             "defaultPrice": "120",
             "defaultSun": "125",
-            "info": "<color=#ff0000>毁灭菇</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#ff0000>毁灭菇</color>\n可以使用{0}阳光培养\n可以对所有已出现的僵尸造成伤害\n对环境会有不可逆的破坏,请小心使用",
             "plantTypeString": "DoomShroom"
         },
 

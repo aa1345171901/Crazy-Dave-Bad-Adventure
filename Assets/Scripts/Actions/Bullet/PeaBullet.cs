@@ -50,7 +50,11 @@ public class PeaBullet : MonoBehaviour
         {
             float damageAdd = GardenManager.Instance.TorchwoodEffect.DamageAdd;
             Debug.Log(damageAdd);
-            if (damageAdd > 1 && damageAdd <= 2)
+            if (damageAdd <= 1)
+            {
+
+            }
+            else if (damageAdd > 1 && damageAdd <= 2)
             {
                 animator.SetBool("1", true);
             }

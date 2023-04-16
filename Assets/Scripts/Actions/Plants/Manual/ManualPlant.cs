@@ -39,6 +39,11 @@ public class ManualPlant : Plant
 
     private void Update()
     {
+        Processblity();
+    }
+
+    protected virtual void Processblity()
+    {
         if (Input.GetMouseButtonDown(0) && IsManual)
         {
             PlacePlant();

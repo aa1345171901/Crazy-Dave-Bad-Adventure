@@ -22,13 +22,14 @@ namespace TopDownPlate
         PlantBullet,  // Íã¶¹
         Chomper,   // ´ó×ì»¨
         Cactus,
-        CherryBomb,
+        Bomb,
         Cornpult,
         FumeShroom,
         Gravebuster,
         ScaredyShroom,  // µ¨Ð¡¹½Ôú
         Spikeweed,
         TallNut,
+        WallNut,
     }
 
     public class HUDPos

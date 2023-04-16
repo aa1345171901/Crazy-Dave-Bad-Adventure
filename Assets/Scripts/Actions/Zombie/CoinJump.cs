@@ -59,10 +59,10 @@ public class CoinJump : MonoBehaviour
         if (ExplosionGO != null)
         {
             var targetCoin = GameObject.Instantiate(ExplosionGO).GetComponent<MoneyClick>();
-            targetCoin.transform.position = this.transform.position;
+            targetCoin.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, targetCoin.transform.position.z);
             ItemJump itemJump = new ItemJump(targetCoin);
             // µÙ¬‰‘⁄Ω© ¨÷‹Œß∑∂Œß
-            Vector3 offset = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), targetCoin.transform.rotation.z);
+            Vector3 offset = new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), targetCoin.transform.position.z);
             itemJump.height = Random.Range(0.3f, 0.6f);
             itemJump.time = Random.Range(0.4f, 0.6f);
             itemJump.offsetSpeed = offset / itemJump.time;
@@ -80,10 +80,10 @@ public class CoinJump : MonoBehaviour
         for (int i = 0; i < sunCount; i++)
         {
             var targetSun = GameObject.Instantiate(Sun).GetComponent<MoneyClick>();
-            targetSun.transform.position = this.transform.position;
+            targetSun.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, targetSun.transform.position.z);
             ItemJump itemJump = new ItemJump(targetSun);
             // µÙ¬‰‘⁄Ω© ¨÷‹Œß∑∂Œß
-            Vector3 offset = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), targetSun.transform.rotation.z);
+            Vector3 offset = new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), targetSun.transform.position.z);
             itemJump.height = Random.Range(0.3f, 0.6f);
             itemJump.time = Random.Range(0.4f, 0.6f);
             itemJump.offsetSpeed = offset / itemJump.time;
@@ -104,6 +104,7 @@ public class CoinJump : MonoBehaviour
                         curTime += Time.deltaTime;
                         Vector3 newPos = this.transform.position + item.offsetSpeed * curTime;
                         newPos.y += Mathf.Cos(curTime / item.time * Mathf.PI - Mathf.PI / 2) * item.height;
+                        newPos.z = item.offsetSpeed.z;
                         item.item.transform.position = newPos;
                     }
                 }

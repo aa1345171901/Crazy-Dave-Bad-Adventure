@@ -139,6 +139,9 @@ namespace TopDownPlate
                 {
                     item.DayEnd();
                 }
+
+                GardenManager.Instance.LoadCrater();
+
                 SceneTransition.TransitionToDaytime();
                 OpenShop();
                 LevelManager.Instance.LoadTimer();

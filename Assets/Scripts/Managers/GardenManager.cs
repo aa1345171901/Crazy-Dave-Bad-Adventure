@@ -76,6 +76,22 @@ public class TorchwoodEffect
     public float PeaSpeed { get; set; }
 }
 
+[Serializable]
+/// <summary>
+/// 保存坑的位置信息
+/// </summary>
+public class CraterPos
+{
+    public CraterPos(float x, float y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    public float x;
+    public float y;
+}
+
 public class GardenManager : BaseManager<GardenManager>
 {
     [Tooltip("植物苗预制体")]
@@ -84,6 +100,8 @@ public class GardenManager : BaseManager<GardenManager>
     public List<PlantUIPrefabInfo> PlantUIPrefabInfos;
     [Tooltip("场景中的植物合集")]
     public List<PlantPrefabInfo> PlantPrefabInfos;
+    [Tooltip("毁灭菇造成的坑")]
+    public GameObject Crater;
 
     private int sun;
     public int Sun
@@ -176,6 +194,12 @@ public class GardenManager : BaseManager<GardenManager>
     /// </summary>
     public float GravebusterDamage { get; set; } = 1;
 
+    /// <summary>
+    /// 毁灭菇造成的坑的位置信息
+    /// </summary>
+
+    public List<CraterPos> CraterPoses { get; set; } = new List<CraterPos>();
+
     public void AddPlant(PlantCard plantCard)
     {
         NoPlantingPlants.Add(plantCard);
@@ -247,5 +271,22 @@ public class GardenManager : BaseManager<GardenManager>
                 count++;
         }
         return count;
+    }
+
+    public void CreateCrater(float x, float y)
+    {
+        var crater = GameObject.Instantiate(Crater);
+        crater.transform.position = new Vector3(x, y, 0);
+        int sortingOrder = (int)((-y + 10) * 10);
+        crater.GetComponent<SpriteRenderer>().sortingOrder = sortingOrder;
+        CraterPoses.Add(new CraterPos(x, y));
+    }
+
+    public void LoadCrater()
+    {
+        foreach (var item in CraterPoses)
+        {
+            CreateCrater(item.x, item.y);
+        }
     }
 }

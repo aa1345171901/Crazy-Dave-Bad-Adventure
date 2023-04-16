@@ -68,7 +68,7 @@ public class ZombieAnimation : MonoBehaviour
     public void Reuse()
     {
         character.SkeletonAnimation.ClearState();
-
+        aiMove.Ice.SetActive(false);
         // …Ë÷√‰÷»æ≤„º∂
         graveMonumentAnimator.GetComponentInChildren<SpriteRenderer>().sortingOrder = EarthParticle.GetComponent<ParticleSystemRenderer>().sortingOrder = character.LayerOrder + 1;
 

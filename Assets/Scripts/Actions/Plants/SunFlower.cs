@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class SunFlower : Plant
 {
-    public override PlantType PlantType => PlantType.SunFlower;
+    public override PlantType PlantType => isTwin ? PlantType.TwinSunflower : PlantType.SunFlower;
 
     [Tooltip("¿‰»¥ ±º‰")]
     public float CoolTime = 12f;
     public Sun Sun;
+    public bool isTwin = false;
 
     public AudioSource audioSource;
 
@@ -70,6 +71,8 @@ public class SunFlower : Plant
             timer = Time.time;
             animator.SetTrigger("Attack");
             Invoke("DelayCreate", 0.5f);
+            if (isTwin)
+                Invoke("DelayCreate", 0.6f);
         }
         foreach (var item in itemJumps)
         {
@@ -82,7 +85,7 @@ public class SunFlower : Plant
         }
     }
 
-    protected virtual void DelayCreate()
+    private void DelayCreate()
     {
         audioSource.Play();
         CreateSun();
@@ -96,9 +99,9 @@ public class SunFlower : Plant
     private void CreateSun()
     {
         var sun = GameObject.Instantiate(Sun);
-        sun.transform.position = this.transform.position;
+        sun.transform.position = new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), sun.transform.position.z);
         var itemJump = new ItemJump(sun);
-        Vector3 offset = new Vector3(Random.Range(-0.7f, 0.7f), Random.Range(-1, 1), sun.transform.rotation.z);
+        Vector3 offset = new Vector3(Random.Range(-0.7f, 0.7f), Random.Range(-1, 1f), sun.transform.rotation.z);
         itemJump.height = Random.Range(0.3f, 0.6f);
         itemJump.time = Random.Range(0.4f, 0.6f);
         itemJump.offsetSpeed = offset / itemJump.time;

@@ -1270,10 +1270,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4195450945961741395, guid: 8e7f933c308343849ad40a6c8d308417, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 34887bcbcdb343c40941c20f5c8989ae, type: 2}
     - target: {fileID: 7497441726251074684, guid: 8e7f933c308343849ad40a6c8d308417, type: 3}
       propertyPath: m_Name
       value: Dave
@@ -1810,6 +1806,17 @@ MonoBehaviour:
     plant: {fileID: 9205738203197863977, guid: de3ba89113f5b9445a6a501689c3336c, type: 3}
   - plantType: 32
     plant: {fileID: 2932529184259789869, guid: 5b9d22be8e612f44cb370678f5574bf0, type: 3}
+  - plantType: 33
+    plant: {fileID: 1494226153361972617, guid: 09447ee8709e6ec40821a5afea0030cf, type: 3}
+  - plantType: 34
+    plant: {fileID: 2321119311307808729, guid: 590158726263c3c4f82b7747881228db, type: 3}
+  - plantType: 35
+    plant: {fileID: 3237556116173951006, guid: 17217d236d260a847ab1ab7b0ae49a14, type: 3}
+  - plantType: 36
+    plant: {fileID: 3692554736072416429, guid: dcfa5b62d9b721c46a52d03752930928, type: 3}
+  - plantType: 37
+    plant: {fileID: 3149311788363889657, guid: 9a03a9d5d0bdbcd4f821059df6ff0f02, type: 3}
+  Crater: {fileID: 456797528486058293, guid: e62e9ddab74d2ed43a44b34cff82707d, type: 3}
 --- !u!1 &968511682
 GameObject:
   m_ObjectHideFlags: 0

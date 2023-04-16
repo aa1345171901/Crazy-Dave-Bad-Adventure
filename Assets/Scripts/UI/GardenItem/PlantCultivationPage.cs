@@ -45,7 +45,7 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivateExplosionRange = "爆炸范围";
     private readonly string CultivateImmediateMortalityRate = "普通僵尸即死率";
     private readonly string CultivateIncreasedInjury = "大型僵尸增伤";
-    private readonly string CultivateSunReduced = "阳光";
+    private readonly string CultivateSunReduced = "阳光减少";
     private readonly string CultivateButterProbability = "黄油概率";
     private readonly string CultivateControlTime = "控制时间";
     private readonly string CultivateCriticalHitRate = "暴击率";
@@ -78,6 +78,10 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivatPeaDamage = "豌豆增伤";
     private readonly string CultivatPeaSplash = "豌豆溅射伤害";
     private readonly string CultivatPeaSpeed = "豌豆速度";
+    private readonly string CultivatRollSpeed = "滚动速度";
+    private readonly string CultivatBoomNutRate = "爆炸坚果概率";
+    private readonly string CultivatFrostTime = "冰冻时间";
+    private readonly string CultivatFrostAttackSpeedAdd = "冰冻期间攻速增加";
 
     private readonly string CultivatePlayerIncreasedInjury = "玩家对僵尸增伤";
     private readonly string CultivatePlayerAdrenaline = "肾上腺素";
@@ -149,7 +153,7 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivatePenetrationCount, CultivateCriticalDamage, CultivateCoolTime, CultivateBulletSpeed, CultivatePlayerLifeResume });
                     break;
                 case PlantType.CherryBomb:
-                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateExplosionRange, CultivateBasicDamage, CultivatePercentageDamage, CultivateCoolTime, CultivateSunConversionRate, CultivatePlayerAdrenaline, CultivateImmediateMortalityRate, CultivateIncreasedInjury, CultivateSunReduced });
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateCoolTime, CultivateSunConversionRate, CultivatePlayerAdrenaline, CultivateImmediateMortalityRate, CultivateIncreasedInjury, CultivateSunReduced, CultivateExplosionRange });
                     break;
                 case PlantType.Chomper:
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateDigestiveSpeed, CultivateRange, CultivateSwallowCount, CultivateCoinConversionRate, CultivateSunConversionRate, CultivateBasicDamage, CultivatePercentageDamage });
@@ -224,14 +228,19 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatPeaDamage, CultivatPeaSplash, CultivatPeaSpeed, CultivatePlayerSunshine, CultivatePlayerAdrenaline });
                     break;
                 case PlantType.TwinSunflower:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatePlayerSunshine, CultivatePlayerLucky, CultivateCoolTime, CultivatSunQuality, CultivateTwinRate });
                     break;
                 case PlantType.WallNut:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage,CultivatRollSpeed, CultivateCoolTime, CultivatBoomNutRate, CultivatePlayerSpeed });
                     break;
                 case PlantType.IceShroom:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivatFrostTime, CultivateCoolTime, CultivateSunReduced, CultivatFrostAttackSpeedAdd, CultivatePlayerLucky, CultivatePlayerLifeResume });
                     break;
                 case PlantType.Jalapeno:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateCoolTime, CultivateSunConversionRate, CultivatePlayerAdrenaline, CultivateImmediateMortalityRate, CultivateIncreasedInjury, CultivateSunReduced, CultivateExplosionRange });
                     break;
                 case PlantType.DoomShroom:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateCoolTime, CultivateSunConversionRate, CultivatePlayerAdrenaline, CultivateImmediateMortalityRate, CultivateIncreasedInjury, CultivateSunReduced });
                     break;
                 case PlantType.Squash:
                     break;

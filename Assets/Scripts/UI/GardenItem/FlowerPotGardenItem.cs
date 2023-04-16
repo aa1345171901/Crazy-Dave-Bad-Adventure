@@ -61,6 +61,8 @@ public class PlantAttribute
                 break;
             // 樱桃炸弹 属性5 为肾上腺素
             case PlantType.CherryBomb:
+            case PlantType.Jalapeno:
+            case PlantType.DoomShroom:
                 if (attribute[index] == 5)
                 {
                     GameManager.Instance.UserData.Adrenaline++;
@@ -184,13 +186,24 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Lucky++;
                 }
                 break;
-            // 向日葵 属性4 为最大生命值,5为护甲
-            case PlantType.TallNut:
+            // 双子向日葵 属性0 为阳光,1为幸运
+            case PlantType.TwinSunflower:
                 if (attribute[index] == 0)
+                {
+                    GameManager.Instance.UserData.Sunshine += 25;
+                }
+                if (attribute[index] == 1)
+                {
+                    GameManager.Instance.UserData.Lucky++;
+                }
+                break;
+            // 高坚果 属性4 为最大生命值,5为护甲
+            case PlantType.TallNut:
+                if (attribute[index] == 4)
                 {
                     GameManager.Instance.UserData.MaximumHP++;
                 }
-                if (attribute[index] == 1)
+                if (attribute[index] == 5)
                 {
                     GameManager.Instance.UserData.Armor++;
                 }
@@ -204,6 +217,24 @@ public class PlantAttribute
                 if (attribute[index] == 1)
                 {
                     GameManager.Instance.UserData.Adrenaline++;
+                }
+                break;
+            // 坚果墙 5速度
+            case PlantType.WallNut:
+                if (attribute[index] == 5)
+                {
+                    GameManager.Instance.UserData.Speed++;
+                }
+                break;
+            // 寒冰菇 3幸运 4生命恢复
+            case PlantType.IceShroom:
+                if (attribute[index] == 3)
+                {
+                    GameManager.Instance.UserData.Lucky++;
+                }
+                if (attribute[index] == 4)
+                {
+                    GameManager.Instance.UserData.LifeRecovery++;
                 }
                 break;
             default:
@@ -233,6 +264,11 @@ public class FlowerPotGardenItem : MonoBehaviour
         switch (plantCard.plantType)
         {
             case PlantType.CherryBomb:
+            case PlantType.IceShroom:
+            case PlantType.Jalapeno:
+            case PlantType.DoomShroom:
+            case PlantType.Squash:
+            case PlantType.PotatoMine:
                 this.PlantAttribute = new PlantAttribute(plantCard, true);
                 break;
             default:
@@ -377,15 +413,17 @@ public class FlowerPotGardenItem : MonoBehaviour
                 case PlantType.Torchwood:
                     SetAttribute(5);
                     break;
-                case PlantType.TwinSunflower:
-                    break;
                 case PlantType.WallNut:
+                    SetAttribute(6);
                     break;
                 case PlantType.IceShroom:
+                    SetAttribute(5);
                     break;
                 case PlantType.Jalapeno:
+                    SetAttribute(9);
                     break;
                 case PlantType.DoomShroom:
+                    SetAttribute(8);
                     break;
                 case PlantType.Squash:
                     break;

@@ -116,9 +116,9 @@ public class Marigold : Plant
         }
 
         var targetCoin = GameObject.Instantiate(coin);
-        targetCoin.transform.position = this.transform.position;
+        targetCoin.transform.position = new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), targetCoin.transform.position.z);
         var itemJump = new ItemJump(targetCoin);
-        Vector3 offset = new Vector3(Random.Range(-0.7f, 0.7f), Random.Range(-1, 1), targetCoin.transform.rotation.z);
+        Vector3 offset = new Vector3(Random.Range(-0.7f, 0.7f), Random.Range(-1, 1f), targetCoin.transform.rotation.z);
         itemJump.height = Random.Range(0.3f, 0.6f);
         itemJump.time = Random.Range(0.4f, 0.6f);
         itemJump.offsetSpeed = offset / itemJump.time;
