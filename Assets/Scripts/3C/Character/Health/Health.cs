@@ -30,6 +30,7 @@ namespace TopDownPlate
         Spikeweed,
         TallNut,
         WallNut,
+        Squash,
     }
 
     public class HUDPos

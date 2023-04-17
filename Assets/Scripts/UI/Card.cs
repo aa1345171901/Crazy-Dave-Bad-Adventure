@@ -86,6 +86,7 @@ public class Card : MonoBehaviour
             case PlantType.Jalapeno:
             case PlantType.DoomShroom:
             case PlantType.PotatoMine:
+            case PlantType.Squash:
                 ReducedSun(7);
                 break;
             case PlantType.IceShroom:

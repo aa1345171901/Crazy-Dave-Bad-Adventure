@@ -427,6 +427,7 @@ public class FlowerPotGardenItem : MonoBehaviour
                     SetAttribute(8);
                     break;
                 case PlantType.Squash:
+                    SetAttribute(8);
                     break;
                 case PlantType.PotatoMine:
                     SetAttribute(10);

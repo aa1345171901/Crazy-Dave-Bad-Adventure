@@ -83,6 +83,7 @@ public class PlantCultivationPage : MonoBehaviour
     private readonly string CultivatFrostTime = "冰冻时间";
     private readonly string CultivatFrostAttackSpeedAdd = "冰冻期间攻速增加";
     private readonly string CultivatExcavationTime = "出土时间";
+    private readonly string CultivatSittingRate = "连坐概率";
 
     private readonly string CultivatePlayerIncreasedInjury = "玩家对僵尸增伤";
     private readonly string CultivatePlayerAdrenaline = "肾上腺素";
@@ -244,6 +245,7 @@ public class PlantCultivationPage : MonoBehaviour
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateCoolTime, CultivateSunConversionRate, CultivatePlayerAdrenaline, CultivateImmediateMortalityRate, CultivateIncreasedInjury, CultivateSunReduced });
                     break;
                 case PlantType.Squash:
+                    SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateCoolTime, CultivateSunConversionRate, CultivateImmediateMortalityRate, CultivateIncreasedInjury, CultivatSittingRate, CultivateSunReduced });
                     break;
                 case PlantType.PotatoMine:
                     SetItemInfo(flowerPotGardenItem, PlantType.None, new string[] { CultivateBasicDamage, CultivatePercentageDamage, CultivateCoolTime, CultivateSunConversionRate, CultivatePlayerAdrenaline, CultivateImmediateMortalityRate, CultivateIncreasedInjury, CultivateSunReduced, CultivateExplosionRange, CultivatExcavationTime });

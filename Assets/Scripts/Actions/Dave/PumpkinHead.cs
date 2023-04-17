@@ -72,7 +72,7 @@ public class PumpkinHead : BaseProp
                 var pumpkin = GameObject.Instantiate(LifeResumePumpkin);
                 pumpkin.transform.position = targetPos;
                 lifeResumeProps.Add(pumpkin);
-                pumpkin.PimpkinHead = this;
+                pumpkin.PumpkinHead = this;
             }
         }
     }
