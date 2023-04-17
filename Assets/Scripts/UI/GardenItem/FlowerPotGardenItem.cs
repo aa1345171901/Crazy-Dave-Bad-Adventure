@@ -251,7 +251,7 @@ public class FlowerPotGardenItem : MonoBehaviour
     private PlantCultivationPage plantCultivationPage;
     private GameObject seeding;
     private GameObject targetPlantPrefab;
-    private GameObject targetPlant;
+    public GameObject targetPlant;
 
     private Animator animator;
 

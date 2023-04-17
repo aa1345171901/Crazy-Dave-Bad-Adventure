@@ -1,5 +1,8 @@
+using System.Collections.Generic;
 using TopDownPlate;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class FlowerPotPosition : MonoBehaviour
 {
@@ -20,6 +23,10 @@ public class FlowerPotPosition : MonoBehaviour
 
     private PlantConent plantConent;
     private bool isShowPrice;
+    private bool isMoving;
+    private bool canPlace;
+    private FlowerPotGardenItem TempItem;
+    private FlowerPotGardenItem TempItemTarget;
 
     private void Start()
     {
@@ -29,7 +36,6 @@ public class FlowerPotPosition : MonoBehaviour
         if (GardenManager.Instance.earth.Contains(this.gameObject.name))
         {
             earth.SetActive(false);
-            plantConent.AddLayUpPos(this);
             HaveEarth = false;
         }
     }
@@ -40,6 +46,8 @@ public class FlowerPotPosition : MonoBehaviour
             ShovelAwayEarth();
         if (GardenManager.Instance.IsSelling)
             SellPlant();
+        if (GardenManager.Instance.IsMoving)
+            Invoke("MovePlant", 0.1f);
     }
 
     private void OnMouseEnter()
@@ -70,9 +78,16 @@ public class FlowerPotPosition : MonoBehaviour
 
     public void SellPlant()
     {
+        if (FlowerPot == null)
+            return;
         FlowerPot.Sell();
+        if (FlowerPot.PlantAttribute == null || FlowerPot.PlantAttribute.plantCard.plantType == PlantType.None)
+            return;
         plantConent.RemoveFlowerPot(this);
         GardenManager.Instance.FlowerPotCount--;
+        Destroy(FlowerPot);
+        FlowerPot = null;
+        AudioManager.Instance.PlayEffectSoundByName("PlacePlant");
     }
 
     private void OnGUI()
@@ -86,6 +101,100 @@ public class FlowerPotPosition : MonoBehaviour
             GUI.skin.label.font = GameManager.Instance.HUDFont;
             GUI.Label(new Rect(guiPos.x, guiPos.y, Screen.width, Screen.height), "$" + FlowerPot.GetPrice());
         }
+    }
+
+    public void MovePlant()
+    {
+        if (FlowerPot == null)
+            return;
+        isMoving = true;
+        TempItem = GameObject.Instantiate(FlowerPot, this.transform);
+        TempItemTarget = GameObject.Instantiate(FlowerPot, this.transform);
+        TempItemTarget.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+        this.FlowerPot.GetComponent<Image>().color = Color.gray;
+        if (this.FlowerPot.targetPlant != null)
+        {
+            this.FlowerPot.targetPlant.GetComponent<Image>().color = Color.gray;
+            TempItemTarget.targetPlant.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+        }
+        TempItemTarget.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (isMoving)
+        {
+            var worldPos = UIManager.Instance.UICamera.ScreenToWorldPoint(Input.mousePosition);
+            TempItem.transform.position = new Vector3(worldPos.x, worldPos.y, TempItem.transform.position.z);
+            var target = GetMouseFlowerPot();
+            if (target)
+            {
+                if (!target.HaveEarth && target.FlowerPot == null)
+                {
+                    TempItemTarget.gameObject.SetActive(true);
+                    TempItemTarget.transform.position = target.transform.position;
+                    canPlace = true;
+                }
+                else
+                {
+                    TempItemTarget.gameObject.SetActive(false);
+                    canPlace = false;
+                }
+            }
+            else
+            {
+                TempItemTarget.gameObject.SetActive(false);
+                canPlace = false;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                DestroyTemp();
+                if (canPlace)
+                {
+                    var tempPos = this.transform.position;
+                    this.transform.position = target.transform.position;
+                    target.transform.position = tempPos;
+                    AudioManager.Instance.PlayEffectSoundByName("MoveSuccess");
+                }
+            }
+
+            if (Input.GetMouseButton(1))
+                DestroyTemp();
+        }
+    }
+
+    private void DestroyTemp()
+    {
+        GameObject.Destroy(TempItem.gameObject);
+        GameObject.Destroy(TempItemTarget.gameObject);
+        AudioManager.Instance.PlayEffectSoundByName("BtnGarden");
+        this.FlowerPot.GetComponent<Image>().color = Color.white;
+        if (this.FlowerPot.targetPlant != null)
+            this.FlowerPot.targetPlant.GetComponent<Image>().color = Color.white;
+        isMoving = false;
+    }
+
+
+    public FlowerPotPosition GetMouseFlowerPot()
+    {
+        GraphicRaycaster _raycaster = FindObjectOfType<GraphicRaycaster>();
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.pressPosition = Input.mousePosition;
+        eventData.position = Input.mousePosition;
+        List<RaycastResult> results = new List<RaycastResult>();
+        _raycaster.Raycast(eventData, results);
+        FlowerPotPosition flowerPotPosition = null;
+        foreach (var item in results)
+        {
+            var flowerPot = item.gameObject.GetComponent<FlowerPotPosition>();
+            if (FlowerPot)
+            {
+                flowerPotPosition = flowerPot;
+                break;
+            }
+        }
+        return flowerPotPosition;
     }
 
     public void CreateFlowerPot()

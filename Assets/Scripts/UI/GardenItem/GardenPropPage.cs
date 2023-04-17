@@ -82,6 +82,12 @@ public class GardenPropPage : MonoBehaviour
         if (!isInit)
             return;
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            GardenManager.Instance.IsSelling = GardenManager.Instance.IsMoving = GardenManager.Instance.IsShoveling = false;
+            AudioManager.Instance.PlayEffectSoundByName("BtnGarden");
+        }
+
         SetPos(Shovel, GardenManager.Instance.IsShoveling, shovelStartPos);
         SetPos(Sell, GardenManager.Instance.IsSelling, sellStartPos);
         SetPos(Move, GardenManager.Instance.IsMoving, moveStartPos);
