@@ -19,6 +19,7 @@ public class FlowerPotPosition : MonoBehaviour
     public FlowerPotGardenItem FlowerPot { get; set; }
 
     private PlantConent plantConent;
+    private bool isShowPrice;
 
     private void Start()
     {
@@ -37,6 +38,19 @@ public class FlowerPotPosition : MonoBehaviour
     {
         if (GardenManager.Instance.IsShoveling)
             ShovelAwayEarth();
+        if (GardenManager.Instance.IsSelling)
+            SellPlant();
+    }
+
+    private void OnMouseEnter()
+    {
+        if (GardenManager.Instance.IsSelling)
+            isShowPrice = true;
+    }
+
+    private void OnMouseExit()
+    {
+        isShowPrice = false;
     }
 
     public void ShovelAwayEarth()
@@ -51,6 +65,26 @@ public class FlowerPotPosition : MonoBehaviour
             GardenManager.Instance.IsShoveling = false;
             AudioManager.Instance.PlayEffectSoundByName("shovel");
             ShopManager.Instance.RemovePurchasePropByName("shovel");
+        }
+    }
+
+    public void SellPlant()
+    {
+        FlowerPot.Sell();
+        plantConent.RemoveFlowerPot(this);
+        GardenManager.Instance.FlowerPotCount--;
+    }
+
+    private void OnGUI()
+    {
+        if (isShowPrice && FlowerPot != null)
+        {
+            // gui坐标左下为0，0 右上为 screen.width, height
+            var guiPos = new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y);
+
+            GUI.skin.label.fontSize = 25;
+            GUI.skin.label.font = GameManager.Instance.HUDFont;
+            GUI.Label(new Rect(guiPos.x, guiPos.y, Screen.width, Screen.height), "$" + FlowerPot.GetPrice());
         }
     }
 

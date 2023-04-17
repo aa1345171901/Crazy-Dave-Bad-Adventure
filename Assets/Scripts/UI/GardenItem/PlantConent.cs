@@ -173,4 +173,10 @@ public class PlantConent : MonoBehaviour
     {
         canLayUpFlowerPotPos.Add(flowerPotPosition);
     }
+
+    public void RemoveFlowerPot(FlowerPotPosition flowerPotPosition)
+    {
+        haveFlowerPotPos.Remove(flowerPotPosition);
+        canLayUpFlowerPotPos.Add(flowerPotPosition);
+    }
 }
