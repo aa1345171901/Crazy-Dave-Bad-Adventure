@@ -170,6 +170,8 @@ GameObject:
   m_Component:
   - component: {fileID: 137486922}
   - component: {fileID: 137486923}
+  - component: {fileID: 1029672022376670204}
+  - component: {fileID: 8166198405332234777}
   m_Layer: 5
   m_Name: PropItem (2)
   m_TagString: Untagged
@@ -191,13 +193,12 @@ RectTransform:
   m_Children:
   - {fileID: 306050237}
   - {fileID: 1985119281}
-  - {fileID: 777262019}
   m_Father: {fileID: 2116849459}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 375, y: -75}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &137486923
@@ -208,6 +209,88 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137486921}
   m_CullTransparentMesh: 1
+--- !u!114 &1029672022376670204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137486921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1985119282}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 889492112}
+        m_TargetAssemblyTypeName: GardenPropPage, Assembly-CSharp
+        m_MethodName: SellClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!61 &8166198405332234777
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137486921}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 150, y: 150}
+  m_EdgeRadius: 0
 --- !u!1 &192198932
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +613,8 @@ GameObject:
   m_Component:
   - component: {fileID: 427351629}
   - component: {fileID: 427351630}
+  - component: {fileID: 401614116}
+  - component: {fileID: 5724955071821316277}
   m_Layer: 5
   m_Name: PropItem
   m_TagString: Untagged
@@ -545,19 +630,19 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427351628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1574387753}
   - {fileID: 1214725937}
-  - {fileID: 884633889}
+  - {fileID: 8793866635076310149}
   m_Father: {fileID: 2116849459}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 75, y: -75}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &427351630
@@ -568,6 +653,88 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427351628}
   m_CullTransparentMesh: 1
+--- !u!114 &401614116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427351628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1214725938}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 889492112}
+        m_TargetAssemblyTypeName: GardenPropPage, Assembly-CSharp
+        m_MethodName: ShovelClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!61 &5724955071821316277
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427351628}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 150, y: 150}
+  m_EdgeRadius: 0
 --- !u!1 &506834024
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +850,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 28.7, y: 3}
+  m_AnchoredPosition: {x: 28.699997, y: 3}
   m_SizeDelta: {x: 89, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &519753541
@@ -1083,86 +1250,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &777262018
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 777262019}
-  - component: {fileID: 777262021}
-  - component: {fileID: 777262020}
-  m_Layer: 5
-  m_Name: info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &777262019
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 777262018}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 137486922}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -20}
-  m_SizeDelta: {x: 160, y: 40}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &777262021
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 777262018}
-  m_CullTransparentMesh: 1
---- !u!114 &777262020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 777262018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 448a7dfef1cd7a14cb74bd9c3d6ce749, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\u51FA\u552E\u690D\u7269"
 --- !u!1 &866053808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,6 +1260,8 @@ GameObject:
   m_Component:
   - component: {fileID: 866053809}
   - component: {fileID: 866053810}
+  - component: {fileID: 2403385547423923925}
+  - component: {fileID: 8560426384926904286}
   m_Layer: 5
   m_Name: PropItem (1)
   m_TagString: Untagged
@@ -1194,13 +1283,12 @@ RectTransform:
   m_Children:
   - {fileID: 1316715480}
   - {fileID: 753535359}
-  - {fileID: 1200140019}
   m_Father: {fileID: 2116849459}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225, y: -75}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &866053810
@@ -1211,86 +1299,88 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866053808}
   m_CullTransparentMesh: 1
---- !u!1 &884633888
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 884633889}
-  - component: {fileID: 884633891}
-  - component: {fileID: 884633890}
-  m_Layer: 5
-  m_Name: info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &884633889
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884633888}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 427351629}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -20}
-  m_SizeDelta: {x: 160, y: 40}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &884633891
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884633888}
-  m_CullTransparentMesh: 1
---- !u!114 &884633890
+--- !u!114 &2403385547423923925
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884633888}
+  m_GameObject: {fileID: 866053808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 753535360}
+  m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 448a7dfef1cd7a14cb74bd9c3d6ce749, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\u94F2\u6389\u6CE5\u5DF4"
+      m_Calls:
+      - m_Target: {fileID: 889492112}
+        m_TargetAssemblyTypeName: GardenPropPage, Assembly-CSharp
+        m_MethodName: MoveClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!61 &8560426384926904286
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866053808}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 150, y: 150}
+  m_EdgeRadius: 0
 --- !u!1 &1059611307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,86 +1537,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u57F9\u517B"
---- !u!1 &1200140018
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1200140019}
-  - component: {fileID: 1200140021}
-  - component: {fileID: 1200140020}
-  m_Layer: 5
-  m_Name: info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1200140019
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200140018}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 866053809}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -20}
-  m_SizeDelta: {x: 160, y: 40}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1200140021
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200140018}
-  m_CullTransparentMesh: 1
---- !u!114 &1200140020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200140018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 448a7dfef1cd7a14cb74bd9c3d6ce749, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\u79FB\u52A8\u690D\u7269"
 --- !u!1 &1214725936
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,13 +3126,15 @@ GameObject:
   m_Component:
   - component: {fileID: 2116849459}
   - component: {fileID: 2116849460}
+  - component: {fileID: 889492112}
+  - component: {fileID: 6786126644617541815}
   m_Layer: 5
   m_Name: GardenPropPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2116849459
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3131,7 +3143,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116849458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3172,6 +3184,81 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &889492112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116849458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d985b3fa6942443b7c4ee2b2075641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shovel: {fileID: 1214725936}
+  Sell: {fileID: 1985119280}
+  Move: {fileID: 753535358}
+  ShovelText: {fileID: 5224207502996893346}
+  collider2Ds:
+  - {fileID: 1144059166}
+  - {fileID: 1517461780}
+  - {fileID: 2066654053}
+  - {fileID: 1169254554}
+  - {fileID: 260189147}
+  - {fileID: 2004537576}
+  - {fileID: 1030781479}
+  - {fileID: 1092713246}
+  - {fileID: 904510765}
+  - {fileID: 204004632}
+  - {fileID: 533494829}
+  - {fileID: 794524902}
+  - {fileID: 837878069}
+  - {fileID: 1772051733}
+  - {fileID: 221749782}
+  - {fileID: 1959612214}
+  - {fileID: 310986744}
+  - {fileID: 1422239965}
+  - {fileID: 259500686}
+  - {fileID: 786449763}
+  - {fileID: 2012393613}
+  - {fileID: 1927424212}
+  - {fileID: 771253740}
+  - {fileID: 1189215584}
+  - {fileID: 2016364474}
+  - {fileID: 196890747}
+  - {fileID: 839011695}
+  - {fileID: 1545262304}
+  - {fileID: 2032900250}
+  - {fileID: 215100775}
+  - {fileID: 1028245285}
+  - {fileID: 753489136}
+--- !u!61 &6786126644617541815
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116849458}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -294.3628, y: -440.22693}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2508.7249, y: 1145.9546}
+  m_EdgeRadius: 0
 --- !u!1 &2136778275
 GameObject:
   m_ObjectHideFlags: 0
@@ -4010,6 +4097,86 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3899887460969637425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8793866635076310149}
+  - component: {fileID: 1640877845328184499}
+  - component: {fileID: 5224207502996893346}
+  m_Layer: 5
+  m_Name: Count
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8793866635076310149
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3899887460969637425}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 427351629}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -20, y: 20}
+  m_SizeDelta: {x: 40, y: 40}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1640877845328184499
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3899887460969637425}
+  m_CullTransparentMesh: 1
+--- !u!114 &5224207502996893346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3899887460969637425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 448a7dfef1cd7a14cb74bd9c3d6ce749, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
 --- !u!1 &4220546493001424963
 GameObject:
   m_ObjectHideFlags: 0
@@ -4329,6 +4496,7 @@ GameObject:
   - component: {fileID: 5429653894409077990}
   - component: {fileID: 5429653894409077979}
   - component: {fileID: 1877742505393074840}
+  - component: {fileID: 2032900250}
   m_Layer: 5
   m_Name: FlowerPotPos29
   m_TagString: Untagged
@@ -4344,7 +4512,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653894409077991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4381,6 +4549,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 1
+--- !u!61 &2032900250
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653894409077991}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653894427870006
 GameObject:
   m_ObjectHideFlags: 0
@@ -4544,6 +4738,7 @@ GameObject:
   - component: {fileID: 5429653894527241047}
   - component: {fileID: 5429653894527241032}
   - component: {fileID: 548098263549498581}
+  - component: {fileID: 1517461780}
   m_Layer: 5
   m_Name: FlowerPotPos2
   m_TagString: Untagged
@@ -4559,7 +4754,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653894527241044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4595,6 +4790,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &1517461780
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653894527241044}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653894626180910
 GameObject:
   m_ObjectHideFlags: 0
@@ -4682,6 +4903,7 @@ GameObject:
   - component: {fileID: 5429653894630602208}
   - component: {fileID: 5429653894630602213}
   - component: {fileID: 7828603500587628383}
+  - component: {fileID: 196890747}
   m_Layer: 5
   m_Name: FlowerPotPos26
   m_TagString: Untagged
@@ -4697,7 +4919,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653894630602209}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4734,6 +4956,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 1
+--- !u!61 &196890747
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653894630602209}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653894792641835
 GameObject:
   m_ObjectHideFlags: 0
@@ -4745,6 +4993,7 @@ GameObject:
   - component: {fileID: 5429653894792641834}
   - component: {fileID: 5429653894792641839}
   - component: {fileID: 3084548437307696831}
+  - component: {fileID: 837878069}
   m_Layer: 5
   m_Name: FlowerPotPos13
   m_TagString: Untagged
@@ -4760,7 +5009,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653894792641835}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4796,6 +5045,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &837878069
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653894792641835}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653894807482414
 GameObject:
   m_ObjectHideFlags: 0
@@ -4807,6 +5082,7 @@ GameObject:
   - component: {fileID: 5429653894807482401}
   - component: {fileID: 5429653894807482402}
   - component: {fileID: 2525886826867968567}
+  - component: {fileID: 1959612214}
   m_Layer: 5
   m_Name: FlowerPotPos16
   m_TagString: Untagged
@@ -4822,7 +5098,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653894807482414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4858,6 +5134,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &1959612214
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653894807482414}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653894835777251
 GameObject:
   m_ObjectHideFlags: 0
@@ -4869,6 +5171,7 @@ GameObject:
   - component: {fileID: 5429653894835777250}
   - component: {fileID: 5429653894835777255}
   - component: {fileID: 2099394732119988678}
+  - component: {fileID: 260189147}
   m_Layer: 5
   m_Name: FlowerPotPos5
   m_TagString: Untagged
@@ -4884,7 +5187,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653894835777251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4920,6 +5223,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &260189147
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653894835777251}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653894843911452
 GameObject:
   m_ObjectHideFlags: 0
@@ -4931,6 +5260,7 @@ GameObject:
   - component: {fileID: 5429653894843911455}
   - component: {fileID: 5429653894843911440}
   - component: {fileID: 8682001634029595985}
+  - component: {fileID: 753489136}
   m_Layer: 5
   m_Name: FlowerPotPos32
   m_TagString: Untagged
@@ -4946,7 +5276,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653894843911452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4983,6 +5313,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 1
+--- !u!61 &753489136
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653894843911452}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895001532677
 GameObject:
   m_ObjectHideFlags: 0
@@ -5040,6 +5396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantConent: {fileID: 2997146082275860537}
+  PlantCardPage: {fileID: 1251200767866520676}
   SunText: {fileID: 1616773055}
   NowWave: {fileID: 8963521654703437445}
 --- !u!1 &5429653895011799545
@@ -5129,6 +5486,7 @@ GameObject:
   - component: {fileID: 5429653895019663989}
   - component: {fileID: 5429653895019663990}
   - component: {fileID: 5743817214247645217}
+  - component: {fileID: 904510765}
   m_Layer: 5
   m_Name: FlowerPotPos9
   m_TagString: Untagged
@@ -5144,7 +5502,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895019663986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5180,6 +5538,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &904510765
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895019663986}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895027378333
 GameObject:
   m_ObjectHideFlags: 0
@@ -5329,6 +5713,7 @@ GameObject:
   - component: {fileID: 5429653895030753570}
   - component: {fileID: 5429653895030753575}
   - component: {fileID: 3687856907226884036}
+  - component: {fileID: 204004632}
   m_Layer: 5
   m_Name: FlowerPotPos10
   m_TagString: Untagged
@@ -5344,7 +5729,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895030753571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5380,6 +5765,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &204004632
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895030753571}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895066060506
 GameObject:
   m_ObjectHideFlags: 0
@@ -5391,6 +5802,7 @@ GameObject:
   - component: {fileID: 5429653895066060509}
   - component: {fileID: 5429653895066060510}
   - component: {fileID: 809188051089212233}
+  - component: {fileID: 1545262304}
   m_Layer: 5
   m_Name: FlowerPotPos28
   m_TagString: Untagged
@@ -5406,7 +5818,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895066060506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5443,6 +5855,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 1
+--- !u!61 &1545262304
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895066060506}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895082961099
 GameObject:
   m_ObjectHideFlags: 0
@@ -5454,6 +5892,7 @@ GameObject:
   - component: {fileID: 5429653895082961098}
   - component: {fileID: 5429653895082961103}
   - component: {fileID: 3378501599954511763}
+  - component: {fileID: 1189215584}
   m_Layer: 5
   m_Name: FlowerPotPos24
   m_TagString: Untagged
@@ -5469,7 +5908,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895082961099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5506,6 +5945,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 1
+--- !u!61 &1189215584
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895082961099}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895106518766
 GameObject:
   m_ObjectHideFlags: 0
@@ -5517,6 +5982,7 @@ GameObject:
   - component: {fileID: 5429653895106518753}
   - component: {fileID: 5429653895106518754}
   - component: {fileID: 209752670989520640}
+  - component: {fileID: 2012393613}
   m_Layer: 5
   m_Name: FlowerPotPos21
   m_TagString: Untagged
@@ -5532,7 +5998,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895106518766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5569,6 +6035,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 1
+--- !u!61 &2012393613
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895106518766}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895211706912
 GameObject:
   m_ObjectHideFlags: 0
@@ -5580,6 +6072,7 @@ GameObject:
   - component: {fileID: 5429653895211706915}
   - component: {fileID: 5429653895211706916}
   - component: {fileID: 8157931770572567792}
+  - component: {fileID: 1030781479}
   m_Layer: 5
   m_Name: FlowerPotPos7
   m_TagString: Untagged
@@ -5595,7 +6088,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895211706912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5631,6 +6124,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &1030781479
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895211706912}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895273947984
 GameObject:
   m_ObjectHideFlags: 0
@@ -5642,6 +6161,7 @@ GameObject:
   - component: {fileID: 5429653895273947987}
   - component: {fileID: 5429653895273947988}
   - component: {fileID: 113451104319003836}
+  - component: {fileID: 2066654053}
   m_Layer: 5
   m_Name: FlowerPotPos3
   m_TagString: Untagged
@@ -5657,7 +6177,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895273947984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5693,6 +6213,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &2066654053
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895273947984}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895277406882
 GameObject:
   m_ObjectHideFlags: 0
@@ -5704,6 +6250,7 @@ GameObject:
   - component: {fileID: 5429653895277406885}
   - component: {fileID: 5429653895277406886}
   - component: {fileID: 8718314898746346216}
+  - component: {fileID: 215100775}
   m_Layer: 5
   m_Name: FlowerPotPos30
   m_TagString: Untagged
@@ -5719,7 +6266,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895277406882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5756,6 +6303,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 1
+--- !u!61 &215100775
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895277406882}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895286316067
 GameObject:
   m_ObjectHideFlags: 0
@@ -5767,6 +6340,7 @@ GameObject:
   - component: {fileID: 5429653895286316066}
   - component: {fileID: 5429653895286316071}
   - component: {fileID: 7880094422584328118}
+  - component: {fileID: 1772051733}
   m_Layer: 5
   m_Name: FlowerPotPos14
   m_TagString: Untagged
@@ -5782,7 +6356,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895286316067}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5818,6 +6392,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &1772051733
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895286316067}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895290703390
 GameObject:
   m_ObjectHideFlags: 0
@@ -5829,6 +6429,7 @@ GameObject:
   - component: {fileID: 5429653895290703377}
   - component: {fileID: 5429653895290703378}
   - component: {fileID: 3638188769533275596}
+  - component: {fileID: 1927424212}
   m_Layer: 5
   m_Name: FlowerPotPos22
   m_TagString: Untagged
@@ -5844,7 +6445,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895290703390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5881,6 +6482,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 1
+--- !u!61 &1927424212
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895290703390}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895413740589
 GameObject:
   m_ObjectHideFlags: 0
@@ -5892,6 +6519,7 @@ GameObject:
   - component: {fileID: 5429653895413740588}
   - component: {fileID: 5429653895413740577}
   - component: {fileID: 2655763402649596441}
+  - component: {fileID: 1144059166}
   m_Layer: 5
   m_Name: FlowerPotPos1
   m_TagString: Untagged
@@ -5907,7 +6535,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895413740589}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5943,6 +6571,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &1144059166
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895413740589}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895461083607
 GameObject:
   m_ObjectHideFlags: 0
@@ -5954,6 +6608,7 @@ GameObject:
   - component: {fileID: 5429653895461083606}
   - component: {fileID: 5429653895461083595}
   - component: {fileID: 184307092034593862}
+  - component: {fileID: 1422239965}
   m_Layer: 5
   m_Name: FlowerPotPos18
   m_TagString: Untagged
@@ -5969,7 +6624,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895461083607}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6006,6 +6661,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 1
+--- !u!61 &1422239965
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895461083607}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895477423682
 GameObject:
   m_ObjectHideFlags: 0
@@ -6017,6 +6698,7 @@ GameObject:
   - component: {fileID: 5429653895477423685}
   - component: {fileID: 5429653895477423686}
   - component: {fileID: 2891073610471436355}
+  - component: {fileID: 221749782}
   m_Layer: 5
   m_Name: FlowerPotPos15
   m_TagString: Untagged
@@ -6032,7 +6714,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895477423682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6068,6 +6750,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &221749782
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895477423682}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895482968301
 GameObject:
   m_ObjectHideFlags: 0
@@ -6079,6 +6787,7 @@ GameObject:
   - component: {fileID: 5429653895482968300}
   - component: {fileID: 5429653895482968289}
   - component: {fileID: 4910179014789590539}
+  - component: {fileID: 794524902}
   m_Layer: 5
   m_Name: FlowerPotPos12
   m_TagString: Untagged
@@ -6094,7 +6803,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895482968301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6130,6 +6839,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &794524902
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895482968301}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895517608190
 GameObject:
   m_ObjectHideFlags: 0
@@ -6217,6 +6952,7 @@ GameObject:
   - component: {fileID: 5429653895539069200}
   - component: {fileID: 5429653895539069205}
   - component: {fileID: 1229159136608724723}
+  - component: {fileID: 1028245285}
   m_Layer: 5
   m_Name: FlowerPotPos31
   m_TagString: Untagged
@@ -6232,7 +6968,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895539069201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6269,6 +7005,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 1
+--- !u!61 &1028245285
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895539069201}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895572928006
 GameObject:
   m_ObjectHideFlags: 0
@@ -6356,6 +7118,7 @@ GameObject:
   - component: {fileID: 5429653895626582106}
   - component: {fileID: 5429653895626582111}
   - component: {fileID: 5225290016791725143}
+  - component: {fileID: 786449763}
   m_Layer: 5
   m_Name: FlowerPotPos20
   m_TagString: Untagged
@@ -6371,7 +7134,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895626582107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6408,6 +7171,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 1
+--- !u!61 &786449763
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895626582107}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895707088017
 GameObject:
   m_ObjectHideFlags: 0
@@ -6419,6 +7208,7 @@ GameObject:
   - component: {fileID: 5429653895707088016}
   - component: {fileID: 5429653895707088021}
   - component: {fileID: 4250665494183215342}
+  - component: {fileID: 771253740}
   m_Layer: 5
   m_Name: FlowerPotPos23
   m_TagString: Untagged
@@ -6434,7 +7224,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895707088017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6471,6 +7261,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 1
+--- !u!61 &771253740
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895707088017}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895714601118
 GameObject:
   m_ObjectHideFlags: 0
@@ -6482,6 +7298,7 @@ GameObject:
   - component: {fileID: 5429653895714601105}
   - component: {fileID: 5429653895714601106}
   - component: {fileID: 2947945336849265688}
+  - component: {fileID: 259500686}
   m_Layer: 5
   m_Name: FlowerPotPos19
   m_TagString: Untagged
@@ -6497,7 +7314,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895714601118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6534,6 +7351,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 1
+--- !u!61 &259500686
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895714601118}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895784091790
 GameObject:
   m_ObjectHideFlags: 0
@@ -6545,6 +7388,7 @@ GameObject:
   - component: {fileID: 5429653895784091777}
   - component: {fileID: 5429653895784091778}
   - component: {fileID: 7188486625059103660}
+  - component: {fileID: 310986744}
   m_Layer: 5
   m_Name: FlowerPotPos17
   m_TagString: Untagged
@@ -6560,7 +7404,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895784091790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6597,6 +7441,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 5429653895572928006}
   HaveEarth: 1
+--- !u!61 &310986744
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895784091790}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653895828166660
 GameObject:
   m_ObjectHideFlags: 0
@@ -6608,6 +7478,7 @@ GameObject:
   - component: {fileID: 5429653895828166663}
   - component: {fileID: 5429653895828166776}
   - component: {fileID: 5467899864261349910}
+  - component: {fileID: 2016364474}
   m_Layer: 5
   m_Name: FlowerPotPos25
   m_TagString: Untagged
@@ -6623,7 +7494,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653895828166660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6660,6 +7531,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 1
+--- !u!61 &2016364474
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653895828166660}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653896072708870
 GameObject:
   m_ObjectHideFlags: 0
@@ -6671,6 +7568,7 @@ GameObject:
   - component: {fileID: 5429653896072708985}
   - component: {fileID: 5429653896072708986}
   - component: {fileID: 8371711145412532552}
+  - component: {fileID: 2004537576}
   m_Layer: 5
   m_Name: FlowerPotPos6
   m_TagString: Untagged
@@ -6686,7 +7584,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653896072708870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6722,6 +7620,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &2004537576
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653896072708870}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653896099242469
 GameObject:
   m_ObjectHideFlags: 0
@@ -6824,6 +7748,7 @@ GameObject:
   - component: {fileID: 5429653896110215807}
   - component: {fileID: 5429653896110215792}
   - component: {fileID: 3984848489847707275}
+  - component: {fileID: 839011695}
   m_Layer: 5
   m_Name: FlowerPotPos27
   m_TagString: Untagged
@@ -6839,7 +7764,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653896110215804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6876,6 +7801,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 1
+--- !u!61 &839011695
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653896110215804}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653896124712867
 GameObject:
   m_ObjectHideFlags: 0
@@ -6887,6 +7838,7 @@ GameObject:
   - component: {fileID: 5429653896124712866}
   - component: {fileID: 5429653896124712871}
   - component: {fileID: 1686805984529811439}
+  - component: {fileID: 533494829}
   m_Layer: 5
   m_Name: FlowerPotPos11
   m_TagString: Untagged
@@ -6902,7 +7854,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653896124712867}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6938,6 +7890,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &533494829
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653896124712867}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653896138427076
 GameObject:
   m_ObjectHideFlags: 0
@@ -6949,6 +7927,7 @@ GameObject:
   - component: {fileID: 5429653896138427079}
   - component: {fileID: 5429653896138426680}
   - component: {fileID: 8856808904778121650}
+  - component: {fileID: 1169254554}
   m_Layer: 5
   m_Name: FlowerPotPos4
   m_TagString: Untagged
@@ -6964,7 +7943,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653896138427076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7000,6 +7979,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &1169254554
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653896138427076}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &5429653896199699612
 GameObject:
   m_ObjectHideFlags: 0
@@ -7011,6 +8016,7 @@ GameObject:
   - component: {fileID: 5429653896199699615}
   - component: {fileID: 5429653896199699600}
   - component: {fileID: 10898355095489258}
+  - component: {fileID: 1092713246}
   m_Layer: 5
   m_Name: FlowerPotPos8
   m_TagString: Untagged
@@ -7026,7 +8032,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429653896199699612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7062,6 +8068,32 @@ MonoBehaviour:
   waterFlowerPot: {fileID: 2051059749678400627, guid: f8455a7a87c2b0e41a4b0a4d8ab1b7bc, type: 3}
   earth: {fileID: 0}
   HaveEarth: 0
+--- !u!61 &1092713246
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429653896199699612}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 122.5, y: 134}
+  m_EdgeRadius: 0
 --- !u!1 &6292017918492259214
 GameObject:
   m_ObjectHideFlags: 0

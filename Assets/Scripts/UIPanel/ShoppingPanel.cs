@@ -7,7 +7,7 @@ using TopDownPlate;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShoppingPanel : BasePanel
+public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
 {
     public Transform PropContent;
     public Transform PlantContent;
@@ -74,6 +74,8 @@ public class ShoppingPanel : BasePanel
     };
     private readonly string CannotPlantLilypad = "荷叶需要种植在<color=#ff0000>水花盆</color>里\n需要先购买<color=#ff0000>水花盆</color>";
     private bool isTriggerCannotAfford;
+
+    private int freeRefreshCount;  // 免费刷新次数
 
     private void Start()
     {
@@ -209,7 +211,7 @@ public class ShoppingPanel : BasePanel
 
     public void Refresh()
     {
-        if (ShopManager.Instance.Money < RenovateMoney)
+        if (ShopManager.Instance.Money <= RenovateMoney)
             return;
         // 刷新前更新卡池
         ShopManager.Instance.UpdateCardPool();
@@ -281,14 +283,29 @@ public class ShoppingPanel : BasePanel
             plantCardItems[index].SetPlant(plantCards[item]);
             index++;
         }
-        if (renovateCount != 0)
+
+        if (freeRefreshCount > 0)
         {
-            // 发钱刷新可点击获取花盆
-            ShopManager.Instance.Money -= RenovateMoney;
+            freeRefreshCount--;
             FlowerPotItem.SetActive();
+            if (freeRefreshCount == 0)
+            {
+                RenovateMoney = (renovateCount + 1) * (autoRefreshWave + 1) * 2 + (renovateCount + 1) * renovateCount;
+                renovateCount++;
+            }
         }
-        RenovateMoney += (autoRefreshWave + renovateCount) * 2 + 1;
-        renovateCount++;
+        else
+        {
+            if (renovateCount != 0)
+            {
+                // 发钱刷新可点击获取花盆
+                ShopManager.Instance.Money -= RenovateMoney;
+                FlowerPotItem.SetActive();
+            }
+            RenovateMoney = (renovateCount + 1) * (autoRefreshWave + 1) * 2 + (renovateCount + 1) * renovateCount;
+            renovateCount++;
+        }
+
     }
 
     public override void OnEnter()
@@ -320,7 +337,9 @@ public class ShoppingPanel : BasePanel
             Money.text = ShopManager.Instance.Money.ToString();
             renovateCount = 0;
             Refresh();
-            RenovateMoney = 2 + autoRefreshWave * 2;
+            freeRefreshCount = ShopManager.Instance.PurchasePropCount("key");
+            if (freeRefreshCount > 0)
+                RenovateMoney = 0;
         }
     }
 
@@ -348,5 +367,28 @@ public class ShoppingPanel : BasePanel
     {
         this.nowItem = nowItem;
         this.hasOtherDown = hasDown;
+    }
+
+    /// <summary>
+    /// 购买商品时触发事件
+    /// </summary>
+    /// <param name="eventType"></param>
+    public void OnEvent(PropPurchaseEvent eventType)
+    {
+        if (eventType.propName == "key")
+        {
+            freeRefreshCount++;
+            RenovateMoney = 0;
+        }
+    }
+
+    private void OnEnable()
+    {
+        this.EventStartListening();
+    }
+
+    private void OnDisable()
+    {
+        this.EventStopListening();
     }
 }

@@ -48,13 +48,17 @@ public class PlantCardPage : MonoBehaviour
 
     public void CreateCard()
     {
-        for (int i = 0; i < GardenManager.Instance.MaxSlot; i++)
+        if (Cards.Count < GardenManager.Instance.MaxSlot)
         {
-            var card = GameObject.Instantiate(PlantCardItem, content);
-            card.UnSetPlant();
-            Cards.Add(card);
+            int len = GardenManager.Instance.MaxSlot - Cards.Count;
+            for (int i = 0; i < len; i++)
+            {
+                var card = GameObject.Instantiate(PlantCardItem, content);
+                card.UnSetPlant();
+                Cards.Add(card);
+            }
+            SetCard();
         }
-        SetCard();
     }
 
     public void SetCard()

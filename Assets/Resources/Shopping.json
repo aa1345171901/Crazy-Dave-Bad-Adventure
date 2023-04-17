@@ -292,6 +292,29 @@
         },
 
         {
+            "propName": "key",
+            "propImagePath": "Shop/Props/key",
+            "defaultPrice": "25",
+            "info": "车钥匙\n<color=#9932CD>可以免费刷新一次商品</color>",
+            "quality": "1"
+        },
+
+        {
+            "propName": "wallet",
+            "propImagePath": "Shop/Props/wallet",
+            "defaultPrice": "20",
+            "info": "钱袋\n<color=#00ff00>+10金币</color>\n里面能装不少钱",
+            "quality": "1",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "GoldCoins",
+                "increment": "10"
+                }
+            ]
+        },
+
+        {
             "propName": "Diamond",
             "propImagePath": "Shop/Props/Diamond",
             "defaultPrice": "66",
@@ -595,6 +618,149 @@
                 }
             ]
         },
+
+        {
+            "propName": "shovel",
+            "propImagePath": "Shop/Props/shovel",
+            "defaultPrice": "52",
+            "info": "<color=#0000ff>铲子</color>\n<color=#00ff00>+10植物学</color>\n可以铲掉花园中的泥土，放置花盆",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Botany",
+                "increment": "10"
+                }
+            ]
+        },
+
+        {
+            "propName": "cardSlot",
+            "propImagePath": "Shop/Props/cardSlot",
+            "defaultPrice": "55",
+            "info": "<color=#0000ff>卡槽</color>\n<color=#00ff00>+10植物学</color>\n可以增加出战植物的上限",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Botany",
+                "increment": "10"
+                }
+            ]
+        },
+
+        {
+            "propName": "book",
+            "propImagePath": "Shop/Props/book",
+            "defaultPrice": "50",
+            "info": "<color=#0000ff>书</color>\n<color=#00ff00>+15植物学</color>\n可以学到许多知识",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Botany",
+                "increment": "15"
+                }
+            ]
+        },
+
+
+        {
+            "propName": "cup",
+            "propImagePath": "Shop/Props/cup",
+            "defaultPrice": "54",
+            "info": "<color=#0000ff>奖杯</color>\n<color=#00ff00>+20金币</color>\n<color=#00ff00>+3幸运</color>\n荣誉的象征",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "GoldCoins",
+                "increment": "20"
+                },
+
+                {
+                "attributeTypeString": "Lucky",
+                "increment": "3"
+                }
+            ]
+        },
+
+
+        {
+            "propName": "sandwich",
+            "propImagePath": "Shop/Props/sandwich",
+            "defaultPrice": "65",
+            "info": "<color=#0000ff>三明治</color>\n<color=#00ff00>+10最大生命值</color>\n<color=#00ff00>+5生命恢复</color>\n看起来很好吃",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "MaximumHP",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "LifeRecovery",
+                "increment": "5"
+                }
+            ]
+        },
+
+        {
+            "propName": "lock",
+            "propImagePath": "Shop/Props/lock",
+            "defaultPrice": "45",
+            "info": "<color=#0000ff>一把锁</color>\n<color=#00ff00>+5伤害</color>\n<color=#00ff00>+5暴击</color>\n<color=#ff0000>-3攻击速度</color>\n可以对准",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "PercentageDamage",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "CriticalHitRate",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "AttackSpeed",
+                "increment": "-3"
+                }
+            ]
+        },
+
+        {
+            "propName": "radio",
+            "propImagePath": "Shop/Props/radio",
+            "defaultPrice": "50",
+            "info": "<color=#0000ff>留声机</color>\n<color=#00ff00>+10植物学</color>\n<color=#00ff00>+5肾上腺素</color>\n<color=#00ff00>+5最大生命值</color>\n<color=#ff0000>-3护甲</color>\n听听音乐放松一下",
+            "quality": "2",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Botany",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "Adrenaline",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "MaximumHP",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "Armor",
+                "increment": "-3"
+                }
+            ]
+        },
+
 
         {
             "propName": "WinterMelon",
@@ -1016,6 +1182,36 @@
                 }
             ],
             "preconditions": "todo"
+        },
+
+        {
+            "propName": "dirttruck",
+            "propImagePath": "Shop/Props/dirttruck",
+            "defaultPrice": "110",
+            "info": "<color=#9932CD>推土车</color>\n<color=#00ff00>+10植物学</color>\n<color=#00ff00>+5力量</color>\n<color=#00ff00>+5护甲</color>\n<color=#ff0000>-5速度<</color>\n能托运泥土，锻炼身体，但是老了推不太动",
+            "quality": "3",
+            "attributes":
+            [
+                {
+                "attributeTypeString": "Botany",
+                "increment": "10"
+                },
+
+                {
+                "attributeTypeString": "Power",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "Armor",
+                "increment": "5"
+                },
+
+                {
+                "attributeTypeString": "Speed",
+                "increment": "-5"
+                }
+            ]
         },
 
         {

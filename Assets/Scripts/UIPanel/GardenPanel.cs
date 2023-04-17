@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class GardenPanel : BasePanel
 {
     public PlantConent plantConent;
+    public PlantCardPage PlantCardPage;
+
 
     public Text SunText;
 
@@ -52,5 +54,6 @@ public class GardenPanel : BasePanel
     public void CreateFlowerPat()
     {
         plantConent.CreateFlowerPot();
+        PlantCardPage.CreateCard();
     }
 }

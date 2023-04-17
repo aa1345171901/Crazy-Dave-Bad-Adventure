@@ -139,6 +139,12 @@ public class GardenManager : BaseManager<GardenManager>
     /// </summary>
     public int MaxFlowerPotCount { get; set; } = 16;
 
+    public List<string> earth { get; set; } = new List<string>(); // 花盆的泥土位置信息,对应泥土花盆位置的Name
+
+    public bool IsShoveling { get; set; }
+    public bool IsMoving { get; set; }
+    public bool IsSelling { get; set; }
+
     /// <summary>
     /// 本次购物购买的植物
     /// </summary>

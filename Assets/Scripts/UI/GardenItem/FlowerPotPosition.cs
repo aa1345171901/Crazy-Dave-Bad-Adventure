@@ -1,3 +1,4 @@
+using TopDownPlate;
 using UnityEngine;
 
 public class FlowerPotPosition : MonoBehaviour
@@ -17,10 +18,25 @@ public class FlowerPotPosition : MonoBehaviour
     /// </summary>
     public FlowerPotGardenItem FlowerPot { get; set; }
 
+    private PlantConent plantConent;
+
     private void Start()
     {
         if (HaveEarth)
             earth = this.transform.GetChild(0).gameObject;
+        plantConent = this.GetComponentInParent<PlantConent>();
+        if (GardenManager.Instance.earth.Contains(this.gameObject.name))
+        {
+            earth.SetActive(false);
+            plantConent.AddLayUpPos(this);
+            HaveEarth = false;
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        if (GardenManager.Instance.IsShoveling)
+            ShovelAwayEarth();
     }
 
     public void ShovelAwayEarth()
@@ -30,6 +46,11 @@ public class FlowerPotPosition : MonoBehaviour
             earth.SetActive(false);
             HaveEarth = false;
             GardenManager.Instance.MaxFlowerPotCount++;
+            GardenManager.Instance.earth.Add(this.gameObject.name);
+            plantConent.AddLayUpPos(this);
+            GardenManager.Instance.IsShoveling = false;
+            AudioManager.Instance.PlayEffectSoundByName("shovel");
+            ShopManager.Instance.RemovePurchasePropByName("shovel");
         }
     }
 

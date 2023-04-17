@@ -49,6 +49,7 @@ public class BattlePanel : BasePanel
     public override void OnResume()
     {
         base.OnResume();
+        plantCardPage.CreateCard();
         MoneyText.text = ShopManager.Instance.Money.ToString();
         SunText.text = GardenManager.Instance.Sun.ToString();
     }

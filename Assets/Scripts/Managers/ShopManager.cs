@@ -11,6 +11,21 @@ public class ShopLists
     public List<PlantCard> PlantCards;
 }
 
+public struct PropPurchaseEvent
+{
+    public string propName;
+
+    public PropPurchaseEvent(string propName)
+    {
+        this.propName = propName;
+    }
+
+    public static void Trigger(string propName)
+    {
+        EventManager.TriggerEvent<PropPurchaseEvent>(new PropPurchaseEvent(propName));
+    }
+}
+
 public class ShopManager : BaseManager<ShopManager>
 {
     /// <summary>
@@ -105,6 +120,17 @@ public class ShopManager : BaseManager<ShopManager>
                     break;
                 case "Pot_Water":
                     GardenManager.Instance.NotPlacedWaterFlowerPotCount++;
+                    break;
+                case "key":
+                    PropPurchaseEvent.Trigger(propCard.propName);
+                    break;
+                case "cardSlot":
+                    int maxSolt = GardenManager.Instance.MaxSlot;
+                    maxSolt++;
+                    if (maxSolt <= 8)
+                    {
+                        GardenManager.Instance.MaxSlot = maxSolt;
+                    }
                     break;
                 default:
                     break;
@@ -204,6 +230,21 @@ public class ShopManager : BaseManager<ShopManager>
                 count++;
         }
         return count;
+    }
+
+    public void RemovePurchasePropByName(string name)
+    {
+        PropCard propCard = null;
+        foreach (var item in PurchasedProps)
+        {
+            if (item.propName == name)
+            {
+                propCard = item;
+                break;
+            }
+        }
+        if (propCard != null)
+            PurchasedProps.Remove(propCard);
     }
 
     public void UpdateCardPool()

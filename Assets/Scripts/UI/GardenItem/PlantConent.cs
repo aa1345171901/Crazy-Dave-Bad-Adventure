@@ -168,4 +168,9 @@ public class PlantConent : MonoBehaviour
     {
         haveFlowerPotPos.Add(flowerPotPosition);
     }
+
+    public void AddLayUpPos(FlowerPotPosition flowerPotPosition)
+    {
+        canLayUpFlowerPotPos.Add(flowerPotPosition);
+    }
 }
