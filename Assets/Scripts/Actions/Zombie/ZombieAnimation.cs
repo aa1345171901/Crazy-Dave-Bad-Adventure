@@ -44,6 +44,15 @@ public class ZombieAnimation : MonoBehaviour
 
     public ZombieFly zombieFly;
 
+    [SpineSkin]
+    public string charredSkin;
+    [SpineSkin]
+    public string defalutSkin;
+
+    [Tooltip("±ª’®À¿∂Øª≠")]
+    [SpineAnimation]
+    public string DeadCharredAnimation = "charred";
+
     private Animator graveMonumentAnimator;
     private Character character;
     private AIMove aiMove;
@@ -68,6 +77,7 @@ public class ZombieAnimation : MonoBehaviour
     public void Reuse()
     {
         character.SkeletonAnimation.ClearState();
+        character.SkeletonAnimation.Skeleton.Skin = character.SkeletonAnimation.SkeletonDataAsset.GetSkeletonData(true).FindSkin(defalutSkin);
         aiMove.Ice.SetActive(false);
         // …Ë÷√‰÷»æ≤„º∂
         graveMonumentAnimator.GetComponentInChildren<SpriteRenderer>().sortingOrder = EarthParticle.GetComponent<ParticleSystemRenderer>().sortingOrder = character.LayerOrder + 1;
@@ -118,7 +128,19 @@ public class ZombieAnimation : MonoBehaviour
 
     public void Dead(DamageType damageType)
     {
-        if (damageType == DamageType.Chomper || damageType == DamageType.Gravebuster)
+        if (damageType == DamageType.Bomb)
+        {
+            character.SkeletonAnimation.Skeleton.Skin = character.SkeletonAnimation.SkeletonDataAsset.GetSkeletonData(true).FindSkin(charredSkin);
+            character.SkeletonAnimation.ClearState();
+            var entry = character.SkeletonAnimation.AnimationState.SetAnimation(0, DeadCharredAnimation, false);
+            entry.Complete += (e) =>
+            {
+                character.gameObject.SetActive(false);
+                LevelManager.Instance.CacheEnemys.Add(character);
+                character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;
+            };
+        }
+        else if (damageType == DamageType.Chomper || damageType == DamageType.Gravebuster)
         {
             character.SkeletonAnimation.ClearState();
             character.gameObject.SetActive(false);

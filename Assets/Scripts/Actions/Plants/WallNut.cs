@@ -153,7 +153,7 @@ public class WallNut : Plant
                     if (item.isTrigger)
                     {
                         var health = collision.GetComponent<Health>();
-                        health.DoDamage(finalDamage * 5, DamageType.WallNut);
+                        health.DoDamage(finalDamage * 5, DamageType.Bomb);
                     }
                 }
                 Collider2D.enabled = false;

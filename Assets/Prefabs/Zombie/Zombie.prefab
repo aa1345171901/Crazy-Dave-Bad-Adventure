@@ -6888,3 +6888,6 @@ MonoBehaviour:
   EarthParticle: {fileID: 267746372}
   CollisionAttack: {fileID: 7658716408384724384}
   zombieFly: {fileID: 4486718529378241468}
+  charredSkin: charred
+  defalutSkin: normal
+  DeadCharredAnimation: charred
