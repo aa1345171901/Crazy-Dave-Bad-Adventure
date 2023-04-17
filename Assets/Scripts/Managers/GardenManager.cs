@@ -284,7 +284,8 @@ public class GardenManager : BaseManager<GardenManager>
 
     public void LoadCrater()
     {
-        foreach (var item in CraterPoses)
+        var craterPos = new List<CraterPos>(CraterPoses);
+        foreach (var item in craterPos)
         {
             CreateCrater(item.x, item.y);
         }

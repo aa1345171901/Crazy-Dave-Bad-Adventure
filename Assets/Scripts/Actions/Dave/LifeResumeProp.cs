@@ -17,6 +17,8 @@ public class LifeResumeProp : MonoBehaviour
 
     private bool isEat;
 
+    public PumpkinHead PumpkinHead { get; set; }
+
     private void Start()
     {
         Vector3 offset = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0);
@@ -54,6 +56,7 @@ public class LifeResumeProp : MonoBehaviour
 
     private void DelayDestroy()
     {
+        PumpkinHead.RemovePumpkin(this);
         Destroy(this.gameObject);
     }
 }

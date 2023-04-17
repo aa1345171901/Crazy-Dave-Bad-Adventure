@@ -1695,7 +1695,7 @@
             "plantImagePath": "Shop/Plants/Squash",
             "defaultPrice": "30",
             "defaultSun": "50",
-            "info": "<color=#ff0000>窝瓜</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#ff0000>窝瓜</color>\n可以使用{0}阳光培养\n可以一屁股将僵尸压扁，压成僵尸干",
             "plantTypeString": "Squash"
         },
 
@@ -1705,7 +1705,7 @@
             "plantImagePath": "Shop/Plants/PotatoMine",
             "defaultPrice": "30",
             "defaultSun": "25",
-            "info": "<color=#ff0000>土豆雷</color>\n可以使用{0}阳光培养\n",
+            "info": "<color=#ff0000>土豆雷</color>\n可以使用{0}阳光培养\n可以放置土豆地雷，僵尸踩上去会产生范围爆炸",
             "plantTypeString": "PotatoMine"
         }
     ]

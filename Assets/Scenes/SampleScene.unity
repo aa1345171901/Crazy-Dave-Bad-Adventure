@@ -1816,6 +1816,8 @@ MonoBehaviour:
     plant: {fileID: 3692554736072416429, guid: dcfa5b62d9b721c46a52d03752930928, type: 3}
   - plantType: 37
     plant: {fileID: 3149311788363889657, guid: 9a03a9d5d0bdbcd4f821059df6ff0f02, type: 3}
+  - plantType: 39
+    plant: {fileID: 191898710562161628, guid: df39ff404158a2945ae5cde340b1522c, type: 3}
   Crater: {fileID: 456797528486058293, guid: e62e9ddab74d2ed43a44b34cff82707d, type: 3}
 --- !u!1 &968511682
 GameObject:

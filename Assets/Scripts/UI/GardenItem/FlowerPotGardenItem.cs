@@ -63,6 +63,7 @@ public class PlantAttribute
             case PlantType.CherryBomb:
             case PlantType.Jalapeno:
             case PlantType.DoomShroom:
+            case PlantType.PotatoMine:
                 if (attribute[index] == 5)
                 {
                     GameManager.Instance.UserData.Adrenaline++;
@@ -428,6 +429,7 @@ public class FlowerPotGardenItem : MonoBehaviour
                 case PlantType.Squash:
                     break;
                 case PlantType.PotatoMine:
+                    SetAttribute(10);
                     break;
                 default:
                     break;
