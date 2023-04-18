@@ -66,7 +66,11 @@ namespace TopDownPlate
         private float decelerationTimer;  // 减速时刻
         private float finalMoveSpeed;
 
-        private Vector3 direction;
+        [ReadOnly]
+        public bool isSwoop;  // 正在飞扑,不改变移动方向
+        [ReadOnly]
+        public Vector3 direction;
+        [ReadOnly]
         public float realSpeed;
 
         protected override void Initialization()
@@ -83,9 +87,13 @@ namespace TopDownPlate
         {
             Ice.SetActive(false);
             canMove = true;
+            isSwoop = false;
             AIParameter.Distance = float.MaxValue;
             if (IsEnchanted)
+            {
                 hurtFlash.BeResume();
+                this.gameObject.layer = LayerMask.NameToLayer("Zombie");
+            }
             IsEnchanted = false;
             SetRealSpeed();
             SpeedRecovery();
@@ -114,17 +122,20 @@ namespace TopDownPlate
                     int index = UnityEngine.Random.Range(0, LevelManager.Instance.Enemys.Count);
                     target = LevelManager.Instance.Enemys[index];
                 }
-                if (IsEnchanted && target != null)
-                    direction = target.transform.position - this.transform.position;
-                else
+                if (!isSwoop)
                 {
-                    if (GardenManager.Instance.TallNuts.Count > 0)
-                    {
-                        int index = UnityEngine.Random.Range(0, GardenManager.Instance.TallNuts.Count);
-                        direction = GardenManager.Instance.TallNuts[index].transform.position - this.transform.position;
-                    }
+                    if (IsEnchanted && target != null)
+                        direction = target.transform.position - this.transform.position;
                     else
-                        direction = Target.position - this.transform.position;
+                    {
+                        if (GardenManager.Instance.TallNuts.Count > 0)
+                        {
+                            int index = UnityEngine.Random.Range(0, GardenManager.Instance.TallNuts.Count);
+                            direction = GardenManager.Instance.TallNuts[index].transform.position - this.transform.position;
+                        }
+                        else
+                            direction = Target.position - this.transform.position;
+                    }
                 }
 
                 AIParameter.Distance = (Target.position - this.transform.position).magnitude;
@@ -210,6 +221,7 @@ namespace TopDownPlate
             LevelManager.Instance.Enemys.Remove(this.character);
             LevelManager.Instance.EnchantedEnemys.Add(this.character);
             character.FindAbility<AIAttack>().BeEnchanted(attackCount, percentageDamageAdd, basicDamageAdd);
+            this.gameObject.layer = LayerMask.NameToLayer("ZombieEnchanted");
         }
 
         public void BeDecelerated(float decelerationPercentage, float decelerationTime)

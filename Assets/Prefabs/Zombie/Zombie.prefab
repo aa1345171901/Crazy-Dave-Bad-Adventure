@@ -5931,9 +5931,9 @@ GameObject:
   - component: {fileID: 6573689752338087606}
   - component: {fileID: 6581376710081860755}
   - component: {fileID: 4108507704349745145}
-  - component: {fileID: 69481907}
   - component: {fileID: 605363035}
   - component: {fileID: 3899614135714791903}
+  - component: {fileID: 6175670065298691424}
   m_Layer: 7
   m_Name: Zombie
   m_TagString: Untagged
@@ -6068,6 +6068,8 @@ MonoBehaviour:
     HeadPos: {fileID: 0}
     BodyPos: {fileID: 0}
     attackPos: 0
+  isSwoop: 0
+  direction: {x: 0, y: 0, z: 0}
   realSpeed: 0
 --- !u!50 &4108507704349745145
 Rigidbody2D:
@@ -6090,32 +6092,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &69481907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141669757839713235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2cc1a4cffb214046b6912726733eac8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RushSpeedMul: 2
-  AttackRange: 5
-  Damage: 2
-  AttackProbability: 0.144
-  AttackJudgmentTime: 1
-  AttackBeforeAnimation: Attack_Before
-  AttackAnimation: Attack
-  AttackBoxColider: {fileID: 1406422986}
-  Trails:
-  - {fileID: 1453894757}
-  - {fileID: 1855601729}
-  realDamage: 0
-  realAttackRange: 0
-  realAttackProbability: 0
 --- !u!114 &605363035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6188,6 +6164,37 @@ MonoBehaviour:
   trigger2D: {fileID: 8036112148403769018}
   Damage: 1
   realDamage: 0
+--- !u!114 &6175670065298691424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141669757839713235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd74b4e0f2ef9d48926948ab3317c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 2
+  AttackProbability: 0.14
+  AttackJudgmentTime: 1
+  realDamage: 0
+  realAttackProbability: 0
+  RushSpeedMul: 2
+  SwoopSpeedMul: 4
+  AttackRange: 5
+  AttackBeforeAnimation: Attack_Before
+  AttackAnimation: Attack
+  AttackSwoopBeforeAnimation: AttackSwoop_Before
+  AttackSwoopAnimation: AttackSwoop
+  AttackSwoopAfterAnimation: AttackSwoop_After
+  AttackBoxColider: {fileID: 1406422986}
+  AttackSwoopBoxColider: {fileID: 4897417756144934394}
+  Trails:
+  - {fileID: 1453894757}
+  - {fileID: 1855601729}
+  realAttackRange: 0
 --- !u!1 &709301794697351485
 GameObject:
   m_ObjectHideFlags: 0
@@ -6490,6 +6497,83 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &3880611135871106168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4590866399137093677}
+  - component: {fileID: 4897417756144934394}
+  - component: {fileID: 7550631116982616442}
+  m_Layer: 8
+  m_Name: AttackSwoopTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4590866399137093677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3880611135871106168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.53, y: 0.695, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4187009824159649715}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4897417756144934394
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3880611135871106168}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.3, y: 0.1}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4, y: 0.3}
+  m_EdgeRadius: 0
+--- !u!114 &7550631116982616442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3880611135871106168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f436a1e8441aa5c448bb65cbb4fdeb77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerType: 1
+  tags: []
+  layerMasks:
+    serializedVersion: 2
+    m_Bits: 192
+  Target: {fileID: 0}
 --- !u!1 &7390244050078611384
 GameObject:
   m_ObjectHideFlags: 0
@@ -6574,6 +6658,7 @@ Transform:
   m_Children:
   - {fileID: 2371900985216954229}
   - {fileID: 1406422985}
+  - {fileID: 4590866399137093677}
   m_Father: {fileID: 9077396330666920919}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
