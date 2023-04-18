@@ -27,7 +27,9 @@ public class CattailSpikeBullet : SpikeBullet
             if (enemys.Count > 0)
             {
                 int randomIndex = Random.Range(0, enemys.Count);
-                target = enemys[randomIndex];
+                var targetList = LevelManager.Instance.Enemys[randomIndex].Zombies;
+                int i = Random.Range(0, targetList.Count);
+                target = targetList[i];
                 endPos = target.transform.position;
             }
             else

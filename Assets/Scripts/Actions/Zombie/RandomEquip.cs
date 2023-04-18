@@ -18,6 +18,8 @@ public class RandomEquip : MonoBehaviour
     private SkeletonDataAsset skeletonDataAsset;
     private SkeletonAnimation skeletonAnimation;
 
+    private bool isInit;
+
     [System.Serializable]
     public class EquipHook
     {
@@ -45,6 +47,16 @@ public class RandomEquip : MonoBehaviour
         foreach (var item in Equippables)
         {
             Equip(item);
+        }
+        isInit = true;
+    }
+
+    public void ResumeEquip()
+    {
+        if (isInit)
+        {
+            skeletonAnimation.Skeleton.Skin = equipsSkin;
+            skeletonAnimation.AnimationState.ClearTracks();
         }
     }
 

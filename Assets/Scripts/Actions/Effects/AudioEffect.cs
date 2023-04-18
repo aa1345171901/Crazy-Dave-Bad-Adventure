@@ -7,16 +7,30 @@ public class AudioEffect : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip impact;
+    public AudioClip impact2;
     public AudioClip throwOut;
     public AudioClip potReturn;
 
-    public void ImpactAudioPlay(bool isDreariment)
+    public void ImpactAudioPlay(bool isDreariment, ZombieType zombieType)
     {
         if (isDreariment)
             audioSource.pitch = Random.Range(0.8f, 1);
         else
-            audioSource.pitch = Random.Range(1, 1.4f);
-        audioSource.PlayOneShot(impact);
+            audioSource.pitch = Random.Range(1, 1.2f);
+        switch (zombieType)
+        {
+            case ZombieType.Normal:
+            case ZombieType.Flag:
+            case ZombieType.Cone:
+                audioSource.PlayOneShot(impact);
+                break;
+            case ZombieType.Bucket:
+            case ZombieType.Screendoor:
+                audioSource.PlayOneShot(impact2);
+                break;
+            default:
+                break;
+        }
         // Ä¬ÈÏimpact´ó¸Å0.3f s
         PotReturnPlay();
     }

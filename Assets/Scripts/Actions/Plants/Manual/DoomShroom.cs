@@ -47,21 +47,24 @@ public class DoomShroom : AshPlant
     {
         base.Boom();
         int sumHealth = 0;
-        var enemys = new List<Character>(LevelManager.Instance.Enemys);
+        var enemys = new List<ZombieDicts>(LevelManager.Instance.Enemys);
         foreach (var item in enemys)
         {
-            var health = item.Health;
-            float random = Random.Range(0, 1f);
-            // ¡¢º¥À¿Õˆ
-            if (random < immediateMortalityRate)
+            foreach (var zombie in item.Zombies)
             {
-                sumHealth += health.maxHealth;
-                health.DoDamage(health.maxHealth, DamageType.Bomb, true);
-            }
-            else
-            {
-                sumHealth += finalDamage > health.health ? health.health : finalDamage;
-                health.DoDamage(finalDamage, DamageType.Bomb);
+                var health = zombie.Health;
+                float random = Random.Range(0, 1f);
+                // ¡¢º¥À¿Õˆ
+                if (random < immediateMortalityRate)
+                {
+                    sumHealth += health.maxHealth;
+                    health.DoDamage(health.maxHealth, DamageType.Bomb, true);
+                }
+                else
+                {
+                    sumHealth += finalDamage > health.health ? health.health : finalDamage;
+                    health.DoDamage(finalDamage, DamageType.Bomb);
+                }
             }
         }
 

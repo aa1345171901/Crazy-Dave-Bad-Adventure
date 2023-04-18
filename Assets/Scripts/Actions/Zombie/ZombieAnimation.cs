@@ -8,6 +8,9 @@ using UnityEngine;
 
 public class ZombieAnimation : MonoBehaviour
 {
+    [Tooltip("僵尸种类")]
+    public ZombieType zombieType;
+
     [Tooltip("生成的墓碑的父物体")]
     public Transform GraveMonumentContent;
 
@@ -24,25 +27,28 @@ public class ZombieAnimation : MonoBehaviour
 
     [Tooltip("死亡动画1")]
     [SpineAnimation]
-    public string DeadAnimation = "Dead";
+    public string DeadAnimation = "Dead/Dead";
 
     [Tooltip("死亡动画2")]
     [SpineAnimation]
-    public string DeadAnimation2 = "DeadHeadFly";
+    public string DeadAnimation2 = "Dead/DeadHeadFly";
 
     [Tooltip("死亡动画身体起飞")]
     [SpineAnimation]
-    public string DeadFlyAnimation = "DeadBodyFly";
+    public string DeadFlyAnimation = "Dead/DeadBodyFly";
 
     [Tooltip("死亡动画身体起飞落地后")]
     [SpineAnimation]
-    public string DeadFlyAfterAnimation = "DeadBodyFly_After";
+    public string DeadFlyAfterAnimation = "Dead/DeadBodyFly_After";
 
     public ParticleSystem EarthParticle;
 
     public BoxCollider2D CollisionAttack;
 
     public ZombieFly zombieFly;
+
+    public ZombieProp zombieProp;
+    public RandomEquip randomEquip;
 
     [SpineSkin]
     public string charredSkin;
@@ -69,6 +75,11 @@ public class ZombieAnimation : MonoBehaviour
         aiMove = character.FindAbility<AIMove>();
         Reuse();
         CollisionAttack.enabled = false;
+        if (zombieProp != null)
+        {
+            zombieProp.zombieType = this.zombieType;
+            zombieProp.character = this.character;
+        }
     }
 
     /// <summary>
@@ -77,7 +88,7 @@ public class ZombieAnimation : MonoBehaviour
     public void Reuse()
     {
         character.SkeletonAnimation.ClearState();
-        character.SkeletonAnimation.Skeleton.Skin = character.SkeletonAnimation.SkeletonDataAsset.GetSkeletonData(true).FindSkin(defalutSkin);
+        randomEquip.ResumeEquip();
         aiMove.Ice.SetActive(false);
         // 设置渲染层级
         graveMonumentAnimator.GetComponentInChildren<SpriteRenderer>().sortingOrder = EarthParticle.GetComponent<ParticleSystemRenderer>().sortingOrder = character.LayerOrder + 1;
@@ -90,7 +101,7 @@ public class ZombieAnimation : MonoBehaviour
             character.Health.Reuse();
             character.Reuse();
             CollisionAttack.enabled = true;
-            LevelManager.Instance.Enemys.Add(character);  // 进场动画期间不能被攻击
+            LevelManager.Instance.Enemys.Add(zombieType, character);  // 进场动画期间不能被攻击
             SetBoxCollider(true);
         };
 
@@ -108,7 +119,6 @@ public class ZombieAnimation : MonoBehaviour
     public void WalkOff()
     {
         character.IsDead = true;
-        character.SkeletonAnimation.ClearState();
 
         graveMonumentAnimator.GetComponentInChildren<SpriteRenderer>().sortingOrder = EarthParticle.GetComponent<ParticleSystemRenderer>().sortingOrder = character.LayerOrder + 1;
 
@@ -117,7 +127,7 @@ public class ZombieAnimation : MonoBehaviour
         entry.Complete += (e) =>
         {
             character.gameObject.SetActive(false);
-            LevelManager.Instance.CacheEnemys.Add(character);
+            LevelManager.Instance.CacheEnemys.Add(zombieType, character);
         };
 
         graveMonumentAnimator.SetTrigger("Init");
@@ -136,7 +146,7 @@ public class ZombieAnimation : MonoBehaviour
             entry.Complete += (e) =>
             {
                 character.gameObject.SetActive(false);
-                LevelManager.Instance.CacheEnemys.Add(character);
+                LevelManager.Instance.CacheEnemys.Add(zombieType, character);
                 character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;
             };
         }
@@ -144,12 +154,11 @@ public class ZombieAnimation : MonoBehaviour
         {
             character.SkeletonAnimation.ClearState();
             character.gameObject.SetActive(false);
-            LevelManager.Instance.CacheEnemys.Add(character);
+            LevelManager.Instance.CacheEnemys.Add(zombieType, character);
             character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;
         }
         else
         {
-            character.SkeletonAnimation.ClearState();
             int index = Random.Range(0, 11);
             string deadStr = index >= 6 ? DeadFlyAfterAnimation : DeadAnimation;
             bool isBodyFly = false;
@@ -167,7 +176,7 @@ public class ZombieAnimation : MonoBehaviour
                         {
                             zombieFly.CloseFly();
                             character.gameObject.SetActive(false);
-                            LevelManager.Instance.CacheEnemys.Add(character);
+                            LevelManager.Instance.CacheEnemys.Add(zombieType, character);
                             character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;
                         };
                     });
@@ -185,12 +194,12 @@ public class ZombieAnimation : MonoBehaviour
                 {
                     zombieFly.CloseFly();
                     character.gameObject.SetActive(false);
-                    LevelManager.Instance.CacheEnemys.Add(character);
+                    LevelManager.Instance.CacheEnemys.Add(zombieType, character);
                     character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;
                 };
         }
 
-        LevelManager.Instance.Enemys.Remove(character);
+        LevelManager.Instance.Enemys.Remove(zombieType, character);
         CollisionAttack.enabled = false;
         SetBoxCollider(false);
     }

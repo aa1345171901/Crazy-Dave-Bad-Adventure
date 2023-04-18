@@ -63,10 +63,14 @@ public class IceShroom : ManualPlant
         audioSource.Play();
         animator.Play("Frost");
         yield return new WaitForSeconds(0.5f);
-        foreach (var item in LevelManager.Instance.Enemys)
+        var enemys = new List<ZombieDicts>(LevelManager.Instance.Enemys);
+        foreach (var item in enemys)
         {
-            var aiMove = item.FindAbility<AIMove>();
-            aiMove.BeDecelerated(1, finalFrostTime);
+            foreach (var zombie in item.Zombies)
+            {
+                var aiMove = zombie.FindAbility<AIMove>();
+                aiMove.BeDecelerated(1, finalFrostTime);
+            }
         }
         GameManager.Instance.Player.FindAbility<CharacterAttack>().IceShroomAttackSpeed += finalFrostAttackSpeed;
         yield return new WaitForSeconds(1);

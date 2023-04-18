@@ -73,7 +73,7 @@ public class HypnoShroom : Plant
             {
                 audioSource.Play();
                 aiMove.BeEnchanted(finalAttackCount, finalPercentageDamage, finalDamage);
-                bool canContinue = Random.Range(0, finalContinueRate) < finalContinueRate ? true : false;
+                bool canContinue = Random.Range(0, 1f) < finalContinueRate ? true : false;
                 if (!canContinue)
                 {
                     boxCollider.enabled = false;

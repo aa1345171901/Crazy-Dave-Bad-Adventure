@@ -18,16 +18,16 @@ public class NormalZombieAttack : AIAttack
     public float AttackRange = 5f;
 
     [Tooltip("该僵尸攻击前摇动画名")]
-    public string AttackBeforeAnimation = "Attack_Before";
+    public string AttackBeforeAnimation = "Attack/Attack_Before";   // 在文件夹中，需要加上文件夹
     [Tooltip("该僵尸攻击动画名")]
-    public string AttackAnimation = "Attack";
+    public string AttackAnimation = "Attack/Attack";
 
     [Tooltip("该僵尸前扑攻击前摇动画名")]
-    public string AttackSwoopBeforeAnimation = "AttackSwoop_Before";
+    public string AttackSwoopBeforeAnimation = "Attack/AttackSwoop_Before";
     [Tooltip("该僵尸前扑攻击动画名")]
-    public string AttackSwoopAnimation = "AttackSwoop";
+    public string AttackSwoopAnimation = "Attack/AttackSwoop";
     [Tooltip("该僵尸前扑攻击结束动画名")]
-    public string AttackSwoopAfterAnimation = "AttackSwoop_After";
+    public string AttackSwoopAfterAnimation = "Attack/AttackSwoop_After";
 
     [Tooltip("攻击的触发器")]
     public BoxCollider2D AttackBoxColider;
@@ -36,10 +36,14 @@ public class NormalZombieAttack : AIAttack
     [Tooltip("攻击的拖尾")]
     public List<GameObject> Trails;
 
+    [Tooltip("是否能使用飞扑，铁门以及旗帜僵尸不能使用")]
+    public bool CanSwoop = true;
+
     private TrackEntry trackEntry;
     private float timer;
     private Trigger2D attackTrigger;
     private Trigger2D attackSwoopTrigger;
+    private ZombieAnimation zombieAnimation;
 
     [ReadOnly]
     public float realAttackRange;
@@ -49,6 +53,7 @@ public class NormalZombieAttack : AIAttack
         base.Initialization();
         attackTrigger = AttackBoxColider.GetComponent<Trigger2D>();
         attackSwoopTrigger = AttackSwoopBoxColider.GetComponent<Trigger2D>();
+        zombieAnimation = GetComponentInChildren<ZombieAnimation>();
     }
 
     public override void Reuse()
@@ -106,7 +111,7 @@ public class NormalZombieAttack : AIAttack
             return;
 
         // 随机选择攻击方式
-        if (Random.Range(0, 2) == 0)
+        if (!CanSwoop || Random.Range(0, 2) == 0)
             Attack();
         else
             AttackSwoop();
@@ -163,7 +168,7 @@ public class NormalZombieAttack : AIAttack
                             attackCount--;
                         else
                         {
-                            LevelManager.Instance.EnchantedEnemys.Remove(this.character);
+                            LevelManager.Instance.EnchantedEnemys.Remove(zombieAnimation.zombieType, this.character);
                             character.Health.DoDamage(character.Health.maxHealth, DamageType.Zombie);
                         }
                     }
@@ -208,7 +213,7 @@ public class NormalZombieAttack : AIAttack
                             attackCount--;
                         else
                         {
-                            LevelManager.Instance.EnchantedEnemys.Remove(this.character);
+                            LevelManager.Instance.EnchantedEnemys.Remove(zombieAnimation.zombieType, this.character);
                             character.Health.DoDamage(character.Health.maxHealth, DamageType.Zombie);
                         }
                     }

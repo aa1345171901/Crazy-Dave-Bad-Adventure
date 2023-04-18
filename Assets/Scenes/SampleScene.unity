@@ -361,123 +361,72 @@ MonoBehaviour:
     m_Extent: {x: 13.2, y: 5.6, z: 5}
   waves:
   - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+    - ZombieType: 0
+      EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       GenerateCount: 2
       CountIncrement: 1
       IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -4
   - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+    - ZombieType: 0
+      EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       GenerateCount: 2
       CountIncrement: 1
       IntervalTime: 4
       TimeIncrement: 0.5
       lastGenerateTime: -4
   - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+    - ZombieType: 0
+      EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 2
+      CountIncrement: 1
+      IntervalTime: 4
+      TimeIncrement: 0.75
+      lastGenerateTime: -4
+  - zombieData:
+    - ZombieType: 0
+      EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       GenerateCount: 2
       CountIncrement: 1
       IntervalTime: 4
       TimeIncrement: 1
       lastGenerateTime: -4
   - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 3
+    - ZombieType: 0
+      EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 2
       CountIncrement: 1
       IntervalTime: 4
-      TimeIncrement: 0.5
+      TimeIncrement: 0.25
       lastGenerateTime: -4
-  - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 3
-      CountIncrement: 1
-      IntervalTime: 4
-      TimeIncrement: 1
+    - ZombieType: 1
+      EnemyPrefab: {fileID: 4567552705844749713, guid: 76ebf6fc564b211438af4831811135c6, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 8
+      TimeIncrement: 0
       lastGenerateTime: -4
-  - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 3
-      CountIncrement: 1
-      IntervalTime: 4
-      TimeIncrement: 1.25
+    - ZombieType: 2
+      EnemyPrefab: {fileID: 2033216056952324458, guid: d923e53d0a57eaa41b0d9ee08c9f252c, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 16
+      TimeIncrement: 0
       lastGenerateTime: -4
-  - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 3
-      CountIncrement: 1
-      IntervalTime: 4
-      TimeIncrement: 1.5
+    - ZombieType: 4
+      EnemyPrefab: {fileID: 1412318929628686754, guid: 1f4bf6179a2c5594fb65e14c93951cc7, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 8
+      TimeIncrement: 0
       lastGenerateTime: -4
-  - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 3
-      CountIncrement: 2
-      IntervalTime: 3
-      TimeIncrement: 0.5
-      lastGenerateTime: -4
-  - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 3
-      CountIncrement: 2
-      IntervalTime: 3
-      TimeIncrement: 0.5
-      lastGenerateTime: -4
-  - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 3
-      CountIncrement: 2
-      IntervalTime: 3
-      TimeIncrement: 1
-      lastGenerateTime: -4
-  - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 3
-      CountIncrement: 3
-      IntervalTime: 3
-      TimeIncrement: 1
-      lastGenerateTime: -4
-  - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 4
-      CountIncrement: 3
-      IntervalTime: 3
-      TimeIncrement: 1
-      lastGenerateTime: -4
-  - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 5
-      CountIncrement: 3
-      IntervalTime: 3
-      TimeIncrement: 1
-      lastGenerateTime: -4
-  - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 6
-      CountIncrement: 4
-      IntervalTime: 3
-      TimeIncrement: 1.5
-      lastGenerateTime: -4
-  - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 7
-      CountIncrement: 4
-      IntervalTime: 3
-      TimeIncrement: 1.5
-      lastGenerateTime: -4
-  - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 8
-      CountIncrement: 4
-      IntervalTime: 3
-      TimeIncrement: 2
-      lastGenerateTime: -4
-  - zombieData:
-    - EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 8
-      CountIncrement: 5
-      IntervalTime: 3
-      TimeIncrement: 2
+    - ZombieType: 3
+      EnemyPrefab: {fileID: 580796821312960809, guid: b7e77a6d175178648857f4637e95bac5, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 16
+      TimeIncrement: 0
       lastGenerateTime: -4
   Enemys: []
   CacheEnemys: []
@@ -1270,6 +1219,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4195450945961741395, guid: 8e7f933c308343849ad40a6c8d308417, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 34887bcbcdb343c40941c20f5c8989ae, type: 2}
     - target: {fileID: 7497441726251074684, guid: 8e7f933c308343849ad40a6c8d308417, type: 3}
       propertyPath: m_Name
       value: Dave

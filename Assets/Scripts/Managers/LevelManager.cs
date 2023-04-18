@@ -1,15 +1,30 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace TopDownPlate
 {
+    [Serializable]
+    public enum ZombieType
+    {
+        Normal,
+        Cone,
+        Bucket,
+        Screendoor,
+        Flag,
+    }
+
     /// <summary>
     /// 生成敌人的数据，包括预制体和生成数量
     /// </summary>
-    [System.Serializable]
+    [Serializable]
     public class ZombieData
     {
+        [Tooltip("敌人种类")]
+        public ZombieType ZombieType;
+
         [Tooltip("敌人预制体")]
         public GameObject EnemyPrefab;
 
@@ -32,11 +47,74 @@ namespace TopDownPlate
     /// <summary>
     /// 每波的怪物占比
     /// </summary>
-    [System.Serializable]
+    [Serializable]
     public struct Wave
     {
         [Tooltip("生成的僵尸的数据")]
         public List<ZombieData> zombieData;
+    }
+
+    /// <summary>
+    /// 僵尸种类与对应游戏物体的集合
+    /// </summary>
+    [Serializable]
+    public struct ZombieDicts
+    {
+        public ZombieDicts(ZombieType zombieType, List<Character> zombies)
+        {
+            this.ZombieType = zombieType;
+            this.Zombies = zombies;
+        }
+
+        public ZombieType ZombieType;
+        public List<Character> Zombies;
+    }
+
+    public static class ZombieDictsExpand
+    {
+        public static void Add(this List<ZombieDicts> list, ZombieType zombieType, Character zombie)
+        {
+            bool contains = false;
+            foreach (var item in list)
+            {
+                if (item.ZombieType == zombieType)
+                {
+                    item.Zombies.Add(zombie);
+                    contains = true;
+                    break;
+                }
+            }
+            if (!contains)
+            {
+                list.Add(new ZombieDicts(zombieType, new List<Character>() { zombie }));
+            }
+        }
+
+        public static void Remove(this List<ZombieDicts> list, ZombieType ZombieType, Character zombie)
+        {
+            foreach (var item in list)
+            {
+                if (item.ZombieType == ZombieType)
+                {
+                    item.Zombies.Remove(zombie);
+                    break;
+                }
+            }
+        }
+
+        public static ZombieDicts Get(this List<ZombieDicts> list, ZombieType ZombieType)
+        {
+            ZombieDicts zombieDicts = new ZombieDicts(ZombieType, new List<Character>());
+            foreach (var item in list)
+            {
+                if (item.ZombieType == ZombieType)
+                {
+                    zombieDicts = item;
+                    break;
+                }
+            }
+            return zombieDicts;
+        }
     }
 
     [AddComponentMenu("TopDownPlate/Managers/LevelManager")]
@@ -58,13 +136,13 @@ namespace TopDownPlate
         public List<Wave> waves;
 
         [ReadOnly]
-        public List<Character> Enemys;
+        public List<ZombieDicts> Enemys;
 
         [ReadOnly]
-        public List<Character> CacheEnemys; // 敌人死后的对象池
+        public List<ZombieDicts> CacheEnemys; // 敌人死后的对象池
 
         [ReadOnly]
-        public List<Character> EnchantedEnemys; // 被魅惑的敌人
+        public List<ZombieDicts> EnchantedEnemys; // 被魅惑的敌人
 
         private bool isCreatePlayer = false;
         private float timer;   // 每波时间计时
@@ -149,10 +227,13 @@ namespace TopDownPlate
                     {
                         foreach (var item in Enemys)
                         {
-                            ZombieAnimation zombieAnimation = item.GetComponentInChildren<ZombieAnimation>();
-                            if (zombieAnimation != null)
+                            foreach (var zombie in item.Zombies)
                             {
-                                zombieAnimation.WalkOff();
+                                ZombieAnimation zombieAnimation = zombie.GetComponentInChildren<ZombieAnimation>();
+                                if (zombieAnimation != null)
+                                {
+                                    zombieAnimation.WalkOff();
+                                }
                             }
                         }
                         Enemys.Clear();
@@ -194,13 +275,14 @@ namespace TopDownPlate
 
                 bool cacheUsed = false;
                 // 重置对象池中的物体
-                if (CacheEnemys.Count > 0)
+                var targetCacheEnemy = CacheEnemys.Get(zombieData.ZombieType).Zombies;
+                if (targetCacheEnemy.Count > 0)
                 {
-                    var go = CacheEnemys[0];
+                    var go = targetCacheEnemy[0];
                     ZombieAnimation zombieAnimation = go.GetComponentInChildren<ZombieAnimation>();
                     if (zombieAnimation != null)
                     {
-                        CacheEnemys.RemoveAt(0);
+                        targetCacheEnemy.RemoveAt(0);
                         if (!isGravebusterSwallow)
                             zombieAnimation.Reuse();
                         go.transform.position = new Vector3(randomX, randomY, 0);
@@ -248,12 +330,15 @@ namespace TopDownPlate
             float distance = range;
             foreach (var item in Enemys)
             {
-                AIMove aIMove = item.FindAbility<AIMove>();
-                if (aIMove.AIParameter.Distance < distance)
+                foreach (var zombie in item.Zombies)
                 {
-                    target = item;
-                    distance = aIMove.AIParameter.Distance;
-                    direction = aIMove.AIParameter.IsPlayerRight;
+                    AIMove aIMove = zombie.FindAbility<AIMove>();
+                    if (aIMove.AIParameter.Distance < distance)
+                    {
+                        target = zombie;
+                        distance = aIMove.AIParameter.Distance;
+                        direction = aIMove.AIParameter.IsPlayerRight;
+                    }
                 }
             }
             return target;
@@ -263,8 +348,11 @@ namespace TopDownPlate
         {
             foreach (var item in Enemys)
             {
-                var move = item.FindAbility<AIMove>();
-                move.SetBrainPos();
+                foreach (var zombie in item.Zombies)
+                {
+                    var move = zombie.FindAbility<AIMove>();
+                    move.SetBrainPos();
+                }
             }
         }
     }

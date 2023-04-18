@@ -66,6 +66,8 @@ namespace TopDownPlate
         private float decelerationTimer;  // 减速时刻
         private float finalMoveSpeed;
 
+        private ZombieAnimation zombieAnimation;
+
         [ReadOnly]
         public bool isSwoop;  // 正在飞扑,不改变移动方向
         [ReadOnly]
@@ -81,6 +83,7 @@ namespace TopDownPlate
             AIParameter.HeadPos = HeadPos;
             AIParameter.BodyPos = BodyPos;
             AIParameter.Distance = float.MaxValue;
+            zombieAnimation = GetComponentInChildren<ZombieAnimation>();
         }
 
         public override void Reuse()
@@ -117,10 +120,15 @@ namespace TopDownPlate
             }
             if (canMove)
             {
-                if (IsEnchanted && (target == null || target.IsDead) && LevelManager.Instance.Enemys.Count > 0)
+                if (IsEnchanted && (target == null || target.IsDead))
                 {
                     int index = UnityEngine.Random.Range(0, LevelManager.Instance.Enemys.Count);
-                    target = LevelManager.Instance.Enemys[index];
+                    var targetList = LevelManager.Instance.Enemys[index].Zombies;
+                    if (targetList.Count > 0)
+                    {
+                        int i = UnityEngine.Random.Range(0, targetList.Count);
+                        target = targetList[i];
+                    }
                 }
                 if (!isSwoop)
                 {
@@ -218,8 +226,8 @@ namespace TopDownPlate
         {
             this.IsEnchanted = true;
             hurtFlash.BeEnchanted();
-            LevelManager.Instance.Enemys.Remove(this.character);
-            LevelManager.Instance.EnchantedEnemys.Add(this.character);
+            LevelManager.Instance.Enemys.Remove(zombieAnimation.zombieType, this.character);
+            LevelManager.Instance.EnchantedEnemys.Add(zombieAnimation.zombieType, this.character);
             character.FindAbility<AIAttack>().BeEnchanted(attackCount, percentageDamageAdd, basicDamageAdd);
             this.gameObject.layer = LayerMask.NameToLayer("ZombieEnchanted");
         }

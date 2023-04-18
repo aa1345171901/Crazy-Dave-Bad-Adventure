@@ -230,7 +230,7 @@ namespace TopDownPlate
             percentSpeed = 1 / (direction.magnitude / finalAttackSpped / Time.deltaTime);
             currentPercent = 0;
             bezierInit = true;
-            potAudio.ImpactAudioPlay(targetAIMove.AIParameter.attackPos == AIParameter.AttackPos.Body);
+            potAudio.ImpactAudioPlay(targetAIMove.AIParameter.attackPos == AIParameter.AttackPos.Body, targetAIMove.GetComponentInChildren<ZombieAnimation>().zombieType);
         }
 
         /// <summary>
