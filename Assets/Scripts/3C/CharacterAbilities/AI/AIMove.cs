@@ -201,7 +201,22 @@ namespace TopDownPlate
         public void SetRepulsiveForce(float force)
         {
             canMove = false;
-            RepulsiveForce = force;
+            switch (zombieAnimation.zombieType)
+            {
+                case ZombieType.Normal:
+                case ZombieType.Flag:
+                    RepulsiveForce = force;
+                    break;
+                case ZombieType.Cone:
+                case ZombieType.Bucket:
+                    RepulsiveForce = force / 2;
+                    break;
+                case ZombieType.Screendoor:
+                    RepulsiveForce = force / 4;
+                    break;
+                default:
+                    break;
+            }
             StartCoroutine(Repulsive());
         }
 

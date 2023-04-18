@@ -19,7 +19,7 @@ public class ZombieProp : MonoBehaviour
     [SpineAnimation]
     public string PropLostAnimation;
 
-    public GameObject fallProp;
+    public PropFall fallProp;
 
     private int animIndex; // 上一次设置的动画， 放置重复设置动画
 
@@ -36,6 +36,7 @@ public class ZombieProp : MonoBehaviour
                 if (fallProp != null)
                 {
                     var prop = GameObject.Instantiate(fallProp);
+                    fallProp.character = character;
                     prop.transform.position = this.transform.position + new Vector3(0, 1, 0);
                     prop.GetComponent<SpriteRenderer>().sortingOrder = character.LayerOrder + 1;
                 }
