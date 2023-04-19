@@ -286,7 +286,7 @@ MonoBehaviour:
       - m_Target: {fileID: 3477319392240056500}
         m_TargetAssemblyTypeName: ZombieProp, Assembly-CSharp
         m_MethodName: Injure
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6838,7 +6838,7 @@ MonoBehaviour:
   WornAnimation1: wornScreendoor/wornScreendoor1
   WornAnimation2: wornScreendoor/wornScreendoor2
   PropLostAnimation: wornScreendoor/lostScreendoor
-  fallProp: {fileID: 8873367876213907528, guid: f487fd3aa8146c34cbca27ac4f850f36, type: 3}
+  fallProp: {fileID: 5605974063249009415, guid: f487fd3aa8146c34cbca27ac4f850f36, type: 3}
 --- !u!1 &8396168951031274908
 GameObject:
   m_ObjectHideFlags: 0

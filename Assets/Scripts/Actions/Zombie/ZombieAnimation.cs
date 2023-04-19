@@ -110,6 +110,8 @@ public class ZombieAnimation : MonoBehaviour
         EarthParticle.Play();
         character.State.AIStateType = AIStateType.Init;
         zombieFly.Reuse();
+        if (zombieProp != null)
+            zombieProp.Reuse();
         character.gameObject.SetActive(true);
     }
 

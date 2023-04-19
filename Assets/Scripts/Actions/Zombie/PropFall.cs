@@ -8,6 +8,7 @@ public class PropFall : MonoBehaviour
     public Trigger2D trigger2D;
     public AudioSource audioSource;
     public Character character;
+    public DamageType damageType;
 
     private float height;
     private float time;
@@ -21,17 +22,25 @@ public class PropFall : MonoBehaviour
     private float LiveTime = 2;
     private readonly float flyTime = 0.3f;
 
+    public bool IsAbsorbed { get; set; }
+
     private void Start()
     {
-        Vector3 offset = new Vector3(Random.Range(0, 0.01f), Random.Range(-0.01f, 0.01f), 0);
-        height = Random.Range(0.015f, 0.012f);
-        time = Random.Range(0.4f, 0.6f);
-        if (GameManager.Instance.IsZombieShock)
-            time *= 2;
-        offsetSpeed = offset / time;
-        Invoke("DestroyProp", LiveTime);
-        audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
-        speed = GameManager.Instance.UserData.Power / 5 + 2;
+        if (!IsAbsorbed)
+        {
+            Vector3 offset = new Vector3(Random.Range(0, 0.01f), Random.Range(-0.01f, 0.01f), 0);
+            height = Random.Range(0.015f, 0.012f);
+            if (GameManager.Instance.IsZombieShock)
+                time = Random.Range(0.6f, 0.9f);
+            else
+                time = Random.Range(0.4f, 0.6f);
+            offsetSpeed = offset / time;
+            Invoke("DestroyProp", LiveTime);
+            audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
+            speed = GameManager.Instance.UserData.Power / 5 + 2;
+            direction = transform.position - GameManager.Instance.Player.transform.position;
+            direction = new Vector3(direction.x, direction.y, transform.position.z).normalized;
+        }
     }
 
     private void DestroyProp()
@@ -41,38 +50,41 @@ public class PropFall : MonoBehaviour
 
     private void Update()
     {
-        if (curTime < time)
+        if (!IsAbsorbed)
         {
-            if (GameManager.Instance.IsZombieShock)
+            if (curTime < time)
             {
-                float process = 1 - curTime / time;
-
-                Trigger(trigger2D);
-
-                // Åö×²ÁË¾ÍÍù·´Ïò·ÉÊ£Óà¾àÀë
-                if (!isTrigger)
+                if (GameManager.Instance.IsZombieShock && damageType == DamageType.Pot)
                 {
-                    transform.Translate(direction * speed * process * Time.deltaTime, Space.World);
-                    angle += UnityEngine.Random.Range(-1, -3);
+                    float process = 1 - curTime / time;
+
+                    Trigger(trigger2D);
+
+                    // Åö×²ÁË¾ÍÍù·´Ïò·ÉÊ£Óà¾àÀë
+                    if (!isTrigger)
+                    {
+                        transform.Translate(direction * speed * process * Time.deltaTime, Space.World);
+                        angle += Random.Range(-1, 0);
+                    }
+                    else
+                    {
+                        transform.Translate(-direction * speed * process * Time.deltaTime, Space.World);
+                        angle -= Random.Range(-1, 0);
+                    }
+
+                    transform.rotation = Quaternion.Euler(0, 0, angle);
+
+                    if (curTime < flyTime)
+                        transform.Translate(Vector3.down * curTime * 9.8f * Time.deltaTime, Space.World);
                 }
                 else
                 {
-                    transform.Translate(-direction * speed * process * Time.deltaTime, Space.World);
-                    angle -= UnityEngine.Random.Range(-1, -3);
+                    curTime += Time.deltaTime;
+                    Vector3 newPos = this.transform.position + offsetSpeed * curTime;
+                    newPos.y += Mathf.Cos(curTime / time * Mathf.PI - Mathf.PI / 2) * height;
+                    newPos.z = offsetSpeed.z;
+                    transform.position = newPos;
                 }
-
-                transform.rotation = Quaternion.Euler(0, 0, angle);
-
-                if (curTime < flyTime)
-                    transform.Translate(Vector3.down * curTime * 9.8f * Time.deltaTime, Space.World);
-            }
-            else
-            {
-                curTime += Time.deltaTime;
-                Vector3 newPos = this.transform.position + offsetSpeed * curTime;
-                newPos.y += Mathf.Cos(curTime / time * Mathf.PI - Mathf.PI / 2) * height;
-                newPos.z = offsetSpeed.z;
-                transform.position = newPos;
             }
         }
     }

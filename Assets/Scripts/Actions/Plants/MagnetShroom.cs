@@ -27,6 +27,8 @@ public class MagnetShroom : Plant
     private readonly float LevelTime = 0.4f;
     private readonly int LevelCoin = 10;
 
+    public Dictionary<Vector3, GameObject> targets = new Dictionary<Vector3, GameObject>();
+
     private void Start()
     {
         audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
@@ -79,13 +81,21 @@ public class MagnetShroom : Plant
         if (!isAbsorbing && Time.time - timer > finalCoolTime)
         {
             animator.SetBool("IsCoolling", false);
-            // todo 吸铁判断
-            if (false)
+            if (targets.Count > 0)
+            {
+                ShopManager.Instance.Money += finalChangeCoin * targets.Count;
+                foreach (var item in targets)
+                {
+                    Destroy(item.Value);
+                }
+                targets.Clear();
+            }
+            if (JudgeAttack())
             {
                 audioSource.Play();
                 timer = Time.time;
                 animator.SetBool("IsAttack", true);
-                Invoke("StartAbsorbing", 0.5f);
+                StartAbsorbing();
             }
         }
         if (isAbsorbing && Time.time - timer > finalDurationTime)
@@ -98,25 +108,38 @@ public class MagnetShroom : Plant
         if (isAbsorbing)
         {
             // 增加铁制品
-            //if (coins.Count < finalCount)
-            //{
-            //    var allCoin = GameManager.Instance.Coins;
-            //    if (allCoin.Count > 0)
-            //    {
-            //        int index = Random.Range(0, allCoin.Count);
-            //        var coin = allCoin[index];
-            //        allCoin.Remove(coin);
-            //        coins.Add(coin.transform.position, coin);
-            //    }
-            //}
+            if (targets.Count < finalCount)
+            {
+                JudgeAttack();
+            }
 
-            //foreach (var item in coins)
-            //{
-            //    float process = (Time.time - timer) / finalDurationTime;
-            //    var lerp = Vector3.Lerp(item.Key, transform.position, process);
-            //    item.Value.transform.position = new Vector3(lerp.x, lerp.y, 0);
-            //}
+            foreach (var item in targets)
+            {
+                float process = (Time.time - timer) / finalDurationTime;
+                var lerp = Vector3.Lerp(item.Key, transform.position, process);
+                item.Value.transform.position = new Vector3(lerp.x, lerp.y, 0);
+            }
         }
+    }
+
+    private bool JudgeAttack()
+    {
+        bool result = false;
+        List<Character> zombies = new List<Character>();
+        zombies.AddRange(LevelManager.Instance.Enemys.Get(ZombieType.Bucket).Zombies);
+        zombies.AddRange(LevelManager.Instance.Enemys.Get(ZombieType.Screendoor).Zombies);
+        foreach (var item in zombies)
+        {
+            ZombieProp zombieProp = item.GetComponentInChildren<ZombieProp>();
+            if (zombieProp != null && !zombieProp.IsFall)
+            {
+                targets.Add(zombieProp.transform.position, zombieProp.MagnetShroomAttack());
+                result = true;
+                if (targets.Count >= finalCount)
+                    break;
+            }
+        }
+        return result;
     }
 
     private void StartAbsorbing()

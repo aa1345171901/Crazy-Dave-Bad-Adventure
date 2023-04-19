@@ -58,7 +58,7 @@ namespace TopDownPlate
         [Space(10)]
         [Header("Event")]
         [Tooltip("受伤事件")]
-        public UnityEvent Injured;   // bool 传递是否暴击
+        public UnityEvent<DamageType> Injured;
         [Tooltip("死亡事件")]
         public UnityEvent<DamageType> Dead;   // DamageType判断伤害来源
 
@@ -158,7 +158,7 @@ namespace TopDownPlate
             }
             else
             {
-                Injured?.Invoke();
+                Injured?.Invoke(damageType);
             }
         }
 

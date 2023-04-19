@@ -286,7 +286,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2628381493096923383}
         m_TargetAssemblyTypeName: ZombieProp, Assembly-CSharp
         m_MethodName: Injure
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6784,7 +6784,7 @@ MonoBehaviour:
   WornAnimation1: wornBucket/wornBucket1
   WornAnimation2: wornBucket/wornBucket2
   PropLostAnimation: wornBucket/lostBucket
-  fallProp: {fileID: 322173614799157619, guid: 3ad82c0915187584aba2d627b240ca53, type: 3}
+  fallProp: {fileID: 3643541388081918524, guid: 3ad82c0915187584aba2d627b240ca53, type: 3}
 --- !u!1 &6970771467842184671
 GameObject:
   m_ObjectHideFlags: 0

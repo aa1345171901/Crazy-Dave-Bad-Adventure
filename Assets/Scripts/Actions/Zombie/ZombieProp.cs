@@ -23,7 +23,16 @@ public class ZombieProp : MonoBehaviour
 
     private int animIndex; // 上一次设置的动画， 放置重复设置动画
 
-    public void Injure()
+    public bool IsFall { get; set; }
+
+    public void Reuse()
+    {
+        IsFall = false;
+        animIndex = 0;
+    }
+
+
+    public void Injure(DamageType damageType)
     {
         int maxHp = character.Health.maxHealth;
         int hp = character.Health.health;
@@ -33,10 +42,12 @@ public class ZombieProp : MonoBehaviour
             {
                 animIndex = 1;
                 character.SkeletonAnimation.AnimationState.SetAnimation(2, PropLostAnimation, false);
+                IsFall = true;
                 if (fallProp != null)
                 {
                     var prop = GameObject.Instantiate(fallProp);
-                    fallProp.character = character;
+                    prop.damageType = damageType;
+                    prop.character = character;
                     prop.transform.position = this.transform.position + new Vector3(0, 1, 0);
                     prop.GetComponent<SpriteRenderer>().sortingOrder = character.LayerOrder + 1;
                 }
@@ -58,5 +69,15 @@ public class ZombieProp : MonoBehaviour
                 animIndex = 3;
             }
         }
+    }
+
+    public GameObject MagnetShroomAttack()
+    {
+        this.character.Health.health = this.character.Health.maxHealth / 4;
+        var prop = GameObject.Instantiate(fallProp);
+        prop.IsAbsorbed = true;
+        IsFall = true;
+        prop.transform.position = this.transform.position + new Vector3(0, 1, 0);
+        return prop.gameObject;
     }
 }
