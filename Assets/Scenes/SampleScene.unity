@@ -428,6 +428,20 @@ MonoBehaviour:
       IntervalTime: 16
       TimeIncrement: 0
       lastGenerateTime: -4
+    - ZombieType: 5
+      EnemyPrefab: {fileID: 430822811509685972, guid: cc7c155c4a9354648a31fa92129a6258, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 4
+      TimeIncrement: 0
+      lastGenerateTime: -4
+    - ZombieType: 6
+      EnemyPrefab: {fileID: 4586820400708108030, guid: c11bca65624519849b56d16697343d9f, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 4
+      TimeIncrement: 0
+      lastGenerateTime: -4
   Enemys: []
   CacheEnemys: []
   EnchantedEnemys: []

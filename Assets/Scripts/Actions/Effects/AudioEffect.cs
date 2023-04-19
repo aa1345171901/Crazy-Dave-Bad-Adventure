@@ -19,16 +19,13 @@ public class AudioEffect : MonoBehaviour
             audioSource.pitch = Random.Range(1, 1.2f);
         switch (zombieType)
         {
-            case ZombieType.Normal:
-            case ZombieType.Flag:
-            case ZombieType.Cone:
-                audioSource.PlayOneShot(impact);
-                break;
             case ZombieType.Bucket:
             case ZombieType.Screendoor:
+            case ZombieType.Football:
                 audioSource.PlayOneShot(impact2);
                 break;
             default:
+                audioSource.PlayOneShot(impact);
                 break;
         }
         // Ä¬ÈÏimpact´ó¸Å0.3f s

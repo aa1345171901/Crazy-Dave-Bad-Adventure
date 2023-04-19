@@ -31,7 +31,6 @@ public class ZombieProp : MonoBehaviour
         animIndex = 0;
     }
 
-
     public void Injure(DamageType damageType)
     {
         int maxHp = character.Health.maxHealth;
@@ -46,7 +45,16 @@ public class ZombieProp : MonoBehaviour
                 if (fallProp != null)
                 {
                     var prop = GameObject.Instantiate(fallProp);
-                    prop.damageType = damageType;
+                    if (zombieType != ZombieType.Paper)
+                        prop.damageType = damageType;
+                    else
+                    {
+                        var attack = character.FindAbility<NormalZombieAttack>();
+                        attack.realCanSwoop = true;
+                        attack.realAttackProbability *= 2;
+                        var move = character.FindAbility<AIMove>();
+                        move.realSpeed *= 3;
+                    }
                     prop.character = character;
                     prop.transform.position = this.transform.position + new Vector3(0, 1, 0);
                     prop.GetComponent<SpriteRenderer>().sortingOrder = character.LayerOrder + 1;

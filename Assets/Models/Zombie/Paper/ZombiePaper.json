@@ -1,0 +1,2468 @@
+{
+"skeleton": {
+	"hash": "/9FPHncL5MTvn4Q3TT6qYgL1jRo",
+	"spine": "3.8",
+	"x": -83.09,
+	"y": 4.22,
+	"width": 143.53,
+	"height": 198.73,
+	"images": "./images/",
+	"audio": "D:/0.0/疯狂戴夫的不妙冒险/拼接/Spine/ZombiePaper"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "Zombie_charred_head", "parent": "root", "x": -34.23, "y": 158.38, "skin": true },
+	{
+		"name": "Zombie_charred_pile2",
+		"parent": "root",
+		"length": 395.02,
+		"rotation": 90.34,
+		"x": 1.63,
+		"y": 39.55,
+		"skin": true
+	},
+	{
+		"name": "Zombie_paper_lowerbody1",
+		"parent": "root",
+		"length": 14.17,
+		"rotation": 97.67,
+		"x": 0.9,
+		"y": 78.58,
+		"skin": true
+	},
+	{
+		"name": "Zombie_paper_madhead",
+		"parent": "Zombie_paper_lowerbody1",
+		"length": 63.93,
+		"rotation": 16.52,
+		"x": 14.7,
+		"y": -0.07,
+		"skin": true
+	},
+	{
+		"name": "Zombie_paper_madhead3",
+		"parent": "Zombie_paper_madhead",
+		"length": 37.05,
+		"rotation": -1.92,
+		"x": 64.29,
+		"y": 0.14,
+		"skin": true
+	},
+	{ "name": "Zombie_paper_hairpiece", "parent": "Zombie_paper_madhead3", "x": 38.89, "y": -8.34, "skin": true },
+	{ "name": "Zombie_paper_glasses", "parent": "Zombie_paper_madhead3", "x": 16.1, "y": 19.37, "skin": true },
+	{ "name": "Zombie_jaw", "parent": "Zombie_paper_madhead3", "x": -3.45, "y": 13.67, "skin": true },
+	{
+		"name": "Zombie_paper_leftarm_upper",
+		"parent": "Zombie_paper_madhead",
+		"length": 41.04,
+		"rotation": -151.43,
+		"x": 48.56,
+		"y": -11.15,
+		"skin": true
+	},
+	{
+		"name": "Zombie_paper_leftarm_lower",
+		"parent": "Zombie_paper_leftarm_upper",
+		"length": 35.35,
+		"rotation": -109.91,
+		"x": 43.27,
+		"y": -2.04,
+		"skin": true
+	},
+	{
+		"name": "Zombie_paper_hands3",
+		"parent": "Zombie_paper_leftarm_lower",
+		"length": 16.08,
+		"rotation": -40.56,
+		"x": 35.74,
+		"y": -0.89,
+		"skin": true
+	},
+	{
+		"name": "Zombie_paper_rightarm_upper",
+		"parent": "Zombie_paper_madhead",
+		"length": 16.08,
+		"rotation": 114.9,
+		"x": 42.6,
+		"y": 7.21,
+		"skin": true
+	},
+	{
+		"name": "Zombie_paper_rightarm_lower",
+		"parent": "Zombie_paper_rightarm_upper",
+		"length": 28.24,
+		"rotation": -55.12,
+		"x": 17.19,
+		"y": -0.46,
+		"skin": true
+	},
+	{
+		"name": "Zombie_paper_hands2",
+		"parent": "Zombie_paper_rightarm_lower",
+		"length": 10.8,
+		"rotation": 7.47,
+		"x": 27.73,
+		"y": -0.33,
+		"skin": true
+	},
+	{ "name": "Zombie_paper_paper3", "parent": "Zombie_paper_hands2", "x": -10.34, "y": 29.16, "skin": true },
+	{
+		"name": "Zombie_paper_leftleg_upper",
+		"parent": "Zombie_paper_lowerbody1",
+		"length": 17.6,
+		"rotation": 176.73,
+		"x": 3.6,
+		"y": -15.74,
+		"skin": true
+	},
+	{
+		"name": "Zombie_paper_leftleg_lower",
+		"parent": "Zombie_paper_leftleg_upper",
+		"length": 30.19,
+		"rotation": 22.17,
+		"x": 17.85,
+		"y": -0.29,
+		"skin": true
+	},
+	{
+		"name": "Zombie_paper_leftfoot",
+		"parent": "Zombie_paper_leftleg_lower",
+		"length": 27.23,
+		"rotation": -93.81,
+		"x": 32.24,
+		"y": -1.93,
+		"skin": true
+	},
+	{
+		"name": "Zombie_paper_rightleg_upper",
+		"parent": "Zombie_paper_lowerbody1",
+		"length": 20.07,
+		"rotation": -168.01,
+		"x": 6.49,
+		"y": 9.75,
+		"skin": true
+	},
+	{ "name": "Zombie_paper_rightleg_lower", "parent": "Zombie_paper_rightleg_upper", "length": 26.36, "rotation": -57.58, "x": 20.07, "skin": true },
+	{
+		"name": "Zombie_paper_rightfoot",
+		"parent": "Zombie_paper_rightleg_lower",
+		"length": 16.06,
+		"rotation": 100.93,
+		"x": 26.31,
+		"y": -0.38,
+		"skin": true
+	},
+	{ "name": "Shadow", "parent": "root", "x": 0.12, "y": 30.48, "skin": true },
+	{ "name": "headFly", "parent": "root", "x": -28.58, "y": 155.39, "color": "abe323ff" }
+],
+"slots": [
+	{ "name": "Shadow", "bone": "Shadow", "attachment": "Shadow" },
+	{ "name": "Zombie_paper_rightfoot", "bone": "Zombie_paper_rightfoot", "attachment": "Zombie_paper_rightfoot" },
+	{ "name": "Zombie_paper_rightleg_lower", "bone": "Zombie_paper_rightleg_lower", "attachment": "Zombie_paper_rightleg_lower" },
+	{ "name": "Zombie_paper_rightleg_upper", "bone": "Zombie_paper_rightleg_upper", "attachment": "Zombie_paper_rightleg_upper" },
+	{ "name": "Zombie_paper_leftfoot", "bone": "Zombie_paper_leftfoot", "attachment": "Zombie_paper_leftfoot" },
+	{ "name": "Zombie_paper_rightarm_lower", "bone": "Zombie_paper_rightarm_lower", "attachment": "Zombie_paper_rightarm_lower" },
+	{ "name": "Zombie_paper_rightarm_upper", "bone": "Zombie_paper_rightarm_upper", "attachment": "Zombie_paper_rightarm_upper" },
+	{ "name": "Zombie_paper_hands2", "bone": "Zombie_paper_hands2", "attachment": "Zombie_paper_hands2" },
+	{ "name": "Zombie_paper_leftleg_lower", "bone": "Zombie_paper_leftleg_lower", "attachment": "Zombie_paper_leftleg_lower" },
+	{ "name": "Zombie_paper_leftleg_upper", "bone": "Zombie_paper_leftleg_upper", "attachment": "Zombie_paper_leftleg_upper" },
+	{ "name": "Zombie_paper_lowerbody1", "bone": "Zombie_paper_lowerbody1", "attachment": "Zombie_paper_lowerbody1" },
+	{ "name": "Zombie_paper_body", "bone": "Zombie_paper_madhead", "attachment": "Zombie_paper_body" },
+	{ "name": "Zombie_paper_madhead", "bone": "Zombie_paper_madhead3", "attachment": "Zombie_head" },
+	{ "name": "Zombie_paper_glasses", "bone": "Zombie_paper_glasses", "attachment": "Zombie_paper_glasses" },
+	{ "name": "Zombie_paper_hairpiece", "bone": "Zombie_paper_hairpiece", "attachment": "Zombie_paper_hairpiece" },
+	{ "name": "Zombie_jaw", "bone": "Zombie_jaw", "attachment": "Zombie_jaw" },
+	{ "name": "Zombie_paper_paper3", "bone": "Zombie_paper_paper3", "attachment": "Zombie_paper_paper1" },
+	{ "name": "Zombie_paper_leftarm_lower", "bone": "Zombie_paper_leftarm_lower", "attachment": "Zombie_paper_leftarm_lower" },
+	{ "name": "Zombie_paper_leftarm_upper", "bone": "Zombie_paper_leftarm_upper", "attachment": "Zombie_paper_leftarm_upper" },
+	{ "name": "Zombie_paper_hands3", "bone": "Zombie_paper_hands3", "attachment": "Zombie_paper_hands3" },
+	{ "name": "Zombie_charred1", "bone": "Zombie_charred_pile2", "attachment": "Zombie_charred1" },
+	{ "name": "Zombie_charred_head", "bone": "Zombie_charred_head", "attachment": "Zombie_charred_head" },
+	{ "name": "Zombie_charred_eyes1", "bone": "Zombie_charred_head", "attachment": "Zombie_charred_eyes2" },
+	{ "name": "Zombie_charred_pile1", "bone": "Zombie_charred_pile2", "attachment": "Zombie_charred_pile1" },
+	{ "name": "Zombie_charred_pile2", "bone": "Zombie_charred_pile2", "attachment": "Zombie_charred_pile2" }
+],
+"transform": [
+	{
+		"name": "headFly",
+		"skin": true,
+		"bones": [ "Zombie_paper_madhead3" ],
+		"target": "headFly",
+		"rotateMix": 0,
+		"translateMix": 0,
+		"scaleMix": 0,
+		"shearMix": 0
+	}
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"Shadow": {
+				"Shadow": { "x": -0.29, "y": -0.88, "scaleX": 1.4096, "scaleY": 1.4096, "width": 86, "height": 36 }
+			},
+			"Zombie_paper_rightleg_upper": {
+				"Zombie_paper_rightleg_upper": { "x": 12.02, "y": -1.47, "rotation": 70.48, "width": 16, "height": 18 }
+			},
+			"Zombie_charred_pile1": {
+				"Zombie_charred_pile1": { "x": -12.29, "y": -2.41, "rotation": -90.34, "width": 381, "height": 110 }
+			},
+			"Zombie_charred_pile2": {
+				"Zombie_charred_pile2": { "x": 87.44, "y": -14.23, "rotation": -90.34, "width": 306, "height": 194 }
+			},
+			"Zombie_paper_madhead": {
+				"Zombie_head": { "x": 20, "y": -0.49, "rotation": -112.14, "width": 55, "height": 50 },
+				"Zombie_paper_madhead": { "x": 19.49, "y": -0.51, "rotation": -112.14, "width": 55, "height": 50 }
+			},
+			"Zombie_paper_leftarm_lower": {
+				"Zombie_paper_leftarm_lower": { "x": 17.31, "y": 2.9, "rotation": 147.29, "width": 49, "height": 37 }
+			},
+			"Zombie_paper_body": {
+				"Zombie_paper_body": {
+					"type": "mesh",
+					"uvs": [ 1, 1, 0, 1, 0, 0, 1, 0 ],
+					"triangles": [ 1, 2, 3, 1, 3, 0 ],
+					"vertices": [ -20.4, -20.56, 7.31, 41.54, 75.8, 10.98, 48.09, -51.12 ],
+					"hull": 4,
+					"edges": [ 0, 2, 2, 4, 4, 6, 0, 6 ],
+					"width": 68,
+					"height": 75
+				}
+			},
+			"Zombie_paper_rightarm_upper": {
+				"Zombie_paper_rightarm_upper": { "x": 12.47, "y": -0.37, "rotation": 131.04, "width": 35, "height": 32 }
+			},
+			"Zombie_charred_eyes1": {
+				"Zombie_charred_eyes1": { "x": -2.78, "y": 4.31, "width": 173, "height": 81 },
+				"Zombie_charred_eyes2": { "x": 16.59, "y": 0.74, "width": 173, "height": 81 }
+			},
+			"Zombie_paper_paper3": {
+				"Zombie_paper_paper1": {
+					"type": "mesh",
+					"uvs": [ 1, 1, 0, 1, 0, 0, 1, 0 ],
+					"triangles": [ 1, 2, 3, 1, 3, 0 ],
+					"vertices": [ -53.55, 28.09, 24.43, 26.32, 22.53, -57.65, -55.45, -55.88 ],
+					"hull": 4,
+					"edges": [ 0, 2, 2, 4, 4, 6, 0, 6 ],
+					"width": 78,
+					"height": 84
+				},
+				"Zombie_paper_paper2": { "x": -15.48, "y": -13.78, "rotation": 178.7, "width": 78, "height": 84 },
+				"Zombie_paper_paper3": { "x": -14.97, "y": -13.29, "rotation": 178.7, "width": 81, "height": 83 }
+			},
+			"Zombie_paper_lowerbody1": {
+				"Zombie_paper_lowerbody1": { "x": 6.17, "y": -1.47, "rotation": -97.54, "width": 61, "height": 36 }
+			},
+			"Zombie_paper_rightfoot": {
+				"Zombie_paper_rightfoot": { "x": 8.79, "y": 0.11, "rotation": 27.13, "width": 39, "height": 25 }
+			},
+			"Zombie_paper_rightleg_lower": {
+				"Zombie_paper_rightleg_lower": { "x": 9.99, "y": 0.06, "rotation": 128.06, "width": 28, "height": 26 }
+			},
+			"Zombie_paper_leftfoot": {
+				"Zombie_paper_leftfoot": { "x": 15.21, "y": -0.59, "rotation": 157.38, "width": 47, "height": 27 }
+			},
+			"Zombie_jaw": {
+				"Zombie_jaw": { "x": -0.13, "y": -3, "rotation": -112.14, "width": 34, "height": 17 }
+			},
+			"Zombie_charred_head": {
+				"Zombie_charred_head": { "x": 20.72, "y": 0.31, "width": 214, "height": 223 }
+			},
+			"Zombie_paper_hairpiece": {
+				"Zombie_paper_hairpiece": { "x": 0.48, "y": 2.5, "rotation": -112.14, "width": 54, "height": 25 }
+			},
+			"Zombie_paper_leftarm_upper": {
+				"Zombie_paper_leftarm_upper": { "x": 18.86, "y": 2.86, "rotation": 37.38, "width": 38, "height": 38 }
+			},
+			"Zombie_paper_rightarm_lower": {
+				"Zombie_paper_rightarm_lower": { "x": 16.2, "y": 2.2, "rotation": -173.83, "width": 44, "height": 32 }
+			},
+			"Zombie_charred1": {
+				"Zombie_charred1": { "x": 192.85, "y": -20.4, "rotation": -90.34, "width": 269, "height": 452 },
+				"Zombie_charred2": { "x": 203.84, "y": -32.86, "rotation": -90.34, "width": 277, "height": 444 },
+				"Zombie_charred3": { "x": 207.79, "y": -5.76, "rotation": -90.34, "width": 219, "height": 435 },
+				"Zombie_charred4": { "x": 215, "y": -8.27, "rotation": -90.34, "width": 219, "height": 415 },
+				"Zombie_charred5": { "x": 215.78, "y": -15.17, "rotation": -90.34, "width": 206, "height": 415 },
+				"Zombie_charred6": { "x": 220.39, "y": -14.55, "rotation": -90.34, "width": 204, "height": 394 },
+				"Zombie_charred7": { "x": 217.97, "y": -6.17, "rotation": -90.34, "width": 187, "height": 394 },
+				"Zombie_charred8": { "x": 216.38, "y": 2.41, "rotation": -90.34, "width": 169, "height": 394 },
+				"Zombie_charred9": { "x": 211.34, "y": -15.64, "rotation": -90.34, "width": 169, "height": 394 },
+				"Zombie_charred10": { "x": 208.87, "y": -16.45, "rotation": -90.34, "width": 169, "height": 394 },
+				"Zombie_charred_tail": { "x": 230.61, "y": -20.69, "rotation": -90.34, "width": 35, "height": 377 }
+			},
+			"Zombie_paper_leftleg_upper": {
+				"Zombie_paper_leftleg_upper": { "x": 13.89, "y": -0.05, "rotation": 85.73, "width": 10, "height": 13 }
+			},
+			"Zombie_paper_hands2": {
+				"Zombie_paper_hands2": { "x": 7.35, "y": -1.96, "rotation": 178.7, "width": 23, "height": 21 }
+			},
+			"Zombie_paper_hands3": {
+				"Zombie_paper_hands3": { "x": 6.98, "y": -3.4, "rotation": -172.15, "width": 27, "height": 28 }
+			},
+			"Zombie_paper_leftleg_lower": {
+				"Zombie_paper_leftleg_lower": { "x": 16.32, "y": -0.97, "rotation": 63.56, "width": 25, "height": 37 }
+			},
+			"Zombie_paper_glasses": {
+				"Zombie_paper_glasses": { "x": -1.72, "y": -14.98, "rotation": -112.14, "width": 52, "height": 21 }
+			}
+		}
+	},
+	{
+		"name": "charred",
+		"bones": [ "Zombie_charred_head", "Zombie_charred_pile2" ]
+	},
+	{
+		"name": "paper",
+		"bones": [ "Shadow", "Zombie_jaw", "Zombie_paper_glasses", "Zombie_paper_hairpiece", "Zombie_paper_hands2", "Zombie_paper_hands3", "Zombie_paper_leftarm_lower", "Zombie_paper_leftarm_upper", "Zombie_paper_leftfoot", "Zombie_paper_leftleg_lower", "Zombie_paper_leftleg_upper", "Zombie_paper_lowerbody1", "Zombie_paper_madhead", "Zombie_paper_madhead3", "Zombie_paper_paper3", "Zombie_paper_rightarm_lower", "Zombie_paper_rightarm_upper", "Zombie_paper_rightfoot", "Zombie_paper_rightleg_lower", "Zombie_paper_rightleg_upper" ],
+		"transform": [ "headFly" ]
+	}
+],
+"animations": {
+	"Attack": {
+		"bones": {
+			"Zombie_paper_madhead": {
+				"rotate": [
+					{ "angle": -20.12 },
+					{ "time": 0.1333, "angle": -9.05 },
+					{ "time": 0.3 }
+				],
+				"translate": [
+					{ "x": 0.61, "y": 4.55 },
+					{ "time": 0.1333 }
+				]
+			},
+			"Zombie_paper_madhead3": {
+				"rotate": [
+					{ "angle": 4.14 },
+					{ "time": 0.1333, "angle": -5.89 },
+					{ "time": 0.3 }
+				]
+			},
+			"Zombie_paper_leftarm_upper": {
+				"rotate": [
+					{ "angle": -32.5 },
+					{ "time": 0.1333, "angle": -14.34 },
+					{ "time": 0.3 }
+				]
+			},
+			"Zombie_paper_leftarm_lower": {
+				"rotate": [
+					{ "angle": -3.37, "curve": "stepped" },
+					{ "time": 0.1333, "angle": -3.37 },
+					{ "time": 0.3 }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"rotate": [
+					{ "angle": -32.87 },
+					{ "time": 0.1333, "angle": -18.61 },
+					{ "time": 0.3 }
+				],
+				"translate": [
+					{ "x": 10.84, "y": 17.08 },
+					{ "time": 0.1333, "x": 4.23, "y": 14.98 },
+					{ "time": 0.3 }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"rotate": [
+					{ "angle": 5.54, "curve": "stepped" },
+					{ "time": 0.1333, "angle": 5.54 },
+					{ "time": 0.3 }
+				]
+			},
+			"Zombie_paper_paper3": {
+				"rotate": [
+					{ "angle": 4.01, "curve": "stepped" },
+					{ "time": 0.1333, "angle": 4.01 },
+					{ "time": 0.3 }
+				],
+				"translate": [
+					{ "x": -0.35, "y": -6.97, "curve": "stepped" },
+					{ "time": 0.1333, "x": -0.35, "y": -6.97 },
+					{ "time": 0.3 }
+				]
+			}
+		}
+	},
+	"AttackSwoop": {
+		"bones": {
+			"Zombie_paper_madhead": {
+				"rotate": [
+					{ "angle": 0.73 }
+				]
+			},
+			"Zombie_paper_lowerbody1": {
+				"rotate": [
+					{ "angle": 63.38 }
+				],
+				"translate": [
+					{ "x": -31.2, "y": 53.91 },
+					{ "time": 0.4333, "x": -31.2, "y": -35.47 }
+				]
+			},
+			"Zombie_paper_madhead3": {
+				"rotate": [
+					{ "angle": 10.43 }
+				]
+			},
+			"Zombie_paper_leftarm_upper": {
+				"rotate": [
+					{ "angle": -20.37 }
+				]
+			},
+			"Zombie_paper_leftarm_lower": {
+				"rotate": [
+					{ "angle": 97.49 }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"rotate": [
+					{ "angle": 31.14 }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"rotate": [
+					{ "angle": 71.65 }
+				]
+			},
+			"Zombie_paper_leftleg_upper": {
+				"rotate": [
+					{ "angle": 5.4 }
+				]
+			},
+			"Zombie_paper_leftleg_lower": {
+				"rotate": [
+					{ "angle": 6.46 }
+				]
+			},
+			"Zombie_paper_leftfoot": {
+				"rotate": [
+					{ "angle": 67 }
+				]
+			},
+			"Zombie_paper_rightleg_upper": {
+				"rotate": [
+					{ "angle": 12.02 }
+				]
+			},
+			"Zombie_paper_rightleg_lower": {
+				"rotate": [
+					{ "angle": 24.39 }
+				]
+			},
+			"Zombie_paper_rightfoot": {
+				"rotate": [
+					{ "angle": -27.49 }
+				]
+			},
+			"Shadow": {
+				"translate": [
+					{ "x": -39.27, "y": -3.74 }
+				],
+				"scale": [
+					{ "x": 2.758, "y": 0.563 }
+				]
+			}
+		}
+	},
+	"AttackSwoop_After": {
+		"bones": {
+			"Zombie_paper_madhead": {
+				"rotate": [
+					{ "angle": 0.73 },
+					{ "time": 0.4667 }
+				]
+			},
+			"Zombie_paper_lowerbody1": {
+				"rotate": [
+					{ "angle": 63.38 },
+					{ "time": 0.4667 }
+				],
+				"translate": [
+					{ "x": -31.2, "y": -35.47 },
+					{ "time": 0.4667 }
+				]
+			},
+			"Zombie_paper_madhead3": {
+				"rotate": [
+					{ "angle": 10.43 },
+					{ "time": 0.4667 }
+				]
+			},
+			"Zombie_paper_leftarm_upper": {
+				"rotate": [
+					{ "angle": -20.37 },
+					{ "time": 0.2333, "angle": -54.75 },
+					{ "time": 0.4667 }
+				]
+			},
+			"Zombie_paper_leftarm_lower": {
+				"rotate": [
+					{ "angle": 97.49 },
+					{ "time": 0.4667 }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"rotate": [
+					{ "angle": 31.14 },
+					{ "time": 0.2333, "angle": 1.94 },
+					{ "time": 0.4667 }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"rotate": [
+					{ "angle": 71.65 },
+					{ "time": 0.4667 }
+				]
+			},
+			"Zombie_paper_leftleg_upper": {
+				"rotate": [
+					{ "angle": 5.4 },
+					{ "time": 0.4667 }
+				]
+			},
+			"Zombie_paper_leftleg_lower": {
+				"rotate": [
+					{ "angle": 6.46 },
+					{ "time": 0.4667 }
+				]
+			},
+			"Zombie_paper_leftfoot": {
+				"rotate": [
+					{ "angle": 67 },
+					{ "time": 0.4667 }
+				]
+			},
+			"Zombie_paper_rightleg_upper": {
+				"rotate": [
+					{ "angle": 12.02 },
+					{ "time": 0.4667 }
+				]
+			},
+			"Zombie_paper_rightleg_lower": {
+				"rotate": [
+					{ "angle": 24.39 },
+					{ "time": 0.4667 }
+				]
+			},
+			"Zombie_paper_rightfoot": {
+				"rotate": [
+					{ "angle": -27.49 },
+					{ "time": 0.4667 }
+				]
+			},
+			"Shadow": {
+				"translate": [
+					{ "x": -39.27, "y": -3.74 },
+					{ "time": 0.4667 }
+				],
+				"scale": [
+					{ "x": 2.758, "y": 0.563 },
+					{ "time": 0.4667 }
+				]
+			}
+		}
+	},
+	"AttackSwoop_Before": {
+		"bones": {
+			"Zombie_paper_madhead": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": 6.03 },
+					{ "time": 0.3333, "angle": 0.73 }
+				]
+			},
+			"Zombie_paper_lowerbody1": {
+				"rotate": [
+					{ "time": 0.1667 },
+					{ "time": 0.3333, "angle": 63.38 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.1667, "y": -5.16 },
+					{ "time": 0.3333, "x": -31.2, "y": 53.91 }
+				]
+			},
+			"Zombie_paper_madhead3": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": -7.22 },
+					{ "time": 0.3333, "angle": 10.43 }
+				]
+			},
+			"Zombie_paper_leftarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": -13.06 },
+					{ "time": 0.3333, "angle": -20.37 }
+				]
+			},
+			"Zombie_paper_leftarm_lower": {
+				"rotate": [
+					{ "time": 0.1667 },
+					{ "time": 0.3333, "angle": 97.49 }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": 10.2 },
+					{ "time": 0.3333, "angle": 31.14 }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"rotate": [
+					{ "time": 0.1667 },
+					{ "time": 0.3333, "angle": 71.65 }
+				]
+			},
+			"Zombie_paper_leftleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": -6.85 },
+					{ "time": 0.3333, "angle": 5.4 }
+				]
+			},
+			"Zombie_paper_leftleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": 16.65 },
+					{ "time": 0.3333, "angle": 6.46 }
+				]
+			},
+			"Zombie_paper_leftfoot": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": 7.16 },
+					{ "time": 0.3333, "angle": 67 }
+				]
+			},
+			"Zombie_paper_rightleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": -5.43 },
+					{ "time": 0.3333, "angle": 12.02 }
+				]
+			},
+			"Zombie_paper_rightleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": -1.47 },
+					{ "time": 0.3333, "angle": 24.39 }
+				]
+			},
+			"Zombie_paper_rightfoot": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": -2.1 },
+					{ "time": 0.3333, "angle": -27.49 }
+				]
+			},
+			"Shadow": {
+				"translate": [
+					{ "time": 0.1667 },
+					{ "time": 0.3333, "x": -39.27, "y": -3.74 }
+				],
+				"scale": [
+					{ "time": 0.1667 },
+					{ "time": 0.3333, "x": 2.758, "y": 0.563 }
+				]
+			}
+		}
+	},
+	"Attack_Before": {
+		"bones": {
+			"Zombie_paper_madhead": {
+				"rotate": [
+					{},
+					{ "time": 0.5, "angle": -9.05 },
+					{ "time": 1, "angle": -20.12 }
+				],
+				"translate": [
+					{ "time": 0.5 },
+					{ "time": 1, "x": 0.61, "y": 4.55 }
+				]
+			},
+			"Zombie_paper_madhead3": {
+				"rotate": [
+					{},
+					{ "time": 0.5, "angle": -5.89 },
+					{ "time": 1, "angle": 4.14 }
+				]
+			},
+			"Zombie_paper_leftarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.5, "angle": -14.34 },
+					{ "time": 1, "angle": -32.5 }
+				]
+			},
+			"Zombie_paper_leftarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.5, "angle": -3.37 }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.5, "angle": -18.61 },
+					{ "time": 1, "angle": -32.87 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.5, "x": 4.23, "y": 14.98 },
+					{ "time": 1, "x": 10.84, "y": 17.08 }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.5, "angle": 5.54 }
+				]
+			},
+			"Zombie_paper_paper3": {
+				"rotate": [
+					{},
+					{ "time": 0.5, "angle": 4.01 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.5, "x": -0.35, "y": -6.97 }
+				]
+			}
+		}
+	},
+	"Dead": {
+		"slots": {
+			"Zombie_charred1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_rightfoot": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_body": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_leftleg_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_rightleg_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_leftleg_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_charred_eyes1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_charred_head": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_leftfoot": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Shadow": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_charred_pile1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_hairpiece": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_madhead": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_hands3": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_paper3": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_leftarm_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_lowerbody1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_leftarm_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_charred_pile2": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_hands2": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_rightleg_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_glasses": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_jaw": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			}
+		},
+		"bones": {
+			"Shadow": {
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": -134.54 }
+				],
+				"scale": [
+					{},
+					{ "time": 1.3333, "x": 3.183, "y": 1.063 }
+				]
+			},
+			"Zombie_paper_hands3": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": 23.55 }
+				]
+			},
+			"Zombie_paper_leftarm_upper": {
+				"rotate": [
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": -137.82 },
+					{ "time": 1, "angle": 172.22 },
+					{ "time": 1.1667, "angle": 153.79 },
+					{ "time": 1.3333, "angle": 172.61 }
+				]
+			},
+			"Zombie_paper_leftarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 67.23 },
+					{ "time": 1, "angle": 93.02 }
+				]
+			},
+			"Zombie_paper_paper3": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 57.56 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.6667, "x": 65.98, "y": -18.13 }
+				]
+			},
+			"Zombie_paper_madhead3": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 1.92 },
+					{ "time": 0.8333, "angle": -178.08 },
+					{ "time": 1.3333, "angle": 1.92 }
+				],
+				"translate": [
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "x": 35.54, "y": 22.23 },
+					{ "time": 1, "x": 55.68, "y": -20.94 },
+					{ "time": 1.1667, "x": 68.31, "y": -30.88 }
+				]
+			},
+			"Zombie_paper_madhead": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": -2.35 },
+					{ "time": 1.1667, "angle": -17.15 },
+					{ "time": 1.3333, "angle": -2.35 }
+				]
+			},
+			"Zombie_paper_lowerbody1": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 5.19 },
+					{ "time": 1, "angle": 72.81 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": -19.39, "y": -25.87 },
+					{ "time": 1, "x": -78.21, "y": -34.45 },
+					{ "time": 1.1667, "x": -78.21, "y": -15.39 },
+					{ "time": 1.3333, "x": -78.21, "y": -34.45 }
+				]
+			},
+			"Zombie_paper_leftleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -58.23 },
+					{ "time": 0.6667, "angle": -4.5 },
+					{ "time": 1, "angle": 12.53 },
+					{ "time": 1.1667, "angle": 27.6 },
+					{ "time": 1.3333, "angle": -4.38 }
+				]
+			},
+			"Zombie_paper_leftleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 93.93 },
+					{ "time": 0.6667, "angle": 20.95 },
+					{ "time": 1, "angle": 5.83 },
+					{ "time": 1.1667, "angle": -3.54 },
+					{ "time": 1.3333, "angle": -2.2 }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -9.52 },
+					{ "time": 0.6667, "angle": -69.5 },
+					{ "time": 1, "angle": -103.61 },
+					{ "time": 1.1667, "angle": -110.87 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.7333, "x": 10.09, "y": 5.94 }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 26.9 },
+					{ "time": 0.6667, "angle": 35.11 }
+				]
+			},
+			"Zombie_paper_leftfoot": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -30.66 },
+					{ "time": 0.6667, "angle": -18.07 },
+					{ "time": 1, "angle": 8.39 },
+					{ "time": 1.1667, "angle": 18.04 }
+				]
+			},
+			"Zombie_paper_rightleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 14.29 },
+					{ "time": 0.6667, "angle": 8.36 },
+					{ "time": 1, "angle": -2.84 },
+					{ "time": 1.1667, "angle": 2.61 },
+					{ "time": 1.3333, "angle": -2.4 }
+				]
+			},
+			"Zombie_paper_rightleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -54.84 },
+					{ "time": 0.6667, "angle": 24.71 },
+					{ "time": 1, "angle": 39.38 },
+					{ "time": 1.1667, "angle": 44.31 },
+					{ "time": 1.3333, "angle": 47.09 }
+				]
+			},
+			"Zombie_paper_rightfoot": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": -22.71 },
+					{ "time": 1.1667, "angle": -43.93 }
+				]
+			}
+		}
+	},
+	"DeadBodyFly": {
+		"bones": {
+			"Zombie_paper_lowerbody1": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -4.97 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{ "x": 9.92, "y": 20.49 }
+				]
+			},
+			"Zombie_paper_madhead": {
+				"rotate": [
+					{ "angle": -2.37 },
+					{ "time": 0.3333, "angle": 2.65 },
+					{ "time": 0.6667, "angle": 4.67 },
+					{ "time": 1, "angle": -5.77 },
+					{ "time": 1.3333, "angle": -2.37 }
+				]
+			},
+			"Zombie_paper_madhead3": {
+				"rotate": [
+					{ "angle": 13.06 },
+					{ "time": 0.3333, "angle": 7.6 },
+					{ "time": 0.6667, "angle": 14.88 },
+					{ "time": 1, "angle": 7.6 },
+					{ "time": 1.3333, "angle": 13.06 }
+				]
+			},
+			"Zombie_paper_hairpiece": {
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": 2.29, "y": -3.89 },
+					{ "time": 0.6667, "x": -3.71, "y": -0.2 },
+					{ "time": 1, "x": 2.29, "y": -3.89 },
+					{ "time": 1.3333 }
+				]
+			},
+			"Zombie_paper_glasses": {
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": 1.16, "y": 5.33 },
+					{ "time": 0.6667, "x": 0.62, "y": 0.35 },
+					{ "time": 1, "x": 1.16, "y": 5.33 },
+					{ "time": 1.3333 }
+				]
+			},
+			"Zombie_paper_leftarm_upper": {
+				"rotate": [
+					{ "angle": -79.09 },
+					{ "time": 0.3333, "angle": -84.24 },
+					{ "time": 0.6667, "angle": -77.91 },
+					{ "time": 1, "angle": -83.4 },
+					{ "time": 1.3333, "angle": -79.09 }
+				]
+			},
+			"Zombie_paper_leftarm_lower": {
+				"rotate": [
+					{ "angle": 45.39 }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"rotate": [
+					{ "angle": -19.39 },
+					{ "time": 0.3333, "angle": -24.05 },
+					{ "time": 1.3333, "angle": -19.39 }
+				],
+				"translate": [
+					{ "x": 5.16, "y": 2.95 }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"rotate": [
+					{ "angle": 13.89 }
+				]
+			},
+			"Zombie_paper_paper3": {
+				"rotate": [
+					{ "angle": -55.15 },
+					{ "time": 0.3333, "angle": -63.46 },
+					{ "time": 0.6667, "angle": -47.02 },
+					{ "time": 1, "angle": -60.33 },
+					{ "time": 1.3333, "angle": -55.15 }
+				],
+				"translate": [
+					{ "x": 50.97, "y": 5.46 },
+					{ "time": 0.3333, "x": 56.26, "y": 1.25 },
+					{ "time": 0.6667, "x": 44, "y": 10.45 },
+					{ "time": 1, "x": 53.54, "y": 3.35 },
+					{ "time": 1.3333, "x": 50.97, "y": 5.46 }
+				]
+			},
+			"Zombie_paper_leftleg_upper": {
+				"rotate": [
+					{ "angle": -49.99 },
+					{ "time": 0.3333, "angle": -55.37 },
+					{ "time": 0.6667, "angle": -41.67 },
+					{ "time": 1, "angle": -64.16 },
+					{ "time": 1.3333, "angle": -49.99 }
+				]
+			},
+			"Zombie_paper_leftleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -3.55 },
+					{ "time": 0.6667, "angle": 10.29 },
+					{ "time": 1.3333 }
+				]
+			},
+			"Zombie_paper_rightleg_upper": {
+				"rotate": [
+					{ "angle": -36.25 },
+					{ "time": 0.3333, "angle": -43.46 },
+					{ "time": 0.6667, "angle": -38.22 },
+					{ "time": 1, "angle": -45.4 },
+					{ "time": 1.3333, "angle": -36.25 }
+				]
+			},
+			"Zombie_paper_rightleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 5.77 },
+					{ "time": 0.6667, "angle": 4.18 },
+					{ "time": 1.3333 }
+				]
+			},
+			"Zombie_paper_rightfoot": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -20.47 },
+					{ "time": 0.6667, "angle": -33.36 },
+					{ "time": 1.3333 }
+				]
+			}
+		}
+	},
+	"DeadBodyFly_After": {
+		"slots": {
+			"Zombie_paper_rightfoot": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_body": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_leftleg_upper": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_glasses": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_rightleg_upper": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_leftfoot": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Shadow": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_hairpiece": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_madhead": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_hands3": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_paper3": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_leftarm_lower": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_lowerbody1": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_leftarm_upper": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_hands2": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_rightleg_lower": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_leftleg_lower": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			},
+			"Zombie_jaw": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff00" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_paper_lowerbody1": {
+				"rotate": [
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": 5.19 },
+					{ "time": 1.3333, "angle": 72.81 }
+				],
+				"translate": [
+					{ "x": 9.92, "y": 20.49 },
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "x": -19.39, "y": -25.87 },
+					{ "time": 1.3333, "x": -78.21, "y": -34.45 },
+					{ "time": 1.5, "x": -78.21, "y": -15.39 },
+					{ "time": 1.6667, "x": -78.21, "y": -34.45 }
+				]
+			},
+			"Zombie_paper_madhead": {
+				"rotate": [
+					{ "angle": -2.37 },
+					{ "time": 0.3333 },
+					{ "time": 1.3333, "angle": -2.35 },
+					{ "time": 1.5, "angle": -17.15 },
+					{ "time": 1.6667, "angle": -2.35 }
+				]
+			},
+			"Zombie_paper_madhead3": {
+				"rotate": [
+					{ "angle": 13.06 },
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": 1.92 },
+					{ "time": 1.1667, "angle": -178.08 },
+					{ "time": 1.6667, "angle": 1.92 }
+				],
+				"translate": [
+					{ "time": 0.6667 },
+					{ "time": 1, "x": 35.54, "y": 22.23 },
+					{ "time": 1.3333, "x": 55.68, "y": -20.94 },
+					{ "time": 1.5, "x": 68.31, "y": -30.88 }
+				]
+			},
+			"Zombie_paper_leftarm_upper": {
+				"rotate": [
+					{ "angle": -79.09 },
+					{ "time": 0.6667 },
+					{ "time": 1, "angle": -137.82 },
+					{ "time": 1.3333, "angle": 172.22 },
+					{ "time": 1.5, "angle": 153.79 },
+					{ "time": 1.6667, "angle": 172.61 }
+				]
+			},
+			"Zombie_paper_leftarm_lower": {
+				"rotate": [
+					{ "angle": 45.39 },
+					{ "time": 0.3333 },
+					{ "time": 1, "angle": 67.23 },
+					{ "time": 1.3333, "angle": 93.02 }
+				]
+			},
+			"Zombie_paper_hands3": {
+				"rotate": [
+					{ "time": 0.3333 },
+					{ "time": 1.3333, "angle": 23.55 }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"rotate": [
+					{ "angle": -19.39 },
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": -9.52 },
+					{ "time": 1, "angle": -69.5 },
+					{ "time": 1.3333, "angle": -103.61 },
+					{ "time": 1.5, "angle": -110.87 }
+				],
+				"translate": [
+					{ "x": 5.16, "y": 2.95 },
+					{ "time": 0.3333 },
+					{ "time": 1.0667, "x": 10.09, "y": 5.94 }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"rotate": [
+					{ "angle": 13.89 },
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": 26.9 },
+					{ "time": 1, "angle": 35.11 }
+				]
+			},
+			"Zombie_paper_paper3": {
+				"rotate": [
+					{ "angle": -55.15 },
+					{ "time": 0.3333 },
+					{ "time": 1, "angle": 57.56 }
+				],
+				"translate": [
+					{ "x": 50.97, "y": 5.46 },
+					{ "time": 0.3333 },
+					{ "time": 1, "x": 65.98, "y": -18.13 }
+				]
+			},
+			"Zombie_paper_leftleg_upper": {
+				"rotate": [
+					{ "angle": -49.99 },
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": -58.23 },
+					{ "time": 1, "angle": -4.5 },
+					{ "time": 1.3333, "angle": 12.53 },
+					{ "time": 1.5, "angle": 27.6 },
+					{ "time": 1.6667, "angle": -4.38 }
+				]
+			},
+			"Zombie_paper_leftleg_lower": {
+				"rotate": [
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": 93.93 },
+					{ "time": 1, "angle": 20.95 },
+					{ "time": 1.3333, "angle": 5.83 },
+					{ "time": 1.5, "angle": -3.54 },
+					{ "time": 1.6667, "angle": -2.2 }
+				]
+			},
+			"Zombie_paper_leftfoot": {
+				"rotate": [
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": -30.66 },
+					{ "time": 1, "angle": -18.07 },
+					{ "time": 1.3333, "angle": 8.39 },
+					{ "time": 1.5, "angle": 18.04 }
+				]
+			},
+			"Zombie_paper_rightleg_upper": {
+				"rotate": [
+					{ "angle": -36.25 },
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": 14.29 },
+					{ "time": 1, "angle": 8.36 },
+					{ "time": 1.3333, "angle": -2.84 },
+					{ "time": 1.5, "angle": 2.61 },
+					{ "time": 1.6667, "angle": -2.4 }
+				]
+			},
+			"Zombie_paper_rightleg_lower": {
+				"rotate": [
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": -54.84 },
+					{ "time": 1, "angle": 24.71 },
+					{ "time": 1.3333, "angle": 39.38 },
+					{ "time": 1.5, "angle": 44.31 },
+					{ "time": 1.6667, "angle": 47.09 }
+				]
+			},
+			"Zombie_paper_rightfoot": {
+				"rotate": [
+					{ "time": 0.3333 },
+					{ "time": 1.3333, "angle": -22.71 },
+					{ "time": 1.5, "angle": -43.93 }
+				]
+			},
+			"Shadow": {
+				"translate": [
+					{ "time": 0.3333 },
+					{ "time": 1.6667, "x": -134.54 }
+				],
+				"scale": [
+					{ "time": 0.3333 },
+					{ "time": 1.6667, "x": 3.183, "y": 1.063 }
+				]
+			}
+		}
+	},
+	"DeadHeadFly": {
+		"slots": {
+			"Zombie_charred1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_rightfoot": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_body": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_leftleg_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_rightleg_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_leftleg_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_charred_eyes1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_charred_head": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_leftfoot": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Shadow": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_charred_pile1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_hairpiece": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_madhead": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_hands3": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_paper3": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_leftarm_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_lowerbody1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_leftarm_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_charred_pile2": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_hands2": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_rightleg_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_paper_glasses": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_jaw": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			}
+		},
+		"bones": {
+			"Shadow": {
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": -134.54 }
+				],
+				"scale": [
+					{},
+					{ "time": 1.3333, "x": 3.183, "y": 1.063 }
+				]
+			},
+			"Zombie_paper_hands3": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": 23.55 }
+				]
+			},
+			"Zombie_paper_leftarm_upper": {
+				"rotate": [
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": -137.82 },
+					{ "time": 1, "angle": 172.22 },
+					{ "time": 1.1667, "angle": 153.79 },
+					{ "time": 1.3333, "angle": 172.61 }
+				]
+			},
+			"Zombie_paper_leftarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 67.23 },
+					{ "time": 1, "angle": 93.02 }
+				]
+			},
+			"Zombie_paper_paper3": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 57.56 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.6667, "x": 65.98, "y": -18.13 }
+				]
+			},
+			"Zombie_paper_madhead3": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 1.92 },
+					{ "time": 0.8333, "angle": -178.08 },
+					{ "time": 1.3333, "angle": 1.92 }
+				],
+				"translate": [
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "x": 35.54, "y": 22.23 },
+					{ "time": 1, "x": 55.68, "y": -20.94 },
+					{ "time": 1.1667, "x": 68.31, "y": -30.88 }
+				]
+			},
+			"Zombie_paper_madhead": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": -2.35 },
+					{ "time": 1.1667, "angle": -17.15 },
+					{ "time": 1.3333, "angle": -2.35 }
+				]
+			},
+			"Zombie_paper_lowerbody1": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 5.19 },
+					{ "time": 1, "angle": 72.81 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": -19.39, "y": -25.87 },
+					{ "time": 1, "x": -78.21, "y": -34.45 },
+					{ "time": 1.1667, "x": -78.21, "y": -15.39 },
+					{ "time": 1.3333, "x": -78.21, "y": -34.45 }
+				]
+			},
+			"Zombie_paper_leftleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -58.23 },
+					{ "time": 0.6667, "angle": -4.5 },
+					{ "time": 1, "angle": 12.53 },
+					{ "time": 1.1667, "angle": 27.6 },
+					{ "time": 1.3333, "angle": -4.38 }
+				]
+			},
+			"Zombie_paper_leftleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 93.93 },
+					{ "time": 0.6667, "angle": 20.95 },
+					{ "time": 1, "angle": 5.83 },
+					{ "time": 1.1667, "angle": -3.54 },
+					{ "time": 1.3333, "angle": -2.2 }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -9.52 },
+					{ "time": 0.6667, "angle": -69.5 },
+					{ "time": 1, "angle": -103.61 },
+					{ "time": 1.1667, "angle": -110.87 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.7333, "x": 10.09, "y": 5.94 }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 26.9 },
+					{ "time": 0.6667, "angle": 35.11 }
+				]
+			},
+			"Zombie_paper_leftfoot": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -30.66 },
+					{ "time": 0.6667, "angle": -18.07 },
+					{ "time": 1, "angle": 8.39 },
+					{ "time": 1.1667, "angle": 18.04 }
+				]
+			},
+			"Zombie_paper_rightleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 14.29 },
+					{ "time": 0.6667, "angle": 8.36 },
+					{ "time": 1, "angle": -2.84 },
+					{ "time": 1.1667, "angle": 2.61 },
+					{ "time": 1.3333, "angle": -2.4 }
+				]
+			},
+			"Zombie_paper_rightleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -54.84 },
+					{ "time": 0.6667, "angle": 24.71 },
+					{ "time": 1, "angle": 39.38 },
+					{ "time": 1.1667, "angle": 44.31 },
+					{ "time": 1.3333, "angle": 47.09 }
+				]
+			},
+			"Zombie_paper_rightfoot": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": -22.71 },
+					{ "time": 1.1667, "angle": -43.93 }
+				]
+			}
+		},
+		"transform": {
+			"headFly": [
+				{ "scaleMix": 0, "shearMix": 0 }
+			]
+		}
+	},
+	"Entrance": {
+		"slots": {
+			"Zombie_paper_rightfoot": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.4667, "name": "Zombie_paper_rightfoot" }
+				]
+			},
+			"Zombie_paper_body": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.8667, "name": "Zombie_paper_body" }
+				]
+			},
+			"Zombie_paper_leftleg_upper": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.2333, "name": "Zombie_paper_leftleg_upper" }
+				]
+			},
+			"Zombie_paper_glasses": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.6667, "name": "Zombie_paper_glasses" }
+				]
+			},
+			"Zombie_paper_rightleg_upper": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.2667, "name": "Zombie_paper_rightleg_upper" }
+				]
+			},
+			"Zombie_paper_leftfoot": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.4667, "name": "Zombie_paper_leftfoot" }
+				]
+			},
+			"Zombie_paper_hairpiece": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.5667, "name": "Zombie_paper_hairpiece" }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1, "name": "Zombie_paper_rightarm_upper" }
+				]
+			},
+			"Zombie_paper_madhead": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.6667, "name": "Zombie_head" }
+				]
+			},
+			"Zombie_paper_hands3": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.2333, "name": "Zombie_paper_hands3" }
+				]
+			},
+			"Zombie_paper_paper3": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.8333, "name": "Zombie_paper_paper1" }
+				]
+			},
+			"Zombie_paper_leftarm_lower": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.1, "name": "Zombie_paper_leftarm_lower" }
+				]
+			},
+			"Zombie_paper_lowerbody1": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.2333, "name": "Zombie_paper_lowerbody1" }
+				]
+			},
+			"Zombie_paper_leftarm_upper": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.9667, "name": "Zombie_paper_leftarm_upper" }
+				]
+			},
+			"Zombie_paper_hands2": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.8333, "name": "Zombie_paper_hands2" }
+				]
+			},
+			"Zombie_paper_rightleg_lower": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.3, "name": "Zombie_paper_rightleg_lower" }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.9333, "name": "Zombie_paper_rightarm_lower" }
+				]
+			},
+			"Zombie_paper_leftleg_lower": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.3, "name": "Zombie_paper_leftleg_lower" }
+				]
+			},
+			"Zombie_jaw": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.6667, "name": "Zombie_jaw" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_paper_lowerbody1": {
+				"rotate": [
+					{ "angle": -6.13 },
+					{ "time": 1.6667 }
+				],
+				"translate": [
+					{ "y": -239.86 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_paper_madhead": {
+				"rotate": [
+					{ "angle": -11.89 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"rotate": [
+					{ "angle": -73.38 },
+					{ "time": 1.6667 }
+				],
+				"translate": [
+					{ "x": 8.19, "y": 9.09 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"rotate": [
+					{ "angle": -0.32 },
+					{ "time": 1.6667 }
+				],
+				"translate": [
+					{ "x": 1.59, "y": 0.71 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_paper_hands2": {
+				"rotate": [
+					{ "angle": -8.33 },
+					{ "time": 1.6667 }
+				],
+				"translate": [
+					{ "x": 1.04, "y": 4.59 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_paper_paper3": {
+				"translate": [
+					{ "x": 1.95, "y": 9.21 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_paper_leftleg_lower": {
+				"rotate": [
+					{ "angle": -11.86 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_paper_rightleg_upper": {
+				"rotate": [
+					{ "angle": -10.11 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_paper_rightleg_lower": {
+				"rotate": [
+					{ "angle": 33.5 },
+					{ "time": 1.6667 }
+				]
+			}
+		},
+		"deform": {
+			"default": {
+				"Zombie_paper_paper3": {
+					"Zombie_paper_paper1": [
+						{
+							"time": 0.8333,
+							"vertices": [ 58.78461, -65.00654, 11.69974, -31.48473, 0, 0, 32.77517, -8.88755 ]
+						},
+						{
+							"time": 1.2667,
+							"vertices": [ 0.32172, -0.28377 ]
+						}
+					]
+				},
+				"Zombie_paper_body": {
+					"Zombie_paper_body": [
+						{
+							"time": 0.8667,
+							"vertices": [ 58.53242, -10.48509, 58.11535, -26.39894 ]
+						},
+						{
+							"time": 1.1667,
+							"offset": 2,
+							"vertices": [ -0.41329, 0.11491 ]
+						}
+					]
+				}
+			}
+		}
+	},
+	"WalkOff": {
+		"slots": {
+			"Zombie_paper_rightfoot": {
+				"attachment": [
+					{ "time": 0.2, "name": null }
+				]
+			},
+			"Zombie_paper_leftleg_upper": {
+				"attachment": [
+					{ "time": 0.4333, "name": null }
+				]
+			},
+			"Zombie_paper_glasses": {
+				"attachment": [
+					{ "time": 1, "name": null }
+				]
+			},
+			"Zombie_paper_rightleg_upper": {
+				"attachment": [
+					{ "time": 0.4, "name": null }
+				]
+			},
+			"Zombie_paper_leftfoot": {
+				"attachment": [
+					{ "time": 0.2, "name": null }
+				]
+			},
+			"Zombie_paper_hairpiece": {
+				"attachment": [
+					{ "time": 1.1667, "name": null }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"attachment": [
+					{ "time": 0.6667, "name": null }
+				]
+			},
+			"Zombie_paper_madhead": {
+				"attachment": [
+					{ "time": 1, "name": null }
+				]
+			},
+			"Zombie_paper_hands3": {
+				"attachment": [
+					{ "time": 0.4333, "name": null }
+				]
+			},
+			"Zombie_paper_paper3": {
+				"attachment": [
+					{ "time": 0.8333, "name": null }
+				]
+			},
+			"Zombie_paper_leftarm_lower": {
+				"attachment": [
+					{ "time": 0.5667, "name": null }
+				]
+			},
+			"Zombie_paper_leftarm_upper": {
+				"attachment": [
+					{ "time": 0.7, "name": null }
+				]
+			},
+			"Zombie_paper_leftleg_lower": {
+				"attachment": [
+					{ "time": 0.3667, "name": null }
+				]
+			},
+			"Zombie_paper_lowerbody1": {
+				"attachment": [
+					{ "time": 0.4333, "name": null }
+				]
+			},
+			"Zombie_paper_hands2": {
+				"attachment": [
+					{ "time": 0.8333, "name": null }
+				]
+			},
+			"Zombie_paper_rightleg_lower": {
+				"attachment": [
+					{ "time": 0.3667, "name": null }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"attachment": [
+					{ "time": 0.7333, "name": null }
+				]
+			},
+			"Zombie_paper_body": {
+				"attachment": [
+					{ "time": 0.8, "name": null }
+				]
+			},
+			"Zombie_jaw": {
+				"attachment": [
+					{ "time": 1, "name": null }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_paper_lowerbody1": {
+				"rotate": [
+					{},
+					{ "time": 1.6667, "angle": -6.13 }
+				],
+				"translate": [
+					{},
+					{ "time": 1.6667, "y": -239.86 }
+				]
+			},
+			"Zombie_paper_madhead": {
+				"rotate": [
+					{},
+					{ "time": 1.6667, "angle": -11.89 }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 1.6667, "angle": -73.38 }
+				],
+				"translate": [
+					{},
+					{ "time": 1.6667, "x": 8.19, "y": 9.09 }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 1.6667, "angle": -0.32 }
+				],
+				"translate": [
+					{},
+					{ "time": 1.6667, "x": 1.59, "y": 0.71 }
+				]
+			},
+			"Zombie_paper_hands2": {
+				"rotate": [
+					{},
+					{ "time": 1.6667, "angle": -8.33 }
+				],
+				"translate": [
+					{},
+					{ "time": 1.6667, "x": 1.04, "y": 4.59 }
+				]
+			},
+			"Zombie_paper_paper3": {
+				"translate": [
+					{},
+					{ "time": 1.6667, "x": 1.95, "y": 9.21 }
+				]
+			},
+			"Zombie_paper_leftleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 1.6667, "angle": -11.86 }
+				]
+			},
+			"Zombie_paper_rightleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 1.6667, "angle": -10.11 }
+				]
+			},
+			"Zombie_paper_rightleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 1.6667, "angle": 33.5 }
+				]
+			}
+		},
+		"deform": {
+			"default": {
+				"Zombie_paper_paper3": {
+					"Zombie_paper_paper1": [
+						{
+							"time": 0.4,
+							"vertices": [ 0.32172, -0.28377 ]
+						},
+						{
+							"time": 0.8333,
+							"vertices": [ 58.78461, -65.00654, 11.69974, -31.48473, 0, 0, 32.77517, -8.88755 ]
+						}
+					]
+				},
+				"Zombie_paper_body": {
+					"Zombie_paper_body": [
+						{
+							"time": 0.5,
+							"offset": 2,
+							"vertices": [ -0.41329, 0.11491 ]
+						},
+						{
+							"time": 0.8,
+							"vertices": [ 58.53242, -10.48509, 58.11535, -26.39894 ]
+						}
+					]
+				}
+			}
+		}
+	},
+	"charred": {
+		"slots": {
+			"Zombie_charred1": {
+				"attachment": [
+					{ "time": 0.1, "name": "Zombie_charred2" },
+					{ "time": 0.2, "name": "Zombie_charred3" },
+					{ "time": 0.3, "name": "Zombie_charred4" },
+					{ "time": 0.4, "name": "Zombie_charred5" },
+					{ "time": 0.5, "name": "Zombie_charred6" },
+					{ "time": 0.6, "name": "Zombie_charred7" },
+					{ "time": 0.7, "name": "Zombie_charred8" },
+					{ "time": 0.8, "name": "Zombie_charred9" },
+					{ "time": 0.9, "name": "Zombie_charred10" },
+					{ "time": 1, "name": "Zombie_charred_tail" },
+					{ "time": 1.1, "name": null }
+				]
+			},
+			"Zombie_charred_eyes1": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.1, "name": "Zombie_charred_eyes1" },
+					{ "time": 0.2, "name": "Zombie_charred_eyes2" },
+					{ "time": 0.3, "name": "Zombie_charred_eyes1" },
+					{ "time": 0.4, "name": null }
+				]
+			},
+			"Zombie_charred_pile1": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.1, "name": "Zombie_charred_pile1" }
+				]
+			},
+			"Zombie_charred_pile2": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.7, "name": "Zombie_charred_pile2" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_charred_head": {
+				"translate": [
+					{ "time": 1.1333 },
+					{ "time": 1.4, "y": -100.94 },
+					{ "time": 1.5, "y": -46.18 },
+					{ "time": 1.6, "y": -100.94 }
+				],
+				"scale": [
+					{ "x": 0.26, "y": 0.26 }
+				]
+			},
+			"Zombie_charred_pile2": {
+				"scale": [
+					{ "x": 0.26, "y": 0.26 }
+				]
+			}
+		}
+	},
+	"lostPaper": {
+		"slots": {
+			"Zombie_paper_madhead": {
+				"attachment": [
+					{ "name": "Zombie_paper_madhead" }
+				]
+			},
+			"Zombie_paper_paper3": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		}
+	},
+	"run": {
+		"bones": {
+			"Zombie_paper_lowerbody1": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "y": 22.62 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "y": 19.89 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_paper_madhead3": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 9.46 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": 15.8 },
+					{ "time": 2.1333 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.5333, "x": -1.41, "y": 2.9 },
+					{ "time": 1.0667 }
+				]
+			},
+			"Zombie_paper_hairpiece": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "x": 2.48, "y": -5.13 },
+					{ "time": 1 },
+					{ "time": 1.6, "x": 2.48, "y": -5.13 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_paper_glasses": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "x": 4.03, "y": -0.55 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "x": 5.36, "y": -0.53 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_paper_leftarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": -21.9 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": -21.9 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_paper_leftarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 11.64 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": 11.64 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_paper_hands3": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 17.2 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": 17.2 },
+					{ "time": 2.1333 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.5333, "x": 1.17, "y": 0.48 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "x": 1.17, "y": 0.48 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_paper_rightarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": -11.6 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": -11.6 },
+					{ "time": 2.1333 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.5333, "x": 4.53, "y": 11.09 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "x": 4.53, "y": 11.09 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_paper_rightarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 9.67 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_paper_hands2": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": -6.02 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_paper_leftleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.2667, "angle": -35.27 },
+					{ "time": 0.5333, "angle": -46.69 },
+					{ "time": 1.6, "angle": 20.55 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_paper_leftleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 19.91 },
+					{ "time": 1.6, "angle": 23.64 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_paper_leftfoot": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 14.2 },
+					{ "time": 1.6, "angle": -9.78 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_paper_rightleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 25.49 },
+					{ "time": 1.6, "angle": -23.62 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_paper_rightleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 20.5 },
+					{ "time": 1.6, "angle": 21.97 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_paper_rightfoot": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": -19.63 },
+					{ "time": 1.6, "angle": -18.58 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Shadow": {
+				"scale": [
+					{},
+					{ "time": 0.5333, "x": 0.861, "y": 0.671 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "x": 0.861, "y": 0.671 },
+					{ "time": 2.1333 }
+				]
+			}
+		}
+	},
+	"wornPaper1": {
+		"slots": {
+			"Zombie_paper_paper3": {
+				"attachment": [
+					{ "name": "Zombie_paper_paper2" }
+				]
+			}
+		}
+	},
+	"wornPaper2": {
+		"slots": {
+			"Zombie_paper_paper3": {
+				"attachment": [
+					{ "name": "Zombie_paper_paper3" }
+				]
+			}
+		}
+	}
+}
+}

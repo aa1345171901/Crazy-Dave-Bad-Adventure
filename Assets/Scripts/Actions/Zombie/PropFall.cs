@@ -9,6 +9,7 @@ public class PropFall : MonoBehaviour
     public AudioSource audioSource;
     public Character character;
     public DamageType damageType;
+    public float RandomRange = 0.01f;
 
     private float height;
     private float time;
@@ -28,8 +29,8 @@ public class PropFall : MonoBehaviour
     {
         if (!IsAbsorbed)
         {
-            Vector3 offset = new Vector3(Random.Range(0, 0.01f), Random.Range(-0.01f, 0.01f), 0);
-            height = Random.Range(0.015f, 0.012f);
+            Vector3 offset = new Vector3(Random.Range(0, RandomRange), Random.Range(-RandomRange, RandomRange), 0);
+            height = Random.Range(RandomRange, RandomRange * 2);
             if (GameManager.Instance.IsZombieShock)
                 time = Random.Range(0.6f, 0.9f);
             else

@@ -46,6 +46,9 @@ public class NormalZombieAttack : AIAttack
     private ZombieAnimation zombieAnimation;
 
     [ReadOnly]
+    public bool realCanSwoop;
+
+    [ReadOnly]
     public float realAttackRange;
 
     protected override void Initialization()
@@ -59,6 +62,7 @@ public class NormalZombieAttack : AIAttack
     public override void Reuse()
     {
         base.Reuse();
+        this.realCanSwoop = CanSwoop;
         trackEntry = null;
         int waveIndex = LevelManager.Instance.IndexWave + 1;
         this.realAttackRange = AttackRange + waveIndex / 10f;
@@ -87,6 +91,7 @@ public class NormalZombieAttack : AIAttack
             this.realDamage = (int)((Damage + 5.5f) * waveIndex * 1.5f);
         }
         SetTrailAndColliderActive(false, false, AttackBoxColider);
+        SetTrailAndColliderActive(false, false, AttackSwoopBoxColider);
     }
 
     public override void ProcessAbility()
@@ -111,7 +116,9 @@ public class NormalZombieAttack : AIAttack
             return;
 
         // 随机选择攻击方式
-        if (!CanSwoop || Random.Range(0, 2) == 0)
+        if (zombieAnimation.zombieType == ZombieType.Paper && realCanSwoop)
+            AttackSwoop();
+        else if (!realCanSwoop || Random.Range(0, 2) == 0)
             Attack();
         else
             AttackSwoop();

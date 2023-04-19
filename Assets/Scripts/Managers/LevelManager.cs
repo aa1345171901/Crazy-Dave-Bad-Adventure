@@ -14,6 +14,8 @@ namespace TopDownPlate
         Bucket,
         Screendoor,
         Flag,
+        Football,
+        Paper,
     }
 
     /// <summary>

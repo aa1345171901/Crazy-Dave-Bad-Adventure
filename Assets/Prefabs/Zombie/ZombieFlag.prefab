@@ -6139,8 +6139,8 @@ MonoBehaviour:
   AttackJudgmentTime: 1
   realDamage: 0
   realAttackProbability: 0
-  RushSpeedMul: 2
-  SwoopSpeedMul: 4
+  RushSpeedMul: 1.75
+  SwoopSpeedMul: 2.5
   AttackRange: 5
   AttackBeforeAnimation: Attack/Attack_Before
   AttackAnimation: Attack/Attack

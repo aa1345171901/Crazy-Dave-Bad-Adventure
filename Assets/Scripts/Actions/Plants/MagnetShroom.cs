@@ -128,6 +128,7 @@ public class MagnetShroom : Plant
         List<Character> zombies = new List<Character>();
         zombies.AddRange(LevelManager.Instance.Enemys.Get(ZombieType.Bucket).Zombies);
         zombies.AddRange(LevelManager.Instance.Enemys.Get(ZombieType.Screendoor).Zombies);
+        zombies.AddRange(LevelManager.Instance.Enemys.Get(ZombieType.Football).Zombies);
         foreach (var item in zombies)
         {
             ZombieProp zombieProp = item.GetComponentInChildren<ZombieProp>();

@@ -102,6 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger2D: {fileID: 5500843843662464728}
   audioSource: {fileID: 7216657593948200974}
+  character: {fileID: 0}
+  damageType: 0
+  RandomRange: 0.01
 --- !u!61 &3304452433867667140
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -157,7 +160,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5d398928f3e8dc5448ee87a5a53ccb65, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

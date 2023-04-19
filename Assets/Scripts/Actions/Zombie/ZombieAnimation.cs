@@ -88,7 +88,10 @@ public class ZombieAnimation : MonoBehaviour
     public void Reuse()
     {
         character.SkeletonAnimation.ClearState();
-        randomEquip.ResumeEquip();
+        if (randomEquip != null)
+            randomEquip.ResumeEquip();
+        else
+            character.SkeletonAnimation.Skeleton.Skin = character.SkeletonAnimation.SkeletonDataAsset.GetSkeletonData(true).FindSkin(defalutSkin);
         aiMove.Ice.SetActive(false);
         // …Ë÷√‰÷»æ≤„º∂
         graveMonumentAnimator.GetComponentInChildren<SpriteRenderer>().sortingOrder = EarthParticle.GetComponent<ParticleSystemRenderer>().sortingOrder = character.LayerOrder + 1;
@@ -110,8 +113,7 @@ public class ZombieAnimation : MonoBehaviour
         EarthParticle.Play();
         character.State.AIStateType = AIStateType.Init;
         zombieFly.Reuse();
-        if (zombieProp != null)
-            zombieProp.Reuse();
+        zombieProp?.Reuse();
         character.gameObject.SetActive(true);
     }
 
