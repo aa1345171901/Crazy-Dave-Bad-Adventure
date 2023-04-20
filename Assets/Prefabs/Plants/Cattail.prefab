@@ -166,11 +166,13 @@ MonoBehaviour:
     level3: 0
     maxLevel: 0
     attribute: 
+    isManual: 0
+    isGoToWar: 0
   animator: {fileID: 8099837538800091581}
   Damage: 8
   CoolTime: 1.1
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2176
   BulletPos: {fileID: 6493516143700932323}
   CattailSpikeBullet: {fileID: 9016442098559116838, guid: afcb8e26d3f1e514cac4efc1e1d0f2aa, type: 3}

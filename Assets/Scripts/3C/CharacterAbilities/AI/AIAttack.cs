@@ -35,6 +35,7 @@ namespace TopDownPlate
             base.Initialization();
             Target = GameManager.Instance.Player.transform;
             aiMove = character.FindAbility<AIMove>();
+            character.Health.DeadAction += Dead;
             Reuse();
         }
 
@@ -48,6 +49,11 @@ namespace TopDownPlate
         {
             this.attackCount = attackCount;
             realAttackProbability = 1;
+        }
+
+        protected virtual void Dead()
+        {
+
         }
     }
 }

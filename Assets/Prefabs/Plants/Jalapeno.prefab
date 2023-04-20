@@ -143,7 +143,7 @@ MonoBehaviour:
   CoolTime: 15
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2176
   image: {fileID: 8192876153937244744}
   plant: {fileID: 4603753261613955672}
   audioSource: {fileID: 5449321208721524767}

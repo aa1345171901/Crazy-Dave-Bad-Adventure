@@ -131,11 +131,12 @@ MonoBehaviour:
   penetrationCount: 0
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2176
   audioSource: {fileID: 417076344283432954}
   hit1: {fileID: 8300000, guid: fe36554dbc359da46b603da32ebdf562, type: 3}
   hit2: {fileID: 8300000, guid: 3edb69069a36678408fbcdd9f9eeae33, type: 3}
   isCritical: 0
+  damageCount: 0
 --- !u!82 &417076344283432954
 AudioSource:
   m_ObjectHideFlags: 0

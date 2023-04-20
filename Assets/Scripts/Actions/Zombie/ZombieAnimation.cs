@@ -68,8 +68,11 @@ public class ZombieAnimation : MonoBehaviour
     private void Start()
     {
         int index = Random.Range(0, GraveMonuments.Count);
-        var go = Instantiate(GraveMonuments[index], GraveMonumentContent);
-        graveMonumentAnimator = go.GetComponent<Animator>();
+        if (zombieType != ZombieType.Balloon)
+        {
+            var go = Instantiate(GraveMonuments[index], GraveMonumentContent);
+            graveMonumentAnimator = go.GetComponent<Animator>();
+        }
         character = this.transform.GetComponentInParent<Character>();
         boxColliders = this.transform.GetComponentsInParent<BoxCollider2D>();
         aiMove = character.FindAbility<AIMove>();
@@ -93,8 +96,6 @@ public class ZombieAnimation : MonoBehaviour
         else
             character.SkeletonAnimation.Skeleton.Skin = character.SkeletonAnimation.SkeletonDataAsset.GetSkeletonData(true).FindSkin(defalutSkin);
         aiMove.Ice.SetActive(false);
-        // 设置渲染层级
-        graveMonumentAnimator.GetComponentInChildren<SpriteRenderer>().sortingOrder = EarthParticle.GetComponent<ParticleSystemRenderer>().sortingOrder = character.LayerOrder + 1;
 
         // 播放生成动画
         var entry = character.SkeletonAnimation.AnimationState.SetAnimation(0, EntranceAnimation, false);
@@ -109,10 +110,15 @@ public class ZombieAnimation : MonoBehaviour
         };
 
         SetBoxCollider(false);
-        graveMonumentAnimator.SetTrigger("Init");
-        EarthParticle.Play();
+        if (zombieType != ZombieType.Balloon)
+        {
+            graveMonumentAnimator.SetTrigger("Init");
+            // 设置渲染层级
+            graveMonumentAnimator.GetComponentInChildren<SpriteRenderer>().sortingOrder = EarthParticle.GetComponent<ParticleSystemRenderer>().sortingOrder = character.LayerOrder + 1;
+            EarthParticle.Play();
+        }
         character.State.AIStateType = AIStateType.Init;
-        zombieFly.Reuse();
+        zombieFly?.Reuse();
         zombieProp?.Reuse();
         character.gameObject.SetActive(true);
     }
@@ -124,8 +130,6 @@ public class ZombieAnimation : MonoBehaviour
     {
         character.IsDead = true;
 
-        graveMonumentAnimator.GetComponentInChildren<SpriteRenderer>().sortingOrder = EarthParticle.GetComponent<ParticleSystemRenderer>().sortingOrder = character.LayerOrder + 1;
-
         // 播放退场动画
         var entry = character.SkeletonAnimation.AnimationState.SetAnimation(0, WalkOffAnimation, false);
         entry.Complete += (e) =>
@@ -133,19 +137,22 @@ public class ZombieAnimation : MonoBehaviour
             character.gameObject.SetActive(false);
             LevelManager.Instance.CacheEnemys.Add(zombieType, character);
         };
-
-        graveMonumentAnimator.SetTrigger("Init");
-        EarthParticle.Play();
+        if (zombieType != ZombieType.Balloon)
+        {
+            graveMonumentAnimator.SetTrigger("Init");
+            graveMonumentAnimator.GetComponentInChildren<SpriteRenderer>().sortingOrder = EarthParticle.GetComponent<ParticleSystemRenderer>().sortingOrder = character.LayerOrder + 1;
+            EarthParticle.Play();
+        }
         CollisionAttack.enabled = false;
         SetBoxCollider(false);
     }
 
     public void Dead(DamageType damageType)
     {
+        character.SkeletonAnimation.ClearState();
         if (damageType == DamageType.Bomb)
         {
             character.SkeletonAnimation.Skeleton.Skin = character.SkeletonAnimation.SkeletonDataAsset.GetSkeletonData(true).FindSkin(charredSkin);
-            character.SkeletonAnimation.ClearState();
             var entry = character.SkeletonAnimation.AnimationState.SetAnimation(0, DeadCharredAnimation, false);
             entry.Complete += (e) =>
             {
@@ -156,10 +163,19 @@ public class ZombieAnimation : MonoBehaviour
         }
         else if (damageType == DamageType.Chomper || damageType == DamageType.Gravebuster)
         {
-            character.SkeletonAnimation.ClearState();
             character.gameObject.SetActive(false);
             LevelManager.Instance.CacheEnemys.Add(zombieType, character);
             character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;
+        }
+        else if (zombieType == ZombieType.Balloon)
+        {
+            var entry = character.SkeletonAnimation.AnimationState.SetAnimation(0, DeadAnimation, false);
+            entry.Complete += (e) =>
+            {
+                character.gameObject.SetActive(false);
+                LevelManager.Instance.CacheEnemys.Add(zombieType, character);
+                character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;
+            };
         }
         else
         {

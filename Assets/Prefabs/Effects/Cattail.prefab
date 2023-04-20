@@ -5001,7 +5001,7 @@ MonoBehaviour:
   penetrationCount: 0
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2176
   audioSource: {fileID: 5461299381005773721}
   hit1: {fileID: 8300000, guid: fe36554dbc359da46b603da32ebdf562, type: 3}
   hit2: {fileID: 8300000, guid: 3edb69069a36678408fbcdd9f9eeae33, type: 3}

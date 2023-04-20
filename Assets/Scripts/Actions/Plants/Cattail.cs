@@ -11,8 +11,6 @@ public class Cattail : Plant
     public int Damage = 8;
     [Tooltip("攻击冷却时间")]
     public float CoolTime = 1.1f;
-    [Tooltip("攻击目标")]
-    public LayerMask TargetLayer;
 
     [Tooltip("子弹发射位置")]
     public Transform BulletPos;

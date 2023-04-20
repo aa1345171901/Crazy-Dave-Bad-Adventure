@@ -1,0 +1,2294 @@
+{
+"skeleton": {
+	"hash": "tIJv9aeErVNO79nYZK79dfA5hr0",
+	"spine": "3.8",
+	"x": -148.82,
+	"y": 8.11,
+	"width": 206.01,
+	"height": 172.35,
+	"images": "./images/",
+	"audio": "D:/0.0/疯狂戴夫的不妙冒险/拼接/Spine/ZombiePolevaulter"
+},
+"bones": [
+	{ "name": "root", "rotation": -0.06 },
+	{ "name": "Zombie_charred_head", "parent": "root", "x": -34.23, "y": 158.38, "skin": true },
+	{
+		"name": "Zombie_charred_pile2",
+		"parent": "root",
+		"length": 395.02,
+		"rotation": 90.34,
+		"x": 1.63,
+		"y": 39.55,
+		"skin": true
+	},
+	{
+		"name": "Zombie_polevaulter_body2",
+		"parent": "root",
+		"length": 19.63,
+		"rotation": 108.33,
+		"x": 3.81,
+		"y": 76,
+		"skin": true
+	},
+	{
+		"name": "Zombie_polevaulter_body1",
+		"parent": "Zombie_polevaulter_body2",
+		"length": 47.82,
+		"rotation": 5.39,
+		"x": 16.94,
+		"y": 0.51,
+		"skin": true
+	},
+	{
+		"name": "Zombie_head",
+		"parent": "Zombie_polevaulter_body1",
+		"length": 33.19,
+		"rotation": 10.9,
+		"x": 49.22,
+		"y": -0.42,
+		"skin": true
+	},
+	{ "name": "Zombie_jaw", "parent": "Zombie_head", "x": -2.86, "y": 13.4, "skin": true },
+	{ "name": "Zombie_polevaulter_hair", "parent": "Zombie_head", "x": 24.27, "y": -8.8, "skin": true },
+	{
+		"name": "Zombie_polevaulter_outerarm_upper",
+		"parent": "Zombie_polevaulter_body1",
+		"length": 21.55,
+		"rotation": 158.27,
+		"x": 30.56,
+		"y": -15.95,
+		"skin": true
+	},
+	{
+		"name": "Zombie_polevaulter_outerarm_lower",
+		"parent": "Zombie_polevaulter_outerarm_upper",
+		"length": 29.63,
+		"rotation": -28.02,
+		"x": 22.25,
+		"y": -0.75,
+		"skin": true
+	},
+	{
+		"name": "Zombie_outerarm_hand",
+		"parent": "Zombie_polevaulter_outerarm_lower",
+		"length": 19.73,
+		"rotation": 27.15,
+		"x": 30.52,
+		"y": 0.64,
+		"skin": true
+	},
+	{
+		"name": "Zombie_polevaulter_innerarm_upper",
+		"parent": "Zombie_polevaulter_body1",
+		"length": 17.83,
+		"rotation": 72.17,
+		"x": 45.73,
+		"y": 15.54,
+		"skin": true
+	},
+	{
+		"name": "Zombie_polevaulter_innerarm_lower",
+		"parent": "Zombie_polevaulter_innerarm_upper",
+		"length": 27.38,
+		"rotation": -85.93,
+		"x": 19.85,
+		"y": 0.16,
+		"skin": true
+	},
+	{
+		"name": "Zombie_polevaulter_innerhand",
+		"parent": "Zombie_polevaulter_innerarm_lower",
+		"length": 17.15,
+		"rotation": 1.06,
+		"x": 29.22,
+		"y": 0.05,
+		"skin": true
+	},
+	{
+		"name": "Zombie_polevaulter_pole",
+		"parent": "Zombie_polevaulter_innerhand",
+		"length": 22.99,
+		"rotation": -100.5,
+		"x": 12.11,
+		"y": -0.32,
+		"skin": true
+	},
+	{
+		"name": "Zombie_polevaulter_outerleg_upper",
+		"parent": "Zombie_polevaulter_body2",
+		"length": 14.62,
+		"rotation": 162.53,
+		"x": 3.17,
+		"y": -10.15,
+		"skin": true
+	},
+	{
+		"name": "Zombie_polevaulter_outerleg_lower",
+		"parent": "Zombie_polevaulter_outerleg_upper",
+		"length": 26.96,
+		"rotation": 36.25,
+		"x": 15.42,
+		"y": -0.42,
+		"skin": true
+	},
+	{
+		"name": "Zombie_polevaulter_outerleg_foot",
+		"parent": "Zombie_polevaulter_outerleg_lower",
+		"length": 26.02,
+		"rotation": -106.49,
+		"x": 28.62,
+		"y": -1.51,
+		"skin": true
+	},
+	{
+		"name": "Zombie_polevaulter_innerleg_upper",
+		"parent": "Zombie_polevaulter_body2",
+		"length": 15.62,
+		"rotation": 170.7,
+		"x": 0.48,
+		"y": 8.27,
+		"skin": true
+	},
+	{
+		"name": "Zombie_polevaulter_innerleg_lower",
+		"parent": "Zombie_polevaulter_innerleg_upper",
+		"length": 22.92,
+		"rotation": -43.51,
+		"x": 14.32,
+		"y": -0.41,
+		"skin": true
+	},
+	{
+		"name": "Zombie_polevaulter_innerleg_foot",
+		"parent": "Zombie_polevaulter_innerleg_lower",
+		"length": 19.64,
+		"rotation": 110.79,
+		"x": 28.49,
+		"y": 0.14,
+		"skin": true
+	},
+	{ "name": "Shadow", "parent": "root", "x": 1.06, "y": 28.31 },
+	{ "name": "headFly", "parent": "root", "x": -31.7, "y": 144.99, "color": "abe323ff" }
+],
+"slots": [
+	{ "name": "Shadow", "bone": "Shadow", "attachment": "Shadow" },
+	{ "name": "Zombie_polevaulter_pole", "bone": "Zombie_polevaulter_pole", "attachment": "Zombie_polevaulter_pole" },
+	{ "name": "Zombie_polevaulter_innerhand", "bone": "Zombie_polevaulter_innerhand", "attachment": "Zombie_polevaulter_innerhand" },
+	{ "name": "Zombie_polevaulter_innerleg_foot", "bone": "Zombie_polevaulter_innerleg_foot", "attachment": "Zombie_polevaulter_innerleg_foot" },
+	{ "name": "Zombie_polevaulter_innerleg_upper", "bone": "Zombie_polevaulter_innerleg_upper", "attachment": "Zombie_polevaulter_innerleg_upper" },
+	{ "name": "Zombie_polevaulter_innerleg_lower", "bone": "Zombie_polevaulter_innerleg_lower", "attachment": "Zombie_polevaulter_innerleg_lower" },
+	{ "name": "Zombie_polevaulter_innerarm_upper", "bone": "Zombie_polevaulter_innerarm_upper", "attachment": "Zombie_polevaulter_innerarm_upper" },
+	{ "name": "Zombie_polevaulter_innerarm_lower", "bone": "Zombie_polevaulter_innerarm_lower", "attachment": "Zombie_polevaulter_innerarm_lower" },
+	{ "name": "Zombie_polevaulter_outerleg_foot", "bone": "Zombie_polevaulter_outerleg_foot", "attachment": "Zombie_polevaulter_outerleg_foot" },
+	{ "name": "Zombie_polevaulter_outerleg_lower", "bone": "Zombie_polevaulter_outerleg_lower", "attachment": "Zombie_polevaulter_outerleg_lower" },
+	{ "name": "Zombie_polevaulter_outerleg_upper", "bone": "Zombie_polevaulter_outerleg_upper", "attachment": "Zombie_polevaulter_outerleg_upper" },
+	{ "name": "Zombie_polevaulter_body2", "bone": "Zombie_polevaulter_body2", "attachment": "Zombie_polevaulter_body2" },
+	{ "name": "Zombie_polevaulter_body1", "bone": "Zombie_polevaulter_body1", "attachment": "Zombie_polevaulter_body1" },
+	{ "name": "Zombie_head", "bone": "Zombie_head", "attachment": "Zombie_head" },
+	{ "name": "Zombie_jaw", "bone": "Zombie_jaw", "attachment": "Zombie_jaw" },
+	{ "name": "Zombie_polevaulter_hair", "bone": "Zombie_polevaulter_hair", "attachment": "Zombie_polevaulter_hair" },
+	{ "name": "Zombie_outerarm_hand", "bone": "Zombie_outerarm_hand", "attachment": "Zombie_outerarm_hand" },
+	{ "name": "Zombie_polevaulter_outerarm_upper", "bone": "Zombie_polevaulter_outerarm_upper", "attachment": "Zombie_polevaulter_outerarm_upper" },
+	{ "name": "Zombie_polevaulter_outerarm_lower", "bone": "Zombie_polevaulter_outerarm_lower", "attachment": "Zombie_polevaulter_outerarm_lower" },
+	{ "name": "Zombie_charred1", "bone": "Zombie_charred_pile2", "attachment": "Zombie_charred1" },
+	{ "name": "Zombie_charred_head", "bone": "Zombie_charred_head", "attachment": "Zombie_charred_head" },
+	{ "name": "Zombie_charred_eyes1", "bone": "Zombie_charred_head", "attachment": "Zombie_charred_eyes2" },
+	{ "name": "Zombie_charred_pile1", "bone": "Zombie_charred_pile2", "attachment": "Zombie_charred_pile1" },
+	{ "name": "Zombie_charred_pile2", "bone": "Zombie_charred_pile2", "attachment": "Zombie_charred_pile2" }
+],
+"transform": [
+	{
+		"name": "headFly",
+		"skin": true,
+		"bones": [ "Zombie_head" ],
+		"target": "headFly",
+		"rotateMix": 0,
+		"translateMix": 0,
+		"scaleMix": 0,
+		"shearMix": 0
+	}
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"Shadow": {
+				"Shadow": { "x": 0.6, "y": 0.75, "scaleX": 1.1608, "scaleY": 1.1608, "width": 86, "height": 36 }
+			},
+			"Zombie_charred_pile1": {
+				"Zombie_charred_pile1": { "x": -12.29, "y": -2.41, "rotation": -90.34, "width": 381, "height": 110 }
+			},
+			"Zombie_charred_pile2": {
+				"Zombie_charred_pile2": { "x": 87.44, "y": -14.23, "rotation": -90.34, "width": 306, "height": 194 }
+			},
+			"Zombie_polevaulter_innerleg_foot": {
+				"Zombie_polevaulter_innerleg_foot": { "x": 10.95, "y": -1.12, "rotation": 13.69, "width": 42, "height": 22 }
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"Zombie_polevaulter_outerleg_upper": { "x": 6.31, "y": 0.98, "rotation": 89.14, "width": 15, "height": 19 }
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"Zombie_polevaulter_innerleg_upper": { "x": 11.08, "y": -0.03, "rotation": 80.97, "width": 13, "height": 21 }
+			},
+			"Zombie_polevaulter_outerarm_lower": {
+				"Zombie_polevaulter_outerarm_lower": { "x": 16.82, "y": 0.07, "rotation": 116.03, "width": 28, "height": 33 }
+			},
+			"Zombie_charred_eyes1": {
+				"Zombie_charred_eyes1": { "x": -2.78, "y": 4.31, "width": 173, "height": 81 },
+				"Zombie_charred_eyes2": { "x": 16.59, "y": 0.74, "width": 173, "height": 81 }
+			},
+			"Zombie_polevaulter_hair": {
+				"Zombie_polevaulter_hair": { "x": -3.49, "y": 0.61, "rotation": -124.62, "width": 69, "height": 43 }
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"Zombie_polevaulter_outerarm_upper": { "x": 9.43, "y": 0.38, "rotation": 88.01, "width": 12, "height": 27 }
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"Zombie_polevaulter_innerarm_upper": { "x": 7.94, "y": 0.32, "rotation": 174.11, "width": 23, "height": 14 }
+			},
+			"Zombie_head": {
+				"Zombie_head": { "x": 17.39, "y": -3.42, "rotation": -124.62, "width": 55, "height": 50 }
+			},
+			"Zombie_outerarm_hand": {
+				"Zombie_outerarm_hand": { "x": 12.42, "y": -1.24, "rotation": 88.89, "width": 27, "height": 29 }
+			},
+			"Zombie_polevaulter_outerleg_lower": {
+				"Zombie_polevaulter_outerleg_lower": { "x": 14.15, "y": 1.53, "rotation": 52.9, "width": 28, "height": 32 }
+			},
+			"Zombie_jaw": {
+				"Zombie_jaw": { "x": -0.19, "y": -3.31, "rotation": -124.62, "width": 34, "height": 17 }
+			},
+			"Zombie_polevaulter_pole": {
+				"Zombie_polevaulter_pole": {
+					"type": "mesh",
+					"uvs": [ 1, 1, 0, 1, 0, 0, 1, 0 ],
+					"triangles": [ 1, 2, 3, 1, 3, 0 ],
+					"vertices": [ 118.42, -5.72, -87.57, -3.88, -87.5, 4.12, 118.49, 2.28 ],
+					"hull": 4,
+					"edges": [ 0, 2, 2, 4, 4, 6, 0, 6 ],
+					"width": 206,
+					"height": 8
+				}
+			},
+			"Zombie_polevaulter_innerleg_lower": {
+				"Zombie_polevaulter_innerleg_lower": { "x": 10.4, "y": 0.3, "rotation": 124.47, "width": 28, "height": 33 }
+			},
+			"Zombie_charred1": {
+				"Zombie_charred1": { "x": 192.85, "y": -20.4, "rotation": -90.34, "width": 269, "height": 452 },
+				"Zombie_charred2": { "x": 203.84, "y": -32.86, "rotation": -90.34, "width": 277, "height": 444 },
+				"Zombie_charred3": { "x": 207.79, "y": -5.76, "rotation": -90.34, "width": 219, "height": 435 },
+				"Zombie_charred4": { "x": 215, "y": -8.27, "rotation": -90.34, "width": 219, "height": 415 },
+				"Zombie_charred5": { "x": 215.78, "y": -15.17, "rotation": -90.34, "width": 206, "height": 415 },
+				"Zombie_charred6": { "x": 220.39, "y": -14.55, "rotation": -90.34, "width": 204, "height": 394 },
+				"Zombie_charred7": { "x": 217.97, "y": -6.17, "rotation": -90.34, "width": 187, "height": 394 },
+				"Zombie_charred8": { "x": 216.38, "y": 2.41, "rotation": -90.34, "width": 169, "height": 394 },
+				"Zombie_charred9": { "x": 211.34, "y": -15.64, "rotation": -90.34, "width": 169, "height": 394 },
+				"Zombie_charred10": { "x": 208.87, "y": -16.45, "rotation": -90.34, "width": 169, "height": 394 },
+				"Zombie_charred_tail": { "x": 230.61, "y": -20.69, "rotation": -90.34, "width": 35, "height": 377 }
+			},
+			"Zombie_polevaulter_innerhand": {
+				"Zombie_polevaulter_innerhand": { "x": 10.48, "y": 0.03, "rotation": -101.02, "width": 25, "height": 26 }
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"Zombie_polevaulter_innerarm_lower": { "x": 13.26, "y": 2.89, "rotation": -99.96, "width": 21, "height": 39 }
+			},
+			"Zombie_polevaulter_outerleg_foot": {
+				"Zombie_polevaulter_outerleg_foot": { "x": 15.96, "y": 3.22, "rotation": 159.38, "width": 51, "height": 22 }
+			},
+			"Zombie_charred_head": {
+				"Zombie_charred_head": { "x": 20.72, "y": 0.31, "width": 214, "height": 223 }
+			},
+			"Zombie_polevaulter_body1": {
+				"Zombie_polevaulter_body1": {
+					"type": "mesh",
+					"uvs": [ 1, 1, 0, 1, 0, 0, 1, 0 ],
+					"triangles": [ 1, 2, 3, 1, 3, 0 ],
+					"vertices": [ -19.4, -15.53, 2.72, 34.83, 59.48, 9.89, 37.36, -40.47 ],
+					"hull": 4,
+					"edges": [ 0, 2, 2, 4, 4, 6, 0, 6 ],
+					"width": 55,
+					"height": 62
+				}
+			},
+			"Zombie_polevaulter_body2": {
+				"Zombie_polevaulter_body2": { "x": 9.82, "y": -5.05, "rotation": -108.33, "width": 43, "height": 35 }
+			}
+		}
+	},
+	{
+		"name": "charred",
+		"bones": [ "Zombie_charred_head", "Zombie_charred_pile2" ]
+	},
+	{
+		"name": "polevaulter",
+		"bones": [ "Zombie_head", "Zombie_jaw", "Zombie_outerarm_hand", "Zombie_polevaulter_body1", "Zombie_polevaulter_body2", "Zombie_polevaulter_hair", "Zombie_polevaulter_innerarm_lower", "Zombie_polevaulter_innerarm_upper", "Zombie_polevaulter_innerhand", "Zombie_polevaulter_innerleg_foot", "Zombie_polevaulter_innerleg_lower", "Zombie_polevaulter_innerleg_upper", "Zombie_polevaulter_outerarm_lower", "Zombie_polevaulter_outerarm_upper", "Zombie_polevaulter_outerleg_foot", "Zombie_polevaulter_outerleg_lower", "Zombie_polevaulter_outerleg_upper", "Zombie_polevaulter_pole" ],
+		"transform": [ "headFly" ]
+	}
+],
+"animations": {
+	"Attack": {
+		"slots": {
+			"Zombie_polevaulter_pole": {
+				"attachment": [
+					{ "time": 0.2333, "name": null }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_polevaulter_innerleg_foot": {
+				"rotate": [
+					{ "angle": 1.93 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_lower": {
+				"rotate": [
+					{ "angle": 6.25 },
+					{ "time": 0.2, "angle": 11.23 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"rotate": [
+					{ "angle": -4.62 },
+					{ "time": 0.2, "angle": -13.02 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_foot": {
+				"rotate": [
+					{ "angle": -3.7 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_lower": {
+				"rotate": [
+					{ "angle": -10.62 },
+					{ "time": 0.2, "angle": -24.03 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"rotate": [
+					{ "angle": 38.75 },
+					{ "time": 0.2, "angle": 0.61 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"rotate": [
+					{ "angle": 3.23 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"rotate": [
+					{ "angle": -4.7 }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"rotate": [
+					{ "angle": -50.85 }
+				]
+			},
+			"Zombie_head": {
+				"rotate": [
+					{ "angle": 19.18 },
+					{ "time": 0.2, "angle": -10.16 }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"rotate": [
+					{ "angle": -37.03 },
+					{ "time": 0.2, "angle": -2.04 }
+				]
+			},
+			"Zombie_polevaulter_body2": {
+				"rotate": [
+					{ "angle": -18.2 },
+					{ "time": 0.2, "angle": 2 }
+				],
+				"translate": [
+					{ "y": -10.41 },
+					{ "time": 0.2, "x": -25.68, "y": 3.43 }
+				]
+			}
+		}
+	},
+	"AttackBefore": {
+		"bones": {
+			"Zombie_polevaulter_body2": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -18.2 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.3333, "y": -10.41 }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -37.03 }
+				]
+			},
+			"Zombie_head": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 19.18 }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -50.85 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 23.75 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 3.23 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 38.75 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -10.62 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_foot": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -3.7 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -4.62 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 6.25 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_foot": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 1.93 }
+				]
+			},
+			"headFly": {
+				"translate": [
+					{ "time": 1 }
+				]
+			}
+		}
+	},
+	"Attack_After": {
+		"slots": {
+			"Zombie_polevaulter_pole": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.2667, "name": "Zombie_polevaulter_pole" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_polevaulter_innerleg_foot": {
+				"rotate": [
+					{ "angle": 20.37 },
+					{ "time": 0.2667, "angle": 41.43 },
+					{ "time": 1.1 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_lower": {
+				"rotate": [
+					{ "angle": 7.08 },
+					{ "time": 0.2667, "angle": -26.09 },
+					{ "time": 1.1 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"rotate": [
+					{ "angle": -14.61 },
+					{ "time": 0.2667, "angle": -27.34 },
+					{ "time": 1.1 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_foot": {
+				"rotate": [
+					{ "angle": -13.21 },
+					{ "time": 0.2667, "angle": -24.09 },
+					{ "time": 1.1 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_lower": {
+				"rotate": [
+					{ "angle": -21.16 },
+					{ "time": 0.2667, "angle": 1.79 },
+					{ "time": 1.1 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"rotate": [
+					{ "angle": 4.08 },
+					{ "time": 0.2667, "angle": 31.85 },
+					{ "time": 1.1 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"rotate": [
+					{ "angle": 7.47 },
+					{ "time": 0.2667, "angle": 41.35 },
+					{ "time": 1.1 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"rotate": [
+					{ "angle": 1.56 },
+					{ "time": 0.2667, "angle": 51.64 },
+					{ "time": 1.1 }
+				],
+				"translate": [
+					{ "x": -0.95, "y": -1.53 },
+					{ "time": 0.2667, "x": -8.59, "y": -13.74 },
+					{ "time": 1.1 }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"rotate": [
+					{ "angle": -49.16 },
+					{ "time": 0.2667, "angle": -47.23 },
+					{ "time": 1.1 }
+				]
+			},
+			"Zombie_head": {
+				"rotate": [
+					{ "angle": -6.46 },
+					{ "time": 0.2667, "angle": 23.09 },
+					{ "time": 1.1 }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"rotate": [
+					{ "angle": 2.61 },
+					{ "time": 0.2667, "angle": 39.78 },
+					{ "time": 1.1 }
+				]
+			},
+			"Zombie_polevaulter_body2": {
+				"rotate": [
+					{ "angle": 1.94 },
+					{ "time": 1.1 }
+				],
+				"translate": [
+					{ "x": -25.1, "y": 0.7 },
+					{ "time": 0.2667, "x": -20.51, "y": -21.18 },
+					{ "time": 1.1 }
+				]
+			}
+		},
+		"deform": {
+			"default": {
+				"Zombie_polevaulter_pole": {
+					"Zombie_polevaulter_pole": [
+						{
+							"time": 0.2667,
+							"vertices": [ -124.21617, 2.87059, 54.52824, -0.2137, 52.51959, -2.24401, -126.22758, 1.34517 ]
+						},
+						{
+							"time": 0.6667,
+							"offset": 4,
+							"vertices": [ -0.75598, -0.25648 ]
+						}
+					]
+				}
+			}
+		}
+	},
+	"Dead": {
+		"slots": {
+			"Zombie_head": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerleg_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_charred_pile1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_charred_pile2": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Shadow": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_outerleg_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_charred_eyes1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_charred1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_pole": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerleg_foot": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_outerleg_foot": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_body2": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_jaw": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerhand": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_outerarm_hand": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_charred_head": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_hair": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_outerarm_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_polevaulter_body2": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 64.37 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": -11.3, "y": -16.6 },
+					{ "time": 0.6667, "x": -46.59, "y": -29.35 },
+					{ "time": 1, "x": -50.13, "y": -18.76 },
+					{ "time": 1.3333, "x": -57.18, "y": -29.71 }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 15.08 },
+					{ "time": 0.6667, "angle": 3.18 }
+				]
+			},
+			"Zombie_head": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 169.1 },
+					{ "time": 1.3333, "angle": -14.8 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": 31.48, "y": 20.23 },
+					{ "time": 0.6667, "x": 70.32, "y": 3.87 },
+					{ "time": 1, "x": 112.04, "y": 6.53 },
+					{ "time": 1.3333, "x": 119.67, "y": 16.61 }
+				]
+			},
+			"Zombie_jaw": {
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": -2.56, "y": 0.94 },
+					{ "time": 0.6667, "x": -0.45, "y": 0.19 },
+					{ "time": 1, "x": -1.18, "y": 1.94 },
+					{ "time": 1.3333, "x": 0.26, "y": 1.3 }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 32.77 },
+					{ "time": 1, "angle": 19.5 },
+					{ "time": 1.3333, "angle": -10.42 }
+				]
+			},
+			"Zombie_polevaulter_outerarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": 19.8 },
+					{ "time": 1.3333, "angle": 28.19 }
+				]
+			},
+			"Zombie_outerarm_hand": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": -33.91 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": -65.28 },
+					{ "time": 1.3333, "angle": -56.21 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": 59.99 },
+					{ "time": 1.3333, "angle": 58.96 }
+				]
+			},
+			"Zombie_polevaulter_innerhand": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": -3.95 },
+					{ "time": 1.3333, "angle": 4.71 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 2.42 },
+					{ "time": 0.6667, "angle": 35.08 },
+					{ "time": 1, "angle": 46.44 },
+					{ "time": 1.3333, "angle": 20.68 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 29.39 },
+					{ "time": 0.6667, "angle": -36.09 },
+					{ "time": 1, "angle": -30.06 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_foot": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -27.85 },
+					{ "time": 0.6667, "angle": 26.99 },
+					{ "time": 1, "angle": 56.09 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 16.98 },
+					{ "time": 0.6667, "angle": 21.23 },
+					{ "time": 1, "angle": 38.22 },
+					{ "time": 1.3333, "angle": 18.75 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -28.35 },
+					{ "time": 0.6667, "angle": 26.31 },
+					{ "time": 1, "angle": 39.61 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_foot": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 11.87 },
+					{ "time": 0.6667, "angle": -38.68 },
+					{ "time": 1, "angle": -67.55 }
+				]
+			},
+			"Shadow": {
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": -90.51 }
+				],
+				"scale": [
+					{},
+					{ "time": 1.3333, "x": 3.466, "y": 0.985 }
+				]
+			}
+		}
+	},
+	"DeadBodyFly": {
+		"bones": {
+			"Zombie_polevaulter_body2": {
+				"rotate": [
+					{ "angle": -19.08 }
+				],
+				"translate": [
+					{ "x": 1.09, "y": 15.46 }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"rotate": [
+					{ "angle": 17.61 },
+					{ "time": 0.3333, "angle": 18.76 },
+					{ "time": 0.6667, "angle": 16.14 },
+					{ "time": 1.3333, "angle": 17.61 }
+				]
+			},
+			"Zombie_head": {
+				"rotate": [
+					{ "angle": 8.33 }
+				]
+			},
+			"Zombie_jaw": {
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": 1.86, "y": -1.21 },
+					{ "time": 0.6667, "x": -1.22, "y": 1.37 },
+					{ "time": 1, "x": 3.33, "y": -0.62 },
+					{ "time": 1.3333, "x": 1.21, "y": 0.28 }
+				]
+			},
+			"Zombie_polevaulter_hair": {
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": 7.46, "y": -5.37 },
+					{ "time": 0.6667, "x": 2, "y": -2.22 },
+					{ "time": 1, "x": 5.84, "y": -5.04 },
+					{ "time": 1.3333, "x": 2.89, "y": -3.41 }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"rotate": [
+					{ "angle": -62.72 },
+					{ "time": 0.3333, "angle": -70.14 },
+					{ "time": 0.6667, "angle": -62.49 },
+					{ "time": 1, "angle": -70.38 },
+					{ "time": 1.3333, "angle": -62.72 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"rotate": [
+					{ "angle": 45.09 },
+					{ "time": 0.3333, "angle": 33.74 },
+					{ "time": 0.6667, "angle": 34.09 },
+					{ "time": 1.3333, "angle": 45.09 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 14.89 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"rotate": [
+					{ "angle": -28.43 },
+					{ "time": 0.3333, "angle": -37.64 },
+					{ "time": 0.6667, "angle": -24.94 },
+					{ "time": 1, "angle": -37.48 },
+					{ "time": 1.3333, "angle": -28.43 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -9.85 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"rotate": [
+					{ "angle": -16.72 },
+					{ "time": 0.3333, "angle": -29.51 },
+					{ "time": 0.6667, "angle": -22.8 },
+					{ "time": 1, "angle": -28.2 },
+					{ "time": 1.3333, "angle": -16.72 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -2.95 }
+				]
+			},
+			"Shadow": {
+				"translate": [
+					{ "x": -5.74 },
+					{ "time": 0.3333, "x": -9.33 },
+					{ "time": 0.6667, "x": -5.74 },
+					{ "time": 1, "x": -9.33 },
+					{ "time": 1.3333, "x": -5.74 }
+				],
+				"scale": [
+					{ "x": 1.237, "y": 0.838 },
+					{ "time": 0.3333, "x": 1.428, "y": 0.838 },
+					{ "time": 0.6667, "x": 1.237, "y": 0.838 },
+					{ "time": 1, "x": 1.428, "y": 0.838 },
+					{ "time": 1.3333, "x": 1.237, "y": 0.838 }
+				]
+			}
+		}
+	},
+	"DeadBodyFly_After": {
+		"slots": {
+			"Zombie_head": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerleg_lower": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Shadow": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_outerleg_lower": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_pole": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerleg_foot": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_outerleg_foot": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_body2": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_jaw": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerhand": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_outerarm_hand": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_hair": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_outerarm_lower": {
+				"color": [
+					{ "time": 1.6667, "color": "ffffffff" },
+					{ "time": 2.6667, "color": "ffffff01" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_polevaulter_body2": {
+				"rotate": [
+					{ "angle": -19.08 },
+					{ "time": 0.3333 },
+					{ "time": 1, "angle": 64.37 }
+				],
+				"translate": [
+					{ "x": 1.09, "y": 15.46 },
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "x": -11.3, "y": -16.6 },
+					{ "time": 1, "x": -46.59, "y": -29.35 },
+					{ "time": 1.3333, "x": -50.13, "y": -18.76 },
+					{ "time": 1.6667, "x": -57.18, "y": -29.71 }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"rotate": [
+					{ "angle": 17.61 },
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": 15.08 },
+					{ "time": 1, "angle": 3.18 }
+				]
+			},
+			"Zombie_head": {
+				"rotate": [
+					{ "angle": 8.33 },
+					{ "time": 0.3333 },
+					{ "time": 1, "angle": 169.1 },
+					{ "time": 1.6667, "angle": -14.8 }
+				],
+				"translate": [
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "x": 31.48, "y": 20.23 },
+					{ "time": 1, "x": 70.32, "y": 3.87 },
+					{ "time": 1.3333, "x": 112.04, "y": 6.53 },
+					{ "time": 1.6667, "x": 119.67, "y": 16.61 }
+				]
+			},
+			"Zombie_jaw": {
+				"translate": [
+					{ "x": 1.21, "y": 0.28 },
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "x": -2.56, "y": 0.94 },
+					{ "time": 1, "x": -0.45, "y": 0.19 },
+					{ "time": 1.3333, "x": -1.18, "y": 1.94 },
+					{ "time": 1.6667, "x": 0.26, "y": 1.3 }
+				]
+			},
+			"Zombie_polevaulter_hair": {
+				"translate": [
+					{ "x": 2.89, "y": -3.41 }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"rotate": [
+					{ "angle": -62.72 },
+					{ "time": 0.3333 },
+					{ "time": 1, "angle": 32.77 },
+					{ "time": 1.3333, "angle": 19.5 },
+					{ "time": 1.6667, "angle": -10.42 }
+				]
+			},
+			"Zombie_polevaulter_outerarm_lower": {
+				"rotate": [
+					{ "time": 0.3333 },
+					{ "time": 1.3333, "angle": 19.8 },
+					{ "time": 1.6667, "angle": 28.19 }
+				]
+			},
+			"Zombie_outerarm_hand": {
+				"rotate": [
+					{ "time": 0.3333 },
+					{ "time": 1.3333, "angle": -33.91 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"rotate": [
+					{ "angle": 45.09 },
+					{ "time": 0.3333 },
+					{ "time": 1.3333, "angle": -65.28 },
+					{ "time": 1.6667, "angle": -56.21 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"rotate": [
+					{ "angle": 14.89 },
+					{ "time": 0.3333 },
+					{ "time": 1.3333, "angle": 59.99 },
+					{ "time": 1.6667, "angle": 58.96 }
+				]
+			},
+			"Zombie_polevaulter_innerhand": {
+				"rotate": [
+					{ "time": 0.3333 },
+					{ "time": 1.3333, "angle": -3.95 },
+					{ "time": 1.6667, "angle": 4.71 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"rotate": [
+					{ "angle": -28.43 },
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": 2.42 },
+					{ "time": 1, "angle": 35.08 },
+					{ "time": 1.3333, "angle": 46.44 },
+					{ "time": 1.6667, "angle": 20.68 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_lower": {
+				"rotate": [
+					{ "angle": -9.85 },
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": 29.39 },
+					{ "time": 1, "angle": -36.09 },
+					{ "time": 1.3333, "angle": -30.06 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_foot": {
+				"rotate": [
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": -27.85 },
+					{ "time": 1, "angle": 26.99 },
+					{ "time": 1.3333, "angle": 56.09 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"rotate": [
+					{ "angle": -16.72 },
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": 16.98 },
+					{ "time": 1, "angle": 21.23 },
+					{ "time": 1.3333, "angle": 38.22 },
+					{ "time": 1.6667, "angle": 18.75 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_lower": {
+				"rotate": [
+					{ "angle": -2.95 },
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": -28.35 },
+					{ "time": 1, "angle": 26.31 },
+					{ "time": 1.3333, "angle": 39.61 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_foot": {
+				"rotate": [
+					{ "time": 0.3333 },
+					{ "time": 0.6667, "angle": 11.87 },
+					{ "time": 1, "angle": -38.68 },
+					{ "time": 1.3333, "angle": -67.55 }
+				]
+			},
+			"Shadow": {
+				"translate": [
+					{ "time": 0.3333 },
+					{ "time": 1.6667, "x": -90.51 }
+				],
+				"scale": [
+					{ "time": 0.3333 },
+					{ "time": 1.6667, "x": 3.466, "y": 0.985 }
+				]
+			}
+		}
+	},
+	"DeadHeadFly": {
+		"slots": {
+			"Zombie_head": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerleg_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_charred_pile1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_charred_pile2": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Shadow": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_outerleg_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_charred_eyes1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_charred1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_pole": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerleg_foot": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_outerleg_foot": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_body2": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_jaw": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_innerhand": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_outerarm_hand": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_charred_head": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_hair": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			},
+			"Zombie_polevaulter_outerarm_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff01" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_polevaulter_body2": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 64.37 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": -11.3, "y": -16.6 },
+					{ "time": 0.6667, "x": -46.59, "y": -29.35 },
+					{ "time": 1, "x": -50.13, "y": -18.76 },
+					{ "time": 1.3333, "x": -57.18, "y": -29.71 }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 15.08 },
+					{ "time": 0.6667, "angle": 3.18 }
+				]
+			},
+			"Zombie_head": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 169.1 },
+					{ "time": 1.3333, "angle": -14.8 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": 31.48, "y": 20.23 },
+					{ "time": 0.6667, "x": 70.32, "y": 3.87 },
+					{ "time": 1, "x": 112.04, "y": 6.53 },
+					{ "time": 1.3333, "x": 119.67, "y": 16.61 }
+				]
+			},
+			"Zombie_jaw": {
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": -2.56, "y": 0.94 },
+					{ "time": 0.6667, "x": -0.45, "y": 0.19 },
+					{ "time": 1, "x": -1.18, "y": 1.94 },
+					{ "time": 1.3333, "x": 0.26, "y": 1.3 }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 32.77 },
+					{ "time": 1, "angle": 19.5 },
+					{ "time": 1.3333, "angle": -10.42 }
+				]
+			},
+			"Zombie_polevaulter_outerarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": 19.8 },
+					{ "time": 1.3333, "angle": 28.19 }
+				]
+			},
+			"Zombie_outerarm_hand": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": -33.91 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": -65.28 },
+					{ "time": 1.3333, "angle": -56.21 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": 59.99 },
+					{ "time": 1.3333, "angle": 58.96 }
+				]
+			},
+			"Zombie_polevaulter_innerhand": {
+				"rotate": [
+					{},
+					{ "time": 1, "angle": -3.95 },
+					{ "time": 1.3333, "angle": 4.71 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 2.42 },
+					{ "time": 0.6667, "angle": 35.08 },
+					{ "time": 1, "angle": 46.44 },
+					{ "time": 1.3333, "angle": 20.68 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 29.39 },
+					{ "time": 0.6667, "angle": -36.09 },
+					{ "time": 1, "angle": -30.06 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_foot": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -27.85 },
+					{ "time": 0.6667, "angle": 26.99 },
+					{ "time": 1, "angle": 56.09 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 16.98 },
+					{ "time": 0.6667, "angle": 21.23 },
+					{ "time": 1, "angle": 38.22 },
+					{ "time": 1.3333, "angle": 18.75 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -28.35 },
+					{ "time": 0.6667, "angle": 26.31 },
+					{ "time": 1, "angle": 39.61 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_foot": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 11.87 },
+					{ "time": 0.6667, "angle": -38.68 },
+					{ "time": 1, "angle": -67.55 }
+				]
+			},
+			"Shadow": {
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": -90.51 }
+				],
+				"scale": [
+					{},
+					{ "time": 1.3333, "x": 3.466, "y": 0.985 }
+				]
+			}
+		},
+		"transform": {
+			"headFly": [
+				{ "scaleMix": 0, "shearMix": 0 }
+			]
+		}
+	},
+	"Entrance": {
+		"slots": {
+			"Zombie_head": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.6333, "name": "Zombie_head" }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.8, "name": "Zombie_polevaulter_body1" }
+				]
+			},
+			"Zombie_polevaulter_innerleg_lower": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.3333, "name": "Zombie_polevaulter_innerleg_lower" }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.8, "name": "Zombie_polevaulter_innerarm_lower" }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.8, "name": "Zombie_polevaulter_innerarm_upper" }
+				]
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.2333, "name": "Zombie_polevaulter_outerleg_upper" }
+				]
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.2333, "name": "Zombie_polevaulter_innerleg_upper" }
+				]
+			},
+			"Zombie_polevaulter_outerleg_lower": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.3333, "name": "Zombie_polevaulter_outerleg_lower" }
+				]
+			},
+			"Zombie_polevaulter_pole": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.1667, "name": "Zombie_polevaulter_pole" }
+				]
+			},
+			"Zombie_polevaulter_innerleg_foot": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.5, "name": "Zombie_polevaulter_innerleg_foot" }
+				]
+			},
+			"Zombie_polevaulter_outerleg_foot": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.5, "name": "Zombie_polevaulter_outerleg_foot" }
+				]
+			},
+			"Zombie_polevaulter_body2": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.1667, "name": "Zombie_polevaulter_body2" }
+				]
+			},
+			"Zombie_jaw": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.7333, "name": "Zombie_jaw" }
+				]
+			},
+			"Zombie_polevaulter_innerhand": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.8, "name": "Zombie_polevaulter_innerhand" }
+				]
+			},
+			"Zombie_outerarm_hand": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.4, "name": "Zombie_outerarm_hand" }
+				]
+			},
+			"Zombie_polevaulter_hair": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.6, "name": "Zombie_polevaulter_hair" }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.6667, "name": "Zombie_polevaulter_outerarm_upper" }
+				]
+			},
+			"Zombie_polevaulter_outerarm_lower": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.6, "name": "Zombie_polevaulter_outerarm_lower" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_polevaulter_body2": {
+				"translate": [
+					{ "y": -224.38 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"rotate": [
+					{ "angle": -14.97 },
+					{ "time": 1.6667 }
+				],
+				"translate": [
+					{ "x": -1, "y": -4.17 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"rotate": [
+					{ "angle": -158.45, "curve": "stepped" },
+					{ "time": 1.1667, "angle": -158.45 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"rotate": [
+					{ "angle": 91.26, "curve": "stepped" },
+					{ "time": 1.1667, "angle": 91.26 },
+					{ "time": 1.6667 }
+				],
+				"translate": [
+					{ "x": 5.31, "y": -6, "curve": "stepped" },
+					{ "time": 1.1667, "x": 5.31, "y": -6 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"rotate": [
+					{ "angle": 10.63 },
+					{ "time": 1.6667 }
+				],
+				"translate": [
+					{ "x": -6.09, "y": 4.36 },
+					{ "time": 1.6667 }
+				]
+			}
+		},
+		"deform": {
+			"default": {
+				"Zombie_polevaulter_body1": {
+					"Zombie_polevaulter_body1": [
+						{
+							"time": 0.8,
+							"vertices": [ 39.58541, -15.92508, 38.35407, -17.27158 ]
+						},
+						{
+							"time": 1.1667,
+							"vertices": [ 0.38535, -0.13397 ]
+						}
+					]
+				},
+				"Zombie_polevaulter_pole": {
+					"Zombie_polevaulter_pole": [
+						{
+							"time": 0.1667,
+							"offset": 2,
+							"vertices": [ 172.35526, -0.58703, 172.78812, -2.07568 ]
+						},
+						{ "time": 1.1667 }
+					]
+				}
+			}
+		}
+	},
+	"MeleeAttack": {
+		"bones": {
+			"Zombie_polevaulter_outerarm_upper": {
+				"rotate": [
+					{ "angle": -134.49 },
+					{ "time": 0.2, "angle": -62.11 },
+					{ "time": 0.3333 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"rotate": [
+					{ "angle": 29.8 },
+					{ "time": 0.3333 }
+				]
+			},
+			"Zombie_polevaulter_pole": {
+				"rotate": [
+					{ "angle": 18.25 },
+					{ "time": 0.2, "angle": 40.68 },
+					{ "time": 0.3333 }
+				],
+				"translate": [
+					{ "x": 4.84, "y": -25.64 },
+					{ "time": 0.2, "x": 24.44, "y": -48.38 },
+					{ "time": 0.2667, "x": 4.53, "y": -25.36 },
+					{ "time": 0.3333, "y": 0.07 }
+				]
+			},
+			"Zombie_polevaulter_body2": {
+				"rotate": [
+					{ "angle": -15.21 },
+					{ "time": 0.2, "angle": 52.04 },
+					{ "time": 0.3333 }
+				],
+				"translate": [
+					{ "time": 0.2, "x": -8.25, "y": -11.75 },
+					{ "time": 0.3333 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"rotate": [
+					{ "angle": 15.02 },
+					{ "time": 0.2, "angle": -24.84 },
+					{ "time": 0.3333 }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"rotate": [
+					{ "angle": -17.72 },
+					{ "time": 0.2, "angle": 8.32 },
+					{ "time": 0.3333 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"rotate": [
+					{ "angle": -51.59 },
+					{ "time": 0.2, "angle": 46.96 },
+					{ "time": 0.3333, "angle": 26.08 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.2, "x": -12.44, "y": -15.52 },
+					{ "time": 0.3333, "y": -0.53 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"rotate": [
+					{ "angle": 17 },
+					{ "time": 0.2, "angle": -29.99 },
+					{ "time": 0.3333 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_lower": {
+				"rotate": [
+					{ "time": 0.2, "angle": -40.91 },
+					{ "time": 0.3333 }
+				]
+			}
+		}
+	},
+	"MeleeAttack_Before": {
+		"bones": {
+			"Zombie_polevaulter_body2": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -15.21 }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -17.72 }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -134.49 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -51.59 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 29.8 }
+				]
+			},
+			"Zombie_polevaulter_pole": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 18.25 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": 4.84, "y": -25.64 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 17 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": 15.02 }
+				]
+			},
+			"headFly": {
+				"translate": [
+					{ "time": 1 }
+				]
+			}
+		}
+	},
+	"WalkOff": {
+		"slots": {
+			"Zombie_head": {
+				"attachment": [
+					{ "time": 1.0333, "name": null }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"attachment": [
+					{ "time": 0.8667, "name": null }
+				]
+			},
+			"Zombie_polevaulter_innerleg_lower": {
+				"attachment": [
+					{ "time": 0.4333, "name": null }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"attachment": [
+					{ "time": 0.8667, "name": null }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"attachment": [
+					{ "time": 0.8667, "name": null }
+				]
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"attachment": [
+					{ "time": 0.4333, "name": null }
+				]
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"attachment": [
+					{ "time": 0.4333, "name": null }
+				]
+			},
+			"Zombie_polevaulter_outerleg_lower": {
+				"attachment": [
+					{ "time": 0.3333, "name": null }
+				]
+			},
+			"Zombie_polevaulter_pole": {
+				"attachment": [
+					{ "time": 1.5, "name": null }
+				]
+			},
+			"Zombie_polevaulter_innerleg_foot": {
+				"attachment": [
+					{ "time": 0.1667, "name": null }
+				]
+			},
+			"Zombie_polevaulter_outerleg_foot": {
+				"attachment": [
+					{ "time": 0.1667, "name": null }
+				]
+			},
+			"Zombie_polevaulter_body2": {
+				"attachment": [
+					{ "time": 0.5, "name": null }
+				]
+			},
+			"Zombie_jaw": {
+				"attachment": [
+					{ "time": 0.9333, "name": null }
+				]
+			},
+			"Zombie_polevaulter_innerhand": {
+				"attachment": [
+					{ "time": 0.8667, "name": null }
+				]
+			},
+			"Zombie_outerarm_hand": {
+				"attachment": [
+					{ "time": 1.2667, "name": null }
+				]
+			},
+			"Zombie_polevaulter_hair": {
+				"attachment": [
+					{ "time": 1.0667, "name": null }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"attachment": [
+					{ "time": 1, "name": null }
+				]
+			},
+			"Zombie_polevaulter_outerarm_lower": {
+				"attachment": [
+					{ "time": 1.0667, "name": null }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_polevaulter_body2": {
+				"translate": [
+					{},
+					{ "time": 1.6667, "y": -224.38 }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"rotate": [
+					{},
+					{ "time": 1.6667, "angle": -14.97 }
+				],
+				"translate": [
+					{},
+					{ "time": 1.6667, "x": -1, "y": -4.17 }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.5, "angle": -158.45 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.5, "angle": 91.26 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.5, "x": 5.31, "y": -6 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 1.6667, "angle": 10.63 }
+				],
+				"translate": [
+					{},
+					{ "time": 1.6667, "x": -6.09, "y": 4.36 }
+				]
+			}
+		},
+		"deform": {
+			"default": {
+				"Zombie_polevaulter_body1": {
+					"Zombie_polevaulter_body1": [
+						{
+							"time": 0.5,
+							"vertices": [ 0.38535, -0.13397 ]
+						},
+						{
+							"time": 0.8667,
+							"vertices": [ 39.58541, -15.92508, 38.35407, -17.27158 ]
+						}
+					]
+				},
+				"Zombie_polevaulter_pole": {
+					"Zombie_polevaulter_pole": [
+						{ "time": 0.5 },
+						{
+							"time": 1.5,
+							"offset": 2,
+							"vertices": [ 172.35526, -0.58703, 172.78812, -2.07568 ]
+						}
+					]
+				}
+			}
+		}
+	},
+	"charred": {
+		"slots": {
+			"Zombie_charred_pile2": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.7, "name": "Zombie_charred_pile2" }
+				]
+			},
+			"Zombie_charred_eyes1": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.1, "name": "Zombie_charred_eyes1" },
+					{ "time": 0.2, "name": "Zombie_charred_eyes2" },
+					{ "time": 0.3, "name": "Zombie_charred_eyes1" },
+					{ "time": 0.4, "name": null }
+				]
+			},
+			"Zombie_charred1": {
+				"attachment": [
+					{ "time": 0.1, "name": "Zombie_charred2" },
+					{ "time": 0.2, "name": "Zombie_charred3" },
+					{ "time": 0.3, "name": "Zombie_charred4" },
+					{ "time": 0.4, "name": "Zombie_charred5" },
+					{ "time": 0.5, "name": "Zombie_charred6" },
+					{ "time": 0.6, "name": "Zombie_charred7" },
+					{ "time": 0.7, "name": "Zombie_charred8" },
+					{ "time": 0.8, "name": "Zombie_charred9" },
+					{ "time": 0.9, "name": "Zombie_charred10" },
+					{ "time": 1, "name": "Zombie_charred_tail" },
+					{ "time": 1.1, "name": null }
+				]
+			},
+			"Zombie_charred_pile1": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.1, "name": "Zombie_charred_pile1" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_charred_pile2": {
+				"scale": [
+					{ "x": 0.26, "y": 0.26 }
+				]
+			},
+			"Zombie_charred_head": {
+				"translate": [
+					{ "time": 1.1333 },
+					{ "time": 1.4, "y": -100.94 },
+					{ "time": 1.5, "y": -46.18 },
+					{ "time": 1.6, "y": -100.94 }
+				],
+				"scale": [
+					{ "x": 0.26, "y": 0.26 }
+				]
+			}
+		}
+	},
+	"run": {
+		"bones": {
+			"Zombie_polevaulter_innerleg_foot": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": -16.13 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": -20.82 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": -12.16 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": -10.63 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_polevaulter_innerleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 73.75 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": -42.58 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_foot": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 16.06 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": -11.64 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 15.28 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": -6.74 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_polevaulter_outerleg_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": -63.38 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": 51.36 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_polevaulter_innerarm_upper": {
+				"rotate": [
+					{ "angle": 26.08 },
+					{ "time": 0.5333, "angle": -10.56 },
+					{ "time": 1.0667, "angle": 25.47 },
+					{ "time": 1.6, "angle": -18.45 },
+					{ "time": 2.1333, "angle": 26.08 }
+				],
+				"translate": [
+					{ "y": -0.53 }
+				]
+			},
+			"Zombie_outerarm_hand": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": -19.42 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": -25.12 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_polevaulter_outerarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": -29.38 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": -28.85 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_polevaulter_outerarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 32.48 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": 0.11 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_polevaulter_hair": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "x": 5.8, "y": -6.25 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "x": 2.9, "y": -4.62 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_jaw": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "x": 2.86, "y": -0.76 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "x": 3.66, "y": -1.36 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_polevaulter_body1": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": -7.21 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": -4.7 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_polevaulter_body2": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "y": 26.57 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "y": 21.18 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_polevaulter_pole": {
+				"translate": [
+					{ "y": 0.07 }
+				]
+			}
+		}
+	}
+}
+}

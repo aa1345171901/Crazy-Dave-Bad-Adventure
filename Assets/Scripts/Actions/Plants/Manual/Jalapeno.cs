@@ -9,12 +9,12 @@ public class Jalapeno : AshPlant
         base.Boom();
         int sumHealth = 0;
         LayerMask targetLayer = increasedInjury > 0 ? TargetLayer : TargetLayer | BigTargetLayer;
-        var colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(finalRange, finalRange / Range), targetLayer);
+        var colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(finalRange, finalRange / Range), 0,targetLayer);
         DoDamage(colliders, ref sumHealth);
 
         if (increasedInjury > 0)
         {
-            colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(finalRange, finalRange / Range), BigTargetLayer);
+            colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(finalRange, finalRange / Range), 0, BigTargetLayer);
             IncreasedInjury(colliders, ref sumHealth);
         }
 

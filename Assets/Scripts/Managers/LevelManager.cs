@@ -16,6 +16,8 @@ namespace TopDownPlate
         Flag,
         Football,
         Paper,
+        Polevaulter,
+        Balloon,
     }
 
     /// <summary>
@@ -332,14 +334,18 @@ namespace TopDownPlate
             float distance = range;
             foreach (var item in Enemys)
             {
-                foreach (var zombie in item.Zombies)
+                // 平底锅不能打到气球僵尸
+                if (item.ZombieType != ZombieType.Balloon)
                 {
-                    AIMove aIMove = zombie.FindAbility<AIMove>();
-                    if (aIMove.AIParameter.Distance < distance)
+                    foreach (var zombie in item.Zombies)
                     {
-                        target = zombie;
-                        distance = aIMove.AIParameter.Distance;
-                        direction = aIMove.AIParameter.IsPlayerRight;
+                        AIMove aIMove = zombie.FindAbility<AIMove>();
+                        if (aIMove.AIParameter.Distance < distance)
+                        {
+                            target = zombie;
+                            distance = aIMove.AIParameter.Distance;
+                            direction = aIMove.AIParameter.IsPlayerRight;
+                        }
                     }
                 }
             }

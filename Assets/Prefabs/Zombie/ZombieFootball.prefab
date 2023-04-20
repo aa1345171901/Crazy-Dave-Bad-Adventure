@@ -707,7 +707,7 @@ MonoBehaviour:
   tags: []
   layerMasks:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 2240
   Target: {fileID: 0}
 --- !u!1 &430822811509685970
 GameObject:
@@ -963,6 +963,7 @@ MonoBehaviour:
   HeadPos: {fileID: 430822811509686148}
   BodyPos: {fileID: 430822811509686167}
   Ice: {fileID: 430822811509685874}
+  canTaunt: 1
   canMove: 0
   AIParameter:
     Distance: 0
@@ -1006,8 +1007,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7798c63bc25094e8998670bad19d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
-  maxHealth: 40
+  health: 30
+  maxHealth: 30
   InvincibleTime: 0
   Injured:
     m_PersistentCalls:
@@ -1109,6 +1110,7 @@ MonoBehaviour:
   - {fileID: 430822811509685975}
   - {fileID: 430822811509685982}
   CanSwoop: 1
+  realCanSwoop: 0
   realAttackRange: 0
 --- !u!1 &430822811509685975
 GameObject:
@@ -6450,7 +6452,7 @@ MonoBehaviour:
   tags: []
   layerMasks:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 2240
   Target: {fileID: 0}
 --- !u!1 &430822811509686012
 GameObject:

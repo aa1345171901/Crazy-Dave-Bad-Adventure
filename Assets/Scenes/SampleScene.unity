@@ -442,6 +442,28 @@ MonoBehaviour:
       IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -4
+    - ZombieType: 7
+      EnemyPrefab: {fileID: 5076825408902150764, guid: a7ed75b9463b7f8448cf263a06de55b4, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 4
+      TimeIncrement: 0
+      lastGenerateTime: -4
+  - zombieData:
+    - ZombieType: 7
+      EnemyPrefab: {fileID: 5076825408902150764, guid: a7ed75b9463b7f8448cf263a06de55b4, type: 3}
+      GenerateCount: 2
+      CountIncrement: 1
+      IntervalTime: 4
+      TimeIncrement: 0.25
+      lastGenerateTime: -4
+    - ZombieType: 8
+      EnemyPrefab: {fileID: 6936560574509261660, guid: 0a290161120cfdb4cb669b5c6ef49eb4, type: 3}
+      GenerateCount: 2
+      CountIncrement: 1
+      IntervalTime: 4
+      TimeIncrement: 0.25
+      lastGenerateTime: -4
   Enemys: []
   CacheEnemys: []
   EnchantedEnemys: []
@@ -1236,7 +1258,7 @@ PrefabInstance:
     - target: {fileID: 4195450945961741395, guid: 8e7f933c308343849ad40a6c8d308417, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 34887bcbcdb343c40941c20f5c8989ae, type: 2}
+      objectReference: {fileID: 2100000, guid: ac6a4709b88b03d46bea07b9e0815d54, type: 2}
     - target: {fileID: 7497441726251074684, guid: 8e7f933c308343849ad40a6c8d308417, type: 3}
       propertyPath: m_Name
       value: Dave

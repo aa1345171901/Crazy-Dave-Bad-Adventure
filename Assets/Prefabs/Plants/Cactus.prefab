@@ -166,11 +166,13 @@ MonoBehaviour:
     level3: 0
     maxLevel: 0
     attribute: 
+    isManual: 0
+    isGoToWar: 0
   animator: {fileID: 8152761765045355341}
   Damage: 5
   CoolTime: 1.2
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2176
   BulletPos: {fileID: 756468605}
   SpikeBullet: {fileID: 8824656686718613444, guid: e76ae9ac6570b15468f6729367fdf4a2, type: 3}

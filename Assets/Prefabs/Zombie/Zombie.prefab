@@ -5513,7 +5513,7 @@ MonoBehaviour:
   tags: []
   layerMasks:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 2240
   Target: {fileID: 0}
 --- !u!1 &1446688259
 GameObject:
@@ -6007,6 +6007,7 @@ MonoBehaviour:
   HeadPos: {fileID: 571199464}
   BodyPos: {fileID: 1172497190}
   Ice: {fileID: 9042391771196770150}
+  canTaunt: 1
   canMove: 0
   AIParameter:
     Distance: 0
@@ -6141,6 +6142,7 @@ MonoBehaviour:
   - {fileID: 1453894757}
   - {fileID: 1855601729}
   CanSwoop: 1
+  realCanSwoop: 0
   realAttackRange: 0
 --- !u!1 &709301794697351485
 GameObject:
@@ -6519,7 +6521,7 @@ MonoBehaviour:
   tags: []
   layerMasks:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 2240
   Target: {fileID: 0}
 --- !u!1 &7390244050078611384
 GameObject:

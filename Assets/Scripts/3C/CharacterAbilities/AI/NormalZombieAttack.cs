@@ -148,7 +148,7 @@ public class NormalZombieAttack : AIAttack
     private void Attack()
     {
         healths.Clear();
-        float distance = aiMove.direction.magnitude;
+        float distance = aiMove.AIParameter.Distance;
         if (distance < realAttackRange)
         {
             // 前摇时随机选择僵尸AudioSource,如果没在播放则播放
@@ -188,14 +188,13 @@ public class NormalZombieAttack : AIAttack
                     audioSource = null;
                 };
             };
-            trackEntry.Dispose += (e) => { SetTrailAndColliderActive(false, false, AttackBoxColider); };
         }
     }
 
     private void AttackSwoop()
     {
         healths.Clear();
-        float distance = aiMove.direction.magnitude;
+        float distance = aiMove.AIParameter.Distance;
         if (distance < realAttackRange)
         {
             // 前摇时随机选择僵尸AudioSource,如果没在播放则播放
@@ -241,8 +240,14 @@ public class NormalZombieAttack : AIAttack
                     aiMove.isSwoop = false;
                 };
             };
-            trackEntry.Dispose += (e) => { SetTrailAndColliderActive(false, false, AttackSwoopBoxColider); };
         }
+    }
+
+    protected override void Dead()
+    {
+        base.Dead();
+        SetTrailAndColliderActive(false, false, AttackSwoopBoxColider);
+        SetTrailAndColliderActive(false, false, AttackBoxColider);
     }
 
     private void SetSpeed()
