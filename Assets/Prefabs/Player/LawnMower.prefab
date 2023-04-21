@@ -149,7 +149,7 @@ MonoBehaviour:
   defaultSpeed: 6
   triggerLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2176
   audioSource: {fileID: 4817122822124027301}
 --- !u!82 &4817122822124027301
 AudioSource:

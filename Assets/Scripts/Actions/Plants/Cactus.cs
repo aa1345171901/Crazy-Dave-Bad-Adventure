@@ -24,7 +24,7 @@ public class Cactus : Plant
     private float finalCoolTime;
     private int finalDamage;
     private float bulletSpeedMul = 1;
-    private float finalCriticalDamage = 1.5f;
+    private float finalCriticalDamage;
     private float finalAttackAnimSpeed = 1;
 
     private readonly int LevelBasicDamage = 1;
@@ -39,6 +39,7 @@ public class Cactus : Plant
         // 属性顺序需要与PlantCultivationPage设计的文字相对应
         finalDamage = Damage;
         finalCoolTime = CoolTime;
+        finalCriticalDamage = 1.5f;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
@@ -69,7 +70,7 @@ public class Cactus : Plant
                     break;
                 // 暴击伤害
                 case 6:
-                    finalCriticalDamage = 1.5f + 2 * (int)fieldInfo.GetValue(plantAttribute) * LevelPercentage / 100f;
+                    finalCriticalDamage += 2 * (int)fieldInfo.GetValue(plantAttribute) * LevelPercentage / 100f;
                     break;
                 default:
                     break;

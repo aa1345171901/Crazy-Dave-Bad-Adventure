@@ -166,7 +166,7 @@ MonoBehaviour:
   tags: []
   layerMasks:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2176
   Target: {fileID: 0}
 --- !u!82 &3889370594385864628
 AudioSource:
