@@ -124,6 +124,7 @@ namespace TopDownPlate
                         vectorInput = vectorInput.normalized;
                     // ÈýÒ¶²Ý·çËÙ
                     float realMoveSpeed = character.FacingDirection == FacingDirections.Right ? finalMoveSpeed + GardenManager.Instance.BloverEffect.Windspeed : finalMoveSpeed;
+                    realMoveSpeed *= GameManager.Instance.DecelerationRatio;
                     float xSpeed = vectorInput.x * realMoveSpeed;
                     float ySpeed = vectorInput.y * finalMoveSpeed;
                     controller.Rigidbody.velocity = new Vector2(xSpeed, ySpeed) * speedMultiple;

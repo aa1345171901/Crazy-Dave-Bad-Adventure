@@ -33,6 +33,7 @@ public class SpikeWeed : Plant
     private float finalDecelerationTime;
 
     private float timer;
+    private int destroyVehiclesCount;
 
     private readonly float LeverDecelerationPercentage = 0.03f;
     private readonly float LeverDecelerationTime = 0.2f;
@@ -91,7 +92,8 @@ public class SpikeWeed : Plant
         if (Time.time - timer > coolTimer)
         {
             timer = Time.time;
-            foreach (var item in colliderDict)
+            var colliderDicts = new Dictionary<Collider2D, float>(colliderDict);
+            foreach (var item in colliderDicts)
             {
                 if (Time.time - item.Value > coolTimer)
                 {
@@ -136,7 +138,16 @@ public class SpikeWeed : Plant
         }
         else
         {
-            if (TargetLayer.Contains(collision.gameObject.layer))
+            if (collision.gameObject.tag == "Car" && finalDestroyingVehiclesCount < destroyVehiclesCount)
+            {
+                destroyVehiclesCount++;
+                ZombieProp zombieProp = collision.GetComponentInChildren<ZombieProp>();
+                if (zombieProp && !zombieProp.isPuncture)
+                {
+                    zombieProp.Puncture();
+                }
+            }
+            else if (TargetLayer.Contains(collision.gameObject.layer))
             {
                 var health = collision.GetComponent<Health>();
                 if (health)

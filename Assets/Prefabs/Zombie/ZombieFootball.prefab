@@ -971,6 +971,7 @@ MonoBehaviour:
     HeadPos: {fileID: 0}
     BodyPos: {fileID: 0}
     attackPos: 0
+  zombieAnimation: {fileID: 0}
   isSwoop: 0
   direction: {x: 0, y: 0, z: 0}
   realSpeed: 0

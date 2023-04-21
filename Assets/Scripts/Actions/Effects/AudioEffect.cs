@@ -50,4 +50,9 @@ public class AudioEffect : MonoBehaviour
         AudioManager.Instance.AudioLists.Add(audioSource);
         audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
     }
+
+    public void PlayAudio()
+    {
+        audioSource.Play();
+    }
 }

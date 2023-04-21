@@ -4,55 +4,20 @@ using UnityEngine;
 
 namespace TopDownPlate
 {
-    [Serializable]
-    public class AIParameter
-    {
-        public enum AttackPos
-        {
-            Head,
-            Body,
-        }
-
-        public float Distance;
-        public bool IsPlayerRight;
-        public Transform HeadPos;
-        public Transform BodyPos;
-
-        public AttackPos attackPos;
-    }
-
     [AddComponentMenu("TopDownPlate/AI/Ability/AIMove")]
-    public class AIMove : CharacterAbility
+    public class AIMove : IAIMove
     {
-        [Space(10)]
-        [Header("MoveParameter")]
-        public float moveSpeed = 2f;
-
-        [Tooltip("该僵尸移动动画名")]
-        public string moveAnimationName = "run_normal";
-
         [Tooltip("僵尸受攻击被击退的时间")]
         public float RepulsiveTime = 0.2f;
 
         [Tooltip("被魅惑变颜色")]
         public HurtFlash hurtFlash;
 
-        public Transform HeadPos;
-        public Transform BodyPos;
-
         [Tooltip("被寒冰菇冻住后的冰块")]
         public GameObject Ice;
         [Tooltip("是否能被高坚果嘲讽")]
         public bool canTaunt = true;
 
-        [ReadOnly]
-        public bool canMove = false;  // 初始化时不能移动
-
-        [Tooltip("移动时计算与主角的距离")]
-        [ReadOnly]
-        public AIParameter AIParameter;
-
-        public float MoveSpeed { get; set; }
         public float RepulsiveForce { get; set; }
 
         protected Transform Target;
@@ -68,32 +33,29 @@ namespace TopDownPlate
         private float decelerationTimer;  // 减速时刻
         private float finalMoveSpeed;
 
-        private ZombieAnimation zombieAnimation;
+        [ReadOnly]
+        public ZombieAnimation zombieAnimation;
 
         [ReadOnly]
         public bool isSwoop;  // 正在飞扑,不改变移动方向
         [ReadOnly]
         public Vector3 direction;
-        [ReadOnly]
-        public float realSpeed;
 
         protected override void Initialization()
         {
             base.Initialization();
             Target = GameManager.Instance.Player.transform;
             SetRealSpeed();
-            AIParameter.HeadPos = HeadPos;
-            AIParameter.BodyPos = BodyPos;
-            AIParameter.Distance = float.MaxValue;
             zombieAnimation = GetComponentInChildren<ZombieAnimation>();
         }
 
         public override void Reuse()
         {
-            Ice.SetActive(false);
+            base.Reuse();
+            if (Ice != null)
+                Ice.SetActive(false);
             canMove = true;
             isSwoop = false;
-            AIParameter.Distance = float.MaxValue;
             if (IsEnchanted)
             {
                 hurtFlash.BeResume();
@@ -163,7 +125,8 @@ namespace TopDownPlate
                     {
                         decelerationPercentage = 1;
                         hurtFlash.BeResume();
-                        Ice.SetActive(false);
+                        if (Ice != null)
+                            Ice.SetActive(false);
                         if (IsEnchanted)
                             hurtFlash.BeEnchanted();
                     }
@@ -251,6 +214,8 @@ namespace TopDownPlate
 
         public void BeDecelerated(float decelerationPercentage, float decelerationTime)
         {
+            if (Ice == null)
+                return;
             if (decelerationPercentage < this.decelerationPercentage)
                 return;
             if (decelerationPercentage == 1)

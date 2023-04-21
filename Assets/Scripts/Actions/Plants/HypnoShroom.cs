@@ -69,7 +69,17 @@ public class HypnoShroom : Plant
         var aiMove = collision.GetComponent<AIMove>();
         if (aiMove)
         {
-            if (!aiMove.IsEnchanted)
+            bool canEnchanted = true;
+            switch (aiMove.zombieAnimation.zombieType)
+            {
+                case ZombieType.Zamboni:
+                case ZombieType.Catapult:
+                    canEnchanted = false;
+                    break;
+                default:
+                    break;
+            }
+            if (canEnchanted && !aiMove.IsEnchanted)
             {
                 audioSource.Play();
                 aiMove.BeEnchanted(finalAttackCount, finalPercentageDamage, finalDamage);

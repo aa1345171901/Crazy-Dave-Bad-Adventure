@@ -18,6 +18,9 @@ public class ZombieProp : MonoBehaviour
     [Tooltip("µÀ¾ßµôÂä¶¯»­")]
     [SpineAnimation]
     public string PropLostAnimation;
+    [Tooltip("±¬Ì¥")]
+    [SpineAnimation]
+    public string PunctureAnimation;
 
     public PropFall fallProp;
 
@@ -25,9 +28,12 @@ public class ZombieProp : MonoBehaviour
 
     public bool IsFall { get; set; }
 
+    public bool isPuncture { get; set; }
+
     public void Reuse()
     {
         IsFall = false;
+        isPuncture = false;
         animIndex = 0;
     }
 
@@ -77,6 +83,18 @@ public class ZombieProp : MonoBehaviour
                 animIndex = 3;
             }
         }
+    }
+
+    public void Puncture()
+    {
+        isPuncture = true;
+        var tracy = character.SkeletonAnimation.AnimationState.SetAnimation(0, PunctureAnimation, false);
+        var aiMove = this.character.FindAbility<ZamboniMove>();
+        aiMove.MoveSpeed = 0;
+        tracy.Complete += (e) =>
+        {
+            this.character.Health.DoDamage(this.character.Health.maxHealth);
+        };
     }
 
     public GameObject MagnetShroomAttack()

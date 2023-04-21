@@ -452,17 +452,24 @@ MonoBehaviour:
   - zombieData:
     - ZombieType: 7
       EnemyPrefab: {fileID: 5076825408902150764, guid: a7ed75b9463b7f8448cf263a06de55b4, type: 3}
-      GenerateCount: 2
-      CountIncrement: 1
+      GenerateCount: 1
+      CountIncrement: 0
       IntervalTime: 4
-      TimeIncrement: 0.25
+      TimeIncrement: 0
       lastGenerateTime: -4
     - ZombieType: 8
       EnemyPrefab: {fileID: 6936560574509261660, guid: 0a290161120cfdb4cb669b5c6ef49eb4, type: 3}
-      GenerateCount: 2
-      CountIncrement: 1
+      GenerateCount: 1
+      CountIncrement: 0
       IntervalTime: 4
-      TimeIncrement: 0.25
+      TimeIncrement: 0
+      lastGenerateTime: -4
+    - ZombieType: 9
+      EnemyPrefab: {fileID: 2977567272358016415, guid: 1aa5cf90c5f4a1642acc66933cf81127, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 8
+      TimeIncrement: 0
       lastGenerateTime: -4
   Enemys: []
   CacheEnemys: []
@@ -1255,10 +1262,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4195450945961741395, guid: 8e7f933c308343849ad40a6c8d308417, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ac6a4709b88b03d46bea07b9e0815d54, type: 2}
     - target: {fileID: 7497441726251074684, guid: 8e7f933c308343849ad40a6c8d308417, type: 3}
       propertyPath: m_Name
       value: Dave
@@ -2283,6 +2286,37 @@ MonoBehaviour:
   daytimeBg:
   - {fileID: 1461173235}
   - {fileID: 1094639657}
+--- !u!1 &1160317496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1160317497}
+  m_Layer: 0
+  m_Name: IceGroundContent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1160317497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160317496}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.1857702, y: -4.2, z: 0.036461364}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1846486698}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1226140564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,7 +2889,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 32af10bc3bd9d3347b666399d1b084ca, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3003,6 +3037,7 @@ MonoBehaviour:
   Hammer: {fileID: 2118146358}
   LawnMower: {fileID: 1240957483}
   TransferGate: {fileID: 2010886774}
+  IceGroundContent: {fileID: 1160317497}
   specialPropLists: []
   SceneTransition: {fileID: 1101367310}
   HUDFont: {fileID: 12800000, guid: 448a7dfef1cd7a14cb74bd9c3d6ce749, type: 3}
@@ -3312,6 +3347,7 @@ Transform:
   - {fileID: 2118146357}
   - {fileID: 1240957482}
   - {fileID: 2010886773}
+  - {fileID: 1160317497}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3760,8 +3796,7 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1555975435}
-    m_RemovedComponents:
-    - {fileID: 3889370594385864628, guid: 0fc7c003a6e936645b3f31f30fb2d3f2, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fc7c003a6e936645b3f31f30fb2d3f2, type: 3}
 --- !u!1001 &5953563103512116873
 PrefabInstance:

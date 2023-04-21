@@ -95,7 +95,6 @@ public class ZombieAnimation : MonoBehaviour
             randomEquip.ResumeEquip();
         else
             character.SkeletonAnimation.Skeleton.Skin = character.SkeletonAnimation.SkeletonDataAsset.GetSkeletonData(true).FindSkin(defalutSkin);
-        aiMove.Ice.SetActive(false);
 
         // 播放生成动画
         var entry = character.SkeletonAnimation.AnimationState.SetAnimation(0, EntranceAnimation, false);
@@ -167,7 +166,7 @@ public class ZombieAnimation : MonoBehaviour
             LevelManager.Instance.CacheEnemys.Add(zombieType, character);
             character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;
         }
-        else if (zombieType == ZombieType.Balloon)
+        else if (zombieType == ZombieType.Balloon || zombieType == ZombieType.Catapult || zombieType == ZombieType.Zamboni)
         {
             var entry = character.SkeletonAnimation.AnimationState.SetAnimation(0, DeadAnimation, false);
             entry.Complete += (e) =>

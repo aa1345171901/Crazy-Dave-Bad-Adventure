@@ -1,0 +1,286 @@
+
+zamboni.png
+size: 2000,269
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Zombie_charred_zamboni1
+  rotate: false
+  xy: 749, 19
+  size: 173, 123
+  orig: 175, 126
+  offset: 1, 1
+  index: -1
+Zombie_charred_zamboni10
+  rotate: false
+  xy: 924, 19
+  size: 171, 123
+  orig: 173, 126
+  offset: 1, 1
+  index: -1
+Zombie_charred_zamboni11
+  rotate: false
+  xy: 1835, 144
+  size: 163, 123
+  orig: 166, 126
+  offset: 1, 1
+  index: -1
+Zombie_charred_zamboni12
+  rotate: false
+  xy: 1272, 17
+  size: 163, 125
+  orig: 166, 127
+  offset: 1, 1
+  index: -1
+Zombie_charred_zamboni13
+  rotate: false
+  xy: 1437, 67
+  size: 163, 75
+  orig: 166, 111
+  offset: 1, 1
+  index: -1
+Zombie_charred_zamboni14
+  rotate: false
+  xy: 1097, 21
+  size: 173, 121
+  orig: 175, 124
+  offset: 1, 1
+  index: -1
+Zombie_charred_zamboni2
+  rotate: false
+  xy: 568, 144
+  size: 179, 123
+  orig: 181, 126
+  offset: 1, 1
+  index: -1
+Zombie_charred_zamboni3
+  rotate: false
+  xy: 749, 144
+  size: 179, 123
+  orig: 181, 126
+  offset: 1, 1
+  index: -1
+Zombie_charred_zamboni4
+  rotate: false
+  xy: 930, 144
+  size: 179, 123
+  orig: 181, 126
+  offset: 1, 1
+  index: -1
+Zombie_charred_zamboni5
+  rotate: false
+  xy: 1111, 144
+  size: 179, 123
+  orig: 181, 126
+  offset: 1, 1
+  index: -1
+Zombie_charred_zamboni6
+  rotate: false
+  xy: 1292, 144
+  size: 179, 123
+  orig: 181, 126
+  offset: 1, 1
+  index: -1
+Zombie_charred_zamboni7
+  rotate: false
+  xy: 1473, 144
+  size: 179, 123
+  orig: 181, 126
+  offset: 1, 1
+  index: -1
+Zombie_charred_zamboni8
+  rotate: false
+  xy: 1654, 144
+  size: 179, 123
+  orig: 181, 126
+  offset: 1, 1
+  index: -1
+Zombie_charred_zamboni9
+  rotate: false
+  xy: 568, 19
+  size: 179, 123
+  orig: 181, 126
+  offset: 1, 1
+  index: -1
+Zombie_charred_zamboniblink1
+  rotate: false
+  xy: 549, 2
+  size: 36, 15
+  orig: 38, 17
+  offset: 1, 1
+  index: -1
+Zombie_charred_zamboniblink2
+  rotate: false
+  xy: 587, 2
+  size: 36, 15
+  orig: 38, 17
+  offset: 1, 1
+  index: -1
+Zombie_charred_zambonihead
+  rotate: false
+  xy: 1437, 10
+  size: 60, 55
+  orig: 62, 57
+  offset: 1, 1
+  index: -1
+Zombie_head
+  rotate: false
+  xy: 1611, 9
+  size: 53, 48
+  orig: 55, 50
+  offset: 1, 1
+  index: -1
+Zombie_jaw
+  rotate: false
+  xy: 625, 2
+  size: 31, 15
+  orig: 34, 17
+  offset: 2, 1
+  index: -1
+Zombie_zamboni_1
+  rotate: false
+  xy: 2, 6
+  size: 183, 115
+  orig: 185, 117
+  offset: 1, 1
+  index: -1
+Zombie_zamboni_1_damage1
+  rotate: false
+  xy: 187, 6
+  size: 181, 115
+  orig: 183, 117
+  offset: 1, 1
+  index: -1
+Zombie_zamboni_1_damage2
+  rotate: false
+  xy: 370, 6
+  size: 177, 115
+  orig: 179, 117
+  offset: 1, 1
+  index: -1
+Zombie_zamboni_2
+  rotate: false
+  xy: 2, 123
+  size: 189, 144
+  orig: 191, 146
+  offset: 1, 1
+  index: -1
+Zombie_zamboni_2_damage1
+  rotate: false
+  xy: 193, 123
+  size: 186, 144
+  orig: 188, 146
+  offset: 1, 1
+  index: -1
+Zombie_zamboni_2_damage2
+  rotate: false
+  xy: 381, 123
+  size: 185, 144
+  orig: 187, 146
+  offset: 1, 1
+  index: -1
+Zombie_zamboni_4
+  rotate: false
+  xy: 1712, 2
+  size: 69, 57
+  orig: 71, 70
+  offset: 1, 1
+  index: -1
+Zombie_zamboni_brush
+  rotate: false
+  xy: 1889, 43
+  size: 26, 27
+  orig: 34, 29
+  offset: 7, 1
+  index: -1
+Zombie_zamboni_seat
+  rotate: true
+  xy: 1801, 65
+  size: 77, 83
+  orig: 79, 85
+  offset: 1, 1
+  index: -1
+Zombie_zamboni_wheel
+  rotate: true
+  xy: 1499, 13
+  size: 52, 56
+  orig: 54, 58
+  offset: 1, 1
+  index: -1
+Zombie_zamboni_wheel1
+  rotate: true
+  xy: 1499, 13
+  size: 52, 56
+  orig: 54, 58
+  offset: 1, 1
+  index: -1
+Zombie_zamboni_wheel_flat
+  rotate: false
+  xy: 1557, 2
+  size: 52, 55
+  orig: 54, 57
+  offset: 1, 1
+  index: -1
+Zombie_zamboni_wires
+  rotate: true
+  xy: 1712, 61
+  size: 81, 87
+  orig: 83, 89
+  offset: 1, 1
+  index: -1
+Zombie_zambonidriver_beanie
+  rotate: true
+  xy: 1956, 78
+  size: 64, 35
+  orig: 67, 37
+  offset: 1, 1
+  index: -1
+Zombie_zambonidriver_body
+  rotate: false
+  xy: 1886, 72
+  size: 68, 70
+  orig: 68, 70
+  offset: 0, 0
+  index: -1
+Zombie_zambonidriver_innerarm_hand
+  rotate: false
+  xy: 1666, 25
+  size: 30, 32
+  orig: 32, 34
+  offset: 1, 1
+  index: -1
+Zombie_zambonidriver_legs
+  rotate: false
+  xy: 1602, 59
+  size: 108, 83
+  orig: 108, 83
+  offset: 0, 0
+  index: -1
+Zombie_zambonidriver_lowerarm_outer
+  rotate: true
+  xy: 1861, 34
+  size: 29, 26
+  orig: 31, 28
+  offset: 1, 1
+  index: -1
+Zombie_zambonidriver_mullet1
+  rotate: false
+  xy: 1783, 6
+  size: 47, 53
+  orig: 49, 55
+  offset: 1, 1
+  index: -1
+Zombie_zambonidriver_outerarm_hand
+  rotate: false
+  xy: 1832, 29
+  size: 27, 34
+  orig: 29, 36
+  offset: 1, 1
+  index: -1
+Zombie_zambonidriver_upperarm
+  rotate: false
+  xy: 549, 98
+  size: 11, 23
+  orig: 13, 25
+  offset: 1, 1
+  index: -1

@@ -18,6 +18,8 @@ namespace TopDownPlate
         Paper,
         Polevaulter,
         Balloon,
+        Zamboni,
+        Catapult,
     }
 
     /// <summary>
@@ -276,6 +278,9 @@ namespace TopDownPlate
 
                 float randomX = Random.Range(LevelBounds.min.x, LevelBounds.max.x);
                 float randomY = Random.Range(LevelBounds.min.y, LevelBounds.max.y);
+                // 0.5 刚好站在格子上
+                if (zombieData.ZombieType == ZombieType.Zamboni)
+                    randomY = (int)Random.Range(LevelBounds.min.y, LevelBounds.max.y - 0.5f) + 0.5f;
 
                 bool cacheUsed = false;
                 // 重置对象池中的物体
@@ -339,7 +344,7 @@ namespace TopDownPlate
                 {
                     foreach (var zombie in item.Zombies)
                     {
-                        AIMove aIMove = zombie.FindAbility<AIMove>();
+                        IAIMove aIMove = zombie.FindAbility<IAIMove>();
                         if (aIMove.AIParameter.Distance < distance)
                         {
                             target = zombie;
@@ -359,7 +364,8 @@ namespace TopDownPlate
                 foreach (var zombie in item.Zombies)
                 {
                     var move = zombie.FindAbility<AIMove>();
-                    move.SetBrainPos();
+                    if (move)
+                        move.SetBrainPos();
                 }
             }
         }

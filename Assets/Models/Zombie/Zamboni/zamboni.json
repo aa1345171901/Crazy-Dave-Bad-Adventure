@@ -1,0 +1,1194 @@
+{
+"skeleton": {
+	"hash": "nVnMKTWGS3RTvUvCA1dKKo4UL28",
+	"spine": "3.8",
+	"x": -118.98,
+	"y": 15.89,
+	"width": 287,
+	"height": 249,
+	"images": "./images/",
+	"audio": "D:/0.0/疯狂戴夫的不妙冒险/拼接/Spine/ZombieZamboni"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "Zombie_charred_zamboni13", "parent": "root", "x": -5.34, "y": 112.76, "skin": true },
+	{ "name": "Zombie_charred_zamboni14", "parent": "Zombie_charred_zamboni13", "x": 57.48, "y": 95.63, "skin": true },
+	{ "name": "Zombie_zamboni_2", "parent": "root", "x": -24, "y": 98.67, "skin": true },
+	{ "name": "Zombie_zamboni_wheel", "parent": "Zombie_zamboni_2", "x": -55.63, "y": -56.5, "skin": true },
+	{ "name": "Zombie_zamboni_wheel1", "parent": "Zombie_zamboni_2", "x": 55.63, "y": -58.25, "skin": true },
+	{
+		"name": "Zombie_zambonidriver_legs",
+		"parent": "Zombie_zamboni_2",
+		"length": 47.99,
+		"rotation": -158.59,
+		"x": 140.6,
+		"y": 46.43,
+		"skin": true
+	},
+	{
+		"name": "Zombie_zambonidriver_body",
+		"parent": "Zombie_zambonidriver_legs",
+		"length": 47.11,
+		"rotation": -94.66,
+		"x": -4.09,
+		"y": -9.22,
+		"skin": true
+	},
+	{
+		"name": "Zombie_zambonidriver_upperarm",
+		"parent": "Zombie_zambonidriver_body",
+		"length": 21.14,
+		"rotation": 157.3,
+		"x": 28.44,
+		"y": -1.24,
+		"skin": true
+	},
+	{
+		"name": "Zombie_zambonidriver_lowerarm_outer",
+		"parent": "Zombie_zambonidriver_upperarm",
+		"length": 23.85,
+		"rotation": -39.8,
+		"x": 22.05,
+		"y": -0.34,
+		"skin": true
+	},
+	{
+		"name": "Zombie_zambonidriver_outerarm_hand",
+		"parent": "Zombie_zambonidriver_lowerarm_outer",
+		"length": 19.91,
+		"rotation": -83.9,
+		"x": 26.66,
+		"y": -1.51,
+		"skin": true
+	},
+	{ "name": "Zombie_zambonidriver_innerarm_hand", "parent": "Zombie_zambonidriver_body", "x": 38.67, "y": 37.3, "skin": true },
+	{
+		"name": "Zombie_head",
+		"parent": "Zombie_zambonidriver_body",
+		"length": 32.38,
+		"rotation": 6.35,
+		"x": 56.76,
+		"y": 1.67,
+		"skin": true
+	},
+	{ "name": "Zombie_jaw", "parent": "Zombie_head", "x": -1.18, "y": 19.55, "skin": true },
+	{ "name": "Zombie_zambonidriver_beanie", "parent": "Zombie_head", "x": 36.14, "y": -13.51, "skin": true },
+	{ "name": "Zombie_zambonidriver_mullet1", "parent": "Zombie_head", "x": 5.55, "y": -17.13, "skin": true },
+	{ "name": "Zombie_zamboni_1", "parent": "Zombie_zamboni_2", "x": -10.98, "y": 41.11, "skin": true },
+	{ "name": "Zombie_zamboni_brush", "parent": "Zombie_zamboni_2", "x": 2.21, "y": -62.1, "skin": true },
+	{ "name": "Zombie_zamboni_4", "parent": "Zombie_zamboni_2", "x": 111.63, "y": -57.05, "skin": true },
+	{ "name": "Zombie_zamboni_wires", "parent": "Zombie_zamboni_2", "x": 127.15, "y": -7.39, "skin": true },
+	{ "name": "Zombie_zamboni_seat", "parent": "Zombie_zamboni_2", "x": 166.72, "y": 41.5, "skin": true },
+	{ "name": "Zombie_zamboni_5", "parent": "Zombie_zamboni_2", "x": -44.35, "y": -10.49, "skin": true },
+	{
+		"name": "Zombie_zambonidriver_legs2",
+		"parent": "Zombie_zambonidriver_legs",
+		"length": 38.37,
+		"rotation": 70.01,
+		"x": 48.15,
+		"y": -0.21,
+		"skin": true
+	}
+],
+"slots": [
+	{ "name": "Zombie_zamboni_wheel", "bone": "Zombie_zamboni_wheel", "attachment": "Zombie_zamboni_wheel" },
+	{ "name": "Zombie_zamboni_wheel1", "bone": "Zombie_zamboni_wheel1", "attachment": "Zombie_zamboni_wheel1" },
+	{ "name": "Zombie_zamboni_4", "bone": "Zombie_zamboni_4", "attachment": "Zombie_zamboni_4" },
+	{ "name": "Zombie_zamboni_wires", "bone": "Zombie_zamboni_wires", "attachment": "Zombie_zamboni_wires" },
+	{ "name": "Zombie_zamboni_seat", "bone": "Zombie_zamboni_seat", "attachment": "Zombie_zamboni_seat" },
+	{ "name": "Zombie_zambonidriver_legs", "bone": "Zombie_zambonidriver_legs", "attachment": "Zombie_zambonidriver_legs" },
+	{ "name": "Zombie_head", "bone": "Zombie_head", "attachment": "Zombie_head" },
+	{ "name": "Zombie_zambonidriver_body", "bone": "Zombie_zambonidriver_body", "attachment": "Zombie_zambonidriver_body" },
+	{ "name": "Zombie_jaw", "bone": "Zombie_jaw", "attachment": "Zombie_jaw" },
+	{ "name": "Zombie_zambonidriver_beanie", "bone": "Zombie_zambonidriver_beanie", "attachment": "Zombie_zambonidriver_beanie" },
+	{ "name": "Zombie_zambonidriver_mullet1", "bone": "Zombie_zambonidriver_mullet1", "attachment": "Zombie_zambonidriver_mullet1" },
+	{ "name": "Zombie_zambonidriver_lowerarm_outer", "bone": "Zombie_zambonidriver_lowerarm_outer", "attachment": "Zombie_zambonidriver_lowerarm_outer" },
+	{ "name": "Zombie_zambonidriver_outerarm_hand", "bone": "Zombie_zambonidriver_outerarm_hand", "attachment": "Zombie_zambonidriver_outerarm_hand" },
+	{ "name": "Zombie_zambonidriver_upperarm", "bone": "Zombie_zambonidriver_upperarm", "attachment": "Zombie_zambonidriver_upperarm" },
+	{ "name": "Zombie_zambonidriver_innerarm_hand", "bone": "Zombie_zambonidriver_innerarm_hand", "attachment": "Zombie_zambonidriver_innerarm_hand" },
+	{ "name": "Zombie_zamboni_brush", "bone": "Zombie_zamboni_brush", "attachment": "Zombie_zamboni_brush" },
+	{ "name": "Zombie_zamboni_2", "bone": "Zombie_zamboni_5", "attachment": "Zombie_zamboni_2" },
+	{ "name": "Zombie_zamboni_1", "bone": "Zombie_zamboni_1", "attachment": "Zombie_zamboni_1" },
+	{ "name": "Zombie_charred_zamboni13", "bone": "Zombie_charred_zamboni13", "attachment": "Zombie_charred_zamboni1" },
+	{ "name": "Zombie_charred_zambonihead", "bone": "Zombie_charred_zamboni14", "attachment": "Zombie_charred_zambonihead" },
+	{ "name": "Zombie_charred_zamboniblink1", "bone": "Zombie_charred_zamboni14" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"Zombie_zamboni_wheel1": {
+				"Zombie_zamboni_wheel1": { "x": -1.61, "y": 4.47, "width": 54, "height": 58 }
+			},
+			"Zombie_zamboni_wires": {
+				"Zombie_zamboni_wires": { "x": 2.36, "y": 11.11, "width": 83, "height": 89 }
+			},
+			"Zombie_charred_zamboniblink1": {
+				"Zombie_charred_zamboniblink1": { "x": -6.8, "y": 0.12, "width": 38, "height": 17 },
+				"Zombie_charred_zamboniblink2": { "x": -5.33, "y": -0.41, "width": 38, "height": 17 }
+			},
+			"Zombie_zambonidriver_legs": {
+				"Zombie_zambonidriver_legs": {
+					"type": "mesh",
+					"uvs": [ 0.9779, 0.02419, 0.99114, 0.0481, 0.99085, 0.19395, 0.96348, 0.25262, 0.91045, 0.32261, 0.64667, 0.37614, 0.53824, 0.41284, 0.63175, 0.86219, 0.5785, 0.93639, 0.53208, 0.96798, 0.37565, 0.99333, 0.18208, 0.95146, 0.10485, 0.86682, 0, 0.66984, 0, 0.65515, 0.01665, 0.57971, 0.08525, 0.5057, 0.1613, 0.50561, 0.26814, 0.33139, 0.26827, 0.17039, 0.33598, 0.10714, 0.49472, 0.03802, 0.61525, 0.01014 ],
+					"triangles": [ 9, 10, 17, 9, 7, 8, 12, 17, 11, 6, 9, 17, 6, 17, 18, 10, 11, 17, 7, 9, 6, 6, 18, 20, 18, 19, 20, 12, 13, 17, 15, 17, 14, 17, 15, 16, 17, 13, 14, 20, 21, 6, 6, 21, 5, 21, 22, 5, 5, 22, 4, 3, 4, 0, 3, 0, 2, 0, 4, 22, 2, 0, 1 ],
+					"vertices": [ 1, 6, -17.36, -5.85, 1, 1, 6, -17.97, -3.48, 1, 1, 6, -13.52, 7.78, 1, 1, 6, -8.99, 11.23, 1, 1, 6, -1.54, 14.55, 1, 1, 6, 26.61, 8.29, 1, 2, 6, 38.62, 6.85, 0.87149, 22, 3.37, 11.37, 0.12851, 1, 22, 40.91, 20.54, 1, 1, 22, 46.92, 14.64, 1, 1, 22, 49.42, 9.56, 1, 1, 22, 51.1, -7.38, 1, 1, 22, 47.11, -28.19, 1, 1, 22, 39.88, -36.35, 1, 1, 22, 23.25, -47.27, 1, 1, 22, 22.03, -47.24, 1, 1, 22, 15.82, -45.29, 1, 1, 22, 9.86, -37.73, 1, 1, 22, 10.06, -29.52, 1, 1, 22, -4.11, -17.62, 1, 2, 6, 58.42, -22.53, 0.00412, 22, -17.47, -17.28, 0.99588, 2, 6, 49.69, -24.75, 0.08831, 22, -22.54, -9.84, 0.91169, 2, 6, 31.64, -23.83, 0.63319, 22, -27.85, 7.44, 0.36681, 2, 6, 18.68, -21.24, 0.90407, 22, -29.84, 20.51, 0.09593 ],
+					"hull": 23,
+					"edges": [ 0, 44, 0, 2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 16, 16, 18, 18, 20, 20, 22, 22, 24, 24, 26, 26, 28, 28, 30, 30, 32, 32, 34, 34, 36, 36, 38, 38, 40, 40, 42, 42, 44 ],
+					"width": 108,
+					"height": 83
+				}
+			},
+			"Zombie_zambonidriver_outerarm_hand": {
+				"Zombie_zambonidriver_outerarm_hand": { "x": 7.45, "y": 1.57, "rotation": -140.36, "width": 29, "height": 36 }
+			},
+			"Zombie_zamboni_seat": {
+				"Zombie_zamboni_seat": { "x": -14.21, "y": 27.22, "width": 79, "height": 85 }
+			},
+			"Zombie_zamboni_wheel": {
+				"Zombie_zamboni_wheel": { "x": -0.36, "y": 2.72, "width": 54, "height": 58 },
+				"Zombie_zamboni_wheel_flat": { "x": 0.29, "y": 3.52, "width": 54, "height": 57 }
+			},
+			"Zombie_charred_zamboni13": {
+				"Zombie_charred_zamboni1": { "x": 11.86, "y": 19.13, "width": 175, "height": 126 },
+				"Zombie_charred_zamboni2": { "x": 8.86, "y": 15.13, "width": 181, "height": 126 },
+				"Zombie_charred_zamboni3": { "x": 8.86, "y": 15.13, "width": 181, "height": 126 },
+				"Zombie_charred_zamboni4": { "x": 8.86, "y": 15.13, "width": 181, "height": 126 },
+				"Zombie_charred_zamboni5": { "x": 8.86, "y": 15.13, "width": 181, "height": 126 },
+				"Zombie_charred_zamboni6": { "x": 8.86, "y": 15.13, "width": 181, "height": 126 },
+				"Zombie_charred_zamboni7": { "x": 8.86, "y": 15.13, "width": 181, "height": 126 },
+				"Zombie_charred_zamboni8": { "x": 8.86, "y": 15.13, "width": 181, "height": 126 },
+				"Zombie_charred_zamboni9": { "x": 8.86, "y": 15.13, "width": 181, "height": 126 },
+				"Zombie_charred_zamboni10": { "x": 4.86, "y": 15.13, "width": 173, "height": 126 },
+				"Zombie_charred_zamboni11": { "x": 1.36, "y": 15.13, "width": 166, "height": 126 },
+				"Zombie_charred_zamboni12": { "x": 1.36, "y": 15.63, "width": 166, "height": 127 },
+				"Zombie_charred_zamboni13": { "x": 1.36, "y": 7.63, "width": 166, "height": 111 },
+				"Zombie_charred_zamboni14": { "x": 11.86, "y": 18.13, "width": 175, "height": 124 }
+			},
+			"Zombie_zamboni_1": {
+				"Zombie_zamboni_1": { "x": 10.49, "y": 2.61, "width": 185, "height": 117 },
+				"Zombie_zamboni_1_damage1": { "x": 11.49, "y": 2.61, "width": 183, "height": 117 },
+				"Zombie_zamboni_1_damage2": { "x": 13.49, "y": -1.7, "width": 179, "height": 117 }
+			},
+			"Zombie_zambonidriver_mullet1": {
+				"Zombie_zambonidriver_mullet1": { "x": -6.28, "y": -5.86, "rotation": -113.1, "width": 49, "height": 55 }
+			},
+			"Zombie_zambonidriver_lowerarm_outer": {
+				"Zombie_zambonidriver_lowerarm_outer": { "x": 11.9, "y": 2.34, "rotation": 135.74, "width": 31, "height": 28 }
+			},
+			"Zombie_zambonidriver_upperarm": {
+				"Zombie_zambonidriver_upperarm": { "x": 12.36, "y": 0.77, "rotation": 95.95, "width": 13, "height": 25 }
+			},
+			"Zombie_charred_zambonihead": {
+				"Zombie_charred_zambonihead": { "x": 4.63, "y": 3.74, "width": 62, "height": 57 }
+			},
+			"Zombie_zambonidriver_innerarm_hand": {
+				"Zombie_zambonidriver_innerarm_hand": { "x": 1.04, "y": 1.94, "rotation": -106.75, "width": 32, "height": 34 }
+			},
+			"Zombie_jaw": {
+				"Zombie_jaw": { "x": 0.05, "y": -2.69, "rotation": -113.1, "width": 34, "height": 17 }
+			},
+			"Zombie_zamboni_2": {
+				"Zombie_zamboni_2": { "x": 44.86, "y": 27.71, "width": 191, "height": 146 },
+				"Zombie_zamboni_2_damage1": { "x": 44.94, "y": 27.71, "rotation": 0.93, "width": 188, "height": 146 },
+				"Zombie_zamboni_2_damage2": { "x": 46.86, "y": 27.71, "width": 187, "height": 146 }
+			},
+			"Zombie_zamboni_4": {
+				"Zombie_zamboni_4": { "x": 1.88, "y": 12.27, "width": 71, "height": 70 }
+			},
+			"Zombie_zambonidriver_beanie": {
+				"Zombie_zambonidriver_beanie": { "y": 3.06, "rotation": -113.1, "width": 67, "height": 37 }
+			},
+			"Zombie_zamboni_brush": {
+				"Zombie_zamboni_brush": { "x": -3.2, "y": 3.82, "width": 34, "height": 29 }
+			},
+			"Zombie_zambonidriver_body": {
+				"Zombie_zambonidriver_body": {
+					"type": "mesh",
+					"uvs": [ 1, 1, 0, 1, 0, 0, 1, 0 ],
+					"triangles": [ 1, 2, 3, 1, 3, 0 ],
+					"vertices": [ -14.46, -22.77, 5.14, 42.34, 72.17, 22.17, 52.57, -42.95 ],
+					"hull": 4,
+					"edges": [ 0, 2, 2, 4, 4, 6, 0, 6 ],
+					"width": 68,
+					"height": 70
+				}
+			},
+			"Zombie_head": {
+				"Zombie_head": { "x": 20.56, "y": 2.72, "rotation": -113.1, "width": 55, "height": 50 }
+			}
+		}
+	},
+	{
+		"name": "charred",
+		"bones": [ "Zombie_charred_zamboni13", "Zombie_charred_zamboni14" ]
+	},
+	{
+		"name": "zamboni",
+		"bones": [ "Zombie_head", "Zombie_jaw", "Zombie_zamboni_1", "Zombie_zamboni_2", "Zombie_zamboni_4", "Zombie_zamboni_5", "Zombie_zamboni_brush", "Zombie_zamboni_seat", "Zombie_zamboni_wheel", "Zombie_zamboni_wheel1", "Zombie_zamboni_wires", "Zombie_zambonidriver_beanie", "Zombie_zambonidriver_body", "Zombie_zambonidriver_innerarm_hand", "Zombie_zambonidriver_legs", "Zombie_zambonidriver_legs2", "Zombie_zambonidriver_lowerarm_outer", "Zombie_zambonidriver_mullet1", "Zombie_zambonidriver_outerarm_hand", "Zombie_zambonidriver_upperarm" ]
+	}
+],
+"animations": {
+	"Dead": {
+		"slots": {
+			"Zombie_zamboni_1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_zambonidriver_legs": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_zamboni_brush": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_zamboni_4": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_zambonidriver_beanie": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_charred_zambonihead": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_zambonidriver_body": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_zambonidriver_innerarm_hand": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_zambonidriver_outerarm_hand": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_charred_zamboniblink1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_charred_zamboni13": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_jaw": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_head": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_zamboni_wheel": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_zamboni_wires": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_zamboni_wheel1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_zamboni_2": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_zamboni_seat": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_zambonidriver_upperarm": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_zambonidriver_mullet1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_zambonidriver_lowerarm_outer": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_zamboni_1": {
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": 44.96, "y": -52.34 }
+				]
+			},
+			"Zombie_zamboni_5": {
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": 44.96, "y": -52.34 }
+				]
+			},
+			"Zombie_zamboni_brush": {
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": -175.32, "y": -157.93 }
+				]
+			},
+			"Zombie_jaw": {
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": -3.57, "y": -0.47 },
+					{ "time": 0.6667, "x": 0.78, "y": -2.92 },
+					{ "time": 1, "x": -3.5, "y": -4.19 },
+					{ "time": 1.3333, "x": -1.44, "y": -1.33 }
+				]
+			},
+			"Zombie_zambonidriver_body": {
+				"rotate": [
+					{},
+					{ "time": 1.3333, "angle": -30.87 }
+				]
+			},
+			"Zombie_head": {
+				"rotate": [
+					{ "angle": -6.35 },
+					{ "time": 0.6667, "angle": 173.65 },
+					{ "time": 1.3333, "angle": -6.35 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.8333, "x": 61.46, "y": -168.71 },
+					{ "time": 1, "x": 30.46, "y": -223.76 },
+					{ "time": 1.1667, "x": 128.05, "y": -186.34 },
+					{ "time": 1.3333, "x": 134.43, "y": -196.47 }
+				]
+			},
+			"Zombie_zambonidriver_legs": {
+				"rotate": [
+					{},
+					{ "time": 1.3333, "angle": -46.5 }
+				],
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": -114.1, "y": -116.54 }
+				]
+			},
+			"Zombie_zamboni_seat": {
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": 40.75, "y": -94.54 }
+				]
+			},
+			"Zombie_zamboni_wires": {
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": -2.45, "y": -39.12 }
+				]
+			},
+			"Zombie_zamboni_4": {
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": 56.23, "y": -22 }
+				]
+			},
+			"Zombie_zamboni_wheel1": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 180 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": 271.56, "y": -16.85 }
+				]
+			},
+			"Zombie_zamboni_wheel": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 180 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": -386.38, "y": -4.15 }
+				]
+			}
+		}
+	},
+	"Entrance": {
+		"slots": {
+			"Zombie_zambonidriver_legs": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.6667, "name": "Zombie_zambonidriver_legs" }
+				]
+			},
+			"Zombie_zambonidriver_upperarm": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.5, "name": "Zombie_zambonidriver_upperarm" }
+				]
+			},
+			"Zombie_zambonidriver_beanie": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.3333, "name": "Zombie_zambonidriver_beanie" }
+				]
+			},
+			"Zombie_zambonidriver_body": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.5, "name": "Zombie_zambonidriver_body" }
+				]
+			},
+			"Zombie_zambonidriver_innerarm_hand": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.5333, "name": "Zombie_zambonidriver_innerarm_hand" }
+				]
+			},
+			"Zombie_zambonidriver_outerarm_hand": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.4, "name": "Zombie_zambonidriver_outerarm_hand" }
+				]
+			},
+			"Zombie_head": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.4, "name": "Zombie_head" }
+				]
+			},
+			"Zombie_jaw": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.4333, "name": "Zombie_jaw" }
+				]
+			},
+			"Zombie_zambonidriver_mullet1": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.4333, "name": "Zombie_zambonidriver_mullet1" }
+				]
+			},
+			"Zombie_zambonidriver_lowerarm_outer": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.4667, "name": "Zombie_zambonidriver_lowerarm_outer" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_zambonidriver_legs2": {
+				"rotate": [
+					{ "angle": -58.81, "curve": "stepped" },
+					{ "time": 1, "angle": -58.81 },
+					{ "time": 1.1667 }
+				]
+			},
+			"Zombie_zamboni_wheel": {
+				"translate": [
+					{ "x": -5232.55, "y": -2635.79 },
+					{ "time": 1.1667, "x": -492.57, "y": -170.21 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_zamboni_wheel1": {
+				"translate": [
+					{ "x": -3557.07, "y": -3152.53 },
+					{ "time": 1.1667, "x": -380.01, "y": -247.12 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_zambonidriver_legs": {
+				"rotate": [
+					{ "angle": 63.86, "curve": "stepped" },
+					{ "time": 1, "angle": 63.86 },
+					{ "time": 1.1667 }
+				],
+				"translate": [
+					{ "y": -307.82 },
+					{ "time": 1.1667 }
+				]
+			},
+			"Zombie_zambonidriver_body": {
+				"rotate": [
+					{ "angle": -68.39, "curve": "stepped" },
+					{ "time": 1, "angle": -68.39 },
+					{ "time": 1.1667 }
+				],
+				"translate": [
+					{ "x": 6.58, "y": 8.18 },
+					{ "time": 1.1667 }
+				]
+			},
+			"Zombie_zambonidriver_upperarm": {
+				"rotate": [
+					{ "angle": -146.34, "curve": "stepped" },
+					{ "time": 1, "angle": -146.34 },
+					{ "time": 1.1667 }
+				]
+			},
+			"Zombie_zambonidriver_lowerarm_outer": {
+				"rotate": [
+					{ "angle": 22.5, "curve": "stepped" },
+					{ "time": 1, "angle": 22.5 },
+					{ "time": 1.1667 }
+				]
+			},
+			"Zombie_zamboni_1": {
+				"translate": [
+					{ "x": -4437.03, "y": 3129.37 },
+					{ "time": 1.1667, "x": -506.4, "y": 245.34 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_zamboni_brush": {
+				"translate": [
+					{ "x": -1556.09, "y": -3654.12 },
+					{ "time": 1.1667, "x": -115.53, "y": -281.3 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_zamboni_4": {
+				"translate": [
+					{ "x": 3327.28, "y": -2826.2 },
+					{ "time": 1.1667, "x": 315.4, "y": -292.83 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_zamboni_wires": {
+				"translate": [
+					{ "x": 3804.49, "y": 267.35 },
+					{ "time": 1.1667, "x": 403.28, "y": -11.94 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_zamboni_seat": {
+				"rotate": [
+					{ "angle": -3.6 },
+					{ "time": 1.1667, "angle": -0.58 },
+					{ "time": 1.6667 }
+				],
+				"translate": [
+					{ "x": 2878.84, "y": 1776.39 },
+					{ "time": 1.1667, "x": 332.94, "y": 135.42 },
+					{ "time": 1.6667 }
+				]
+			},
+			"Zombie_zamboni_5": {
+				"translate": [
+					{ "x": -6017.64, "y": -13.54 },
+					{ "time": 1.1667, "x": -598.02, "y": 1.67 },
+					{ "time": 1.6667 }
+				]
+			}
+		},
+		"deform": {
+			"default": {
+				"Zombie_zambonidriver_legs": {
+					"Zombie_zambonidriver_legs": [
+						{
+							"time": 0.6667,
+							"offset": 10,
+							"vertices": [ -26.12396, 2.84664, -38.83357, 5.36623, -23.77277, 31.1721, -65.21768, 20.3118, -75.54083, 26.10349, -79.11267, 32.26379, -83.05237, 51.50774, -79.00958, 65.50233, -68.83119, 82.67461, -57.6217, 72.07813, -59.83976, 68.2593, -58.09, 70.92014, -50.10671, 72.00315, -38.33099, 57.8093, -25.3735, 37.20896, -38.13348, 15.9568, -15.81325, 38.19325, -23.15276, 5.44938, -12.58797, 20.18139, -12.07852, 3.59769, -6.03513, 11.06396, -18.28845, -16.04144, -21.05494, -12.1853 ]
+						},
+						{
+							"time": 1,
+							"offset": 10,
+							"vertices": [ -8.70798, 0.94888, -12.94452, 1.78874, -7.92425, 10.3907, -22.05059, 7.50482, -25.18027, 8.70116, -26.37088, 10.75459, -27.68412, 17.16924, -26.33652, 21.8341, -22.94373, 27.5582, -19.20723, 24.02604, -19.94658, 22.75309, -19.36333, 23.64004, -16.70223, 24.00105, -12.77699, 19.26976, -8.7256, 9.51389, -10.25101, -2.46876, -4.3699, 4.61392, -8.53704, -10.23796, -7.34038, -4.93882, -7.39802, -6.34421, -6.78405, -3.05722, -22.01803, -19.25553, -25.33781, -14.61417 ]
+						},
+						{
+							"time": 1.1667,
+							"offset": 16,
+							"vertices": [ -0.46705, 1.10133 ]
+						}
+					]
+				},
+				"Zombie_zambonidriver_body": {
+					"Zombie_zambonidriver_body": [
+						{
+							"time": 0.5,
+							"vertices": [ 46.56556, -7.88628, 44.08841, -13.33064 ]
+						},
+						{
+							"time": 0.6667,
+							"vertices": [ -0.51872, 0.13087 ]
+						}
+					]
+				}
+			}
+		}
+	},
+	"WalkOff": {
+		"slots": {
+			"Zombie_zambonidriver_legs": {
+				"attachment": [
+					{ "time": 0.8, "name": null }
+				]
+			},
+			"Zombie_zambonidriver_upperarm": {
+				"attachment": [
+					{ "time": 0.7667, "name": null }
+				]
+			},
+			"Zombie_zambonidriver_beanie": {
+				"attachment": [
+					{ "time": 1.2, "name": null }
+				]
+			},
+			"Zombie_zambonidriver_body": {
+				"attachment": [
+					{ "time": 0.7333, "name": null }
+				]
+			},
+			"Zombie_zambonidriver_innerarm_hand": {
+				"attachment": [
+					{ "time": 0.8, "name": null }
+				]
+			},
+			"Zombie_zambonidriver_outerarm_hand": {
+				"attachment": [
+					{ "time": 1.1333, "name": null }
+				]
+			},
+			"Zombie_head": {
+				"attachment": [
+					{ "time": 1.1333, "name": null }
+				]
+			},
+			"Zombie_jaw": {
+				"attachment": [
+					{ "time": 1.1333, "name": null }
+				]
+			},
+			"Zombie_zambonidriver_mullet1": {
+				"attachment": [
+					{ "time": 1.1333, "name": null }
+				]
+			},
+			"Zombie_zambonidriver_lowerarm_outer": {
+				"attachment": [
+					{ "time": 1, "name": null }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_zambonidriver_legs2": {
+				"rotate": [
+					{ "time": 0.5 },
+					{ "time": 0.6667, "angle": -58.81 }
+				]
+			},
+			"Zombie_zamboni_wheel": {
+				"translate": [
+					{},
+					{ "time": 0.5, "x": -492.57, "y": -170.21 },
+					{ "time": 1.6667, "x": -5232.55, "y": -2635.79 }
+				]
+			},
+			"Zombie_zamboni_wheel1": {
+				"translate": [
+					{},
+					{ "time": 0.5, "x": -380.01, "y": -247.12 },
+					{ "time": 1.6667, "x": -3557.07, "y": -3152.53 }
+				]
+			},
+			"Zombie_zambonidriver_legs": {
+				"rotate": [
+					{},
+					{ "time": 1.6667, "angle": 63.86 }
+				],
+				"translate": [
+					{},
+					{ "time": 1.6667, "y": -307.82 }
+				]
+			},
+			"Zombie_zambonidriver_body": {
+				"rotate": [
+					{},
+					{ "time": 1.6667, "angle": -68.39 }
+				],
+				"translate": [
+					{ "time": 0.5 },
+					{ "time": 1.6667, "x": 6.58, "y": 8.18 }
+				]
+			},
+			"Zombie_zambonidriver_upperarm": {
+				"rotate": [
+					{},
+					{ "time": 1.6667, "angle": -146.34 }
+				]
+			},
+			"Zombie_zambonidriver_lowerarm_outer": {
+				"rotate": [
+					{ "time": 0.5 },
+					{ "time": 0.6667, "angle": 22.5 }
+				]
+			},
+			"Zombie_zamboni_1": {
+				"translate": [
+					{},
+					{ "time": 0.5, "x": -506.4, "y": 245.34 },
+					{ "time": 1.6667, "x": -4437.03, "y": 3129.37 }
+				]
+			},
+			"Zombie_zamboni_brush": {
+				"translate": [
+					{},
+					{ "time": 0.5, "x": -115.53, "y": -281.3 },
+					{ "time": 1.6667, "x": -1556.09, "y": -3654.12 }
+				]
+			},
+			"Zombie_zamboni_4": {
+				"translate": [
+					{},
+					{ "time": 0.5, "x": 315.4, "y": -292.83 },
+					{ "time": 1.6667, "x": 3327.28, "y": -2826.2 }
+				]
+			},
+			"Zombie_zamboni_wires": {
+				"translate": [
+					{},
+					{ "time": 0.5, "x": 403.28, "y": -11.94 },
+					{ "time": 1.6667, "x": 3804.49, "y": 267.35 }
+				]
+			},
+			"Zombie_zamboni_seat": {
+				"rotate": [
+					{},
+					{ "time": 0.5, "angle": -0.58 },
+					{ "time": 1.6667, "angle": -3.6 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.5, "x": 332.94, "y": 135.42 },
+					{ "time": 1.6667, "x": 2878.84, "y": 1776.39 }
+				]
+			},
+			"Zombie_zamboni_5": {
+				"translate": [
+					{},
+					{ "time": 0.5, "x": -598.02, "y": 1.67 },
+					{ "time": 1.6667, "x": -6017.64, "y": -13.54 }
+				]
+			}
+		},
+		"deform": {
+			"default": {
+				"Zombie_zambonidriver_legs": {
+					"Zombie_zambonidriver_legs": [
+						{
+							"time": 0.5,
+							"offset": 16,
+							"vertices": [ -0.46705, 1.10133 ]
+						},
+						{
+							"time": 0.6667,
+							"offset": 10,
+							"vertices": [ -8.70798, 0.94888, -12.94452, 1.78874, -7.92425, 10.3907, -22.05059, 7.50482, -25.18027, 8.70116, -26.37088, 10.75459, -27.68412, 17.16924, -26.33652, 21.8341, -22.94373, 27.5582, -19.20723, 24.02604, -19.94658, 22.75309, -19.36333, 23.64004, -16.70223, 24.00105, -12.77699, 19.26976, -8.7256, 9.51389, -10.25101, -2.46876, -4.3699, 4.61392, -8.53704, -10.23796, -7.34038, -4.93882, -7.39802, -6.34421, -6.78405, -3.05722, -22.01803, -19.25553, -25.33781, -14.61417 ]
+						},
+						{
+							"time": 0.8,
+							"offset": 10,
+							"vertices": [ -26.12396, 2.84664, -38.83357, 5.36623, -23.77277, 31.1721, -65.21768, 20.3118, -75.54083, 26.10349, -79.11267, 32.26379, -83.05237, 51.50774, -79.00958, 65.50233, -68.83119, 82.67461, -57.6217, 72.07813, -59.83976, 68.2593, -58.09, 70.92014, -50.10671, 72.00315, -38.33099, 57.8093, -25.3735, 37.20896, -38.13348, 15.9568, -15.81325, 38.19325, -23.15276, 5.44938, -12.58797, 20.18139, -12.07852, 3.59769, -6.03513, 11.06396, -18.28845, -16.04144, -21.05494, -12.1853 ]
+						}
+					]
+				},
+				"Zombie_zambonidriver_body": {
+					"Zombie_zambonidriver_body": [
+						{
+							"time": 0.6,
+							"vertices": [ -0.51872, 0.13087 ]
+						},
+						{
+							"time": 0.7333,
+							"vertices": [ 46.56556, -7.88628, 44.08841, -13.33064 ]
+						}
+					]
+				}
+			}
+		}
+	},
+	"charred": {
+		"slots": {
+			"Zombie_charred_zamboniblink1": {
+				"attachment": [
+					{ "time": 0.5, "name": "Zombie_charred_zamboniblink1" },
+					{ "time": 0.6, "name": "Zombie_charred_zamboniblink2" },
+					{ "time": 0.7, "name": "Zombie_charred_zamboniblink1" },
+					{ "time": 0.8, "name": null }
+				]
+			},
+			"Zombie_charred_zamboni13": {
+				"attachment": [
+					{ "time": 0.1, "name": "Zombie_charred_zamboni2" },
+					{ "time": 0.2, "name": "Zombie_charred_zamboni3" },
+					{ "time": 0.3, "name": "Zombie_charred_zamboni4" },
+					{ "time": 0.4, "name": "Zombie_charred_zamboni5" },
+					{ "time": 0.5, "name": "Zombie_charred_zamboni6" },
+					{ "time": 0.6, "name": "Zombie_charred_zamboni7" },
+					{ "time": 0.7, "name": "Zombie_charred_zamboni8" },
+					{ "time": 0.8, "name": "Zombie_charred_zamboni9" },
+					{ "time": 0.9, "name": "Zombie_charred_zamboni10" },
+					{ "time": 1, "name": "Zombie_charred_zamboni11" },
+					{ "time": 1.1, "name": "Zombie_charred_zamboni12" },
+					{ "time": 1.2, "name": "Zombie_charred_zamboni13" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_charred_zamboni13": {
+				"translate": [
+					{ "x": 12.6, "y": -27 }
+				],
+				"scale": [
+					{ "x": 1.575, "y": 1.575 }
+				]
+			},
+			"Zombie_charred_zamboni14": {
+				"translate": [
+					{ "x": -2.29, "y": -8.86, "curve": "stepped" },
+					{ "time": 1, "x": -2.29, "y": -8.86 },
+					{ "time": 1.2, "x": -2.29, "y": -115.31 },
+					{ "time": 1.3, "x": -2.29, "y": -97.86 },
+					{ "time": 1.4, "x": -2.29, "y": -116.19 }
+				],
+				"scale": [
+					{ "x": 0.87, "y": 0.87 }
+				]
+			}
+		}
+	},
+	"puncture": {
+		"slots": {
+			"Zombie_zamboni_wheel": {
+				"attachment": [
+					{ "name": "Zombie_zamboni_wheel_flat" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_zambonidriver_innerarm_hand": {
+				"rotate": [
+					{},
+					{ "time": 0.2667, "angle": 6.09 },
+					{ "time": 0.5333, "angle": 9.76 },
+					{ "time": 0.8, "angle": -1.83 },
+					{ "time": 1.0667 },
+					{ "time": 1.3333, "angle": 6.09 },
+					{ "time": 1.6, "angle": 9.76 },
+					{ "time": 1.8667, "angle": -1.83 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_jaw": {
+				"translate": [
+					{},
+					{ "time": 0.2667, "x": 0.54, "y": -2.47 },
+					{ "time": 0.5333, "x": -2.03, "y": -0.63 },
+					{ "time": 0.8, "x": 3.85, "y": -2.14 },
+					{ "time": 1.0667 },
+					{ "time": 1.3333, "x": 0.54, "y": -2.47 },
+					{ "time": 1.6, "x": -2.03, "y": -0.63 },
+					{ "time": 1.8667, "x": 3.85, "y": -2.14 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_zambonidriver_legs": {
+				"translate": [
+					{},
+					{ "time": 0.2667, "y": 7.36 },
+					{ "time": 0.5333, "y": -0.29 },
+					{ "time": 0.8, "y": 3.75 },
+					{ "time": 1.0667 },
+					{ "time": 1.3333, "y": 7.36 },
+					{ "time": 1.6, "y": -0.29 },
+					{ "time": 1.8667, "y": 3.75 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_zamboni_2": {
+				"translate": [
+					{},
+					{ "time": 0.2667, "y": 2 },
+					{ "time": 0.5333, "y": 0.79 },
+					{ "time": 0.8, "y": 1.94 },
+					{ "time": 1.0667 },
+					{ "time": 1.3333, "y": 2 },
+					{ "time": 1.6, "y": 0.79 },
+					{ "time": 1.8667, "y": 1.94 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_zambonidriver_mullet1": {
+				"rotate": [
+					{},
+					{ "time": 0.2667, "angle": 8.57 },
+					{ "time": 0.5333, "angle": -2.28 },
+					{ "time": 0.8, "angle": 10.91 },
+					{ "time": 1.0667 },
+					{ "time": 1.3333, "angle": 8.57 },
+					{ "time": 1.6, "angle": -2.28 },
+					{ "time": 1.8667, "angle": 10.91 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_head": {
+				"rotate": [
+					{},
+					{ "time": 0.2667, "angle": -4.44 },
+					{ "time": 0.5333, "angle": -0.09 },
+					{ "time": 0.8, "angle": -2.5 },
+					{ "time": 1.0667 },
+					{ "time": 1.3333, "angle": -4.44 },
+					{ "time": 1.6, "angle": -0.09 },
+					{ "time": 1.8667, "angle": -2.5 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_zambonidriver_beanie": {
+				"translate": [
+					{},
+					{ "time": 0.2667, "x": 4.92, "y": -1.66 },
+					{ "time": 0.5333, "x": -1.1, "y": 0.75 },
+					{ "time": 0.8, "x": 3.86, "y": 1.03 },
+					{ "time": 1.0667 },
+					{ "time": 1.3333, "x": 4.92, "y": -1.66 },
+					{ "time": 1.6, "x": -1.1, "y": 0.75 },
+					{ "time": 1.8667, "x": 3.86, "y": 1.03 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_zambonidriver_upperarm": {
+				"rotate": [
+					{},
+					{ "time": 0.2667, "angle": -5.07 },
+					{ "time": 0.5333, "angle": 1.08 },
+					{ "time": 0.8, "angle": -6.26 },
+					{ "time": 1.0667 },
+					{ "time": 1.3333, "angle": -5.07 },
+					{ "time": 1.6, "angle": 1.08 },
+					{ "time": 1.8667, "angle": -6.26 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_zamboni_4": {
+				"translate": [
+					{},
+					{ "time": 0.2667, "y": 6.01 },
+					{ "time": 0.5333, "y": 0.5 },
+					{ "time": 0.8, "y": 5.26 },
+					{ "time": 1.0667 },
+					{ "time": 1.3333, "y": 6.01 },
+					{ "time": 1.6, "y": 0.5 },
+					{ "time": 1.8667, "y": 5.26 },
+					{ "time": 2.1333 }
+				]
+			}
+		}
+	},
+	"run": {
+		"bones": {
+			"Zombie_zamboni_2": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "y": 6.5 },
+					{ "time": 1.0667, "y": 0.79 },
+					{ "time": 1.6, "y": 8.08 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_zamboni_wheel": {
+				"rotate": [
+					{},
+					{ "time": 0.0333, "angle": 17 },
+					{ "time": 0.3667, "angle": 180 },
+					{ "time": 0.4, "angle": -168 },
+					{ "time": 0.7 },
+					{ "time": 0.7333, "angle": 17 },
+					{ "time": 1.0667, "angle": 180 },
+					{ "time": 1.1, "angle": -168 },
+					{ "time": 1.4 },
+					{ "time": 1.4333, "angle": 17 },
+					{ "time": 1.7667, "angle": 180 },
+					{ "time": 1.8, "angle": -168 },
+					{ "time": 2.1333 }
+				],
+				"translate": [
+					{ "x": -1.94, "y": 6.32 }
+				]
+			},
+			"Zombie_zamboni_wheel1": {
+				"rotate": [
+					{},
+					{ "time": 0.0333, "angle": 17 },
+					{ "time": 0.3667, "angle": 180 },
+					{ "time": 0.4, "angle": -168 },
+					{ "time": 0.7 },
+					{ "time": 0.7333, "angle": 17 },
+					{ "time": 1.0667, "angle": 180 },
+					{ "time": 1.1, "angle": -168 },
+					{ "time": 1.4333 },
+					{ "time": 1.4667, "angle": 17 },
+					{ "time": 1.8, "angle": 180 },
+					{ "time": 1.8333, "angle": -168 },
+					{ "time": 2.1333 }
+				],
+				"translate": [
+					{ "x": -3.07, "y": 7.67 },
+					{ "time": 0.3667, "x": -3.16, "y": 12.55 },
+					{ "time": 0.7, "x": -3.07, "y": 7.67 },
+					{ "time": 1.0667, "x": -4.84, "y": 10.87 },
+					{ "time": 1.4333, "x": -3.07, "y": 7.67 },
+					{ "time": 1.8, "x": -4.84, "y": 10.87 },
+					{ "time": 2.1333, "x": -3.07, "y": 7.67 }
+				]
+			},
+			"Zombie_zambonidriver_legs": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "y": 7.36 },
+					{ "time": 1.0667, "y": -0.29 },
+					{ "time": 1.6, "y": 3.75 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_zambonidriver_upperarm": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": -5.07 },
+					{ "time": 1.0667, "angle": 1.08 },
+					{ "time": 1.6, "angle": -6.26 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_zambonidriver_innerarm_hand": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 6.09 },
+					{ "time": 1.0667, "angle": 9.76 },
+					{ "time": 1.6, "angle": -1.83 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_head": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": -4.44 },
+					{ "time": 1.0667, "angle": -0.09 },
+					{ "time": 1.6, "angle": -2.5 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_jaw": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "x": 0.54, "y": -2.47 },
+					{ "time": 1.0667, "x": -2.03, "y": -0.63 },
+					{ "time": 1.6, "x": 3.85, "y": -2.14 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_zambonidriver_beanie": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "x": 4.92, "y": -1.66 },
+					{ "time": 1.0667, "x": -1.1, "y": 0.75 },
+					{ "time": 1.6, "x": 3.86, "y": 1.03 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_zambonidriver_mullet1": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 8.57 },
+					{ "time": 1.0667, "angle": -2.28 },
+					{ "time": 1.6, "angle": 10.91 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_zamboni_4": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "y": 6.01 },
+					{ "time": 1.0667, "y": 0.5 },
+					{ "time": 1.6, "y": 5.26 },
+					{ "time": 2.1333 }
+				]
+			}
+		}
+	},
+	"worn1": {
+		"slots": {
+			"Zombie_zamboni_1": {
+				"attachment": [
+					{ "name": "Zombie_zamboni_1_damage1" }
+				]
+			},
+			"Zombie_zamboni_2": {
+				"attachment": [
+					{ "name": "Zombie_zamboni_2_damage1" }
+				]
+			}
+		}
+	},
+	"worn2": {
+		"slots": {
+			"Zombie_zamboni_1": {
+				"attachment": [
+					{ "name": "Zombie_zamboni_1_damage2" }
+				]
+			},
+			"Zombie_zamboni_2": {
+				"attachment": [
+					{ "name": "Zombie_zamboni_2_damage2" }
+				]
+			}
+		}
+	}
+}
+}

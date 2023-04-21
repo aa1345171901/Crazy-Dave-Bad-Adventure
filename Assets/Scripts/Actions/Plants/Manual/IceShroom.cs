@@ -66,7 +66,8 @@ public class IceShroom : ManualPlant
         var enemys = new List<ZombieDicts>(LevelManager.Instance.Enemys);
         foreach (var item in enemys)
         {
-            foreach (var zombie in item.Zombies)
+            var zombies = new List<Character>(item.Zombies);
+            foreach (var zombie in zombies)
             {
                 var aiMove = zombie.FindAbility<AIMove>();
                 aiMove.BeDecelerated(1, finalFrostTime);

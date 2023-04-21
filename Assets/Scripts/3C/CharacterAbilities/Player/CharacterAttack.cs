@@ -39,7 +39,7 @@ namespace TopDownPlate
         private Vector3 direction;
         private bool isInFlight;
         private bool isAttacking;
-        private AIMove targetAIMove;
+        private IAIMove targetAIMove;
         private Transform targetPos;
 
         private Vector3 startPos;
@@ -155,7 +155,13 @@ namespace TopDownPlate
                 if (direction.magnitude < 0.25f)
                 {
                     if (GameManager.Instance.IsZombieShock)
-                        targetAIMove.SetRepulsiveForce(finalRepulsiveForce);
+                    {
+                        var aiMove = targetAIMove as AIMove;
+                        if (aiMove)
+                        {
+                            aiMove.SetRepulsiveForce(finalRepulsiveForce);
+                        }
+                    }
                     bool isCriticalHitRate = Random.Range(0, 101) < finalCriticalHitRate;
                     if (isCriticalHitRate)
                         target.Health.DoDamage(Mathf.RoundToInt(finalDamage * 1.5f), DamageType.Pot, true);
@@ -194,7 +200,7 @@ namespace TopDownPlate
                 character.State.PlayerStateType = PlayerStateType.Attack;
                 if (target != null)
                 {
-                    targetAIMove = target.FindAbility<AIMove>();
+                    targetAIMove = target.FindAbility<IAIMove>();
                     isAttacking = true;
                     Attack(isRight);
                 }
