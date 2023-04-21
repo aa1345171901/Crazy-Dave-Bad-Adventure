@@ -1,0 +1,888 @@
+{
+"skeleton": {
+	"hash": "ZmyYZDjJeIqukvzz5clHiq3WcVk",
+	"spine": "3.8",
+	"x": -95.9,
+	"y": 20.63,
+	"width": 203,
+	"height": 182,
+	"images": "./images/",
+	"audio": "D:/0.0/疯狂戴夫的不妙冒险/拼接/Spine/ZombieCatapult"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "Zombie_charred_catapult1", "parent": "root", "x": 1.33, "y": 84.17, "skin": true },
+	{ "name": "Zombie_charred_catapult_head", "parent": "Zombie_charred_catapult1", "x": -26.46, "y": 61.97, "skin": true },
+	{ "name": "Zombie_charred_catapult_blink1", "parent": "Zombie_charred_catapult_head", "x": -9.88, "y": 4.26, "skin": true },
+	{ "name": "bone", "parent": "root", "x": 0.29, "y": 48.63, "skin": true },
+	{ "name": "Zombie_catapult_engine", "parent": "bone", "x": -25.91, "y": 22.72, "skin": true },
+	{ "name": "Zombie_boss_RVwheel", "parent": "bone", "x": -45.44, "y": -7.81, "skin": true },
+	{ "name": "Zombie_catapult_manhole", "parent": "bone", "x": 50.76, "y": -2.13, "skin": true },
+	{ "name": "Zombie_catapult_body", "parent": "bone", "x": -3.55, "y": 15.62, "skin": true },
+	{ "name": "Zombie_catapult_body_overlay1", "parent": "bone", "x": -59.99, "y": 27.69, "skin": true },
+	{ "name": "Zombie_catapult_body_overlay2", "parent": "bone", "x": -53.25, "y": 54.31, "skin": true },
+	{ "name": "Zombie_catapult_basket", "parent": "bone", "x": 18.46, "y": 16.33, "skin": true },
+	{ "name": "Zombie_catapult_basketball1", "parent": "bone", "x": 47.57, "y": 31.95, "skin": true },
+	{ "name": "Zombie_catapult_basketball2", "parent": "bone", "x": 23.07, "y": 43.31, "skin": true },
+	{ "name": "Zombie_catapult_basketball", "parent": "bone", "x": 26.62, "y": 30.17, "skin": true },
+	{ "name": "Zombie_catapult_pole_damage", "parent": "bone", "x": -3.55, "y": 71.35, "skin": true },
+	{
+		"name": "Zombie_catapult_driver_body",
+		"parent": "bone",
+		"length": 69.62,
+		"rotation": 124.82,
+		"x": 27.33,
+		"y": 51.47,
+		"skin": true
+	},
+	{
+		"name": "Zombie_catapult_driver_outerarm_upper",
+		"parent": "Zombie_catapult_driver_body",
+		"length": 28.76,
+		"rotation": 132.34,
+		"x": 46.68,
+		"y": -9.98,
+		"skin": true
+	},
+	{
+		"name": "Zombie_catapult_driver_outerarm_lower",
+		"parent": "Zombie_catapult_driver_outerarm_upper",
+		"length": 19.54,
+		"rotation": -11.87,
+		"x": 34.7,
+		"y": -0.47,
+		"skin": true
+	},
+	{
+		"name": "Zombie_catapult_driver_outerarm_hand",
+		"parent": "Zombie_catapult_driver_outerarm_lower",
+		"length": 13.59,
+		"rotation": 4.85,
+		"x": 24.94,
+		"y": 0.14,
+		"skin": true
+	},
+	{
+		"name": "Zombie_catapult_driver_innerarm_lower",
+		"parent": "Zombie_catapult_driver_body",
+		"length": 26.62,
+		"rotation": 71.44,
+		"x": 58.04,
+		"y": 21.89,
+		"skin": true
+	},
+	{
+		"name": "Zombie_catapult_driver_innerarm_hand",
+		"parent": "Zombie_catapult_driver_innerarm_lower",
+		"length": 14.55,
+		"rotation": -16.26,
+		"x": 32.12,
+		"y": -2.71,
+		"skin": true
+	},
+	{
+		"name": "Zombie_catapult_driver_head",
+		"parent": "Zombie_catapult_driver_body",
+		"length": 29.38,
+		"rotation": 8.71,
+		"x": 79.51,
+		"y": 11.72,
+		"skin": true
+	},
+	{ "name": "Zombie_catapult_driver_mouth", "parent": "Zombie_catapult_driver_head", "x": 8.15, "y": 25.07, "skin": true },
+	{ "name": "Zombie_catapult_spring", "parent": "bone", "x": -69.42, "y": 31.14, "skin": true },
+	{ "name": "Zombie_catapult_siding", "parent": "bone", "x": -81.87, "y": 10.52, "skin": true },
+	{
+		"name": "Zombie_catapult_crank",
+		"parent": "Zombie_catapult_driver_innerarm_hand",
+		"length": 13.2,
+		"rotation": 135,
+		"x": 12.88,
+		"y": 0.86,
+		"skin": true
+	},
+	{ "name": "Zombie_catapult_driver_hankie", "parent": "Zombie_catapult_driver_body", "x": -3.49, "y": -21.86, "skin": true },
+	{ "name": "Zombie_catapult_basketball3", "parent": "Zombie_catapult_pole_damage", "x": 92.01, "y": 5.94, "skin": true }
+],
+"slots": [
+	{ "name": "Zombie_catapult_crank", "bone": "Zombie_catapult_crank", "attachment": "Zombie_catapult_crank" },
+	{ "name": "Zombie_catapult_driver_innerarm_hand", "bone": "Zombie_catapult_driver_innerarm_hand", "attachment": "Zombie_catapult_driver_innerarm_hand" },
+	{ "name": "Zombie_catapult_driver_innerarm_lower", "bone": "Zombie_catapult_driver_innerarm_lower", "attachment": "Zombie_catapult_driver_innerarm_lower" },
+	{ "name": "Zombie_catapult_driver_hankie", "bone": "Zombie_catapult_driver_hankie", "attachment": "Zombie_catapult_driver_hankie" },
+	{ "name": "Zombie_catapult_driver_body", "bone": "Zombie_catapult_driver_body", "attachment": "Zombie_catapult_driver_body" },
+	{ "name": "Zombie_catapult_driver_mouth", "bone": "Zombie_catapult_driver_mouth", "attachment": "Zombie_catapult_driver_mouth" },
+	{ "name": "Zombie_catapult_driver_head", "bone": "Zombie_catapult_driver_head", "attachment": "Zombie_catapult_driver_head" },
+	{ "name": "Zombie_catapult_body_overlay2", "bone": "Zombie_catapult_body_overlay2", "attachment": "Zombie_catapult_body_overlay2" },
+	{ "name": "Zombie_catapult_body_overlay1", "bone": "Zombie_catapult_body_overlay1", "attachment": "Zombie_catapult_body_overlay1" },
+	{ "name": "Zombie_catapult_driver_outerarm_hand", "bone": "Zombie_catapult_driver_outerarm_hand", "attachment": "Zombie_catapult_driver_outerarm_hand" },
+	{ "name": "Zombie_catapult_driver_outerarm_upper", "bone": "Zombie_catapult_driver_outerarm_upper", "attachment": "Zombie_catapult_driver_outerarm_upper" },
+	{ "name": "Zombie_catapult_driver_outerarm_lower", "bone": "Zombie_catapult_driver_outerarm_lower", "attachment": "Zombie_catapult_driver_outerarm_lower" },
+	{ "name": "Zombie_catapult_pole_damage", "bone": "Zombie_catapult_pole_damage", "attachment": "Zombie_catapult_pole" },
+	{ "name": "Zombie_catapult_body", "bone": "Zombie_catapult_body", "attachment": "Zombie_catapult_body" },
+	{ "name": "Zombie_catapult_engine", "bone": "Zombie_catapult_engine", "attachment": "Zombie_catapult_engine" },
+	{ "name": "Zombie_catapult_spring", "bone": "Zombie_catapult_spring", "attachment": "Zombie_catapult_spring" },
+	{ "name": "Zombie_catapult_basket", "bone": "Zombie_catapult_basket", "attachment": "Zombie_catapult_basket" },
+	{ "name": "Zombie_catapult_basketball2", "bone": "Zombie_catapult_basketball2", "attachment": "Zombie_catapult_basketball2" },
+	{ "name": "Zombie_catapult_basketball1", "bone": "Zombie_catapult_basketball1", "attachment": "Zombie_catapult_basketball1" },
+	{ "name": "Zombie_catapult_basketball", "bone": "Zombie_catapult_basketball", "attachment": "Zombie_catapult_basketball" },
+	{ "name": "Zombie_catapult_basket_overlay", "bone": "Zombie_catapult_basket", "attachment": "Zombie_catapult_basket_overlay" },
+	{ "name": "Zombie_catapult_siding", "bone": "Zombie_catapult_siding", "attachment": "Zombie_catapult_siding" },
+	{ "name": "Zombie_catapult_manhole", "bone": "Zombie_catapult_manhole", "attachment": "Zombie_catapult_manhole" },
+	{ "name": "Zombie_boss_RVwheel", "bone": "Zombie_boss_RVwheel", "attachment": "Zombie_zamboni_wheel" },
+	{ "name": "Zombie_charred_catapult1", "bone": "Zombie_charred_catapult1", "attachment": "Zombie_charred_catapult1" },
+	{ "name": "Zombie_charred_catapult_head", "bone": "Zombie_charred_catapult_head", "attachment": "Zombie_charred_catapult_head" },
+	{ "name": "Zombie_charred_catapult_blink1", "bone": "Zombie_charred_catapult_blink1" },
+	{ "name": "Zombie_catapult_basketball3", "bone": "Zombie_catapult_basketball3", "attachment": "Zombie_catapult_basketball" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"Zombie_catapult_basketball3": {
+				"Zombie_catapult_basketball": { "x": 1.12, "y": 0.37, "width": 31, "height": 31 }
+			},
+			"Zombie_catapult_crank": {
+				"Zombie_catapult_crank": { "x": 14.1, "y": 3.68, "rotation": 45, "width": 27, "height": 22 }
+			},
+			"Zombie_catapult_basketball1": {
+				"Zombie_catapult_basketball1": { "x": -4.25, "y": -5.45, "width": 31, "height": 31 }
+			},
+			"Zombie_catapult_pole_damage": {
+				"Zombie_catapult_pole": { "x": 14.87, "y": -9.85, "width": 191, "height": 85 },
+				"Zombie_catapult_pole_damage": { "x": 14.87, "y": -5.35, "width": 189, "height": 76 },
+				"Zombie_catapult_pole_damage_withball": { "x": 15.87, "y": -5.35, "width": 191, "height": 76 },
+				"Zombie_catapult_pole_withball": { "x": 15.87, "y": -9.85, "width": 191, "height": 85 }
+			},
+			"Zombie_catapult_driver_head": {
+				"Zombie_catapult_driver_head": { "x": 16.6, "y": -0.61, "rotation": -133.53, "width": 63, "height": 63 }
+			},
+			"Zombie_catapult_driver_body": {
+				"Zombie_catapult_driver_body": { "x": 36.67, "y": 8.01, "rotation": -124.82, "width": 96, "height": 106 }
+			},
+			"Zombie_catapult_engine": {
+				"Zombie_catapult_engine": { "x": 6.23, "y": 5.78, "width": 41, "height": 49 }
+			},
+			"Zombie_catapult_driver_outerarm_upper": {
+				"Zombie_catapult_driver_outerarm_upper": { "x": 17.85, "y": 0.42, "rotation": 102.84, "width": 53, "height": 54 }
+			},
+			"Zombie_catapult_body_overlay1": {
+				"Zombie_catapult_body_overlay1": { "x": 4.81, "y": 1.81, "width": 70, "height": 35 }
+			},
+			"Zombie_catapult_body_overlay2": {
+				"Zombie_catapult_body_overlay2": { "x": 4.57, "y": 2.69, "width": 51, "height": 30 }
+			},
+			"Zombie_catapult_basketball": {
+				"Zombie_catapult_basketball": { "x": 0.69, "y": -6.67, "width": 31, "height": 31 }
+			},
+			"Zombie_catapult_basket": {
+				"Zombie_catapult_basket": { "x": 13.36, "y": 8.17, "width": 64, "height": 39 }
+			},
+			"Zombie_catapult_manhole": {
+				"Zombie_catapult_manhole": { "x": -1.45, "y": 1.13, "width": 55, "height": 54 }
+			},
+			"Zombie_catapult_spring": {
+				"Zombie_catapult_spring": { "x": 0.74, "y": -1.64, "width": 17, "height": 25 }
+			},
+			"Zombie_charred_catapult1": {
+				"Zombie_charred_catapult1": { "x": -24.12, "y": 58.82, "width": 183, "height": 148 },
+				"Zombie_charred_catapult2": { "x": -23.73, "y": 59.95, "width": 183, "height": 145 },
+				"Zombie_charred_catapult3": { "x": -23.23, "y": 59.95, "width": 182, "height": 145 },
+				"Zombie_charred_catapult4": { "x": -23.23, "y": 59.95, "width": 182, "height": 145 },
+				"Zombie_charred_catapult5": { "x": -33.73, "y": 59.95, "width": 161, "height": 145 },
+				"Zombie_charred_catapult6": { "x": -33.73, "y": 59.95, "width": 161, "height": 145 },
+				"Zombie_charred_catapult7": { "x": -33.73, "y": 59.95, "width": 161, "height": 145 },
+				"Zombie_charred_catapult8": { "x": -33.73, "y": 59.95, "width": 161, "height": 145 },
+				"Zombie_charred_catapult9": { "x": -33.73, "y": 39.45, "width": 161, "height": 104 }
+			},
+			"Zombie_boss_RVwheel": {
+				"Zombie_zamboni_wheel": { "x": 0.26, "y": -1.7, "scaleX": 0.629, "scaleY": 0.629, "width": 52, "height": 56 },
+				"Zombie_zamboni_wheel_flat": { "x": -0.01, "y": -0.89, "scaleX": 0.6061, "scaleY": 0.6061, "width": 52, "height": 56 }
+			},
+			"Zombie_charred_catapult_blink1": {
+				"Zombie_charred_catapult_blink1": { "x": 10.78, "y": -1.26, "width": 40, "height": 17 },
+				"Zombie_charred_catapult_blink2": { "x": 11.45, "y": -1.26, "width": 40, "height": 17 }
+			},
+			"Zombie_catapult_siding": {
+				"Zombie_catapult_siding": { "x": 1.19, "y": 2.98, "width": 31, "height": 59 },
+				"Zombie_catapult_siding_damage": { "x": 0.19, "y": 1.98, "width": 31, "height": 57 }
+			},
+			"Zombie_catapult_driver_outerarm_hand": {
+				"Zombie_catapult_driver_outerarm_hand": { "x": 7.68, "y": -0.52, "rotation": 109.86, "width": 33, "height": 26 }
+			},
+			"Zombie_catapult_basketball2": {
+				"Zombie_catapult_basketball2": { "x": 2.24, "y": -8.81, "width": 31, "height": 31 }
+			},
+			"Zombie_charred_catapult_head": {
+				"Zombie_charred_catapult_head": { "x": 18.66, "y": -8.9, "width": 92, "height": 74 }
+			},
+			"Zombie_catapult_basket_overlay": {
+				"Zombie_catapult_basket_overlay": { "x": 14.36, "y": 7.17, "width": 64, "height": 37 }
+			},
+			"Zombie_catapult_driver_outerarm_lower": {
+				"Zombie_catapult_driver_outerarm_lower": { "x": 14, "y": 4.91, "rotation": 114.7, "width": 43, "height": 40 }
+			},
+			"Zombie_catapult_body": {
+				"Zombie_catapult_body": { "x": -6.13, "y": 8.88, "width": 163, "height": 93 }
+			},
+			"Zombie_catapult_driver_innerarm_lower": {
+				"Zombie_catapult_driver_innerarm_lower": { "x": 16.22, "y": 0.6, "rotation": 163.74, "width": 46, "height": 35 }
+			},
+			"Zombie_catapult_driver_hankie": {
+				"Zombie_catapult_driver_hankie": { "x": -7.89, "y": 5.44, "rotation": -124.82, "width": 15, "height": 33 }
+			},
+			"Zombie_catapult_driver_mouth": {
+				"Zombie_catapult_driver_mouth": { "x": 0.46, "y": -3.6, "rotation": -133.53, "width": 24, "height": 23 }
+			},
+			"Zombie_catapult_driver_innerarm_hand": {
+				"Zombie_catapult_driver_innerarm_hand": { "x": 9.8, "y": 2.73, "rotation": -180, "width": 28, "height": 29 }
+			}
+		}
+	},
+	{
+		"name": "catapult",
+		"bones": [ "Zombie_boss_RVwheel", "Zombie_catapult_basket", "Zombie_catapult_basketball", "Zombie_catapult_basketball1", "Zombie_catapult_basketball2", "Zombie_catapult_body", "Zombie_catapult_body_overlay1", "Zombie_catapult_body_overlay2", "Zombie_catapult_crank", "Zombie_catapult_driver_body", "Zombie_catapult_driver_hankie", "Zombie_catapult_driver_head", "Zombie_catapult_driver_innerarm_hand", "Zombie_catapult_driver_innerarm_lower", "Zombie_catapult_driver_mouth", "Zombie_catapult_driver_outerarm_hand", "Zombie_catapult_driver_outerarm_lower", "Zombie_catapult_driver_outerarm_upper", "Zombie_catapult_engine", "Zombie_catapult_manhole", "Zombie_catapult_pole_damage", "Zombie_catapult_basketball3", "Zombie_catapult_siding", "Zombie_catapult_spring", "bone" ]
+	},
+	{
+		"name": "charred",
+		"bones": [ "Zombie_charred_catapult1", "Zombie_charred_catapult_blink1", "Zombie_charred_catapult_head" ]
+	}
+],
+"animations": {
+	"Attack": {
+		"slots": {
+			"Zombie_catapult_basketball3": {
+				"attachment": [
+					{ "time": 0.5667, "name": null }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_catapult_pole_damage": {
+				"rotate": [
+					{ "time": 0.2 },
+					{ "time": 0.5667, "angle": 25.47 }
+				],
+				"translate": [
+					{ "time": 0.2 },
+					{ "time": 0.5667, "x": -22.66, "y": 29.51 }
+				]
+			},
+			"Zombie_catapult_driver_innerarm_lower": {
+				"rotate": [
+					{ "angle": -7.04 },
+					{ "time": 0.2, "angle": 9.36 },
+					{ "time": 0.5667 }
+				]
+			}
+		}
+	},
+	"Attack_After": {
+		"slots": {
+			"Zombie_catapult_basketball3": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 1.2, "name": "Zombie_catapult_basketball" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_catapult_basketball1": {
+				"translate": [
+					{ "time": 0.8 },
+					{ "time": 1, "x": 31.85, "y": 82.25 },
+					{ "time": 1.1333, "x": 47.05, "y": 50.99 },
+					{ "time": 1.1667, "x": -15.79, "y": -3.29 },
+					{ "time": 1.3333, "x": -1.65, "y": 26.98 },
+					{ "time": 1.5 }
+				]
+			},
+			"Zombie_catapult_basketball2": {
+				"translate": [
+					{ "time": 1.1667 },
+					{ "time": 1.3, "x": -6.43 },
+					{ "time": 1.5 }
+				]
+			},
+			"Zombie_catapult_basketball": {
+				"translate": [
+					{ "time": 1.1667 },
+					{ "time": 1.3, "x": 2.68 },
+					{ "time": 1.5 }
+				]
+			},
+			"Zombie_catapult_pole_damage": {
+				"rotate": [
+					{ "angle": 25.47 },
+					{ "time": 0.2 }
+				],
+				"translate": [
+					{ "x": -22.66, "y": 29.51 },
+					{ "time": 0.2 }
+				]
+			},
+			"Zombie_catapult_driver_outerarm_upper": {
+				"rotate": [
+					{},
+					{ "time": 0.6, "angle": 19.05 },
+					{ "time": 0.8 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.6, "x": 13.67, "y": -1.09 },
+					{ "time": 0.8 }
+				]
+			},
+			"Zombie_catapult_driver_outerarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.6, "angle": -14.5 },
+					{ "time": 0.8 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.6, "x": -5.24, "y": 3.55 },
+					{ "time": 0.8 }
+				]
+			},
+			"Zombie_catapult_driver_outerarm_hand": {
+				"rotate": [
+					{},
+					{ "time": 0.6, "angle": -41.42 }
+				]
+			},
+			"Zombie_catapult_driver_innerarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 0.2, "angle": 9.36 }
+				]
+			}
+		}
+	},
+	"Dead": {
+		"slots": {
+			"Zombie_catapult_pole_damage": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_siding": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_driver_outerarm_upper": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_driver_outerarm_hand": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_driver_body": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_driver_innerarm_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_driver_head": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_driver_mouth": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_body_overlay1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_boss_RVwheel": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_crank": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_basket_overlay": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_body_overlay2": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_engine": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_driver_innerarm_hand": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_manhole": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_body": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_basketball2": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_basket": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_basketball1": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_driver_hankie": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_basketball3": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_basketball": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_spring": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_catapult_driver_outerarm_lower": {
+				"color": [
+					{ "time": 1.3333, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "ffffff00" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_catapult_driver_innerarm_lower": {
+				"rotate": [
+					{},
+					{ "time": 1.3333, "angle": -60.11 }
+				]
+			},
+			"Zombie_catapult_driver_body": {
+				"rotate": [
+					{},
+					{ "time": 1.3333, "angle": -91.83 }
+				],
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": -67.7, "y": -45.81 }
+				]
+			},
+			"Zombie_catapult_driver_head": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 171.29 },
+					{ "time": 1.3333, "angle": -8.71 }
+				],
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": 86.03, "y": -247.01 }
+				]
+			},
+			"Zombie_catapult_pole_damage": {
+				"rotate": [
+					{},
+					{ "time": 1.3333, "angle": 180 }
+				],
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": -209.71, "y": -6.11 }
+				]
+			},
+			"Zombie_catapult_engine": {
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": -167.46, "y": -134.88 }
+				]
+			},
+			"Zombie_catapult_spring": {
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": -217.34, "y": 14.25 }
+				]
+			},
+			"Zombie_catapult_basket": {
+				"translate": [
+					{},
+					{ "time": 0.5, "x": 43.26, "y": 55.51 },
+					{ "time": 1, "x": 79.6, "y": -30.33 },
+					{ "time": 1.1667, "x": 98.63, "y": -13 },
+					{ "time": 1.3333, "x": 130.99, "y": -32.72 }
+				]
+			},
+			"Zombie_catapult_basketball2": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 180 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.6667, "x": 101.34, "y": -15.59 },
+					{ "time": 1.3333, "x": 247.88, "y": -143.07 }
+				]
+			},
+			"Zombie_catapult_basketball1": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 180 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.5, "x": 87.04, "y": 56.8 },
+					{ "time": 1, "x": 174.08, "y": 20.23 },
+					{ "time": 1.1667, "x": 211.87, "y": 40.98 },
+					{ "time": 1.3333, "x": 245.21, "y": 17.27 }
+				]
+			},
+			"Zombie_catapult_basketball": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 180 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.6667, "x": 210.07, "y": 60.8 },
+					{ "time": 1, "x": 262.69, "y": 32.64 },
+					{ "time": 1.1667, "x": 298.99, "y": 55.61 },
+					{ "time": 1.3333, "x": 335.3, "y": 41.53 }
+				]
+			},
+			"Zombie_catapult_manhole": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 180 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{},
+					{ "time": 1.3333, "x": 223.45, "y": -7.64 }
+				]
+			},
+			"Zombie_boss_RVwheel": {
+				"rotate": [
+					{},
+					{ "time": 0.6667, "angle": 180 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{},
+					{ "time": 1, "x": -135.14, "y": -57.26 },
+					{ "time": 1.1667, "x": -157.66, "y": -48.28 },
+					{ "time": 1.3333, "x": -180.19, "y": -76.35 }
+				]
+			},
+			"Zombie_catapult_basketball3": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "x": 21.5, "y": -23.18 },
+					{ "time": 1.0667, "x": 120.38, "y": -91.12 },
+					{ "time": 1.6, "x": 247.41, "y": -4.33 }
+				]
+			}
+		}
+	},
+	"Entrance": {
+		"bones": {
+			"bone": {
+				"translate": [
+					{ "y": 2238.54 },
+					{ "time": 1, "y": 198.2 },
+					{ "time": 1.6667 }
+				]
+			}
+		}
+	},
+	"WalkOff": {
+		"bones": {
+			"bone": {
+				"translate": [
+					{},
+					{ "time": 0.6667, "y": 198.2 },
+					{ "time": 1.6667, "y": 2238.54 }
+				]
+			}
+		}
+	},
+	"charred": {
+		"slots": {
+			"Zombie_charred_catapult1": {
+				"attachment": [
+					{ "time": 0.1333, "name": "Zombie_charred_catapult2" },
+					{ "time": 0.2667, "name": "Zombie_charred_catapult3" },
+					{ "time": 0.4, "name": "Zombie_charred_catapult4" },
+					{ "time": 0.5333, "name": "Zombie_charred_catapult5" },
+					{ "time": 0.6667, "name": "Zombie_charred_catapult6" },
+					{ "time": 0.8, "name": "Zombie_charred_catapult7" },
+					{ "time": 0.9333, "name": "Zombie_charred_catapult8" },
+					{ "time": 1.0667, "name": "Zombie_charred_catapult9" }
+				]
+			},
+			"Zombie_charred_catapult_blink1": {
+				"attachment": [
+					{ "time": 0.6667, "name": "Zombie_charred_catapult_blink1" },
+					{ "time": 0.7667, "name": "Zombie_charred_catapult_blink2" },
+					{ "time": 0.8667, "name": "Zombie_charred_catapult_blink1" },
+					{ "time": 0.9667, "name": null }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_charred_catapult_head": {
+				"translate": [
+					{ "x": -28.08, "y": 42.65 },
+					{ "time": 1.0667, "x": -28.42, "y": 41.98 },
+					{ "time": 1.2667, "x": -28.42, "y": -52.48 },
+					{ "time": 1.4, "x": -28.42, "y": -35.67 },
+					{ "time": 1.5333, "x": -28.42, "y": -50.8 }
+				]
+			},
+			"Zombie_charred_catapult1": {
+				"translate": [
+					{ "x": 33.88, "y": -50.6 }
+				],
+				"scale": [
+					{ "x": 1.184, "y": 1.184 }
+				]
+			}
+		}
+	},
+	"puncture": {
+		"slots": {
+			"Zombie_boss_RVwheel": {
+				"attachment": [
+					{ "name": "Zombie_zamboni_wheel_flat" }
+				]
+			}
+		},
+		"bones": {
+			"bone": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "y": 1.71 },
+					{ "time": 1.0667, "y": -1 },
+					{ "time": 1.6, "y": 0.78 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_catapult_pole_damage": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 2.47 },
+					{ "time": 1.0667, "angle": -0.41 },
+					{ "time": 1.6, "angle": 1.16 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_catapult_driver_body": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": -7.88 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "angle": -7.88 },
+					{ "time": 2.1333 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.5333, "y": 1.75 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "y": 1.75 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_catapult_driver_mouth": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "x": 0.57, "y": -2.96 },
+					{ "time": 1.0667, "x": -1.14, "y": -0.52 },
+					{ "time": 1.6, "x": 0.49, "y": -3.21 },
+					{ "time": 2.1333 }
+				]
+			}
+		}
+	},
+	"run": {
+		"bones": {
+			"bone": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "y": 1.71 },
+					{ "time": 1.0667, "y": -1 },
+					{ "time": 1.6, "y": 0.78 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_boss_RVwheel": {
+				"rotate": [
+					{},
+					{ "time": 0.0333, "angle": 12 },
+					{ "time": 0.5333, "angle": 180 },
+					{ "time": 0.5667, "angle": -168 },
+					{ "time": 1.0667 },
+					{ "time": 1.1, "angle": 12 },
+					{ "time": 1.6, "angle": 180 },
+					{ "time": 1.6333, "angle": -168 },
+					{ "time": 2.1333 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.5333, "y": -3.15 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "y": -3.15 },
+					{ "time": 2.1333, "y": -0.35 }
+				]
+			},
+			"Zombie_catapult_manhole": {
+				"rotate": [
+					{},
+					{ "time": 0.0333, "angle": 12 },
+					{ "time": 0.5333, "angle": 180 },
+					{ "time": 0.5667, "angle": -168 },
+					{ "time": 1.0667 },
+					{ "time": 1.1, "angle": 12 },
+					{ "time": 1.6, "angle": 180 },
+					{ "time": 1.6333, "angle": -168 },
+					{ "time": 2.1333 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.5333, "y": 2.45 },
+					{ "time": 1.0667 },
+					{ "time": 1.6, "y": 2.45 },
+					{ "time": 2.1333, "y": -1.17 }
+				]
+			},
+			"Zombie_catapult_pole_damage": {
+				"rotate": [
+					{},
+					{ "time": 0.5333, "angle": 2.47 },
+					{ "time": 1.0667, "angle": -0.41 },
+					{ "time": 1.6, "angle": 1.16 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_catapult_driver_mouth": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "x": 0.57, "y": -2.96 },
+					{ "time": 1.0667, "x": -1.14, "y": -0.52 },
+					{ "time": 1.6, "x": 0.49, "y": -3.21 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_catapult_basketball2": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "x": -3.74, "y": 7.85 },
+					{ "time": 1.0667, "x": -6.73, "y": 1.12 },
+					{ "time": 1.6, "x": -3.74, "y": 7.85 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_catapult_basketball1": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "x": 6.73, "y": 13.09 },
+					{ "time": 1.0667, "x": 4.49, "y": 1.5 },
+					{ "time": 1.6, "x": 6.73, "y": 13.09 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_catapult_basketball": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "x": 4.49, "y": 9.72 },
+					{ "time": 1.0667, "x": 4.11, "y": 6.36 },
+					{ "time": 1.6, "x": 4.49, "y": 9.72 },
+					{ "time": 2.1333 }
+				]
+			},
+			"Zombie_catapult_basketball3": {
+				"translate": [
+					{},
+					{ "time": 0.5333, "y": 4.11 },
+					{ "time": 1.0667, "y": -0.38 },
+					{ "time": 1.6, "x": -1.45, "y": 9.38 },
+					{ "time": 2.1333 }
+				]
+			}
+		}
+	},
+	"worn": {
+		"slots": {
+			"Zombie_catapult_siding": {
+				"attachment": [
+					{ "name": "Zombie_catapult_siding_damage" }
+				]
+			},
+			"Zombie_catapult_pole_damage": {
+				"attachment": [
+					{ "name": "Zombie_catapult_pole_damage" }
+				]
+			}
+		}
+	}
+}
+}

@@ -193,7 +193,7 @@ namespace TopDownPlate
                 BezierMove();
             }
 
-            if (!isAttacking)
+            if (!isAttacking && GameManager.Instance.CanAttack)
             {
                 // 从集合中寻找位置最近的敌人
                 target = LevelManager.Instance.GetRecentlyEnemy(out bool isRight, finalRange);

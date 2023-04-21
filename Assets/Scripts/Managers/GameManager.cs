@@ -114,6 +114,9 @@ namespace TopDownPlate
 
         public float DecelerationRatio { get; set; } = 1; // 在冰面上的减速比例
 
+        public bool CanAttack  => balls.Count == 0; // 投篮僵尸是否在攻击
+        public List<GameObject> balls = new List<GameObject>(); // 正在攻击的篮球
+
         public List<Coin> Coins { get; set; } = new List<Coin>();  // 用于吸金菇吸收，在金币生成时加入，消失时Remove
 
         private BattlePanel battlePanel;

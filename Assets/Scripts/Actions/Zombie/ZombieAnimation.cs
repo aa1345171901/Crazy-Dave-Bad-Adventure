@@ -68,7 +68,7 @@ public class ZombieAnimation : MonoBehaviour
     private void Start()
     {
         int index = Random.Range(0, GraveMonuments.Count);
-        if (zombieType != ZombieType.Balloon)
+        if (GraveMonuments.Count > 0)
         {
             var go = Instantiate(GraveMonuments[index], GraveMonumentContent);
             graveMonumentAnimator = go.GetComponent<Animator>();
@@ -109,7 +109,7 @@ public class ZombieAnimation : MonoBehaviour
         };
 
         SetBoxCollider(false);
-        if (zombieType != ZombieType.Balloon)
+        if (GraveMonuments.Count > 0)
         {
             graveMonumentAnimator.SetTrigger("Init");
             // …Ë÷√‰÷»æ≤„º∂

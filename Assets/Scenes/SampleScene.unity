@@ -471,6 +471,13 @@ MonoBehaviour:
       IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -4
+    - ZombieType: 10
+      EnemyPrefab: {fileID: 619950131301105326, guid: 11ae557ed444f3541bc282fd76194741, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 8
+      TimeIncrement: 0
+      lastGenerateTime: -4
   Enemys: []
   CacheEnemys: []
   EnchantedEnemys: []
@@ -1262,6 +1269,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4195450945961741395, guid: 8e7f933c308343849ad40a6c8d308417, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ac6a4709b88b03d46bea07b9e0815d54, type: 2}
     - target: {fileID: 7497441726251074684, guid: 8e7f933c308343849ad40a6c8d308417, type: 3}
       propertyPath: m_Name
       value: Dave
@@ -3056,6 +3067,7 @@ MonoBehaviour:
     Sunshine: 0
     GoldCoins: 0
     Botany: 0
+  balls: []
 --- !u!1 &1590276643
 GameObject:
   m_ObjectHideFlags: 0

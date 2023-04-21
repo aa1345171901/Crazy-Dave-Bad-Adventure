@@ -1,0 +1,293 @@
+
+ZombieCatapult.png
+size: 332,1032
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Zombie_catapult_basket
+  rotate: false
+  xy: 229, 23
+  size: 62, 37
+  orig: 64, 39
+  offset: 1, 1
+  index: -1
+Zombie_catapult_basket_overlay
+  rotate: true
+  xy: 293, 33
+  size: 62, 35
+  orig: 64, 37
+  offset: 1, 1
+  index: -1
+Zombie_catapult_basketball
+  rotate: false
+  xy: 293, 2
+  size: 29, 29
+  orig: 31, 31
+  offset: 1, 1
+  index: -1
+Zombie_catapult_basketball1
+  rotate: false
+  xy: 293, 2
+  size: 29, 29
+  orig: 31, 31
+  offset: 1, 1
+  index: -1
+Zombie_catapult_basketball2
+  rotate: false
+  xy: 293, 2
+  size: 29, 29
+  orig: 31, 31
+  offset: 1, 1
+  index: -1
+Zombie_catapult_body
+  rotate: true
+  xy: 185, 595
+  size: 161, 85
+  orig: 163, 93
+  offset: 1, 7
+  index: -1
+Zombie_catapult_body_overlay1
+  rotate: true
+  xy: 296, 544
+  size: 68, 33
+  orig: 70, 35
+  offset: 1, 1
+  index: -1
+Zombie_catapult_body_overlay2
+  rotate: true
+  xy: 296, 436
+  size: 49, 28
+  orig: 51, 30
+  offset: 1, 1
+  index: -1
+Zombie_catapult_crank
+  rotate: false
+  xy: 292, 172
+  size: 25, 19
+  orig: 27, 22
+  offset: 1, 1
+  index: -1
+Zombie_catapult_driver_body
+  rotate: false
+  xy: 229, 302
+  size: 94, 103
+  orig: 96, 106
+  offset: 1, 2
+  index: -1
+Zombie_catapult_driver_hankie
+  rotate: false
+  xy: 166, 628
+  size: 13, 30
+  orig: 15, 33
+  offset: 1, 2
+  index: -1
+Zombie_catapult_driver_head
+  rotate: false
+  xy: 229, 172
+  size: 61, 61
+  orig: 63, 63
+  offset: 1, 1
+  index: -1
+Zombie_catapult_driver_innerarm_hand
+  rotate: false
+  xy: 296, 407
+  size: 26, 27
+  orig: 28, 29
+  offset: 1, 1
+  index: -1
+Zombie_catapult_driver_innerarm_lower
+  rotate: false
+  xy: 283, 97
+  size: 43, 32
+  orig: 46, 35
+  offset: 2, 1
+  index: -1
+Zombie_catapult_driver_mouth
+  rotate: false
+  xy: 177, 7
+  size: 22, 21
+  orig: 24, 23
+  offset: 1, 1
+  index: -1
+Zombie_catapult_driver_outerarm_hand
+  rotate: false
+  xy: 144, 4
+  size: 31, 24
+  orig: 33, 26
+  offset: 1, 1
+  index: -1
+Zombie_catapult_driver_outerarm_lower
+  rotate: true
+  xy: 292, 193
+  size: 40, 38
+  orig: 43, 40
+  offset: 1, 1
+  index: -1
+Zombie_catapult_driver_outerarm_upper
+  rotate: false
+  xy: 229, 62
+  size: 51, 51
+  orig: 53, 54
+  offset: 1, 2
+  index: -1
+Zombie_catapult_engine
+  rotate: true
+  xy: 283, 131
+  size: 39, 47
+  orig: 41, 49
+  offset: 1, 1
+  index: -1
+Zombie_catapult_manhole
+  rotate: true
+  xy: 272, 645
+  size: 53, 52
+  orig: 55, 54
+  offset: 1, 1
+  index: -1
+Zombie_catapult_pole
+  rotate: true
+  xy: 144, 218
+  size: 186, 83
+  orig: 191, 85
+  offset: 1, 1
+  index: -1
+Zombie_catapult_pole_damage
+  rotate: true
+  xy: 144, 406
+  size: 187, 74
+  orig: 189, 76
+  offset: 1, 1
+  index: -1
+Zombie_catapult_pole_damage_withball
+  rotate: true
+  xy: 220, 407
+  size: 186, 74
+  orig: 191, 76
+  offset: 1, 1
+  index: -1
+Zombie_catapult_pole_withball
+  rotate: true
+  xy: 144, 30
+  size: 186, 83
+  orig: 191, 85
+  offset: 1, 1
+  index: -1
+Zombie_catapult_siding
+  rotate: true
+  xy: 272, 614
+  size: 29, 56
+  orig: 31, 59
+  offset: 1, 1
+  index: -1
+Zombie_catapult_siding_damage
+  rotate: false
+  xy: 296, 487
+  size: 29, 55
+  orig: 31, 57
+  offset: 1, 1
+  index: -1
+Zombie_catapult_spring
+  rotate: true
+  xy: 272, 599
+  size: 13, 22
+  orig: 17, 25
+  offset: 2, 2
+  index: -1
+Zombie_charred_catapult1
+  rotate: false
+  xy: 2, 885
+  size: 181, 145
+  orig: 183, 148
+  offset: 1, 2
+  index: -1
+Zombie_charred_catapult2
+  rotate: false
+  xy: 2, 740
+  size: 181, 143
+  orig: 183, 145
+  offset: 1, 1
+  index: -1
+Zombie_charred_catapult3
+  rotate: true
+  xy: 185, 860
+  size: 170, 143
+  orig: 182, 145
+  offset: 11, 1
+  index: -1
+Zombie_charred_catapult4
+  rotate: false
+  xy: 2, 595
+  size: 162, 143
+  orig: 182, 145
+  offset: 19, 1
+  index: -1
+Zombie_charred_catapult5
+  rotate: false
+  xy: 2, 450
+  size: 140, 143
+  orig: 161, 145
+  offset: 19, 1
+  index: -1
+Zombie_charred_catapult6
+  rotate: false
+  xy: 2, 305
+  size: 140, 143
+  orig: 161, 145
+  offset: 19, 1
+  index: -1
+Zombie_charred_catapult7
+  rotate: false
+  xy: 2, 160
+  size: 140, 143
+  orig: 161, 145
+  offset: 19, 1
+  index: -1
+Zombie_charred_catapult8
+  rotate: false
+  xy: 2, 15
+  size: 140, 143
+  orig: 161, 145
+  offset: 19, 1
+  index: -1
+Zombie_charred_catapult9
+  rotate: false
+  xy: 185, 758
+  size: 140, 100
+  orig: 161, 104
+  offset: 19, 1
+  index: -1
+Zombie_charred_catapult_blink1
+  rotate: true
+  xy: 166, 700
+  size: 38, 15
+  orig: 40, 17
+  offset: 1, 1
+  index: -1
+Zombie_charred_catapult_blink2
+  rotate: true
+  xy: 166, 660
+  size: 38, 15
+  orig: 40, 17
+  offset: 1, 1
+  index: -1
+Zombie_charred_catapult_head
+  rotate: false
+  xy: 229, 235
+  size: 81, 65
+  orig: 92, 74
+  offset: 10, 8
+  index: -1
+Zombie_zamboni_wheel
+  rotate: false
+  xy: 272, 700
+  size: 52, 56
+  orig: 52, 56
+  offset: 0, 0
+  index: -1
+Zombie_zamboni_wheel_flat
+  rotate: false
+  xy: 229, 115
+  size: 52, 55
+  orig: 52, 56
+  offset: 0, 1
+  index: -1

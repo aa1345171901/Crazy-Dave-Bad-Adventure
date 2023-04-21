@@ -41,7 +41,7 @@ public class ZombieProp : MonoBehaviour
     {
         int maxHp = character.Health.maxHealth;
         int hp = character.Health.health;
-        if (hp <= maxHp / 4)
+        if (hp <= maxHp / 4 && !string.IsNullOrEmpty(PropLostAnimation))
         {
             if (animIndex != 1)
             {
@@ -67,7 +67,7 @@ public class ZombieProp : MonoBehaviour
                 }
             }
         }
-        else if (hp <= maxHp / 2)
+        else if (hp <= maxHp / 2 && !string.IsNullOrEmpty(WornAnimation2))
         {
             if (animIndex != 2)
             {
@@ -75,7 +75,7 @@ public class ZombieProp : MonoBehaviour
                 character.SkeletonAnimation.AnimationState.SetAnimation(2, WornAnimation2, false);
             }
         }
-        else if (hp <= maxHp * 3 / 4)
+        else if (hp <= maxHp * 3 / 4 && !string.IsNullOrEmpty(WornAnimation1))
         {
             if (animIndex != 3)
             {

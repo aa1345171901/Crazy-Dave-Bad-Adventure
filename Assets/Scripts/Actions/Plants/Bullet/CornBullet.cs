@@ -12,6 +12,9 @@ public class CornBullet : MonoBehaviour
     public bool IsButter;
     public int sortLayer;
 
+    private float upSpeed;
+    private float fallSpeed;
+
     public SpriteRenderer spriteRenderer;
     public Sprite butter;
     public Sprite butterControl;
@@ -38,6 +41,14 @@ public class CornBullet : MonoBehaviour
         }
         startPos = this.transform.position;
         spriteRenderer.sortingOrder = sortLayer;
+
+        upSpeed = fallSpeed = 5 / upTimer;
+        float vOffset = TargetZombie.transform.position.y + 1.05f - this.transform.position.y;
+        float speedOffset = 2 * vOffset / upTimer;
+        if (speedOffset > 0)
+            upSpeed = (5 + speedOffset) / upTimer;
+        else
+            fallSpeed = (5 - speedOffset) / upTimer;
     }
 
     private void Update()
@@ -46,13 +57,11 @@ public class CornBullet : MonoBehaviour
         {
             if (timer < upTimer)
             {
-                float upSpeed = (1 - timer / upTimer) * 20;
                 transform.Translate(Vector3.up * upSpeed * Time.deltaTime);
             }
             else
             {
-                float down = (timer - upTimer) / upTimer * 20;
-                transform.Translate(Vector3.down * down * Time.deltaTime);
+                transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
             }
             float process = timer / (upTimer * 2);
             var lerp = Vector3.Lerp(startPos, TargetZombie.transform.position, process);
