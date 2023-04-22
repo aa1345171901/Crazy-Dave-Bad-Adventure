@@ -290,7 +290,7 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
             FlowerPotItem.SetActive();
             if (freeRefreshCount == 0)
             {
-                RenovateMoney = (renovateCount + 1) * (autoRefreshWave + 1) * 2 + (renovateCount + 1) * renovateCount;
+                RenovateMoney = (renovateCount + 1) * (autoRefreshWave + 1) + (renovateCount + 1) * renovateCount / 2;
                 renovateCount++;
             }
         }
@@ -302,7 +302,7 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
                 ShopManager.Instance.Money -= RenovateMoney;
                 FlowerPotItem.SetActive();
             }
-            RenovateMoney = (renovateCount + 1) * (autoRefreshWave + 1) * 2 + (renovateCount + 1) * renovateCount;
+            RenovateMoney = (renovateCount + 1) * (autoRefreshWave + 1) + (renovateCount + 1) * renovateCount / 2;
             renovateCount++;
         }
 

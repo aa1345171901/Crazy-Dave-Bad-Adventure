@@ -458,6 +458,7 @@ MonoBehaviour:
   - {fileID: 4724950542171363539}
   - {fileID: 6073454265877624743}
   - {fileID: 634484119821971791}
+  crack: {fileID: 1143602864477102017, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
   FallAttack:
     m_PersistentCalls:
       m_Calls:

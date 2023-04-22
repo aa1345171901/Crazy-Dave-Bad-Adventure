@@ -50,6 +50,9 @@ public class GargantuanAttack : AIAttack
     [Tooltip("从天而降攻击需要隐藏的")]
     public List<BoxCollider2D> colliders;
 
+    public GameObject crack;
+    private GameObject crackGo;
+
     public UnityEvent FallAttack;
 
     private TrackEntry trackEntry;
@@ -67,6 +70,8 @@ public class GargantuanAttack : AIAttack
         attackTrigger = AttackBoxColider.GetComponent<Trigger2D>();
         attackSwoopTrigger = AttackSwoopBoxColider.GetComponent<Trigger2D>();
         attackFallTrigger = AttackFallBoxColider.GetComponent<Trigger2D>();
+        crackGo = GameObject.Instantiate(crack);
+        crackGo.SetActive(false);
     }
 
     public override void Reuse()
@@ -225,6 +230,7 @@ public class GargantuanAttack : AIAttack
             AttackSwoopBoxColider.enabled = true;
             trackEntry.Complete += (e) =>
             {
+                FallAttack?.Invoke();
                 trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackSwoopAfterAnimation, false);
                 trackEntry.Complete += (e) =>
                 {
@@ -262,6 +268,10 @@ public class GargantuanAttack : AIAttack
             {
                 FallAttack?.Invoke();
                 AttackFallBoxColider.enabled = true;
+                crackGo.SetActive(true);
+                pos.y += 0.6f;
+                pos.x -= 0.6f;
+                crackGo.transform.position = pos;
                 trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackFallAfterAnimation, false);
                 trackEntry.Complete += (e) =>
                 {
@@ -271,6 +281,7 @@ public class GargantuanAttack : AIAttack
                     aiMove.canMove = true;
                     isFallAttack = false;
                     audioSource = null;
+                    crackGo.SetActive(false);
                     aiMove.AIParameter.Distance = (Target.position - this.transform.position).magnitude;
                     trackEntry = null;
                 };
