@@ -34,7 +34,7 @@ public class ZamboniMove : IAIMove
         if (waveIndex < 5)
             realSpeed = MoveSpeed = moveSpeed;
         else
-            realSpeed = MoveSpeed = moveSpeed * ((waveIndex - 4) * 5 + 100) / 100;
+            realSpeed = MoveSpeed = moveSpeed * ((waveIndex - 4) * 2 + 100) / 100;
 
         levelBounds = LevelManager.Instance.LevelBounds;
         // 如果在右半部分则面向左

@@ -20,6 +20,8 @@ namespace TopDownPlate
         Balloon,
         Zamboni,
         Catapult,
+        Gargantuan,
+        Boss,
     }
 
     /// <summary>

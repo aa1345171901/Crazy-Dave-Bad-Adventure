@@ -136,7 +136,7 @@ public class ZombieAnimation : MonoBehaviour
             character.gameObject.SetActive(false);
             LevelManager.Instance.CacheEnemys.Add(zombieType, character);
         };
-        if (zombieType != ZombieType.Balloon)
+        if (GraveMonuments.Count > 0)
         {
             graveMonumentAnimator.SetTrigger("Init");
             graveMonumentAnimator.GetComponentInChildren<SpriteRenderer>().sortingOrder = EarthParticle.GetComponent<ParticleSystemRenderer>().sortingOrder = character.LayerOrder + 1;

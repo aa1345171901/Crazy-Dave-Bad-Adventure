@@ -49,6 +49,8 @@ public class PolevaulterAttack : AIAttack
 
     private ZombieAnimation zombieAnimation;
 
+    private bool isRushAttack;
+
     protected override void Initialization()
     {
         base.Initialization();
@@ -60,6 +62,7 @@ public class PolevaulterAttack : AIAttack
     {
         base.Reuse();
         trackEntry = null;
+        isRushAttack = false;
         audioSource = null;
         int waveIndex = LevelManager.Instance.IndexWave + 1;
         if (waveIndex < 4)
@@ -92,6 +95,12 @@ public class PolevaulterAttack : AIAttack
     public override void ProcessAbility()
     {
         base.ProcessAbility();
+        if (character.State.AIStateType == AIStateType.Init || character.IsDead)
+        {
+            audioSource?.Stop();
+            return;
+        }
+
         if (isAttacking && !aiMove.IsEnchanted)
         {
             if (character.FacingDirection == FacingDirections.Left)
@@ -101,10 +110,10 @@ public class PolevaulterAttack : AIAttack
             else
                 lineRenderer.SetPositions(new Vector3[2] { Vector3.zero, direction * 10 });
         }
-        if (character.State.AIStateType == AIStateType.Init || character.IsDead)
+
+        if (isRushAttack && aiMove.AIParameter.Distance < 0.4f && trackEntry != null)
         {
-            audioSource?.Stop();
-            return;
+            Attack();
         }
         JudgeTrigger(attackTrigger, AttackBoxColider);
 
@@ -124,7 +133,7 @@ public class PolevaulterAttack : AIAttack
         }
         else
         {
-            Attack();
+            Attack_Before();
         }
     }
 
@@ -155,7 +164,7 @@ public class PolevaulterAttack : AIAttack
         healths.Clear();
         // 前摇时随机选择僵尸AudioSource,如果没在播放则播放
         audioSource = AudioManager.Instance.RandomPlayZombieSounds();
-
+        isRushAttack = true;
         // 攻击前摇，冲刺
         aiMove.MoveSpeed *= 2;
         controller.BoxCollider.enabled = false;
@@ -163,37 +172,43 @@ public class PolevaulterAttack : AIAttack
         trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackMeleeBeforeAnimation, false);
         trackEntry.Complete += (e) =>
         {
-            // 攻击前摇完了攻击， 速度为0
-            aiMove.MoveSpeed = 0;
-            controller.BoxCollider.enabled = true;
-            trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackMeleeAnimation, false);
-            SetTrailAndColliderActive(true, true, AttackBoxColider);
-            trackEntry.Complete += (e) =>
-            {
-                // 魅惑攻击次数判断
-                if (aiMove.IsEnchanted)
-                {
-                    if (attackCount > 0)
-                        attackCount--;
-                    else
-                    {
-                        LevelManager.Instance.EnchantedEnemys.Remove(zombieAnimation.zombieType, this.character);
-                        character.Health.DoDamage(character.Health.maxHealth, DamageType.Zombie);
-                    }
-                }
-
-                // 攻击完僵直0.2s设置移动
-                Invoke("SpeedRecovery", 0.2f);
-                SetTrailAndColliderActive(false, false, AttackBoxColider);
-                trackEntry = null;
-                skeletonAnimation.AnimationState.ClearTrack(1);
-                audioSource = null;
-                isAttacking = false;
-            };
+            Attack();
         };
     }
 
     private void Attack()
+    {
+        // 攻击前摇完了攻击， 速度为0
+        aiMove.MoveSpeed = 0;
+        controller.BoxCollider.enabled = true;
+        trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackMeleeAnimation, false);
+        SetTrailAndColliderActive(true, true, AttackBoxColider);
+        trackEntry.Complete += (e) =>
+        {
+            // 魅惑攻击次数判断
+            if (aiMove.IsEnchanted)
+            {
+                if (attackCount > 0)
+                    attackCount--;
+                else
+                {
+                    LevelManager.Instance.EnchantedEnemys.Remove(zombieAnimation.zombieType, this.character);
+                    character.Health.DoDamage(character.Health.maxHealth, DamageType.Zombie);
+                }
+            }
+
+            isRushAttack = false;
+            // 攻击完僵直0.2s设置移动
+            Invoke("SpeedRecovery", 0.2f);
+            SetTrailAndColliderActive(false, false, AttackBoxColider);
+            trackEntry = null;
+            skeletonAnimation.AnimationState.ClearTrack(1);
+            audioSource = null;
+            isAttacking = false;
+        };
+    }
+
+    private void Attack_Before()
     {
         isAttacking = true;
         audioSource = AudioManager.Instance.RandomPlayZombieSounds();

@@ -74,6 +74,8 @@ public class HypnoShroom : Plant
             {
                 case ZombieType.Zamboni:
                 case ZombieType.Catapult:
+                case ZombieType.Gargantuan:
+                case ZombieType.Boss:
                     canEnchanted = false;
                     break;
                 default:
