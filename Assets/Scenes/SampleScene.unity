@@ -361,13 +361,13 @@ MonoBehaviour:
     m_Extent: {x: 13.2, y: 5.6, z: 5}
   waves:
   - zombieData:
-    - ZombieType: 0
-      EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 2
-      CountIncrement: 1
-      IntervalTime: 4
+    - ZombieType: 11
+      EnemyPrefab: {fileID: 3038825160147756704, guid: 5bafe40108f8f6849ae57c0de0316023, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 400
       TimeIncrement: 0
-      lastGenerateTime: -4
+      lastGenerateTime: -400
   - zombieData:
     - ZombieType: 0
       EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}

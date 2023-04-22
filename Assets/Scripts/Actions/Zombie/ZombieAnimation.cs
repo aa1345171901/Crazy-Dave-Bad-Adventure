@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TopDownPlate;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ZombieAnimation : MonoBehaviour
 {
@@ -49,6 +50,8 @@ public class ZombieAnimation : MonoBehaviour
 
     public ZombieProp zombieProp;
     public RandomEquip randomEquip;
+
+    public UnityEvent dead;
 
     [SpineSkin]
     public string charredSkin;
@@ -146,6 +149,11 @@ public class ZombieAnimation : MonoBehaviour
         SetBoxCollider(false);
     }
 
+    private void DelayDeadAudio()
+    {
+        dead?.Invoke();
+    }
+
     public void Dead(DamageType damageType)
     {
         character.SkeletonAnimation.ClearState();
@@ -166,9 +174,10 @@ public class ZombieAnimation : MonoBehaviour
             LevelManager.Instance.CacheEnemys.Add(zombieType, character);
             character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;
         }
-        else if (zombieType == ZombieType.Balloon || zombieType == ZombieType.Catapult || zombieType == ZombieType.Zamboni)
+        else if (zombieType == ZombieType.Balloon || zombieType == ZombieType.Catapult || zombieType == ZombieType.Zamboni || zombieType == ZombieType.Gargantuan)
         {
             var entry = character.SkeletonAnimation.AnimationState.SetAnimation(0, DeadAnimation, false);
+            Invoke("DelayDeadAudio", 2.16f);
             entry.Complete += (e) =>
             {
                 character.gameObject.SetActive(false);

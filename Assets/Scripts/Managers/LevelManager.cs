@@ -284,6 +284,9 @@ namespace TopDownPlate
                 if (zombieData.ZombieType == ZombieType.Zamboni)
                     randomY = (int)Random.Range(LevelBounds.min.y, LevelBounds.max.y - 0.5f) + 0.5f;
 
+                if (zombieData.ZombieType == ZombieType.Gargantuan)
+                    randomY = 1000;
+
                 bool cacheUsed = false;
                 // 重置对象池中的物体
                 var targetCacheEnemy = CacheEnemys.Get(zombieData.ZombieType).Zombies;

@@ -1,0 +1,307 @@
+
+ZombieGargantuan.png
+size: 848,526
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Zombie_charred_gargantuar1
+  rotate: false
+  xy: 2, 44
+  size: 114, 178
+  orig: 116, 180
+  offset: 1, 1
+  index: -1
+Zombie_charred_gargantuar10
+  rotate: false
+  xy: 723, 361
+  size: 69, 163
+  orig: 92, 165
+  offset: 2, 1
+  index: -1
+Zombie_charred_gargantuar11
+  rotate: false
+  xy: 642, 74
+  size: 69, 160
+  orig: 92, 162
+  offset: 2, 1
+  index: -1
+Zombie_charred_gargantuar2
+  rotate: false
+  xy: 204, 51
+  size: 112, 171
+  orig: 114, 174
+  offset: 1, 2
+  index: -1
+Zombie_charred_gargantuar3
+  rotate: false
+  xy: 382, 358
+  size: 112, 166
+  orig: 114, 169
+  offset: 1, 2
+  index: -1
+Zombie_charred_gargantuar4
+  rotate: false
+  xy: 318, 56
+  size: 112, 166
+  orig: 114, 168
+  offset: 1, 1
+  index: -1
+Zombie_charred_gargantuar5
+  rotate: false
+  xy: 496, 358
+  size: 112, 166
+  orig: 114, 168
+  offset: 1, 1
+  index: -1
+Zombie_charred_gargantuar6
+  rotate: false
+  xy: 432, 61
+  size: 112, 166
+  orig: 114, 168
+  offset: 1, 1
+  index: -1
+Zombie_charred_gargantuar7
+  rotate: false
+  xy: 610, 358
+  size: 111, 166
+  orig: 113, 168
+  offset: 1, 1
+  index: -1
+Zombie_charred_gargantuar8
+  rotate: false
+  xy: 546, 61
+  size: 94, 166
+  orig: 99, 168
+  offset: 1, 1
+  index: -1
+Zombie_charred_gargantuar9
+  rotate: true
+  xy: 669, 279
+  size: 77, 165
+  orig: 93, 167
+  offset: 1, 1
+  index: -1
+Zombie_charred_gargantuar_blink1
+  rotate: true
+  xy: 215, 2
+  size: 47, 23
+  orig: 49, 25
+  offset: 1, 1
+  index: -1
+Zombie_charred_gargantuar_blink2
+  rotate: true
+  xy: 283, 3
+  size: 46, 23
+  orig: 48, 25
+  offset: 1, 1
+  index: -1
+Zombie_charred_gargantuar_head
+  rotate: true
+  xy: 491, 2
+  size: 57, 71
+  orig: 59, 73
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_body1
+  rotate: true
+  xy: 304, 224
+  size: 127, 103
+  orig: 129, 105
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_body1_2
+  rotate: true
+  xy: 409, 229
+  size: 127, 103
+  orig: 129, 105
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_body1_3
+  rotate: true
+  xy: 514, 229
+  size: 127, 103
+  orig: 129, 105
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_body2
+  rotate: true
+  xy: 619, 236
+  size: 82, 33
+  orig: 85, 35
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_duckxing
+  rotate: true
+  xy: 304, 353
+  size: 171, 76
+  orig: 173, 81
+  offset: 1, 4
+  index: -1
+Zombie_gargantuar_foot
+  rotate: false
+  xy: 757, 246
+  size: 64, 31
+  orig: 66, 33
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_foot2
+  rotate: true
+  xy: 744, 21
+  size: 64, 31
+  orig: 66, 33
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_head
+  rotate: true
+  xy: 351, 2
+  size: 52, 68
+  orig: 55, 70
+  offset: 2, 1
+  index: -1
+Zombie_gargantuar_head2
+  rotate: true
+  xy: 421, 2
+  size: 52, 68
+  orig: 55, 70
+  offset: 2, 1
+  index: -1
+Zombie_gargantuar_head2_redeye
+  rotate: false
+  xy: 794, 456
+  size: 52, 68
+  orig: 55, 70
+  offset: 2, 1
+  index: -1
+Zombie_gargantuar_head_redeye
+  rotate: false
+  xy: 794, 386
+  size: 52, 68
+  orig: 55, 70
+  offset: 2, 1
+  index: -1
+Zombie_gargantuar_innerarm_hand
+  rotate: true
+  xy: 308, 4
+  size: 45, 41
+  orig: 47, 43
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_innerarm_lower
+  rotate: true
+  xy: 169, 2
+  size: 45, 44
+  orig: 47, 46
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_innerarm_upper
+  rotate: false
+  xy: 617, 3
+  size: 50, 56
+  orig: 52, 58
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_innerleg_lower
+  rotate: false
+  xy: 2, 2
+  size: 56, 40
+  orig: 58, 42
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_innerleg_upper
+  rotate: false
+  xy: 654, 236
+  size: 50, 41
+  orig: 53, 43
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_jaw
+  rotate: true
+  xy: 642, 320
+  size: 36, 23
+  orig: 38, 25
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_outerarm_hand
+  rotate: true
+  xy: 240, 3
+  size: 46, 41
+  orig: 48, 43
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_outerarm_lower
+  rotate: false
+  xy: 789, 182
+  size: 52, 62
+  orig: 54, 64
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_outerarm_lower2
+  rotate: false
+  xy: 789, 118
+  size: 52, 62
+  orig: 54, 64
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_outerarm_upper
+  rotate: true
+  xy: 564, 3
+  size: 56, 51
+  orig: 58, 53
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_outerleg_lower
+  rotate: false
+  xy: 112, 4
+  size: 55, 38
+  orig: 58, 40
+  offset: 2, 1
+  index: -1
+Zombie_gargantuar_outerleg_upper
+  rotate: false
+  xy: 706, 240
+  size: 49, 37
+  orig: 51, 39
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_rope
+  rotate: false
+  xy: 669, 6
+  size: 73, 66
+  orig: 75, 68
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_telephonepole
+  rotate: true
+  xy: 118, 49
+  size: 173, 84
+  orig: 175, 86
+  offset: 1, 1
+  index: -1
+Zombie_gargantuar_trashcan1
+  rotate: true
+  xy: 60, 2
+  size: 40, 50
+  orig: 43, 52
+  offset: 2, 1
+  index: -1
+Zombie_gargantuar_trashcan2
+  rotate: true
+  xy: 619, 322
+  size: 34, 20
+  orig: 37, 22
+  offset: 2, 1
+  index: -1
+Zombie_gargantuar_zombie
+  rotate: true
+  xy: 713, 87
+  size: 151, 74
+  orig: 157, 76
+  offset: 5, 1
+  index: -1
+redCircle
+  rotate: false
+  xy: 2, 224
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: -1

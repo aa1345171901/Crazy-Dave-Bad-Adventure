@@ -31,7 +31,7 @@ namespace TopDownPlate
         private float decelerationPercentage = 1; // 减速百分比
         private float decelerationTime;  // 减速时间
         private float decelerationTimer;  // 减速时刻
-        private float finalMoveSpeed;
+        protected float finalMoveSpeed;
 
         [ReadOnly]
         public ZombieAnimation zombieAnimation;
