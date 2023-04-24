@@ -15,6 +15,7 @@ public class FireGround : MonoBehaviour
     private void Start()
     {
         Invoke("DestroyDelay", liveTime);
+        this.damage = (int)(LevelManager.Instance.IndexWave / 1.5f);
     }
 
     private void DestroyDelay()

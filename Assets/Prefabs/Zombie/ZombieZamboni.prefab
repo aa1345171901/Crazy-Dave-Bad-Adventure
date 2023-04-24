@@ -5121,6 +5121,7 @@ MonoBehaviour:
   GoldCoin: {fileID: 3714592406380599363, guid: e62a603e03247b64e9dc4a1d07829907, type: 3}
   Diamond: {fileID: 9125087109418112107, guid: 7a3fe7e4cae170c4e9862147812d35bd, type: 3}
   Sun: {fileID: 5666489161069203378, guid: 874700ab6f59d2c4ab5162b31a75beff, type: 3}
+  Price: 1
 --- !u!1 &2977567272358016415
 GameObject:
   m_ObjectHideFlags: 0
@@ -5272,6 +5273,7 @@ MonoBehaviour:
     HeadPos: {fileID: 0}
     BodyPos: {fileID: 0}
     attackPos: 0
+  zombieAnimation: {fileID: 0}
   IceGround:
   - {fileID: 1099779709910555345, guid: a59c8812b9061a14b89b05724619979c, type: 3}
   - {fileID: 8277871256371904039, guid: 5f1e6764343d19947a8c3188ca8fec60, type: 3}
@@ -5758,6 +5760,9 @@ MonoBehaviour:
   zombieFly: {fileID: 0}
   zombieProp: {fileID: 5505912594109676736}
   randomEquip: {fileID: 0}
+  dead:
+    m_PersistentCalls:
+      m_Calls: []
   charredSkin: charred
   defalutSkin: zamboni
   DeadCharredAnimation: charred

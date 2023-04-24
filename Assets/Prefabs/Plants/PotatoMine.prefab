@@ -151,9 +151,6 @@ MonoBehaviour:
   plant: {fileID: 751028893422019691}
   audioSource: {fileID: 9083761801466451500}
   Range: 1
-  BigTargetLayer:
-    serializedVersion: 2
-    m_Bits: 0
   sun: {fileID: 5666489161069203381, guid: 874700ab6f59d2c4ab5162b31a75beff, type: 3}
   boom: {fileID: 8300000, guid: fb70949d6fdc78146852b79cb633f03a, type: 3}
   ExcavationTime: 8
@@ -305,8 +302,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4960655534972059061}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.471, y: -2.549, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

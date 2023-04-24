@@ -59,8 +59,8 @@ public class MoneyClick : MonoBehaviour
 
     public void Digest()
     {
-        OnClick();
         isDigest = true;
+        OnClick();
     }
 
     public void Collect()

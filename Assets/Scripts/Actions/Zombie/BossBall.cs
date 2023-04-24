@@ -15,16 +15,21 @@ public class BossBall : MonoBehaviour
 
     private float nextPosX;
     private Bounds bounds;
+    private Vector2 direction;
 
     private readonly float GoTimer = 1.33f;
     private readonly float LiveTime = 5f;
+
+    public bool isLeft;
 
     private void Start()
     {
         Invoke("DelayDestroy", LiveTime);
         bounds = LevelManager.Instance.LevelBounds;
-        nextPosX = bounds.max.x;
-        this.transform.position = new Vector2(bounds.max.x + 3, this.transform.position.y);
+        float startX = isLeft ? bounds.min.x : bounds.max.x + 3;
+        this.transform.position = new Vector2(startX, this.transform.position.y);
+        direction = isLeft ? Vector2.right : Vector2.left;
+        nextPosX = isLeft ? bounds.min.x : bounds.max.x;
     }
 
     private void DelayDestroy()
@@ -38,18 +43,33 @@ public class BossBall : MonoBehaviour
         if (timer > GoTimer)
         {
             lineRenderer.SetActive(false);
-            this.transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
+            this.transform.Translate(direction * speed * Time.deltaTime, Space.World);
             angle += 1;
             this.transform.rotation = Quaternion.Euler(0, 0, angle);
-            if (transform.position.x < nextPosX)
+            if (transform.position.x < nextPosX && !isLeft)
             {
-                int index = Random.Range(0, RollGameObject.Count);
-                var go = GameObject.Instantiate(RollGameObject[index], GameManager.Instance.IceGroundContent);
-                go.transform.position = new Vector3(nextPosX, transform.position.y - 0.2f);
-                go.transform.localScale = Vector3.one * 2;
-                nextPosX -= 1;
+                CreateGround();
+            }
+
+            if (transform.position.x > nextPosX && isLeft)
+            {
+                CreateGround();
             }
         }
+    }
+
+    private void CreateGround()
+    {
+        if (nextPosX > LevelManager.Instance.LevelBounds.max.x)
+            return;
+        int index = Random.Range(0, RollGameObject.Count);
+        var go = GameObject.Instantiate(RollGameObject[index], GameManager.Instance.IceGroundContent);
+        go.transform.position = new Vector3(nextPosX, transform.position.y - 0.2f);
+        go.transform.localScale = Vector3.one * 2;
+        if (isLeft)
+            nextPosX++;
+        else
+            nextPosX --;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

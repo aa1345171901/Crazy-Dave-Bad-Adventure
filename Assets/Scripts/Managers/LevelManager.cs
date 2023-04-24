@@ -56,10 +56,13 @@ namespace TopDownPlate
     /// 每波的怪物占比
     /// </summary>
     [Serializable]
-    public struct Wave
+    public class Wave
     {
         [Tooltip("生成的僵尸的数据")]
         public List<ZombieData> zombieData;
+
+        [Tooltip("该波时间")]
+        public float DurationPerWave = 60;
     }
 
     /// <summary>
@@ -162,7 +165,7 @@ namespace TopDownPlate
 
         private readonly float MaxEnemyCount = 80;
 
-        public int IndexWave { get; set; }
+        public int IndexWave;
 
         public void Init()
         {
@@ -179,6 +182,7 @@ namespace TopDownPlate
                 }
             }
             course = 0;
+            DurationPerWave = nowWave.DurationPerWave;
         }
 
         public void LoadTimer()
@@ -225,28 +229,33 @@ namespace TopDownPlate
                 else
                 {
                     GameManager.Instance.IsDaytime = true;
-                    if (EnchantedEnemys.Count > 0)
+                    WalkOff();
+                }
+            }
+        }
+
+        private void WalkOff()
+        {
+            if (EnchantedEnemys.Count > 0)
+            {
+                Enemys.AddRange(EnchantedEnemys);
+                EnchantedEnemys.Clear();
+            }
+            // 该波攻势结束，僵尸退场
+            if (Enemys.Count != 0)
+            {
+                foreach (var item in Enemys)
+                {
+                    foreach (var zombie in item.Zombies)
                     {
-                        Enemys.AddRange(EnchantedEnemys);
-                        EnchantedEnemys.Clear();
-                    }
-                    // 该波攻势结束，僵尸退场
-                    if (Enemys.Count != 0)
-                    {
-                        foreach (var item in Enemys)
+                        ZombieAnimation zombieAnimation = zombie.GetComponentInChildren<ZombieAnimation>();
+                        if (zombieAnimation != null)
                         {
-                            foreach (var zombie in item.Zombies)
-                            {
-                                ZombieAnimation zombieAnimation = zombie.GetComponentInChildren<ZombieAnimation>();
-                                if (zombieAnimation != null)
-                                {
-                                    zombieAnimation.WalkOff();
-                                }
-                            }
+                            zombieAnimation.WalkOff();
                         }
-                        Enemys.Clear();
                     }
                 }
+                Enemys.Clear();
             }
         }
 
@@ -380,6 +389,11 @@ namespace TopDownPlate
                         move.SetBrainPos();
                 }
             }
+        }
+
+        public void Victory()
+        {
+            WalkOff();
         }
     }
 }

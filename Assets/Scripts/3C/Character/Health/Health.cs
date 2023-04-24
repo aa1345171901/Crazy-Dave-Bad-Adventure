@@ -53,7 +53,7 @@ namespace TopDownPlate
         [Tooltip("最大生命值")]
         public int maxHealth = 1;
         [Tooltip("无敌时间")]
-        public float InvincibleTime = 0.1f;
+        public float InvincibleTime = 0.5f;
 
         [Space(10)]
         [Header("Event")]
@@ -94,7 +94,7 @@ namespace TopDownPlate
             else
             {
                 int waveIndex = LevelManager.Instance.IndexWave + 1;
-                if (waveIndex < 5)
+                if (waveIndex < 8)
                 {
                     this.maxHealth = defaultMaxHealth;
                 }
@@ -125,7 +125,14 @@ namespace TopDownPlate
         public void DoDamage(int damage, DamageType damageType = DamageType.Zombie, bool isCriticalHit = false)
         {
             if (health <= 0)
+            {
+                if (!character.IsDead)
+                {
+                    character.IsDead = true;
+                    Dead?.Invoke(damageType);
+                }
                 return;
+            }
             if (damageType == DamageType.Fire)
             {
                 health -= damage;
@@ -149,6 +156,7 @@ namespace TopDownPlate
                 {
                     GameManager.Instance.pumpkinHead.HasPumpkinHead = false;
                     GameManager.Instance.pumpkinHead.gameObject.SetActive(false);
+                    health = 0;
                     GameManager.Instance.AddHP((int)(character.Health.maxHealth * GameManager.Instance.pumpkinHead.PumpkinHeadResumeLife));
                 }
                 else

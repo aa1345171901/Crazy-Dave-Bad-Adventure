@@ -160,7 +160,6 @@ public class PolevaulterAttack : AIAttack
 
     private void MelleAttack()
     {
-        isAttacking = true;
         healths.Clear();
         // 前摇时随机选择僵尸AudioSource,如果没在播放则播放
         audioSource = AudioManager.Instance.RandomPlayZombieSounds();

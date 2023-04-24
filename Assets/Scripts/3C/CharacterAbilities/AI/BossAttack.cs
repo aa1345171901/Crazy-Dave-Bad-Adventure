@@ -339,6 +339,7 @@ public class BossAttack : AIAttack
         {
             var ball = GameObject.Instantiate(ballPrefab);
             float y = item - 5;
+            ball.isLeft = character.FacingDirection == FacingDirections.Right ? false : true;
             ball.transform.position = new Vector3(0, y);
             ball.Damage = realDamage;
             yield return new WaitForSeconds(0.5f);

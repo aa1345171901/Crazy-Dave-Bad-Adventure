@@ -34,6 +34,11 @@
         {
             "panelTypeString": "BagPanel",
             "path": "UIPanel/BagPanel"
-        }
+        },
+        
+        {
+            "panelTypeString": "VictoryPanel",
+            "path": "UIPanel/VictoryPanel"
+        }        
     ]
 }

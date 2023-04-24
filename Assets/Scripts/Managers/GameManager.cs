@@ -318,6 +318,13 @@ namespace TopDownPlate
             specialPropLists.Add(TransferGate);
         }
 
+        public void Victory()
+        {
+            LevelManager.Instance.Victory();
+            isEnd = true;
+            UIManager.Instance.PushPanel(UIPanelType.VictoryPanel);
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))

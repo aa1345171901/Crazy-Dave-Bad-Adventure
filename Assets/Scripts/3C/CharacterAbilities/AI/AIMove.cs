@@ -152,6 +152,7 @@ namespace TopDownPlate
             }
             else
             {
+                AIParameter.Distance = (Target.position - this.transform.position).magnitude;
                 controller.Rigidbody.velocity = Vector2.zero;
             }
         }

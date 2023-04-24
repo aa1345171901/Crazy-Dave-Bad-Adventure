@@ -6519,6 +6519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LifeResumePumpkin: {fileID: 23612603054251410, guid: 941707d3e8e10584682fb63e967127d8, type: 3}
+  PumpkinHeadResumeLife: 0
 --- !u!1 &3389482109646854029
 GameObject:
   m_ObjectHideFlags: 0
@@ -8047,7 +8048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 100
-  InvincibleTime: 0.2
+  InvincibleTime: 0.5
   Injured:
     m_PersistentCalls:
       m_Calls:

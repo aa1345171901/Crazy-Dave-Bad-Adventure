@@ -24,7 +24,7 @@ public class Coin : MoneyClick
 
     protected override void OnClick()
     {
-        if (GameManager.Instance.Coins.Contains(this))
+        if (GameManager.Instance.Coins.Contains(this) || isDigest)
         {
             base.OnClick();
             GameManager.Instance.Coins.Remove(this);

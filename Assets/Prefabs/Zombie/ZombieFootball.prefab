@@ -76,6 +76,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 64
+  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &430822811509685788
 GameObject:
@@ -363,6 +364,9 @@ MonoBehaviour:
   zombieFly: {fileID: 430822811509684977}
   zombieProp: {fileID: 430822811509684979}
   randomEquip: {fileID: 0}
+  dead:
+    m_PersistentCalls:
+      m_Calls: []
   charredSkin: charred
   defalutSkin: football
   DeadCharredAnimation: charred
@@ -383,6 +387,7 @@ MonoBehaviour:
   WornAnimation1: wornHelmet1
   WornAnimation2: wornHelmet2
   PropLostAnimation: lostHelmet
+  PunctureAnimation: 
   fallProp: {fileID: 4857093858097457868, guid: d207de4911d2e5946b731698dabd0f5a, type: 3}
 --- !u!1 &430822811509685874
 GameObject:
@@ -631,6 +636,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 128
+  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &430822811509685968
 GameObject:
@@ -708,6 +714,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
+  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &430822811509685970
 GameObject:
@@ -958,12 +965,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2.5
   moveAnimationName: run
-  RepulsiveTime: 0.15
-  hurtFlash: {fileID: 430822811509684942}
   HeadPos: {fileID: 430822811509686148}
   BodyPos: {fileID: 430822811509686167}
-  Ice: {fileID: 430822811509685874}
-  canTaunt: 1
+  realSpeed: 0
   canMove: 0
   AIParameter:
     Distance: 0
@@ -972,9 +976,12 @@ MonoBehaviour:
     BodyPos: {fileID: 0}
     attackPos: 0
   zombieAnimation: {fileID: 0}
+  RepulsiveTime: 0.15
+  hurtFlash: {fileID: 430822811509684942}
+  Ice: {fileID: 430822811509685874}
+  canTaunt: 1
   isSwoop: 0
   direction: {x: 0, y: 0, z: 0}
-  realSpeed: 0
 --- !u!50 &430822811509685462
 Rigidbody2D:
   serializedVersion: 4
@@ -1292,6 +1299,7 @@ MonoBehaviour:
   GoldCoin: {fileID: 3714592406380599363, guid: e62a603e03247b64e9dc4a1d07829907, type: 3}
   Diamond: {fileID: 9125087109418112107, guid: 7a3fe7e4cae170c4e9862147812d35bd, type: 3}
   Sun: {fileID: 5666489161069203378, guid: 874700ab6f59d2c4ab5162b31a75beff, type: 3}
+  Price: 1
 --- !u!1 &430822811509685978
 GameObject:
   m_ObjectHideFlags: 0
@@ -6377,6 +6385,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 128
+  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &430822811509686002
 GameObject:
@@ -6454,6 +6463,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
+  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &430822811509686012
 GameObject:

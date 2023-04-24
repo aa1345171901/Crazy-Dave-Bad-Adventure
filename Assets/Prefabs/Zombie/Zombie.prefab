@@ -5079,6 +5079,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 128
+  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &622118813
 GameObject:
@@ -5514,6 +5515,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
+  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &1446688259
 GameObject:
@@ -6002,12 +6004,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   moveAnimationName: run_normal
-  RepulsiveTime: 0.2
-  hurtFlash: {fileID: 987916743}
   HeadPos: {fileID: 571199464}
   BodyPos: {fileID: 1172497190}
-  Ice: {fileID: 9042391771196770150}
-  canTaunt: 1
+  realSpeed: 0
   canMove: 0
   AIParameter:
     Distance: 0
@@ -6015,9 +6014,13 @@ MonoBehaviour:
     HeadPos: {fileID: 0}
     BodyPos: {fileID: 0}
     attackPos: 0
+  zombieAnimation: {fileID: 0}
+  RepulsiveTime: 0.2
+  hurtFlash: {fileID: 987916743}
+  Ice: {fileID: 9042391771196770150}
+  canTaunt: 1
   isSwoop: 0
   direction: {x: 0, y: 0, z: 0}
-  realSpeed: 0
 --- !u!50 &4108507704349745145
 Rigidbody2D:
   serializedVersion: 4
@@ -6220,6 +6223,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 64
+  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &3179494253676175945
 GameObject:
@@ -6297,6 +6301,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 128
+  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &3798136022781985428
 GameObject:
@@ -6522,6 +6527,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
+  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &7390244050078611384
 GameObject:
@@ -6925,6 +6931,9 @@ MonoBehaviour:
   zombieFly: {fileID: 4486718529378241468}
   zombieProp: {fileID: 0}
   randomEquip: {fileID: 689248340}
+  dead:
+    m_PersistentCalls:
+      m_Calls: []
   charredSkin: charred
   defalutSkin: normal
   DeadCharredAnimation: charred

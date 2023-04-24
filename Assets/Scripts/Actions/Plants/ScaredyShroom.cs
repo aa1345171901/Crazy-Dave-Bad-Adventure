@@ -52,7 +52,7 @@ public class ScaredyShroom : PuffShroom
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (colliderDict.ContainsKey(collision))
         {
@@ -81,5 +81,11 @@ public class ScaredyShroom : PuffShroom
                 }
             }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (colliderDict.ContainsKey(collision))
+            colliderDict.Remove(collision);
     }
 }

@@ -192,6 +192,7 @@ MonoBehaviour:
   - {fileID: 8277871256371904039, guid: 5f1e6764343d19947a8c3188ca8fec60, type: 3}
   - {fileID: 7560060973296575714, guid: ace2391cb9d10a44d9a08efd3279dc25, type: 3}
   Damage: 0
+  isLeft: 0
 --- !u!95 &6991850847197585151
 Animator:
   serializedVersion: 4
@@ -303,7 +304,7 @@ LineRenderer:
   m_SortingOrder: 1000
   m_Positions:
   - {x: -25, y: 0, z: 0}
-  - {x: 3, y: 0, z: 1}
+  - {x: 25, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1.6

@@ -7,7 +7,7 @@ public class PumpkinHead : BaseProp
     public LifeResumeProp LifeResumePumpkin;
 
     public bool HasPumpkinHead { get; set; }
-    public float PumpkinHeadResumeLife { get; set; }
+    public float PumpkinHeadResumeLife;
     public float PumpkinAttackRate { get; set; }
 
     private readonly float LevelPercentage = 0.05f;
@@ -19,11 +19,10 @@ public class PumpkinHead : BaseProp
     {
         base.Reuse();
         HasPumpkinHead = false;
-        PumpkinHeadResumeLife = 0.1f;
         PumpkinAttackRate = 0;
         var plants = GardenManager.Instance.PlantAttributes;
 
-        float maxLifeResume = 0;
+        float maxLifeResume = 0.1f;
         foreach (var item in plants)
         {
             if (item.plantCard.plantType == PlantType.PumpkinHead)

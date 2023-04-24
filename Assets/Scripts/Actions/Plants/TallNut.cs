@@ -91,7 +91,8 @@ public class TallNut : Plant
         if (Time.time - timer > coolTimer && zombieDict.Count > 0)
         {
             timer = Time.time;
-            foreach (var item in zombieDict)
+            var zombies = new Dictionary<Character, float>(zombieDict);
+            foreach (var item in zombies)
             {
                 if (Time.time - item.Value > coolTimer)
                 {

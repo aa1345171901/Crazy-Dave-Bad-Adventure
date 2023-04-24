@@ -230,11 +230,11 @@ MonoBehaviour:
     HeadPos: {fileID: 0}
     BodyPos: {fileID: 0}
     attackPos: 0
+  zombieAnimation: {fileID: 0}
   RepulsiveTime: 0.1
   hurtFlash: {fileID: 679426411814548666}
   Ice: {fileID: 8363406406434576923}
   canTaunt: 1
-  zombieAnimation: {fileID: 0}
   isSwoop: 0
   direction: {x: 0, y: 0, z: 0}
 --- !u!50 &3488485712194683524
@@ -624,6 +624,7 @@ MonoBehaviour:
   GoldCoin: {fileID: 3714592406380599363, guid: e62a603e03247b64e9dc4a1d07829907, type: 3}
   Diamond: {fileID: 9125087109418112107, guid: 7a3fe7e4cae170c4e9862147812d35bd, type: 3}
   Sun: {fileID: 5666489161069203378, guid: 874700ab6f59d2c4ab5162b31a75beff, type: 3}
+  Price: 1
 --- !u!1 &679426412567690490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,6 +1049,9 @@ MonoBehaviour:
   zombieFly: {fileID: 0}
   zombieProp: {fileID: 7899347425953019889}
   randomEquip: {fileID: 0}
+  dead:
+    m_PersistentCalls:
+      m_Calls: []
   charredSkin: charred
   defalutSkin: catapult
   DeadCharredAnimation: charred

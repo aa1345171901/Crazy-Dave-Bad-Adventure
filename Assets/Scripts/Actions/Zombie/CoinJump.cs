@@ -30,6 +30,9 @@ public class CoinJump : MonoBehaviour
 
     private float curTime;
 
+    [Range(0, 2)]
+    public int Price; // 额外掉落 ==1 为金币 == 2为钻石
+
     private GameObject ExplosionGO;  // 可能会爆的钱币
     private List<ItemJump> targets = new List<ItemJump>();  // 包含钱币和阳光
 
@@ -40,7 +43,7 @@ public class CoinJump : MonoBehaviour
             return;
         /*
         * 是否掉落银币，金币，钻石，与幸运挂钩，  
-        * 掉落概率为  银币 （15 + 幸运）%  , 
+        * 掉落概率为  银币 （25 + 幸运）%  , 
         * 金币（幸运 / 6）%， 
         * 钻石（幸运 / 30）%
         */
@@ -53,21 +56,22 @@ public class CoinJump : MonoBehaviour
             ExplosionGO = Diamond;
         else if (random < 30 * lucky / 6)
             ExplosionGO = GoldCoin;
-        else if (random < (lucky + 15) * 30)
+        else if (random < (lucky + 25) * 30)
             ExplosionGO = SliverCoin;
 
         if (ExplosionGO != null)
         {
-            var targetCoin = GameObject.Instantiate(ExplosionGO).GetComponent<MoneyClick>();
-            targetCoin.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, targetCoin.transform.position.z);
-            ItemJump itemJump = new ItemJump(targetCoin);
-            // 掉落在僵尸周围范围
-            Vector3 offset = new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), targetCoin.transform.position.z);
-            itemJump.height = Random.Range(0.3f, 0.6f);
-            itemJump.time = Random.Range(0.4f, 0.6f);
-            itemJump.offsetSpeed = offset / itemJump.time;
-            targets.Add(itemJump);
+            CreateCoin(ExplosionGO);
         }
+        if (Price == 1)
+        {
+            CreateCoin(GoldCoin);
+        }
+        if (Price == 2)
+        {
+            CreateCoin(Diamond);
+        }
+
         curTime = 0;
 
         /* 阳光掉落，更加幸运决定
@@ -89,6 +93,19 @@ public class CoinJump : MonoBehaviour
             itemJump.offsetSpeed = offset / itemJump.time;
             targets.Add(itemJump);
         }
+    }
+
+    private void CreateCoin(GameObject gameObject)
+    {
+        var targetCoin = GameObject.Instantiate(gameObject).GetComponent<MoneyClick>();
+        targetCoin.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, targetCoin.transform.position.z);
+        ItemJump itemJump = new ItemJump(targetCoin);
+        // 掉落在僵尸周围范围
+        Vector3 offset = new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), targetCoin.transform.position.z);
+        itemJump.height = Random.Range(0.3f, 0.6f);
+        itemJump.time = Random.Range(0.4f, 0.6f);
+        itemJump.offsetSpeed = offset / itemJump.time;
+        targets.Add(itemJump);
     }
 
     void Update()

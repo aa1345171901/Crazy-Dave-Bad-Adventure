@@ -25,5 +25,6 @@ public class BossAnimation : MonoBehaviour
         character.SkeletonAnimation.ClearState();
         character.SkeletonAnimation.AnimationState.SetAnimation(0, DeadAnimation, false);
         LevelManager.Instance.CacheEnemys.Remove(ZombieType.Boss, character);
+        GameManager.Instance.Victory();
     }
 }
