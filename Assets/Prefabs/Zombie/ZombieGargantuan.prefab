@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 3160221290875772457}
   m_Layer: 7
   m_Name: ZombieGargantuan
-  m_TagString: Untagged
+  m_TagString: BigZombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -458,7 +458,7 @@ MonoBehaviour:
   - {fileID: 4724950542171363539}
   - {fileID: 6073454265877624743}
   - {fileID: 634484119821971791}
-  crack: {fileID: 1143602864477102017, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+  crack: {fileID: 4992442665925756614}
   FallAttack:
     m_PersistentCalls:
       m_Calls:
@@ -666,6 +666,7 @@ Transform:
   m_Children:
   - {fileID: 3160221289935957724}
   - {fileID: 9124574721095908102}
+  - {fileID: 5600541446859615408}
   m_Father: {fileID: 6206592897694158500}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1526,3 +1527,70 @@ Transform:
   m_Father: {fileID: 6206592897694158500}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5374585014648609031
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3160221290159514875}
+    m_Modifications:
+    - target: {fileID: 517705452401718711, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 517705452401718711, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 517705452401718711, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 517705452401718711, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 517705452401718711, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 517705452401718711, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 517705452401718711, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 517705452401718711, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 517705452401718711, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 517705452401718711, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 517705452401718711, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143602864477102017, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+      propertyPath: m_Name
+      value: crack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+--- !u!1 &4992442665925756614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1143602864477102017, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+  m_PrefabInstance: {fileID: 5374585014648609031}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5600541446859615408 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 517705452401718711, guid: eeee9cc476807f94a9cfc735542f30f2, type: 3}
+  m_PrefabInstance: {fileID: 5374585014648609031}
+  m_PrefabAsset: {fileID: 0}

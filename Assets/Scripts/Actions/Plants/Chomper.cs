@@ -24,8 +24,6 @@ public class Chomper : Plant
     public Coin Coin;
 
     [Tooltip("吞噬目标, 优先吞噬再攻击")]
-    public LayerMask SwallowLayer;
-    [Tooltip("攻击目标")]
     public LayerMask AttackLayer;
 
     private float timer;
@@ -143,7 +141,7 @@ public class Chomper : Plant
 
             int count = 0; // 攻击或吞噬的个数
             // 优先检测吞噬目标，没有则检测攻击目标巨人，僵王  // todo 
-            OverlapBox(ref count, SwallowLayer);
+            OverlapBox(ref count);
             if (count != 0)
             {
                 timer = Time.time;
@@ -152,7 +150,7 @@ public class Chomper : Plant
             }
             else
             {
-                OverlapBox(ref count, AttackLayer);
+                OverlapBox(ref count, false);
                 if (count != 0)
                 {
                     timer = Time.time - finalDigestSpeed + 1;  // 攻击只有1s冷却
@@ -163,12 +161,12 @@ public class Chomper : Plant
         }
     }
 
-    private void OverlapBox(ref int count, LayerMask targetLayer)
+    private void OverlapBox(ref int count, bool isSwallow = true)
     {
-        var colliders = Physics2D.OverlapBoxAll(pos, size, 0, targetLayer);
+        var colliders = Physics2D.OverlapBoxAll(pos, size, 0, AttackLayer);
         foreach (var item in colliders)
         {
-            if (item.isTrigger)
+            if (item.isTrigger && (!isSwallow || (isSwallow && item.tag != "BigZombie")))
             {
                 var health = item.GetComponent<Health>();
                 if (health)
@@ -193,7 +191,7 @@ public class Chomper : Plant
         if (targetHealthList.Count < SwallowCount)
         {
             int count = targetHealthList.Count;
-            OverlapBox(ref count, isSwallow ? SwallowLayer : AttackLayer);
+            OverlapBox(ref count, isSwallow);
         }
         foreach (var item in targetHealthList)
         {

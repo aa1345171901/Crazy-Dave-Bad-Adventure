@@ -63,6 +63,7 @@ public class PlantCardPage : MonoBehaviour
 
     public void SetCard()
     {
+        CreateCard();
         int index = 0;
         foreach (var item in GardenManager.Instance.CardslotPlant)
         {

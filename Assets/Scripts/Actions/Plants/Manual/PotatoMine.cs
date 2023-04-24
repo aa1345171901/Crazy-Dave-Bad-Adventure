@@ -67,15 +67,8 @@ public class PotatoMine : AshPlant
     {
         base.Boom();
         int sumHealth = 0;
-        LayerMask targetLayer = increasedInjury > 0 ? TargetLayer : TargetLayer | BigTargetLayer;
-        var colliders = Physics2D.OverlapCircleAll(this.transform.position, finalRange, targetLayer);
+        var colliders = Physics2D.OverlapCircleAll(this.transform.position, finalRange, TargetLayer);
         DoDamage(colliders, ref sumHealth);
-
-        if (increasedInjury > 0)
-        {
-            colliders = Physics2D.OverlapCircleAll(this.transform.position, finalRange, BigTargetLayer);
-            IncreasedInjury(colliders, ref sumHealth);
-        }
 
         if (sunConversionRate != 0)
         {

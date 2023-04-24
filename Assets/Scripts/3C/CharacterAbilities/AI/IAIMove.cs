@@ -40,6 +40,8 @@ public class IAIMove : CharacterAbility
     [Tooltip("移动时计算与主角的距离")]
     [ReadOnly]
     public AIParameter AIParameter;
+    [ReadOnly]
+    public ZombieAnimation zombieAnimation;
 
     protected override void Initialization()
     {

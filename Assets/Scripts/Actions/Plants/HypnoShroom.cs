@@ -70,12 +70,14 @@ public class HypnoShroom : Plant
         if (aiMove)
         {
             bool canEnchanted = true;
+            if (aiMove.zombieAnimation == null)
+                canEnchanted = false;
+            else
             switch (aiMove.zombieAnimation.zombieType)
             {
                 case ZombieType.Zamboni:
                 case ZombieType.Catapult:
                 case ZombieType.Gargantuan:
-                case ZombieType.Boss:
                     canEnchanted = false;
                     break;
                 default:

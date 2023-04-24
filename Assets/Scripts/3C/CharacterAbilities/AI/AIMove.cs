@@ -34,9 +34,6 @@ namespace TopDownPlate
         protected float finalMoveSpeed;
 
         [ReadOnly]
-        public ZombieAnimation zombieAnimation;
-
-        [ReadOnly]
         public bool isSwoop;  // 正在飞扑,不改变移动方向
         [ReadOnly]
         public Vector3 direction;
@@ -111,6 +108,24 @@ namespace TopDownPlate
                 }
 
                 AIParameter.Distance = (Target.position - this.transform.position).magnitude;
+                // 没有的为boss
+                if (zombieAnimation == null)
+                    AIParameter.Distance -= 2f;
+                else
+                // 部分僵尸模型较大，需要减去触发攻击的宽带的一半
+                switch (zombieAnimation.zombieType)
+                {
+                    case ZombieType.Zamboni:
+                    case ZombieType.Catapult:
+                        AIParameter.Distance -= 1.2f;
+                        break;
+                    case ZombieType.Gargantuan:
+                        AIParameter.Distance -= 0.6f;
+                        break;
+                    default:
+                        break;
+                }
+
                 if (AIParameter.Distance > 0.5f)
                 {
                     direction = new Vector3(direction.x, direction.y, transform.position.z).normalized;
@@ -165,6 +180,8 @@ namespace TopDownPlate
         /// </summary>
         public void SetRepulsiveForce(float force)
         {
+            if (zombieAnimation == null)
+                return;
             canMove = false;
             switch (zombieAnimation.zombieType)
             {

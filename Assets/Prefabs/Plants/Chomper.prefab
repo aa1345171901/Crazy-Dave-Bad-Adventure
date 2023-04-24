@@ -135,6 +135,8 @@ MonoBehaviour:
     level3: 0
     maxLevel: 0
     attribute: 
+    isManual: 0
+    isGoToWar: 0
   animator: {fileID: 775507582870850034}
   audioSource: {fileID: 6863888540080170963}
   DigestSpeed: 8
@@ -143,12 +145,9 @@ MonoBehaviour:
   Damage: 5
   sun: {fileID: 5666489161069203381, guid: 874700ab6f59d2c4ab5162b31a75beff, type: 3}
   Coin: {fileID: 3714592406380599360, guid: e62a603e03247b64e9dc4a1d07829907, type: 3}
-  SwallowLayer:
-    serializedVersion: 2
-    m_Bits: 128
   AttackLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!82 &6863888540080170963
 AudioSource:
   m_ObjectHideFlags: 0

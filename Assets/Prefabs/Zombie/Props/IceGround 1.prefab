@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5877528441436749231}
   - component: {fileID: 8769441822915647768}
   - component: {fileID: 5423471529316825465}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: IceGround 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

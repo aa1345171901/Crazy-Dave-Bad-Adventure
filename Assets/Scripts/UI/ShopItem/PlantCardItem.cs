@@ -258,7 +258,7 @@ public class PlantCardItem : ShopItem
                 else
                 {
                     // 种植的加上刚买的数量小于已有花盆 + 未摆放花盆数量才能购买
-                    if (GardenManager.Instance.NoPlantingPlants.Count + GardenManager.Instance.PlantAttributes.Count < GardenManager.Instance.AllFlowerPotCount)
+                    if (GardenManager.Instance.NoPlantingPlants.Count + GardenManager.Instance.PlantAttributes.Count < GardenManager.Instance.AllFlowerPotCount - GardenManager.Instance.WaterFlowerPotCount - GardenManager.Instance.NotPlacedWaterFlowerPotCount)
                     {
                         ShopManager.Instance.PurchasePlant(plantCard, Price, true);
                         this.gameObject.SetActive(false);

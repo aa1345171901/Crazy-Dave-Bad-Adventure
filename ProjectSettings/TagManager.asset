@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Car
+  - BigZombie
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - Crater
   - ZombieEnchanted
   - ZombieBalloon
-  - 
+  - IceGround
   - 
   - 
   - 

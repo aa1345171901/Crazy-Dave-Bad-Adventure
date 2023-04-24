@@ -85,6 +85,28 @@ public class ZombieProp : MonoBehaviour
         }
     }
 
+    public void Injure()
+    {
+        int maxHp = character.Health.maxHealth;
+        int hp = character.Health.health;
+        if (hp <= maxHp / 3 && !string.IsNullOrEmpty(WornAnimation2))
+        {
+            if (animIndex != 2)
+            {
+                animIndex = 2;
+                character.SkeletonAnimation.AnimationState.SetAnimation(2, WornAnimation2, false);
+            }
+        }
+        else if (hp <= maxHp * 2 / 3 && !string.IsNullOrEmpty(WornAnimation1))
+        {
+            if (animIndex != 3)
+            {
+                character.SkeletonAnimation.AnimationState.SetAnimation(2, WornAnimation1, false);
+                animIndex = 3;
+            }
+        }
+    }
+
     public void Puncture()
     {
         isPuncture = true;

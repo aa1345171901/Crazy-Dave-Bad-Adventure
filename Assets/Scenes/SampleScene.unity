@@ -361,8 +361,8 @@ MonoBehaviour:
     m_Extent: {x: 13.2, y: 5.6, z: 5}
   waves:
   - zombieData:
-    - ZombieType: 11
-      EnemyPrefab: {fileID: 3038825160147756704, guid: 5bafe40108f8f6849ae57c0de0316023, type: 3}
+    - ZombieType: 12
+      EnemyPrefab: {fileID: 4904069302187664380, guid: 1a9b5bb675e57be4abae9431e73cc5a1, type: 3}
       GenerateCount: 1
       CountIncrement: 0
       IntervalTime: 400
@@ -478,6 +478,14 @@ MonoBehaviour:
       IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -4
+  - zombieData:
+    - ZombieType: 12
+      EnemyPrefab: {fileID: 4904069302187664380, guid: 1a9b5bb675e57be4abae9431e73cc5a1, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 400
+      TimeIncrement: 0
+      lastGenerateTime: -400
   Enemys: []
   CacheEnemys: []
   EnchantedEnemys: []
@@ -1223,7 +1231,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2128392657613607830, guid: 8e7f933c308343849ad40a6c8d308417, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2128392657613607830, guid: 8e7f933c308343849ad40a6c8d308417, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2575,7 +2583,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1461173233
 GameObject:
@@ -3287,7 +3295,7 @@ Transform:
   m_Children:
   - {fileID: 1527697698}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1609325893
 GameObject:
@@ -3640,7 +3648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4215623648636135915, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4215623648636135915, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3817,6 +3825,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1846486698}
     m_Modifications:
+    - target: {fileID: 4817122822124027301, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 5953563102313299104, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
       propertyPath: m_Name
       value: LawnMower

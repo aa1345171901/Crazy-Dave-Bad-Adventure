@@ -49,7 +49,6 @@ public class PeaBullet : MonoBehaviour
         if (BulletType == BulletType.Pea)
         {
             float damageAdd = GardenManager.Instance.TorchwoodEffect.DamageAdd;
-            Debug.Log(damageAdd);
             if (damageAdd <= 1)
             {
 

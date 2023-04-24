@@ -110,7 +110,6 @@ public class NormalZombieAttack : AIAttack
 
         if (isRushAttack && aiMove.AIParameter.Distance < 0.4f && trackEntry != null)
         {
-            Debug.Log(1);
             isRushAttack = false;
             Attack();
         }

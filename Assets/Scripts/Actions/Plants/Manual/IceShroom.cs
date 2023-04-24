@@ -73,6 +73,11 @@ public class IceShroom : ManualPlant
                 aiMove.BeDecelerated(1, finalFrostTime);
             }
         }
+        var fires = GameObject.FindGameObjectsWithTag("Fire");
+        foreach (var item in fires)
+        {
+            Destroy(item.gameObject);
+        }
         GameManager.Instance.Player.FindAbility<CharacterAttack>().IceShroomAttackSpeed += finalFrostAttackSpeed;
         yield return new WaitForSeconds(1);
         this.plant.enabled = false;

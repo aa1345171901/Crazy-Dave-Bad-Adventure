@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Jalapeno : AshPlant
 {
+    public LayerMask IceGround;
+
     protected override void Boom()
     {
         base.Boom();
         int sumHealth = 0;
-        LayerMask targetLayer = increasedInjury > 0 ? TargetLayer : TargetLayer | BigTargetLayer;
-        var colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(finalRange, finalRange / Range), 0,targetLayer);
+        var colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(finalRange, finalRange / Range), 0, TargetLayer);
         DoDamage(colliders, ref sumHealth);
 
-        if (increasedInjury > 0)
+        colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(finalRange, finalRange / Range), 0, IceGround);
+        foreach (var item in colliders)
         {
-            colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(finalRange, finalRange / Range), 0, BigTargetLayer);
-            IncreasedInjury(colliders, ref sumHealth);
+            Destroy(item.gameObject);
         }
-
         if (sunConversionRate != 0)
         {
             var sunItem = GameObject.Instantiate(sun, this.transform);

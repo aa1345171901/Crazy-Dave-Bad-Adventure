@@ -7,8 +7,6 @@ public class AshPlant : ManualPlant
 {
     [Tooltip("爆炸范围")]
     public float Range = 1f;
-    [Tooltip("大型僵尸目标")]
-    public LayerMask BigTargetLayer;
     [Tooltip("阳光预知体，转换的阳光直接收集")]
     public Sun sun;
     public AudioClip boom;
@@ -102,33 +100,25 @@ public class AshPlant : ManualPlant
                 {
                     float random = Random.Range(0, 1f);
                     // 立即死亡
-                    if (random < immediateMortalityRate && TargetLayer.Contains(item.gameObject.layer))
+                    if (random < immediateMortalityRate && item.tag != "BigZombie")
                     {
                         sumHealth += health.maxHealth;
                         health.DoDamage(health.maxHealth, DamageType.Bomb, true);
                     }
                     else
                     {
-                        sumHealth += finalDamage > health.health ? health.health : finalDamage;
-                        health.DoDamage(finalDamage, DamageType.Bomb);
+                        if (increasedInjury > 0 && item.tag == "BigZombie")
+                        {
+                            int damage = (int)(finalDamage * increasedInjury);
+                            sumHealth += damage > health.health ? health.health : damage;
+                            health.DoDamage(damage, DamageType.Bomb);
+                        }
+                        else
+                        {
+                            sumHealth += finalDamage > health.health ? health.health : finalDamage;
+                            health.DoDamage(finalDamage, DamageType.Bomb);
+                        }
                     }
-                }
-            }
-        }
-    }
-
-    protected void IncreasedInjury(Collider2D[] colliders, ref int sumHealth)
-    {
-        foreach (var item in colliders)
-        {
-            if (item.isTrigger)
-            {
-                var health = item.GetComponent<Health>();
-                if (health)
-                {
-                    int damage = (int)(finalDamage * increasedInjury);
-                    sumHealth += damage > health.health ? health.health : damage;
-                    health.DoDamage(damage, DamageType.Bomb);
                 }
             }
         }

@@ -236,7 +236,8 @@ namespace TopDownPlate
             percentSpeed = 1 / (direction.magnitude / finalAttackSpped / Time.deltaTime);
             currentPercent = 0;
             bezierInit = true;
-            potAudio.ImpactAudioPlay(targetAIMove.AIParameter.attackPos == AIParameter.AttackPos.Body, targetAIMove.GetComponentInChildren<ZombieAnimation>().zombieType);
+            var zombieAnimation = targetAIMove.GetComponentInChildren<ZombieAnimation>();
+            potAudio.ImpactAudioPlay(targetAIMove.AIParameter.attackPos == AIParameter.AttackPos.Body, zombieAnimation == null ? ZombieType.Boss : zombieAnimation.zombieType);
         }
 
         /// <summary>
@@ -285,13 +286,25 @@ namespace TopDownPlate
                 potAudio.ThrowOutPlay();
                 angle = WeaponPot.transform.rotation.z;
                 isInFlight = true;
-                int index = Random.Range(0, 8);
-                targetPos = targetAIMove.AIParameter.HeadPos.transform;
-                targetAIMove.AIParameter.attackPos = AIParameter.AttackPos.Head;
-                if (index <= 3)
+                if (targetAIMove.zombieAnimation == null)
                 {
-                    targetPos = targetAIMove.AIParameter.BodyPos.transform;
-                    targetAIMove.AIParameter.attackPos = AIParameter.AttackPos.Body;
+                    float distance1 = (targetAIMove.AIParameter.HeadPos.position - this.WeaponPot.gameObject.transform.position).magnitude;
+                    float distance2 = (targetAIMove.AIParameter.BodyPos.position - this.WeaponPot.gameObject.transform.position).magnitude;
+                    if (distance1 > distance2)
+                        targetPos = targetAIMove.AIParameter.BodyPos.transform;
+                    else
+                        targetPos = targetAIMove.AIParameter.HeadPos.transform;
+                }
+                else
+                {
+                    int index = Random.Range(0, 8);
+                    targetPos = targetAIMove.AIParameter.HeadPos.transform;
+                    targetAIMove.AIParameter.attackPos = AIParameter.AttackPos.Head;
+                    if (index <= 3)
+                    {
+                        targetPos = targetAIMove.AIParameter.BodyPos.transform;
+                        targetAIMove.AIParameter.attackPos = AIParameter.AttackPos.Body;
+                    }
                 }
             };
 

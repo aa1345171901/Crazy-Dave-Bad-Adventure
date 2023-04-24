@@ -42,6 +42,8 @@ public class LawnMower : BaseProp
     public override void ProcessAbility()
     {
         base.ProcessAbility();
+        if (GameManager.Instance.IsDaytime)
+            return;
         timer += Time.deltaTime;
         if (timer > finalAttackCoolingTime)
         {

@@ -224,6 +224,8 @@ namespace TopDownPlate
 
         public void DoDamage(int damage, DamageType damageType = DamageType.Zombie)
         {
+            if (IsEnd)
+                return;
             Player.Health.DoDamage(damage, damageType);
             battlePanel?.SetHPBar(Player.Health.health, Player.Health.maxHealth);
         }

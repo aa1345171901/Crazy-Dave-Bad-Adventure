@@ -51,7 +51,6 @@ public class GargantuanAttack : AIAttack
     public List<BoxCollider2D> colliders;
 
     public GameObject crack;
-    private GameObject crackGo;
 
     public UnityEvent FallAttack;
 
@@ -70,8 +69,7 @@ public class GargantuanAttack : AIAttack
         attackTrigger = AttackBoxColider.GetComponent<Trigger2D>();
         attackSwoopTrigger = AttackSwoopBoxColider.GetComponent<Trigger2D>();
         attackFallTrigger = AttackFallBoxColider.GetComponent<Trigger2D>();
-        crackGo = GameObject.Instantiate(crack);
-        crackGo.SetActive(false);
+        crack.SetActive(false);
     }
 
     public override void Reuse()
@@ -130,14 +128,14 @@ public class GargantuanAttack : AIAttack
         if (Time.time - timer < AttackJudgmentTime)
             return;
 
+        timer = Time.time;
+        if (trackEntry != null)
+            return;
         if (aiMove.AIParameter.Distance > AttackFallRange && !isFallAttack)
         {
             AttackFallingSky();
         }
 
-        timer = Time.time;
-        if (trackEntry != null)
-            return;
         // 判断此时是否攻击
         float random = Random.Range(0, 1f);
         if (random > realAttackProbability)
@@ -180,7 +178,7 @@ public class GargantuanAttack : AIAttack
 
     private void Attack_Before()
     {
-        float distance = aiMove.AIParameter.Distance;
+        healths.Clear();
         // 前摇时随机选择僵尸AudioSource,如果没在播放则播放
         audioSource = AudioManager.Instance.RandomPlayZombieSounds();
         isRushAttack = true;
@@ -215,7 +213,7 @@ public class GargantuanAttack : AIAttack
 
     private void AttackSwoop()
     {
-        float distance = aiMove.AIParameter.Distance;
+        healths.Clear();
         // 前摇时随机选择僵尸AudioSource,如果没在播放则播放
         audioSource = AudioManager.Instance.RandomPlayZombieSounds();
         // 攻击前摇，蓄力
@@ -249,7 +247,7 @@ public class GargantuanAttack : AIAttack
 
     private void AttackFallingSky()
     {
-        float distance = aiMove.AIParameter.Distance;
+        healths.Clear();
         // 前摇时随机选择僵尸AudioSource,如果没在播放则播放
         audioSource = AudioManager.Instance.RandomPlayZombieSounds();
         // 攻击前摇，蓄力
@@ -268,10 +266,14 @@ public class GargantuanAttack : AIAttack
             {
                 FallAttack?.Invoke();
                 AttackFallBoxColider.enabled = true;
-                crackGo.SetActive(true);
-                pos.y += 0.6f;
-                pos.x -= 0.6f;
-                crackGo.transform.position = pos;
+                crack.SetActive(true);
+                pos.y += 1.2f;
+                pos.x += 1f;
+                if (character.FacingDirection == FacingDirections.Right)
+                {
+                    pos.x -= 2f;
+                }
+                crack.transform.position = pos;
                 trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackFallAfterAnimation, false);
                 trackEntry.Complete += (e) =>
                 {
@@ -279,9 +281,10 @@ public class GargantuanAttack : AIAttack
                     AttackFallBoxColider.enabled = false;
                     SetColliders(true);
                     aiMove.canMove = true;
+                    SpeedRecovery();
                     isFallAttack = false;
                     audioSource = null;
-                    crackGo.SetActive(false);
+                    crack.SetActive(false);
                     aiMove.AIParameter.Distance = (Target.position - this.transform.position).magnitude;
                     trackEntry = null;
                 };
@@ -295,7 +298,6 @@ public class GargantuanAttack : AIAttack
         AttackBoxColider.enabled = false;
         AttackSwoopBoxColider.enabled = false;
         AttackFallBoxColider.enabled = false;
-        SetColliders(true);
     }
 
     private void SetColliders(bool enabled)

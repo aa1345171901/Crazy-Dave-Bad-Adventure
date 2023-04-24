@@ -268,24 +268,31 @@ namespace TopDownPlate
                 Health health = null;
                 Gravebuster gravebuster = null;
                 bool isGravebusterSwallow = false;
-                foreach (var item in GardenManager.Instance.Gravebusters)
-                {
-                    if (item.CanSwallow())
+                // 不从墓碑出的排除
+                if (zombieData.ZombieType != ZombieType.Boss && zombieData.ZombieType != ZombieType.Gargantuan && zombieData.ZombieType != ZombieType.Catapult && zombieData.ZombieType != ZombieType.Balloon)
+                    foreach (var item in GardenManager.Instance.Gravebusters)
                     {
-                        isGravebusterSwallow = true;
-                        gravebuster = item;
-                        break;
+                        if (item.CanSwallow())
+                        {
+                            isGravebusterSwallow = true;
+                            gravebuster = item;
+                            break;
+                        }
                     }
+
+                float randomX = LevelBounds.max.x;
+                float randomY = 0;
+                if (zombieData.ZombieType != ZombieType.Boss)
+                {
+                    randomX = Random.Range(LevelBounds.min.x, LevelBounds.max.x);
+                    randomY = Random.Range(LevelBounds.min.y, LevelBounds.max.y);
+                    // 0.5 刚好站在格子上
+                    if (zombieData.ZombieType == ZombieType.Zamboni)
+                        randomY = (int)Random.Range(LevelBounds.min.y, LevelBounds.max.y - 0.5f) + 0.5f;
+
+                    if (zombieData.ZombieType == ZombieType.Gargantuan)
+                        randomY = 1000;
                 }
-
-                float randomX = Random.Range(LevelBounds.min.x, LevelBounds.max.x);
-                float randomY = Random.Range(LevelBounds.min.y, LevelBounds.max.y);
-                // 0.5 刚好站在格子上
-                if (zombieData.ZombieType == ZombieType.Zamboni)
-                    randomY = (int)Random.Range(LevelBounds.min.y, LevelBounds.max.y - 0.5f) + 0.5f;
-
-                if (zombieData.ZombieType == ZombieType.Gargantuan)
-                    randomY = 1000;
 
                 bool cacheUsed = false;
                 // 重置对象池中的物体
