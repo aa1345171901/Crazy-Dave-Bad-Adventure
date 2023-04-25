@@ -94,7 +94,7 @@ namespace TopDownPlate
             else
             {
                 int waveIndex = LevelManager.Instance.IndexWave + 1;
-                if (waveIndex < 8)
+                if (waveIndex < 7)
                 {
                     this.maxHealth = defaultMaxHealth;
                 }

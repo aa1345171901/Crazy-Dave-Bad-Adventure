@@ -58,11 +58,11 @@ public class IceShroom : ManualPlant
 
     IEnumerator Frost()
     {
-        yield return new WaitForSeconds(0.05f);
+        animator.Play("Frost");
+        yield return new WaitForSeconds(1f);
+        this.plant.enabled = false;
         audioSource.clip = frost;
         audioSource.Play();
-        animator.Play("Frost");
-        yield return new WaitForSeconds(0.5f);
         var enemys = new List<ZombieDicts>(LevelManager.Instance.Enemys);
         foreach (var item in enemys)
         {
@@ -70,7 +70,8 @@ public class IceShroom : ManualPlant
             foreach (var zombie in zombies)
             {
                 var aiMove = zombie.FindAbility<AIMove>();
-                aiMove.BeDecelerated(1, finalFrostTime);
+                if (aiMove)
+                    aiMove.BeDecelerated(1, finalFrostTime);
             }
         }
         var fires = GameObject.FindGameObjectsWithTag("Fire");
@@ -79,8 +80,6 @@ public class IceShroom : ManualPlant
             Destroy(item.gameObject);
         }
         GameManager.Instance.Player.FindAbility<CharacterAttack>().IceShroomAttackSpeed += finalFrostAttackSpeed;
-        yield return new WaitForSeconds(1);
-        this.plant.enabled = false;
         yield return new WaitForSeconds(finalFrostTime - 1);
         GameManager.Instance.Player.FindAbility<CharacterAttack>().IceShroomAttackSpeed -= finalFrostAttackSpeed;
         Destroy(this.gameObject);

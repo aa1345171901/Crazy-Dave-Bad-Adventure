@@ -15,8 +15,6 @@ namespace TopDownPlate
 
         [Tooltip("被寒冰菇冻住后的冰块")]
         public GameObject Ice;
-        [Tooltip("是否能被高坚果嘲讽")]
-        public bool canTaunt = true;
 
         public float RepulsiveForce { get; set; }
 
@@ -28,7 +26,7 @@ namespace TopDownPlate
         public bool IsEnchanted { get; set; }
         protected Character target;  // 被魅惑随机攻击的目标
 
-        private float decelerationPercentage = 1; // 减速百分比
+        public float decelerationPercentage = 1; // 减速百分比
         private float decelerationTime;  // 减速时间
         private float decelerationTimer;  // 减速时刻
         protected float finalMoveSpeed;
@@ -97,7 +95,7 @@ namespace TopDownPlate
                         direction = target.transform.position - this.transform.position;
                     else
                     {
-                        if (GardenManager.Instance.TallNuts.Count > 0 && canTaunt)
+                        if (GardenManager.Instance.TallNuts.Count > 0)
                         {
                             int index = UnityEngine.Random.Range(0, GardenManager.Instance.TallNuts.Count);
                             direction = GardenManager.Instance.TallNuts[index].transform.position - this.transform.position;
@@ -234,7 +232,7 @@ namespace TopDownPlate
         {
             if (Ice == null)
                 return;
-            if (decelerationPercentage < this.decelerationPercentage)
+            if (decelerationPercentage < 1 - this.decelerationPercentage)
                 return;
             if (decelerationPercentage == 1)
             {

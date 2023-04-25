@@ -114,16 +114,12 @@ public class SaveManager
         List<int> soltPlantIndex = new List<int>();
         if (GardenManager.Instance.CardslotPlant.Count > 0)
         {
-            int index = 0;
-            for (int i = 0; i < GardenManager.Instance.PlantAttributes.Count; i++)
+            for (int i = 0; i < GardenManager.Instance.CardslotPlant.Count; i++)
             {
-                if (GardenManager.Instance.PlantAttributes[i] == GardenManager.Instance.CardslotPlant[index])
+                if (GardenManager.Instance.PlantAttributes.Contains(GardenManager.Instance.CardslotPlant[i]))
                 {
-                    soltPlantIndex.Add(i);
-                    index++;
+                    soltPlantIndex.Add(GardenManager.Instance.PlantAttributes.IndexOf(GardenManager.Instance.CardslotPlant[i]));
                 }
-                if (index >= GardenManager.Instance.CardslotPlant.Count)
-                    break;
             }
         }
         saveDataStruct.SoltIndex = soltPlantIndex;

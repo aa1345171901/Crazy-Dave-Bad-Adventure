@@ -729,8 +729,8 @@ MonoBehaviour:
     - ZombieType: 3
       EnemyPrefab: {fileID: 580796821312960809, guid: b7e77a6d175178648857f4637e95bac5, type: 3}
       GenerateCount: 1
-      CountIncrement: 12
-      IntervalTime: 0
+      CountIncrement: 0
+      IntervalTime: 12
       TimeIncrement: 0
       lastGenerateTime: -15
     - ZombieType: 4
@@ -1388,7 +1388,7 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 3038825160147756704, guid: 5bafe40108f8f6849ae57c0de0316023, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 91
+      IntervalTime: 90
       TimeIncrement: 0
       lastGenerateTime: -90
     DurationPerWave: 180

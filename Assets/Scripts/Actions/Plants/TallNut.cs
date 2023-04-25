@@ -34,7 +34,6 @@ public class TallNut : Plant
 
     private Dictionary<Character, float> zombieDict = new Dictionary<Character, float>();
     private float coolTimer = 1; //  每只僵尸单独设置无敌时间
-    private float timer;
 
     private void Start()
     {
@@ -86,23 +85,7 @@ public class TallNut : Plant
         GardenManager.Instance.TallNuts.Add(this);
     }
 
-    private void Update()
-    {
-        if (Time.time - timer > coolTimer && zombieDict.Count > 0)
-        {
-            timer = Time.time;
-            var zombies = new Dictionary<Character, float>(zombieDict);
-            foreach (var item in zombies)
-            {
-                if (Time.time - item.Value > coolTimer)
-                {
-                    BeAttack(item.Key, item.Key.FindAbility<CollisionAttack>().realDamage);
-                }
-            }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (TargetLayer.Contains(collision.gameObject.layer))
         {
@@ -114,6 +97,7 @@ public class TallNut : Plant
                     if (Time.time - zombieDict[character] > coolTimer)
                     {
                         BeAttack(character, character.FindAbility<CollisionAttack>().realDamage);
+                        zombieDict[character] = Time.time;
                     }
                 }
                 else
@@ -131,8 +115,11 @@ public class TallNut : Plant
             {
                 if (zombieDict.ContainsKey(character))
                 {
-                    BeAttack(character, character.FindAbility<AIAttack>().realDamage);
-                    zombieDict[character] = Time.time;
+                    if (Time.time - zombieDict[character] > coolTimer)
+                    {
+                        BeAttack(character, character.FindAbility<AIAttack>().realDamage);
+                        zombieDict[character] = Time.time;
+                    }
                 }
                 else
                 {

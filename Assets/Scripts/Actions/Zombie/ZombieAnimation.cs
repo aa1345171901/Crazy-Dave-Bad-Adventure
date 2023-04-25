@@ -230,6 +230,23 @@ public class ZombieAnimation : MonoBehaviour
         LevelManager.Instance.Enemys.Remove(zombieType, character);
         CollisionAttack.enabled = false;
         SetBoxCollider(false);
+
+        if (zombieType == ZombieType.Gargantuan)
+            GargantuanDead();
+    }
+
+    /// <summary>
+    /// 巨人僵尸死亡并且没有巨人将该波时间重新设置为60
+    /// </summary>
+    private void GargantuanDead()
+    {
+        if (LevelManager.Instance.Enemys.Get(ZombieType.Gargantuan).Zombies.Count <= 0 && LevelManager.Instance.Enemys.Get(ZombieType.Boss).Zombies.Count <= 0)
+        {
+            if (LevelManager.Instance.IndexWave == 8)
+                LevelManager.Instance.DurationPerWave = 60;
+            else
+                LevelManager.Instance.DurationPerWave = 92;
+        }
     }
 
     private void SetBoxCollider(bool enabled)

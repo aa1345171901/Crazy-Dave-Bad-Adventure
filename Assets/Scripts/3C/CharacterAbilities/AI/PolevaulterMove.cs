@@ -24,13 +24,16 @@ public class PolevaulterMove : AIMove
                 MoveSpeed = walkSpeed;
             }
         }
-        if (target != null)
+        if (GardenManager.Instance.TallNuts.Count <= 0)
         {
-            polevaulterAttack.direction = target.transform.position - polevaulterAttack.PolePos.transform.position;
-        }
-        else
-        {
-            polevaulterAttack.direction = Target.transform.position - polevaulterAttack.PolePos.transform.position;
+            if (target != null)
+            {
+                polevaulterAttack.direction = target.transform.position - polevaulterAttack.PolePos.transform.position;
+            }
+            else
+            {
+                polevaulterAttack.direction = Target.transform.position - polevaulterAttack.PolePos.transform.position;
+            }
         }
     }
 }

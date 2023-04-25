@@ -36,7 +36,7 @@ public class VocalConcert : BaseProp
     /// </summary>
     public bool OpenVocalConcert { get; private set; }
 
-    private bool isFog;
+    public bool isFog;
     private float fogTimer;
     private float micY;
     private Vector3 targetPos;
@@ -107,16 +107,19 @@ public class VocalConcert : BaseProp
         Speaker.transform.localScale = new Vector3(scale, scale, scale);
 
         // 雾机
-        if (maxSpectrum > 0.3f && !isFog)
+        if (Fogmachine.activeSelf)
         {
-            isFog = true;
-            fogTimer = Time.time;
-            fog.Play();
-        }
-        if (isFog && Time.time - fogTimer > FogDuration)
-        {
-            isFog = false;
-            fog.Stop();
+            if (maxSpectrum > 0.3f && !isFog)
+            {
+                isFog = true;
+                fogTimer = Time.time;
+                fog.Play();
+            }
+            if (isFog && Time.time - fogTimer > FogDuration)
+            {
+                isFog = false;
+                fog.Stop();
+            }
         }
 
         if (!OpenVocalConcert)

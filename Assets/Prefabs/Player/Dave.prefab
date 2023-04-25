@@ -369,6 +369,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   audioSource: {fileID: 6521549327581486070}
+  isFog: 0
 --- !u!82 &6521549327581486070
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5880,8 +5881,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009284294433131416}
-  m_LocalRotation: {x: 0, y: 0, z: 0.0878512, w: 0.9961336}
-  m_LocalPosition: {x: 0.13073401, y: -0.00021599999, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.10087983, w: 0.9948986}
+  m_LocalPosition: {x: 0.13778684, y: 0.0010327459, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6882,8 +6883,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3503188204592475661}
-  m_LocalRotation: {x: 0, y: 0, z: -0.76148176, w: 0.6481863}
-  m_LocalPosition: {x: 0.27516598, y: 0.037079997, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.75808424, w: 0.65215665}
+  m_LocalPosition: {x: 0.32525316, y: 0.03343717, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7280,9 +7281,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b8044209eee114a82cfa04d8a3467a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashCount: 2
+  flashCount: 3
   flashColor: {r: 1, g: 0.9769913, b: 0.9481132, a: 1}
-  interval: 0.016666668
+  interval: 0.05
   fillPhaseProperty: _FillPhase
   fillColorProperty: _FillColor
 --- !u!114 &7204587493299478678
@@ -7916,7 +7917,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6876974417781590570}
-  m_LocalRotation: {x: 0, y: 0, z: 0.1261124, w: 0.99201596}
+  m_LocalRotation: {x: 0, y: 0, z: 0.09807868, w: 0.9951787}
   m_LocalPosition: {x: 0.51152396, y: 0.002016, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8046,9 +8047,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7798c63bc25094e8998670bad19d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  maxHealth: 100
-  InvincibleTime: 0.5
+  health: 30
+  maxHealth: 30
+  InvincibleTime: 0.4
   Injured:
     m_PersistentCalls:
       m_Calls:
@@ -8380,7 +8381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9203635492528792964}
   m_LocalRotation: {x: 0, y: 0, z: 0.6945328, w: 0.719461}
-  m_LocalPosition: {x: 0.052433997, y: 0.62728196, z: 0}
+  m_LocalPosition: {x: 0.052433997, y: 0.7773715, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -112,6 +112,8 @@ namespace TopDownPlate
 
         public bool IsOpenVocalConcert => vocalConcert.OpenVocalConcert;
 
+        public bool IsFog => vocalConcert.isFog;
+
         public float DecelerationRatio { get; set; } = 1; // 在冰面上的减速比例
 
         public bool CanAttack  => balls.Count == 0; // 投篮僵尸是否在攻击

@@ -36,6 +36,8 @@ public class CatapultAttack : AIAttack
     public override void ProcessAbility()
     {
         base.ProcessAbility();
+        if (aiMove.decelerationPercentage == 0)
+            return;
         if (character.State.AIStateType == AIStateType.Init || character.IsDead)
         {
             audioSource?.Stop();
