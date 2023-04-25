@@ -123,6 +123,9 @@ public class ZombieAnimation : MonoBehaviour
         zombieFly?.Reuse();
         zombieProp?.Reuse();
         character.gameObject.SetActive(true);
+
+        if (zombieType == ZombieType.Gargantuan)
+            LevelManager.Instance.DurationPerWave = 180;
     }
 
     /// <summary>
@@ -242,7 +245,7 @@ public class ZombieAnimation : MonoBehaviour
     {
         if (LevelManager.Instance.Enemys.Get(ZombieType.Gargantuan).Zombies.Count <= 0 && LevelManager.Instance.Enemys.Get(ZombieType.Boss).Zombies.Count <= 0)
         {
-            if (LevelManager.Instance.IndexWave == 8)
+            if (LevelManager.Instance.IndexWave == 9 || LevelManager.Instance.IndexWave == 14)
                 LevelManager.Instance.DurationPerWave = 60;
             else
                 LevelManager.Instance.DurationPerWave = 92;
