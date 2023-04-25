@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "5HAhD+JVsEGxe4qdbAD84SZ63Jg",
+	"hash": "4isKNBkQtNn9iKkDJTIe12A8L8U",
 	"spine": "3.8",
 	"x": -353.51,
 	"y": -167.5,
@@ -138,8 +138,10 @@
 			"Zombie_boss_innerarm_hand": {
 				"Zombie_boss_innerarm_hand": { "x": 53.8, "y": -20.8, "rotation": 103.57, "width": 163, "height": 143 }
 			},
-			"Zombie_boss_head2": {
-				"Zombie_boss_head2": { "x": 68.15, "y": -68.27, "rotation": -99.21, "width": 187, "height": 78 }
+			"Zombie_boss_outerarm_hand": {
+				"Zombie_boss_outerarm_hand": { "x": 58.97, "y": -4.62, "rotation": 119.48, "width": 200, "height": 200 },
+				"Zombie_boss_outerarm_hand_damage1": { "x": 62.07, "y": -4.02, "rotation": 119.48, "width": 200, "height": 200 },
+				"Zombie_boss_outerarm_hand_damage2": { "x": 61.7, "y": -5.38, "rotation": 119.48, "width": 200, "height": 200 }
 			},
 			"Zombie_boss_mouthglow": {
 				"Zombie_boss_mouthglow": { "x": 53.89, "y": -52.3, "rotation": -99.21, "width": 137, "height": 137 },
@@ -166,22 +168,20 @@
 			"Zombie_boss_outerleg_upper": {
 				"Zombie_boss_outerleg_upper": { "x": 100.88, "y": -9.31, "rotation": 92.51, "width": 202, "height": 251 }
 			},
-			"Zombie_boss_innerleg_upper": {
-				"Zombie_boss_innerleg_upper": { "x": 81.13, "y": 2, "rotation": 87.35, "width": 162, "height": 210 }
-			},
 			"Zombie_boss_outerarm_upper": {
 				"Zombie_boss_outerarm_upper": { "x": 106.87, "y": -10.5, "rotation": 80.69, "width": 287, "height": 358 }
 			},
-			"Zombie_boss_outerarm_hand": {
-				"Zombie_boss_outerarm_hand": { "x": 58.97, "y": -4.62, "rotation": 119.48, "width": 200, "height": 200 },
-				"Zombie_boss_outerarm_hand_damage1": { "x": 62.07, "y": -4.02, "rotation": 119.48, "width": 200, "height": 200 },
-				"Zombie_boss_outerarm_hand_damage2": { "x": 61.7, "y": -5.38, "rotation": 119.48, "width": 200, "height": 200 }
+			"Zombie_boss_innerleg_upper": {
+				"Zombie_boss_innerleg_upper": { "x": 81.13, "y": 2, "rotation": 87.35, "width": 162, "height": 210 }
+			},
+			"Zombie_boss_neck": {
+				"Zombie_boss_neck": { "x": 39.33, "y": 55.6, "rotation": -99.21, "width": 265, "height": 282 }
 			},
 			"Zombie_boss_outerarm_finger2_2": {
 				"Zombie_boss_outerarm_finger2_2": { "x": 49.32, "y": -4.25, "rotation": 91.7, "width": 64, "height": 135 }
 			},
-			"Zombie_boss_neck": {
-				"Zombie_boss_neck": { "x": 39.33, "y": 55.6, "rotation": -99.21, "width": 265, "height": 282 }
+			"Zombie_boss_outerarm_finger2_3": {
+				"Zombie_boss_outerarm_finger2_3": { "x": 56.94, "y": -7.57, "rotation": 93.04, "width": 70, "height": 149 }
 			},
 			"Zombie_boss_outerarm_finger2_4": {
 				"Zombie_boss_outerarm_finger2_4": { "x": 53.18, "y": -4.48, "rotation": 112.41, "width": 92, "height": 143 }
@@ -246,9 +246,6 @@
 			"Zombie_boss_outerarm_finger1_2": {
 				"Zombie_boss_outerarm_finger1_2": { "x": 34.88, "y": -5.31, "rotation": 71.2, "width": 65, "height": 77 }
 			},
-			"Zombie_boss_outerarm_finger2_3": {
-				"Zombie_boss_outerarm_finger2_3": { "x": 56.94, "y": -7.57, "rotation": 93.04, "width": 70, "height": 149 }
-			},
 			"Zombie_boss_leg_lower": {
 				"Zombie_boss_leg_lower": { "x": 88.91, "y": 4.35, "rotation": 82.65, "width": 270, "height": 290 }
 			},
@@ -265,6 +262,9 @@
 				"Zombie_boss_foot_damage1_inner": { "x": 77.11, "y": -15.59, "rotation": 168.87, "width": 369, "height": 228 },
 				"Zombie_boss_foot_damage2_inner": { "x": 77.11, "y": -15.59, "rotation": 168.87, "width": 369, "height": 228 },
 				"Zombie_boss_foot_inner": { "x": 77.11, "y": -15.59, "rotation": 168.87, "width": 369, "height": 228 }
+			},
+			"Zombie_boss_head2": {
+				"Zombie_boss_head2": { "x": 68.15, "y": -68.27, "rotation": -99.21, "width": 187, "height": 78 }
 			},
 			"Zombie_boss_innerarm_lower": {
 				"Zombie_boss_innerarm_lower": { "x": 99.57, "y": 6.49, "rotation": 96.37, "width": 196, "height": 234 }
@@ -309,15 +309,6 @@
 "animations": {
 	"Dead": {
 		"slots": {
-			"Zombie_boss_eyeglow": {
-				"color": [
-					{ "time": 2, "color": "ffffffff" },
-					{ "time": 2.3333, "color": "000000ff" }
-				],
-				"attachment": [
-					{ "time": 2.3333, "name": "Zombie_boss_eyeglow_black" }
-				]
-			},
 			"Zombie_boss_mouthglow": {
 				"color": [
 					{ "time": 2, "color": "ffffffff" },
@@ -335,6 +326,15 @@
 			"Zombie_boss_flagpole": {
 				"attachment": [
 					{ "time": 4, "name": "Zombie_boss_flagpole" }
+				]
+			},
+			"Zombie_boss_eyeglow": {
+				"color": [
+					{ "time": 2, "color": "ffffffff" },
+					{ "time": 2.3333, "color": "000000ff" }
+				],
+				"attachment": [
+					{ "time": 2.3333, "name": "Zombie_boss_eyeglow_black" }
 				]
 			}
 		},
@@ -767,18 +767,288 @@
 			}
 		}
 	},
-	"FireBallAttack": {
+	"Deading": {
 		"slots": {
-			"Zombie_boss_eyeglow": {
+			"Zombie_boss_flag": {
 				"attachment": [
-					{ "time": 0.5333, "name": "Zombie_boss_eyeglow_red" },
-					{ "time": 0.8333, "name": "Zombie_boss_eyeglow" }
+					{ "name": "Zombie_boss_flag" }
 				]
 			},
+			"Zombie_boss_flagpole": {
+				"attachment": [
+					{ "name": "Zombie_boss_flagpole" }
+				]
+			}
+		},
+		"bones": {
+			"Zombie_boss_outerleg_upper": {
+				"rotate": [
+					{ "angle": 26.18 }
+				],
+				"translate": [
+					{ "x": 5.01, "y": 191.77 }
+				]
+			},
+			"Zombie_boss_leg_lower": {
+				"rotate": [
+					{ "angle": 6.66 }
+				]
+			},
+			"Zombie_boss_foot": {
+				"rotate": [
+					{ "angle": 30.91 }
+				],
+				"translate": [
+					{ "x": -57.25, "y": 17.28 }
+				]
+			},
+			"Zombie_boss_lowerbody": {
+				"rotate": [
+					{ "angle": 72.26 }
+				],
+				"translate": [
+					{ "x": -353.96, "y": -176.04 }
+				]
+			},
+			"Zombie_boss_head": {
+				"rotate": [
+					{ "angle": -67.24 }
+				],
+				"translate": [
+					{ "x": 661.2, "y": -173.02 }
+				]
+			},
+			"Zombie_boss_jaw": {
+				"translate": [
+					{ "x": 13.25, "y": 4.87 }
+				]
+			},
+			"Zombie_boss_outerarm_upper": {
+				"rotate": [
+					{ "angle": -173.36 }
+				],
+				"translate": [
+					{ "x": 853.43, "y": 273.23 }
+				]
+			},
+			"Zombie_boss_outerarm_hand": {
+				"translate": [
+					{ "x": 91.17, "y": 142.23 }
+				]
+			},
+			"Zombie_boss_outerarm_thumb1": {
+				"rotate": [
+					{ "angle": 34.49 }
+				],
+				"translate": [
+					{ "x": 272.35, "y": -25.95 }
+				]
+			},
+			"Zombie_boss_outerarm_thumb3": {
+				"rotate": [
+					{ "angle": -20.88 }
+				],
+				"translate": [
+					{ "x": -30.76, "y": 104.94 }
+				]
+			},
+			"Zombie_boss_outerarm_finger1": {
+				"rotate": [
+					{ "angle": 9.66 }
+				],
+				"translate": [
+					{ "x": 260.43, "y": 152.57 }
+				]
+			},
+			"Zombie_boss_outerarm_finger3": {
+				"rotate": [
+					{ "angle": 19.64 }
+				],
+				"translate": [
+					{ "x": 122.96, "y": 11.49 }
+				]
+			},
+			"Zombie_boss_outerarm_finger1_4": {
+				"rotate": [
+					{ "angle": 34.28 }
+				],
+				"translate": [
+					{ "x": 212.71, "y": 295.89 }
+				]
+			},
+			"Zombie_boss_outerarm_finger2_4": {
+				"rotate": [
+					{ "angle": 53.88 }
+				],
+				"translate": [
+					{ "x": 184.99, "y": -9.33 }
+				]
+			},
+			"Zombie_boss_outerarm_finger1_3": {
+				"rotate": [
+					{ "angle": -7.66 }
+				],
+				"translate": [
+					{ "x": 248.08, "y": 182.92 }
+				]
+			},
+			"Zombie_boss_outerarm_finger2_3": {
+				"rotate": [
+					{ "angle": 79.06 }
+				],
+				"translate": [
+					{ "x": 187.16, "y": -34.19 }
+				]
+			},
+			"Zombie_boss_outerarm_finger1_2": {
+				"rotate": [
+					{ "angle": -97.18 }
+				],
+				"translate": [
+					{ "x": 410.75, "y": -105.23 }
+				]
+			},
+			"Zombie_boss_outerarm_finger2_2": {
+				"rotate": [
+					{ "angle": 27.76 }
+				],
+				"translate": [
+					{ "x": 83.76, "y": 129.66 }
+				]
+			},
+			"Zombie_boss_innerarm_upper": {
+				"rotate": [
+					{ "angle": -53.46 }
+				]
+			},
+			"Zombie_boss_innerarm_lower": {
+				"rotate": [
+					{ "angle": 71.02 }
+				],
+				"translate": [
+					{ "x": -451.09, "y": 242.95 }
+				]
+			},
+			"Zombie_boss_innerarm_hand": {
+				"rotate": [
+					{ "angle": 56.06 }
+				],
+				"translate": [
+					{ "x": -416.25, "y": 125.04 }
+				]
+			},
+			"Zombie_boss_innerarm_thumb3": {
+				"rotate": [
+					{ "angle": -38.1 }
+				],
+				"translate": [
+					{ "x": -348.28, "y": 94 }
+				]
+			},
+			"Zombie_boss_innerarm_finger": {
+				"rotate": [
+					{ "angle": -68.17 }
+				],
+				"translate": [
+					{ "x": 30.47, "y": 194.08 }
+				]
+			},
+			"Zombie_boss_innerarm_finger4": {
+				"rotate": [
+					{ "angle": 15.58 }
+				],
+				"translate": [
+					{ "x": -42.04, "y": 248.47 }
+				]
+			},
+			"Zombie_boss_innerarm_finger3": {
+				"rotate": [
+					{ "angle": 34.42 }
+				],
+				"translate": [
+					{ "x": -92.81, "y": 342.14 }
+				]
+			},
+			"Zombie_boss_innerarm_finger2": {
+				"rotate": [
+					{ "angle": 105.51 }
+				],
+				"translate": [
+					{ "x": -81.12, "y": 141.83 }
+				]
+			},
+			"Zombie_boss_innerleg_upper": {
+				"rotate": [
+					{ "angle": 3.52 }
+				],
+				"translate": [
+					{ "x": 11.32, "y": -19.93 }
+				]
+			},
+			"Zombie_boss_leg_lower_inner": {
+				"rotate": [
+					{ "angle": 27.11 }
+				],
+				"translate": [
+					{ "x": 781.8, "y": 227.19 }
+				]
+			},
+			"Zombie_boss_foot_inner": {
+				"rotate": [
+					{ "angle": 17.07 }
+				],
+				"translate": [
+					{ "x": 20.65, "y": 27.44 }
+				]
+			},
+			"Zombie_boss_flagpole": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": 16.48 },
+					{ "time": 0.3333, "angle": -12.49 },
+					{ "time": 0.5, "angle": 16.48 },
+					{ "time": 0.6667, "angle": -12.49 },
+					{ "time": 0.8333, "angle": 16.48 },
+					{ "time": 1, "angle": -12.49 },
+					{ "time": 1.1667, "angle": 16.48 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.1667, "x": 2.43, "y": -14.65 },
+					{ "time": 0.3333, "x": 3.23, "y": -19.54 },
+					{ "time": 0.5, "x": 2.43, "y": -14.65 },
+					{ "time": 0.6667, "x": 3.23, "y": -19.54 },
+					{ "time": 0.8333, "x": 2.43, "y": -14.65 },
+					{ "time": 1, "x": 3.23, "y": -19.54 },
+					{ "time": 1.1667, "x": 2.43, "y": -14.65 },
+					{ "time": 1.3333 }
+				]
+			},
+			"Zombie_boss_flag": {
+				"translate": [
+					{ "x": 30.22, "y": -1.91 }
+				]
+			},
+			"Zombie_bossdriver_body": {
+				"translate": [
+					{ "x": -113.04 }
+				]
+			}
+		}
+	},
+	"FireBallAttack": {
+		"slots": {
 			"Zombie_boss_mouthglow": {
 				"attachment": [
 					{ "time": 0.5333, "name": "Zombie_boss_mouthglow_red" },
 					{ "time": 0.8333, "name": "Zombie_boss_mouthglow" }
+				]
+			},
+			"Zombie_boss_eyeglow": {
+				"attachment": [
+					{ "time": 0.5333, "name": "Zombie_boss_eyeglow_red" },
+					{ "time": 0.8333, "name": "Zombie_boss_eyeglow" }
 				]
 			}
 		},
@@ -1400,16 +1670,16 @@
 	},
 	"IceBallAttack": {
 		"slots": {
-			"Zombie_boss_eyeglow": {
-				"attachment": [
-					{ "time": 0.5333, "name": "Zombie_boss_eyeglow_blue" },
-					{ "time": 0.8333, "name": "Zombie_boss_eyeglow" }
-				]
-			},
 			"Zombie_boss_mouthglow": {
 				"attachment": [
 					{ "time": 0.5333, "name": "Zombie_boss_mouthglow_blue" },
 					{ "time": 0.8333, "name": "Zombie_boss_mouthglow" }
+				]
+			},
+			"Zombie_boss_eyeglow": {
+				"attachment": [
+					{ "time": 0.5333, "name": "Zombie_boss_eyeglow_blue" },
+					{ "time": 0.8333, "name": "Zombie_boss_eyeglow" }
 				]
 			}
 		},
@@ -2267,13 +2537,13 @@
 	},
 	"SmashingCar2": {
 		"slots": {
-			"Zombie_boss_rv": {
+			"Zombie_boss_rv3": {
 				"attachment": [
 					{ "time": 0.2667, "name": "Zombie_boss_rv" },
 					{ "time": 0.8333, "name": null }
 				]
 			},
-			"Zombie_boss_rv3": {
+			"Zombie_boss_rv": {
 				"attachment": [
 					{ "time": 0.2667, "name": "Zombie_boss_rv" },
 					{ "time": 0.8333, "name": null }
@@ -2358,6 +2628,16 @@
 	},
 	"worn1": {
 		"slots": {
+			"Zombie_boss_head": {
+				"attachment": [
+					{ "name": "Zombie_boss_head_damage1" }
+				]
+			},
+			"Zombie_boss_jaw": {
+				"attachment": [
+					{ "name": "Zombie_boss_jaw_damage1" }
+				]
+			},
 			"Zombie_boss_outerarm_hand": {
 				"attachment": [
 					{ "name": "Zombie_boss_outerarm_hand_damage1" }
@@ -2368,25 +2648,25 @@
 					{ "name": "Zombie_boss_foot_damage1" }
 				]
 			},
-			"Zombie_boss_head": {
-				"attachment": [
-					{ "name": "Zombie_boss_head_damage1" }
-				]
-			},
 			"Zombie_boss_foot_inner": {
 				"attachment": [
 					{ "name": "Zombie_boss_foot_damage1_inner" }
-				]
-			},
-			"Zombie_boss_jaw": {
-				"attachment": [
-					{ "name": "Zombie_boss_jaw_damage1" }
 				]
 			}
 		}
 	},
 	"worn2": {
 		"slots": {
+			"Zombie_boss_head": {
+				"attachment": [
+					{ "name": "Zombie_boss_head_damage2" }
+				]
+			},
+			"Zombie_boss_jaw": {
+				"attachment": [
+					{ "name": "Zombie_boss_jaw_damage2" }
+				]
+			},
 			"Zombie_boss_outerarm_hand": {
 				"attachment": [
 					{ "name": "Zombie_boss_outerarm_hand_damage2" }
@@ -2397,19 +2677,9 @@
 					{ "name": "Zombie_boss_foot_damage2" }
 				]
 			},
-			"Zombie_boss_head": {
-				"attachment": [
-					{ "name": "Zombie_boss_head_damage2" }
-				]
-			},
 			"Zombie_boss_foot_inner": {
 				"attachment": [
 					{ "name": "Zombie_boss_foot_damage2_inner" }
-				]
-			},
-			"Zombie_boss_jaw": {
-				"attachment": [
-					{ "name": "Zombie_boss_jaw_damage2" }
 				]
 			}
 		}

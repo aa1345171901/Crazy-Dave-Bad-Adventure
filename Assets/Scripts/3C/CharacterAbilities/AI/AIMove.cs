@@ -139,7 +139,10 @@ namespace TopDownPlate
                         decelerationPercentage = 1;
                         hurtFlash.BeResume();
                         if (Ice != null)
+                        {
                             Ice.SetActive(false);
+                            controller.BoxCollider.enabled = true;
+                        }
                         if (IsEnchanted)
                             hurtFlash.BeEnchanted();
                     }
@@ -238,6 +241,7 @@ namespace TopDownPlate
             {
                 Ice.SetActive(true);
                 Ice.GetComponent<SpriteRenderer>().sortingOrder = character.LayerOrder + 1;
+                controller.BoxCollider.enabled = false;
             }
             this.decelerationPercentage = 1 - decelerationPercentage;
             this.decelerationTime = decelerationTime;

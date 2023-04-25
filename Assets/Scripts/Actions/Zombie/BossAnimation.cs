@@ -8,6 +8,8 @@ public class BossAnimation : MonoBehaviour
 {
     [SpineAnimation]
     public string DeadAnimation = "Dead";
+    [SpineAnimation]
+    public string DeadLoopAnimation = "Deading";
 
     private Character character;
 
@@ -23,7 +25,11 @@ public class BossAnimation : MonoBehaviour
     public void Dead()
     {
         character.SkeletonAnimation.ClearState();
-        character.SkeletonAnimation.AnimationState.SetAnimation(0, DeadAnimation, false);
+        var track = character.SkeletonAnimation.AnimationState.SetAnimation(0, DeadAnimation, false);
+        track.Complete += (e) =>
+        {
+            character.SkeletonAnimation.AnimationState.SetAnimation(0, DeadLoopAnimation, true);
+        };
         LevelManager.Instance.CacheEnemys.Remove(ZombieType.Boss, character);
         GameManager.Instance.Victory();
     }

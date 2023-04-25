@@ -110,11 +110,11 @@ public class BossAttack : AIAttack
         }
         else if (waveIndex < 21)
         {
-            this.realDamage = (int)((Damage + 4.5f) * waveIndex);
+            this.realDamage = (int)((Damage + 5f) * waveIndex);
         }
         else
         {
-            this.realDamage = (int)((Damage + 5.5f) * waveIndex * 1.5f);
+            this.realDamage = (int)((Damage + 7f) * waveIndex * 1.5f);
         }
         HandLeftAttackBoxColider.enabled = false;
         HandRightAttackBoxColider.enabled = false;

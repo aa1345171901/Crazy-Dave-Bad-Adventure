@@ -10,7 +10,7 @@ public class Cattail : Plant
     [Tooltip("¹¥»÷ÉËº¦")]
     public int Damage = 8;
     [Tooltip("¹¥»÷ÀäÈ´Ê±¼ä")]
-    public float CoolTime = 1.1f;
+    public float CoolTime = 1.6f;
 
     [Tooltip("×Óµ¯·¢ÉäÎ»ÖÃ")]
     public Transform BulletPos;

@@ -16,6 +16,9 @@ public class StarBullet : PeaBullet
         if (isRight)
             direction = transform.position - StarfruitPos;
         else
-            direction = StarfruitPos - transform.position;
+        {
+            direction = transform.position - StarfruitPos;
+            direction.x = -direction.x;
+        }
     }
 }

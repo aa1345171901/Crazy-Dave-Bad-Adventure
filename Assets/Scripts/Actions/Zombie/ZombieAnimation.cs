@@ -124,7 +124,7 @@ public class ZombieAnimation : MonoBehaviour
         zombieProp?.Reuse();
         character.gameObject.SetActive(true);
 
-        if (zombieType == ZombieType.Gargantuan)
+        if (zombieType == ZombieType.Gargantuan && LevelManager.Instance.Enemys.Get(ZombieType.Boss).Zombies.Count <= 0)
             LevelManager.Instance.DurationPerWave = 180;
     }
 

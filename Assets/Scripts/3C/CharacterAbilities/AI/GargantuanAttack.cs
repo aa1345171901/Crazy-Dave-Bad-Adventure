@@ -84,23 +84,23 @@ public class GargantuanAttack : AIAttack
         }
         else if (waveIndex < 9)
         {
-            this.realDamage = (int)((Damage + 1.5f) * (waveIndex / 4f));
+            this.realDamage = (int)((Damage + 2f) * (waveIndex / 4f));
         }
         else if (waveIndex < 13)
         {
-            this.realDamage = (int)((Damage + 2.5f) * (waveIndex / 3f));
+            this.realDamage = (int)((Damage + 3f) * (waveIndex / 3f));
         }
         else if (waveIndex < 17)
         {
-            this.realDamage = (int)((Damage + 3.5f) * (waveIndex / 1.5f));
+            this.realDamage = (int)((Damage + 4f) * (waveIndex / 1.5f));
         }
         else if (waveIndex < 21)
         {
-            this.realDamage = (int)((Damage + 4.5f) * waveIndex);
+            this.realDamage = (int)((Damage + 5f) * waveIndex);
         }
         else
         {
-            this.realDamage = (int)((Damage + 5.5f) * waveIndex * 1.5f);
+            this.realDamage = (int)((Damage + 6f) * waveIndex * 1.5f);
         }
         AttackBoxColider.enabled = false;
         AttackSwoopBoxColider.enabled = false;

@@ -439,7 +439,7 @@ MonoBehaviour:
     - ZombieType: 0
       EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       GenerateCount: 2
-      CountIncrement: 0
+      CountIncrement: 1
       IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -4
@@ -469,7 +469,7 @@ MonoBehaviour:
     - ZombieType: 0
       EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       GenerateCount: 2
-      CountIncrement: 0
+      CountIncrement: 1
       IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -4
@@ -499,7 +499,7 @@ MonoBehaviour:
     - ZombieType: 0
       EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       GenerateCount: 2
-      CountIncrement: 0
+      CountIncrement: 1
       IntervalTime: 4
       TimeIncrement: 0.5
       lastGenerateTime: -4
@@ -538,13 +538,13 @@ MonoBehaviour:
       GenerateCount: 2
       CountIncrement: 0
       IntervalTime: 4
-      TimeIncrement: 0.1
+      TimeIncrement: 0.5
       lastGenerateTime: -4
     - ZombieType: 1
       EnemyPrefab: {fileID: 4567552705844749713, guid: 76ebf6fc564b211438af4831811135c6, type: 3}
-      GenerateCount: 0
+      GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 0
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: 0
     - ZombieType: 2
@@ -563,9 +563,9 @@ MonoBehaviour:
       lastGenerateTime: 0
     - ZombieType: 4
       EnemyPrefab: {fileID: 1412318929628686754, guid: 1f4bf6179a2c5594fb65e14c93951cc7, type: 3}
-      GenerateCount: 0
+      GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 0
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: 0
     - ZombieType: 5
@@ -630,7 +630,7 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 4567552705844749713, guid: 76ebf6fc564b211438af4831811135c6, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 8
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: -7
     - ZombieType: 2
@@ -651,7 +651,7 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 1412318929628686754, guid: 1f4bf6179a2c5594fb65e14c93951cc7, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 6
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -5
     - ZombieType: 5
@@ -672,66 +672,66 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 5076825408902150764, guid: a7ed75b9463b7f8448cf263a06de55b4, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 7
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -5
     - ZombieType: 8
       EnemyPrefab: {fileID: 6936560574509261660, guid: 0a290161120cfdb4cb669b5c6ef49eb4, type: 3}
-      GenerateCount: 1
-      CountIncrement: 0
-      IntervalTime: 20
-      TimeIncrement: 0
-      lastGenerateTime: -16
-    - ZombieType: 9
-      EnemyPrefab: {fileID: 2977567272358016415, guid: 1aa5cf90c5f4a1642acc66933cf81127, type: 3}
-      GenerateCount: 1
-      CountIncrement: 0
-      IntervalTime: 16
-      TimeIncrement: 0
-      lastGenerateTime: -14
-    - ZombieType: 10
-      EnemyPrefab: {fileID: 619950131301105326, guid: 11ae557ed444f3541bc282fd76194741, type: 3}
-      GenerateCount: 0
-      CountIncrement: 0
-      IntervalTime: 0
-      TimeIncrement: 0
-      lastGenerateTime: 0
-    - ZombieType: 11
-      EnemyPrefab: {fileID: 3038825160147756704, guid: 5bafe40108f8f6849ae57c0de0316023, type: 3}
-      GenerateCount: 0
-      CountIncrement: 0
-      IntervalTime: 0
-      TimeIncrement: 0
-      lastGenerateTime: 0
-    DurationPerWave: 60
-  - zombieData:
-    - ZombieType: 0
-      EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 2
-      CountIncrement: 0
-      IntervalTime: 4
-      TimeIncrement: 0
-      lastGenerateTime: -4
-    - ZombieType: 1
-      EnemyPrefab: {fileID: 4567552705844749713, guid: 76ebf6fc564b211438af4831811135c6, type: 3}
-      GenerateCount: 1
-      CountIncrement: 0
-      IntervalTime: 8
-      TimeIncrement: 0
-      lastGenerateTime: -8
-    - ZombieType: 2
-      EnemyPrefab: {fileID: 2033216056952324458, guid: d923e53d0a57eaa41b0d9ee08c9f252c, type: 3}
-      GenerateCount: 1
-      CountIncrement: 0
-      IntervalTime: 16
-      TimeIncrement: 0
-      lastGenerateTime: -15
-    - ZombieType: 3
-      EnemyPrefab: {fileID: 580796821312960809, guid: b7e77a6d175178648857f4637e95bac5, type: 3}
       GenerateCount: 1
       CountIncrement: 0
       IntervalTime: 12
       TimeIncrement: 0
+      lastGenerateTime: -16
+    - ZombieType: 9
+      EnemyPrefab: {fileID: 2977567272358016415, guid: 1aa5cf90c5f4a1642acc66933cf81127, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 8
+      TimeIncrement: 0
+      lastGenerateTime: -14
+    - ZombieType: 10
+      EnemyPrefab: {fileID: 619950131301105326, guid: 11ae557ed444f3541bc282fd76194741, type: 3}
+      GenerateCount: 0
+      CountIncrement: 0
+      IntervalTime: 0
+      TimeIncrement: 0
+      lastGenerateTime: 0
+    - ZombieType: 11
+      EnemyPrefab: {fileID: 3038825160147756704, guid: 5bafe40108f8f6849ae57c0de0316023, type: 3}
+      GenerateCount: 0
+      CountIncrement: 0
+      IntervalTime: 0
+      TimeIncrement: 0
+      lastGenerateTime: 0
+    DurationPerWave: 60
+  - zombieData:
+    - ZombieType: 0
+      EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
+      GenerateCount: 2
+      CountIncrement: 1
+      IntervalTime: 4
+      TimeIncrement: 0
+      lastGenerateTime: -4
+    - ZombieType: 1
+      EnemyPrefab: {fileID: 4567552705844749713, guid: 76ebf6fc564b211438af4831811135c6, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 6
+      TimeIncrement: 0
+      lastGenerateTime: -8
+    - ZombieType: 2
+      EnemyPrefab: {fileID: 2033216056952324458, guid: d923e53d0a57eaa41b0d9ee08c9f252c, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 10
+      TimeIncrement: 0
+      lastGenerateTime: -15
+    - ZombieType: 3
+      EnemyPrefab: {fileID: 580796821312960809, guid: b7e77a6d175178648857f4637e95bac5, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 10
+      TimeIncrement: 0
       lastGenerateTime: -15
     - ZombieType: 4
       EnemyPrefab: {fileID: 1412318929628686754, guid: 1f4bf6179a2c5594fb65e14c93951cc7, type: 3}
@@ -744,14 +744,14 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 430822811509685972, guid: cc7c155c4a9354648a31fa92129a6258, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 16
+      IntervalTime: 10
       TimeIncrement: 0
       lastGenerateTime: -14
     - ZombieType: 6
       EnemyPrefab: {fileID: 4586820400708108030, guid: c11bca65624519849b56d16697343d9f, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 16
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -15
     - ZombieType: 7
@@ -779,7 +779,7 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 619950131301105326, guid: 11ae557ed444f3541bc282fd76194741, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 16
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -16
     - ZombieType: 11
@@ -794,7 +794,7 @@ MonoBehaviour:
     - ZombieType: 0
       EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       GenerateCount: 2
-      CountIncrement: 0
+      CountIncrement: 1
       IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -4
@@ -802,14 +802,14 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 4567552705844749713, guid: 76ebf6fc564b211438af4831811135c6, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 10
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -10
     - ZombieType: 2
       EnemyPrefab: {fileID: 2033216056952324458, guid: d923e53d0a57eaa41b0d9ee08c9f252c, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 16
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -16
     - ZombieType: 3
@@ -823,7 +823,7 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 1412318929628686754, guid: 1f4bf6179a2c5594fb65e14c93951cc7, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 10
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -10
     - ZombieType: 5
@@ -837,14 +837,14 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 4586820400708108030, guid: c11bca65624519849b56d16697343d9f, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 8
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: -8
     - ZombieType: 7
       EnemyPrefab: {fileID: 5076825408902150764, guid: a7ed75b9463b7f8448cf263a06de55b4, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 8
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: -6
     - ZombieType: 8
@@ -858,14 +858,14 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 2977567272358016415, guid: 1aa5cf90c5f4a1642acc66933cf81127, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 16
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: -16
     - ZombieType: 10
       EnemyPrefab: {fileID: 619950131301105326, guid: 11ae557ed444f3541bc282fd76194741, type: 3}
-      GenerateCount: 0
+      GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 0
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: 0
     - ZombieType: 11
@@ -880,7 +880,7 @@ MonoBehaviour:
     - ZombieType: 0
       EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       GenerateCount: 2
-      CountIncrement: 0
+      CountIncrement: 1
       IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -4
@@ -888,7 +888,7 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 4567552705844749713, guid: 76ebf6fc564b211438af4831811135c6, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 8
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -8
     - ZombieType: 2
@@ -902,35 +902,35 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 580796821312960809, guid: b7e77a6d175178648857f4637e95bac5, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 16
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -16
     - ZombieType: 4
       EnemyPrefab: {fileID: 1412318929628686754, guid: 1f4bf6179a2c5594fb65e14c93951cc7, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 8
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -6
     - ZombieType: 5
       EnemyPrefab: {fileID: 430822811509685972, guid: cc7c155c4a9354648a31fa92129a6258, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 10
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -10
     - ZombieType: 6
       EnemyPrefab: {fileID: 4586820400708108030, guid: c11bca65624519849b56d16697343d9f, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 14
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -14
     - ZombieType: 7
       EnemyPrefab: {fileID: 5076825408902150764, guid: a7ed75b9463b7f8448cf263a06de55b4, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 8
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: -8
     - ZombieType: 8
@@ -951,7 +951,7 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 619950131301105326, guid: 11ae557ed444f3541bc282fd76194741, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 16
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -16
     - ZombieType: 11
@@ -965,10 +965,10 @@ MonoBehaviour:
   - zombieData:
     - ZombieType: 0
       EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 2
+      GenerateCount: 3
       CountIncrement: 0
       IntervalTime: 4
-      TimeIncrement: 0.1
+      TimeIncrement: 0.5
       lastGenerateTime: -4
     - ZombieType: 1
       EnemyPrefab: {fileID: 4567552705844749713, guid: 76ebf6fc564b211438af4831811135c6, type: 3}
@@ -986,11 +986,11 @@ MonoBehaviour:
       lastGenerateTime: 0
     - ZombieType: 3
       EnemyPrefab: {fileID: 580796821312960809, guid: b7e77a6d175178648857f4637e95bac5, type: 3}
-      GenerateCount: 0
+      GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 0
+      IntervalTime: 10
       TimeIncrement: 0
-      lastGenerateTime: 0
+      lastGenerateTime: -10
     - ZombieType: 4
       EnemyPrefab: {fileID: 1412318929628686754, guid: 1f4bf6179a2c5594fb65e14c93951cc7, type: 3}
       GenerateCount: 0
@@ -1007,9 +1007,9 @@ MonoBehaviour:
       lastGenerateTime: 0
     - ZombieType: 6
       EnemyPrefab: {fileID: 4586820400708108030, guid: c11bca65624519849b56d16697343d9f, type: 3}
-      GenerateCount: 0
+      GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 0
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: 0
     - ZombieType: 7
@@ -1030,7 +1030,7 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 2977567272358016415, guid: 1aa5cf90c5f4a1642acc66933cf81127, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 16
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -16
     - ZombieType: 10
@@ -1052,7 +1052,7 @@ MonoBehaviour:
     - ZombieType: 0
       EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       GenerateCount: 2
-      CountIncrement: 0
+      CountIncrement: 1
       IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -4
@@ -1060,70 +1060,70 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 4567552705844749713, guid: 76ebf6fc564b211438af4831811135c6, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 10
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -3
     - ZombieType: 2
       EnemyPrefab: {fileID: 2033216056952324458, guid: d923e53d0a57eaa41b0d9ee08c9f252c, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 14
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -5
     - ZombieType: 3
       EnemyPrefab: {fileID: 580796821312960809, guid: b7e77a6d175178648857f4637e95bac5, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 16
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -10
     - ZombieType: 4
       EnemyPrefab: {fileID: 1412318929628686754, guid: 1f4bf6179a2c5594fb65e14c93951cc7, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 11
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: -2
     - ZombieType: 5
       EnemyPrefab: {fileID: 430822811509685972, guid: cc7c155c4a9354648a31fa92129a6258, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 16
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -12
     - ZombieType: 6
       EnemyPrefab: {fileID: 4586820400708108030, guid: c11bca65624519849b56d16697343d9f, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 12
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -12
     - ZombieType: 7
       EnemyPrefab: {fileID: 5076825408902150764, guid: a7ed75b9463b7f8448cf263a06de55b4, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 8
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: -8
     - ZombieType: 8
       EnemyPrefab: {fileID: 6936560574509261660, guid: 0a290161120cfdb4cb669b5c6ef49eb4, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 16
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -10
     - ZombieType: 9
       EnemyPrefab: {fileID: 2977567272358016415, guid: 1aa5cf90c5f4a1642acc66933cf81127, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 16
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -10
     - ZombieType: 10
       EnemyPrefab: {fileID: 619950131301105326, guid: 11ae557ed444f3541bc282fd76194741, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 16
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -16
     - ZombieType: 11
@@ -1138,7 +1138,7 @@ MonoBehaviour:
     - ZombieType: 0
       EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       GenerateCount: 2
-      CountIncrement: 0
+      CountIncrement: 1
       IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -4
@@ -1146,56 +1146,56 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 4567552705844749713, guid: 76ebf6fc564b211438af4831811135c6, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 8
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -8
     - ZombieType: 2
       EnemyPrefab: {fileID: 2033216056952324458, guid: d923e53d0a57eaa41b0d9ee08c9f252c, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 12
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: -12
     - ZombieType: 3
       EnemyPrefab: {fileID: 580796821312960809, guid: b7e77a6d175178648857f4637e95bac5, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 12
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: -12
     - ZombieType: 4
       EnemyPrefab: {fileID: 1412318929628686754, guid: 1f4bf6179a2c5594fb65e14c93951cc7, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 8
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: -8
     - ZombieType: 5
       EnemyPrefab: {fileID: 430822811509685972, guid: cc7c155c4a9354648a31fa92129a6258, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 12
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: -12
     - ZombieType: 6
       EnemyPrefab: {fileID: 4586820400708108030, guid: c11bca65624519849b56d16697343d9f, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 10
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: -10
     - ZombieType: 7
       EnemyPrefab: {fileID: 5076825408902150764, guid: a7ed75b9463b7f8448cf263a06de55b4, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 8
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -8
     - ZombieType: 8
       EnemyPrefab: {fileID: 6936560574509261660, guid: 0a290161120cfdb4cb669b5c6ef49eb4, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 16
+      IntervalTime: 6
       TimeIncrement: 0
       lastGenerateTime: -20
     - ZombieType: 9
@@ -1209,7 +1209,7 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 619950131301105326, guid: 11ae557ed444f3541bc282fd76194741, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 12
+      IntervalTime: 10
       TimeIncrement: 0
       lastGenerateTime: -12
     - ZombieType: 11
@@ -1224,29 +1224,29 @@ MonoBehaviour:
     - ZombieType: 0
       EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
       GenerateCount: 2
-      CountIncrement: 0
+      CountIncrement: 1
       IntervalTime: 4
-      TimeIncrement: 0
+      TimeIncrement: 0.5
       lastGenerateTime: -4
     - ZombieType: 1
       EnemyPrefab: {fileID: 4567552705844749713, guid: 76ebf6fc564b211438af4831811135c6, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 5
-      TimeIncrement: 0
+      IntervalTime: 4
+      TimeIncrement: 0.5
       lastGenerateTime: -5
     - ZombieType: 2
       EnemyPrefab: {fileID: 2033216056952324458, guid: d923e53d0a57eaa41b0d9ee08c9f252c, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 6
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -6
     - ZombieType: 3
       EnemyPrefab: {fileID: 580796821312960809, guid: b7e77a6d175178648857f4637e95bac5, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 6
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -6
     - ZombieType: 4
@@ -1260,14 +1260,14 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 430822811509685972, guid: cc7c155c4a9354648a31fa92129a6258, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 6
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -6
     - ZombieType: 6
       EnemyPrefab: {fileID: 4586820400708108030, guid: c11bca65624519849b56d16697343d9f, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 6
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -6
     - ZombieType: 7
@@ -1295,7 +1295,7 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 619950131301105326, guid: 11ae557ed444f3541bc282fd76194741, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 12
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -12
     - ZombieType: 11
@@ -1309,30 +1309,30 @@ MonoBehaviour:
   - zombieData:
     - ZombieType: 0
       EnemyPrefab: {fileID: 141669757839713235, guid: 7c7e8ed3120b4fa42b24c222264b190e, type: 3}
-      GenerateCount: 2
+      GenerateCount: 4
       CountIncrement: 0
       IntervalTime: 4
-      TimeIncrement: 0
+      TimeIncrement: 0.5
       lastGenerateTime: -4
     - ZombieType: 1
       EnemyPrefab: {fileID: 4567552705844749713, guid: 76ebf6fc564b211438af4831811135c6, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 5
-      TimeIncrement: 0
+      IntervalTime: 4
+      TimeIncrement: 0.5
       lastGenerateTime: -5
     - ZombieType: 2
       EnemyPrefab: {fileID: 2033216056952324458, guid: d923e53d0a57eaa41b0d9ee08c9f252c, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 6
-      TimeIncrement: 0
+      IntervalTime: 4
+      TimeIncrement: 0.5
       lastGenerateTime: -6
     - ZombieType: 3
       EnemyPrefab: {fileID: 580796821312960809, guid: b7e77a6d175178648857f4637e95bac5, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 6
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -6
     - ZombieType: 4
@@ -1346,15 +1346,15 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 430822811509685972, guid: cc7c155c4a9354648a31fa92129a6258, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 6
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -6
     - ZombieType: 6
       EnemyPrefab: {fileID: 4586820400708108030, guid: c11bca65624519849b56d16697343d9f, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 6
-      TimeIncrement: 0
+      IntervalTime: 4
+      TimeIncrement: 0.1
       lastGenerateTime: -6
     - ZombieType: 7
       EnemyPrefab: {fileID: 5076825408902150764, guid: a7ed75b9463b7f8448cf263a06de55b4, type: 3}
@@ -1367,21 +1367,21 @@ MonoBehaviour:
       EnemyPrefab: {fileID: 6936560574509261660, guid: 0a290161120cfdb4cb669b5c6ef49eb4, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 8
+      IntervalTime: 4
       TimeIncrement: 0
       lastGenerateTime: -8
     - ZombieType: 9
       EnemyPrefab: {fileID: 2977567272358016415, guid: 1aa5cf90c5f4a1642acc66933cf81127, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 10
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -10
     - ZombieType: 10
       EnemyPrefab: {fileID: 619950131301105326, guid: 11ae557ed444f3541bc282fd76194741, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 12
+      IntervalTime: 8
       TimeIncrement: 0
       lastGenerateTime: -12
     - ZombieType: 11
@@ -1398,29 +1398,85 @@ MonoBehaviour:
       GenerateCount: 2
       CountIncrement: 0
       IntervalTime: 4
-      TimeIncrement: 0.01
+      TimeIncrement: 0
       lastGenerateTime: -4
     - ZombieType: 1
       EnemyPrefab: {fileID: 4567552705844749713, guid: 76ebf6fc564b211438af4831811135c6, type: 3}
       GenerateCount: 1
       CountIncrement: 0
-      IntervalTime: 16
+      IntervalTime: 10
       TimeIncrement: 0
-      lastGenerateTime: -10
-    - ZombieType: 4
-      EnemyPrefab: {fileID: 1412318929628686754, guid: 1f4bf6179a2c5594fb65e14c93951cc7, type: 3}
-      GenerateCount: 1
-      CountIncrement: 0
-      IntervalTime: 18
-      TimeIncrement: 0
-      lastGenerateTime: -8
-    - ZombieType: 6
-      EnemyPrefab: {fileID: 4586820400708108030, guid: c11bca65624519849b56d16697343d9f, type: 3}
+      lastGenerateTime: -5
+    - ZombieType: 2
+      EnemyPrefab: {fileID: 2033216056952324458, guid: d923e53d0a57eaa41b0d9ee08c9f252c, type: 3}
       GenerateCount: 1
       CountIncrement: 0
       IntervalTime: 20
       TimeIncrement: 0
-      lastGenerateTime: -5
+      lastGenerateTime: -6
+    - ZombieType: 3
+      EnemyPrefab: {fileID: 580796821312960809, guid: b7e77a6d175178648857f4637e95bac5, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 20
+      TimeIncrement: 0
+      lastGenerateTime: -6
+    - ZombieType: 4
+      EnemyPrefab: {fileID: 1412318929628686754, guid: 1f4bf6179a2c5594fb65e14c93951cc7, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 10
+      TimeIncrement: 0
+      lastGenerateTime: -4
+    - ZombieType: 5
+      EnemyPrefab: {fileID: 430822811509685972, guid: cc7c155c4a9354648a31fa92129a6258, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 20
+      TimeIncrement: 0
+      lastGenerateTime: -6
+    - ZombieType: 6
+      EnemyPrefab: {fileID: 4586820400708108030, guid: c11bca65624519849b56d16697343d9f, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 12
+      TimeIncrement: 0.1
+      lastGenerateTime: -6
+    - ZombieType: 7
+      EnemyPrefab: {fileID: 5076825408902150764, guid: a7ed75b9463b7f8448cf263a06de55b4, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 14
+      TimeIncrement: 0
+      lastGenerateTime: -4
+    - ZombieType: 8
+      EnemyPrefab: {fileID: 6936560574509261660, guid: 0a290161120cfdb4cb669b5c6ef49eb4, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 20
+      TimeIncrement: 0
+      lastGenerateTime: -8
+    - ZombieType: 9
+      EnemyPrefab: {fileID: 2977567272358016415, guid: 1aa5cf90c5f4a1642acc66933cf81127, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 20
+      TimeIncrement: 0
+      lastGenerateTime: -10
+    - ZombieType: 10
+      EnemyPrefab: {fileID: 619950131301105326, guid: 11ae557ed444f3541bc282fd76194741, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 30
+      TimeIncrement: 0
+      lastGenerateTime: -12
+    - ZombieType: 11
+      EnemyPrefab: {fileID: 3038825160147756704, guid: 5bafe40108f8f6849ae57c0de0316023, type: 3}
+      GenerateCount: 1
+      CountIncrement: 0
+      IntervalTime: 90
+      TimeIncrement: 0
+      lastGenerateTime: -45
     - ZombieType: 12
       EnemyPrefab: {fileID: 4904069302187664380, guid: 1a9b5bb675e57be4abae9431e73cc5a1, type: 3}
       GenerateCount: 1

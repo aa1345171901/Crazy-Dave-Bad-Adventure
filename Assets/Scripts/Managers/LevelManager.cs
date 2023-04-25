@@ -126,6 +126,16 @@ namespace TopDownPlate
             }
             return zombieDicts;
         }
+
+        public static int Count(this List<ZombieDicts> list)
+        {
+            int count = 0;
+            foreach (var item in list)
+            {
+                count += item.Zombies.Count;
+            }
+            return count;
+        }
     }
 
     [AddComponentMenu("TopDownPlate/Managers/LevelManager")]
@@ -212,7 +222,9 @@ namespace TopDownPlate
                         var zombie = nowWave.zombieData[i];
                         if (timer - zombie.IntervalTime - zombie.TimeIncrement * course >= zombie.lastGenerateTime)
                         {
-                            if (Enemys.Count < MaxEnemyCount)
+                            if (zombie.ZombieType == ZombieType.Gargantuan)
+                            Debug.Log(zombie.lastGenerateTime);
+                            if (Enemys.Count() < MaxEnemyCount)
                             {
                                 zombie.lastGenerateTime = timer;
                                 StartCoroutine("CreateEnemies", zombie);
@@ -354,7 +366,7 @@ namespace TopDownPlate
         public Character GetRecentlyEnemy(out bool direction, float range = 0)
         {
             direction = false;
-            if (Enemys.Count <= 0)
+            if (Enemys.Count() <= 0)
                 return null;
             Character target = null;
             float distance = range;

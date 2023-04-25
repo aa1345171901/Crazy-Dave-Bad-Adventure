@@ -15,7 +15,7 @@ public class FireGround : MonoBehaviour
     private void Start()
     {
         Invoke("DestroyDelay", liveTime);
-        this.damage = (int)(LevelManager.Instance.IndexWave / 1.5f);
+        this.damage = (int)(LevelManager.Instance.IndexWave / 5f);
     }
 
     private void DestroyDelay()
@@ -30,7 +30,7 @@ public class FireGround : MonoBehaviour
         if (collision.gameObject == GameManager.Instance.Player.gameObject)
         {
             lastTimer = Time.time;
-            GameManager.Instance.DoDamage(damage);
+            GameManager.Instance.DoDamage(damage, DamageType.Fire);
         }
     }
 }
