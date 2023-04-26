@@ -8049,7 +8049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   maxHealth: 30
-  InvincibleTime: 0.3
+  InvincibleTime: 0.2
   Injured:
     m_PersistentCalls:
       m_Calls:

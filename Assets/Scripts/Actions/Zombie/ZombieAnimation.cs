@@ -159,7 +159,8 @@ public class ZombieAnimation : MonoBehaviour
 
     public void Dead(DamageType damageType)
     {
-        character.SkeletonAnimation.ClearState();
+        character.SkeletonAnimation.AnimationState.ClearTrack(1);
+        character.SkeletonAnimation.AnimationState.ClearTrack(0);
         if (damageType == DamageType.Bomb)
         {
             character.SkeletonAnimation.Skeleton.Skin = character.SkeletonAnimation.SkeletonDataAsset.GetSkeletonData(true).FindSkin(charredSkin);
