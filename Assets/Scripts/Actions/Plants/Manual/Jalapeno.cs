@@ -13,7 +13,7 @@ public class Jalapeno : AshPlant
         var colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(finalRange, finalRange / Range), 0, TargetLayer);
         DoDamage(colliders, ref sumHealth);
 
-        colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(finalRange, finalRange / Range), 0, IceGround);
+        colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(finalRange * 2, finalRange / Range + 1), 0, IceGround);
         foreach (var item in colliders)
         {
             Destroy(item.gameObject);

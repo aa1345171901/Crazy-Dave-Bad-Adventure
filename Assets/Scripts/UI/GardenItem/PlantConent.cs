@@ -174,9 +174,12 @@ public class PlantConent : MonoBehaviour
         canLayUpFlowerPotPos.Add(flowerPotPosition);
     }
 
-    public void RemoveFlowerPot(FlowerPotPosition flowerPotPosition)
+    public void RemoveFlowerPot(FlowerPotPosition flowerPotPosition, bool isWaterPot)
     {
-        haveFlowerPotPos.Remove(flowerPotPosition);
+        if (isWaterPot)
+            haveWaterFlowerPotPos.Remove(flowerPotPosition);
+        else
+            haveFlowerPotPos.Remove(flowerPotPosition);
         canLayUpFlowerPotPos.Add(flowerPotPosition);
     }
 }

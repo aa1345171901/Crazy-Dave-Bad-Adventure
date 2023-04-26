@@ -28,6 +28,8 @@ public class FlowerPotPosition : MonoBehaviour
     private FlowerPotGardenItem TempItem;
     private FlowerPotGardenItem TempItemTarget;
 
+    private bool isWaterPot;
+
     private void Start()
     {
         if (HaveEarth)
@@ -83,7 +85,7 @@ public class FlowerPotPosition : MonoBehaviour
         FlowerPot.Sell();
         if (FlowerPot.PlantAttribute == null || FlowerPot.PlantAttribute.plantCard.plantType == PlantType.None)
             return;
-        plantConent.RemoveFlowerPot(this);
+        plantConent.RemoveFlowerPot(this, isWaterPot);
         GardenManager.Instance.FlowerPotCount--;
         Destroy(FlowerPot);
         FlowerPot = null;
@@ -200,10 +202,12 @@ public class FlowerPotPosition : MonoBehaviour
     public void CreateFlowerPot()
     {
         FlowerPot = GameObject.Instantiate(flowerPot, this.transform);
+        isWaterPot = false;
     }
 
     public void CreateWaterFlowerPot()
     {
         FlowerPot = GameObject.Instantiate(waterFlowerPot, this.transform);
+        isWaterPot = true;
     }
 }

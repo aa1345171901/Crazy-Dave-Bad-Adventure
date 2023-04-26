@@ -225,20 +225,21 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
          * 蓝色概率为 幸运40前 （20+幸运) 40-50(固定60) 50以上为（100-白色（10） - 紫色-红色）   
          * 紫色概率为幸运/2%  
          * 红色概率为幸运/10%   
-         * 白色最低10 蓝色封顶60最低30  紫色概率封顶40， 红色概率封顶20
+         * 白色最低30 蓝色封顶60最低30  紫色概率封顶30， 红色概率封顶10
          */
         // 都乘10换算成从1000中取，增加精度,后面的区间需加前面的区间
         float redProbability = 10 * lucky / 10;
-        if (redProbability > 200)
-            redProbability = 200;
-        float purpleProbability = 10 * lucky / 2 + redProbability;
-        if (purpleProbability > 400)
-            purpleProbability = 400;
+        if (redProbability > 100)
+            redProbability = 100;
+        float purpleProbability = 10 * lucky / 2;
+        if (purpleProbability > 300)
+            purpleProbability = 300;
         float blueProbability = 10 * (20 + lucky);
         if (lucky > 40 && lucky < 50)
-            blueProbability = 10 * 60;
+            blueProbability = 600;
         if (lucky >= 50)
-            blueProbability = 10 * (100 - 10 - purpleProbability - redProbability);
+            blueProbability = 10 * (100 - 30 - purpleProbability / 10 - redProbability / 10);
+        purpleProbability += redProbability;
         blueProbability += purpleProbability;
 
         // 从1000中选4个数，决定4个道具的品质
