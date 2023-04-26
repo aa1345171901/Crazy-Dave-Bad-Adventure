@@ -67,7 +67,7 @@ namespace TopDownPlate
             if (waveIndex < 5)
                 realSpeed = MoveSpeed = moveSpeed;
             else
-                realSpeed = MoveSpeed = moveSpeed * ((waveIndex - 4) * 2 + 100) / 100;
+                realSpeed = MoveSpeed = moveSpeed * ((waveIndex - 4) * 4 + 100) / 100;
         }
 
         public override void ProcessAbility()

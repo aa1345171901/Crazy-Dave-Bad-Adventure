@@ -148,11 +148,11 @@ MonoBehaviour:
   plant: {fileID: 4603753261613955672}
   audioSource: {fileID: 5449321208721524767}
   Range: 4
-  BigTargetLayer:
-    serializedVersion: 2
-    m_Bits: 0
   sun: {fileID: 5666489161069203381, guid: 874700ab6f59d2c4ab5162b31a75beff, type: 3}
   boom: {fileID: 8300000, guid: f4fef42fdc6c4344ea7022dffa8ae6c5, type: 3}
+  IceGround:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!82 &5449321208721524767
 AudioSource:
   m_ObjectHideFlags: 0

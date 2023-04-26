@@ -94,7 +94,7 @@ namespace TopDownPlate
             else
             {
                 int waveIndex = LevelManager.Instance.IndexWave + 1;
-                if (waveIndex < 7)
+                if (waveIndex < 5)
                 {
                     this.maxHealth = defaultMaxHealth;
                 }
@@ -104,19 +104,19 @@ namespace TopDownPlate
                 }
                 else if (waveIndex < 13)
                 {
-                    this.maxHealth = (int)(defaultMaxHealth * waveIndex);
+                    this.maxHealth = (int)(defaultMaxHealth * waveIndex * 2);
                 }
                 else if (waveIndex < 17)
                 {
-                    this.maxHealth = (int)(defaultMaxHealth * waveIndex * 1.5f);
+                    this.maxHealth = (int)(defaultMaxHealth * waveIndex * 4f);
                 }
                 else if (waveIndex < 21)
                 {
-                    this.maxHealth = defaultMaxHealth * waveIndex * 3;
+                    this.maxHealth = defaultMaxHealth * waveIndex * 6;
                 }
                 else
                 {
-                    this.maxHealth = (int)(defaultMaxHealth * waveIndex * 5f);
+                    this.maxHealth = (int)(defaultMaxHealth * waveIndex * 20f);
                 }
             }
             this.health = maxHealth;

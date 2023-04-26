@@ -4949,6 +4949,7 @@ MonoBehaviour:
   GoldCoin: {fileID: 3714592406380599363, guid: e62a603e03247b64e9dc4a1d07829907, type: 3}
   Diamond: {fileID: 9125087109418112107, guid: 7a3fe7e4cae170c4e9862147812d35bd, type: 3}
   Sun: {fileID: 5666489161069203378, guid: 874700ab6f59d2c4ab5162b31a75beff, type: 3}
+  Price: 0
 --- !u!1 &1328244619223340392
 GameObject:
   m_ObjectHideFlags: 0
@@ -5079,6 +5080,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 128
+  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &1328244619438493164
 GameObject:
@@ -5514,6 +5516,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
+  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &1328244620292455538
 GameObject:
@@ -6002,12 +6005,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2.5
   moveAnimationName: run_normal
-  RepulsiveTime: 0.2
-  hurtFlash: {fileID: 1328244619556823990}
   HeadPos: {fileID: 1328244619421123993}
   BodyPos: {fileID: 1328244619976288599}
-  Ice: {fileID: 8003978568066993431}
-  canTaunt: 1
+  realSpeed: 0
   canMove: 0
   AIParameter:
     Distance: 0
@@ -6015,9 +6015,13 @@ MonoBehaviour:
     HeadPos: {fileID: 0}
     BodyPos: {fileID: 0}
     attackPos: 0
+  zombieAnimation: {fileID: 0}
+  RepulsiveTime: 0.2
+  hurtFlash: {fileID: 1328244619556823990}
+  Ice: {fileID: 8003978568066993431}
+  decelerationPercentage: 1
   isSwoop: 0
   direction: {x: 0, y: 0, z: 0}
-  realSpeed: 0
 --- !u!50 &3128460830435743112
 Rigidbody2D:
   serializedVersion: 4
@@ -6136,7 +6140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 2
-  AttackProbability: 0.14
+  AttackProbability: 0.22
   AttackJudgmentTime: 1
   realDamage: 0
   realAttackProbability: 0
@@ -6232,6 +6236,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 64
+  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &2799954632743930085
 GameObject:
@@ -6457,6 +6462,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
+  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &4499388893420054584
 GameObject:
@@ -6534,6 +6540,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 128
+  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &6924143711581617652
 GameObject:
@@ -6884,6 +6891,9 @@ MonoBehaviour:
   zombieFly: {fileID: 3182595550975394253}
   zombieProp: {fileID: 3159025156908689471}
   randomEquip: {fileID: 1328244619237216805}
+  dead:
+    m_PersistentCalls:
+      m_Calls: []
   charredSkin: charred
   defalutSkin: flag
   DeadCharredAnimation: charred
@@ -6904,6 +6914,7 @@ MonoBehaviour:
   WornAnimation1: wornFlag/wornFlag1
   WornAnimation2: wornFlag/wornFlag1
   PropLostAnimation: wornFlag/wornFlag1
+  PunctureAnimation: 
   fallProp: {fileID: 0}
 --- !u!1 &8422211512621432265
 GameObject:

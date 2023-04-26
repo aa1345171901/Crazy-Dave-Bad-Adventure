@@ -15,6 +15,7 @@ public class Diamond : Coin
     {
         this.animator = GetComponent<Animator>();
         GameManager.Instance.Coins.Add(this);
+        Destroy(gameObject, AvailableTime);
     }
 
     protected override void PlayAnimation()

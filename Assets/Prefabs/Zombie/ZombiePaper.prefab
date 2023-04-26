@@ -6238,7 +6238,7 @@ MonoBehaviour:
   RepulsiveTime: 0.2
   hurtFlash: {fileID: 4490343085807072490}
   Ice: {fileID: 4840771837112769099}
-  canTaunt: 1
+  decelerationPercentage: 1
   isSwoop: 0
   direction: {x: 0, y: 0, z: 0}
 --- !u!50 &528256803678700244
@@ -6359,7 +6359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 2
-  AttackProbability: 0.14
+  AttackProbability: 0.22
   AttackJudgmentTime: 1
   realDamage: 0
   realAttackProbability: 0

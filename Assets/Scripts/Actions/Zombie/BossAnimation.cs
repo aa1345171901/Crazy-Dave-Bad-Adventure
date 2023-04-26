@@ -20,6 +20,7 @@ public class BossAnimation : MonoBehaviour
         character.State.AIStateType = AIStateType.Run;
         character.Health.Reuse();
         LevelManager.Instance.Enemys.Add(ZombieType.Boss, character);
+        AudioManager.Instance.PlayBossMusic();
     }
 
     public void Dead()

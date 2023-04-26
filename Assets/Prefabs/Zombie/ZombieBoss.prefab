@@ -558,6 +558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeadAnimation: Dead
+  DeadLoopAnimation: Deading
 --- !u!114 &5042218389118577129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1541,7 +1542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 5
-  AttackProbability: 0.2
+  AttackProbability: 0.3
   AttackJudgmentTime: 0.5
   realDamage: 0
   realAttackProbability: 0

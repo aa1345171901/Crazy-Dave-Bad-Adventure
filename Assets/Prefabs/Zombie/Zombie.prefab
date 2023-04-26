@@ -5003,6 +5003,7 @@ MonoBehaviour:
   GoldCoin: {fileID: 3714592406380599363, guid: e62a603e03247b64e9dc4a1d07829907, type: 3}
   Diamond: {fileID: 9125087109418112107, guid: 7a3fe7e4cae170c4e9862147812d35bd, type: 3}
   Sun: {fileID: 5666489161069203378, guid: 874700ab6f59d2c4ab5162b31a75beff, type: 3}
+  Price: 0
 --- !u!1 &571199463
 GameObject:
   m_ObjectHideFlags: 0
@@ -6018,7 +6019,7 @@ MonoBehaviour:
   RepulsiveTime: 0.2
   hurtFlash: {fileID: 987916743}
   Ice: {fileID: 9042391771196770150}
-  canTaunt: 1
+  decelerationPercentage: 1
   isSwoop: 0
   direction: {x: 0, y: 0, z: 0}
 --- !u!50 &4108507704349745145
@@ -6127,7 +6128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 2
-  AttackProbability: 0.14
+  AttackProbability: 0.22
   AttackJudgmentTime: 1
   realDamage: 0
   realAttackProbability: 0

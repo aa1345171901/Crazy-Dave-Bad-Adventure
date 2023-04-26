@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// TopDownPlate 中的代码是可复用的，其他的可能只有该项目能用所有未进行命名空间设定
 namespace TopDownPlate
 {
     [RequireComponent(typeof(Camera))]

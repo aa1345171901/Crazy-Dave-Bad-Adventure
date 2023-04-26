@@ -134,6 +134,13 @@ namespace TopDownPlate
             BackmusicPlayer.PlayDelayed(delay);
         }
 
+        public void PlayBossMusic()
+        {
+            BackmusicPlayer.clip = Boss;
+            BackmusicPlayer.time = 0;
+            BackmusicPlayer.Play();
+        }
+
         public void PlayMenuMusic(float delay)
         {
             beforePauseMusicTime = BackmusicPlayer.time;

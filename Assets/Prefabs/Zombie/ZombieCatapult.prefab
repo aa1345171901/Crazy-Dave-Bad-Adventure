@@ -234,7 +234,7 @@ MonoBehaviour:
   RepulsiveTime: 0.1
   hurtFlash: {fileID: 679426411814548666}
   Ice: {fileID: 8363406406434576923}
-  canTaunt: 1
+  decelerationPercentage: 1
   isSwoop: 0
   direction: {x: 0, y: 0, z: 0}
 --- !u!50 &3488485712194683524
@@ -270,8 +270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7798c63bc25094e8998670bad19d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  maxHealth: 20
+  health: 30
+  maxHealth: 30
   InvincibleTime: 0
   Injured:
     m_PersistentCalls:
@@ -352,11 +352,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 0
-  AttackProbability: 1
+  AttackProbability: 0.5
   AttackJudgmentTime: 1
   realDamage: 0
   realAttackProbability: 0
-  AttackRange: 10
+  AttackRange: 20
   AttackAnimation: Attack
   AttackAfterAnimation: Attack_After
   basketballPos: {fileID: 8186093807420824460}
