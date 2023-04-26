@@ -86,7 +86,10 @@ public class FlowerPotPosition : MonoBehaviour
         if (FlowerPot.PlantAttribute == null || FlowerPot.PlantAttribute.plantCard.plantType == PlantType.None)
             return;
         plantConent.RemoveFlowerPot(this, isWaterPot);
-        GardenManager.Instance.FlowerPotCount--;
+        if (isWaterPot)
+            GardenManager.Instance.WaterFlowerPotCount--;
+        else
+            GardenManager.Instance.FlowerPotCount--;
         Destroy(FlowerPot);
         FlowerPot = null;
         AudioManager.Instance.PlayEffectSoundByName("PlacePlant");

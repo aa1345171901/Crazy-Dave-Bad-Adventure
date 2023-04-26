@@ -495,7 +495,6 @@ public class FlowerPotGardenItem : MonoBehaviour
         int price = PlantAttribute.plantCard.defaultPrice + PlantAttribute.level1 + PlantAttribute.level2 + PlantAttribute.level3;
         ShopManager.Instance.Money += price;
         GardenManager.Instance.PlantAttributes.Remove(this.PlantAttribute);
-        plantCultivationPage.EmptyFlowerPot(this.GetComponentInParent<FlowerPotPosition>());
         plantCultivationPage.gameObject.SetActive(false);
         GameObject.Destroy(this.gameObject);
     }
