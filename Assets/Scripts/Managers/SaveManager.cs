@@ -37,6 +37,11 @@ public class SaveManager
     /// </summary>
     public bool IsLoadUserData { get; set; }
 
+    /// <summary>
+    /// 打打僵王模式
+    /// </summary>
+    public bool IsBossMode { get; set; }
+
     private SaveManager()
     {
         LoadData();
@@ -58,6 +63,15 @@ public class SaveManager
 
     public void LoadUserData()
     {
+        // 打打僵王模式不进行数据读取
+        IsBossMode = PlayerPrefs.GetInt("BossMode", 0) == 1;
+        DeleteBossMode();
+        if (IsBossMode)
+        {
+            IsLoadUserData = true;
+            return;
+        }
+
         string userDataStr = PlayerPrefs.GetString("UserData");
         if (!string.IsNullOrEmpty(userDataStr))
         {
@@ -133,7 +147,26 @@ public class SaveManager
     /// </summary>
     public void DeleteUserData()
     {
+        // 打打僵王模式不删除原存档
+        if (IsBossMode)
+            return;
         PlayerPrefs.DeleteKey("UserData");
         PlayerPrefs.DeleteKey("PurchasedPropsAndPlants");
+    }
+
+    /// <summary>
+    /// 设置打打僵王模式
+    /// </summary>
+    public void SetBossMode()
+    {
+        PlayerPrefs.SetInt("BossMode", 1);
+    }
+
+    /// <summary>
+    /// 加载完之后就关闭打打僵王模式
+    /// </summary>
+    public void DeleteBossMode()
+    {
+        PlayerPrefs.DeleteKey("BossMode");
     }
 }

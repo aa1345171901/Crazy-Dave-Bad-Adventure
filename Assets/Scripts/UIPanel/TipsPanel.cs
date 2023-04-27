@@ -85,6 +85,9 @@ public class TipsPanel : BasePanel
 
     public void ReStartGame()
     {
+        // 打打僵王重新开始先设置大大僵王模式
+        if (SaveManager.Instance.IsBossMode)
+            SaveManager.Instance.SetBossMode();
         SceneManager.LoadScene(1);
     }
 

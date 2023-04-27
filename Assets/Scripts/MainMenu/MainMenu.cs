@@ -110,8 +110,14 @@ public class MainMenu : MonoBehaviour
 
     public void Achievement()
     {
-        AchievementPage.SetActive(true);
-        Dave.AnimationState.SetAnimation(0, "MainAchievement", true);
+        // 打打僵王
+        SaveManager.Instance.SetBossMode();
+        PlayStartGameAnim();
+        StartCoroutine(LoadScene());
+
+        // 成就暂时不开放
+        //AchievementPage.SetActive(true);
+        //Dave.AnimationState.SetAnimation(0, "MainAchievement", true);
     }
 
     public void ExitGame()

@@ -158,6 +158,14 @@ namespace TopDownPlate
                 isDaytime = true;
                 SaveManager.Instance.IsLoadUserData = false;
             }
+
+            // 是打打僵王模式
+            if (SaveManager.Instance.IsBossMode)
+            {
+                ShopManager.Instance.Money = 100000;
+                GardenManager.Instance.Sun = 2500000;
+                LevelManager.Instance.IndexWave = 18;
+            }
         }
 
         /// <summary>
