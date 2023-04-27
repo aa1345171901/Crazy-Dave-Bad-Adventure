@@ -25,7 +25,6 @@ public class BossAnimation : MonoBehaviour
 
     public void Dead()
     {
-        character.SkeletonAnimation.ClearState();
         var track = character.SkeletonAnimation.AnimationState.SetAnimation(0, DeadAnimation, false);
         track.Complete += (e) =>
         {
