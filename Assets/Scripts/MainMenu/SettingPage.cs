@@ -12,6 +12,7 @@ public class SettingPage : MonoBehaviour
     public Toggle fullScreen;
 
     public Dropdown dropdown;
+    public GameObject btnKeyChange;
 
     public GameObject ReadMe;
 
@@ -38,6 +39,11 @@ public class SettingPage : MonoBehaviour
 
     private void Start()
     {
+#if UNITY_ANDROID
+        dropdown.gameObject.SetActive(false);
+        fullScreen.transform.parent.gameObject.SetActive(false);
+        btnKeyChange.SetActive(false);
+#endif
         musicSlider.value = AudioManager.Instance.BackmusicPlayer.volume;
         effectSoundSlider.value = AudioManager.Instance.EffectPlayer.volume;
         fullScreen.isOn = Screen.fullScreen;

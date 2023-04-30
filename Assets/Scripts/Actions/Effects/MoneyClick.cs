@@ -20,9 +20,14 @@ public class MoneyClick : MonoBehaviour
     protected Vector3 speed;
     protected readonly float destroyTime = 0.5f;
 
+    private float radius = 66;
+    private Rect bounds;
+
     private void Start()
     {
         Destroy(gameObject, AvailableTime);
+        var screenPos = Camera.main.WorldToScreenPoint(this.transform.position);
+        bounds = new Rect(screenPos, new Vector2(radius, radius));
     }
 
     private void Update()
@@ -30,7 +35,23 @@ public class MoneyClick : MonoBehaviour
         if (IsExit)
             PlayExitAnimation();
         else
+        {
             PlayAnimation();
+#if UNITY_ANDROID
+            if (Input.touchCount > 0)
+            {
+                var touches = Input.touches;
+                for (int i = 0; i < touches.Length; i++)
+                {
+                    if (bounds.Contains(touches[i].position))
+                    {
+                        OnClick();
+                        break;
+                    }
+                }
+            }
+#endif
+        }
     }
 
     private void OnMouseEnter()

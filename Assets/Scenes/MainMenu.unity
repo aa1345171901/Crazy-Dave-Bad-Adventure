@@ -4925,10 +4925,10 @@ RectTransform:
   m_Father: {fileID: 1755762327}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -877.24, y: 51}
-  m_SizeDelta: {x: 169.17, y: 40}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 82.69995, y: 40}
+  m_SizeDelta: {x: 169.16992, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &757141376
 GameObject:
@@ -15548,6 +15548,7 @@ MonoBehaviour:
   effectSoundSlider: {fileID: 6921583554877244310}
   fullScreen: {fileID: 1540027108}
   dropdown: {fileID: 642051525}
+  btnKeyChange: {fileID: 6460438829545080661}
   ReadMe: {fileID: 371038260}
   KeyChangePage: {fileID: 1329817601}
   nowKeyChangeItem: {fileID: 0}
@@ -22928,7 +22929,7 @@ GameObject:
   - component: {fileID: 6460438829545080666}
   - component: {fileID: 6460438829545080667}
   m_Layer: 5
-  m_Name: BtnRestart
+  m_Name: BtnKeyChange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23862,9 +23863,9 @@ RectTransform:
   m_Father: {fileID: 1755762327}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -892.66003, y: 93.7}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 46.400024, y: 93.7}
   m_SizeDelta: {x: 200, y: 29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &6921583554965003248
@@ -23884,7 +23885,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0.00004053116}
+  m_AnchoredPosition: {x: 0, y: 0.000038146973}
   m_SizeDelta: {x: 0, y: 0.00013924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6921583554965003249
@@ -24011,7 +24012,7 @@ GameObject:
   - component: {fileID: 6921583555051787191}
   - component: {fileID: 6921583555051787184}
   m_Layer: 5
-  m_Name: BtnMainMenu
+  m_Name: BtnReadMe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24174,9 +24175,9 @@ RectTransform:
   m_Father: {fileID: 1755762327}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -892.66003, y: 137.7}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 47.599976, y: 135}
   m_SizeDelta: {x: 200, y: 29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6921583555677677705

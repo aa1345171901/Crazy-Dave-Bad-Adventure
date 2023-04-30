@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TopDownPlate;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -77,5 +78,10 @@ public class BattlePanel : BasePanel
     public void UpdatePlantPage()
     {
         plantCardPage.SetCard();
+    }
+
+    public void Pause()
+    {
+        GameManager.Instance.Pause();
     }
 }

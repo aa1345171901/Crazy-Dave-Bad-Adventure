@@ -23,7 +23,7 @@ public class GameTouch : EventTrigger
 	// 开始在屏幕上滑动
 	public override void OnDrag(PointerEventData data)
 	{
-		var mousePos = UIManager.Instance.UICamera.ScreenToWorldPoint(Input.mousePosition);
+		var mousePos = UIManager.Instance.UICamera.ScreenToWorldPoint(data.position);
 		Vector3 dir = new Vector3(mousePos.x, mousePos.y, rockerPos.z) - rockerPos;
 		if (Vector3.Distance(rockerScreenPos, Input.mousePosition) <= radius)
 		{

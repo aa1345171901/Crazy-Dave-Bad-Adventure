@@ -349,7 +349,7 @@ namespace TopDownPlate
                 }
                 else
                 {
-                    pausePanel = UIManager.Instance.PushPanel(UIPanelType.PausePanel) as PausePanel;
+                    Pause();
                 }
             }
             if (!IsDaytime)
@@ -359,6 +359,11 @@ namespace TopDownPlate
                     item.ProcessAbility();
                 }
             }
+        }
+
+        public void Pause()
+        {
+            pausePanel = UIManager.Instance.PushPanel(UIPanelType.PausePanel) as PausePanel;
         }
     }
 }

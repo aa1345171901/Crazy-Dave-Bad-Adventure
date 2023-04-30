@@ -5,14 +5,41 @@ using UnityEngine;
 
 public class RunButton : MonoBehaviour
 {
-    private void OnMouseDown()
+    private Camera UICamera;
+    private RectTransform rectTransform;
+    private Rect bounds;
+    private bool isDown;
+
+    private void Start()
     {
-        InputManager.GetKey("Run").IsDown = true;
-        InputManager.GetKey("Run").Down?.Invoke();
+        UICamera = UIManager.Instance.UICamera;
+        rectTransform = GetComponent<RectTransform>();
+        bounds = BoundsUtils.GetSceneRect(UICamera, rectTransform);
     }
 
-    private void OnMouseUp()
+    private void Update()
     {
-        InputManager.GetKey("Run").IsDown = false;
+        if (Input.touchCount > 0)
+        {
+            var touches = Input.touches;
+            for (int i = 0; i < touches.Length; i++)
+            {
+                if (bounds.Contains(touches[i].position))
+                {
+                    isDown = true;
+                    break;
+                }
+            }
+        }
+
+        if (isDown)
+        {
+            InputManager.GetKey("Run").IsDown = true;
+            InputManager.GetKey("Run").Down?.Invoke();
+        }
+        else
+        {
+            InputManager.GetKey("Run").IsDown = false;
+        }
     }
 }
