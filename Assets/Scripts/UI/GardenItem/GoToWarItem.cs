@@ -55,4 +55,9 @@ public class GoToWarItem : MonoBehaviour
         if (this.flowerPotGardenItem.PlantAttribute.isManual)
             this.gameObject.SetActive(true);
     }
+
+    public void SetCard()
+    {
+        gardenPlantCardPage.SetCard();
+    }
 }

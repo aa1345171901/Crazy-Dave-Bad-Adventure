@@ -311,4 +311,9 @@ public class PlantCultivationPage : MonoBehaviour
     {
         PlantConent.EmptyFlowerPot(flowerPotPosition);
     }
+
+    public void UpdateCard()
+    {
+        GoToWarItem.SetCard();
+    }
 }

@@ -181,5 +181,6 @@ public class PlantConent : MonoBehaviour
         else
             haveFlowerPotPos.Remove(flowerPotPosition);
         canLayUpFlowerPotPos.Add(flowerPotPosition);
+        plantCultivationPage.UpdateCard();
     }
 }
