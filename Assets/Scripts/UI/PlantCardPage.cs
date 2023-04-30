@@ -9,41 +9,53 @@ public class PlantCardPage : MonoBehaviour
 
     public List<Card> Cards;
 
-    public Animator animator;
-    private bool isExpand;
-
     [Tooltip("卡片是否在花园中")]
     public bool IsGarden;
+
+    public Animator animator;
+    private bool isExpand;
+    private Camera UICamera;
+    private RectTransform rectTransform;
+    private Rect bounds;
+    private bool isShowing;
 
     private void Start()
     {
         CreateCard();
+        UICamera = UIManager.Instance.UICamera;
+        rectTransform = GetComponent<RectTransform>();
+        bounds = BoundsUtils.GetSceneRect(UICamera, rectTransform);
+        bounds.y -= bounds.height * 3 / 4;
     }
 
-    private void OnMouseEnter()
+    private void Update()
     {
-        if (!isExpand && Time.timeScale != 0)
+        if (!isShowing)
         {
-            animator.SetTrigger("Enter");
-        }
-    }
-
-    private void OnMouseExit()
-    {
-        if (isExpand)
-        {
-            animator.SetTrigger("Exit");
+            // 判断鼠标是否在按钮范围内
+            if (bounds.Contains(Input.mousePosition) && !isExpand && Time.timeScale != 0)
+            {
+                isShowing = true;
+                animator.SetTrigger("Enter");
+            }
+            if (isExpand && !bounds.Contains(Input.mousePosition))
+            {
+                isShowing = true;
+                animator.SetTrigger("Exit");
+            }
         }
     }
 
     private void SetExpandTrue()
     {
         this.isExpand = true;
+        isShowing = false;
     }
 
     private void SetExpandFalse()
     {
         this.isExpand = false;
+        isShowing = false;
     }
 
     public void CreateCard()
@@ -58,7 +70,14 @@ public class PlantCardPage : MonoBehaviour
                 Cards.Add(card);
             }
             SetCard();
+            Invoke("DelaySetBounds", 0.1f);
         }
+    }
+
+    private void DelaySetBounds()
+    {
+        bounds = BoundsUtils.GetSceneRect(UICamera, rectTransform);
+        bounds.y -= bounds.height * 3 / 4;
     }
 
     public void SetCard()
