@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TopDownPlate;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -130,6 +131,14 @@ public class Card : MonoBehaviour
                 if (plantManual)
                     plantManual.InitPlant(this, sun);
             }
+        }
+        if (isGarden)
+        {
+            // 花园中点击去掉出战
+            GardenManager.Instance.CardslotPlant.Remove(this.PlantAttribute);
+            PlantCardPage plantCardPage = this.GetComponentInParent<PlantCardPage>();
+            plantCardPage.SetCard();
+            AudioManager.Instance.PlayEffectSoundByName("btnPressed", Random.Range(0.8f, 1.2f));
         }
     }
 
