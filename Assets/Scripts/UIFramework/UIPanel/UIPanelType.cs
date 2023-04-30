@@ -6,6 +6,7 @@ public enum UIPanelType
 {
     TipsPanel,
     BattlePanel,
+    MobieBattlePanel,
     ShopingPanel,
     AttributePanel,
     GardenPanel,

@@ -12,6 +12,11 @@
         },
 
         {
+            "panelTypeString": "MobieBattlePanel",
+            "path": "UIPanel/Mobie/BattlePanel"
+        },
+
+        {
             "panelTypeString": "AttributePanel",
             "path": "UIPanel/AttributePanel"
         },

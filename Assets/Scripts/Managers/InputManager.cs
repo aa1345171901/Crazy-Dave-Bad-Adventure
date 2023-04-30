@@ -20,7 +20,9 @@ namespace TopDownPlate
 
         private void Update()
         {
+#if !UNITY_ANDROID
             inputData.AcceptInput();
+#endif
         }
 
         public static float GetAxis(string name)

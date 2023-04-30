@@ -222,7 +222,11 @@ namespace TopDownPlate
         public void SetPlayer(Character character)
         {
             this.Player = character;
+#if !UNITY_ANDROID
             battlePanel = UIManager.Instance.PushPanel(UIPanelType.BattlePanel) as BattlePanel;
+#else
+            battlePanel = UIManager.Instance.PushPanel(UIPanelType.MobieBattlePanel) as BattlePanel;
+#endif
             vocalConcert = Player.GetComponentInChildren<VocalConcert>();
             pumpkinHead = Player.GetComponentInChildren<PumpkinHead>();
             pumpkinHead.gameObject.SetActive(false);

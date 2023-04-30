@@ -30,6 +30,7 @@ public class PlantCardPage : MonoBehaviour
 
     private void Update()
     {
+#if !UNITY_ANDROID
         if (!isShowing)
         {
             // 判断鼠标是否在按钮范围内
@@ -44,6 +45,7 @@ public class PlantCardPage : MonoBehaviour
                 animator.SetTrigger("Exit");
             }
         }
+#endif
     }
 
     private void SetExpandTrue()
