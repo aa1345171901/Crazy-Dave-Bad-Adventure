@@ -123,6 +123,7 @@ public class FlowerPotPosition : MonoBehaviour
             TempItemTarget.targetPlant.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
         }
         TempItemTarget.gameObject.SetActive(false);
+        GardenManager.Instance.IsMoving = false;
     }
 
     private void Update()

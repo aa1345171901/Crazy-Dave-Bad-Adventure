@@ -20,7 +20,7 @@ public class MoneyClick : MonoBehaviour
     protected Vector3 speed;
     protected readonly float destroyTime = 0.5f;
 
-    private float radius = 150;
+    private float radius = 200;
 
     private void Start()
     {
@@ -67,7 +67,7 @@ public class MoneyClick : MonoBehaviour
 
     private void OnMouseDown()
     {
-       // OnClick();
+        OnClick();
     }
 
     protected virtual void OnClick()

@@ -166,6 +166,11 @@ public class Card : MonoBehaviour
                     if (BoundsUtils.GetSceneRect(UIManager.Instance.UICamera, rectTransform).Contains(touches[i].position))
                     {
                         OnClick();
+                        var targetPos = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
+                        float x = targetPos.x - targetPos.x % 0.5f;
+                        // 0.5 刚好站在格子上
+                        float y = targetPos.y - targetPos.y % 0.5f;
+                        manualPlant.transform.position = new Vector3(x, y, 0);
                         break;
                     }
                 }

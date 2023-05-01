@@ -196,7 +196,10 @@ public class ShopManager : BaseManager<ShopManager>
             {
                 PropDicts[item.quality] = new List<PropCard>();
             }
-            PropDicts[item.quality].Add(item);                                                                                  
+#if UNITY_ANDROID
+            if (item.propName != "magnetic" && item.propName != "blackhole")
+#endif
+                PropDicts[item.quality].Add(item);                                                                                  
         }
 
         PlantLists = new List<PlantCard>();

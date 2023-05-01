@@ -54,6 +54,41 @@ public class ManualPlant : Plant
             GameObject.Destroy(this.gameObject);
         }
 
+#if UNITY_ANDROID
+        if (IsManual)
+        {
+            bool isPlace = true;
+            Vector2 touchPos = Vector2.zero;
+            if (Input.touchCount > 0)
+            {
+                var touches = Input.touches;
+                for (int i = 0; i < touches.Length; i++)
+                {
+                    if (GetBounds().Contains(touches[i].position))
+                    {
+                        isPlace = false;
+                        touchPos = touches[i].position;
+                        break;
+                    }
+                }
+            }
+
+            if (isPlace)
+                PlacePlant();
+            else
+            {
+                var targetPos = Camera.main.ScreenToWorldPoint(touchPos);
+                float x = targetPos.x - targetPos.x % 0.5f;
+                // 0.5 刚好站在格子上
+                float y = targetPos.y - targetPos.y % 0.5f;
+                this.transform.position = new Vector3(x, y, 0);
+                int sortingOrder = (int)((-y + 10) * 10);
+                plant.sortingOrder = sortingOrder;
+                image.sortingOrder = sortingOrder;
+                image.transform.position = new Vector3(targetPos.x, targetPos.y, 0);
+            }
+        }
+#else
         if (IsManual)
         {
             var targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -66,33 +101,15 @@ public class ManualPlant : Plant
             image.sortingOrder = sortingOrder;
             image.transform.position = new Vector3(targetPos.x, targetPos.y, 0);
         }
-
-#if UNITY_ANDROID
-        bool isPlace = true;
-        if (Input.touchCount > 0)
-        {
-            var touches = Input.touches;
-            for (int i = 0; i < touches.Length; i++)
-            {
-                if (GetBounds().Contains(touches[i].position))
-                {
-                    isPlace = false;
-                    break;
-                }
-            }
-        }
-
-        if (isPlace)
-            PlacePlant();
 #endif
     }
 
     private Rect GetBounds()
     {
         var screenPos = Camera.main.WorldToScreenPoint(this.transform.position);
-        screenPos.x -= 150 / 2;
-        screenPos.y -= 150 / 2;
-        return new Rect(screenPos, new Vector2(150, 150));
+        screenPos.x -= 500 / 2;
+        screenPos.y -= 500 / 2;
+        return new Rect(screenPos, new Vector2(500, 500));
     }
 
     protected virtual void PlacePlant()
