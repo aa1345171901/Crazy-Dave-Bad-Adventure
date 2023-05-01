@@ -23,15 +23,15 @@ public class PlantCardPage : MonoBehaviour
     {
         CreateCard();
         UICamera = UIManager.Instance.UICamera;
-        rectTransform = GetComponent<RectTransform>();
-        bounds = BoundsUtils.GetSceneRect(UICamera, rectTransform);
+        rectTransform = content.GetComponent<RectTransform>();
+        bounds = BoundsUtils.GetAnchorLeftRect(UICamera, rectTransform);
         bounds.y -= bounds.height * 3 / 4;
     }
 
     private void Update()
     {
 #if !UNITY_ANDROID
-        if (!isShowing)
+        if (!isShowing && !IsGarden)
         {
             // 判断鼠标是否在按钮范围内
             if (bounds.Contains(Input.mousePosition) && !isExpand && Time.timeScale != 0)
@@ -78,7 +78,7 @@ public class PlantCardPage : MonoBehaviour
 
     private void DelaySetBounds()
     {
-        bounds = BoundsUtils.GetSceneRect(UICamera, rectTransform);
+        bounds = BoundsUtils.GetAnchorLeftRect(UICamera, rectTransform);
         bounds.y -= bounds.height * 3 / 4;
     }
 
