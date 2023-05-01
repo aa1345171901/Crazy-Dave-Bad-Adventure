@@ -29,7 +29,7 @@ public class GardenPropPage : MonoBehaviour
             item.enabled = false;
         }
         boxCollider2D = GetComponent<BoxCollider2D>();
-        Invoke("Init", 0.1f);   
+        Invoke("Init", 0.1f);
     }
 
     private void Init()
@@ -82,7 +82,7 @@ public class GardenPropPage : MonoBehaviour
         if (!isInit)
             return;
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
         {
             GardenManager.Instance.IsSelling = GardenManager.Instance.IsMoving = GardenManager.Instance.IsShoveling = false;
             AudioManager.Instance.PlayEffectSoundByName("BtnGarden");

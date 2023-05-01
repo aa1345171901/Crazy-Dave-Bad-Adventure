@@ -18,6 +18,9 @@ public class Card : MonoBehaviour
     private bool isGarden;
     private int sun;
     private float lastTimer;  // 上次种植时间
+    private RectTransform rectTransform;
+
+    private ManualPlant manualPlant;
 
     private readonly int LevelSunReduced = -25;
 
@@ -44,6 +47,8 @@ public class Card : MonoBehaviour
                 }
             }
         };
+
+        rectTransform = GetComponent<RectTransform>();
     }
 
     public void SetPlant(PlantAttribute plantAttribute, bool isGarden)
@@ -127,9 +132,9 @@ public class Card : MonoBehaviour
             {
                 var plant = GameObject.Instantiate(plantPrefab);
                 plant.plantAttribute = PlantAttribute;
-                var plantManual = plant.GetComponent<ManualPlant>();
-                if (plantManual)
-                    plantManual.InitPlant(this, sun);
+                manualPlant = plant.GetComponent<ManualPlant>();
+                if (manualPlant)
+                    manualPlant.InitPlant(this, sun);
             }
         }
         if (isGarden)
@@ -149,10 +154,29 @@ public class Card : MonoBehaviour
             float process = 1 - (Time.time - lastTimer) / coolTimer;
             coolMask.localScale = new Vector3(1, process, 1);
         }
+
+#if UNITY_ANDROID
+        if (!isGarden && Time.time - lastTimer > coolTimer && manualPlant == null)
+        {
+            if (Input.touchCount > 0)
+            {
+                var touches = Input.touches;
+                for (int i = 0; i < touches.Length; i++)
+                {
+                    if (BoundsUtils.GetSceneRect(UIManager.Instance.UICamera, rectTransform).Contains(touches[i].position))
+                    {
+                        OnClick();
+                        break;
+                    }
+                }
+            }
+        }
+#endif
     }
 
     public void PlacePlant()
     {
         lastTimer = Time.time;
+        manualPlant = null;
     }
 }

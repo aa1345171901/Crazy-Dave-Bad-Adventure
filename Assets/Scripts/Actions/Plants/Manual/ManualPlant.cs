@@ -49,7 +49,7 @@ public class ManualPlant : Plant
             PlacePlant();
         }
         // Êó±êÓÒ¼üÈ¡Ïû
-        if (Input.GetMouseButtonDown(1) && IsManual)
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1) && IsManual)
         {
             GameObject.Destroy(this.gameObject);
         }
@@ -66,6 +66,33 @@ public class ManualPlant : Plant
             image.sortingOrder = sortingOrder;
             image.transform.position = new Vector3(targetPos.x, targetPos.y, 0);
         }
+
+#if UNITY_ANDROID
+        bool isPlace = true;
+        if (Input.touchCount > 0)
+        {
+            var touches = Input.touches;
+            for (int i = 0; i < touches.Length; i++)
+            {
+                if (GetBounds().Contains(touches[i].position))
+                {
+                    isPlace = false;
+                    break;
+                }
+            }
+        }
+
+        if (isPlace)
+            PlacePlant();
+#endif
+    }
+
+    private Rect GetBounds()
+    {
+        var screenPos = Camera.main.WorldToScreenPoint(this.transform.position);
+        screenPos.x -= 150 / 2;
+        screenPos.y -= 150 / 2;
+        return new Rect(screenPos, new Vector2(150, 150));
     }
 
     protected virtual void PlacePlant()

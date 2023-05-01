@@ -19,6 +19,7 @@ public class RunButton : MonoBehaviour
 
     private void Update()
     {
+        isDown = false;
         if (Input.touchCount > 0)
         {
             var touches = Input.touches;

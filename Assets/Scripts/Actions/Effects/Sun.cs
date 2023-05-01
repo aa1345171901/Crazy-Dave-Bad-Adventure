@@ -19,7 +19,7 @@ public class Sun : MoneyClick
 
     private void OnMouseDown()
     {
-        OnClick();
+        //OnClick();
     }
 
     protected override void NumAdd()

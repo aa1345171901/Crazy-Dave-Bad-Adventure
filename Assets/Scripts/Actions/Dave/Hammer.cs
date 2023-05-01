@@ -43,7 +43,14 @@ public class Hammer : BaseProp
 
     public override void ProcessAbility()
     {
-        if (Input.GetMouseButtonDown(0) && Time.time - lastAttackTimer >= finalAttackCoolingTime)
+        bool hasDown = false;
+#if UNITY_ANDROID
+        hasDown = Input.touchCount > 0;
+#else
+        hasDown = Input.GetMouseButtonDown(0);
+#endif
+
+        if (hasDown && Time.time - lastAttackTimer >= finalAttackCoolingTime)
         {
             audioSource.pitch = Random.Range(0.9f, 1.1f);
             audioSource.Play();

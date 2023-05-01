@@ -164,7 +164,7 @@ public class FlowerPotPosition : MonoBehaviour
                 }
             }
 
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape))
                 DestroyTemp();
         }
     }

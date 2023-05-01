@@ -20,14 +20,11 @@ public class MoneyClick : MonoBehaviour
     protected Vector3 speed;
     protected readonly float destroyTime = 0.5f;
 
-    private float radius = 66;
-    private Rect bounds;
+    private float radius = 150;
 
     private void Start()
     {
         Destroy(gameObject, AvailableTime);
-        var screenPos = Camera.main.WorldToScreenPoint(this.transform.position);
-        bounds = new Rect(screenPos, new Vector2(radius, radius));
     }
 
     private void Update()
@@ -43,7 +40,7 @@ public class MoneyClick : MonoBehaviour
                 var touches = Input.touches;
                 for (int i = 0; i < touches.Length; i++)
                 {
-                    if (bounds.Contains(touches[i].position))
+                    if (GetBounds().Contains(touches[i].position))
                     {
                         OnClick();
                         break;
@@ -54,6 +51,14 @@ public class MoneyClick : MonoBehaviour
         }
     }
 
+    private Rect GetBounds()
+    {
+        var screenPos = Camera.main.WorldToScreenPoint(this.transform.position);
+        screenPos.x -= radius / 2;
+        screenPos.y -= radius / 2;
+        return new Rect(screenPos, new Vector2(radius, radius));
+    }
+
     private void OnMouseEnter()
     {
         if (GameManager.Instance.HaveMagnetic)
@@ -62,7 +67,7 @@ public class MoneyClick : MonoBehaviour
 
     private void OnMouseDown()
     {
-        OnClick();
+       // OnClick();
     }
 
     protected virtual void OnClick()
