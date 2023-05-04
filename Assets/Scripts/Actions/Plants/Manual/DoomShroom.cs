@@ -56,22 +56,26 @@ public class DoomShroom : AshPlant
                 var health = zombie.Health;
                 float random = Random.Range(0, 1f);
                 // ¡¢º¥À¿Õˆ
-                if (random < immediateMortalityRate)
+                if (random < immediateMortalityRate && zombie.tag != "BigZombie")
                 {
                     sumHealth += health.maxHealth;
                     health.DoDamage(health.maxHealth, DamageType.Bomb, true);
                 }
-                else
+                else 
                 {
-                    sumHealth += finalDamage > health.health ? health.health : finalDamage;
-                    health.DoDamage(finalDamage, DamageType.Bomb);
+                    if (increasedInjury > 0 && zombie.tag == "BigZombie")
+                    {
+                        int damage = (int)(finalDamage * increasedInjury);
+                        sumHealth += damage > health.health ? health.health : damage;
+                        health.DoDamage(damage, DamageType.Bomb);
+                    }
+                    else
+                    {
+                        sumHealth += finalDamage > health.health ? health.health : finalDamage;
+                        health.DoDamage(finalDamage, DamageType.Bomb);
+                    }
                 }
             }
-        }
-
-        if (increasedInjury > 0)
-        {
-            // todo ¥Û–ÕΩ© ¨
         }
 
         if (sunConversionRate != 0)

@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Squash : ManualPlant
 {
-    [Tooltip("大型僵尸目标")]
-    public LayerMask BigTargetLayer;
     [Tooltip("阳光预知体，转换的阳光直接收集")]
     public Sun sun;
     public AudioClip sit;
@@ -155,15 +153,8 @@ public class Squash : ManualPlant
     private void Attack()
     {
         int sumHealth = 0;
-        LayerMask targetLayer = increasedInjury > 0 ? TargetLayer : TargetLayer | BigTargetLayer;
-        var colliders = Physics2D.OverlapCircleAll(this.transform.position, 1, targetLayer);
+        var colliders = Physics2D.OverlapCircleAll(this.transform.position, 1, TargetLayer);
         DoDamage(colliders, ref sumHealth);
-
-        if (increasedInjury > 0)
-        {
-            colliders = Physics2D.OverlapCircleAll(this.transform.position, 1, BigTargetLayer);
-            IncreasedInjury(colliders, ref sumHealth);
-        }
 
         if (sunConversionRate != 0)
         {
@@ -173,7 +164,7 @@ public class Squash : ManualPlant
         }
     }
 
-    private void DoDamage(Collider2D[] colliders, ref int sumHealth)
+    protected void DoDamage(Collider2D[] colliders, ref int sumHealth)
     {
         foreach (var item in colliders)
         {
@@ -184,15 +175,24 @@ public class Squash : ManualPlant
                 {
                     float random = Random.Range(0, 1f);
                     // 立即死亡
-                    if (random < immediateMortalityRate && TargetLayer.Contains(item.gameObject.layer))
+                    if (random < immediateMortalityRate && item.tag != "BigZombie")
                     {
                         sumHealth += health.maxHealth;
-                        health.DoDamage(health.maxHealth, DamageType.Squash, true);
+                        health.DoDamage(health.maxHealth, DamageType.Bomb, true);
                     }
                     else
                     {
-                        sumHealth += finalDamage > health.health ? health.health : finalDamage;
-                        health.DoDamage(finalDamage, DamageType.Squash);
+                        if (increasedInjury > 0 && item.tag == "BigZombie")
+                        {
+                            int damage = (int)(finalDamage * increasedInjury);
+                            sumHealth += damage > health.health ? health.health : damage;
+                            health.DoDamage(damage, DamageType.Bomb);
+                        }
+                        else
+                        {
+                            sumHealth += finalDamage > health.health ? health.health : finalDamage;
+                            health.DoDamage(finalDamage, DamageType.Bomb);
+                        }
                     }
                 }
             }
