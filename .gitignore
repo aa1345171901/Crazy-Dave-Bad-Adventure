@@ -12,4 +12,3 @@ Assembly-CSharp-Editor.csproj
 /[Bb]uild/
 /[Bb]uilds/
 *.csproj
-/Packages

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TopDownPlate;
 using UnityEngine;
 
+/// <summary>
+/// æˆ˜æ–—ä¸­é™¤è§’è‰²å¤–æ•°æ®
+/// </summary>
 public class PurchasedPropsAndPlants
 {
     public int WaveIndex;
@@ -12,9 +15,17 @@ public class PurchasedPropsAndPlants
     public List<PropCard> PurchasedProps;
     public List<PlantAttribute> PlantAttributes;
     public int MaxSolt = 2;
-    public List<int> SoltIndex;  // ¿¨²Û¶ÔÓ¦ÔÚPlantAttributesÖĞ,listÖµ¶ÔÓ¦ÏÂ±ê£¬ĞÎ³ÉĞÂµÄÒıÓÃ
-    public List<CraterPos> CraterPoses;  // »ÙÃğ¹½Ôì³ÉµÄ¿Ó
-    public List<string> earth; // »¨ÅèµÄÄàÍÁÎ»ÖÃĞÅÏ¢
+    public List<int> SoltIndex;  // å¡æ§½å¯¹åº”åœ¨PlantAttributesä¸­,listå€¼å¯¹åº”ä¸‹æ ‡ï¼Œå½¢æˆæ–°çš„å¼•ç”¨
+    public List<CraterPos> CraterPoses;  // æ¯ç­è‡é€ æˆçš„å‘
+    public List<string> earth; // èŠ±ç›†çš„æ³¥åœŸä½ç½®ä¿¡æ¯
+}
+
+public class SpecialData
+{
+    /// <summary>
+    /// æ‰“æ‰“åƒµç‹æ¨¡å¼
+    /// </summary>
+    public int bossMode;
 }
 
 public class SaveManager
@@ -30,17 +41,24 @@ public class SaveManager
         }
     }
 
-    public SystemData SystemData { get; protected set; } = new SystemData();
+    public SystemData systemData { get; protected set; } = new SystemData();
+
+    public SpecialData specialData { get; protected set; } = new SpecialData();
 
     /// <summary>
-    ///  ÅĞ¶ÏÊÇ·ñÓĞ³É¹¦¶ÁÈ¡£¬Ã»ÓĞÔòÊÇÖØĞÂ¿ªÊ¼
+    ///  åˆ¤æ–­æ˜¯å¦æœ‰æˆåŠŸè¯»å–ï¼Œæ²¡æœ‰åˆ™æ˜¯é‡æ–°å¼€å§‹
     /// </summary>
     public bool IsLoadUserData { get; set; }
 
     /// <summary>
-    /// ´ò´ò½©ÍõÄ£Ê½
+    /// æ‰“æ‰“åƒµç‹æ¨¡å¼
     /// </summary>
     public bool IsBossMode { get; set; }
+
+    private readonly string userDataPath = Application.persistentDataPath + "/SaveData/UserData.data";
+    private readonly string itemsDataPath = Application.persistentDataPath + "/SaveData/ItemsData.data";
+    private readonly string specialDataPath = Application.persistentDataPath + "/SaveData/SpecailData.data";
+    private readonly string systemDataPath = Application.persistentDataPath + "/SaveData/SystemData.data";
 
     private SaveManager()
     {
@@ -49,37 +67,48 @@ public class SaveManager
 
     private void LoadData()
     {
-        string soundsVolumeDataStr = PlayerPrefs.GetString("SystemData");
-        if (!string.IsNullOrEmpty(soundsVolumeDataStr))
+        string systemDataStr = FileTool.ReadText(systemDataPath);
+        Debug.Log("read systemDataStr:" + systemDataStr);
+        if (!string.IsNullOrEmpty(systemDataStr))
         {
-            SystemData = JsonUtility.FromJson<SystemData>(soundsVolumeDataStr);
+            systemData = JsonUtility.FromJson<SystemData>(systemDataStr);
         }
     }
 
     public void SaveSystemData()
     {
-        PlayerPrefs.SetString("SystemData", JsonUtility.ToJson(SystemData));
+        string systemDataStr = JsonUtility.ToJson(systemData);
+        Debug.Log("systemDataStr:" + systemDataStr);
+        FileTool.WriteText(systemDataPath, systemDataStr);
     }
 
     public void LoadUserData()
     {
-        // ´ò´ò½©ÍõÄ£Ê½²»½øĞĞÊı¾İ¶ÁÈ¡
-        IsBossMode = PlayerPrefs.GetInt("BossMode", 0) == 1;
-        DeleteBossMode();
+        string specialDataStr = FileTool.ReadText(specialDataPath);
+        Debug.Log("read specialDataStr:" + specialDataStr);
+        if (!string.IsNullOrEmpty(specialDataStr))
+        {
+            specialData = JsonUtility.FromJson<SpecialData>(specialDataStr);
+        }
+        // æ‰“æ‰“åƒµç‹æ¨¡å¼ä¸è¿›è¡Œæ•°æ®è¯»å–
+        IsBossMode = specialData.bossMode == 1;
+        SetBossMode(0);
         if (IsBossMode)
         {
             IsLoadUserData = true;
             return;
         }
 
-        string userDataStr = PlayerPrefs.GetString("UserData");
+        string userDataStr = FileTool.ReadText(userDataPath);
+        Debug.Log("read userDataStr:" + userDataStr);
         if (!string.IsNullOrEmpty(userDataStr))
         {
             GameManager.Instance.UserData = JsonUtility.FromJson<UserData>(userDataStr);
             IsLoadUserData = true;
         }
 
-        string saveDataStructStr = PlayerPrefs.GetString("PurchasedPropsAndPlants");
+        string saveDataStructStr = FileTool.ReadText(itemsDataPath);
+        Debug.Log("read saveDataStructStr:" + saveDataStructStr);
         if (!string.IsNullOrEmpty(saveDataStructStr))
         {
             PurchasedPropsAndPlants saveDataStruct = JsonUtility.FromJson<PurchasedPropsAndPlants>(saveDataStructStr);
@@ -105,8 +134,7 @@ public class SaveManager
     public bool JudgeData()
     {
         bool result = false;
-        string userDataStr = PlayerPrefs.GetString("UserData");
-        if (!string.IsNullOrEmpty(userDataStr))
+        if (FileTool.FileExists(userDataPath))
         {
             result = true;
         }
@@ -115,7 +143,9 @@ public class SaveManager
 
     public void SaveUserData()
     {
-        PlayerPrefs.SetString("UserData", JsonUtility.ToJson(GameManager.Instance.UserData));
+        string userDataStr = JsonUtility.ToJson(GameManager.Instance.UserData);
+        Debug.Log("userDataStr:" + userDataStr);
+        FileTool.WriteText(userDataPath, userDataStr);
 
         PurchasedPropsAndPlants saveDataStruct = new PurchasedPropsAndPlants();
         saveDataStruct.PurchasedProps = ShopManager.Instance.PurchasedProps;
@@ -139,34 +169,32 @@ public class SaveManager
         saveDataStruct.SoltIndex = soltPlantIndex;
         saveDataStruct.CraterPoses = GardenManager.Instance.CraterPoses;
         saveDataStruct.earth = GardenManager.Instance.earth;
-        PlayerPrefs.SetString("PurchasedPropsAndPlants", JsonUtility.ToJson(saveDataStruct));
+        string itemsDataStr = JsonUtility.ToJson(saveDataStruct);
+        Debug.Log("itemsDataStr:" + itemsDataStr);
+        FileTool.WriteText(itemsDataPath, itemsDataStr);
     }
 
     /// <summary>
-    /// ¿ªÊ¼ÓÎÏ·Ê±µã»÷ÖØĞÂ¿ªÊ¼,»òÕßÔİÍ£Ò³Ãæ£¬»òÕßËÀÍöÔòÉ¾³ı´æµµ
+    /// å¼€å§‹æ¸¸æˆæ—¶ç‚¹å‡»é‡æ–°å¼€å§‹,æˆ–è€…æš‚åœé¡µé¢ï¼Œæˆ–è€…æ­»äº¡åˆ™åˆ é™¤å­˜æ¡£
     /// </summary>
     public void DeleteUserData()
     {
-        // ´ò´ò½©ÍõÄ£Ê½²»É¾³ıÔ­´æµµ
+        // æ‰“æ‰“åƒµç‹æ¨¡å¼ä¸åˆ é™¤åŸå­˜æ¡£
         if (IsBossMode)
             return;
-        PlayerPrefs.DeleteKey("UserData");
-        PlayerPrefs.DeleteKey("PurchasedPropsAndPlants");
+        // å¤‡ä»½æˆ˜æ–—å­˜æ¡£ä¸Šä¸€æ¬¡çš„ä¸€ä»½
+        FileTool.FileMove(userDataPath, userDataPath.Replace("UserData.data", "UserData1.data"));
+        FileTool.FileMove(itemsDataPath, itemsDataPath.Replace("ItemsData.data", "ItemsData1.data"));
     }
 
     /// <summary>
-    /// ÉèÖÃ´ò´ò½©ÍõÄ£Ê½
+    /// è®¾ç½®æ‰“æ‰“åƒµç‹æ¨¡å¼
     /// </summary>
-    public void SetBossMode()
+    public void SetBossMode(int bossMode = 1)
     {
-        PlayerPrefs.SetInt("BossMode", 1);
-    }
-
-    /// <summary>
-    /// ¼ÓÔØÍêÖ®ºó¾Í¹Ø±Õ´ò´ò½©ÍõÄ£Ê½
-    /// </summary>
-    public void DeleteBossMode()
-    {
-        PlayerPrefs.DeleteKey("BossMode");
+        specialData.bossMode = bossMode;
+        string specialDataStr = JsonUtility.ToJson(specialData);
+        Debug.Log("specialDataStr:" + specialDataStr);
+        FileTool.WriteText(specialDataPath, specialDataStr);
     }
 }

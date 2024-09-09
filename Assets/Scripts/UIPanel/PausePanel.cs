@@ -18,7 +18,7 @@ public class PausePanel : BasePanel
     {
         base.OnEnter();
         this.gameObject.SetActive(true);
-        this.transform.SetSiblingIndex(this.transform.parent.childCount - 1);  // ÉèÖÃ×îºóÒ»¸öäÖÈ¾
+        this.transform.SetSiblingIndex(this.transform.parent.childCount - 1);  // è®¾ç½®æœ€åä¸€ä¸ªæ¸²æŸ“
         Time.timeScale = 0;
         AudioManager.Instance.PlayEffectSoundByName("pause");
         AudioManager.Instance.PlayMenuMusic(0.2f);
@@ -27,14 +27,14 @@ public class PausePanel : BasePanel
         UIManager.Instance.PushPanel(UIPanelType.AttributePanel);
         BagPanel bagpanel = UIManager.Instance.PushPanel(UIPanelType.BagPanel) as BagPanel;
         bagpanel.AutoClose = false;
-        hudToggle.isOn = SaveManager.Instance.SystemData.IsHUD;
+        hudToggle.isOn = SaveManager.Instance.systemData.IsHUD;
     }
 
     public override void OnExit()
     {
         base.OnExit();
         this.gameObject.SetActive(false);
-        AudioManager.Instance.SaveVolumeData();  // Ö»ÔÚÍË³ö½çÃæÊ±±£´æÒôÁ¿Êı¾İ
+        AudioManager.Instance.SaveVolumeData();  // åªåœ¨é€€å‡ºç•Œé¢æ—¶ä¿å­˜éŸ³é‡æ•°æ®
         Time.timeScale = 1;
         AudioManager.Instance.ResumeMusic();
     }
@@ -73,7 +73,7 @@ public class PausePanel : BasePanel
 
     public void SetHUD(bool value)
     {
-        SaveManager.Instance.SystemData.IsHUD = value;
+        SaveManager.Instance.systemData.IsHUD = value;
     }
 
     public void Close()

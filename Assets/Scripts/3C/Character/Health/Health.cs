@@ -7,7 +7,7 @@ using UnityEngine.Events;
 namespace TopDownPlate
 {
     /// <summary>
-    /// ÉËº¦ÀàĞÍ£¬Ò²¿É×÷ÓÚ³É¾ÍµÄÍ³¼Æ
+    /// ä¼¤å®³ç±»å‹ï¼Œä¹Ÿå¯ä½œäºæˆå°±çš„ç»Ÿè®¡
     /// </summary>
     public enum DamageType
     {
@@ -18,15 +18,15 @@ namespace TopDownPlate
         VocalConcert,
         Fire,
         ZombieFly,
-        ZombieHurEachOther,  // ÓÎÏ·½áÊøºó»¥ÏàÉËº¦
-        PlantBullet,  // Íã¶¹
-        Chomper,   // ´ó×ì»¨
+        ZombieHurEachOther,  // æ¸¸æˆç»“æŸåäº’ç›¸ä¼¤å®³
+        PlantBullet,  // è±Œè±†
+        Chomper,   // å¤§å˜´èŠ±
         Cactus,
         Bomb,
         Cornpult,
         FumeShroom,
         Gravebuster,
-        ScaredyShroom,  // µ¨Ğ¡¹½Ôú
+        ScaredyShroom,  // èƒ†å°è‡æ‰
         Spikeweed,
         TallNut,
         WallNut,
@@ -35,9 +35,9 @@ namespace TopDownPlate
 
     public class HUDPos
     {
-        public Vector3 targetPos;  // ÎÄ±¾µÄÎ»ÖÃ
-        public Vector3 screenPos; // ×ª»»µÄÆÁÄ»×ø±ê
-        public Vector3 guiPos; // GuiµÄÏÔÊ¾Î»ÖÃ
+        public Vector3 targetPos;  // æ–‡æœ¬çš„ä½ç½®
+        public Vector3 screenPos; // è½¬æ¢çš„å±å¹•åæ ‡
+        public Vector3 guiPos; // Guiçš„æ˜¾ç¤ºä½ç½®
         public Vector3 offset;
         public string hudValue;
         public bool isRecovery;
@@ -48,26 +48,26 @@ namespace TopDownPlate
     public class Health : MonoBehaviour
     {
         [Header("HealthParameter")]
-        [Tooltip("µ±Ç°ÉúÃüÖµ")]
+        [Tooltip("å½“å‰ç”Ÿå‘½å€¼")]
         public int health = 1;
-        [Tooltip("×î´óÉúÃüÖµ")]
+        [Tooltip("æœ€å¤§ç”Ÿå‘½å€¼")]
         public int maxHealth = 1;
-        [Tooltip("ÎŞµĞÊ±¼ä")]
+        [Tooltip("æ— æ•Œæ—¶é—´")]
         public float InvincibleTime = 0.5f;
 
         [Space(10)]
         [Header("Event")]
-        [Tooltip("ÊÜÉËÊÂ¼ş")]
+        [Tooltip("å—ä¼¤äº‹ä»¶")]
         public UnityEvent<DamageType> Injured;
-        [Tooltip("ËÀÍöÊÂ¼ş")]
-        public UnityEvent<DamageType> Dead;   // DamageTypeÅĞ¶ÏÉËº¦À´Ô´
+        [Tooltip("æ­»äº¡äº‹ä»¶")]
+        public UnityEvent<DamageType> Dead;   // DamageTypeåˆ¤æ–­ä¼¤å®³æ¥æº
         public Action DeadAction;
 
         private Character character;
         private float lastInjuryTime = float.MinValue;
 
         private float finalArmor;
-        private List<HUDPos> hudLists = new List<HUDPos>();  // ÎÄ±¾µÄÎ»ÖÃ
+        private List<HUDPos> hudLists = new List<HUDPos>();  // æ–‡æœ¬çš„ä½ç½®
         private float hudShowTime = 0.5f;
         private int fontSize;
 
@@ -146,8 +146,8 @@ namespace TopDownPlate
                 health -= damage;
             }
 
-            // ÉËº¦hud
-            if (SaveManager.Instance.SystemData.IsHUD && gameObject.activeSelf)
+            // ä¼¤å®³hud
+            if (SaveManager.Instance.systemData.IsHUD && gameObject.activeSelf)
                 SetHUD(-damage, isCriticalHit);
 
             if (health <= 0)
@@ -204,10 +204,10 @@ namespace TopDownPlate
             {
                 item.targetPos += item.offset;
 
-                // ÆÁÄ»×ø±ê×óÉÏÎª0£¬0 ÓÒÏÂÎª screen.width, height
+                // å±å¹•åæ ‡å·¦ä¸Šä¸º0ï¼Œ0 å³ä¸‹ä¸º screen.width, height
                 item.screenPos = Camera.main.WorldToScreenPoint(item.targetPos);
 
-                // gui×ø±ê×óÏÂÎª0£¬0 ÓÒÉÏÎª screen.width, height
+                // guiåæ ‡å·¦ä¸‹ä¸º0ï¼Œ0 å³ä¸Šä¸º screen.width, height
                 item.guiPos = new Vector2(item.screenPos.x, Screen.height - item.screenPos.y);
             }
         }
@@ -243,7 +243,7 @@ namespace TopDownPlate
                 health = maxHealth;
             else
                 health += value;
-            if (SaveManager.Instance.SystemData.IsHUD)
+            if (SaveManager.Instance.systemData.IsHUD)
                 SetHUD(value);
         }
     }

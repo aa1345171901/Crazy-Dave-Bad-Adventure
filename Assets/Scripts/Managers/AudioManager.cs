@@ -58,10 +58,10 @@ namespace TopDownPlate
             BackmusicPlayer = gameObject.AddComponent<AudioSource>();
             BackmusicPlayer.loop = true;
             BackmusicPlayer.playOnAwake = false;
-            BackmusicPlayer.volume = SaveManager.Instance.SystemData.MusicVolume;
+            BackmusicPlayer.volume = SaveManager.Instance.systemData.MusicVolume;
             EffectPlayer = gameObject.AddComponent<AudioSource>();
             EffectPlayer.playOnAwake = false;
-            EffectPlayer.volume = SaveManager.Instance.SystemData.SoundEffectVolume;
+            EffectPlayer.volume = SaveManager.Instance.systemData.SoundEffectVolume;
             AudioLists.AddRange(ZombieSounds);
         }
 
@@ -81,8 +81,8 @@ namespace TopDownPlate
 
         public void SaveVolumeData()
         {
-            SaveManager.Instance.SystemData.MusicVolume = BackmusicPlayer.volume;
-            SaveManager.Instance.SystemData.SoundEffectVolume = EffectPlayer.volume;
+            SaveManager.Instance.systemData.MusicVolume = BackmusicPlayer.volume;
+            SaveManager.Instance.systemData.SoundEffectVolume = EffectPlayer.volume;
             SaveManager.Instance.SaveSystemData();
         }
 
