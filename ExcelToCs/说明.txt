@@ -1,0 +1,6 @@
+导出配置需要安装node.js
+https://nodejs.org/en
+
+如果增加了新表则需要双击导出配置_全部导出
+如果只更改了表内容则只需要双击导出配置
+表导出到代码工程的Scripts/ConfPack中

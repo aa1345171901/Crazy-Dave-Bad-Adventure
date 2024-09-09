@@ -9,70 +9,43 @@ using UnityEngine.UI;
 public enum PropDamageType
 {
     None,
-    LawnMower,  // Ğ¡ÍÆ³µ
-    Fire,  // »ğÑæ
+    LawnMower,  // å°æ¨è½¦
+    Fire,  // ç«ç„°
     Hammer,
     VocalConcert,
 }
 
 [Serializable]
-public class PropCard : ISerializationCallbackReceiver
+public class PropCard
 {
     public string propName;
     public string propImagePath;
     public int defaultPrice;
-    public int defaultSun;
     public string info;
     public int quality;
     public List<AttributeIncrement> attributes;
 
-    // ÒÔÏÂÎª¿ÉÑ¡
-    public string preconditions;  // ½âËøµÄÇ°ÖÃÌõ¼şµÄ³É¾ÍÃû³Æ
+    // ä»¥ä¸‹ä¸ºå¯é€‰
+    public string preconditions;  // è§£é”çš„å‰ç½®æ¡ä»¶çš„æˆå°±åç§°
     public PropDamageType propDamageType;
-    [HideInInspector]
-    public string propDamageTypeString = "None";
     public int defalutDamage;
     public float coolingTime;
-
-    public void OnAfterDeserialize()
-    {
-        PropDamageType type = (PropDamageType)System.Enum.Parse(typeof(PropDamageType), propDamageTypeString);
-        propDamageType = type;
-    }
-
-    public void OnBeforeSerialize()
-    {
-
-    }
 }
 
 [Serializable]
-public class AttributeIncrement : ISerializationCallbackReceiver
+public class AttributeIncrement
 {
     public AttributeType attributeType;
-    [HideInInspector]
-    public string attributeTypeString;
     public int increment;
-
-    public void OnAfterDeserialize()
-    {
-        AttributeType type = (AttributeType)System.Enum.Parse(typeof(AttributeType), attributeTypeString);
-        attributeType = type;
-    }
-
-    public void OnBeforeSerialize()
-    {
-
-    }
 }
 
 public class PropCardItem : ShopItem
 {
-    [Header("µÀ¾ßÌØÓĞ")]
+    [Header("é“å…·ç‰¹æœ‰")]
     public string propName;
     public Image Prop;
 
-    public List<AttributeIncrement> AttributeDicts; // Ôö¼ÓµÄÊôĞÔ¼¯
+    public List<AttributeIncrement> AttributeDicts; // å¢åŠ çš„å±æ€§é›†
 
     public AttributePanel attributePanel;
 
@@ -88,7 +61,7 @@ public class PropCardItem : ShopItem
         Sprite image = Resources.Load<Sprite>(propCard.propImagePath);
         this.Prop.sprite = image;
 
-        // ÉÌÆ·¼Û¸ñÉèÖÃ   Ã¿²¨¹ıºóµÀ¾ß¼Û¸ñÅòÕÍÂÊ£¬ °×É«Îª ²¨Êı / 3  À¶É«Îª ²¨Êı / 5  ×ÏÉ«Îª ²¨Êı / 6  ºìÉ«Îª ²¨Êı / 8
+        // å•†å“ä»·æ ¼è®¾ç½®   æ¯æ³¢è¿‡åé“å…·ä»·æ ¼è†¨èƒ€ç‡ï¼Œ ç™½è‰²ä¸º æ³¢æ•° / 3  è“è‰²ä¸º æ³¢æ•° / 5  ç´«è‰²ä¸º æ³¢æ•° / 6  çº¢è‰²ä¸º æ³¢æ•° / 8
         float wave = LevelManager.Instance.IndexWave;
         switch (propCard.quality)
         {
@@ -130,8 +103,8 @@ public class PropCardItem : ShopItem
                     finalDamage = Mathf.RoundToInt((userData.Power + propCard.defalutDamage) * (100f + userData.PercentageDamage) / 100);
                     finalAttackCoolingTime = propCard.coolingTime * (1 - userData.Speed / (100f + userData.Speed));
                     this.Info = string.Format(this.propCard.info,
-                        "<color=#ff0000>" + finalDamage + "</color><color=#9932CD>£¨(100%Á¦Á¿+" + propCard.defalutDamage + ") * ÉËº¦£©</color>",
-                        "<color=#ff0000>" + (int)finalAttackCoolingTime + "</color><color=#9932CD>£¨" + propCard.coolingTime + "*£¨1-ËÙ¶È/£¨ËÙ¶È+100£©£©</color>");
+                        "<color=#ff0000>" + finalDamage + "</color><color=#9932CD>ï¼ˆ(100%åŠ›é‡+" + propCard.defalutDamage + ") * ä¼¤å®³ï¼‰</color>",
+                        "<color=#ff0000>" + (int)finalAttackCoolingTime + "</color><color=#9932CD>ï¼ˆ" + propCard.coolingTime + "*ï¼ˆ1-é€Ÿåº¦/ï¼ˆé€Ÿåº¦+100ï¼‰ï¼‰</color>");
                     break;
                 case PropDamageType.Fire:
                     this.Info = string.Format(this.propCard.info, propCard.defalutDamage);
@@ -141,8 +114,8 @@ public class PropCardItem : ShopItem
                     finalAttackCoolingTime = propCard.coolingTime - userData.AttackSpeed / 100f;
                     finalAttackCoolingTime = finalAttackCoolingTime < 0.5f ? 0.5f : finalAttackCoolingTime;
                     this.Info = string.Format(this.propCard.info,
-                        "<color=#ff0000>" + finalDamage + "</color><color=#9932CD>£¨(150%Á¦Á¿+" + propCard.defalutDamage + ") * ÉËº¦£©</color>",
-                        "<color=#ff0000>" + (int)finalAttackCoolingTime + "</color><color=#9932CD>£¨" + propCard.coolingTime + "-¹¥»÷ËÙ¶È%£©</color>");
+                        "<color=#ff0000>" + finalDamage + "</color><color=#9932CD>ï¼ˆ(150%åŠ›é‡+" + propCard.defalutDamage + ") * ä¼¤å®³ï¼‰</color>",
+                        "<color=#ff0000>" + (int)finalAttackCoolingTime + "</color><color=#9932CD>ï¼ˆ" + propCard.coolingTime + "-æ”»å‡»é€Ÿåº¦%ï¼‰</color>");
                     break;
                 case PropDamageType.VocalConcert:
                     break;
@@ -158,7 +131,7 @@ public class PropCardItem : ShopItem
         {
             if (propCard.propName == "Pot_Water")
             {
-                // Èç¹û¹ºÂòµÄµÀ¾ßÊÇË®»¨Åè£¬ÔòĞèÒªÅĞ¶Ï»¨Ô°ÖĞÊÇ·ñÄÜ¹»°Ú·Å
+                // å¦‚æœè´­ä¹°çš„é“å…·æ˜¯æ°´èŠ±ç›†ï¼Œåˆ™éœ€è¦åˆ¤æ–­èŠ±å›­ä¸­æ˜¯å¦èƒ½å¤Ÿæ‘†æ”¾
                 if (GardenManager.Instance.AllFlowerPotCount < GardenManager.Instance.MaxFlowerPotCount)
                 {
                     Shop();

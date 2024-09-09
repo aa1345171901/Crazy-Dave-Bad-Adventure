@@ -9,165 +9,165 @@ public enum PlantType
 {
     None,
     /// <summary>
-    /// Íã¶¹ÉäÊÖ
+    /// è±Œè±†å°„æ‰‹
     /// </summary>
     Peashooter,
     /// <summary>
-    /// Ë«·¢Íã¶¹ÉäÊÖ
+    /// åŒå‘è±Œè±†å°„æ‰‹
     /// </summary>
     Repeater,
     /// <summary>
-    /// ÏÉÈËÕÆ
+    /// ä»™äººæŒ
     /// </summary>
     Cactus,
     /// <summary>
-    /// ÈıÒ¶²İ
+    /// ä¸‰å¶è‰
     /// </summary>
     Blover,
     /// <summary>
-    /// ÏãÆÑ
+    /// é¦™è’²
     /// </summary>
     Cattail,
     /// <summary>
-    /// Ó£ÌÒÕ¨µ¯
+    /// æ¨±æ¡ƒç‚¸å¼¹
     /// </summary>
     CherryBomb,
     /// <summary>
-    /// ´ó×ì»¨
+    /// å¤§å˜´èŠ±
     /// </summary>
     Chomper,
     /// <summary>
-    /// ¿§·È¶¹
+    /// å’–å•¡è±†
     /// </summary>
     CoffeeBean,
     /// <summary>
-    /// ÓñÃ×Í¶ÊÖ
+    /// ç‰ç±³æŠ•æ‰‹
     /// </summary>
     Cornpult,
     /// <summary>
-    /// ´óÅç¹½
+    /// å¤§å–·è‡
     /// </summary>
     FumeShroom,
     /// <summary>
-    /// ¼ÓÌØÁÖÍã¶¹
+    /// åŠ ç‰¹æ—è±Œè±†
     /// </summary>
     GatlingPea,
     /// <summary>
-    /// Ôø¸ç
+    /// æ›¾å“¥
     /// </summary>
     GloomShroom,
     /// <summary>
-    /// ½ğ´ÅÁ¦¹½
+    /// é‡‘ç£åŠ›è‡
     /// </summary>
     GoldMagent,
     /// <summary>
-    /// ºÉÒ¶
+    /// è·å¶
     /// </summary>
     Lilypad,
     /// <summary>
-    /// ´óËâ
+    /// å¤§è’œ
     /// </summary>
     Gralic,
     /// <summary>
-    /// Ä¹±®ÍÌÊÉÕß
+    /// å¢“ç¢‘åå™¬è€…
     /// </summary>
     Gravebuster,
     /// <summary>
-    /// ÷È»ó¹½
+    /// é­…æƒ‘è‡
     /// </summary>
     HypnoShroom,
     /// <summary>
-    /// ´ÅÁ¦¹½
+    /// ç£åŠ›è‡
     /// </summary>
     MagentShroom,
     /// <summary>
-    /// ½ğÕµ»¨
+    /// é‡‘ç›èŠ±
     /// </summary>
     Marigold,
     /// <summary>
-    /// Â·µÆ
+    /// è·¯ç¯
     /// </summary>
     Plantern,
     /// <summary>
-    /// Ğ¡Åç¹½
+    /// å°å–·è‡
     /// </summary>
     PuffShroom,
     /// <summary>
-    /// ÄÏ¹Ï
+    /// å—ç“œ
     /// </summary>
     PumpkinHead,
     /// <summary>
-    /// µ¨Ğ¡¹½
+    /// èƒ†å°è‡
     /// </summary>
     ScaredyShroom,
     /// <summary>
-    /// º®±ùÍã¶¹
+    /// å¯’å†°è±Œè±†
     /// </summary>
     SnowPea,
     /// <summary>
-    /// µØ´ÌÍõ
+    /// åœ°åˆºç‹
     /// </summary>
     Spikerock,
     /// <summary>
-    /// µØ´Ì
+    /// åœ°åˆº
     /// </summary>
     Spikeweed,
     /// <summary>
-    /// ÁÑ¼ĞÍã¶¹ÉäÊÖ
+    /// è£‚å¤¹è±Œè±†å°„æ‰‹
     /// </summary>
     SplitPea,
     /// <summary>
-    /// ÑîÌÒ
+    /// æ¨æ¡ƒ
     /// </summary>
     Starfruit,
     /// <summary>
-    /// ÏòÈÕ¿û
+    /// å‘æ—¥è‘µ
     /// </summary>
     SunFlower,
     /// <summary>
-    /// ¸ß¼á¹û
+    /// é«˜åšæœ
     /// </summary>
     TallNut,
     /// <summary>
-    /// Èı·¢Íã¶¹
+    /// ä¸‰å‘è±Œè±†
     /// </summary>
     Threepeater,
     /// <summary>
-    /// »ğ¾æÊ÷×®
+    /// ç«ç‚¬æ ‘æ¡©
     /// </summary>
     Torchwood,
     /// <summary>
-    /// Ë«×ÓÏòÈÕ¿û
+    /// åŒå­å‘æ—¥è‘µ
     /// </summary>
     TwinSunflower,
     /// <summary>
-    /// ¼á¹û
+    /// åšæœ
     /// </summary>
     WallNut,
     /// <summary>
-    /// º®±ù¹½
+    /// å¯’å†°è‡
     /// </summary>
     IceShroom,
     /// <summary>
-    /// »ğ±¬À±½·
+    /// ç«çˆ†è¾£æ¤’
     /// </summary>
     Jalapeno,
     /// <summary>
-    /// »ÙÃğ¹½
+    /// æ¯ç­è‡
     /// </summary>
     DoomShroom,
     /// <summary>
-    /// ÎÑ¹Ï
+    /// çªç“œ
     /// </summary>
     Squash,
     /// <summary>
-    /// ÍÁ¶¹À×
+    /// åœŸè±†é›·
     /// </summary>
     PotatoMine,
 }
 
 [Serializable]
-public class PlantCard : ISerializationCallbackReceiver
+public class PlantCard
 {
     public string plantName;
     public string plantBgImagePath;
@@ -175,29 +175,12 @@ public class PlantCard : ISerializationCallbackReceiver
     public int defaultPrice;
     public int defaultSun;
     public string info;
-
     public PlantType plantType;
-    [HideInInspector]
-    public string plantTypeString = "Peashooter";
-
-    public void OnAfterDeserialize()
-    {
-        if (!string.IsNullOrEmpty(plantTypeString))
-        {
-            PlantType type = (PlantType)System.Enum.Parse(typeof(PlantType), plantTypeString);
-            plantType = type;
-        }
-    }
-
-    public void OnBeforeSerialize()
-    {
-
-    }
 }
 
 public class PlantCardItem : ShopItem
 {
-    [Header("Ö²ÎïÌØÓĞ")]
+    [Header("æ¤ç‰©ç‰¹æœ‰")]
     public Image Bg;
     public Image Plant;
     public Text Sun;
@@ -231,7 +214,7 @@ public class PlantCardItem : ShopItem
     {
         if (ShopManager.Instance.Money >= Price)
         {
-            // ¹ºÂòµÄ½ø»¯¿¨
+            // è´­ä¹°çš„è¿›åŒ–å¡
             if (ShopManager.Instance.PurchasePlant(plantCard, Price))
             {
                 this.gameObject.SetActive(false);
@@ -241,7 +224,7 @@ public class PlantCardItem : ShopItem
             {
                 if (plantCard.plantType == PlantType.Lilypad)
                 {
-                    // ÖÖÖ²µÄºÉÒ¶ºÍÏãÆÑ ¼ÓÉÏ¸Õ¸Õ¹ºÂòµÄºÉÒ¶Ğ¡ÓÚË®»¨ÅèÊıÁ¿²ÅÄÜ¹ºÂò
+                    // ç§æ¤çš„è·å¶å’Œé¦™è’² åŠ ä¸Šåˆšåˆšè´­ä¹°çš„è·å¶å°äºæ°´èŠ±ç›†æ•°é‡æ‰èƒ½è´­ä¹°
                     if (GardenManager.Instance.GetNoPlantingPlantsLilypadCount() + GardenManager.Instance.GetPlantsCount(PlantType.Lilypad) + GardenManager.Instance.GetPlantsCount(PlantType.Cattail)
                         < GardenManager.Instance.WaterFlowerPotCount + GardenManager.Instance.NotPlacedWaterFlowerPotCount)
                     {
@@ -251,13 +234,13 @@ public class PlantCardItem : ShopItem
                     }
                     else
                     {
-                        // ÌáĞÑĞèÒªÖÖÖ²ÔÚË®»¨ÅèÀï
+                        // æé†’éœ€è¦ç§æ¤åœ¨æ°´èŠ±ç›†é‡Œ
                         CanNotPlantingLilypad?.Invoke();
                     }
                 }
                 else
                 {
-                    // ÖÖÖ²µÄ¼ÓÉÏ¸ÕÂòµÄÊıÁ¿Ğ¡ÓÚÒÑÓĞ»¨Åè + Î´°Ú·Å»¨ÅèÊıÁ¿²ÅÄÜ¹ºÂò
+                    // ç§æ¤çš„åŠ ä¸Šåˆšä¹°çš„æ•°é‡å°äºå·²æœ‰èŠ±ç›† + æœªæ‘†æ”¾èŠ±ç›†æ•°é‡æ‰èƒ½è´­ä¹°
                     if (GardenManager.Instance.NoPlantingPlants.Count - GardenManager.Instance.GetNoPlantingPlantsLilypadCount() + GardenManager.Instance.PlantAttributes.Count - GardenManager.Instance.GetPlantsCount(PlantType.Lilypad) - GardenManager.Instance.GetPlantsCount(PlantType.Cattail)
                         < GardenManager.Instance.FlowerPotCount + GardenManager.Instance.NotPlacedFlowerPotCount)
                     {
@@ -267,7 +250,7 @@ public class PlantCardItem : ShopItem
                     }
                     else
                     {
-                        // ÌáĞÑ»¨Åè²»×ã
+                        // æé†’èŠ±ç›†ä¸è¶³
                         CanNotPlanting?.Invoke();
                     }
                 }

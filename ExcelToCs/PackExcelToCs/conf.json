@@ -1,0 +1,5 @@
+{
+	"confPath": "..\\配置",
+	"csPath": "..\\..\\Assets\\Scripts\\Conf",
+	"csMgrPath": "..\\..\\Assets\\Scripts\\Managers\\ConfMgr.cs"
+}

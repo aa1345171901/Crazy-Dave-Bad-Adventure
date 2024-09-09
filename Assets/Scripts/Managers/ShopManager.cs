@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using TopDownPlate;
 using UnityEngine;
 
-[Serializable]
-public class ShopLists
-{
-    public List<PropCard> PropCards;
-    public List<PlantCard> PlantCards;
-}
+//[Serializable]
+//public class ShopLists
+//{
+//    public List<PropCard> PropCards;
+//    public List<PlantCard> PlantCards;
+//}
 
 public struct PropPurchaseEvent
 {
@@ -28,11 +28,6 @@ public struct PropPurchaseEvent
 
 public class ShopManager : BaseManager<ShopManager>
 {
-    /// <summary>
-    /// ÉÌµêÎïÆ·¼¯ºÏ
-    /// </summary>
-    public ShopLists shopLists;
-
     private int money;
     public int Money
     {
@@ -49,36 +44,36 @@ public class ShopManager : BaseManager<ShopManager>
     public Action MoneyChanged;
 
     /// <summary>
-    /// °´Æ·ÖÊÏ¸·ÖµÄÉÌÆ·
+    /// æŒ‰å“è´¨ç»†åˆ†çš„å•†å“
     /// </summary>
     public Dictionary<int, List<PropCard>> PropDicts { get; protected set; }
 
     /// <summary>
-    /// ÅÅ³ıµôĞèÒªÇ°ÖÃÖ²ÎïµÄÖ²Îï¿¨Æ¬£¬¿ÉÒÔË¢ĞÂµ½µÄ¿¨
+    /// æ’é™¤æ‰éœ€è¦å‰ç½®æ¤ç‰©çš„æ¤ç‰©å¡ç‰‡ï¼Œå¯ä»¥åˆ·æ–°åˆ°çš„å¡
     /// </summary>
     public List<PlantCard> PlantLists { get; protected set; }
 
     /// <summary>
-    /// ĞèÒª½ø»¯µÄ¿¨Æ¬
+    /// éœ€è¦è¿›åŒ–çš„å¡ç‰‡
     /// </summary>
     public Dictionary<PlantType, PlantCard> PlantEvolutionDict { get; set; }
 
     /// <summary>
-    /// ¹ºÂòµÄ½ø»¯¿¨ÊıÁ¿£¬Âò¹»ÁË½ø»¯¿¨¾Í²»ÄÜÔÙË¢£¬·ñÔòÃ»µØ·½¿É¹©½ø»¯£¬²»·ûºÏ
+    /// è´­ä¹°çš„è¿›åŒ–å¡æ•°é‡ï¼Œä¹°å¤Ÿäº†è¿›åŒ–å¡å°±ä¸èƒ½å†åˆ·ï¼Œå¦åˆ™æ²¡åœ°æ–¹å¯ä¾›è¿›åŒ–ï¼Œä¸ç¬¦åˆ
     /// </summary>
     public Dictionary<PlantType, int> PurchasedPlantEvolutionDicts = new Dictionary<PlantType, int>();
 
     /// <summary>
-    /// ÒÑ¾­¹ºÂòµÄµÀ¾ß
+    /// å·²ç»è´­ä¹°çš„é“å…·
     /// </summary>
     public List<PropCard> PurchasedProps { get; set; } = new List<PropCard>();
 
-    private List<PropCard> VocalConcert = new List<PropCard>();  // Ñİ³ª»á¿¨Æ¬×éºÏ
+    private List<PropCard> VocalConcert = new List<PropCard>();  // æ¼”å”±ä¼šå¡ç‰‡ç»„åˆ
 
     protected override void Initialize()
     {
         base.Initialize();
-        ParseShopItemsJson();
+        LoadShopItemsConf();
     }
 
     public void PurchaseProp(PropCard propCard, int price)
@@ -87,7 +82,7 @@ public class ShopManager : BaseManager<ShopManager>
         Money -= price;
         SetPropEffect(propCard);
         
-        // ×éºÏÖĞµÄ¿¨£¬»ñÈ¡µ½ÔÚ×éºÏ³É¹¦Ç°²»ÔÙË¢ĞÂ
+        // ç»„åˆä¸­çš„å¡ï¼Œè·å–åˆ°åœ¨ç»„åˆæˆåŠŸå‰ä¸å†åˆ·æ–°
         if (propCard.propDamageType == PropDamageType.VocalConcert && !GameManager.Instance.IsOpenVocalConcert)
         {
             PropDicts[propCard.quality].Remove(propCard);
@@ -111,7 +106,7 @@ public class ShopManager : BaseManager<ShopManager>
                     break;
                 case "magnetic":
                     GameManager.Instance.HaveMagnetic = true;
-                    // ÓÉÓÚÊÇ½µÊôĞÔµÄ£¬ËùÒÔ½âËøÍêÄÜÁ¦ºó²»ÔÙË¢ĞÂ
+                    // ç”±äºæ˜¯é™å±æ€§çš„ï¼Œæ‰€ä»¥è§£é”å®Œèƒ½åŠ›åä¸å†åˆ·æ–°
                     PropDicts[propCard.quality].Remove(propCard);
                     break;
                 case "blackhole":
@@ -139,11 +134,11 @@ public class ShopManager : BaseManager<ShopManager>
     }
 
     /// <summary>
-    /// ¹ºÂòÖ²Îï¿¨
+    /// è´­ä¹°æ¤ç‰©å¡
     /// </summary>
-    /// <param name="plantCard">¹ºÂòµÄ¿¨</param>
-    /// <param name="price">¼Û¸ñ</param>
-    /// <returns>·µ»ØÊÇ·ñÄÜÂò£¬Èç¹ûÊÇÆÕÍ¨Ö²Îï»¨ÅèÂúÁË¾ÍÂò²»ÁË£¬ÊÇ½ø»¯Ö²ÎïÔòÄÜÂò</returns>
+    /// <param name="plantCard">è´­ä¹°çš„å¡</param>
+    /// <param name="price">ä»·æ ¼</param>
+    /// <returns>è¿”å›æ˜¯å¦èƒ½ä¹°ï¼Œå¦‚æœæ˜¯æ™®é€šæ¤ç‰©èŠ±ç›†æ»¡äº†å°±ä¹°ä¸äº†ï¼Œæ˜¯è¿›åŒ–æ¤ç‰©åˆ™èƒ½ä¹°</returns>
     public bool PurchasePlant(PlantCard plantCard, int price, bool isNormal = false)
     {
         bool result = false;
@@ -160,7 +155,7 @@ public class ShopManager : BaseManager<ShopManager>
                 result = true;
                 break;
             default:
-                // Ä¬ÈÏ¼ÓÈëÎ´ÖÖÖ²ĞòÁĞ£¬·µ»ØfalseÅĞ¶Ï»¨Åè
+                // é»˜è®¤åŠ å…¥æœªç§æ¤åºåˆ—ï¼Œè¿”å›falseåˆ¤æ–­èŠ±ç›†
                 if (isNormal)
                 {
                     Money -= price;
@@ -183,13 +178,13 @@ public class ShopManager : BaseManager<ShopManager>
         }
     }
 
-    private void ParseShopItemsJson()
+    private void LoadShopItemsConf()
     {
-        TextAsset ta = Resources.Load<TextAsset>("Shopping");
-        shopLists = JsonUtility.FromJson<ShopLists>(ta.text);
+        //TextAsset ta = Resources.Load<TextAsset>("Shopping");
+        //shopLists = JsonUtility.FromJson<ShopLists>(ta.text);
 
         PropDicts = new Dictionary<int, List<PropCard>>();
-        var propCards = shopLists.PropCards;
+        var propCards = ConfManager.Instance.confMgr.data.propCards.PropCards;
         foreach (var item in propCards)
         {
             if (!PropDicts.ContainsKey(item.quality))
@@ -204,7 +199,7 @@ public class ShopManager : BaseManager<ShopManager>
 
         PlantLists = new List<PlantCard>();
         PlantEvolutionDict = new Dictionary<PlantType, PlantCard>();
-        var plantCards = shopLists.PlantCards;
+        var plantCards = ConfManager.Instance.confMgr.data.plantCards.PlantCards;
         foreach (var item in plantCards)
         {
             PlantLists.Add(item);
@@ -252,14 +247,14 @@ public class ShopManager : BaseManager<ShopManager>
 
     public void UpdateCardPool()
     {
-        // ×éºÏ³É¹¦ºó£¬½«ËùÓĞ¸Ã×éºÏ¿¨¼ÓÈë
+        // ç»„åˆæˆåŠŸåï¼Œå°†æ‰€æœ‰è¯¥ç»„åˆå¡åŠ å…¥
         if (GameManager.Instance.IsOpenVocalConcert && VocalConcert.Count > 0)
         {
             PropDicts[VocalConcert[0].quality].AddRange(VocalConcert);
             VocalConcert.Clear();
         }
 
-        // ÏÈÈ¥µôËùÓĞºóÖÃ¿¨
+        // å…ˆå»æ‰æ‰€æœ‰åç½®å¡
         foreach (var item in PlantEvolutionDict)
         {
             if (PlantLists.Contains(item.Value))
@@ -267,7 +262,7 @@ public class ShopManager : BaseManager<ShopManager>
                 PlantLists.Remove(item.Value);
             }
         }
-        // ¼ì²âÏÖÓĞÖ²ÎïÌí¼ÓºóÖÃ¿¨ÊıÁ¿
+        // æ£€æµ‹ç°æœ‰æ¤ç‰©æ·»åŠ åç½®å¡æ•°é‡
         var plants = GardenManager.Instance.PlantAttributes;
         Dictionary<PlantType, int> plantCount = new Dictionary<PlantType, int>();
         foreach (var item in plants)
@@ -290,20 +285,20 @@ public class ShopManager : BaseManager<ShopManager>
                 }
             }
         }
-        // ÅĞ¶ÏÊıÁ¿Óë¹ºÂòµÄÊıÁ¿¾õ¶¨ÊÇ·ñÌí¼Ó½ø¿¨³Ø
+        // åˆ¤æ–­æ•°é‡ä¸è´­ä¹°çš„æ•°é‡è§‰å®šæ˜¯å¦æ·»åŠ è¿›å¡æ± 
         foreach (var item in plantCount)
         {
             switch (item.Key)
             {
                 case PlantType.Peashooter:
-                    // ÅĞ¶Ï¹ºÂòµÄË«·¢ÉäÊÖ¸öÊı£¬ÒÔ¼°Íã¶¹ÉäÊÖµÄÅàÓı³É¹¦¸öÊı
+                    // åˆ¤æ–­è´­ä¹°çš„åŒå‘å°„æ‰‹ä¸ªæ•°ï¼Œä»¥åŠè±Œè±†å°„æ‰‹çš„åŸ¹è‚²æˆåŠŸä¸ªæ•°
                     PlantListsAddEvolution(PlantType.Repeater, item.Value);
                     break;
                 case PlantType.Repeater:
                     PlantListsAddEvolution(PlantType.GatlingPea, item.Value);
                     break;
                 case PlantType.Cornpult:
-                    // todo ¼ÓÅ©ÅÚ
+                    // todo åŠ å†œç‚®
                     // PlantListsAddEvolution(PlantType.GloomShroom, item.Value);
                     break;
                 case PlantType.FumeShroom:
@@ -338,7 +333,7 @@ public static class RandomUtils
 {
     public static HashSet<int> RandomCreateNumber(int len, int count)
     {
-        // Ëæ»úÈ¡4¸ö²»Í¬µÄËæ»úÊı
+        // éšæœºå–4ä¸ªä¸åŒçš„éšæœºæ•°
         HashSet<int> hashSet = new HashSet<int>();
         int RmNum = count;
         for (; hashSet.Count < RmNum;)
