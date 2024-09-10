@@ -205,7 +205,7 @@ public class PlantCardItem : ShopItem
         this.Price = plantCard.defaultPrice;
         this.PriceText.text = this.Price.ToString();
 
-        this.Info = string.Format(plantCard.info, plantCard.defaultSun);
+        this.Info = string.Format(GameTool.LocalText(plantCard.info), plantCard.defaultSun);
 
         UpdateMoney();
     }

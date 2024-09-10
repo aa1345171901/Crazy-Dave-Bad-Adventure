@@ -11,8 +11,8 @@ public class GoToWarItem : MonoBehaviour
 
     private FlowerPotGardenItem flowerPotGardenItem;
 
-    private readonly string GoToWar = "出战";
-    private readonly string Cancel = "取消出战";
+    private readonly string GoToWar = GameTool.LocalText("garden_tobattle");
+    private readonly string Cancel = GameTool.LocalText("garden_nobattle");
 
     private void OnMouseEnter()
     {

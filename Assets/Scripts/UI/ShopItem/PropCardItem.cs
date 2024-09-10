@@ -82,7 +82,7 @@ public class PropCardItem : ShopItem
                 break;
         }
         this.PriceText.text = this.Price.ToString();
-        this.Info = propCard.info;
+        this.Info = GameTool.LocalText(propCard.info);
         SetInfo();
 
         this.AttributeDicts = propCard.attributes;
@@ -97,25 +97,26 @@ public class PropCardItem : ShopItem
             var userData = GameManager.Instance.UserData;
             int finalDamage;
             float finalAttackCoolingTime;
+            var textConf = ConfManager.Instance;
             switch (propCard.propDamageType)
             {
                 case PropDamageType.LawnMower:
                     finalDamage = Mathf.RoundToInt((userData.Power + propCard.defalutDamage) * (100f + userData.PercentageDamage) / 100);
                     finalAttackCoolingTime = propCard.coolingTime * (1 - userData.Speed / (100f + userData.Speed));
-                    this.Info = string.Format(this.propCard.info,
-                        "<color=#ff0000>" + finalDamage + "</color><color=#9932CD>（(100%力量+" + propCard.defalutDamage + ") * 伤害）</color>",
+                    this.Info = string.Format(GameTool.LocalText(this.propCard.info),
+                        "<color=#ff0000>" + finalDamage + $"</color><color=#9932CD>（(100%{textConf.Power}+" + propCard.defalutDamage + $") * {textConf.PercentageDamage}）</color>",
                         "<color=#ff0000>" + (int)finalAttackCoolingTime + "</color><color=#9932CD>（" + propCard.coolingTime + "*（1-速度/（速度+100））</color>");
                     break;
                 case PropDamageType.Fire:
-                    this.Info = string.Format(this.propCard.info, propCard.defalutDamage);
+                    this.Info = string.Format(GameTool.LocalText(this.propCard.info), propCard.defalutDamage);
                     break;
                 case PropDamageType.Hammer:
                     finalDamage = Mathf.RoundToInt((userData.Power * 1.5f + propCard.defalutDamage) * (100f + userData.PercentageDamage) / 100);
                     finalAttackCoolingTime = propCard.coolingTime - userData.AttackSpeed / 100f;
                     finalAttackCoolingTime = finalAttackCoolingTime < 0.5f ? 0.5f : finalAttackCoolingTime;
-                    this.Info = string.Format(this.propCard.info,
-                        "<color=#ff0000>" + finalDamage + "</color><color=#9932CD>（(150%力量+" + propCard.defalutDamage + ") * 伤害）</color>",
-                        "<color=#ff0000>" + (int)finalAttackCoolingTime + "</color><color=#9932CD>（" + propCard.coolingTime + "-攻击速度%）</color>");
+                    this.Info = string.Format(GameTool.LocalText(this.propCard.info),
+                        "<color=#ff0000>" + finalDamage + $"</color><color=#9932CD>（(150%{textConf.Power}+" + propCard.defalutDamage + $") * {textConf.PercentageDamage}）</color>",
+                        "<color=#ff0000>" + (int)finalAttackCoolingTime + "</color><color=#9932CD>（" + propCard.coolingTime + $"-{textConf.AttackSpeed}）</color>");
                     break;
                 case PropDamageType.VocalConcert:
                     break;

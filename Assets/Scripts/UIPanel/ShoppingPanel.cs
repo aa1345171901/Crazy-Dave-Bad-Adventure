@@ -22,16 +22,16 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
     public Text DialogText;
     public Text Money;
 
-    [Tooltip("»¨Åè")]
+    [Tooltip("èŠ±ç›†")]
     public FlowerPotShopItem FlowerPotItem;
 
     public AudioSource audioSource;
 
     public SkeletonGraphic Dave;
     public List<AudioClip> daveAudioClips;
-    private bool hasOtherDown;    // Êó±êÊÇ·ñÔÚÎïÆ·ºÍÊôĞÔÉÏ
-    private object nowItem;        // µ±Ç°²¥·ÅÓïÒôµÄitem,ºóĞøµÀ¾ßµÄÕ¹Ê¾Ò²·ÅshoppingÕâÀï£¬ËùÒÔÊ¹ÓÃobject
-    private object lastDownItem;  // ÉÏ´Î²¥·ÅÓïÒôµÄItem,Èç¹ûÏàÍ¬Ôò²»ÔÙ²¥·Å
+    private bool hasOtherDown;    // é¼ æ ‡æ˜¯å¦åœ¨ç‰©å“å’Œå±æ€§ä¸Š
+    private object nowItem;        // å½“å‰æ’­æ”¾è¯­éŸ³çš„item,åç»­é“å…·çš„å±•ç¤ºä¹Ÿæ”¾shoppingè¿™é‡Œï¼Œæ‰€ä»¥ä½¿ç”¨object
+    private object lastDownItem;  // ä¸Šæ¬¡æ’­æ”¾è¯­éŸ³çš„Item,å¦‚æœç›¸åŒåˆ™ä¸å†æ’­æ”¾
 
     private Animator animator;
 
@@ -50,9 +50,9 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
         {
             renovateMoney = value;
             if (ShopManager.Instance.Money > RenovateMoney)
-                RenovateMoneyText.text = "Ë¢ĞÂ\n-" + renovateMoney.ToString();
+                RenovateMoneyText.text = GameTool.LocalText("common_refresh") + "\n-" + renovateMoney.ToString();
             else
-                RenovateMoneyText.text = "Ë¢ĞÂ\n" + "<color=#ff0000>-" + renovateMoney.ToString() + "</color>";
+                RenovateMoneyText.text = GameTool.LocalText("common_refresh") + "\n" + "<color=#ff0000>-" + renovateMoney.ToString() + "</color>";
         }
     }
     private int renovateCount = 0;
@@ -62,20 +62,20 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
 
     private readonly string[] CannotAffordStrings = new string[] 
     {
-        "ËıºÜºÃ£¬ÎÒ²»Åä£¬Ó¦ÎªÎÒÃ»ÓĞÇ®Ç®",
-        "Ô½Ã»Ç®µÄÊ±ºòÔ½Ïë»¨Ç®£¬Çîµ½Òª³ÔÍÁl",
-        "¹ºÎï³µÀïµÄ¶«Î÷Ö»ÄÜ¿´×ÅÏÂ¼Ü"
+        "cannot_buy1",
+        "cannot_buy2",
+        "cannot_buy3"
     };
     private readonly string[] CannotPlantingStrings = new string[]
     {
-        "Ã»ÓĞ»¨ÅèÖ²Îï²»ÄÜÖÖÖ²",
-        "Ö²ÎïÖ»ÄÜÔÚ<color=#ff0000>»¨Åè</color>ÉÏÅàÑø,»¨Åè¿ÉÒÔÍ¨¹ı<color=#ff0000>Ë¢ĞÂ</color>½øĞĞ»ñÈ¡",
-        "»¨Åè·Ê³¦ÖØÒª£¡£¡"
+        "cannot_plant1",
+        "cannot_plant2",
+        "cannot_plant3"
     };
-    private readonly string CannotPlantLilypad = "ºÉÒ¶ĞèÒªÖÖÖ²ÔÚ<color=#ff0000>Ë®»¨Åè</color>Àï\nĞèÒªÏÈ¹ºÂò<color=#ff0000>Ë®»¨Åè</color>";
+    private readonly string CannotPlantLilypad = GameTool.LocalText("cannot_plant4");
     private bool isTriggerCannotAfford;
 
-    private int freeRefreshCount;  // Ãâ·ÑË¢ĞÂ´ÎÊı
+    private int freeRefreshCount;  // å…è´¹åˆ·æ–°æ¬¡æ•°
 
     private void Start()
     {
@@ -145,7 +145,7 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
             audioSource.clip = daveAudioClips[index];
             audioSource.Play();
             var track = Dave.AnimationState.SetAnimation(1, "ShopingSpeak", false);
-            // Ç°Èı¸öÎª³¤ÓïÒô
+            // å‰ä¸‰ä¸ªä¸ºé•¿è¯­éŸ³
             if (index < 3)
             {
                 track.Complete += (e) =>
@@ -189,15 +189,15 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
     private void CannotAfford()
     {
         int index = UnityEngine.Random.Range(0, CannotAffordStrings.Length);
-        this.DialogText.text = CannotAffordStrings[index];
+        this.DialogText.text = GameTool.LocalText(CannotAffordStrings[index]);
         isTriggerCannotAfford = true;
-        lastDownItem = null;  // Âò²»ÆğÖØĞÂ²¥·ÅÓïÒô
+        lastDownItem = null;  // ä¹°ä¸èµ·é‡æ–°æ’­æ”¾è¯­éŸ³
     }
 
     private void CanNotPlanting()
     {
         int index = UnityEngine.Random.Range(0, CannotPlantingStrings.Length);
-        this.DialogText.text = CannotPlantingStrings[index];
+        this.DialogText.text = GameTool.LocalText(CannotPlantingStrings[index]);
         isTriggerCannotAfford = true;
         lastDownItem = null;
     }
@@ -213,7 +213,7 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
     {
         if (ShopManager.Instance.Money <= RenovateMoney)
             return;
-        // Ë¢ĞÂÇ°¸üĞÂ¿¨³Ø
+        // åˆ·æ–°å‰æ›´æ–°å¡æ± 
         ShopManager.Instance.UpdateCardPool();
         audioSource.clip = renovateSounds;
         audioSource.Play();
@@ -221,13 +221,13 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
 
         float lucky = GameManager.Instance.UserData.Lucky;
         /*
-         * ³öÏÖ°×É«Æ·ÖÊµÄ¸ÅÂÊÎª100-À¶×Ïºì  
-         * À¶É«¸ÅÂÊÎª ĞÒÔË40Ç° £¨20+ĞÒÔË) 40-50(¹Ì¶¨60) 50ÒÔÉÏÎª£¨100-°×É«£¨10£© - ×ÏÉ«-ºìÉ«£©   
-         * ×ÏÉ«¸ÅÂÊÎªĞÒÔË/2%  
-         * ºìÉ«¸ÅÂÊÎªĞÒÔË/10%   
-         * °×É«×îµÍ30 À¶É«·â¶¥60×îµÍ30  ×ÏÉ«¸ÅÂÊ·â¶¥30£¬ ºìÉ«¸ÅÂÊ·â¶¥10
+         * å‡ºç°ç™½è‰²å“è´¨çš„æ¦‚ç‡ä¸º100-è“ç´«çº¢  
+         * è“è‰²æ¦‚ç‡ä¸º å¹¸è¿40å‰ ï¼ˆ20+å¹¸è¿) 40-50(å›ºå®š60) 50ä»¥ä¸Šä¸ºï¼ˆ100-ç™½è‰²ï¼ˆ10ï¼‰ - ç´«è‰²-çº¢è‰²ï¼‰   
+         * ç´«è‰²æ¦‚ç‡ä¸ºå¹¸è¿/2%  
+         * çº¢è‰²æ¦‚ç‡ä¸ºå¹¸è¿/10%   
+         * ç™½è‰²æœ€ä½30 è“è‰²å°é¡¶60æœ€ä½30  ç´«è‰²æ¦‚ç‡å°é¡¶30ï¼Œ çº¢è‰²æ¦‚ç‡å°é¡¶10
          */
-        // ¶¼³Ë10»»Ëã³É´Ó1000ÖĞÈ¡£¬Ôö¼Ó¾«¶È,ºóÃæµÄÇø¼äĞè¼ÓÇ°ÃæµÄÇø¼ä
+        // éƒ½ä¹˜10æ¢ç®—æˆä»1000ä¸­å–ï¼Œå¢åŠ ç²¾åº¦,åé¢çš„åŒºé—´éœ€åŠ å‰é¢çš„åŒºé—´
         float redProbability = 10 * lucky / 10;
         if (redProbability > 100)
             redProbability = 100;
@@ -242,9 +242,9 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
         purpleProbability += redProbability;
         blueProbability += purpleProbability;
 
-        // ´Ó1000ÖĞÑ¡4¸öÊı£¬¾ö¶¨4¸öµÀ¾ßµÄÆ·ÖÊ
+        // ä»1000ä¸­é€‰4ä¸ªæ•°ï¼Œå†³å®š4ä¸ªé“å…·çš„å“è´¨
         HashSet<int> hashSet = RandomUtils.RandomCreateNumber(1000, 4);
-        // °´Æ·ÖÊ·ÖÀà
+        // æŒ‰å“è´¨åˆ†ç±»
         Dictionary<int, int> propDicts = new Dictionary<int, int>();
         foreach (var item in hashSet)
         {
@@ -259,7 +259,7 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
                 propDicts[quality] = 0;
             propDicts[quality]++;
         }
-        // »ñÈ¡²»Í¬µÄµÀ¾ß£¬Ê¹Í¬Æ·ÖÊµÀ¾ß²»ÏàÍ¬
+        // è·å–ä¸åŒçš„é“å…·ï¼Œä½¿åŒå“è´¨é“å…·ä¸ç›¸åŒ
         int index = 0;
         foreach (var item in propDicts)
         {
@@ -274,7 +274,7 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
             }
         }
 
-        // Ö²Îï todo
+        // æ¤ç‰© todo
         var plantCards = ShopManager.Instance.PlantLists;
         hashSet = RandomUtils.RandomCreateNumber(plantCards.Count, 4);
         index = 0;
@@ -299,7 +299,7 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
         {
             if (renovateCount != 0)
             {
-                // ·¢Ç®Ë¢ĞÂ¿Éµã»÷»ñÈ¡»¨Åè
+                // å‘é’±åˆ·æ–°å¯ç‚¹å‡»è·å–èŠ±ç›†
                 ShopManager.Instance.Money -= RenovateMoney;
                 FlowerPotItem.SetActive();
             }
@@ -322,7 +322,7 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
         }
         else
         {
-            // ´Ó»¨Ô°½øÈë
+            // ä»èŠ±å›­è¿›å…¥
             attributePanel = UIManager.Instance.PushPanel(UIPanelType.AttributePanel) as AttributePanel;
             attributePanel.ShoppingPanel = this;
         }
@@ -371,7 +371,7 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
     }
 
     /// <summary>
-    /// ¹ºÂòÉÌÆ·Ê±´¥·¢ÊÂ¼ş
+    /// è´­ä¹°å•†å“æ—¶è§¦å‘äº‹ä»¶
     /// </summary>
     /// <param name="eventType"></param>
     public void OnEvent(PropPurchaseEvent eventType)

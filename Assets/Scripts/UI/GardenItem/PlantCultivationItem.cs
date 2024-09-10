@@ -5,12 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// ÅàÑøµÄÊôĞÔÑùÊ½£¬¶ÔÓ¦ĞŞ¸ÄPlantAttributeÖĞµÄÊôĞÔ
+/// åŸ¹å…»çš„å±æ€§æ ·å¼ï¼Œå¯¹åº”ä¿®æ”¹PlantAttributeä¸­çš„å±æ€§
 /// </summary>
 public enum CultivateAttributeType
 {
     /// <summary>
-    /// ÅàÓı
+    /// åŸ¹è‚²
     /// </summary>
     Cultivate = 0,
     First,
@@ -118,10 +118,11 @@ public class PlantCultivationItem : MonoBehaviour
         if (flowerPotGardenItem.PlantAttribute.plantCard.plantType == PlantType.PuffShroom)
             this.sunPrice /= 5;
 
-        // ³ÔµÄÖ²ÎïÅàÑøÑô¹âÏûºÄÖµ²»±ä
+        // åƒçš„æ¤ç‰©åŸ¹å…»é˜³å…‰æ¶ˆè€—å€¼ä¸å˜
         switch (flowerPotGardenItem.PlantAttribute.plantCard.plantType)
         {
             case PlantType.CoffeeBean:
+            case PlantType.Gralic:
                 this.sunPrice = defalutLevelUpPrice;
                 break;
             default:
@@ -134,7 +135,7 @@ public class PlantCultivationItem : MonoBehaviour
             this.SunPrice.color = new Color(0.2f, 0.2f, 0.2f);
 
         int maxLevel = flowerPotGardenItem.PlantAttribute.maxLevel;
-        string maxLevelStr = maxLevel == int.MaxValue ? " +¡Ş" : maxLevel.ToString(); ;
+        string maxLevelStr = maxLevel == int.MaxValue ? " +âˆ" : maxLevel.ToString(); ;
         switch (cultivateAttributeType)
         {
             case CultivateAttributeType.Cultivate:
@@ -163,7 +164,7 @@ public class PlantCultivationItem : MonoBehaviour
         else
         {
             Level.color = Color.red;
-            SunPrice.text = "+¡Ş";
+            SunPrice.text = "+âˆ";
             SunPrice.color = Color.red;
         }
     }

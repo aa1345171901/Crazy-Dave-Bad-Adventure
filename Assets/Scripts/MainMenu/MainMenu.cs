@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using TopDownPlate;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -48,12 +49,12 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator LoadScene()
     {
-        // Ê¹ÓÃĞ­³ÌÒì²½¼ÓÔØ³¡¾°
+        // ä½¿ç”¨åç¨‹å¼‚æ­¥åŠ è½½åœºæ™¯
         Resources.UnloadUnusedAssets();
         System.GC.Collect();
         Application.backgroundLoadingPriority = ThreadPriority.Normal;
         asyncOperation = SceneManager.LoadSceneAsync(1);
-        asyncOperation.allowSceneActivation = false; // Èç¹ûÎªtrue£¬ÄÇÃ´¼ÓÔØ½áÊøºóÖ±½Ó¾Í»áÌø×ª
+        asyncOperation.allowSceneActivation = false; // å¦‚æœä¸ºtrueï¼Œé‚£ä¹ˆåŠ è½½ç»“æŸåç›´æ¥å°±ä¼šè·³è½¬
         yield return null;
     }
 
@@ -110,12 +111,12 @@ public class MainMenu : MonoBehaviour
 
     public void Achievement()
     {
-        // ´ò´ò½©Íõ
+        // æ‰“æ‰“åƒµç‹
         SaveManager.Instance.SetBossMode();
         PlayStartGameAnim();
         StartCoroutine(LoadScene());
 
-        // ³É¾ÍÔİÊ±²»¿ª·Å
+        // æˆå°±æš‚æ—¶ä¸å¼€æ”¾
         //AchievementPage.SetActive(true);
         //Dave.AnimationState.SetAnimation(0, "MainAchievement", true);
     }

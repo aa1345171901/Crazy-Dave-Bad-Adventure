@@ -945,8 +945,8 @@ MonoBehaviour:
   PlantCardItem: {fileID: 1450506055562619252, guid: 91a6db408a709324dbdd100d4b46bda4, type: 3}
   content: {fileID: 1389215987}
   Cards: []
-  animator: {fileID: 0}
   IsGarden: 1
+  animator: {fileID: 0}
 --- !u!1 &601280594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2971,6 +2971,7 @@ GameObject:
   - component: {fileID: 1956058802}
   - component: {fileID: 1956058804}
   - component: {fileID: 1956058803}
+  - component: {fileID: 2579014804632977745}
   m_Layer: 5
   m_Name: Info
   m_TagString: Untagged
@@ -3040,6 +3041,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u5403\u4E0B"
+--- !u!114 &2579014804632977745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956058801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc809119ab1b92c4c948d8c4b9f783c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: garden_eat
 --- !u!1 &1985119280
 GameObject:
   m_ObjectHideFlags: 0
@@ -3952,6 +3966,7 @@ GameObject:
   - component: {fileID: 2907843809634889608}
   - component: {fileID: 3466342606185094494}
   - component: {fileID: 7076726001645650028}
+  - component: {fileID: 7312521034533121336}
   m_Layer: 5
   m_Name: Info
   m_TagString: Untagged
@@ -4021,6 +4036,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u8FDB\u5316"
+--- !u!114 &7312521034533121336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213740513066998805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc809119ab1b92c4c948d8c4b9f783c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: garden_evolve
 --- !u!1 &3525454152732483757
 GameObject:
   m_ObjectHideFlags: 0
@@ -7630,7 +7658,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8186605, y: 0.16100001}
   m_AnchorMax: {x: 0.8186605, y: 0.16100001}
-  m_AnchoredPosition: {x: -2, y: -4.0000076}
+  m_AnchoredPosition: {x: -2, y: -4}
   m_SizeDelta: {x: 124.5, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5429653895539069205
@@ -8643,7 +8671,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.30357206, y: 0.16100001}
   m_AnchorMax: {x: 0.30357206, y: 0.16100001}
-  m_AnchoredPosition: {x: -2, y: -4.0000076}
+  m_AnchoredPosition: {x: -2, y: -4}
   m_SizeDelta: {x: 124.5, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5429653896110215792

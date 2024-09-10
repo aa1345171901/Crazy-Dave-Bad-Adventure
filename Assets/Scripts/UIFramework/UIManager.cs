@@ -21,7 +21,7 @@ public class UIManager {
     }
 
     private Transform canvasTransform;
-    private Transform CanvasTransform
+    public Transform CanvasTransform
     {
         get
         {

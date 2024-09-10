@@ -8,97 +8,97 @@ public class PlantCultivationPage : MonoBehaviour
 {
     public List<PlantCultivationItem> plantCultivationItems;
     public Text InfoText;
-    [Tooltip("½ø»¯°´Å¥")]
+    [Tooltip("è¿›åŒ–æŒ‰é’®")]
     public EvolutionItem EvolutionItem;
-    [Tooltip("³öÕ½°´Å¥")]
+    [Tooltip("å‡ºæˆ˜æŒ‰é’®")]
     public GoToWarItem GoToWarItem;
-    [Tooltip("³Ô°´Å¥")]
+    [Tooltip("åƒæŒ‰é’®")]
     public EatItem EatItem;
 
     public PlantConent PlantConent { get; set; }
 
     /// <summary>
-    /// Ö÷ÒªÓÃÓÚÒ³ÃæÏÔÊ¾µÄÕıÈ·
+    /// ä¸»è¦ç”¨äºé¡µé¢æ˜¾ç¤ºçš„æ­£ç¡®
     /// </summary>
     public FlowerPotGardenItem FlowerPotGardenItem { get; private set; }
 
     private Camera UICamera;
     private RectTransform rectTransform;
 
-    private readonly string CultivateInfo = "ÅàÓı";
-    private readonly string CultivateBasicDamage = "»ù´¡ÉËº¦";
-    private readonly string CultivatePercentageDamage = "°Ù·Ö±ÈÉËº¦";
-    private readonly string CultivateRange = "¹¥»÷¼ì²â·¶Î§";
-    private readonly string CultivateCoolTime = "¹¥»÷ÀäÈ´";
-    private readonly string CultivateBulletSpeed = "×Óµ¯ËÙ¶È";
-    private readonly string CultivateSplashDamage = "½¦ÉäÉËº¦";
-    private readonly string CultivateDigestiveSpeed = "Ïû»¯ËÙ¶È";
-    private readonly string CultivateSwallowCount = "Ò»´ÎĞÔÍÌÊÉ¸öÊı";
-    private readonly string CultivateCoinConversionRate = "½ğ±ÒÂÊ×ª»»";
-    private readonly string CultivateSunConversionRate = "Ñô¹âÂÊ×ª»»";
-    private readonly string CultivatePenetrationCount = "´©Í¸ÊıÁ¿";
-    private readonly string CultivateCriticalDamage = "±©»÷ÉËº¦";
-    private readonly string CultivateAttackSpeed = "Íæ¼Ò¹¥»÷ËÙ¶È";
-    private readonly string CultivateWindSpeed = "·çËÙ";
-    private readonly string CultivateWindResume = "Äæ·ç»Ö¸´";
-    private readonly string CultivateWindage = "½©Ê¬·ç×è";
-    private readonly string CultivateExplosionRange = "±¬Õ¨·¶Î§";
-    private readonly string CultivateImmediateMortalityRate = "ÆÕÍ¨½©Ê¬¼´ËÀÂÊ";
-    private readonly string CultivateIncreasedInjury = "´óĞÍ½©Ê¬ÔöÉË";
-    private readonly string CultivateSunReduced = "Ñô¹â¼õÉÙ";
-    private readonly string CultivateButterProbability = "»ÆÓÍ¸ÅÂÊ";
-    private readonly string CultivateControlTime = "¿ØÖÆÊ±¼ä";
-    private readonly string CultivateCriticalHitRate = "±©»÷ÂÊ";
-    private readonly string CultivateDamageDoubleRate = "ÉËº¦¶ÎÊı*2¸ÅÂÊ";
-    private readonly string CultivateCoinGoldCount = "ÎüÈ¡½ğ±Ò¸öÊı";
-    private readonly string CultivateDuration = "ÎüÈ¡³ÖĞøÊ±¼ä";
-    private readonly string CultivateZombieReducedRate = "ÍÌÊÉÄ¹±®¸ÅÂÊ";
-    private readonly string CultivateAttackCount = "÷È»óÕß¿É¹¥»÷´ÎÊı";
-    private readonly string CultivateOvereatingRate = "Á¬Ğø´¥·¢¸ÅÂÊ";
-    private readonly string CultivateChangeCoin = "»»È¡½ğ±Ò";
-    private readonly string CultivateCutterCount = "ÎüÈ¡ÌúÖÆÆ·¸öÊı";
-    private readonly string CultivateGoldCoinRate = "µôÂä½ğ±Ò¸ÅÂÊ";
-    private readonly string CultivateDiamondRate = "µôÂä×êÊ¯¸ÅÂÊ";
-    private readonly string CultivateTwinRate = "µôÂäË«±¶¸ÅÂÊ";
-    private readonly string CultivateRangeAttackSpeed = "·¶Î§¹¥ËÙÌáÉı";
-    private readonly string CultivateRangeLifeResume = "·¶Î§ÉúÃü»Ö¸´";
-    private readonly string CultivateRangeDamage = "·¶Î§ÉËº¦Ôö¼Ó";
-    private readonly string CultivateAddBulletRate = "×Óµ¯¸ÅÂÊ±ä¶à";
-    private readonly string CultivateBulletSize = "×Óµ¯´óĞ¡";
-    private readonly string CultivateReStartResumeLife = "´¥·¢ºóÉúÃüÖµ»Ö¸´±ÈÀı";
-    private readonly string CultivateAttackPumpkinRate = "¹¥»÷µôÂäÄÏ¹Ï¸ÅÂÊ";
-    private readonly string CultivateDecelerationPercentage = "¼õËÙ°Ù·Ö±È";
-    private readonly string CultivateDecelerationTime = "¼õËÙÊ±¼ä";
-    private readonly string CultivatDestroyingVehiclesCount = "ÆÆ»µÔØ¾ßÊıÁ¿";
-    private readonly string CultivatSunQuality = "Éú³ÉÑô¹âÖÊÁ¿";
-    private readonly string CultivatTallNutHp = "¸ß¼á¹ûÉúÃüÖµ£¨Ö²ÎïÑ§£©";
-    private readonly string CultivatBoomRate = "×îÖÕ±¬Õ¨¸ÅÂÊ";
-    private readonly string CultivatCounterInjury = "·´ÉËÉËº¦";
-    private readonly string CultivatCounterInjuryRate = "·´ÉË¸ÅÂÊ";
-    private readonly string CultivatPeaDamage = "Íã¶¹ÔöÉË";
-    private readonly string CultivatPeaSplash = "Íã¶¹½¦ÉäÉËº¦";
-    private readonly string CultivatPeaSpeed = "Íã¶¹ËÙ¶È";
-    private readonly string CultivatRollSpeed = "¹ö¶¯ËÙ¶È";
-    private readonly string CultivatBoomNutRate = "±¬Õ¨¼á¹û¸ÅÂÊ";
-    private readonly string CultivatFrostTime = "±ù¶³Ê±¼ä";
-    private readonly string CultivatFrostAttackSpeedAdd = "±ù¶³ÆÚ¼ä¹¥ËÙÔö¼Ó";
-    private readonly string CultivatExcavationTime = "³öÍÁÊ±¼ä";
-    private readonly string CultivatSittingRate = "Á¬×ø¸ÅÂÊ";
+    private readonly string CultivateInfo = GameTool.LocalText("cultivation_plant1");
+    private readonly string CultivateBasicDamage = GameTool.LocalText("cultivation_plant2");
+    private readonly string CultivatePercentageDamage = GameTool.LocalText("cultivation_plant3");
+    private readonly string CultivateRange = GameTool.LocalText("cultivation_plant4");
+    private readonly string CultivateCoolTime = GameTool.LocalText("cultivation_plant5");
+    private readonly string CultivateBulletSpeed = GameTool.LocalText("cultivation_plant6");
+    private readonly string CultivateSplashDamage = GameTool.LocalText("cultivation_plant7");
+    private readonly string CultivateDigestiveSpeed = GameTool.LocalText("cultivation_plant8");
+    private readonly string CultivateSwallowCount = GameTool.LocalText("cultivation_plant9");
+    private readonly string CultivateCoinConversionRate = GameTool.LocalText("cultivation_plant10");
+    private readonly string CultivateSunConversionRate = GameTool.LocalText("cultivation_plant11");
+    private readonly string CultivatePenetrationCount = GameTool.LocalText("cultivation_plant12");
+    private readonly string CultivateCriticalDamage = GameTool.LocalText("cultivation_plant13");
+    private readonly string CultivateAttackSpeed = GameTool.LocalText("cultivation_plant14");
+    private readonly string CultivateWindSpeed = GameTool.LocalText("cultivation_plant15");
+    private readonly string CultivateWindResume = GameTool.LocalText("cultivation_plant16");
+    private readonly string CultivateWindage = GameTool.LocalText("cultivation_plant17");
+    private readonly string CultivateExplosionRange = GameTool.LocalText("cultivation_plant18");
+    private readonly string CultivateImmediateMortalityRate = GameTool.LocalText("cultivation_plant19");
+    private readonly string CultivateIncreasedInjury = GameTool.LocalText("cultivation_plant20");
+    private readonly string CultivateSunReduced = GameTool.LocalText("cultivation_plant21");
+    private readonly string CultivateButterProbability = GameTool.LocalText("cultivation_plant22");
+    private readonly string CultivateControlTime = GameTool.LocalText("cultivation_plant23");
+    private readonly string CultivateCriticalHitRate = GameTool.LocalText("cultivation_plant24");
+    private readonly string CultivateDamageDoubleRate = GameTool.LocalText("cultivation_plant25");
+    private readonly string CultivateCoinGoldCount = GameTool.LocalText("cultivation_plant26");
+    private readonly string CultivateDuration = GameTool.LocalText("cultivation_plant27");
+    private readonly string CultivateZombieReducedRate = GameTool.LocalText("cultivation_plant28");
+    private readonly string CultivateAttackCount = GameTool.LocalText("cultivation_plant29");
+    private readonly string CultivateOvereatingRate = GameTool.LocalText("cultivation_plant30");
+    private readonly string CultivateChangeCoin = GameTool.LocalText("cultivation_plant31");
+    private readonly string CultivateCutterCount = GameTool.LocalText("cultivation_plant32");
+    private readonly string CultivateGoldCoinRate = GameTool.LocalText("cultivation_plant33");
+    private readonly string CultivateDiamondRate = GameTool.LocalText("cultivation_plant34");
+    private readonly string CultivateTwinRate = GameTool.LocalText("cultivation_plant35");
+    private readonly string CultivateRangeAttackSpeed = GameTool.LocalText("cultivation_plant36");
+    private readonly string CultivateRangeLifeResume = GameTool.LocalText("cultivation_plant37");
+    private readonly string CultivateRangeDamage = GameTool.LocalText("cultivation_plant38");
+    private readonly string CultivateAddBulletRate = GameTool.LocalText("cultivation_plant39");
+    private readonly string CultivateBulletSize = GameTool.LocalText("cultivation_plant40");
+    private readonly string CultivateReStartResumeLife = GameTool.LocalText("cultivation_plant41");
+    private readonly string CultivateAttackPumpkinRate = GameTool.LocalText("cultivation_plant42");
+    private readonly string CultivateDecelerationPercentage = GameTool.LocalText("cultivation_plant43");
+    private readonly string CultivateDecelerationTime = GameTool.LocalText("cultivation_plant44");
+    private readonly string CultivatDestroyingVehiclesCount = GameTool.LocalText("cultivation_plant45");
+    private readonly string CultivatSunQuality = GameTool.LocalText("cultivation_plant46");
+    private readonly string CultivatTallNutHp = GameTool.LocalText("cultivation_plant47");
+    private readonly string CultivatBoomRate = GameTool.LocalText("cultivation_plant48");
+    private readonly string CultivatCounterInjury = GameTool.LocalText("cultivation_plant49");
+    private readonly string CultivatCounterInjuryRate = GameTool.LocalText("cultivation_plant50");
+    private readonly string CultivatPeaDamage = GameTool.LocalText("cultivation_plant51");
+    private readonly string CultivatPeaSplash = GameTool.LocalText("cultivation_plant52");
+    private readonly string CultivatPeaSpeed = GameTool.LocalText("cultivation_plant53");
+    private readonly string CultivatRollSpeed = GameTool.LocalText("cultivation_plant54");
+    private readonly string CultivatBoomNutRate = GameTool.LocalText("cultivation_plant55");
+    private readonly string CultivatFrostTime = GameTool.LocalText("cultivation_plant56");
+    private readonly string CultivatFrostAttackSpeedAdd = GameTool.LocalText("cultivation_plant57");
+    private readonly string CultivatExcavationTime = GameTool.LocalText("cultivation_plant58");
+    private readonly string CultivatSittingRate = GameTool.LocalText("cultivation_plant59");
 
-    private readonly string CultivatePlayerIncreasedInjury = "Íæ¼Ò¶Ô½©Ê¬ÔöÉË";
-    private readonly string CultivatePlayerAdrenaline = "ÉöÉÏÏÙËØ";
-    private readonly string CultivatePlayerLifeResume = "ÉúÃü»Ö¸´";
-    private readonly string CultivatePlayerLucky = "ĞÒÔË";
-    private readonly string CultivatePlayerBotany = "Ö²ÎïÑ§";
-    private readonly string CultivatePlayerRange = "·¶Î§";
-    private readonly string CultivatePlayerDamage = "ÉËº¦";
-    private readonly string CultivatePlayerAttackSpeed = "¹¥»÷ËÙ¶È";
-    private readonly string CultivatePlayerSpeed = "ËÙ¶È";
-    private readonly string CultivatePlayerPower = "Á¦Á¿";
-    private readonly string CultivatePlayerMaxHp = "×î´óÉúÃüÖµ";
-    private readonly string CultivatePlayerCoinGold = "½ğ±Ò";
-    private readonly string CultivatePlayerArmor = "»¤¼×";
-    private readonly string CultivatePlayerSunshine = "Ñô¹â";
+    private readonly string CultivatePlayerIncreasedInjury = GameTool.LocalText("cultivation_plant60");
+    private readonly string CultivatePlayerAdrenaline = GameTool.LocalText("cultivation_plant61");
+    private readonly string CultivatePlayerLifeResume = GameTool.LocalText("cultivation_plant62");
+    private readonly string CultivatePlayerLucky = GameTool.LocalText("cultivation_plant63");
+    private readonly string CultivatePlayerBotany = GameTool.LocalText("cultivation_plant64");
+    private readonly string CultivatePlayerRange = GameTool.LocalText("cultivation_plant65");
+    private readonly string CultivatePlayerDamage = GameTool.LocalText("cultivation_plant66");
+    private readonly string CultivatePlayerAttackSpeed = GameTool.LocalText("cultivation_plant67");
+    private readonly string CultivatePlayerSpeed = GameTool.LocalText("cultivation_plant68");
+    private readonly string CultivatePlayerPower = GameTool.LocalText("cultivation_plant69");
+    private readonly string CultivatePlayerMaxHp = GameTool.LocalText("cultivation_plant70");
+    private readonly string CultivatePlayerCoinGold = GameTool.LocalText("cultivation_plant71");
+    private readonly string CultivatePlayerArmor = GameTool.LocalText("cultivation_plant72");
+    private readonly string CultivatePlayerSunshine = GameTool.LocalText("cultivation_plant73");
 
     private void Update()
     {
@@ -119,8 +119,8 @@ public class PlantCultivationPage : MonoBehaviour
         GoToWarItem.gameObject.SetActive(false);
         EatItem.gameObject.SetActive(false);
         this.FlowerPotGardenItem = flowerPotGardenItem;
-        this.InfoText.text = flowerPotGardenItem.PlantAttribute.plantCard.plantName;
-        // »¹Î´ÅàÓı³ÉĞÍ
+        this.InfoText.text = GameTool.LocalText(flowerPotGardenItem.PlantAttribute.plantCard.plantName);
+        // è¿˜æœªåŸ¹è‚²æˆå‹
         if (!flowerPotGardenItem.PlantAttribute.isCultivate)
         {
             var plantCultivateItem = plantCultivationItems[0];
@@ -133,7 +133,7 @@ public class PlantCultivationPage : MonoBehaviour
         }
         else
         {
-            // ¸ù¾İÖ²Îï½øĞĞÊôĞÔÅàÑøÌáÊ¾ÒÔ¼°½ø»¯°´Å¥Õ¹Ê¾
+            // æ ¹æ®æ¤ç‰©è¿›è¡Œå±æ€§åŸ¹å…»æç¤ºä»¥åŠè¿›åŒ–æŒ‰é’®å±•ç¤º
             switch (flowerPotGardenItem.PlantAttribute.plantCard.plantType)
             {
                 case PlantType.Peashooter:
@@ -268,7 +268,7 @@ public class PlantCultivationPage : MonoBehaviour
         if (bounds.xMax > Screen.width)
         {
             var pos = transform.position;
-            // 100 ÎªcanvasÃ¿µ¥Î»ÏñËØ
+            // 100 ä¸ºcanvasæ¯å•ä½åƒç´ 
             pos.x = transform.position.x - bounds.width / 100;
             transform.position = pos;
         }

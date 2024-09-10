@@ -26,10 +26,10 @@ public class GardenPanel : BasePanel
     {
         base.OnEnter();
         this.gameObject.SetActive(true);
-        // 创建的下一帧才调用start
+        // 鍒涘缓鐨勪笅涓�甯ф墠璋冪敤start
         Invoke("CreateFlowerPat", Time.deltaTime);
         SunText.text = GardenManager.Instance.Sun.ToString();
-        NowWave.text = "当前为第<color=#ffff00>" + (LevelManager.Instance.IndexWave + 1) + "</color>波";
+        NowWave.text = string.Format(GameTool.LocalText("garden_wave"), (LevelManager.Instance.IndexWave + 1));
     }
 
     public override void OnExit()

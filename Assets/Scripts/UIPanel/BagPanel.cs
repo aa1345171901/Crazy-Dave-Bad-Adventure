@@ -35,7 +35,8 @@ public class BagPanel : BasePanel
                 {
                     ShoppingPanel?.SetSoundsItem(true, nowShowPropCard);
                     InfoText.transform.parent.gameObject.SetActive(true);
-                    InfoText.text = nowShowPropCard.info;
+                    InfoText.text = GameTool.LocalText(nowShowPropCard.info);
+                    var textConf = ConfManager.Instance;
                     if (nowShowPropCard.propDamageType != PropDamageType.None)
                     {
                         var userData = GameManager.Instance.UserData;
@@ -47,26 +48,26 @@ public class BagPanel : BasePanel
                                 finalDamage = Mathf.RoundToInt((userData.Power + nowShowPropCard.defalutDamage) * (100f + userData.PercentageDamage) / 100);
                                 finalAttackCoolingTime = nowShowPropCard.coolingTime * (1 - userData.Speed / (100f + userData.Speed));
                                 finalAttackCoolingTime.ToString("F2");
-                                InfoText.text = string.Format(this.nowShowPropCard.info,
-                                    "<color=#ff0000>" + finalDamage + "</color><color=#9932CD>£®(100%¡¶¡ø+" + nowShowPropCard.defalutDamage + ") * …À∫¶£©</color>",
-                                    "<color=#ff0000>" + finalAttackCoolingTime + "</color><color=#9932CD>£®" + nowShowPropCard.coolingTime + "*£®1-ÀŸ∂»/£®ÀŸ∂»+100£©£©</color>");
+                                InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info),
+                                    "<color=#ff0000>" + finalDamage + $"</color><color=#9932CD>Ôºà(100%{textConf.Power}+" + nowShowPropCard.defalutDamage + $") * {textConf.PercentageDamage}Ôºâ</color>",
+                                    "<color=#ff0000>" + finalAttackCoolingTime + "</color><color=#9932CD>Ôºà" + nowShowPropCard.coolingTime + $"*Ôºà1-{textConf.Speed}/Ôºà{textConf.Speed}+100ÔºâÔºâ</color>");
                                 break;
                             case PropDamageType.Fire:
-                                InfoText.text = string.Format(this.nowShowPropCard.info, nowShowPropCard.defalutDamage);
+                                InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info), nowShowPropCard.defalutDamage);
                                 break;
                             case PropDamageType.Hammer:
                                 finalDamage = Mathf.RoundToInt((userData.Power * 1.5f + nowShowPropCard.defalutDamage) * (100f + userData.PercentageDamage) / 100);
                                 finalAttackCoolingTime = nowShowPropCard.coolingTime - userData.AttackSpeed / 100f;
                                 finalAttackCoolingTime.ToString("F2");
                                 finalAttackCoolingTime = finalAttackCoolingTime < 0.5f ? 0.5f : finalAttackCoolingTime;
-                                InfoText.text = string.Format(this.nowShowPropCard.info,
-                                    "<color=#ff0000>" + finalDamage + "</color><color=#9932CD>£®(150%¡¶¡ø+" + nowShowPropCard.defalutDamage + ") * …À∫¶£©</color>",
-                                    "<color=#ff0000>" + finalAttackCoolingTime + "</color><color=#9932CD>£®" + nowShowPropCard.coolingTime + "-π•ª˜ÀŸ∂»%£©</color>");
+                                InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info),
+                                    "<color=#ff0000>" + finalDamage + $"</color><color=#9932CD>Ôºà(150%{textConf.Power}+" + nowShowPropCard.defalutDamage + $") * {textConf.PercentageDamage}Ôºâ</color>",
+                                    "<color=#ff0000>" + finalAttackCoolingTime + "</color><color=#9932CD>Ôºà" + nowShowPropCard.coolingTime + $"-{textConf.AttackSpeed}Ôºâ</color>");
                                 break;
                             case PropDamageType.VocalConcert:
                                 finalDamage = Mathf.RoundToInt(10 * 5 * (100f + userData.PercentageDamage) / 100);
                                 float range = 2 * (100 + userData.Range) / 100f;
-                                InfoText.text += "\n“Ù¿÷ª·Ã◊◊∞√ø√Î∂‘∑∂Œß<color=#ff0000>" + range + "</color>‘Ï≥…<color=#ff0000>" + finalDamage + "</color>…À∫¶";
+                                InfoText.text += "\n" + string.Format(GameTool.LocalText("battle_vocalconcert"), range, finalDamage);
                                 break;
                             default:
                                 break;
@@ -89,7 +90,7 @@ public class BagPanel : BasePanel
 
     private void Update()
     {
-        // ≈–∂œ Û±Í «∑Ò‘⁄∞¥≈•∑∂Œßƒ⁄
+        // Âà§Êñ≠Èº†Ê†áÊòØÂê¶Âú®ÊåâÈíÆËåÉÂõ¥ÂÜÖ
         if (AutoClose && !BoundsUtils.GetSceneRect(UICamera, rectTransform).Contains(Input.mousePosition))
         {
             UIManager.Instance.PopPanel();
@@ -100,14 +101,14 @@ public class BagPanel : BasePanel
     {
         base.OnEnter();
         this.gameObject.SetActive(true);
-        this.transform.SetSiblingIndex(this.transform.parent.childCount - 1);  // …Ë÷√◊Ó∫Û“ª∏ˆ‰÷»æ
-        // œ»Ω´“—”–µƒµ¿æﬂ ˝ƒø«Â¡„
+        this.transform.SetSiblingIndex(this.transform.parent.childCount - 1);  // ËÆæÁΩÆÊúÄÂêé‰∏Ä‰∏™Ê∏≤Êüì
+        // ÂÖàÂ∞ÜÂ∑≤ÊúâÁöÑÈÅìÂÖ∑Êï∞ÁõÆÊ∏ÖÈõ∂
         foreach (var item in propDicts)
         {
             item.Value.Count = 0;
         }
         
-        // ‘Ÿ‘ˆº” ˝ƒøªÚ…˙≥…‘§÷∆ÃÂ
+        // ÂÜçÂ¢ûÂä†Êï∞ÁõÆÊàñÁîüÊàêÈ¢ÑÂà∂‰Ωì
         var purchasedProps = ShopManager.Instance.PurchasedProps;
         foreach (var item in purchasedProps)
         {

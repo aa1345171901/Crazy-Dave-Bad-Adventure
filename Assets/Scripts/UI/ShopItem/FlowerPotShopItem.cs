@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FlowerPotShopItem : ShopItem
 {
-    private readonly string info = "这是在进货时捡到的花盆\n可以在花园中<color=#00ff00>培养植物</color>";
-    public readonly string infoNoPurchase = "花园中已经不能够放下更多的花盆了\n或许可以用<color=#ff0000>铲子</color>铲掉泥巴";
+    private readonly string info = GameTool.LocalText("flowerpot_info1");
+    public readonly string infoNoPurchase = GameTool.LocalText("flowerpot_info2");
 
     private void Awake()
     {

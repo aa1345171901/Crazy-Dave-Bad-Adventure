@@ -12,6 +12,7 @@ public class SettingPage : MonoBehaviour
     public Toggle fullScreen;
 
     public Dropdown dropdown;
+    public Dropdown dropdownLanguage;
     public GameObject btnKeyChange;
 
     public GameObject ReadMe;
@@ -37,6 +38,17 @@ public class SettingPage : MonoBehaviour
         new int[2]{800, 600 },
     };
 
+    private List<string> languages = new List<string>()
+    {
+        "简体中文",
+        "English",
+    };
+    private List<string> languagePrex = new List<string>()
+    {
+        "cn",
+        "en",
+    };
+
     private void Start()
     {
 #if UNITY_ANDROID
@@ -54,6 +66,21 @@ public class SettingPage : MonoBehaviour
                 dropdown.value = i;
             }
         }
+
+        foreach (var item in languages)
+        {
+            dropdownLanguage.options.Add(new Dropdown.OptionData(item));
+        }
+        dropdownLanguage.value = languagePrex.IndexOf(ConfManager.Instance.language);
+        dropdownLanguage.onValueChanged.AddListener(ChangeLanguage);
+    }
+
+    void ChangeLanguage(int index)
+    {
+        ConfManager.Instance.language = languagePrex[index];
+        ConfManager.Instance.languageChange?.Invoke();
+        SaveManager.Instance.systemData.language = languagePrex[index];
+        SaveManager.Instance.SaveSystemData();
     }
 
     private void OnGUI()

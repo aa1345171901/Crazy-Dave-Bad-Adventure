@@ -5,17 +5,19 @@ using UnityEngine;
 public class SystemData
 {
     /// <summary>
-    /// ±³¾°ÒôÀÖ´óĞ¡
+    /// èƒŒæ™¯éŸ³ä¹å¤§å°
     /// </summary>
     public float MusicVolume = 1;
 
     /// <summary>
-    /// ÒôĞ§´óĞ¡
+    /// éŸ³æ•ˆå¤§å°
     /// </summary>
     public float SoundEffectVolume = 1;
 
     /// <summary>
-    /// ÊÇ·ñ¿ªÆôÉËº¦ÏÔÊ¾
+    /// æ˜¯å¦å¼€å¯ä¼¤å®³æ˜¾ç¤º
     /// </summary>
     public bool IsHUD = true;
+
+    public string language;
 }
