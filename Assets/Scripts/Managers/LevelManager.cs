@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -37,16 +38,10 @@ namespace TopDownPlate
         public GameObject EnemyPrefab;
 
         [Tooltip("一次生成敌人数量")]
-        public int GenerateCount;
-
-        [Tooltip("每20s加强波，生成数量增加多少")]
-        public int CountIncrement;
+        public List<int> GenerateCount;
 
         [Tooltip("该僵尸该波间隔多长时间生成一次")]
-        public float IntervalTime;
-
-        [Tooltip("每20s加强波，生成间隔时间减少多少")]
-        public float TimeIncrement;
+        public List<float> IntervalTime;
 
         [Tooltip("僵尸上次生成时间")]
         public float lastGenerateTime = -4;
@@ -153,6 +148,9 @@ namespace TopDownPlate
         [Tooltip("摄像机的区域限制")]
         public Bounds CameraBounds = new Bounds(Vector3.zero, Vector3.one * 10);
 
+        public List<GameObject> PrefabList;
+
+        [ReadOnly]
         [Tooltip("每波僵尸生成的数据")]
         public List<Wave> waves;
 
@@ -177,6 +175,30 @@ namespace TopDownPlate
 
         public int IndexWave;
 
+        protected override void Initialize()
+        {
+            base.Initialize();
+            waves.Clear();
+            foreach (var confWave in ConfManager.Instance.confMgr.waveTimer.items)
+            {
+                var waveData = new Wave();
+                waveData.DurationPerWave = confWave.waveTime;
+                waveData.zombieData = new List<ZombieData>();
+                var confZombieWave = ConfManager.Instance.confMgr.wave.waves[confWave.id];
+                foreach (var confZombie in confZombieWave)
+                {
+                    var zombieData = new ZombieData();
+                    zombieData.ZombieType = (ZombieType)confZombie.zombieType;
+                    zombieData.EnemyPrefab = PrefabList[confZombie.zombieType];
+                    zombieData.GenerateCount = confZombie.generateCount.ToList();
+                    zombieData.IntervalTime = confZombie.intervalTime.ToList();
+                    zombieData.lastGenerateTime = confZombie.firstGenerateTime - confZombie.intervalTime[0];
+                    waveData.zombieData.Add(zombieData);
+                }
+                waves.Add(waveData);
+            }
+        }
+
         public void Init()
         {
             CreatePlayer();
@@ -188,7 +210,7 @@ namespace TopDownPlate
                 nowWave = waves[waves.Count - 1];
                 for (int i = 0; i < nowWave.zombieData.Count; i++)
                 {
-                    nowWave.zombieData[i].lastGenerateTime = -nowWave.zombieData[i].IntervalTime;
+                    nowWave.zombieData[i].lastGenerateTime = -nowWave.zombieData[i].IntervalTime[0];
                 }
             }
             course = 0;
@@ -220,7 +242,7 @@ namespace TopDownPlate
                     for (int i = 0; i < nowWave.zombieData.Count; i++)
                     {
                         var zombie = nowWave.zombieData[i];
-                        if (timer - zombie.IntervalTime - zombie.TimeIncrement * course >= zombie.lastGenerateTime)
+                        if (timer - zombie.IntervalTime[course] >= zombie.lastGenerateTime)
                         {
                             if (zombie.ZombieType == ZombieType.Gargantuan)
                             Debug.Log(zombie.lastGenerateTime);
@@ -284,7 +306,7 @@ namespace TopDownPlate
 
         IEnumerator CreateEnemies(ZombieData zombieData)
         {
-            for (int i = 0; i < zombieData.GenerateCount + zombieData.CountIncrement * course; i++)
+            for (int i = 0; i < zombieData.GenerateCount[course]; i++)
             {
                 Health health = null;
                 Gravebuster gravebuster = null;

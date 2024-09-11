@@ -46,21 +46,21 @@ public class BloverEffect
     }
 
     /// <summary>
-    /// ÈıÒ¶²İµÄÌá¹©µÄÄæ·çÊ±¶Ô½©Ê¬µÄ·ç×è£¬¿Éµş¼Ó£¬³¬¹ı1µÄ²¿·ÖĞèÒª/10
+    /// ä¸‰å¶è‰çš„æä¾›çš„é€†é£æ—¶å¯¹åƒµå°¸çš„é£é˜»ï¼Œå¯å åŠ ï¼Œè¶…è¿‡1çš„éƒ¨åˆ†éœ€è¦/10
     /// </summary>
     public float Windage { get; set; }
     /// <summary>
-    /// ÈıÒ¶²İµÄÌá¹©µÄË³·çÊ±¶ÔÍæ¼ÒµÄ·çËÙ£¬¿Éµş¼Ó£¬³¬¹ı1µÄ²¿·ÖĞèÒª/5
+    /// ä¸‰å¶è‰çš„æä¾›çš„é¡ºé£æ—¶å¯¹ç©å®¶çš„é£é€Ÿï¼Œå¯å åŠ ï¼Œè¶…è¿‡1çš„éƒ¨åˆ†éœ€è¦/5
     /// </summary>
     public float Windspeed { get; set; }
     /// <summary>
-    /// ÈıÒ¶²İµÄÌá¹©µÄÄæ·çÊ±¶ÔÍæ¼ÒµÄÉúÃü»Ö¸´
+    /// ä¸‰å¶è‰çš„æä¾›çš„é€†é£æ—¶å¯¹ç©å®¶çš„ç”Ÿå‘½æ¢å¤
     /// </summary>
     public int BloverResume { get; set; }
 }
 
 /// <summary>
-/// »ğ¾æ¶ÔÍã¶¹µÄÔöÒæ
+/// ç«ç‚¬å¯¹è±Œè±†çš„å¢ç›Š
 /// </summary>
 public class TorchwoodEffect
 {
@@ -78,7 +78,7 @@ public class TorchwoodEffect
 
 [Serializable]
 /// <summary>
-/// ±£´æ¿ÓµÄÎ»ÖÃĞÅÏ¢
+/// ä¿å­˜å‘çš„ä½ç½®ä¿¡æ¯
 /// </summary>
 public class CraterPos
 {
@@ -94,13 +94,13 @@ public class CraterPos
 
 public class GardenManager : BaseManager<GardenManager>
 {
-    [Tooltip("Ö²ÎïÃçÔ¤ÖÆÌå")]
+    [Tooltip("æ¤ç‰©è‹—é¢„åˆ¶ä½“")]
     public GameObject SeedingPrefab;
-    [Tooltip("»¨ÅèÖĞÖ²ÎïÀàĞÍ¶ÔÓ¦µÄÖ²ÎïPrefab")]
+    [Tooltip("èŠ±ç›†ä¸­æ¤ç‰©ç±»å‹å¯¹åº”çš„æ¤ç‰©Prefab")]
     public List<PlantUIPrefabInfo> PlantUIPrefabInfos;
-    [Tooltip("³¡¾°ÖĞµÄÖ²ÎïºÏ¼¯")]
+    [Tooltip("åœºæ™¯ä¸­çš„æ¤ç‰©åˆé›†")]
     public List<PlantPrefabInfo> PlantPrefabInfos;
-    [Tooltip("»ÙÃğ¹½Ôì³ÉµÄ¿Ó")]
+    [Tooltip("æ¯ç­è‡é€ æˆçš„å‘")]
     public GameObject Crater;
 
     private int sun;
@@ -119,7 +119,7 @@ public class GardenManager : BaseManager<GardenManager>
     public Action SunChanged;
 
     /// <summary>
-    /// ±¾´Î¹ºÎï¹ºÂòµÄÃ»ÓĞ·ÅÖÃµÄ»¨ÅèÊıÁ¿
+    /// æœ¬æ¬¡è´­ç‰©è´­ä¹°çš„æ²¡æœ‰æ”¾ç½®çš„èŠ±ç›†æ•°é‡
     /// </summary>
     public int NotPlacedFlowerPotCount { get; set; }
 
@@ -130,78 +130,78 @@ public class GardenManager : BaseManager<GardenManager>
     public int WaterFlowerPotCount { get; set; }
 
     /// <summary>
-    /// ÏÖÔÚÒÑ¾­ÓĞµÄ»¨ÅèÊı
+    /// ç°åœ¨å·²ç»æœ‰çš„èŠ±ç›†æ•°
     /// </summary>
     public int AllFlowerPotCount => NotPlacedFlowerPotCount + FlowerPotCount + NotPlacedWaterFlowerPotCount + WaterFlowerPotCount;
 
     /// <summary>
-    /// ×î´ó»¨Åè°Ú·ÅÊıÁ¿
+    /// æœ€å¤§èŠ±ç›†æ‘†æ”¾æ•°é‡
     /// </summary>
     public int MaxFlowerPotCount { get; set; } = 16;
 
-    public List<string> earth { get; set; } = new List<string>(); // »¨ÅèµÄÄàÍÁÎ»ÖÃĞÅÏ¢,¶ÔÓ¦ÄàÍÁ»¨ÅèÎ»ÖÃµÄName
+    public List<string> earth { get; set; } = new List<string>(); // èŠ±ç›†çš„æ³¥åœŸä½ç½®ä¿¡æ¯,å¯¹åº”æ³¥åœŸèŠ±ç›†ä½ç½®çš„Name
 
     public bool IsShoveling { get; set; }
     public bool IsMoving { get; set; }
     public bool IsSelling { get; set; }
 
     /// <summary>
-    /// ±¾´Î¹ºÎï¹ºÂòµÄÖ²Îï
+    /// æœ¬æ¬¡è´­ç‰©è´­ä¹°çš„æ¤ç‰©
     /// </summary>
     public List<PlantCard> NoPlantingPlants { get; set; } = new List<PlantCard>();
 
     /// <summary>
-    /// ÖÖÖ²µÄÖ²ÎïµÄÊôĞÔ
+    /// ç§æ¤çš„æ¤ç‰©çš„å±æ€§
     /// </summary>
     public List<PlantAttribute> PlantAttributes { get; set; } = new List<PlantAttribute>();
 
     /// <summary>
-    /// Õ½¶·µÄÖ²Îï¼¯ºÏ
+    /// æˆ˜æ–—çš„æ¤ç‰©é›†åˆ
     /// </summary>
     public Dictionary<PlantAttribute, Plant> PlantDict { get; set; } = new Dictionary<PlantAttribute, Plant>();
 
     /// <summary>
-    /// Ä¹±®ÍÌÊÉÕß
+    /// å¢“ç¢‘åå™¬è€…
     /// </summary>
     public List<Gravebuster> Gravebusters { get; set; } = new List<Gravebuster>();
 
     /// <summary>
-    /// ¸ß¼á¹û
+    /// é«˜åšæœ
     /// </summary>
     public List<TallNut> TallNuts { get; set; } = new List<TallNut>();
 
     /// <summary>
-    /// ¿¨²ÛµÄÖ²Îï
+    /// å¡æ§½çš„æ¤ç‰©
     /// </summary>
     public List<PlantAttribute> CardslotPlant { get; set; } = new List<PlantAttribute>();
 
     /// <summary>
-    ///  ×î´ó²å²Û
+    ///  æœ€å¤§æ’æ§½
     /// </summary>
     public int MaxSlot { get; set; } = 2;
 
     /// <summary>
-    /// ÊÇ·ñ¶ÁÈ¡ÁË´æµµ£¬ÔÚPlantContentÊ±½øĞĞ»¨ÅèºÍÖ²ÎïµÄÔØÈë
+    /// æ˜¯å¦è¯»å–äº†å­˜æ¡£ï¼Œåœ¨PlantContentæ—¶è¿›è¡ŒèŠ±ç›†å’Œæ¤ç‰©çš„è½½å…¥
     /// </summary>
     public bool IsLoadPlantData { get; set; }
 
     /// <summary>
-    ///  ÈıÒ¶²İÌá¹©µÄÔöÒæ
+    ///  ä¸‰å¶è‰æä¾›çš„å¢ç›Š
     /// </summary>
     public BloverEffect BloverEffect { get; private set; } = new BloverEffect();
 
     /// <summary>
-    /// »ğ¾æÊ÷×®
+    /// ç«ç‚¬æ ‘æ¡©
     /// </summary>
     public TorchwoodEffect TorchwoodEffect { get; private set; } = new TorchwoodEffect();
 
     /// <summary>
-    /// Ä¹±®Ìá¹©µÄÔöÉË
+    /// å¢“ç¢‘æä¾›çš„å¢ä¼¤
     /// </summary>
     public float GravebusterDamage { get; set; } = 1;
 
     /// <summary>
-    /// »ÙÃğ¹½Ôì³ÉµÄ¿ÓµÄÎ»ÖÃĞÅÏ¢
+    /// æ¯ç­è‡é€ æˆçš„å‘çš„ä½ç½®ä¿¡æ¯
     /// </summary>
 
     public List<CraterPos> CraterPoses { get; set; } = new List<CraterPos>();
@@ -235,24 +235,23 @@ public class GardenManager : BaseManager<GardenManager>
             }
         }
 
-        // ²»ÄÜÔÚ±éÀúÊ±ĞŞ¸ÄÖµ£¬ËùÒÔĞÂ½¨Ò»¸ö×Öµä´æ´¢
+        // ä¸èƒ½åœ¨éå†æ—¶ä¿®æ”¹å€¼ï¼Œæ‰€ä»¥æ–°å»ºä¸€ä¸ªå­—å…¸å­˜å‚¨
         Dictionary<PlantAttribute, Plant> destroyPlants = new Dictionary<PlantAttribute, Plant>();
         foreach (var item in PlantDict)
         {
-            if (item.Key.plantCard.plantType != item.Value.PlantType)
+            // å·²ç»åˆ æ‰æˆ–å–æ‰çš„å»æ‰æ¸¸æˆç‰©ä½“
+            if (!PlantAttributes.Contains(item.Key))
             {
-                var plant = GameObject.Instantiate(PlantPrefabInfos.GetPlantInfo(item.Key.plantCard.plantType).plant);
-                plant.plantAttribute = item.Key;
-                destroyPlants.Add(item.Key, plant);
-                GameObject.Destroy(item.Value.gameObject);
+                destroyPlants.Add(item.Key, item.Value);
             }
-            item.Value.Reuse();
+            else
+                item.Value.Reuse();
         }
 
         foreach (var item in destroyPlants)
         {
-            PlantDict[item.Key] = item.Value;
-            item.Value.Reuse();
+            PlantDict.Remove(item.Key);
+            GameObject.Destroy(item.Value.gameObject);
         }
         destroyPlants.Clear();
     }

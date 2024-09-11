@@ -186,6 +186,8 @@ public static class GameTool
     /// <returns></returns>
     public static string LocalText(string key)
     {
+        if (ConfManager.Instance == null || ConfManager.Instance.confMgr == null)
+            return key;
         return ConfManager.Instance.confMgr.localText.GetText(key);
     }
 

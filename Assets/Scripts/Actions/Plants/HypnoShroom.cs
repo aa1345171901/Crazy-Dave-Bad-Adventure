@@ -30,7 +30,9 @@ public class HypnoShroom : Plant
     {
         base.Reuse();
         this.gameObject.SetActive(true);
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        boxCollider.enabled = true;
+        this.spriteRenderer.enabled = true;
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalDamage = 0;
         finalPercentageDamage = 1;
         finalAttackCount = 5;
@@ -38,23 +40,23 @@ public class HypnoShroom : Plant
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 0 »ù´¡ÉËº¦
+                // 0 åŸºç¡€ä¼¤å®³
                 case 0:
                     finalDamage += (int)fieldInfo.GetValue(plantAttribute) * LevelBasicDamage;
                     break;
-                // 1 °Ù·Ö±ÈÉËº¦
+                // 1 ç™¾åˆ†æ¯”ä¼¤å®³
                 case 1:
                     finalPercentageDamage += (int)fieldInfo.GetValue(plantAttribute) * LevelPercentage;
                     break;
-                // ¹¥»÷´ÎÊı
+                // æ”»å‡»æ¬¡æ•°
                 case 2:
                     finalAttackCount += (int)fieldInfo.GetValue(plantAttribute) * LevelAttackCount;
                     break;
-                // Á¬Ğø´¥·¢¸ÅÂÊ
+                // è¿ç»­è§¦å‘æ¦‚ç‡
                 case 3:
                     finalContinueRate = (int)fieldInfo.GetValue(plantAttribute) * LevelContinueRate;
                     break;
