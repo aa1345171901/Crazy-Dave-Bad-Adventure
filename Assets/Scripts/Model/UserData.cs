@@ -22,78 +22,96 @@ public enum AttributeType
 [Serializable]
 public class UserData
 {
+    public UserData() 
+    {
+        MaximumHP = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("maximumhp").value;
+        LifeRecovery = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("liferecovery").value;
+        Adrenaline = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("adrenaline").value;
+        Power = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("power").value;
+        PercentageDamage = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("percentagedamage").value;
+        AttackSpeed = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("attackspeed").value;
+        Range = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("range").value;
+        CriticalHitRate = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("criticalhitrate").value;
+        Speed = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("movespeed").value;
+        Armor = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("armor").value;
+        Lucky = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("lucky").value;
+        Sunshine = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("sunshine").value;
+        GoldCoins = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("goldcoins").value;
+        Botany = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("botany").value;
+    }
+
     /// <summary>
-    /// ×î´óÉúÃüÖµ
+    /// æœ€å¤§ç”Ÿå‘½å€¼
     /// </summary>
     public int MaximumHP = 10;
 
     /// <summary>
-    /// ÉúÃü»Ö¸´
+    /// ç”Ÿå‘½æ¢å¤
     /// </summary>
     public int LifeRecovery;
 
     /// <summary>
-    /// ÉöÉÏÏÙËØ
+    /// è‚¾ä¸Šè…ºç´ 
     /// </summary>
     public int Adrenaline;
 
     /// <summary>
-    /// Á¦Á¿
+    /// åŠ›é‡
     /// </summary>
     public int Power;
 
     /// <summary>
-    /// ÉËº¦
+    /// ä¼¤å®³
     /// </summary>
     public int PercentageDamage;
 
     /// <summary>
-    /// ¹¥»÷ËÙ¶È
+    /// æ”»å‡»é€Ÿåº¦
     /// </summary>
     public int AttackSpeed;
 
     /// <summary>
-    /// ·¶Î§
+    /// èŒƒå›´
     /// </summary>
     public int Range;
 
     /// <summary>
-    /// ±©»÷ÂÊ
+    /// æš´å‡»ç‡
     /// </summary>
     public int CriticalHitRate;
 
     /// <summary>
-    /// ÒÆ¶¯ËÙ¶È
+    /// ç§»åŠ¨é€Ÿåº¦
     /// </summary>
     public int Speed;
 
     /// <summary>
-    /// »¤¼×
+    /// æŠ¤ç”²
     /// </summary>
     public int Armor;
 
     /// <summary>
-    /// ĞÒÔË
+    /// å¹¸è¿
     /// </summary>
     public int Lucky;
 
     /// <summary>
-    /// Ñô¹â
+    /// é˜³å…‰
     /// </summary>
     public int Sunshine;
 
     /// <summary>
-    /// ½ğ±Ò
+    /// é‡‘å¸
     /// </summary>
     public int GoldCoins;
 
     /// <summary>
-    /// Ö²ÎïÑ§
+    /// æ¤ç‰©å­¦
     /// </summary>
     public int Botany;
 }
 
-/// Json ÊôĞÔÔö¼Ó×Ö·û´®¸´ÖÆ
+/// Json å±æ€§å¢åŠ å­—ç¬¦ä¸²å¤åˆ¶
 /*
                 {
                 "attributeTypeString": "MaximumHP",

@@ -301,8 +301,9 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
             {
                 // 发钱刷新可点击获取花盆
                 ShopManager.Instance.Money -= RenovateMoney;
-                FlowerPotItem.SetActive();
             }
+            // 刷新设置花盆
+            FlowerPotItem.SetActive();
             RenovateMoney = (renovateCount + 1) * (autoRefreshWave + 1) + (renovateCount + 1) * renovateCount / 2;
             renovateCount++;
         }

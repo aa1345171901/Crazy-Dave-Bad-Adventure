@@ -74,10 +74,10 @@ public class ConfWaveBase : ConfBase<ConfWaveItem>
 	{
 		AddItem(new ConfWaveItem(101, 1, 0, new int[]{ 2, 3, 4 }, new float[]{ 4f, 3f, 2f }, 0));
 		AddItem(new ConfWaveItem(201, 2, 0, new int[]{ 2, 3, 4 }, new float[]{ 4f, 2.8f, 1.8f }, 0));
-		AddItem(new ConfWaveItem(301, 3, 0, new int[]{ 2, 4, 6 }, new float[]{ 4f, 2.8f, 1.8f }, 0));
-		AddItem(new ConfWaveItem(401, 4, 0, new int[]{ 3, 5, 7 }, new float[]{ 4f, 2.6f, 1.6f }, 0));
+		AddItem(new ConfWaveItem(301, 3, 0, new int[]{ 2, 4, 5 }, new float[]{ 4f, 2.8f, 1.8f }, 0));
+		AddItem(new ConfWaveItem(401, 4, 0, new int[]{ 3, 5, 7 }, new float[]{ 4f, 2.8f, 1.8f }, 0));
 		AddItem(new ConfWaveItem(501, 5, 0, new int[]{ 2, 3, 4 }, new float[]{ 4f, 2.5f, 2f }, 0));
-		AddItem(new ConfWaveItem(502, 5, 7, new int[]{ 1, 1, 2 }, new float[]{ 4f, 3f, 2.5f }, 2));
+		AddItem(new ConfWaveItem(502, 5, 7, new int[]{ 1, 1, 2 }, new float[]{ 4f, 3f, 3f }, 2));
 		AddItem(new ConfWaveItem(601, 6, 0, new int[]{ 2, 3, 3 }, new float[]{ 4f, 3f, 2f }, 0));
 		AddItem(new ConfWaveItem(602, 6, 1, new int[]{ 1, 1, 2 }, new float[]{ 8f, 8f, 10f }, 1));
 		AddItem(new ConfWaveItem(603, 6, 7, new int[]{ 1, 1, 2 }, new float[]{ 4f, 4f, 3f }, 2));

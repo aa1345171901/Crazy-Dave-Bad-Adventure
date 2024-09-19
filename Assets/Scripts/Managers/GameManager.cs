@@ -7,36 +7,36 @@ namespace TopDownPlate
 {
     public class GameManager : BaseManager<GameManager>
     {
-        [Header("µÀ¾ß")]
-        [Tooltip("Æ½µ×¹ø")]
+        [Header("é“å…·")]
+        [Tooltip("å¹³åº•é”…")]
         public GameObject Pot;
-        [Tooltip("Ä¾é³")]
+        [Tooltip("æœ¨æ§Œ")]
         public Hammer Hammer;
-        [Tooltip("Ğ¡ÍÆ³µ")]
+        [Tooltip("å°æ¨è½¦")]
         public LawnMower LawnMower;
-        [Tooltip("´«ËÍÃÅ")]
+        [Tooltip("ä¼ é€é—¨")]
         public TransferGate TransferGate;
 
-        [Tooltip("±ùÃæµÄ¸¸ÎïÌå")]
+        [Tooltip("å†°é¢çš„çˆ¶ç‰©ä½“")]
         public Transform IceGroundContent;
 
-        [Tooltip("ÉËº¦µÀ¾ß¼¯ºÏ")]
+        [Tooltip("ä¼¤å®³é“å…·é›†åˆ")]
         public List<BaseProp> specialPropLists;
 
         [Space(10)]
-        [Header("³¡¾°")]
-        [Tooltip("³¡¾°¹ı¶É")]
+        [Header("åœºæ™¯")]
+        [Tooltip("åœºæ™¯è¿‡æ¸¡")]
         public SceneTransition SceneTransition;
-        [Tooltip("ÉËº¦HUD×ÖÌå")]
+        [Tooltip("ä¼¤å®³HUDå­—ä½“")]
         public Font HUDFont;
 
         public Character Player { get; protected set; }
 
-        public UserData UserData;// { get; set; }
+        public UserData UserData { get; set; } = new UserData();
 
         private bool isEnd;
         /// <summary>
-        /// ÓÎÏ·ÊÇ·ñ½áÊø
+        /// æ¸¸æˆæ˜¯å¦ç»“æŸ
         /// </summary>
         public bool IsEnd 
         {
@@ -55,7 +55,7 @@ namespace TopDownPlate
                         ShowTipsPanel(TipsType.GameOver);
                         AudioManager.Instance.StopBackMusic();
                         AudioManager.Instance.PlayEffectSoundByName("GameOver");
-                        SaveManager.Instance.DeleteUserData();  // ËÀÍöĞèÒªÉ¾µµ
+                        SaveManager.Instance.DeleteUserData();  // æ­»äº¡éœ€è¦åˆ æ¡£
                     }
                 }
             }
@@ -63,7 +63,7 @@ namespace TopDownPlate
 
         private bool isDaytime;
         /// <summary>
-        /// ÊÇ·ñ¹¥ÊÆ½áÊø£¬µ½°×ÌìÁË
+        /// æ˜¯å¦æ”»åŠ¿ç»“æŸï¼Œåˆ°ç™½å¤©äº†
         /// </summary>
         public bool IsDaytime
         {
@@ -90,7 +90,7 @@ namespace TopDownPlate
 
                         GardenManager.Instance.Sun += UserData.Sunshine;
 
-                        Invoke("SaveData", 3f);  // 3sºó½ğ±Ò±ØÄÜÄÜ¼ÓÍê
+                        Invoke("SaveData", 3f);  // 3såé‡‘å¸å¿…èƒ½èƒ½åŠ å®Œ
                     }
                     else
                     {
@@ -100,26 +100,26 @@ namespace TopDownPlate
             }
         }
 
-        public Transform BrainPos { get; set; }   // ËÀºóÄÔ×ÓÎ»ÖÃ
+        public Transform BrainPos { get; set; }   // æ­»åè„‘å­ä½ç½®
 
-        public bool IsZombieShock { get; set; } // ÊÇ·ñÓĞPot´òËÀ½©Ê¬ºó£¬½©Ê¬²¿Î»³å»÷ÉËº¦
+        public bool IsZombieShock { get; set; } // æ˜¯å¦æœ‰Potæ‰“æ­»åƒµå°¸åï¼Œåƒµå°¸éƒ¨ä½å†²å‡»ä¼¤å®³
 
-        public bool HaveMagnetic { get; set; } // ÊÇ·ñÓĞÎü½ğ±Ò´ÅÌå
+        public bool HaveMagnetic { get; set; } // æ˜¯å¦æœ‰å¸é‡‘å¸ç£ä½“
 
-        public bool HaveBlackHole { get; set; } // ÊÇ·ñÓĞÎüÑô¹âºÚ¶´
+        public bool HaveBlackHole { get; set; } // æ˜¯å¦æœ‰å¸é˜³å…‰é»‘æ´
 
-        public int ZombieFlyDamage { get; set; }  // ·ÉÍ·ÉËº¦ÎªÆ½µ×¹øÉËº¦ * ²¤²ËÊı/4 ×î´ó1;
+        public int ZombieFlyDamage { get; set; }  // é£å¤´ä¼¤å®³ä¸ºå¹³åº•é”…ä¼¤å®³ * è èœæ•°/4 æœ€å¤§1;
 
         public bool IsOpenVocalConcert => vocalConcert.OpenVocalConcert;
 
         public bool IsFog => vocalConcert.isFog;
 
-        public float DecelerationRatio { get; set; } = 1; // ÔÚ±ùÃæÉÏµÄ¼õËÙ±ÈÀı
+        public float DecelerationRatio { get; set; } = 1; // åœ¨å†°é¢ä¸Šçš„å‡é€Ÿæ¯”ä¾‹
 
-        public bool CanAttack  => balls.Count == 0; // Í¶Àº½©Ê¬ÊÇ·ñÔÚ¹¥»÷
-        public List<GameObject> balls = new List<GameObject>(); // ÕıÔÚ¹¥»÷µÄÀºÇò
+        public bool CanAttack  => balls.Count == 0; // æŠ•ç¯®åƒµå°¸æ˜¯å¦åœ¨æ”»å‡»
+        public List<GameObject> balls = new List<GameObject>(); // æ­£åœ¨æ”»å‡»çš„ç¯®çƒ
 
-        public List<Coin> Coins { get; set; } = new List<Coin>();  // ÓÃÓÚÎü½ğ¹½ÎüÊÕ£¬ÔÚ½ğ±ÒÉú³ÉÊ±¼ÓÈë£¬ÏûÊ§Ê±Remove
+        public List<Coin> Coins { get; set; } = new List<Coin>();  // ç”¨äºå¸é‡‘è‡å¸æ”¶ï¼Œåœ¨é‡‘å¸ç”Ÿæˆæ—¶åŠ å…¥ï¼Œæ¶ˆå¤±æ—¶Remove
 
         private BattlePanel battlePanel;
         private PausePanel pausePanel;
@@ -130,18 +130,18 @@ namespace TopDownPlate
         private void Start()
         {
             LevelManager.Instance.Init();
-            UIManager.Instance.ClearDict();  // µ½Ö÷²Ëµ¥ºóUIManagerÓÉÓÚ²»ÊÇMonoBehaviourËùÒÔĞèÒªÊÖ¶¯½øĞĞ×ÖµäÇå¿Õ
+            UIManager.Instance.ClearDict();  // åˆ°ä¸»èœå•åUIManagerç”±äºä¸æ˜¯MonoBehaviouræ‰€ä»¥éœ€è¦æ‰‹åŠ¨è¿›è¡Œå­—å…¸æ¸…ç©º
             LoadData();
         }
 
         private void SaveData()
         {
-            SaveManager.Instance.SaveUserData();  // Ã¿²¨½áÊøÊ±±£´æ
+            SaveManager.Instance.SaveUserData();  // æ¯æ³¢ç»“æŸæ—¶ä¿å­˜
         }
 
         private void LoadData()
         {
-            SaveManager.Instance.LoadUserData();  // ¶ÁÈ¡ÓÃ»§Êı¾İ
+            SaveManager.Instance.LoadUserData();  // è¯»å–ç”¨æˆ·æ•°æ®
             LoadPropMsg();
             if (SaveManager.Instance.IsLoadUserData)
             {
@@ -159,7 +159,7 @@ namespace TopDownPlate
                 SaveManager.Instance.IsLoadUserData = false;
             }
 
-            // ÊÇ´ò´ò½©ÍõÄ£Ê½
+            // æ˜¯æ‰“æ‰“åƒµç‹æ¨¡å¼
             if (SaveManager.Instance.IsBossMode)
             {
                 ShopManager.Instance.Money = 100000;
@@ -169,7 +169,7 @@ namespace TopDownPlate
         }
 
         /// <summary>
-        /// ¶ÁÈ¡ÌØÊâµÀ¾ßÊÇ·ñÓµÓĞ
+        /// è¯»å–ç‰¹æ®Šé“å…·æ˜¯å¦æ‹¥æœ‰
         /// </summary>
         private void LoadPropMsg()
         {
@@ -190,7 +190,7 @@ namespace TopDownPlate
                             break;
                         case "magnetic":
                             HaveMagnetic = true;
-                            // ÓÉÓÚÊÇ½µÊôĞÔµÄ£¬ËùÒÔ½âËøÍêÄÜÁ¦ºó²»ÔÙË¢ĞÂ
+                            // ç”±äºæ˜¯é™å±æ€§çš„ï¼Œæ‰€ä»¥è§£é”å®Œèƒ½åŠ›åä¸å†åˆ·æ–°
                             RemoveShopPropDict(item);
                             break;
                         case "blackhole":
@@ -279,7 +279,7 @@ namespace TopDownPlate
         }
 
         /// <summary>
-        /// Ã¿²¨ÉÌµê½áÊøµ÷ÓÃ
+        /// æ¯æ³¢å•†åº—ç»“æŸè°ƒç”¨
         /// </summary>
         private void Reuse()
         {
