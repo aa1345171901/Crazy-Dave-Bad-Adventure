@@ -205,7 +205,7 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(153, "mainmenu_continuetip", "继续游戏还是重新开始\r\n检测到你有存档\r\n你可以选择继续游戏或者重新开始\r\n如果重新开始你的<color=#ff0000>存档将会删除</color>", "Continue the game or restart\r\nDetect that you have a save file\r\nYou can choose to continue the game or restart\r\nIf you restart, your <color=#ff0000>save file will be deleted</color>"));
 		AddItem(new ConfLocalTextItem(154, "mainmenu_boss", "僵 王 模 式", "Zombie King"));
 		AddItem(new ConfLocalTextItem(155, "mainmenu_start", "开 始 冒 险", "Start Adventure"));
-		AddItem(new ConfLocalTextItem(156, "mainmenu_loading", "首次加载速度可能较慢\r\n请耐心等待", "The first loading speed may be slow\r\nPlease be patient"));
+		AddItem(new ConfLocalTextItem(156, "mainmenu_loading", "加载游戏中，请耐心等待。。。", "Loading the game, please be patient and wait..."));
 		AddItem(new ConfLocalTextItem(157, "mainmenu_seting", "更 改 设 置", "Change settings"));
 		AddItem(new ConfLocalTextItem(158, "mainmenu_fullscreen", "全屏显示", "Full Screen"));
 		AddItem(new ConfLocalTextItem(159, "mainmenu_resolution", "分辨率", "Resolution"));

@@ -44,7 +44,7 @@ public class ConfBasicAttributeBase : ConfBase<ConfBasicAttributeItem>
 
 	private void Init1()
 	{
-		AddItem(new ConfBasicAttributeItem(1, "maximumhp", 25));
+		AddItem(new ConfBasicAttributeItem(1, "maximumhp", 20));
 		AddItem(new ConfBasicAttributeItem(2, "liferecovery", 0));
 		AddItem(new ConfBasicAttributeItem(3, "adrenaline", 0));
 		AddItem(new ConfBasicAttributeItem(4, "power", 0));
@@ -54,7 +54,7 @@ public class ConfBasicAttributeBase : ConfBase<ConfBasicAttributeItem>
 		AddItem(new ConfBasicAttributeItem(8, "criticalhitrate", 0));
 		AddItem(new ConfBasicAttributeItem(9, "movespeed", 0));
 		AddItem(new ConfBasicAttributeItem(10, "armor", 0));
-		AddItem(new ConfBasicAttributeItem(11, "lucky", 100));
+		AddItem(new ConfBasicAttributeItem(11, "lucky", 0));
 		AddItem(new ConfBasicAttributeItem(12, "sunshine", 0));
 		AddItem(new ConfBasicAttributeItem(13, "goldcoins", 0));
 		AddItem(new ConfBasicAttributeItem(14, "botany", 0));

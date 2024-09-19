@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour
     public GameObject SettingPage;
     public GameObject AchievementPage;
     public GameObject StartGamePage;
+    public Slider process;
     public Collider2D collider2d;
 
     private AsyncOperation asyncOperation;
@@ -50,9 +51,6 @@ public class MainMenu : MonoBehaviour
     IEnumerator LoadScene()
     {
         // 使用协程异步加载场景
-        Resources.UnloadUnusedAssets();
-        System.GC.Collect();
-        Application.backgroundLoadingPriority = ThreadPriority.Normal;
         asyncOperation = SceneManager.LoadSceneAsync(1);
         asyncOperation.allowSceneActivation = false; // 如果为true，那么加载结束后直接就会跳转
         yield return null;
@@ -83,12 +81,31 @@ public class MainMenu : MonoBehaviour
             PlayPotAudio(null);
             AudioManager.Instance.StopBackMusic();
             animator.SetTrigger("StartGame");
-            Invoke("SetAllowActivation", 0.9f);
+            StartCoroutine(SetAllowActivation());
         };
     }
 
-    private void SetAllowActivation()
+    IEnumerator SetAllowActivation()
     {
+        void SetProcess(float value)
+        {
+            process.value = value;
+            process.handleRect.localScale = Mathf.Max((1 - value), 0.7f) * Vector3.one;
+            process.handleRect.rotation = Quaternion.Euler(0, 0, -value * 720);
+        }
+        float nowProgress = 0;
+        while (nowProgress < asyncOperation.progress)
+        {
+            nowProgress += 0.002f;
+            SetProcess(nowProgress);
+            yield return new WaitForEndOfFrame();
+        }
+        while (nowProgress < 1)
+        {
+            nowProgress += 0.01f;
+            SetProcess(nowProgress);
+            yield return new WaitForEndOfFrame();
+        }
         asyncOperation.allowSceneActivation = true;
     }
 
