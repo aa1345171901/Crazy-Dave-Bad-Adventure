@@ -259,7 +259,7 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(207, "property_Power_info", "力量\n平底锅造成的基础伤害增加{0}</color>\n击退的力量增加<color=#00ff00>{1}%</color>", "Power\nThe basic damage caused by the pan is increased by {0}</color>\nThe knockback Power is increased by <color=#00ff00> + value + %</color>"));
 		AddItem(new ConfLocalTextItem(208, "property_PercentageDamage_info", "伤害\n平底锅造成的基础伤害增加{0}%</color>\n某些道具的伤害也会随百分比伤害增加", "Damage\nThe basic damage caused by the pan increases by {0}%</color>\nThe damage of some items will also increase with the percentage damage"));
 		AddItem(new ConfLocalTextItem(209, "property_AttackSpeed_info", "攻击速度\n平底锅移动的速度增加{0}%</color>\n某些道具的也会受到攻击速度的影响，如木槌", "Attack speed\nThe speed of the pan's movement increases by {0}%</color>\nSome items are also affected by the attack speed, such as the mallet"));
-		AddItem(new ConfLocalTextItem(210, "property_Range_info", "攻击范围\n眼睛更明亮，攻击范围增加{0}%</color>\n某些道具的也会受到攻击范围的影响，如演唱会套装", "Attack range\nThe eyes are brighter, and the attack range increases by {0}%</color>\nSome items are also affected by the attack range, such as the concert suit"));
+		AddItem(new ConfLocalTextItem(210, "property_Range_info", "攻击范围\n眼睛更明亮，攻击范围和拾取范围增加{0}%</color>\n某些道具的也会受到攻击范围的影响，如演唱会套装", "Attack range\nThe eyes are brighter, and the attack range and pick range increases by {0}%</color>\nSome items are also affected by the attack range, such as the concert suit"));
 		AddItem(new ConfLocalTextItem(211, "property_CriticalHitRate_info", "暴击率\n攻击有{0}%</color>造成1.5倍伤害", "Critical hit rate\nAttacks have {0}%</color> to cause 1.5 times the damage"));
 		AddItem(new ConfLocalTextItem(212, "property_MoveSpeed_info", "移动速度\n基础移速增加{0}%</color>\n某些道具的也会受到攻击范围的影响，如小推车\n<color=#00ff00>跑步的速度为基础速度的1.5倍</color>", "Movement speed\nThe basic movement speed increases by {0}%</color>\nSome items are also affected by the attack range, such as the cart\n <color=#00ff00>Running speed is 1.5 times the base speed</color>"));
 		AddItem(new ConfLocalTextItem(213, "property_Armor_info", "护甲|<color=#ff0000>上限90%</color>\n受到的伤害减少{0}%</color>\n能有效阻挡僵尸吃掉脑子", "Armor|<color=#ff0000>Upper limit 90%</color>\nReduces damage received by {0}%</color>\nCan effectively prevent zombies from eating brains"));
@@ -334,7 +334,7 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(282, "cultivation_plant65", " 范围", "Range"));
 		AddItem(new ConfLocalTextItem(283, "cultivation_plant66", " 伤害", "Damage"));
 		AddItem(new ConfLocalTextItem(284, "cultivation_plant67", " 攻击速度", "Attack Speed"));
-		AddItem(new ConfLocalTextItem(285, "cultivation_plant68", " 速度", "Speed"));
+		AddItem(new ConfLocalTextItem(285, "cultivation_plant68", " 移动速度", "Move Speed"));
 		AddItem(new ConfLocalTextItem(286, "cultivation_plant69", " 力量", "Power"));
 		AddItem(new ConfLocalTextItem(287, "cultivation_plant70", " 最大生命值", "Max Health"));
 		AddItem(new ConfLocalTextItem(288, "cultivation_plant71", " 金币", "Gold"));

@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class MoneyClick : MonoBehaviour
 {
-    [Tooltip("Ç®±Ò»òÑô¹â¼Û¸ñ")]
+    [Tooltip("é’±å¸æˆ–é˜³å…‰ä»·æ ¼")]
     public int Price;
 
-    [Tooltip("¿É´æÔÚÊ±¼ä")]
+    [Tooltip("å¯å­˜åœ¨æ—¶é—´")]
     public int AvailableTime;
 
     public AudioSource audioSource;
@@ -70,7 +70,7 @@ public class MoneyClick : MonoBehaviour
         OnClick();
     }
 
-    protected virtual void OnClick()
+    public virtual void OnClick()
     {
         if (IsExit)
             return;

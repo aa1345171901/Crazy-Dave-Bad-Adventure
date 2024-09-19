@@ -731,7 +731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraSpeed: 0.1
   MinimumZoom: 3.5
-  MaximumZoom: 4
+  MaximumZoom: 5
   ZoomSpeed: 0.4
   Target: {fileID: 0}
   TargetController: {fileID: 0}

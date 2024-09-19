@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9125087109418112103}
   - component: {fileID: 7942489949394462638}
   - component: {fileID: 9044198217526399065}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9125087111041890464}
   - component: {fileID: 9125087111041890467}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Diamond_shine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -7965,6 +7965,7 @@ GameObject:
   - component: {fileID: 5276052461669495317}
   - component: {fileID: 6191155105737191509}
   - component: {fileID: 6661316640065615662}
+  - component: {fileID: 8267234849681823051}
   m_Layer: 6
   m_Name: Dave
   m_TagString: Untagged
@@ -8187,6 +8188,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fire: {fileID: 454873611}
+--- !u!114 &8267234849681823051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497441726251074684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c4d69d32200fbc42800eaa874959bc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defualtPickRange: 0.1
+  moneyClickLayer:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!1 &7533888858074177110
 GameObject:
   m_ObjectHideFlags: 0

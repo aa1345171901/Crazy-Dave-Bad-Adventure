@@ -15,72 +15,72 @@ public class ConfManager : BaseManager<ConfManager>
     /// <summary>
     /// 最大生命值
     /// </summary>
-    public readonly string MaximumHP = GameTool.LocalText("property_MaximumHP");
+    public string MaximumHP = GameTool.LocalText("property_MaximumHP");
 
     /// <summary>
     /// 生命恢复
     /// </summary>
-    public readonly string LifeRecovery = GameTool.LocalText("property_LifeRecovery");
+    public string LifeRecovery = GameTool.LocalText("property_LifeRecovery");
 
     /// <summary>
     /// 肾上腺素
     /// </summary>
-    public readonly string Adrenaline = GameTool.LocalText("property_Adrenaline");
+    public string Adrenaline = GameTool.LocalText("property_Adrenaline");
 
     /// <summary>
     /// 力量
     /// </summary>
-    public readonly string Power = GameTool.LocalText("property_Power");
+    public string Power = GameTool.LocalText("property_Power");
 
     /// <summary>
     /// 伤害
     /// </summary>
-    public readonly string PercentageDamage = GameTool.LocalText("property_PercentageDamage");
+    public string PercentageDamage = GameTool.LocalText("property_PercentageDamage");
 
     /// <summary>
     /// 攻击速度
     /// </summary>
-    public readonly string AttackSpeed = GameTool.LocalText("property_AttackSpeed");
+    public string AttackSpeed = GameTool.LocalText("property_AttackSpeed");
 
     /// <summary>
     /// 范围
     /// </summary>
-    public readonly string Range = GameTool.LocalText("property_Range");
+    public string Range = GameTool.LocalText("property_Range");
 
     /// <summary>
     /// 暴击率
     /// </summary>
-    public readonly string CriticalHitRate = GameTool.LocalText("property_CriticalHitRate");
+    public string CriticalHitRate = GameTool.LocalText("property_CriticalHitRate");
 
     /// <summary>
     /// 移动速度
     /// </summary>
-    public readonly string Speed = GameTool.LocalText("property_Speed");
+    public string Speed = GameTool.LocalText("property_Speed");
 
     /// <summary>
     /// 护甲
     /// </summary>
-    public readonly string Armor = GameTool.LocalText("property_Armor");
+    public string Armor = GameTool.LocalText("property_Armor");
 
     /// <summary>
     /// 幸运
     /// </summary>
-    public readonly string Lucky = GameTool.LocalText("property_Lucky");
+    public string Lucky = GameTool.LocalText("property_Lucky");
 
     /// <summary>
     /// 阳光
     /// </summary>
-    public readonly string Sunshine = GameTool.LocalText("property_Sunshine");
+    public string Sunshine = GameTool.LocalText("property_Sunshine");
 
     /// <summary>
     /// 金币
     /// </summary>
-    public readonly string GoldCoins = GameTool.LocalText("property_GoldCoins");
+    public string GoldCoins = GameTool.LocalText("property_GoldCoins");
 
     /// <summary>
     /// 植物学
     /// </summary>
-    public readonly string Botany = GameTool.LocalText("property_Botany");
+    public string Botany = GameTool.LocalText("property_Botany");
 
     // Start is called before the first frame update
     void Start()
@@ -93,5 +93,20 @@ public class ConfManager : BaseManager<ConfManager>
         DontDestroyOnLoad(this);
         confMgr = new ConfMgr();
         confMgr.Init();
+
+        MaximumHP = GameTool.LocalText("property_MaximumHP");
+        LifeRecovery = GameTool.LocalText("property_LifeRecovery");
+        Adrenaline = GameTool.LocalText("property_Adrenaline");
+        Power = GameTool.LocalText("property_Power");
+        PercentageDamage = GameTool.LocalText("property_PercentageDamage");
+        AttackSpeed = GameTool.LocalText("property_AttackSpeed");
+        Range = GameTool.LocalText("property_Range");
+        CriticalHitRate = GameTool.LocalText("property_CriticalHitRate");
+        Speed = GameTool.LocalText("property_Speed");
+        Armor = GameTool.LocalText("property_Armor");
+        Lucky = GameTool.LocalText("property_Lucky");
+        Sunshine = GameTool.LocalText("property_Sunshine");
+        GoldCoins = GameTool.LocalText("property_GoldCoins");
+        Botany = GameTool.LocalText("property_Botany");
     }
 }

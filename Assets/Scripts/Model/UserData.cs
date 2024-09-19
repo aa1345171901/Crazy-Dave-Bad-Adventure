@@ -24,6 +24,8 @@ public class UserData
 {
     public UserData() 
     {
+        if (ConfManager.Instance == null)
+            return;
         MaximumHP = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("maximumhp").value;
         LifeRecovery = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("liferecovery").value;
         Adrenaline = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("adrenaline").value;

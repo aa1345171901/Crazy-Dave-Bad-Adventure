@@ -23,7 +23,7 @@ public class Coin : MoneyClick
         this.transform.rotation = Quaternion.Euler(0, angle, 0);
     }
 
-    protected override void OnClick()
+    public override void OnClick()
     {
         if (GameManager.Instance.Coins.Contains(this) || isDigest)
         {

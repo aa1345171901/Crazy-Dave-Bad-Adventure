@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5666489160633273966}
   - component: {fileID: 5666489160633273967}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sun2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5666489160721816034}
   - component: {fileID: 5666489160721816037}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 5666489161069203381}
   - component: {fileID: 1681728591412139581}
   - component: {fileID: 8054627627937433724}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5666489161627041810}
   - component: {fileID: 5666489161627041811}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sun3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
