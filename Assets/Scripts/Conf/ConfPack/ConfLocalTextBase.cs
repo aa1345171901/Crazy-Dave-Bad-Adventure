@@ -340,6 +340,8 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(288, "cultivation_plant71", " 金币", "Gold"));
 		AddItem(new ConfLocalTextItem(289, "cultivation_plant72", " 护甲", "Armor"));
 		AddItem(new ConfLocalTextItem(290, "cultivation_plant73", " 阳光", "Sunlight"));
+		AddItem(new ConfLocalTextItem(291, "mainmenu_grow", "祭坛", "altar"));
+		AddItem(new ConfLocalTextItem(292, "mainmenu_reduction", "还原", "Reduction"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

@@ -9,8 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Glass
   m_Shader: {fileID: 4800000, guid: 9f08469479609cf4bab4ad67d93324f1, type: 3}
-  m_ValidKeywords:
-  - _MANUALWIND_ON
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -40,11 +39,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _GrassManualAnim: 0.349
+    - _GrassManualAnim: 0.257
     - _GrassManualToggle: 6.69
-    - _GrassSpeed: 3
-    - _GrassWind: 2.5
-    - _MANUALWIND: 1
+    - _GrassSpeed: 5
+    - _GrassWind: 2
+    - _MANUALWIND: 0
     - _RandomSeed: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

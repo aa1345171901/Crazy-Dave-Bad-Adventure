@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class AudioItem : MonoBehaviour
 {
+    public bool autoPlay = false;
     AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -18,6 +19,8 @@ public class AudioItem : MonoBehaviour
 
     private void OnEnable()
     {
+        if (!autoPlay)
+            return;
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
         audioSource.Play();

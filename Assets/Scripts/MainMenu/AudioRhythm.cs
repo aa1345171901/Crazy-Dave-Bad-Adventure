@@ -26,7 +26,7 @@ public class AudioRhythm : MonoBehaviour
             musicAudioSource = AudioManager.Instance.BackmusicPlayer;
             return;
         }
-        // ¸ü»»·Ö±æÂÊºó»á·¢ÉúÎ»ÖÃÆ«ÒÆ
+        // æ›´æ¢åˆ†è¾¨çŽ‡åŽä¼šå‘ç”Ÿä½ç½®åç§»
         if ((transform.position - origin).magnitude > 0.8f)
         {
             origin = targetPos = transform.position;

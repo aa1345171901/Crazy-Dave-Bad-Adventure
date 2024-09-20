@@ -7,19 +7,19 @@ using UnityEngine.UI;
 
 public class UIButton : MonoBehaviour
 {
-    [Tooltip("¸ßÁÁÊ±Ê¹ÓÃµÄ²ÄÖÊ")]
+    [Tooltip("é«˜äº®æ—¶ä½¿ç”¨çš„æè´¨")]
     public Material glowMaterial;
-    [Tooltip("³£Ì¬Ê±Ê¹ÓÃµÄ²ÄÖÊ")]
+    [Tooltip("å¸¸æ€æ—¶ä½¿ç”¨çš„æè´¨")]
     public Material normalMaterial;
-    [Tooltip("¸Ä±ä²ÄÖÊµÄÄ¿±êUI")]
+    [Tooltip("æ”¹å˜æè´¨çš„ç›®æ ‡UI")]
     public MaskableGraphic graphic;
 
-    [Tooltip("°´ÏÂ°´Å¥Ê±Æ«ÒÆ")]
+    [Tooltip("æŒ‰ä¸‹æŒ‰é’®æ—¶åç§»")]
     public Vector3 offset;
 
-    [Tooltip("°´ÏÂ°´Å¥Ê±²¥·ÅµÄÒôĞ§Ãû")]
+    [Tooltip("æŒ‰ä¸‹æŒ‰é’®æ—¶æ’­æ”¾çš„éŸ³æ•ˆå")]
     public string effectSoundsPressed = "btnPressed";
-    [Tooltip("¸ßÁÁÊ±²¥·ÅµÄÒôĞ§Ãû")]
+    [Tooltip("é«˜äº®æ—¶æ’­æ”¾çš„éŸ³æ•ˆå")]
     public string effectSoundsHighlight = "btnHighlight";
 
     public bool CanMove = true;
@@ -42,6 +42,8 @@ public class UIButton : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (!enabled)
+            return;
         if (CanMove)
             this.transform.position = defaultPos + offset;
         AudioManager.Instance.PlayEffectSoundByName(effectSoundsPressed);
@@ -49,8 +51,10 @@ public class UIButton : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (!enabled)
+            return;
         graphic.material = normalMaterial;
-        // ÅĞ¶ÏÊó±êÊÇ·ñÔÚ°´Å¥·¶Î§ÄÚ
+        // åˆ¤æ–­é¼ æ ‡æ˜¯å¦åœ¨æŒ‰é’®èŒƒå›´å†…
         if (BoundsUtils.GetSceneRect(UICamera, rectTransform).Contains(Input.mousePosition))
         {
             OnClick?.Invoke();
@@ -61,6 +65,8 @@ public class UIButton : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (!enabled)
+            return;
         defaultPos = this.transform.position;
         graphic.material = glowMaterial;
         AudioManager.Instance.PlayEffectSoundByName(effectSoundsHighlight);
@@ -68,6 +74,8 @@ public class UIButton : MonoBehaviour
 
     private void OnMouseExit()
     {
+        if (!enabled)
+            return;
         graphic.material = normalMaterial;
         if (CanMove && defaultPos != Vector3.zero)
             this.transform.position = defaultPos;

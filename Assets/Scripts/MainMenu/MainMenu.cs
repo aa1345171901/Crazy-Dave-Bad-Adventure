@@ -16,6 +16,8 @@ public class MainMenu : MonoBehaviour
     public GameObject SettingPage;
     public GameObject AchievementPage;
     public GameObject StartGamePage;
+    public GameObject GrowPage;
+    public Button btnGrow;
     public Slider process;
     public Collider2D collider2d;
 
@@ -27,6 +29,7 @@ public class MainMenu : MonoBehaviour
         audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
         AudioManager.Instance.AudioLists.Add(audioSource);
         Dave.AnimationState.Complete += PlayPotAudio;
+        btnGrow.onClick.AddListener(GrowOpen);
     }
 
     private void PlayPotAudio(TrackEntry e)
@@ -153,6 +156,19 @@ public class MainMenu : MonoBehaviour
             AudioManager.Instance.PlayEffectSoundByName(animName);
             Invoke("Exit", 0.6f);
         };
+    }
+
+    public void GrowOpen()
+    {
+        var animator = btnGrow.GetComponent<Animator>();
+        btnGrow.GetComponent<UIEventListener>().enabled = false;
+        animator.Play("click", 0, 0);
+        IEnumerator delaySet()
+        {
+            yield return new WaitForSeconds(0.5f);
+            GrowPage.SetActive(true);
+        }
+        StartCoroutine(delaySet());
     }
 
     private void Exit()
