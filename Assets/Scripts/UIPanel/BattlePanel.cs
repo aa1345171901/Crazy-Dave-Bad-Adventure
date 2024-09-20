@@ -6,20 +6,22 @@ using UnityEngine.UI;
 
 public class BattlePanel : BasePanel
 {
-    [Tooltip("ÑªÁ¿Ìõ")]
+    [Tooltip("è¡€é‡æ¡")]
     public HPBar HPBar;
-    [Tooltip("½ø¶ÈÌõ")]
+    [Tooltip("è¿›åº¦æ¡")]
     public Slider ProgressBar;
-    [Tooltip("±¼ÅÜÌõ")]
+    [Tooltip("å¥”è·‘æ¡")]
     public Slider RunBar;
-    [Tooltip("Ç®")]
+    [Tooltip("é’±")]
     public Text MoneyText;
-    [Tooltip("Ñô¹â")]
+    [Tooltip("é˜³å…‰")]
     public Text SunText;
-    [Tooltip("»ñÈ¡Ç®¶¯»­ºÍÒôĞ§")]
+    [Tooltip("è·å–é’±åŠ¨ç”»å’ŒéŸ³æ•ˆ")]
     public FinishGetGold getGold;
-    [Tooltip("Ö²Îï¿¨Æ¬Ò³Ãæ")]
+    [Tooltip("æ¤ç‰©å¡ç‰‡é¡µé¢")]
     public PlantCardPage plantCardPage;
+    [Tooltip("å‡»æ€å¤´")]
+    public Text GrowText;
 
     private void Start()
     {
@@ -39,6 +41,7 @@ public class BattlePanel : BasePanel
         this.gameObject.SetActive(true);
         MoneyText.text = ShopManager.Instance.Money.ToString();
         SunText.text = GardenManager.Instance.Sun.ToString();
+        GrowText.text = GameManager.Instance.HeadNum.ToString();
     }
 
     public override void OnExit()
@@ -73,6 +76,13 @@ public class BattlePanel : BasePanel
     public void GetGold()
     {
         getGold.GetGold();
+    }
+
+    public void SetGrowText()
+    {
+        GrowText.text = GameManager.Instance.HeadNum.ToString();
+        var animator = GrowText.transform.parent.GetComponent<Animator>();
+        animator.Play("GrowMoney", 0, 0);
     }
 
     public void UpdatePlantPage()

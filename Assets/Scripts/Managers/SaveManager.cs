@@ -12,6 +12,10 @@ public class PurchasedPropsAndPlants
     public int Money;
     public int Sun;
     public int FlowerPotCount;
+    /// <summary>
+    /// 本次通过击杀僵尸获取的头数量
+    /// </summary>
+    public int HeadNum;
     public List<PropCard> PurchasedProps;
     public List<PlantAttribute> PlantAttributes;
     public int MaxSolt = 2;
@@ -46,6 +50,11 @@ public class SaveManager
     public SpecialData specialData { get; protected set; } = new SpecialData();
 
     /// <summary>
+    /// 局外成长数据
+    /// </summary>
+    public ExternalGrowthData externalGrowthData { get; protected set; }
+
+    /// <summary>
     ///  判断是否有成功读取，没有则是重新开始
     /// </summary>
     public bool IsLoadUserData { get; set; }
@@ -73,6 +82,12 @@ public class SaveManager
         {
             systemData = JsonUtility.FromJson<SystemData>(systemDataStr);
         }
+        externalGrowthData = ExternalGrowthData.LoadData();
+    }
+
+    public void SaveExternalGrowData()
+    {
+        ExternalGrowthData.SaveSystemData(externalGrowthData);
     }
 
     public void SaveSystemData()
@@ -119,6 +134,7 @@ public class SaveManager
             GardenManager.Instance.WaterFlowerPotCount = ShopManager.Instance.PurchasePropCount("Pot_Water");
             GardenManager.Instance.Sun = saveDataStruct.Sun;
             LevelManager.Instance.IndexWave = saveDataStruct.WaveIndex;
+            GameManager.Instance.HeadNum = saveDataStruct.HeadNum;
             GardenManager.Instance.IsLoadPlantData = true;
             GardenManager.Instance.MaxSlot = saveDataStruct.MaxSolt;
             foreach (var item in saveDataStruct.SoltIndex)
@@ -152,6 +168,7 @@ public class SaveManager
         saveDataStruct.PlantAttributes = GardenManager.Instance.PlantAttributes;
         saveDataStruct.Money = ShopManager.Instance.Money;
         saveDataStruct.FlowerPotCount = GardenManager.Instance.FlowerPotCount;
+        saveDataStruct.HeadNum = GameManager.Instance.HeadNum;
         saveDataStruct.Sun = GardenManager.Instance.Sun;
         saveDataStruct.WaveIndex = LevelManager.Instance.IndexWave;
         saveDataStruct.MaxSolt = GardenManager.Instance.MaxSlot;

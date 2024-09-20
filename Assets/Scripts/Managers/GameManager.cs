@@ -127,6 +127,23 @@ namespace TopDownPlate
 
         public PumpkinHead pumpkinHead { get; private set; }
 
+        private int headNum;
+        /// <summary>
+        /// 本次通过击杀僵尸获取的头数量
+        /// </summary>
+        public int HeadNum
+        {
+            get
+            {
+                return headNum;
+            }
+            set
+            {
+                headNum = value;
+                battlePanel?.SetGrowText();
+            }
+        }
+
         private void Start()
         {
             LevelManager.Instance.Init();
@@ -137,6 +154,7 @@ namespace TopDownPlate
         private void SaveData()
         {
             SaveManager.Instance.SaveUserData();  // 每波结束时保存
+            SaveManager.Instance.SaveExternalGrowData();
         }
 
         private void LoadData()

@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class MoneyClick : MonoBehaviour
 {
+    public string key;
+
     [Tooltip("钱币或阳光价格")]
     public int Price;
 
     [Tooltip("可存在时间")]
-    public int AvailableTime;
+    public float AvailableTime;
 
     public AudioSource audioSource;
 
@@ -21,6 +23,15 @@ public class MoneyClick : MonoBehaviour
     protected readonly float destroyTime = 0.5f;
 
     private float radius = 200;
+
+    private void Awake()
+    {
+        if (ConfManager.Instance.confMgr.moneyParam.dict.ContainsKey(key))
+        {
+            Price = ConfManager.Instance.confMgr.moneyParam.dict[key].price;
+            AvailableTime = ConfManager.Instance.confMgr.moneyParam.dict[key].time;
+        }
+    }
 
     private void Start()
     {

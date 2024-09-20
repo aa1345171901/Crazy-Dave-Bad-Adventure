@@ -9,36 +9,36 @@ using UnityEngine.Events;
 
 public class ZombieAnimation : MonoBehaviour
 {
-    [Tooltip("½©Ê¬ÖÖÀà")]
+    [Tooltip("åƒµå°¸ç§ç±»")]
     public ZombieType zombieType;
 
-    [Tooltip("Éú³ÉµÄÄ¹±®µÄ¸¸ÎïÌå")]
+    [Tooltip("ç”Ÿæˆçš„å¢“ç¢‘çš„çˆ¶ç‰©ä½“")]
     public Transform GraveMonumentContent;
 
-    [Tooltip("Ä¹±®Ô¤ÖÆÌå")]
+    [Tooltip("å¢“ç¢‘é¢„åˆ¶ä½“")]
     public List<GameObject> GraveMonuments;
 
-    [Tooltip("½ø³¡¶¯»­")]
+    [Tooltip("è¿›åœºåŠ¨ç”»")]
     [SpineAnimation]
     public string EntranceAnimation = "Entrance";
 
-    [Tooltip("ÍË³¡¶¯»­")]
+    [Tooltip("é€€åœºåŠ¨ç”»")]
     [SpineAnimation]
     public string WalkOffAnimation = "WalkOff";
 
-    [Tooltip("ËÀÍö¶¯»­1")]
+    [Tooltip("æ­»äº¡åŠ¨ç”»1")]
     [SpineAnimation]
     public string DeadAnimation = "Dead/Dead";
 
-    [Tooltip("ËÀÍö¶¯»­2")]
+    [Tooltip("æ­»äº¡åŠ¨ç”»2")]
     [SpineAnimation]
     public string DeadAnimation2 = "Dead/DeadHeadFly";
 
-    [Tooltip("ËÀÍö¶¯»­ÉíÌåÆğ·É")]
+    [Tooltip("æ­»äº¡åŠ¨ç”»èº«ä½“èµ·é£")]
     [SpineAnimation]
     public string DeadFlyAnimation = "Dead/DeadBodyFly";
 
-    [Tooltip("ËÀÍö¶¯»­ÉíÌåÆğ·ÉÂäµØºó")]
+    [Tooltip("æ­»äº¡åŠ¨ç”»èº«ä½“èµ·é£è½åœ°å")]
     [SpineAnimation]
     public string DeadFlyAfterAnimation = "Dead/DeadBodyFly_After";
 
@@ -58,7 +58,7 @@ public class ZombieAnimation : MonoBehaviour
     [SpineSkin]
     public string defalutSkin;
 
-    [Tooltip("±»Õ¨ËÀ¶¯»­")]
+    [Tooltip("è¢«ç‚¸æ­»åŠ¨ç”»")]
     [SpineAnimation]
     public string DeadCharredAnimation = "charred";
 
@@ -89,7 +89,7 @@ public class ZombieAnimation : MonoBehaviour
     }
 
     /// <summary>
-    /// ¶ÔÏó³ØÖØ¸´ÀûÓÃ
+    /// å¯¹è±¡æ± é‡å¤åˆ©ç”¨
     /// </summary>
     public void Reuse()
     {
@@ -99,7 +99,7 @@ public class ZombieAnimation : MonoBehaviour
         else
             character.SkeletonAnimation.Skeleton.Skin = character.SkeletonAnimation.SkeletonDataAsset.GetSkeletonData(true).FindSkin(defalutSkin);
 
-        // ²¥·ÅÉú³É¶¯»­
+        // æ’­æ”¾ç”ŸæˆåŠ¨ç”»
         var entry = character.SkeletonAnimation.AnimationState.SetAnimation(0, EntranceAnimation, false);
         entry.Complete += (e) =>
         {
@@ -107,7 +107,7 @@ public class ZombieAnimation : MonoBehaviour
             character.Health.Reuse();
             character.Reuse();
             CollisionAttack.enabled = true;
-            LevelManager.Instance.Enemys.Add(zombieType, character);  // ½ø³¡¶¯»­ÆÚ¼ä²»ÄÜ±»¹¥»÷
+            LevelManager.Instance.Enemys.Add(zombieType, character);  // è¿›åœºåŠ¨ç”»æœŸé—´ä¸èƒ½è¢«æ”»å‡»
             SetBoxCollider(true);
         };
 
@@ -115,7 +115,7 @@ public class ZombieAnimation : MonoBehaviour
         if (GraveMonuments.Count > 0)
         {
             graveMonumentAnimator.SetTrigger("Init");
-            // ÉèÖÃäÖÈ¾²ã¼¶
+            // è®¾ç½®æ¸²æŸ“å±‚çº§
             graveMonumentAnimator.GetComponentInChildren<SpriteRenderer>().sortingOrder = EarthParticle.GetComponent<ParticleSystemRenderer>().sortingOrder = character.LayerOrder + 1;
             EarthParticle.Play();
         }
@@ -129,13 +129,13 @@ public class ZombieAnimation : MonoBehaviour
     }
 
     /// <summary>
-    /// Ã¿²¨¹¥ÊÆ½áÊøºóÃ»ËÀµÄ½©Ê¬½øĞĞÍË³¡
+    /// æ¯æ³¢æ”»åŠ¿ç»“æŸåæ²¡æ­»çš„åƒµå°¸è¿›è¡Œé€€åœº
     /// </summary>
     public void WalkOff()
     {
         character.IsDead = true;
 
-        // ²¥·ÅÍË³¡¶¯»­
+        // æ’­æ”¾é€€åœºåŠ¨ç”»
         var entry = character.SkeletonAnimation.AnimationState.SetAnimation(0, WalkOffAnimation, false);
         entry.Complete += (e) =>
         {
@@ -237,10 +237,12 @@ public class ZombieAnimation : MonoBehaviour
 
         if (zombieType == ZombieType.Gargantuan)
             GargantuanDead();
+        GameManager.Instance.HeadNum += ConfManager.Instance.confMgr.growParam.GetGrowPrice((int)zombieType);
+        SaveManager.Instance.externalGrowthData.headNum += ConfManager.Instance.confMgr.growParam.GetGrowPrice((int)zombieType);
     }
 
     /// <summary>
-    /// ¾ŞÈË½©Ê¬ËÀÍö²¢ÇÒÃ»ÓĞ¾ŞÈË½«¸Ã²¨Ê±¼äÖØĞÂÉèÖÃÎª60
+    /// å·¨äººåƒµå°¸æ­»äº¡å¹¶ä¸”æ²¡æœ‰å·¨äººå°†è¯¥æ³¢æ—¶é—´é‡æ–°è®¾ç½®ä¸º60
     /// </summary>
     private void GargantuanDead()
     {

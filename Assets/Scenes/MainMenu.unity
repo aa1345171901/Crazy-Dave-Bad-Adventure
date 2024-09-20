@@ -15864,6 +15864,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0357a8ba4c58dbb4cad6aeaad915b6e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaximumHP: property_MaximumHP
+  LifeRecovery: property_LifeRecovery
+  Adrenaline: property_Adrenaline
+  Power: property_Power
+  PercentageDamage: property_PercentageDamage
+  AttackSpeed: property_AttackSpeed
+  Range: property_Range
+  CriticalHitRate: property_CriticalHitRate
+  Speed: property_Speed
+  Armor: property_Armor
+  Lucky: property_Lucky
+  Sunshine: property_Sunshine
+  GoldCoins: property_GoldCoins
+  Botany: property_Botany
 --- !u!1 &1582879185
 GameObject:
   m_ObjectHideFlags: 0

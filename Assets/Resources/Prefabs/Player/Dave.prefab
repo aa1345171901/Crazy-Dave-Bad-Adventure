@@ -8200,7 +8200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4d69d32200fbc42800eaa874959bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defualtPickRange: 0.1
+  defualtPickRange: 0.15
   moneyClickLayer:
     serializedVersion: 2
     m_Bits: 8192

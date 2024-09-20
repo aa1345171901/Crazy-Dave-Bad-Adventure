@@ -4,15 +4,15 @@ using TopDownPlate;
 using UnityEngine;
 
 /// <summary>
-/// Ç®±ÒºÍÑô¹â´Ó½©Ê¬ÉíÌåÌø³öÊ±µÄ¶¯»­²ÎÊı
+/// é’±å¸å’Œé˜³å…‰ä»åƒµå°¸èº«ä½“è·³å‡ºæ—¶çš„åŠ¨ç”»å‚æ•°
 /// </summary>
 public class ItemJump
 {
     public MoneyClick item;
-    // Ç®±ÒµôÂä¶¯»­²ÎÊı
-    public float height;  // ÌøÔ¾¸ß¶È
-    public float time;  // ÌøÔ¾³ÖĞøÊ±¼ä
-    public Vector3 offsetSpeed;  // ÌøÔ¾Æ«ÒÆËÙ¶È
+    // é’±å¸æ‰è½åŠ¨ç”»å‚æ•°
+    public float height;  // è·³è·ƒé«˜åº¦
+    public float time;  // è·³è·ƒæŒç»­æ—¶é—´
+    public Vector3 offsetSpeed;  // è·³è·ƒåç§»é€Ÿåº¦
 
     public ItemJump(MoneyClick item)
     {
@@ -22,7 +22,7 @@ public class ItemJump
 
 public class CoinJump : MonoBehaviour
 {
-    [Header("Ô¤ÖÆÌå")]
+    [Header("é¢„åˆ¶ä½“")]
     public GameObject SliverCoin;
     public GameObject GoldCoin;
     public GameObject Diamond;
@@ -31,30 +31,30 @@ public class CoinJump : MonoBehaviour
     private float curTime;
 
     [Range(0, 2)]
-    public int Price; // ¶îÍâµôÂä ==1 Îª½ğ±Ò == 2Îª×êÊ¯
+    public int Price; // é¢å¤–æ‰è½ ==1 ä¸ºé‡‘å¸ == 2ä¸ºé’»çŸ³
 
-    private GameObject ExplosionGO;  // ¿ÉÄÜ»á±¬µÄÇ®±Ò
-    private List<ItemJump> targets = new List<ItemJump>();  // °üº¬Ç®±ÒºÍÑô¹â
+    private GameObject ExplosionGO;  // å¯èƒ½ä¼šçˆ†çš„é’±å¸
+    private List<ItemJump> targets = new List<ItemJump>();  // åŒ…å«é’±å¸å’Œé˜³å…‰
 
     public void DeadExplosionRate(DamageType damageType)
     {
-        // ´ó×ì»¨\Ä¹±®³Ôµô²»¿Û
+        // å¤§å˜´èŠ±\å¢“ç¢‘åƒæ‰ä¸æ‰£
         if (damageType == DamageType.Chomper || damageType == DamageType.Gravebuster)
             return;
         /*
-        * ÊÇ·ñµôÂäÒø±Ò£¬½ğ±Ò£¬×êÊ¯£¬ÓëĞÒÔË¹Ò¹³£¬  
-        * µôÂä¸ÅÂÊÎª  Òø±Ò £¨25 + ĞÒÔË£©%  , 
-        * ½ğ±Ò£¨ĞÒÔË / 6£©%£¬ 
-        * ×êÊ¯£¨ĞÒÔË / 30£©%
+        * æ˜¯å¦æ‰è½é“¶å¸ï¼Œé‡‘å¸ï¼Œé’»çŸ³ï¼Œä¸å¹¸è¿æŒ‚é’©ï¼Œ  
+        * æ‰è½æ¦‚ç‡ä¸º  é“¶å¸ ï¼ˆ25 + å¹¸è¿ï¼‰%  , 
+        * é‡‘å¸ï¼ˆå¹¸è¿ / 6ï¼‰%ï¼Œ 
+        * é’»çŸ³ï¼ˆå¹¸è¿ / 30ï¼‰%
         */
-        // ĞÒÔË*30Ôö¼Ó¾«¶È
+        // å¹¸è¿*30å¢åŠ ç²¾åº¦
         targets.Clear();
         int lucky = GameManager.Instance.UserData.Lucky;
         int random = Random.Range(0, 3001);
         ExplosionGO = null;
-        if (random < 30 * lucky / 30)
+        if (random < 30 * ConfManager.Instance.confMgr.moneyParam.GetWeightByKey("diamond") * lucky / 30)
             ExplosionGO = Diamond;
-        else if (random < 30 * lucky / 6)
+        else if (random < 30 * ConfManager.Instance.confMgr.moneyParam.GetWeightByKey("goldCoin") * lucky / 30)
             ExplosionGO = GoldCoin;
         else if (random < (lucky + 25) * 30)
             ExplosionGO = SliverCoin;
@@ -74,8 +74,8 @@ public class CoinJump : MonoBehaviour
 
         curTime = 0;
 
-        /* Ñô¹âµôÂä£¬¸ü¼ÓĞÒÔË¾ö¶¨
-         * µôÂäÑô¹âÊıÁ¿1-6¸ö²»µÈ£¬¸ù¾İĞÒÔË¾ö¶¨ÊıÁ¿£¬ ĞÒÔËĞ¡ÓÚ10µô1£¬µ½60×î´ó
+        /* é˜³å…‰æ‰è½ï¼Œæ›´åŠ å¹¸è¿å†³å®š
+         * æ‰è½é˜³å…‰æ•°é‡1-6ä¸ªä¸ç­‰ï¼Œæ ¹æ®å¹¸è¿å†³å®šæ•°é‡ï¼Œ å¹¸è¿å°äº10æ‰1ï¼Œåˆ°60æœ€å¤§
          */
 
         int sunCount = lucky / 10 + 1;
@@ -86,7 +86,7 @@ public class CoinJump : MonoBehaviour
             var targetSun = GameObject.Instantiate(Sun).GetComponent<MoneyClick>();
             targetSun.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, targetSun.transform.position.z);
             ItemJump itemJump = new ItemJump(targetSun);
-            // µôÂäÔÚ½©Ê¬ÖÜÎ§·¶Î§
+            // æ‰è½åœ¨åƒµå°¸å‘¨å›´èŒƒå›´
             Vector3 offset = new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), targetSun.transform.position.z);
             itemJump.height = Random.Range(0.3f, 0.6f);
             itemJump.time = Random.Range(0.4f, 0.6f);
@@ -100,7 +100,7 @@ public class CoinJump : MonoBehaviour
         var targetCoin = GameObject.Instantiate(gameObject).GetComponent<MoneyClick>();
         targetCoin.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, targetCoin.transform.position.z);
         ItemJump itemJump = new ItemJump(targetCoin);
-        // µôÂäÔÚ½©Ê¬ÖÜÎ§·¶Î§
+        // æ‰è½åœ¨åƒµå°¸å‘¨å›´èŒƒå›´
         Vector3 offset = new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), targetCoin.transform.position.z);
         itemJump.height = Random.Range(0.3f, 0.6f);
         itemJump.time = Random.Range(0.4f, 0.6f);

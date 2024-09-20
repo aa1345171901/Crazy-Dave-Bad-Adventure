@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 902384c5d3a6f4c4084cd5686cc8451e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: silverCoin
   Price: 10
   AvailableTime: 10
   audioSource: {fileID: 8155426519278508427}
