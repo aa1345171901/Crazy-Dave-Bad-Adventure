@@ -11,11 +11,49 @@ public class ExternalGrowthData
     /// <summary>
     /// 成长升级
     /// </summary>
-    public List<int> levels;
+    public List<int> levels = new List<int>();
     /// <summary>
     /// key值，对于levels的index
     /// </summary>
-    public List<string> keys;
+    public List<string> keys = new List<string>();
+
+    public int GetLevelByKey(string key)
+    {
+        int index = keys.IndexOf(key);
+        return index > -1 ? levels[index] : 0;
+    }
+
+    public void SetGrowLevel(string key, int level)
+    {
+        int index = keys.IndexOf(key);
+        if (index == -1)
+        {
+            keys.Add(key);
+            levels.Add(level);
+        }
+        else
+        {
+            levels[index] = level;
+        }
+    }
+
+    public void Reduction()
+    {
+        int sum = 0;
+        foreach (var item in keys)
+        {
+            var confItem = ConfManager.Instance.confMgr.externlGrow.GetItemByKey(item);
+            int index = keys.IndexOf(item);
+            int level = levels[index];
+            for (int i = 0; i < level; i++)
+            {
+                sum += confItem.cost[i];
+            }
+        }
+        headNum += sum;
+        levels.Clear();
+        keys.Clear();
+    }
 
     private static readonly string externalGrowthPath = Application.persistentDataPath + "/SaveData/ExternalGrowthData.data";
 

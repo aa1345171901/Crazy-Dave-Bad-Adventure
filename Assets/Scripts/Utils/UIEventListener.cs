@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using System.Collections;
 
 /// <summary>
 /// UI事件控制
@@ -65,6 +66,7 @@ public class UIEventListener : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
     private bool isMouseEnter = false;
     private bool _isPress;
+    bool isPointUp;
     public bool isPress { get { return _isPress; } }
 
     void OnDisable()
@@ -121,7 +123,7 @@ public class UIEventListener : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (isMouseEnter)
+        if (isMouseEnter || isPointUp)
         {
             return;
         }
@@ -139,7 +141,7 @@ public class UIEventListener : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!isMouseEnter)
+        if (!isMouseEnter || isPointUp)
         {
             return;
         }
@@ -160,6 +162,13 @@ public class UIEventListener : MonoBehaviour, IPointerClickHandler, IPointerEnte
         if (onPointUp != null)
         {
             onPointUp.Invoke();
+            isPointUp = true;
+            IEnumerator Delay()
+            {
+                yield return new WaitForSeconds(0.75f);
+                isPointUp = false;
+            }
+            StartCoroutine(Delay());
         }
     }
 
