@@ -23,6 +23,9 @@ public class MainMenu : MonoBehaviour
 
     private AsyncOperation asyncOperation;
 
+    public bool playAudio { get; set; } = true;
+    bool isLoadScene = false;
+
     private void Start()
     {
         AudioManager.Instance.PlayBackMusic();
@@ -34,12 +37,16 @@ public class MainMenu : MonoBehaviour
 
     private void PlayPotAudio(TrackEntry e)
     {
+        if (!playAudio)
+            return;
         audioSource.pitch = Random.Range(0.8f, 1.2f);
         audioSource.Play();
     }
 
     public void StartGame()
     {
+        if (isLoadScene)
+            return;
         if (SaveManager.Instance.JudgeData())
         {
             StartGamePage.SetActive(true);
@@ -53,7 +60,11 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator LoadScene()
     {
+        if (isLoadScene)
+            yield break;
+        isLoadScene = true;
         // 使用协程异步加载场景
+        Application.backgroundLoadingPriority = ThreadPriority.Low;
         asyncOperation = SceneManager.LoadSceneAsync(1);
         asyncOperation.allowSceneActivation = false; // 如果为true，那么加载结束后直接就会跳转
         yield return null;
@@ -99,7 +110,7 @@ public class MainMenu : MonoBehaviour
         float nowProgress = 0;
         while (nowProgress < asyncOperation.progress)
         {
-            nowProgress += 0.002f;
+            nowProgress += 0.003f;
             SetProcess(nowProgress);
             yield return new WaitForEndOfFrame();
         }
@@ -131,6 +142,8 @@ public class MainMenu : MonoBehaviour
 
     public void Achievement()
     {
+        if (isLoadScene)
+            return;
         // 打打僵王
         SaveManager.Instance.SetBossMode();
         PlayStartGameAnim();
@@ -160,6 +173,8 @@ public class MainMenu : MonoBehaviour
 
     public void GrowOpen()
     {
+        Dave.AnimationState.SetAnimation(0, "Idel", true);
+        playAudio = false;
         var animator = btnGrow.GetComponent<Animator>();
         btnGrow.GetComponent<UIEventListener>().enabled = false;
         animator.Play("click", 0, 0);

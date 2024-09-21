@@ -9,6 +9,7 @@ public class ConfMgr
 		public ConfPlantCards plantCards = new ConfPlantCards();
 		public ConfPropCards propCards = new ConfPropCards();
 		public ConfBasicAttribute basicAttribute = new ConfBasicAttribute();
+		public ConfExternlGrow externlGrow = new ConfExternlGrow();
 		public ConfMoneyParam moneyParam = new ConfMoneyParam();
 		public ConfGrowParam growParam = new ConfGrowParam();
 		public ConfLocalText localText = new ConfLocalText();
@@ -24,6 +25,7 @@ public class ConfMgr
 	public ConfPlantCards plantCards { get { return data.plantCards; } }		//商店配置表.xlsx
 	public ConfPropCards propCards { get { return data.propCards; } }		//商店配置表.xlsx
 	public ConfBasicAttribute basicAttribute { get { return data.basicAttribute; } }		//基础属性表.xlsx
+	public ConfExternlGrow externlGrow { get { return data.externlGrow; } }		//局外养成配置表.xlsx
 	public ConfMoneyParam moneyParam { get { return data.moneyParam; } }		//掉落配置表.xlsx
 	public ConfGrowParam growParam { get { return data.growParam; } }		//掉落配置表.xlsx
 	public ConfLocalText localText { get { return data.localText; } }		//文本配置表.xlsx
@@ -35,6 +37,7 @@ public class ConfMgr
 		plantCards.Init();
 		propCards.Init();
 		basicAttribute.Init();
+		externlGrow.Init();
 		moneyParam.Init();
 		growParam.Init();
 		localText.Init();
@@ -47,6 +50,7 @@ public class ConfMgr
 		plantCards.OnInit();
 		propCards.OnInit();
 		basicAttribute.OnInit();
+		externlGrow.OnInit();
 		moneyParam.OnInit();
 		growParam.OnInit();
 		localText.OnInit();

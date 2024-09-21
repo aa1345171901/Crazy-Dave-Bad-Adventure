@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ExternalGrowthData
@@ -6,6 +7,15 @@ public class ExternalGrowthData
     /// 现在head的数量
     /// </summary>
     public int headNum;
+
+    /// <summary>
+    /// 成长升级
+    /// </summary>
+    public List<int> levels;
+    /// <summary>
+    /// key值，对于levels的index
+    /// </summary>
+    public List<string> keys;
 
     private static readonly string externalGrowthPath = Application.persistentDataPath + "/SaveData/ExternalGrowthData.data";
 
