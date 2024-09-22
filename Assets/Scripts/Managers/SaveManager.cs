@@ -17,19 +17,17 @@ public class PurchasedPropsAndPlants
     /// </summary>
     public int HeadNum;
     public List<PropCard> PurchasedProps;
+    public List<int> PurchasedPlantEvolutionKeys;
+    public List<int> PurchasedPlantEvolutionValues;
+    ///// <summary>
+    ///// 购买的进化卡
+    ///// </summary>
+    //public Dictionary<PlantType, int> PurchasedPlantEvolutionDicts;
     public List<PlantAttribute> PlantAttributes;
     public int MaxSolt = 2;
     public List<int> SoltIndex;  // 卡槽对应在PlantAttributes中,list值对应下标，形成新的引用
     public List<CraterPos> CraterPoses;  // 毁灭菇造成的坑
     public List<string> earth; // 花盆的泥土位置信息
-}
-
-public class SpecialData
-{
-    /// <summary>
-    /// 打打僵王模式
-    /// </summary>
-    public int bossMode;
 }
 
 public class SaveManager
@@ -45,8 +43,14 @@ public class SaveManager
         }
     }
 
+    /// <summary>
+    /// 系统数据
+    /// </summary>
     public SystemData systemData { get; protected set; } = new SystemData();
 
+    /// <summary>
+    /// 特殊关卡数据
+    /// </summary>
     public SpecialData specialData { get; protected set; } = new SpecialData();
 
     /// <summary>
@@ -59,61 +63,92 @@ public class SaveManager
     /// </summary>
     public bool IsLoadUserData { get; set; }
 
-    /// <summary>
-    /// 打打僵王模式
-    /// </summary>
-    public bool IsBossMode { get; set; }
-
     private readonly string userDataPath = Application.persistentDataPath + "/SaveData/UserData.data";
     private readonly string itemsDataPath = Application.persistentDataPath + "/SaveData/ItemsData.data";
-    private readonly string specialDataPath = Application.persistentDataPath + "/SaveData/SpecailData.data";
-    private readonly string systemDataPath = Application.persistentDataPath + "/SaveData/SystemData.data";
 
     private SaveManager()
     {
         LoadData();
     }
 
+    /// <summary>
+    /// 读取系统数据、外部成长数据、特殊模式数据
+    /// </summary>
     private void LoadData()
     {
-        string systemDataStr = FileTool.ReadText(systemDataPath);
-        Debug.Log("read systemDataStr:" + systemDataStr);
-        if (!string.IsNullOrEmpty(systemDataStr))
-        {
-            systemData = JsonUtility.FromJson<SystemData>(systemDataStr);
-        }
+        systemData = SystemData.LoadData();
+
         externalGrowthData = ExternalGrowthData.LoadData();
+
+        specialData = SpecialData.LoadData();
     }
 
+    /// <summary>
+    /// 保存外部成长数据
+    /// </summary>
     public void SaveExternalGrowData()
     {
-        ExternalGrowthData.SaveSystemData(externalGrowthData);
+        ExternalGrowthData.SaveData(externalGrowthData);
     }
 
+    /// <summary>
+    /// 保存系统数据
+    /// </summary>
     public void SaveSystemData()
     {
-        string systemDataStr = JsonUtility.ToJson(systemData);
-        Debug.Log("systemDataStr:" + systemDataStr);
-        FileTool.WriteText(systemDataPath, systemDataStr);
+        SystemData.SaveData(systemData);
     }
 
+    /// <summary>
+    /// 开始游戏时点击重新开始,或者暂停页面，或者死亡则删除存档
+    /// </summary>
+    public void DeleteUserData()
+    {
+        // 打打僵王模式不删除原存档
+        if (specialData.battleMode != BattleMode.None)
+            return;
+        // 备份战斗存档上一次的一份
+        FileTool.FileMove(userDataPath, userDataPath.Replace("UserData.data", "UserData1.data"));
+        FileTool.FileMove(itemsDataPath, itemsDataPath.Replace("ItemsData.data", "ItemsData1.data"));
+    }
+
+    /// <summary>
+    /// 设置打打僵王模式
+    /// </summary>
+    public void SetSpecialMode(BattleMode battleMode)
+    {
+        specialData.modeInt = (int)battleMode;
+        specialData.battleMode = battleMode;
+        //SpecialData.SaveData(specialData);
+    }
+
+    /// <summary>
+    /// 读取选择的模式
+    /// </summary>
+    public BattleMode LoadSpecialData()
+    {
+        var nowMode = specialData.battleMode;
+        switch (specialData.battleMode)
+        {
+            case BattleMode.None:
+                LoadUserData();
+                break;
+            case BattleMode.BossMode:
+                // 打打僵王模式不进行数据读取
+                SetSpecialMode(BattleMode.None);
+                IsLoadUserData = true;
+                break;
+            default:
+                break;
+        }
+        return nowMode;
+    }
+
+    /// <summary>
+    /// 读取普通冒险的战斗数据
+    /// </summary>
     public void LoadUserData()
     {
-        string specialDataStr = FileTool.ReadText(specialDataPath);
-        Debug.Log("read specialDataStr:" + specialDataStr);
-        if (!string.IsNullOrEmpty(specialDataStr))
-        {
-            specialData = JsonUtility.FromJson<SpecialData>(specialDataStr);
-        }
-        // 打打僵王模式不进行数据读取
-        IsBossMode = specialData.bossMode == 1;
-        SetBossMode(0);
-        if (IsBossMode)
-        {
-            IsLoadUserData = true;
-            return;
-        }
-
         string userDataStr = FileTool.ReadText(userDataPath);
         Debug.Log("read userDataStr:" + userDataStr);
         if (!string.IsNullOrEmpty(userDataStr))
@@ -144,9 +179,22 @@ public class SaveManager
             GardenManager.Instance.CraterPoses = saveDataStruct.CraterPoses;
             GardenManager.Instance.earth = saveDataStruct.earth;
             GardenManager.Instance.MaxFlowerPotCount += saveDataStruct.earth.Count;
+
+            // 购买的进化卡
+            foreach (var item in saveDataStruct.PurchasedPlantEvolutionKeys)
+            {
+                var key = (PlantType)item;
+                int index = saveDataStruct.PurchasedPlantEvolutionKeys.IndexOf(item);
+                if (index != -1)
+                    ShopManager.Instance.PurchasedPlantEvolutionDicts[key] = saveDataStruct.PurchasedPlantEvolutionValues[index];
+            }
         }
     }
 
+    /// <summary>
+    /// 判断是否有普通冒险的战斗数据
+    /// </summary>
+    /// <returns></returns>
     public bool JudgeData()
     {
         bool result = false;
@@ -157,6 +205,9 @@ public class SaveManager
         return result;
     }
 
+    /// <summary>
+    /// 普通冒险的战斗数据
+    /// </summary>
     public void SaveUserData()
     {
         string userDataStr = JsonUtility.ToJson(GameManager.Instance.UserData);
@@ -184,34 +235,22 @@ public class SaveManager
             }
         }
         saveDataStruct.SoltIndex = soltPlantIndex;
+
+        // 购买的进化卡
+        var keys = new List<int>();
+        var values = new List<int>();
+        foreach (var item in ShopManager.Instance.PurchasedPlantEvolutionDicts)
+        {
+            keys.Add((int)item.Key);
+            values.Add((int)item.Value);
+        }
+        saveDataStruct.PurchasedPlantEvolutionKeys = keys;
+        saveDataStruct.PurchasedPlantEvolutionValues = values;
+
         saveDataStruct.CraterPoses = GardenManager.Instance.CraterPoses;
         saveDataStruct.earth = GardenManager.Instance.earth;
         string itemsDataStr = JsonUtility.ToJson(saveDataStruct);
         Debug.Log("itemsDataStr:" + itemsDataStr);
         FileTool.WriteText(itemsDataPath, itemsDataStr);
-    }
-
-    /// <summary>
-    /// 开始游戏时点击重新开始,或者暂停页面，或者死亡则删除存档
-    /// </summary>
-    public void DeleteUserData()
-    {
-        // 打打僵王模式不删除原存档
-        if (IsBossMode)
-            return;
-        // 备份战斗存档上一次的一份
-        FileTool.FileMove(userDataPath, userDataPath.Replace("UserData.data", "UserData1.data"));
-        FileTool.FileMove(itemsDataPath, itemsDataPath.Replace("ItemsData.data", "ItemsData1.data"));
-    }
-
-    /// <summary>
-    /// 设置打打僵王模式
-    /// </summary>
-    public void SetBossMode(int bossMode = 1)
-    {
-        specialData.bossMode = bossMode;
-        string specialDataStr = JsonUtility.ToJson(specialData);
-        Debug.Log("specialDataStr:" + specialDataStr);
-        FileTool.WriteText(specialDataPath, specialDataStr);
     }
 }

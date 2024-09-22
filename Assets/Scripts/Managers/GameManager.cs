@@ -144,6 +144,8 @@ namespace TopDownPlate
             }
         }
 
+        public BattleMode nowMode { get; set; }
+
         private void Start()
         {
             LevelManager.Instance.Init();
@@ -159,7 +161,68 @@ namespace TopDownPlate
 
         private void LoadData()
         {
-            SaveManager.Instance.LoadUserData();  // 读取用户数据
+            nowMode = SaveManager.Instance.LoadSpecialData();
+            ExternlGrow();
+            switch (nowMode)
+            {
+                case BattleMode.None:
+                    IntoNormalMode();
+                    break;
+                case BattleMode.BossMode:
+                    IntoNormalMode();
+                    ShopManager.Instance.Money = 100000;
+                    GardenManager.Instance.Sun = 2500000;
+                    LevelManager.Instance.IndexWave = 18;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// 局外成长属性增加
+        /// </summary>
+        void ExternlGrow()
+        {
+            // 特殊模式或者没有读取存档增加局外成长属性
+            if (nowMode != BattleMode.None || !SaveManager.Instance.IsLoadUserData)
+            {
+                foreach (var item in SaveManager.Instance.externalGrowthData.keys)
+                {
+                    var confItem = ConfManager.Instance.confMgr.externlGrow.GetItemByKey(item);
+                    var growType = (GrowType)confItem.growType;
+                    switch (growType)
+                    {
+                        case GrowType.Attribute:
+                            var sum = SaveManager.Instance.externalGrowthData.GetGrowSumValueByKey(item);
+                            UserData.AddValue(item, sum);
+                            break;
+                        case GrowType.SlotNum:
+                            break;
+                        case GrowType.StartProp:
+                            break;
+                        case GrowType.StartPlant:
+                            break;
+                        case GrowType.StartSun:
+                            break;
+                        case GrowType.StartGold:
+                            break;
+                        case GrowType.LifeTime:
+                            break;
+                        case GrowType.Curse:
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 执行特殊道具初始化，有数据加载则打开商店
+        /// </summary>
+        void IntoNormalMode()
+        {
             LoadPropMsg();
             if (SaveManager.Instance.IsLoadUserData)
             {
@@ -175,14 +238,6 @@ namespace TopDownPlate
                 LevelManager.Instance.LoadTimer();
                 isDaytime = true;
                 SaveManager.Instance.IsLoadUserData = false;
-            }
-
-            // 是打打僵王模式
-            if (SaveManager.Instance.IsBossMode)
-            {
-                ShopManager.Instance.Money = 100000;
-                GardenManager.Instance.Sun = 2500000;
-                LevelManager.Instance.IndexWave = 18;
             }
         }
 

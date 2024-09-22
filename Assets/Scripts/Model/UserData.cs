@@ -22,26 +22,6 @@ public enum AttributeType
 [Serializable]
 public class UserData
 {
-    public UserData() 
-    {
-        if (ConfManager.Instance == null)
-            return;
-        MaximumHP = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("maximumhp").value;
-        LifeRecovery = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("liferecovery").value;
-        Adrenaline = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("adrenaline").value;
-        Power = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("power").value;
-        PercentageDamage = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("percentagedamage").value;
-        AttackSpeed = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("attackspeed").value;
-        Range = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("range").value;
-        CriticalHitRate = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("criticalhitrate").value;
-        Speed = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("movespeed").value;
-        Armor = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("armor").value;
-        Lucky = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("lucky").value;
-        Sunshine = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("sunshine").value;
-        GoldCoins = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("goldcoins").value;
-        Botany = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("botany").value;
-    }
-
     /// <summary>
     /// 最大生命值
     /// </summary>
@@ -111,77 +91,73 @@ public class UserData
     /// 植物学
     /// </summary>
     public int Botany;
+
+    public UserData()
+    {
+        if (ConfManager.Instance == null)
+            return;
+        MaximumHP = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("maximumhp").value;
+        LifeRecovery = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("liferecovery").value;
+        Adrenaline = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("adrenaline").value;
+        Power = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("power").value;
+        PercentageDamage = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("percentagedamage").value;
+        AttackSpeed = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("attackspeed").value;
+        Range = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("range").value;
+        CriticalHitRate = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("criticalhitrate").value;
+        Speed = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("movespeed").value;
+        Armor = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("armor").value;
+        Lucky = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("lucky").value;
+        Sunshine = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("sunshine").value;
+        GoldCoins = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("goldcoins").value;
+        Botany = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("botany").value;
+    }
+
+    public void AddValue(string key, int value)
+    {
+        switch (key)
+        {
+            case "maximumhp":
+                MaximumHP += value;
+                break;
+            case "liferecovery":
+                LifeRecovery += value;
+                break;
+            case "adrenaline":
+                Adrenaline += value;
+                break;
+            case "power":
+                Power += value;
+                break;
+            case "percentagedamage":
+                PercentageDamage += value;
+                break;
+            case "attackspeed":
+                AttackSpeed += value;
+                break;
+            case "range":
+                Range += value;
+                break;
+            case "criticalhitrate":
+                CriticalHitRate += value;
+                break;
+            case "speed":
+                Speed += value;
+                break;
+            case "armor":
+                Armor += value;
+                break;
+            case "lucky":
+                Lucky += value;
+                break;
+            case "sunshine":
+                Sunshine += value;
+                break;
+            case "goldcoins":
+                GoldCoins += value;
+                break;
+            case "botany":
+                Botany += value;
+                break;
+        }
+    }
 }
-
-/// Json 属性增加字符串复制
-/*
-                {
-                "attributeTypeString": "MaximumHP",
-                "increment": "1"
-                },
-
-                {
-                "attributeTypeString": "LifeRecovery",
-                "increment": "1"
-                },
-
-                {
-                "attributeTypeString": "Adrenaline",
-                "increment": "1"
-                },
-
-                {
-                "attributeTypeString": "Power",
-                "increment": "1"
-                },
-
-                {
-                "attributeTypeString": "PercentageDamage",
-                "increment": "1"
-                },
-
-                {
-                "attributeTypeString": "AttackSpeed",
-                "increment": "1"
-                },
-
-                {
-                "attributeTypeString": "Range",
-                "increment": "1"
-                },
-
-                {
-                "attributeTypeString": "CriticalHitRate",
-                "increment": "1"
-                },
-
-                {
-                "attributeTypeString": "Speed",
-                "increment": "1"
-                },
-
-                {
-                "attributeTypeString": "Armor",
-                "increment": "1"
-                },
-
-                {
-                "attributeTypeString": "Lucky",
-                "increment": "1"
-                },
-
-                {
-                "attributeTypeString": "Sunshine",
-                "increment": "1"
-                },
-
-                {
-                "attributeTypeString": "GoldCoins",
-                "increment": "1"
-                },
-
-                {
-                "attributeTypeString": "Botany",
-                "increment": "1"
-                }
- */

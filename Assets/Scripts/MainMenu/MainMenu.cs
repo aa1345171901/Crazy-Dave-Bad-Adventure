@@ -18,7 +18,6 @@ public class MainMenu : MonoBehaviour
     public GameObject StartGamePage;
     public GameObject GrowPage;
     public Button btnGrow;
-    public Slider process;
     public Collider2D collider2d;
 
     private AsyncOperation asyncOperation;
@@ -55,17 +54,15 @@ public class MainMenu : MonoBehaviour
         {
             PlayStartGameAnim();
         }
-        StartCoroutine(LoadScene());
     }
 
-    IEnumerator LoadScene()
+    IEnumerator LoadLoadingScene()
     {
         if (isLoadScene)
             yield break;
         isLoadScene = true;
         // 使用协程异步加载场景
-        Application.backgroundLoadingPriority = ThreadPriority.Low;
-        asyncOperation = SceneManager.LoadSceneAsync(1);
+        asyncOperation = SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
         asyncOperation.allowSceneActivation = false; // 如果为true，那么加载结束后直接就会跳转
         yield return null;
     }
@@ -85,6 +82,7 @@ public class MainMenu : MonoBehaviour
 
     private void PlayStartGameAnim()
     {
+        StartCoroutine(LoadLoadingScene());
         collider2d.enabled = true;
         var track = Dave.AnimationState.SetAnimation(0, "MainMenuSelect", false);
         track.TimeScale = 2;
@@ -101,25 +99,7 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator SetAllowActivation()
     {
-        void SetProcess(float value)
-        {
-            process.value = value;
-            process.handleRect.localScale = Mathf.Max((1 - value), 0.7f) * Vector3.one;
-            process.handleRect.rotation = Quaternion.Euler(0, 0, -value * 720);
-        }
-        float nowProgress = 0;
-        while (nowProgress < asyncOperation.progress)
-        {
-            nowProgress += 0.003f;
-            SetProcess(nowProgress);
-            yield return new WaitForEndOfFrame();
-        }
-        while (nowProgress < 1)
-        {
-            nowProgress += 0.01f;
-            SetProcess(nowProgress);
-            yield return new WaitForEndOfFrame();
-        }
+        yield return new WaitForSeconds(1f);
         asyncOperation.allowSceneActivation = true;
     }
 
@@ -145,9 +125,8 @@ public class MainMenu : MonoBehaviour
         if (isLoadScene)
             return;
         // 打打僵王
-        SaveManager.Instance.SetBossMode();
+        SaveManager.Instance.SetSpecialMode(BattleMode.BossMode);
         PlayStartGameAnim();
-        StartCoroutine(LoadScene());
 
         // 成就暂时不开放
         //AchievementPage.SetActive(true);

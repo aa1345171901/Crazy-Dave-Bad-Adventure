@@ -1,6 +1,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 局外成长类型
+/// </summary>
+public enum GrowType
+{
+    None,
+    /// <summary>
+    /// 基础属性
+    /// </summary>
+    Attribute,
+    /// <summary>
+    /// 卡槽数量
+    /// </summary>
+    SlotNum,
+    /// <summary>
+    /// 初始道具
+    /// </summary>
+    StartProp,
+    /// <summary>
+    /// 初始植物
+    /// </summary>
+    StartPlant,
+    /// <summary>
+    /// 初始阳光
+    /// </summary>
+    StartSun,
+    /// <summary>
+    /// 初始金币
+    /// </summary>
+    StartGold,
+    /// <summary>
+    /// 复活次数
+    /// </summary>
+    LifeTime,
+    /// <summary>
+    /// 诅咒-怪物增多%比例
+    /// </summary>
+    Curse,
+}
+
 public class ExternalGrowthData
 {
     /// <summary>
@@ -37,6 +77,18 @@ public class ExternalGrowthData
         }
     }
 
+    public int GetGrowSumValueByKey(string key)
+    {
+        var confItem = ConfManager.Instance.confMgr.externlGrow.GetItemByKey(key);
+        var level = SaveManager.Instance.externalGrowthData.GetLevelByKey(key);
+        int sum = 0;
+        for (int i = 0; i < level; i++)
+        {
+            sum += confItem.levelAdd[i];
+        }
+        return sum;
+    }
+
     public void Reduction()
     {
         int sum = 0;
@@ -69,7 +121,7 @@ public class ExternalGrowthData
         return externalGrowthData;
     }
 
-    public static void SaveSystemData(ExternalGrowthData externalGrowthData)
+    public static void SaveData(ExternalGrowthData externalGrowthData)
     {
         string externalGrowthStr = JsonUtility.ToJson(externalGrowthData);
         Debug.Log("externalGrowthStr:" + externalGrowthStr);

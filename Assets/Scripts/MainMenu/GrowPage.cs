@@ -60,11 +60,7 @@ public class GrowPage : MonoBehaviour
         var level = SaveManager.Instance.externalGrowthData.GetLevelByKey(key);
         bool isFull = level >= confItem.levelAdd.Length;
         int nextAdd = isFull ? 0 : confItem.levelAdd[level];
-        int sum = 0;
-        for (int i = 0; i < level; i++)
-        {
-            sum += confItem.levelAdd[i];
-        }
+        int sum = SaveManager.Instance.externalGrowthData.GetGrowSumValueByKey(key);
         dialog.text = string.Format(desc, nextAdd, level, sum);
         btnGrow.gameObject.SetActive(!isFull);
         var cost = isFull ? 0 : nowSelect.cost[level];

@@ -237,6 +237,7 @@ public class GardenManager : BaseManager<GardenManager>
 
         // 不能在遍历时修改值，所以新建一个字典存储
         Dictionary<PlantAttribute, Plant> destroyPlants = new Dictionary<PlantAttribute, Plant>();
+        Dictionary<PlantAttribute, Plant> evolutionPlants = new Dictionary<PlantAttribute, Plant>();
         foreach (var item in PlantDict)
         {
             // 已经删掉或卖掉的去掉游戏物体
@@ -244,16 +245,29 @@ public class GardenManager : BaseManager<GardenManager>
             {
                 destroyPlants.Add(item.Key, item.Value);
             }
+            // 进化
+            else if (item.Key.plantCard.plantType != item.Value.PlantType)
+            {
+                var plant = GameObject.Instantiate(PlantPrefabInfos.GetPlantInfo(item.Key.plantCard.plantType).plant);
+                plant.plantAttribute = item.Key;
+                GameObject.Destroy(item.Value.gameObject);
+                evolutionPlants[item.Key] = plant;
+                plant.Reuse();
+            }
             else
                 item.Value.Reuse();
         }
-
+        foreach (var item in evolutionPlants)
+        {
+            PlantDict[item.Key] = item.Value;
+        }
         foreach (var item in destroyPlants)
         {
             PlantDict.Remove(item.Key);
             GameObject.Destroy(item.Value.gameObject);
         }
         destroyPlants.Clear();
+        evolutionPlants.Clear();
     }
 
     public int GetNoPlantingPlantsLilypadCount()

@@ -11,4 +11,10 @@ public class PlayAnim : MonoBehaviour
         var anim = GetComponent<Animator>();
         anim.Play(name, 0, 0);
     }
+
+    public void Play1(string name)
+    {
+        var anim = GetComponent<Animator>();
+        anim.Play(name, 1, 0);
+    }
 }

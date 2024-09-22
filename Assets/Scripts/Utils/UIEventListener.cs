@@ -163,9 +163,10 @@ public class UIEventListener : MonoBehaviour, IPointerClickHandler, IPointerEnte
         {
             onPointUp.Invoke();
             isPointUp = true;
+            isMouseEnter = false;
             IEnumerator Delay()
             {
-                yield return new WaitForSeconds(0.75f);
+                yield return new WaitForSeconds(0.5f);
                 isPointUp = false;
             }
             StartCoroutine(Delay());

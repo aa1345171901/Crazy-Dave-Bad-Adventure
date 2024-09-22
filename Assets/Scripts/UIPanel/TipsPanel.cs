@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TopDownPlate;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -85,9 +86,8 @@ public class TipsPanel : BasePanel
 
     public void ReStartGame()
     {
-        // ´ò´ò½©ÍõÖØĞÂ¿ªÊ¼ÏÈÉèÖÃ´ó´ó½©ÍõÄ£Ê½
-        if (SaveManager.Instance.IsBossMode)
-            SaveManager.Instance.SetBossMode();
+        // é‡æ–°è®¾ç½®æ¨¡å¼ä¸ºå½“å‰æ¨¡å¼
+        SaveManager.Instance.SetSpecialMode(GameManager.Instance.nowMode);
         SceneManager.LoadScene(1);
     }
 

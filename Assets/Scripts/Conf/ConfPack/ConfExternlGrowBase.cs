@@ -34,12 +34,17 @@ public class ConfExternlGrowItem : ConfBaseItem
 	/// </summary>
 	public string imgPath;
 
+	/// <summary>
+	/// 成长类型
+	/// </summary>
+	public int growType;
+
 
 	public ConfExternlGrowItem()
 	{
 	}
 
-	public ConfExternlGrowItem(int id, string key, string name, int[] cost, int[] levelAdd, string desc, string imgPath)
+	public ConfExternlGrowItem(int id, string key, string name, int[] cost, int[] levelAdd, string desc, string imgPath, int growType)
 	{
 		this.id = id;
 		this.key = key;
@@ -48,6 +53,7 @@ public class ConfExternlGrowItem : ConfBaseItem
 		this.levelAdd = levelAdd;
 		this.desc = desc;
 		this.imgPath = imgPath;
+		this.growType = growType;
 	}	
 
 	public ConfExternlGrowItem Clone()
@@ -78,20 +84,20 @@ public class ConfExternlGrowBase : ConfBase<ConfExternlGrowItem>
 
 	private void Init1()
 	{
-		AddItem(new ConfExternlGrowItem(1, "maximumhp", "property_MaximumHP", new int[]{ 30, 60, 180, 240, 600 }, new int[]{ 5, 5, 10, 10, 20 }, "mainmenu_grow1", "UI/GrowItem/Grow-1"));
-		AddItem(new ConfExternlGrowItem(2, "liferecovery", "property_LifeRecovery", new int[]{ 25, 150, 500 }, new int[]{ 5, 5, 10 }, "mainmenu_grow2", "UI/GrowItem/Grow-2"));
-		AddItem(new ConfExternlGrowItem(3, "adrenaline", "property_Adrenaline", new int[]{ 30, 180, 600 }, new int[]{ 10, 20, 40 }, "mainmenu_grow3", "UI/GrowItem/Grow-3"));
-		AddItem(new ConfExternlGrowItem(4, "power", "property_Power", new int[]{ 50, 100, 150, 400, 800 }, new int[]{ 1, 1, 1, 2, 2 }, "mainmenu_grow4", "UI/GrowItem/Grow-4"));
-		AddItem(new ConfExternlGrowItem(5, "percentagedamage", "property_PercentageDamage", new int[]{ 30, 60, 180, 360, 720 }, new int[]{ 2, 2, 4, 4, 5 }, "mainmenu_grow5", "UI/GrowItem/Grow-5"));
-		AddItem(new ConfExternlGrowItem(6, "attackspeed", "property_AttackSpeed", new int[]{ 100, 250, 500 }, new int[]{ 10, 10, 10 }, "mainmenu_grow6", "UI/GrowItem/Grow-6"));
-		AddItem(new ConfExternlGrowItem(7, "range", "property_Range", new int[]{ 30, 60, 180, 400 }, new int[]{ 5, 5, 10, 10 }, "mainmenu_grow7", "UI/GrowItem/Grow-7"));
-		AddItem(new ConfExternlGrowItem(8, "criticalhitrate", "property_CriticalHitRate", new int[]{ 150, 999 }, new int[]{ 5, 10 }, "mainmenu_grow8", "UI/GrowItem/Grow-8"));
-		AddItem(new ConfExternlGrowItem(9, "movespeed", "property_MoveSpeed", new int[]{ 100, 250, 500 }, new int[]{ 10, 10, 10 }, "mainmenu_grow9", "UI/GrowItem/Grow-9"));
-		AddItem(new ConfExternlGrowItem(10, "armor", "property_Armor", new int[]{ 40, 80, 150, 400, 800 }, new int[]{ 2, 2, 2, 4, 5 }, "mainmenu_grow10", "UI/GrowItem/Grow-10"));
-		AddItem(new ConfExternlGrowItem(11, "lucky", "property_Lucky", new int[]{ 80, 250, 444 }, new int[]{ 2, 4, 4 }, "mainmenu_grow11", "UI/GrowItem/Grow-11"));
-		AddItem(new ConfExternlGrowItem(12, "sunshine", "property_Sunshine", new int[]{ 10, 40, 90, 160, 250 }, new int[]{ 25, 50, 75, 100, 125 }, "mainmenu_grow12", "UI/GrowItem/Grow-12"));
-		AddItem(new ConfExternlGrowItem(13, "goldcoins", "property_GoldCoins", new int[]{ 20, 40, 120, 160, 300 }, new int[]{ 5, 5, 10, 10, 20 }, "mainmenu_grow13", "UI/GrowItem/Grow-13"));
-		AddItem(new ConfExternlGrowItem(14, "botany", "property_Botany", new int[]{ 30, 60, 180, 360, 720 }, new int[]{ 2, 2, 4, 4, 5 }, "mainmenu_grow14", "UI/GrowItem/Grow-14"));
+		AddItem(new ConfExternlGrowItem(1, "maximumhp", "property_MaximumHP", new int[]{ 30, 60, 180, 240, 600 }, new int[]{ 5, 5, 10, 10, 20 }, "mainmenu_grow1", "UI/GrowItem/Grow-1", 1));
+		AddItem(new ConfExternlGrowItem(2, "liferecovery", "property_LifeRecovery", new int[]{ 25, 150, 500 }, new int[]{ 5, 5, 10 }, "mainmenu_grow2", "UI/GrowItem/Grow-2", 1));
+		AddItem(new ConfExternlGrowItem(3, "adrenaline", "property_Adrenaline", new int[]{ 30, 180, 600 }, new int[]{ 10, 20, 40 }, "mainmenu_grow3", "UI/GrowItem/Grow-3", 1));
+		AddItem(new ConfExternlGrowItem(4, "power", "property_Power", new int[]{ 50, 100, 150, 400, 800 }, new int[]{ 1, 1, 1, 2, 2 }, "mainmenu_grow4", "UI/GrowItem/Grow-4", 1));
+		AddItem(new ConfExternlGrowItem(5, "percentagedamage", "property_PercentageDamage", new int[]{ 30, 60, 180, 360, 720 }, new int[]{ 2, 2, 4, 4, 5 }, "mainmenu_grow5", "UI/GrowItem/Grow-5", 1));
+		AddItem(new ConfExternlGrowItem(6, "attackspeed", "property_AttackSpeed", new int[]{ 100, 250, 500 }, new int[]{ 10, 10, 10 }, "mainmenu_grow6", "UI/GrowItem/Grow-6", 1));
+		AddItem(new ConfExternlGrowItem(7, "range", "property_Range", new int[]{ 30, 60, 180, 400 }, new int[]{ 5, 5, 10, 10 }, "mainmenu_grow7", "UI/GrowItem/Grow-7", 1));
+		AddItem(new ConfExternlGrowItem(8, "criticalhitrate", "property_CriticalHitRate", new int[]{ 150, 999 }, new int[]{ 5, 10 }, "mainmenu_grow8", "UI/GrowItem/Grow-8", 1));
+		AddItem(new ConfExternlGrowItem(9, "movespeed", "property_MoveSpeed", new int[]{ 100, 250, 500 }, new int[]{ 10, 10, 10 }, "mainmenu_grow9", "UI/GrowItem/Grow-9", 1));
+		AddItem(new ConfExternlGrowItem(10, "armor", "property_Armor", new int[]{ 40, 80, 150, 400, 800 }, new int[]{ 2, 2, 2, 4, 5 }, "mainmenu_grow10", "UI/GrowItem/Grow-10", 1));
+		AddItem(new ConfExternlGrowItem(11, "lucky", "property_Lucky", new int[]{ 80, 250, 444 }, new int[]{ 2, 4, 4 }, "mainmenu_grow11", "UI/GrowItem/Grow-11", 1));
+		AddItem(new ConfExternlGrowItem(12, "sunshine", "property_Sunshine", new int[]{ 10, 40, 90, 160, 250 }, new int[]{ 25, 50, 75, 100, 125 }, "mainmenu_grow12", "UI/GrowItem/Grow-12", 1));
+		AddItem(new ConfExternlGrowItem(13, "goldcoins", "property_GoldCoins", new int[]{ 20, 40, 120, 160, 300 }, new int[]{ 5, 5, 10, 10, 20 }, "mainmenu_grow13", "UI/GrowItem/Grow-13", 1));
+		AddItem(new ConfExternlGrowItem(14, "botany", "property_Botany", new int[]{ 30, 60, 180, 360, 720 }, new int[]{ 2, 2, 4, 4, 5 }, "mainmenu_grow14", "UI/GrowItem/Grow-14", 1));
 	}
 
 	public override void AddItem(ConfBaseItem item)
