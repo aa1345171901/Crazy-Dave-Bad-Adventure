@@ -176,9 +176,9 @@ public class GardenManager : BaseManager<GardenManager>
     public List<PlantAttribute> CardslotPlant { get; set; } = new List<PlantAttribute>();
 
     /// <summary>
-    ///  最大插槽
+    ///  植物卡槽数量
     /// </summary>
-    public int MaxSlot { get; set; } = 2;
+    public int SlotNum { get; set; } = ConfManager.Instance.confMgr.gameIntParam.GetItemByKey("defaultSolt").value;
 
     /// <summary>
     /// 是否读取了存档，在PlantContent时进行花盆和植物的载入

@@ -3800,7 +3800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc809119ab1b92c4c948d8c4b9f783c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: mainmenu_grow
+  key: mainmenu_levelmax
 --- !u!114 &332507105
 MonoBehaviour:
   m_ObjectHideFlags: 0

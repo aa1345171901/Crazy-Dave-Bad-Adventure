@@ -56,12 +56,35 @@ public class GrowPage : MonoBehaviour
         dialog.gameObject.SetActive(true);
         var confItem = ConfManager.Instance.confMgr.externlGrow.GetItemByKey(key);
         nowSelect = confItem;
-        string desc = GameTool.LocalText(confItem.desc);
         var level = SaveManager.Instance.externalGrowthData.GetLevelByKey(key);
         bool isFull = level >= confItem.levelAdd.Length;
         int nextAdd = isFull ? 0 : confItem.levelAdd[level];
         int sum = SaveManager.Instance.externalGrowthData.GetGrowSumValueByKey(key);
-        dialog.text = string.Format(desc, nextAdd, level, sum);
+        var growType = (GrowType)confItem.growType;
+        switch (growType)
+        {
+            case GrowType.None:
+            case GrowType.Attribute:
+            case GrowType.SlotNum:
+                string desc = GameTool.LocalText(confItem.desc);
+                dialog.text = string.Format(desc, nextAdd, level, sum);
+                break;
+            case GrowType.StartProp:
+                dialog.text = GameTool.LocalText(confItem.desc + "_" + level);
+                break;
+            case GrowType.StartPlant:
+                break;
+            case GrowType.StartSun:
+                break;
+            case GrowType.StartGold:
+                break;
+            case GrowType.LifeTime:
+                break;
+            case GrowType.Curse:
+                break;
+            default:
+                break;
+        }
         btnGrow.gameObject.SetActive(!isFull);
         var cost = isFull ? 0 : nowSelect.cost[level];
         var headNum = SaveManager.Instance.externalGrowthData.headNum;

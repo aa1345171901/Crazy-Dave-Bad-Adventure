@@ -9,7 +9,7 @@ public class PlantCardPage : MonoBehaviour
 
     public List<Card> Cards;
 
-    [Tooltip("卡片是否在花园中")]
+    [Tooltip("鍗＄墖鏄惁鍦ㄨ姳鍥腑")]
     public bool IsGarden;
 
     public Animator animator;
@@ -33,7 +33,7 @@ public class PlantCardPage : MonoBehaviour
 #if !UNITY_ANDROID
         if (!isShowing && !IsGarden)
         {
-            // 判断鼠标是否在按钮范围内
+            // 鍒ゆ柇榧犳爣鏄惁鍦ㄦ寜閽寖鍥村唴
             if (bounds.Contains(Input.mousePosition) && !isExpand && Time.timeScale != 0)
             {
                 isShowing = true;
@@ -62,9 +62,9 @@ public class PlantCardPage : MonoBehaviour
 
     public void CreateCard()
     {
-        if (Cards.Count < GardenManager.Instance.MaxSlot)
+        if (Cards.Count < GardenManager.Instance.SlotNum)
         {
-            int len = GardenManager.Instance.MaxSlot - Cards.Count;
+            int len = GardenManager.Instance.SlotNum - Cards.Count;
             for (int i = 0; i < len; i++)
             {
                 var card = GameObject.Instantiate(PlantCardItem, content);
@@ -91,7 +91,7 @@ public class PlantCardPage : MonoBehaviour
             Cards[index].SetPlant(item, IsGarden);
             index++;
         }
-        for (int i = index; i < GardenManager.Instance.MaxSlot; i++)
+        for (int i = index; i < GardenManager.Instance.SlotNum; i++)
         {
             Cards[i].UnSetPlant();
         }

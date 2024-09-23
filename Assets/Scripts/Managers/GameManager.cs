@@ -191,15 +191,23 @@ namespace TopDownPlate
                 {
                     var confItem = ConfManager.Instance.confMgr.externlGrow.GetItemByKey(item);
                     var growType = (GrowType)confItem.growType;
+                    var sum = SaveManager.Instance.externalGrowthData.GetGrowSumValueByKey(item);
+                    int level = SaveManager.Instance.externalGrowthData.GetLevelByKey(item);
                     switch (growType)
                     {
                         case GrowType.Attribute:
-                            var sum = SaveManager.Instance.externalGrowthData.GetGrowSumValueByKey(item);
                             UserData.AddValue(item, sum);
                             break;
                         case GrowType.SlotNum:
+                            GardenManager.Instance.SlotNum += sum;
                             break;
                         case GrowType.StartProp:
+                            if (level != 0)
+                            {
+                                var list = ShopManager.Instance.PropDicts[level];
+                                var propCard = list[Random.Range(0, list.Count)];
+                                ShopManager.Instance.PurchaseProp(propCard, 0);
+                            }
                             break;
                         case GrowType.StartPlant:
                             break;

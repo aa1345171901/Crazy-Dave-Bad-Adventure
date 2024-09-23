@@ -24,7 +24,7 @@ public class PurchasedPropsAndPlants
     ///// </summary>
     //public Dictionary<PlantType, int> PurchasedPlantEvolutionDicts;
     public List<PlantAttribute> PlantAttributes;
-    public int MaxSolt = 2;
+    public int SlotNum = 2;
     public List<int> SoltIndex;  // 卡槽对应在PlantAttributes中,list值对应下标，形成新的引用
     public List<CraterPos> CraterPoses;  // 毁灭菇造成的坑
     public List<string> earth; // 花盆的泥土位置信息
@@ -171,7 +171,7 @@ public class SaveManager
             LevelManager.Instance.IndexWave = saveDataStruct.WaveIndex;
             GameManager.Instance.HeadNum = saveDataStruct.HeadNum;
             GardenManager.Instance.IsLoadPlantData = true;
-            GardenManager.Instance.MaxSlot = saveDataStruct.MaxSolt;
+            GardenManager.Instance.SlotNum = saveDataStruct.SlotNum;
             foreach (var item in saveDataStruct.SoltIndex)
             {
                 GardenManager.Instance.CardslotPlant.Add(saveDataStruct.PlantAttributes[item]);
@@ -222,7 +222,7 @@ public class SaveManager
         saveDataStruct.HeadNum = GameManager.Instance.HeadNum;
         saveDataStruct.Sun = GardenManager.Instance.Sun;
         saveDataStruct.WaveIndex = LevelManager.Instance.IndexWave;
-        saveDataStruct.MaxSolt = GardenManager.Instance.MaxSlot;
+        saveDataStruct.SlotNum = GardenManager.Instance.SlotNum;
         List<int> soltPlantIndex = new List<int>();
         if (GardenManager.Instance.CardslotPlant.Count > 0)
         {

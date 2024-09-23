@@ -99,7 +99,7 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator SetAllowActivation()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         asyncOperation.allowSceneActivation = true;
     }
 

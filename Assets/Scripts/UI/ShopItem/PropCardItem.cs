@@ -151,14 +151,7 @@ public class PropCardItem : ShopItem
 
     private void Shop()
     {
-        ShopManager.Instance.PurchaseProp(propCard, Price);
-        var userData = GameManager.Instance.UserData;
-        foreach (var item in AttributeDicts)
-        {
-            var fieldInfo = typeof(UserData).GetField(Enum.GetName(typeof(AttributeType), item.attributeType));
-            fieldInfo.SetValue(userData, (int)fieldInfo.GetValue(userData) + item.increment);
-            attributePanel.SetAttribute(item.attributeType, (int)fieldInfo.GetValue(userData));
-        }
+        ShopManager.Instance.PurchaseProp(propCard, Price, attributePanel.SetAttribute);
         this.isDown = false;
         this.gameObject.SetActive(false);
     }

@@ -98,6 +98,8 @@ public class ConfExternlGrowBase : ConfBase<ConfExternlGrowItem>
 		AddItem(new ConfExternlGrowItem(12, "sunshine", "property_Sunshine", new int[]{ 10, 40, 90, 160, 250 }, new int[]{ 25, 50, 75, 100, 125 }, "mainmenu_grow12", "UI/GrowItem/Grow-12", 1));
 		AddItem(new ConfExternlGrowItem(13, "goldcoins", "property_GoldCoins", new int[]{ 20, 40, 120, 160, 300 }, new int[]{ 5, 5, 10, 10, 20 }, "mainmenu_grow13", "UI/GrowItem/Grow-13", 1));
 		AddItem(new ConfExternlGrowItem(14, "botany", "property_Botany", new int[]{ 30, 60, 180, 360, 720 }, new int[]{ 2, 2, 4, 4, 5 }, "mainmenu_grow14", "UI/GrowItem/Grow-14", 1));
+		AddItem(new ConfExternlGrowItem(15, "slotNum", "grow_slotNum", new int[]{ 100, 222, 444 }, new int[]{ 1, 1, 1 }, "mainmenu_grow15", "UI/GrowItem/Grow-15", 2));
+		AddItem(new ConfExternlGrowItem(16, "addProp", "grow_addProp", new int[]{ 222, 777, 1666 }, new int[]{ 0, 0, 0 }, "mainmenu_grow16", "UI/GrowItem/Grow-16", 3));
 	}
 
 	public override void AddItem(ConfBaseItem item)

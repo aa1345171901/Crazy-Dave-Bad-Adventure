@@ -13,6 +13,7 @@ public class ConfMgr
 		public ConfMoneyParam moneyParam = new ConfMoneyParam();
 		public ConfGrowParam growParam = new ConfGrowParam();
 		public ConfLocalText localText = new ConfLocalText();
+		public ConfGameIntParam gameIntParam = new ConfGameIntParam();
 		public ConfWave wave = new ConfWave();
 		public ConfWaveTimer waveTimer = new ConfWaveTimer();
 
@@ -29,6 +30,7 @@ public class ConfMgr
 	public ConfMoneyParam moneyParam { get { return data.moneyParam; } }		//掉落配置表.xlsx
 	public ConfGrowParam growParam { get { return data.growParam; } }		//掉落配置表.xlsx
 	public ConfLocalText localText { get { return data.localText; } }		//文本配置表.xlsx
+	public ConfGameIntParam gameIntParam { get { return data.gameIntParam; } }		//杂项配置表.xlsx
 	public ConfWave wave { get { return data.wave; } }		//波次配置表.xlsx
 	public ConfWaveTimer waveTimer { get { return data.waveTimer; } }		//波次配置表.xlsx
 	
@@ -41,6 +43,7 @@ public class ConfMgr
 		moneyParam.Init();
 		growParam.Init();
 		localText.Init();
+		gameIntParam.Init();
 		wave.Init();
 		waveTimer.Init();
 
@@ -54,6 +57,7 @@ public class ConfMgr
 		moneyParam.OnInit();
 		growParam.OnInit();
 		localText.OnInit();
+		gameIntParam.OnInit();
 		wave.OnInit();
 		waveTimer.OnInit();
 

@@ -76,7 +76,7 @@ public class ShopManager : BaseManager<ShopManager>
         LoadShopItemsConf();
     }
 
-    public void PurchaseProp(PropCard propCard, int price)
+    public void PurchaseProp(PropCard propCard, int price, Action<AttributeType, int> call = null)
     {
         PurchasedProps.Add(propCard);
         Money -= price;
@@ -87,6 +87,14 @@ public class ShopManager : BaseManager<ShopManager>
         {
             PropDicts[propCard.quality].Remove(propCard);
             VocalConcert.Add(propCard);
+        }
+
+        var userData = GameManager.Instance.UserData;
+        foreach (var item in propCard.attributes)
+        {
+            var fieldInfo = typeof(UserData).GetField(Enum.GetName(typeof(AttributeType), item.attributeType));
+            fieldInfo.SetValue(userData, (int)fieldInfo.GetValue(userData) + item.increment);
+            call?.Invoke(item.attributeType, (int)fieldInfo.GetValue(userData));
         }
     }
 
@@ -120,11 +128,11 @@ public class ShopManager : BaseManager<ShopManager>
                     PropPurchaseEvent.Trigger(propCard.propName);
                     break;
                 case "cardSlot":
-                    int maxSolt = GardenManager.Instance.MaxSlot;
-                    maxSolt++;
-                    if (maxSolt <= 8)
+                    int slotNum = GardenManager.Instance.SlotNum;
+                    slotNum++;
+                    if (slotNum <= ConfManager.Instance.confMgr.gameIntParam.GetItemByKey("maxSlot").value)
                     {
-                        GardenManager.Instance.MaxSlot = maxSolt;
+                        GardenManager.Instance.SlotNum = slotNum;
                     }
                     break;
                 default:

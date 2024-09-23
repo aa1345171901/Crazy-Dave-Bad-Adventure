@@ -31,7 +31,7 @@ public class GoToWarItem : MonoBehaviour
         }
         else
         {
-            if (GardenManager.Instance.MaxSlot > GardenManager.Instance.CardslotPlant.Count)
+            if (GardenManager.Instance.SlotNum > GardenManager.Instance.CardslotPlant.Count)
             {
                 flowerPotGardenItem.PlantAttribute.isGoToWar = true;
                 this.Info.text = Cancel;
