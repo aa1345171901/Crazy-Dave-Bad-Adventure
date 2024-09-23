@@ -10,37 +10,50 @@ public class PlantAttribute
     public PlantCard plantCard;
     public bool isCultivate;
 
-    // ÎªÁË·ºÓÃĞÔ£¬ÔÚÉú³ÉµÄÊ±ºò°´Ë³ĞòÈ¡Öµ£¬¿ÉÄÜÃ¿¸öÖ²ÎïÔö¼ÓµÄÊôĞÔ¶¼²»ÏàÍ¬£¬Ò»°ãÈ¡Èı¸öÊôĞÔÔö³¤£¬ÈçÓĞÌØÊâÔòºóĞøÔÙÉè¼Æ,ÆäÖĞvalueÎªµÈ¼¶£¬µÈ¼¶Ôö³¤ºóÊôĞÔÈçºÎÔö¼ÓÓÉ¾ßÌåÖ²ÎïÖĞÉè¼Æ
+    // ä¸ºäº†æ³›ç”¨æ€§ï¼Œåœ¨ç”Ÿæˆçš„æ—¶å€™æŒ‰é¡ºåºå–å€¼ï¼Œå¯èƒ½æ¯ä¸ªæ¤ç‰©å¢åŠ çš„å±æ€§éƒ½ä¸ç›¸åŒï¼Œä¸€èˆ¬å–ä¸‰ä¸ªå±æ€§å¢é•¿ï¼Œå¦‚æœ‰ç‰¹æ®Šåˆ™åç»­å†è®¾è®¡,å…¶ä¸­valueä¸ºç­‰çº§ï¼Œç­‰çº§å¢é•¿åå±æ€§å¦‚ä½•å¢åŠ ç”±å…·ä½“æ¤ç‰©ä¸­è®¾è®¡
     public int level1;
     public int level2;
     public int level3;
     public int maxLevel = 10;
 
-    // attributeÎªËæ»úÊôĞÔË³Ğò£¬¶ÔÓ¦Ä¿±êÖ²ÎïµÄ¶ÔÓ¦ÊôĞÔ£¬ÔÚÅàÓıÍê³Éºó¼´ÉèÖÃ£¬Ö»ÄÜÒ»´Î
+    // attributeä¸ºéšæœºå±æ€§é¡ºåºï¼Œå¯¹åº”ç›®æ ‡æ¤ç‰©çš„å¯¹åº”å±æ€§ï¼Œåœ¨åŸ¹è‚²å®Œæˆåå³è®¾ç½®ï¼Œåªèƒ½ä¸€æ¬¡
     public int[] attribute = new int[3];
-    // Ö²ÎïÊÇ·ñÊÇÊÖ¶¯µÄ
+    // æ¤ç‰©æ˜¯å¦æ˜¯æ‰‹åŠ¨çš„
     public bool isManual;
-    // ÊÖ¶¯µÄ¸ÃÖ²ÎïÊÇ·ñ³öÕ½
+    // æ‰‹åŠ¨çš„è¯¥æ¤ç‰©æ˜¯å¦å‡ºæˆ˜
     public bool isGoToWar;
-    // ÊÖ¶¯Ö²ÎïÑô¹âÏûºÄ¸ü¸Ä
+    // æ‰‹åŠ¨æ¤ç‰©é˜³å…‰æ¶ˆè€—æ›´æ”¹
     public Action SunChanged;
 
-    public PlantAttribute(PlantCard plantCard, bool isManual = false)
+    public PlantAttribute(PlantCard plantCard)
     {
         this.plantCard = plantCard;
-        this.isManual = isManual;
+        switch (plantCard.plantType)
+        {
+            case PlantType.CherryBomb:
+            case PlantType.IceShroom:
+            case PlantType.Jalapeno:
+            case PlantType.DoomShroom:
+            case PlantType.Squash:
+            case PlantType.PotatoMine:
+                this.isManual = true;
+                break;
+            default:
+                this.isManual = false;
+                break;
+        }
     }
 
     /// <summary>
-    /// ÅàÑøÊ±µ÷ÓÃ£¬Ôö¼ÓÍæ¼ÒÊôĞÔ
+    /// åŸ¹å…»æ—¶è°ƒç”¨ï¼Œå¢åŠ ç©å®¶å±æ€§
     /// </summary>
-    /// <param name="index">Ä¿±êµÈ¼¶Ë÷Òı</param>
+    /// <param name="index">ç›®æ ‡ç­‰çº§ç´¢å¼•</param>
     public void AddAttribute(int index)
     {
         SunChanged?.Invoke();
         switch (plantCard.plantType)
         {
-            // ÈıÒ¶²İ ÊôĞÔÔöÒæ0 ÎªÖ÷½ÇÔö¼ÓĞÒÔË£¬ 1ÎªÖ÷½ÇÔö¼Ó¹¥»÷ËÙ¶È£¬ ³öÊÛÊ±Ö±½Ó¼õÈ¥level  todo
+            // ä¸‰å¶è‰ å±æ€§å¢ç›Š0 ä¸ºä¸»è§’å¢åŠ å¹¸è¿ï¼Œ 1ä¸ºä¸»è§’å¢åŠ æ”»å‡»é€Ÿåº¦ï¼Œ å‡ºå”®æ—¶ç›´æ¥å‡å»level  todo
             case PlantType.Blover:
                 if (attribute[index] == 0)
                 {
@@ -52,14 +65,14 @@ public class PlantAttribute
                     GameManager.Instance.UserData.AttackSpeed++;
                 }
                 break;
-            // ÏãÆÑ ÊôĞÔ6 ÎªÉúÃü»Ö¸´»îÑªÖ¹Í´
+            // é¦™è’² å±æ€§6 ä¸ºç”Ÿå‘½æ¢å¤æ´»è¡€æ­¢ç—›
             case PlantType.Cattail:
                 if (attribute[index] == 6)
                 {
                     GameManager.Instance.UserData.LifeRecovery++;
                 }
                 break;
-            // Ó£ÌÒÕ¨µ¯ ÊôĞÔ5 ÎªÉöÉÏÏÙËØ
+            // æ¨±æ¡ƒç‚¸å¼¹ å±æ€§5 ä¸ºè‚¾ä¸Šè…ºç´ 
             case PlantType.CherryBomb:
             case PlantType.Jalapeno:
             case PlantType.DoomShroom:
@@ -69,14 +82,14 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Adrenaline++;
                 }
                 break;
-            // ÓñÃ×Í¶ÊÖ ÊôĞÔ0 Îª×î´óÉúÃüÖµ
+            // ç‰ç±³æŠ•æ‰‹ å±æ€§0 ä¸ºæœ€å¤§ç”Ÿå‘½å€¼
             case PlantType.Cornpult:
                 if (attribute[index] == 0)
                 {
                     GameManager.Instance.UserData.MaximumHP++;
                 }
                 break;
-            // Îü½ğ¹½ ÊôĞÔ0 Îª½ğ±Ò,1ÎªĞÒÔË£¬2ÎªÖ²ÎïÑ§
+            // å¸é‡‘è‡ å±æ€§0 ä¸ºé‡‘å¸,1ä¸ºå¹¸è¿ï¼Œ2ä¸ºæ¤ç‰©å­¦
             case PlantType.GoldMagent:
                 if (attribute[index] == 0)
                 {
@@ -91,7 +104,7 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Botany++;
                 }
                 break;
-            // Ä¹±® ÊôĞÔ3 Îª½ğ±Ò,4ÎªÉËº¦£¬5Îª»¤¼×
+            // å¢“ç¢‘ å±æ€§3 ä¸ºé‡‘å¸,4ä¸ºä¼¤å®³ï¼Œ5ä¸ºæŠ¤ç”²
             case PlantType.Gravebuster:
                 if (attribute[index] == 3)
                 {
@@ -106,14 +119,14 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Armor++;
                 }
                 break;
-            // ÷È»ó¹½ ÊôĞÔ4ÎªĞÒÔË
+            // é­…æƒ‘è‡ å±æ€§4ä¸ºå¹¸è¿
             case PlantType.HypnoShroom:
                 if (attribute[index] == 4)
                 {
                     GameManager.Instance.UserData.Lucky++;
                 }
                 break;
-            // ´ÅÁ¦¹½ ÊôĞÔ0 Îª½ğ±Ò,1ÎªĞÒÔË
+            // ç£åŠ›è‡ å±æ€§0 ä¸ºé‡‘å¸,1ä¸ºå¹¸è¿
             case PlantType.MagentShroom:
                 if (attribute[index] == 0)
                 {
@@ -124,7 +137,7 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Lucky++;
                 }
                 break;
-            // ½ğÕµ»¨ ÊôĞÔ0 Îª½ğ±Ò,1ÎªĞÒÔË
+            // é‡‘ç›èŠ± å±æ€§0 ä¸ºé‡‘å¸,1ä¸ºå¹¸è¿
             case PlantType.Marigold:
                 if (attribute[index] == 0)
                 {
@@ -135,7 +148,7 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Lucky++;
                 }
                 break;
-            // Â·µÆ ÊôĞÔ4 ¹¥»÷ËÙ¶È,5Îª·¶Î§
+            // è·¯ç¯ å±æ€§4 æ”»å‡»é€Ÿåº¦,5ä¸ºèŒƒå›´
             case PlantType.Plantern:
                 if (attribute[index] == 4)
                 {
@@ -146,7 +159,7 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Range++;
                 }
                 break;
-            // ÄÏ¹Ï ÊôĞÔ1 »¤¼×,2Îª×î´óÉúÃüÖµ3ÉúÃü»Ö¸´
+            // å—ç“œ å±æ€§1 æŠ¤ç”²,2ä¸ºæœ€å¤§ç”Ÿå‘½å€¼3ç”Ÿå‘½æ¢å¤
             case PlantType.PumpkinHead:
                 if (attribute[index] == 1)
                 {
@@ -161,7 +174,7 @@ public class PlantAttribute
                     GameManager.Instance.UserData.LifeRecovery++;
                 }
                 break;
-            // µØ´Ì ÊôĞÔ5ÎªÉöÉÏÏÙËØ 
+            // åœ°åˆº å±æ€§5ä¸ºè‚¾ä¸Šè…ºç´  
             case PlantType.Spikeweed:
             case PlantType.Spikerock:
                 if (attribute[index] == 5)
@@ -169,14 +182,14 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Adrenaline++;
                 }
                 break;
-            // ÑîÌÒ ÊôĞÔ5ÎªĞÒÔË
+            // æ¨æ¡ƒ å±æ€§5ä¸ºå¹¸è¿
             case PlantType.Starfruit:
                 if (attribute[index] == 5)
                 {
                     GameManager.Instance.UserData.Lucky++;
                 }
                 break;
-            // ÏòÈÕ¿û ÊôĞÔ0 ÎªÑô¹â,1ÎªĞÒÔË
+            // å‘æ—¥è‘µ å±æ€§0 ä¸ºé˜³å…‰,1ä¸ºå¹¸è¿
             case PlantType.SunFlower:
                 if (attribute[index] == 0)
                 {
@@ -187,7 +200,7 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Lucky++;
                 }
                 break;
-            // Ë«×ÓÏòÈÕ¿û ÊôĞÔ0 ÎªÑô¹â,1ÎªĞÒÔË
+            // åŒå­å‘æ—¥è‘µ å±æ€§0 ä¸ºé˜³å…‰,1ä¸ºå¹¸è¿
             case PlantType.TwinSunflower:
                 if (attribute[index] == 0)
                 {
@@ -198,7 +211,7 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Lucky++;
                 }
                 break;
-            // ¸ß¼á¹û ÊôĞÔ4 Îª×î´óÉúÃüÖµ,5Îª»¤¼×
+            // é«˜åšæœ å±æ€§4 ä¸ºæœ€å¤§ç”Ÿå‘½å€¼,5ä¸ºæŠ¤ç”²
             case PlantType.TallNut:
                 if (attribute[index] == 4)
                 {
@@ -209,7 +222,7 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Armor++;
                 }
                 break;
-            // »ğ¾æÊ÷×® ÊôĞÔ3 ÎªÑô¹â,4ÎªÉöÉÏÏÙËØ
+            // ç«ç‚¬æ ‘æ¡© å±æ€§3 ä¸ºé˜³å…‰,4ä¸ºè‚¾ä¸Šè…ºç´ 
             case PlantType.Torchwood:
                 if (attribute[index] == 0)
                 {
@@ -220,14 +233,14 @@ public class PlantAttribute
                     GameManager.Instance.UserData.Adrenaline++;
                 }
                 break;
-            // ¼á¹ûÇ½ 5ËÙ¶È
+            // åšæœå¢™ 5é€Ÿåº¦
             case PlantType.WallNut:
                 if (attribute[index] == 5)
                 {
                     GameManager.Instance.UserData.Speed++;
                 }
                 break;
-            // º®±ù¹½ 3ĞÒÔË 4ÉúÃü»Ö¸´
+            // å¯’å†°è‡ 3å¹¸è¿ 4ç”Ÿå‘½æ¢å¤
             case PlantType.IceShroom:
                 if (attribute[index] == 3)
                 {
@@ -242,95 +255,13 @@ public class PlantAttribute
                 break;
         }
     }
-}
-
-public class FlowerPotGardenItem : MonoBehaviour
-{
-    public PlantAttribute PlantAttribute = null;
-
-    private PlantCultivationPage plantCultivationPage;
-    private GameObject seeding;
-    private GameObject targetPlantPrefab;
-    public GameObject targetPlant;
-
-    private Animator animator;
-
-    public void SetPlant(GameObject targetPlant, PlantCard plantCard, PlantCultivationPage plantCultivationPage)
-    {
-        // ÖØĞÂ²¥·Å£¬ÓëÖ²Îï¶¯»­Ò»ÖÂ
-        animator = GetComponent<Animator>();
-        animator.Play("Idel");
-        this.plantCultivationPage = plantCultivationPage;
-        this.targetPlantPrefab = targetPlant;
-        switch (plantCard.plantType)
-        {
-            case PlantType.CherryBomb:
-            case PlantType.IceShroom:
-            case PlantType.Jalapeno:
-            case PlantType.DoomShroom:
-            case PlantType.Squash:
-            case PlantType.PotatoMine:
-                this.PlantAttribute = new PlantAttribute(plantCard, true);
-                break;
-            default:
-                this.PlantAttribute = new PlantAttribute(plantCard);
-                break;
-        }
-        seeding = GameObject.Instantiate(GardenManager.Instance.SeedingPrefab, this.transform);
-        GardenManager.Instance.PlantAttributes.Add(this.PlantAttribute);
-    }
-
-    public void SetCattail(GameObject targetPlant, PlantCard plantCard)
-    {
-        // ÖØĞÂ²¥·Å£¬ÓëÖ²Îï¶¯»­Ò»ÖÂ
-        animator = GetComponent<Animator>();
-        animator.Play("Idel");
-        seeding = this.targetPlant;
-        this.targetPlantPrefab = targetPlant;
-        GardenManager.Instance.PlantAttributes.Remove(this.PlantAttribute);
-        this.PlantAttribute = new PlantAttribute(plantCard);
-        GardenManager.Instance.PlantAttributes.Add(this.PlantAttribute);
-    }
-
-    public void LoadPlant(PlantAttribute plantAttribute, GameObject targetPlant, PlantCultivationPage plantCultivationPage)
-    {
-        animator = GetComponent<Animator>();
-        animator.Play("Idel");
-        this.PlantAttribute = plantAttribute;
-        if (plantAttribute.isCultivate)
-            this.targetPlant = GameObject.Instantiate(targetPlant, this.transform);
-        else
-        {
-            this.targetPlantPrefab = targetPlant;
-            seeding = GameObject.Instantiate(GardenManager.Instance.SeedingPrefab, this.transform);
-        }
-        this.plantCultivationPage = plantCultivationPage;
-    }
-
-    private void OnMouseDown()
-    {
-        if (PlantAttribute == null)
-            return;
-        // ÒÑ¾­ÅàÑøµÄºÉÒ¶²»ĞèÒª´ò¿ªÅàÑøÒ³Ãæ£¬ºóĞøÖÖÖ²ÏãÆÑ£¬Ö±½Ó½«PlantAttributeÌæ»»ºÉÒ¶µÄ
-        if (PlantAttribute.plantCard.plantType == PlantType.Lilypad)
-        {
-            if (PlantAttribute.isCultivate)
-                return;
-        }
-        if (plantCultivationPage != null &&(plantCultivationPage.FlowerPotGardenItem != this || !plantCultivationPage.gameObject.activeSelf))
-        {
-            AudioManager.Instance.PlayEffectSoundByName("pageExpansion", UnityEngine.Random.Range(1f, 1.2f));
-            plantCultivationPage.gameObject.SetActive(true);
-            plantCultivationPage.SetPlantAttribute(this);
-        }
-    }
 
     public void CultivatePlant()
     {
-        if (!PlantAttribute.isCultivate)
+        if (!isCultivate)
         {
-            // ÅàÓı³ÉĞÍÉèÖÃÅàÑøµÄÊôĞÔ
-            switch (PlantAttribute.plantCard.plantType)
+            // åŸ¹è‚²æˆå‹è®¾ç½®åŸ¹å…»çš„å±æ€§
+            switch (plantCard.plantType)
             {
                 case PlantType.Peashooter:
                     SetAttribute(6);
@@ -382,7 +313,7 @@ public class FlowerPotGardenItem : MonoBehaviour
                     break;
                 case PlantType.PuffShroom:
                     SetAttribute(8);
-                    PlantAttribute.maxLevel = int.MaxValue;
+                    maxLevel = int.MaxValue;
                     break;
                 case PlantType.PumpkinHead:
                     SetAttribute(5);
@@ -436,27 +367,104 @@ public class FlowerPotGardenItem : MonoBehaviour
                     break;
             }
 
-            PlantAttribute.isCultivate = true;
+            isCultivate = true;
+        }
+
+        void SetAttribute(int len)
+        {
+            var hash = RandomUtils.RandomCreateNumber(len, 3);
+            int index = 0;
+            foreach (var item in hash)
+            {
+                attribute[index] = item;
+                index++;
+            }
+        }
+    }
+}
+
+public class FlowerPotGardenItem : MonoBehaviour
+{
+    public PlantAttribute PlantAttribute = null;
+
+    private PlantCultivationPage plantCultivationPage;
+    private GameObject seeding;
+    private GameObject targetPlantPrefab;
+    public GameObject targetPlant;
+
+    private Animator animator;
+
+    public void SetPlant(GameObject targetPlant, PlantCard plantCard, PlantCultivationPage plantCultivationPage)
+    {
+        // é‡æ–°æ’­æ”¾ï¼Œä¸æ¤ç‰©åŠ¨ç”»ä¸€è‡´
+        animator = GetComponent<Animator>();
+        animator.Play("Idel");
+        this.plantCultivationPage = plantCultivationPage;
+        this.targetPlantPrefab = targetPlant;
+        this.PlantAttribute = new PlantAttribute(plantCard);
+        seeding = GameObject.Instantiate(GardenManager.Instance.SeedingPrefab, this.transform);
+        GardenManager.Instance.PlantAttributes.Add(this.PlantAttribute);
+    }
+
+    public void SetCattail(GameObject targetPlant, PlantCard plantCard)
+    {
+        // é‡æ–°æ’­æ”¾ï¼Œä¸æ¤ç‰©åŠ¨ç”»ä¸€è‡´
+        animator = GetComponent<Animator>();
+        animator.Play("Idel");
+        seeding = this.targetPlant;
+        this.targetPlantPrefab = targetPlant;
+        GardenManager.Instance.PlantAttributes.Remove(this.PlantAttribute);
+        this.PlantAttribute = new PlantAttribute(plantCard);
+        GardenManager.Instance.PlantAttributes.Add(this.PlantAttribute);
+    }
+
+    public void LoadPlant(PlantAttribute plantAttribute, GameObject targetPlant, PlantCultivationPage plantCultivationPage)
+    {
+        animator = GetComponent<Animator>();
+        animator.Play("Idel");
+        this.PlantAttribute = plantAttribute;
+        if (plantAttribute.isCultivate)
+            this.targetPlant = GameObject.Instantiate(targetPlant, this.transform);
+        else
+        {
+            this.targetPlantPrefab = targetPlant;
+            seeding = GameObject.Instantiate(GardenManager.Instance.SeedingPrefab, this.transform);
+        }
+        this.plantCultivationPage = plantCultivationPage;
+    }
+
+    private void OnMouseDown()
+    {
+        if (PlantAttribute == null)
+            return;
+        // å·²ç»åŸ¹å…»çš„è·å¶ä¸éœ€è¦æ‰“å¼€åŸ¹å…»é¡µé¢ï¼Œåç»­ç§æ¤é¦™è’²ï¼Œç›´æ¥å°†PlantAttributeæ›¿æ¢è·å¶çš„
+        if (PlantAttribute.plantCard.plantType == PlantType.Lilypad)
+        {
+            if (PlantAttribute.isCultivate)
+                return;
+        }
+        if (plantCultivationPage != null &&(plantCultivationPage.FlowerPotGardenItem != this || !plantCultivationPage.gameObject.activeSelf))
+        {
+            AudioManager.Instance.PlayEffectSoundByName("pageExpansion", UnityEngine.Random.Range(1f, 1.2f));
+            plantCultivationPage.gameObject.SetActive(true);
+            plantCultivationPage.SetPlantAttribute(this);
+        }
+    }
+
+    public void CultivatePlant()
+    {
+        if (!PlantAttribute.isCultivate)
+        {
+            PlantAttribute.CultivatePlant();
             GameObject.Destroy(seeding);
             animator.Play("Idel", 0, 0);
             targetPlant = GameObject.Instantiate(targetPlantPrefab, this.transform);
             plantCultivationPage.SetPlantAttribute(this);
-            // ºÉÒ¶²»ĞèÒª¸üĞÂ
+            // è·å¶ä¸éœ€è¦æ›´æ–°
             if (PlantAttribute.plantCard.plantType != PlantType.Lilypad)
                 UpdateSunPrice();
             else
                 plantCultivationPage.gameObject.SetActive(false);
-        }
-    }
-
-    private void SetAttribute(int len)
-    {
-        var hash = RandomUtils.RandomCreateNumber(len, 3);
-        int index = 0;
-        foreach (var item in hash)
-        {
-            PlantAttribute.attribute[index] = item;
-            index++;
         }
     }
 

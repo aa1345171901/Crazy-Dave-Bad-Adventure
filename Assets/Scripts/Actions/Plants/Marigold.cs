@@ -7,7 +7,7 @@ public class Marigold : Plant
 {
     public override PlantType PlantType => PlantType.Marigold;
 
-    [Tooltip("ÀäÈ´Ê±¼ä")]
+    [Tooltip("å†·å´æ—¶é—´")]
     public float CoolTime = 12f;
     public Coin Sliver;
     public Coin Gold;
@@ -22,7 +22,7 @@ public class Marigold : Plant
     private float finalTwinRate;
     private float finalDiamond;
 
-    private List<ItemJump> itemJumps = new List<ItemJump>();  // Ç®±ÒÌø³ö¶¯»­²ÎÊı
+    private List<ItemJump> itemJumps = new List<ItemJump>();  // é’±å¸è·³å‡ºåŠ¨ç”»å‚æ•°
 
     private readonly float LevelRate = 0.03f;
     private readonly float LevelDiamondRate = 0.003f;
@@ -38,7 +38,7 @@ public class Marigold : Plant
     {
         base.Reuse();
 
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalCoolTime = CoolTime;
         finalGoldCoinRate = 0;
         finalTwinRate = 0;
@@ -46,23 +46,23 @@ public class Marigold : Plant
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 2 ÀäÈ´Ê±¼ä
+                // 2 å†·å´æ—¶é—´
                 case 2:
                     finalCoolTime -= (int)fieldInfo.GetValue(plantAttribute) * LevelTime;
                     break;
-                // 3 µôÂä½ğ±Ò¸ÅÂÊ
+                // 3 æ‰è½é‡‘å¸æ¦‚ç‡
                 case 3:
                     finalGoldCoinRate += (int)fieldInfo.GetValue(plantAttribute) * LevelRate;
                     break;
-                // 4 µôÂäË«±¶¸ÅÂÊ
+                // 4 æ‰è½åŒå€æ¦‚ç‡
                 case 4:
                     finalTwinRate += (int)fieldInfo.GetValue(plantAttribute) * LevelRate;
                     break;
-                // 5 µôÂä×êÊ¯¸ÅÂÊ
+                // 5 æ‰è½é’»çŸ³æ¦‚ç‡
                 case 5:
                     finalDiamond += (int)fieldInfo.GetValue(plantAttribute) * LevelDiamondRate;
                     break;
@@ -83,11 +83,14 @@ public class Marigold : Plant
         }
         foreach (var item in itemJumps)
         {
-            if (Time.time - timer < item.time)
+            if (GameManager.Instance.Coins.Contains((Coin)item.item))
             {
-                Vector3 newPos = this.transform.position + item.offsetSpeed * (Time.time - timer);
-                newPos.y += Mathf.Cos((Time.time - timer) / item.time * Mathf.PI - Mathf.PI / 2) * item.height;
-                item.item.transform.position = newPos;
+                if (Time.time - timer < item.time)
+                {
+                    Vector3 newPos = this.transform.position + item.offsetSpeed * (Time.time - timer);
+                    newPos.y += Mathf.Cos((Time.time - timer) / item.time * Mathf.PI - Mathf.PI / 2) * item.height;
+                    item.item.transform.position = newPos;
+                }
             }
         }
     }

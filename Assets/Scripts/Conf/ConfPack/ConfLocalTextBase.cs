@@ -366,6 +366,16 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(314, "mainmenu_grow16_2", "强化后可携带一个紫色品质道具开局，当前可携带蓝色品质", "After strengthening, you can start with a purple quality item, and currently you can carry a blue quality item"));
 		AddItem(new ConfLocalTextItem(315, "mainmenu_grow16_3", "可携带一个紫色品质道具开局", "You can start with a purple quality item"));
 		AddItem(new ConfLocalTextItem(316, "grow_addProp", "遗产", "Heritage"));
+		AddItem(new ConfLocalTextItem(317, "mainmenu_grow17_0", "强化后可以让一只价值较低的植物协同作战", "After strengthening, it can make a plant of lower value cooperate in combat"));
+		AddItem(new ConfLocalTextItem(318, "mainmenu_grow17_1", "强化后可以让一只价值中等的植物协同作战，当前可与价值较低的植物协调作战", "After strengthening, it can make a plant of medium value cooperate in combat, and currently can coordinate with plants of lower value"));
+		AddItem(new ConfLocalTextItem(319, "mainmenu_grow17_2", "强化后可以让一只价值较高的植物协同作战，当前可与价值中等的植物协调作战", "After strengthening, it can make a plant of higher value cooperate in combat, and currently can coordinate with plants of medium value"));
+		AddItem(new ConfLocalTextItem(320, "mainmenu_grow17_3", "强化后可以让两只价值较高的植物协同作战，当前可与一只高价值的植物协调作战", "After strengthening, it can make two plants of higher value cooperate in combat, and currently can coordinate with a plant of high value"));
+		AddItem(new ConfLocalTextItem(321, "mainmenu_grow17_4", "可以让两只价值较高的植物协同作战", "It can make two plants of higher value cooperate in combat"));
+		AddItem(new ConfLocalTextItem(322, "grow_addPlant", "植物学家", "Botanist"));
+		AddItem(new ConfLocalTextItem(323, "mainmenu_grow18", "强化增加初始携带{0}阳光，当前等级{1},总共携带阳光{2}。可以开局携带阳光", "Strengthening increases the initial carrying capacity of {0} sunlight, current level {1}, total carrying capacity of {2} sunlight. You can start with sunlight"));
+		AddItem(new ConfLocalTextItem(324, "mainmenu_grow19", "强化增加初始携带{0}金币，当前等级{1},总共携带金币{2}。可以开局携带金币", "Strengthening increases the initial carrying capacity of {0} gold coins, current level {1}, total carrying capacity of {2} gold coins. You can start with gold coins"));
+		AddItem(new ConfLocalTextItem(325, "grow_addSun", "光合作用", "Photosynthesis"));
+		AddItem(new ConfLocalTextItem(326, "grow_addMoney", "钱袋子", "Money bag"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

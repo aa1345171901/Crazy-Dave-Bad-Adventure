@@ -32,7 +32,7 @@ public class LoadingScene : MonoBehaviour
         {
             while (nowProgress < asyncOperation.progress)
             {
-                nowProgress += 0.004f;
+                nowProgress += 0.002f;
                 if (nowProgress > asyncOperation.progress)
                     nowProgress = asyncOperation.progress;
                 SetProcess(nowProgress);
@@ -42,7 +42,7 @@ public class LoadingScene : MonoBehaviour
         nowProgress = 0.9f;
         while (nowProgress < 1)
         {
-            nowProgress += 0.01f;
+            nowProgress += 0.001f;
             SetProcess(nowProgress);
             yield return new WaitForEndOfFrame();
         }

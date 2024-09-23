@@ -66,17 +66,14 @@ public class GrowPage : MonoBehaviour
             case GrowType.None:
             case GrowType.Attribute:
             case GrowType.SlotNum:
+            case GrowType.StartSun:
+            case GrowType.StartGold:
                 string desc = GameTool.LocalText(confItem.desc);
                 dialog.text = string.Format(desc, nextAdd, level, sum);
                 break;
             case GrowType.StartProp:
-                dialog.text = GameTool.LocalText(confItem.desc + "_" + level);
-                break;
             case GrowType.StartPlant:
-                break;
-            case GrowType.StartSun:
-                break;
-            case GrowType.StartGold:
+                dialog.text = GameTool.LocalText(confItem.desc + "_" + level);
                 break;
             case GrowType.LifeTime:
                 break;

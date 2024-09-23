@@ -210,10 +210,39 @@ namespace TopDownPlate
                             }
                             break;
                         case GrowType.StartPlant:
+                            int max = level * 40;
+                            int min = (level - 1) * 40;
+                            if (min == 120)
+                                min = 80;
+                            var targetList = new List<PlantCard>();
+                            foreach (var plant in ShopManager.Instance.PlantLists)
+                            {
+                                if (plant.defaultPrice >= min && plant.defaultPrice <= max)
+                                {
+                                    targetList.Add(plant);
+                                }
+                            }
+                            var hashSet = RandomUtils.RandomCreateNumber(targetList.Count, Mathf.Max(1, level - 2));
+                            foreach (var index in hashSet)
+                            {
+                                var plantCard = targetList[index];
+                                var plantAttribute = new PlantAttribute(plantCard);
+                                plantAttribute.CultivatePlant();
+                                GardenManager.Instance.PlantAttributes.Add(plantAttribute);
+                                GardenManager.Instance.FlowerPotCount++;
+                                if (plantAttribute.isManual)
+                                {
+                                    GardenManager.Instance.CardslotPlant.Add(plantAttribute);
+                                }
+                            }
+                            GardenManager.Instance.IsLoadPlantData = true;
+                            GardenManager.Instance.PlantsGoToWar();
                             break;
                         case GrowType.StartSun:
+                            GardenManager.Instance.Sun = sum;
                             break;
                         case GrowType.StartGold:
+                            ShopManager.Instance.Money = sum;
                             break;
                         case GrowType.LifeTime:
                             break;

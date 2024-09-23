@@ -129,7 +129,6 @@ MonoBehaviour:
       defaultSun: 0
       info: 
       plantType: 1
-      plantTypeString: Peashooter
     isCultivate: 0
     level1: 0
     level2: 0
@@ -268,7 +267,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8068106322944764061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.603, y: -0.037, z: 0}
+  m_LocalPosition: {x: 2.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -321,9 +320,9 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.43, y: 0.58}
+  m_Size: {x: 3.43, y: 0.5975}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

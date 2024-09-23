@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -101,9 +101,189 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: FumeShroomBullet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 418.25
+        width: 343
+        height: 59.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb400747d623a404ea8c0cc7e83f8d32
+      internalID: -30215302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FumeShroomBullet_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 359.25
+        width: 343
+        height: 59.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdffabba104bfad47aa1b1bfce2842f8
+      internalID: 804608065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FumeShroomBullet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300.25
+        width: 343
+        height: 59.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f9c842cf5b5ec449901b4d2d706c0b
+      internalID: 1140858489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FumeShroomBullet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 241.25
+        width: 343
+        height: 59.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94456d7cf41fed24f8d158783b02e0db
+      internalID: 391659946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FumeShroomBullet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 182.25
+        width: 343
+        height: 59.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d71a0463159b9248ad53242061b108e
+      internalID: -1880085538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FumeShroomBullet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 123.25
+        width: 343
+        height: 59.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b80446d6b661c844c8362f8271dfefc6
+      internalID: 1554002735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FumeShroomBullet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64.25
+        width: 343
+        height: 59.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 559c196291d41ba439fd4ff0af65e2a9
+      internalID: 1250914053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FumeShroomBullet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5.25
+        width: 343
+        height: 59.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a734587c9f1944b4790be9ebce647219
+      internalID: 59335060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +294,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FumeShroomBullet_0: -30215302
+      FumeShroomBullet_7: 59335060
+      FumeShroomBullet_6: 1250914053
+      FumeShroomBullet_1: 804608065
+      FumeShroomBullet_3: 391659946
+      FumeShroomBullet_2: 1140858489
+      FumeShroomBullet_4: -1880085538
+      FumeShroomBullet_5: 1554002735
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
