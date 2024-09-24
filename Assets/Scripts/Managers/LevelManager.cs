@@ -242,7 +242,10 @@ namespace TopDownPlate
                     for (int i = 0; i < nowWave.zombieData.Count; i++)
                     {
                         var zombie = nowWave.zombieData[i];
-                        if (timer - zombie.IntervalTime[course] >= zombie.lastGenerateTime)
+                        var realIntervalTime = zombie.IntervalTime[course];
+                        // 受到诅咒影响，间隔时间缩短
+                        realIntervalTime -= (realIntervalTime / 2) * SaveManager.Instance.externalGrowthData.GetGrowSumValueByKey("curse") / 100f;
+                        if (timer - realIntervalTime >= zombie.lastGenerateTime)
                         {
                             if (zombie.ZombieType == ZombieType.Gargantuan)
                             Debug.Log(zombie.lastGenerateTime);

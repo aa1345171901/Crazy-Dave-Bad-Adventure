@@ -28,6 +28,11 @@ public class PurchasedPropsAndPlants
     public List<int> SoltIndex;  // 卡槽对应在PlantAttributes中,list值对应下标，形成新的引用
     public List<CraterPos> CraterPoses;  // 毁灭菇造成的坑
     public List<string> earth; // 花盆的泥土位置信息
+
+    /// <summary>
+    /// 已经使用的复活次数
+    /// </summary>
+    public int resurrection;
 }
 
 public class SaveManager
@@ -188,6 +193,8 @@ public class SaveManager
                 if (index != -1)
                     ShopManager.Instance.PurchasedPlantEvolutionDicts[key] = saveDataStruct.PurchasedPlantEvolutionValues[index];
             }
+
+            GameManager.Instance.resurrection = saveDataStruct.resurrection;
         }
     }
 
@@ -249,6 +256,9 @@ public class SaveManager
 
         saveDataStruct.CraterPoses = GardenManager.Instance.CraterPoses;
         saveDataStruct.earth = GardenManager.Instance.earth;
+
+        saveDataStruct.resurrection = GameManager.Instance.resurrection;
+
         string itemsDataStr = JsonUtility.ToJson(saveDataStruct);
         Debug.Log("itemsDataStr:" + itemsDataStr);
         FileTool.WriteText(itemsDataPath, itemsDataStr);

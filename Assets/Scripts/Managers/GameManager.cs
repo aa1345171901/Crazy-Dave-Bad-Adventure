@@ -144,6 +144,11 @@ namespace TopDownPlate
             }
         }
 
+        /// <summary>
+        /// 已经使用的复活次数
+        /// </summary>
+        public int resurrection { get; set; }
+
         public BattleMode nowMode { get; set; }
 
         private void Start()
@@ -374,6 +379,11 @@ namespace TopDownPlate
         public void SetRunSlider(float value)
         {
             battlePanel?.SetRunSlider(value);
+        }
+
+        public void SetRunSliderWidth(float value)
+        {
+            battlePanel?.SetRunSliderWidth(value);
         }
 
         public void NextWave()

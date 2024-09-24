@@ -39,6 +39,15 @@ public enum GrowType
     /// 诅咒-怪物增多%比例
     /// </summary>
     Curse,
+    /// <summary>
+    /// 跑步体力恢复
+    /// </summary>
+    PhysicalRecovery,
+    /// <summary>
+    /// 跑步时间
+    /// </summary>
+    RunTime,
+
 }
 
 public class ExternalGrowthData

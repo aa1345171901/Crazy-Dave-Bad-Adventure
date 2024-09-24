@@ -349,11 +349,11 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(297, "mainmenu_grow2", "强化增加{0}生命恢复，当前等级{1},总共增加生命恢复{2}。生命恢复会随时间增加当前生命值", "Enhance increases health regeneration by {0}, current level {1}, total health regeneration by {2}. Health regeneration increases current health over time"));
 		AddItem(new ConfLocalTextItem(298, "mainmenu_grow3", "强化增加{0}肾上腺素，当前等级{1},总共增加肾上腺素{2}。肾上腺素使攻击有概率恢复生命值", "Enhance increases adrenaline by {0}, current level {1}, total adrenaline increase by {2}. Adrenaline gives attacks a chance to restore health"));
 		AddItem(new ConfLocalTextItem(299, "mainmenu_grow4", "强化增加{0}力量，当前等级{1},总共增加力量{2}。增加攻击的基础伤害", "Enhance increases strength by {0}, current level {1}, total strength increase by {2}. Increases base damage of attacks"));
-		AddItem(new ConfLocalTextItem(300, "mainmenu_grow5", "强化增加{0}%伤害，当前等级{1},总共增加伤害{2}。增加攻击百分比伤害", "Enhance increases damage by {0}%, current level {1}, total damage increase by {2}. Increases percentage damage of attacks"));
-		AddItem(new ConfLocalTextItem(301, "mainmenu_grow6", "强化增加{0}%攻击速度，当前等级{1},总共增加攻击速度{2}。减少攻击冷却", "Enhance increases attack speed by {0}%, current level {1}, total attack speed increase by {2}. Reduces attack cooldown"));
-		AddItem(new ConfLocalTextItem(302, "mainmenu_grow7", "强化增加{0}%范围，当前等级{1},总共增加范围{2}。增加攻击范围和拾取范围", "Enhance increases range by {0}%, current level {1}, total range increase by {2}. Increases attack range and pickup range"));
-		AddItem(new ConfLocalTextItem(303, "mainmenu_grow8", "强化增加{0}%暴击率，当前等级{1},总共增加暴击率{2}。攻击有概率造成更多伤害", "Enhance increases critical strike rate by {0}%, current level {1}, total critical strike rate increase by {2}. Attacks have a chance to cause more damage"));
-		AddItem(new ConfLocalTextItem(304, "mainmenu_grow9", "强化增加{0}%移动速度，当前等级{1},总共增加移动速度{2}。移动会更快", "Enhance increases movement speed by {0}%, current level {1}, total increase in movement speed {2}. Move faster"));
+		AddItem(new ConfLocalTextItem(300, "mainmenu_grow5", "强化增加{0}%伤害，当前等级{1},总共增加伤害{2}%。增加攻击百分比伤害", "Enhancement increases damage by {0}%; current level {1}, total increased damage by {2}%. Increases attack percentage damage"));
+		AddItem(new ConfLocalTextItem(301, "mainmenu_grow6", "强化增加{0}%攻击速度，当前等级{1},总共增加攻击速度{2}%。减少攻击冷却", "Enhancement increases attack speed by {0}%; current level {1}, total increased attack speed by {2}%. Reduces attack cooldown"));
+		AddItem(new ConfLocalTextItem(302, "mainmenu_grow7", "强化增加{0}%范围，当前等级{1},总共增加范围{2}%。增加攻击范围和拾取范围", "Enhancement increases range by {0}%; current level {1}, total increased range by {2}%. Increases attack range and pickup range"));
+		AddItem(new ConfLocalTextItem(303, "mainmenu_grow8", "强化增加{0}%暴击率，当前等级{1},总共增加暴击率{2}%。攻击有概率造成更多伤害", "Enhancement increases critical hit rate by {0}%; current level {1}, total increased critical hit rate by {2}%. Attacks have a chance to cause more damage"));
+		AddItem(new ConfLocalTextItem(304, "mainmenu_grow9", "强化增加{0}%移动速度，当前等级{1},总共增加移动速度{2}%。移动会更快", "Enhancement increases movement speed by {0}%; current level {1}, total increased movement speed by {2}%. Moves faster"));
 		AddItem(new ConfLocalTextItem(305, "mainmenu_grow10", "强化增加{0}护甲，当前等级{1},总共增加护甲{2}。减少收到的伤害", "Enhance increases {0} armor, current level {1}, total increase in armor {2}. Reduce damage received"));
 		AddItem(new ConfLocalTextItem(306, "mainmenu_grow11", "强化增加{0}幸运，当前等级{1},总共增加幸运{2}。增加钱币，阳光掉落概率，稀有物品刷新概率", "Enhance increases {0} luck, current level {1}, total increase in luck {2}. Increases coin, sunlight drop probability, rare item refresh probability"));
 		AddItem(new ConfLocalTextItem(307, "mainmenu_grow12", "强化增加{0}阳光，当前等级{1},总共增加阳光{2}。波次结束增加阳光", "Enhance increases {0} sunlight, current level {1}, total increase in sunlight {2}. Increase sunlight at the end of the wave"));
@@ -376,6 +376,15 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(324, "mainmenu_grow19", "强化增加初始携带{0}金币，当前等级{1},总共携带金币{2}。可以开局携带金币", "Strengthening increases the initial carrying capacity of {0} gold coins, current level {1}, total carrying capacity of {2} gold coins. You can start with gold coins"));
 		AddItem(new ConfLocalTextItem(325, "grow_addSun", "光合作用", "Photosynthesis"));
 		AddItem(new ConfLocalTextItem(326, "grow_addMoney", "钱袋子", "Money bag"));
+		AddItem(new ConfLocalTextItem(327, "grow_resurrection", "钛合金脑", "Titanium Alloy Brain"));
+		AddItem(new ConfLocalTextItem(328, "mainmenu_grow20", "强化增加{0}次免疫死亡次数，当前等级{1},总共能免疫死亡{2}次。生命值归零后可以免疫伤害并恢复一半生命值", "Enhancement increases the number of immune deaths by {0} times. The current level is {1}, and the total number of immune deaths is {2}. After the health value reaches zero, it can be immune to damage and recover half of the health value."));
+		AddItem(new ConfLocalTextItem(329, "grow_text", "复活", "Resurrection"));
+		AddItem(new ConfLocalTextItem(330, "grow_curse", "诅咒", "Curse"));
+		AddItem(new ConfLocalTextItem(331, "mainmenu_grow21", "强化增加{0}%僵尸数量，当前等级{1},总共增加{2}%僵尸数量。", "Enhanced: Increases the number of zombies by {0}%, current level {1}, total increase of zombies by {2}%."));
+		AddItem(new ConfLocalTextItem(332, "grow_physicalRecovery", "体力恢复", "Stamina Recovery"));
+		AddItem(new ConfLocalTextItem(333, "mainmenu_grow22", "强化增加{0}%奔跑的体力恢复速率，当前等级{1},总共增加{2}%体力恢复速率。", "Enhanced: Increases the speed of physical recovery while running by {0}%, current level {1}, total increase of physical recovery by {2}%."));
+		AddItem(new ConfLocalTextItem(334, "grow_runTime", "体力", "Stamina"));
+		AddItem(new ConfLocalTextItem(335, "mainmenu_grow23", "强化增加{0}秒奔跑的体力，当前等级{1},总共增加{2}秒奔跑体力。", "Enhanced to increase running stamina by {0} seconds, current level {1}, total increase of running stamina by {2} seconds."));
 	}
 
 	public override void AddItem(ConfBaseItem item)

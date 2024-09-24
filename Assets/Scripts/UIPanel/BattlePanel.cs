@@ -23,6 +23,8 @@ public class BattlePanel : BasePanel
     [Tooltip("击杀头")]
     public Text GrowText;
 
+    float defualtRunWidth;
+
     private void Start()
     {
         ShopManager.Instance.MoneyChanged += () =>
@@ -71,6 +73,13 @@ public class BattlePanel : BasePanel
     public void SetRunSlider(float value)
     {
         RunBar.value = value;
+    }
+
+    public void SetRunSliderWidth(float value)
+    {
+        if (defualtRunWidth == 0)
+            defualtRunWidth = RunBar.transform.GetComponent<RectTransform>().sizeDelta.x;
+        RunBar.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(defualtRunWidth * value, RunBar.transform.GetComponent<RectTransform>().sizeDelta.y);
     }
 
     public void GetGold()

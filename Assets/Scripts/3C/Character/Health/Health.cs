@@ -152,18 +152,39 @@ namespace TopDownPlate
 
             if (health <= 0)
             {
-                if (GameManager.Instance.pumpkinHead.HasPumpkinHead && character == GameManager.Instance.Player)
-                {
-                    GameManager.Instance.pumpkinHead.HasPumpkinHead = false;
-                    GameManager.Instance.pumpkinHead.gameObject.SetActive(false);
-                    health = 0;
-                    GameManager.Instance.AddHP((int)(character.Health.maxHealth * GameManager.Instance.pumpkinHead.PumpkinHeadResumeLife));
-                }
-                else
+                void OnDead()
                 {
                     character.IsDead = true;
                     Dead?.Invoke(damageType);
                     DeadAction?.Invoke();
+                }
+                if (character == GameManager.Instance.Player)
+                {
+                    // 南瓜头复活 优先，南瓜头每波
+                    if (GameManager.Instance.pumpkinHead.HasPumpkinHead)
+                    {
+                        SetHUDText(GameTool.LocalText("grow_text"));
+                        GameManager.Instance.pumpkinHead.HasPumpkinHead = false;
+                        GameManager.Instance.pumpkinHead.gameObject.SetActive(false);
+                        health = 0;
+                        GameManager.Instance.AddHP((int)(character.Health.maxHealth * GameManager.Instance.pumpkinHead.PumpkinHeadResumeLife));
+                    }
+                    // 局外成长复活，总共次数，不是每波
+                    else if (GameManager.Instance.resurrection < SaveManager.Instance.externalGrowthData.GetGrowSumValueByKey("resurrection"))
+                    {
+                        SetHUDText(GameTool.LocalText("grow_text"));
+                        GameManager.Instance.resurrection++;
+                        health = 0;
+                        GameManager.Instance.AddHP(character.Health.maxHealth / 2 + 1);
+                    }
+                    else
+                    {
+                        OnDead();
+                    }
+                }
+                else
+                {
+                    OnDead();
                 }
             }
             else
@@ -186,6 +207,19 @@ namespace TopDownPlate
             }
             hudPos.isCriticalHit = isCriticalHit;
             hudPos.hudValue = hudValue > 0 ? "+" + hudValue.ToString() : hudValue.ToString();
+            hudPos.offset = Vector3.up * Time.deltaTime * UnityEngine.Random.Range(0.3f, 0.6f);
+            hudLists.Add(hudPos);
+            StartCoroutine(CloseHUD(hudPos));
+            timer = 0;
+        }
+
+        void SetHUDText(string text)
+        {
+            HUDPos hudPos = new HUDPos();
+            hudPos.isRecovery = true;
+            hudPos.targetPos = this.transform.position + Vector3.up * UnityEngine.Random.Range(0.3f, 0.6f) + Vector3.left * 0.1f;
+            hudPos.isCriticalHit = false;
+            hudPos.hudValue = text;
             hudPos.offset = Vector3.up * Time.deltaTime * UnityEngine.Random.Range(0.3f, 0.6f);
             hudLists.Add(hudPos);
             StartCoroutine(CloseHUD(hudPos));

@@ -103,6 +103,10 @@ public class ConfExternlGrowBase : ConfBase<ConfExternlGrowItem>
 		AddItem(new ConfExternlGrowItem(17, "addPlant", "grow_addPlant", new int[]{ 100, 500, 1000, 3000 }, new int[]{ 0, 0, 0, 0 }, "mainmenu_grow17", "UI/GrowItem/Grow-17", 4));
 		AddItem(new ConfExternlGrowItem(18, "addSun", "grow_addSun", new int[]{ 20, 100, 200, 400, 666 }, new int[]{ 50, 50, 100, 100, 150 }, "mainmenu_grow18", "UI/GrowItem/Grow-18", 5));
 		AddItem(new ConfExternlGrowItem(19, "addMoney", "grow_addMoney", new int[]{ 50, 125, 300, 666, 1444 }, new int[]{ 10, 10, 20, 20, 30 }, "mainmenu_grow19", "UI/GrowItem/Grow-19", 6));
+		AddItem(new ConfExternlGrowItem(20, "resurrection", "grow_resurrection", new int[]{ 555, 2222 }, new int[]{ 1, 1 }, "mainmenu_grow20", "UI/GrowItem/Grow-20", 7));
+		AddItem(new ConfExternlGrowItem(21, "curse", "grow_curse", new int[]{ 100, 222, 444, 888, 1444 }, new int[]{ 10, 10, 10, 10, 10 }, "mainmenu_grow21", "UI/GrowItem/Grow-21", 8));
+		AddItem(new ConfExternlGrowItem(22, "physicalRecovery", "grow_physicalRecovery", new int[]{ 111, 222, 333, 444, 555 }, new int[]{ 20, 30, 40, 50, 60 }, "mainmenu_grow22", "UI/GrowItem/Grow-22", 9));
+		AddItem(new ConfExternlGrowItem(23, "runTime", "grow_runTime", new int[]{ 200, 400, 666, 1111 }, new int[]{ 1, 1, 1, 1 }, "mainmenu_grow23", "UI/GrowItem/Grow-23", 10));
 	}
 
 	public override void AddItem(ConfBaseItem item)

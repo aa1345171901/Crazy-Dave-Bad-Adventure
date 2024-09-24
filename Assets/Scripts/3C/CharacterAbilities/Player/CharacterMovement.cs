@@ -12,20 +12,20 @@ namespace TopDownPlate
 
         [Space(10)]
         [Header("RunParameter")]
-        [Tooltip("±¼ÅÜÏà¶ÔÆ½³£ËÙ¶ÈµÄ±¶Êı")]
+        [Tooltip("å¥”è·‘ç›¸å¯¹å¹³å¸¸é€Ÿåº¦çš„å€æ•°")]
         public float runSpeedMultiple = 1.5f;
 
-        [Tooltip("±¼ÅÜ×î´ó³ÖĞøÊ±¼ä")]
+        [Tooltip("å¥”è·‘æœ€å¤§æŒç»­æ—¶é—´")]
         public float MaximumRunningTime = 5;
 
-        [Tooltip("±¼ÅÜ»Ö¸´Ğ§ÂÊ£¬Ã¿¶àÉÙdealtime»Ö¸´1")]
+        [Tooltip("å¥”è·‘æ¢å¤æ•ˆç‡ï¼Œæ¯å¤šå°‘dealtimeæ¢å¤1")]
         public float RunningRecoveryEfficiency = 10;
 
         [Space(10)]
         [Header("SoundEffect")]
-        [Tooltip("²¥·Å×ßÂ·ÉùÒôµÄAudioSource")]
+        [Tooltip("æ’­æ”¾èµ°è·¯å£°éŸ³çš„AudioSource")]
         public AudioSource WalkAudio;
-        [Tooltip("×ßÂ·Ğ§¹ûÉùÒô")]
+        [Tooltip("èµ°è·¯æ•ˆæœå£°éŸ³")]
         public List<AudioClip> WalkClips;
 
         [Space(10)]
@@ -34,16 +34,17 @@ namespace TopDownPlate
         public Vector2 vectorInput;
 
         private bool runKeyDown;
-        private float speed; // ¿ØÖÆ¶¯»­ËÙ¶È
-        private float runTimer; // ¿ÉÒÔ±¼ÅÜµÄÊ±¼ä
-        private int recoveryTimer;  // »Ö¸´¼ÆÊ±Æ÷
-        private bool runCancel;  // Ê±¼äÓÃÍêÉèÖÃÎªtrue,ÔÙ´Î°´ÏÂÉèÎªfalse;
+        private float speed; // æ§åˆ¶åŠ¨ç”»é€Ÿåº¦
+        private float runTimer; // å¯ä»¥å¥”è·‘çš„æ—¶é—´
+        private float realMaxRunTime; // å¯ä»¥å¥”è·‘çš„æœ€å¤§æ—¶é—´æ—¶é—´ï¼ŒåŠ æˆå
+        private int recoveryTimer;  // æ¢å¤è®¡æ—¶å™¨
+        private bool runCancel;  // æ—¶é—´ç”¨å®Œè®¾ç½®ä¸ºtrue,å†æ¬¡æŒ‰ä¸‹è®¾ä¸ºfalse;
 
         private readonly float defaultSpeed = 3f;
 
         private float finalMoveSpeed;
 
-        // ÊÇ·ñÄÜÍ¨¹ıÊäÈëÒÆ¶¯
+        // æ˜¯å¦èƒ½é€šè¿‡è¾“å…¥ç§»åŠ¨
         public bool canMove { get; set; }
 
         protected override void Initialization()
@@ -56,7 +57,9 @@ namespace TopDownPlate
         {
             base.Reuse();
             canMove = true;
-            runTimer = MaximumRunningTime;
+            realMaxRunTime = MaximumRunningTime + SaveManager.Instance.externalGrowthData.GetGrowSumValueByKey("runTime");
+            runTimer = realMaxRunTime;
+            GameManager.Instance.SetRunSliderWidth(realMaxRunTime / MaximumRunningTime);
             SetRuntimer();
             recoveryTimer = 0;
 
@@ -84,7 +87,7 @@ namespace TopDownPlate
 
         public override void ProcessAbility()
         {
-            // canMoveÎªÊÇ·ñÊÕµ½Íâ½çÁ¦£¬ÊÕµ½Á¦Ê±²»½øĞĞÊäÈë¿ØÖÆ
+            // canMoveä¸ºæ˜¯å¦æ”¶åˆ°å¤–ç•ŒåŠ›ï¼Œæ”¶åˆ°åŠ›æ—¶ä¸è¿›è¡Œè¾“å…¥æ§åˆ¶
             if (canMove)
             {
                 if (!character.IsDead && !GameManager.Instance.IsDaytime)
@@ -107,13 +110,14 @@ namespace TopDownPlate
                     if (runTimer <= 0)
                         runCancel = true;
 
-                    // ±¼ÅÜÁË¾Í²»Ôö¼Ó»Ö¸´¼ÆÊ±Æ÷
+                    // å¥”è·‘äº†å°±ä¸å¢åŠ æ¢å¤è®¡æ—¶å™¨
                     if (speedMultiple == 1)
                         recoveryTimer ++;
 
-                    if (recoveryTimer >= RunningRecoveryEfficiency && runTimer < MaximumRunningTime)
+                    if (recoveryTimer >= RunningRecoveryEfficiency && runTimer < realMaxRunTime)
                     {
-                        runTimer += Time.deltaTime;
+                        var mul = (100f + SaveManager.Instance.externalGrowthData.GetGrowSumValueByKey("physicalRecovery")) / 100;
+                        runTimer += Time.deltaTime * mul;
                         SetRuntimer();
                         recoveryTimer = 0;
                     }
@@ -122,7 +126,7 @@ namespace TopDownPlate
 
                     if (vectorInput.x != 0 && vectorInput.y != 0)
                         vectorInput = vectorInput.normalized;
-                    // ÈıÒ¶²İ·çËÙ
+                    // ä¸‰å¶è‰é£é€Ÿ
                     float realMoveSpeed = character.FacingDirection == FacingDirections.Right ? finalMoveSpeed + GardenManager.Instance.BloverEffect.Windspeed : finalMoveSpeed;
                     realMoveSpeed *= GameManager.Instance.DecelerationRatio;
                     float xSpeed = vectorInput.x * realMoveSpeed;
@@ -148,7 +152,7 @@ namespace TopDownPlate
 
         private void SetRuntimer()
         {
-            float value = runTimer / MaximumRunningTime;
+            float value = runTimer / realMaxRunTime;
             GameManager.Instance.SetRunSlider(value);
         }
 

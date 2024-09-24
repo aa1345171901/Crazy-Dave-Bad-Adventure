@@ -16626,8 +16626,8 @@ GameObject:
   - component: {fileID: 1071535874}
   - component: {fileID: 1071535876}
   - component: {fileID: 1071535875}
-  - component: {fileID: 1071535878}
   - component: {fileID: 1071535877}
+  - component: {fileID: 1071535878}
   m_Layer: 0
   m_Name: dialogText
   m_TagString: Untagged
@@ -16643,7 +16643,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071535873}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.00030517578}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16679,9 +16679,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 448a7dfef1cd7a14cb74bd9c3d6ce749, type: 3}
     m_FontSize: 32
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 28
+    m_MaxSize: 32
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -16721,10 +16721,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1071535873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Script: {fileID: 11500000, guid: 7021a64034d524144b5cf30a5c617360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
+  m_MaxHorizontal: 900
+  m_MaxVertical: 166
   m_VerticalFit: 2
 --- !u!1 &1073939350
 GameObject:

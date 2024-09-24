@@ -63,23 +63,22 @@ public class GrowPage : MonoBehaviour
         var growType = (GrowType)confItem.growType;
         switch (growType)
         {
-            case GrowType.None:
-            case GrowType.Attribute:
-            case GrowType.SlotNum:
-            case GrowType.StartSun:
-            case GrowType.StartGold:
-                string desc = GameTool.LocalText(confItem.desc);
-                dialog.text = string.Format(desc, nextAdd, level, sum);
-                break;
             case GrowType.StartProp:
             case GrowType.StartPlant:
                 dialog.text = GameTool.LocalText(confItem.desc + "_" + level);
                 break;
-            case GrowType.LifeTime:
-                break;
-            case GrowType.Curse:
-                break;
             default:
+                string desc = GameTool.LocalText(confItem.desc);
+                if (isFull)
+                {
+                    string split;
+                    if (ConfManager.Instance.language == "cn")
+                        split = desc.Split('，')[0] + "，";
+                    else
+                        split = desc.Split(',')[0] + ",";
+                    desc = desc.Replace(split, "");
+                }
+                dialog.text = string.Format(desc, nextAdd, level, sum);
                 break;
         }
         btnGrow.gameObject.SetActive(!isFull);
