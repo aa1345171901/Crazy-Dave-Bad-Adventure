@@ -386,6 +386,11 @@ namespace TopDownPlate
             battlePanel?.SetRunSliderWidth(value);
         }
 
+        public void SetDashSlider(int count, float value, int remainCount)
+        {
+            battlePanel?.SetDashSlider(count, value, remainCount);
+        }
+
         public void NextWave()
         {
             IsDaytime = false;

@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "VfVhUoeuiT8/AnoaIdPd3jLCPHs",
+	"hash": "pRNhx4Q544g+mZa9PLlPVXtzk9M",
 	"spine": "3.8",
 	"x": -275.31,
 	"y": -21.39,
@@ -377,15 +377,15 @@
 	},
 	"AttackRight": {
 		"slots": {
+			"CrazyDave_pot": {
+				"attachment": [
+					{ "time": 0.3, "name": null }
+				]
+			},
 			"CrazyDave_blink": {
 				"attachment": [
 					{ "time": 0.1333, "name": "CrazyDave_blink1" },
 					{ "time": 0.2333, "name": "CrazyDave_blink2" },
-					{ "time": 0.3, "name": null }
-				]
-			},
-			"CrazyDave_pot": {
-				"attachment": [
 					{ "time": 0.3, "name": null }
 				]
 			},
@@ -481,55 +481,7 @@
 	},
 	"Dead": {
 		"slots": {
-			"CrazyDave_outerfinger1": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_eyebrow": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"Shadow": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"body": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_outerfinger3": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_outerhand": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_blink": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_innerarm": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_eye": {
+			"CrazyDave_innerfinger3": {
 				"color": [
 					{ "time": 0.9, "color": "ffffffff" },
 					{ "time": 1.2333, "color": "ffffff00" }
@@ -541,13 +493,101 @@
 					{ "time": 1.2333, "color": "ffffff00" }
 				]
 			},
-			"CrazyDave_innerfinger4": {
+			"CrazyDave_head": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1, "color": "ffffff4d" },
+					{ "time": 1.1667, "color": "ffffffff" }
+				],
+				"attachment": [
+					{ "time": 1.0333, "name": "brain" }
+				]
+			},
+			"CrazyDave_eye": {
 				"color": [
 					{ "time": 0.9, "color": "ffffffff" },
 					{ "time": 1.2333, "color": "ffffff00" }
 				]
 			},
-			"CrazyDave_innerfinger3": {
+			"CrazyDave_innerarm": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_outerfinger3": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_foot2": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_outerfinger4": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"rightleg2": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_outerfinger2": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_blink": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"Shadow": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_eyebrow": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"rightleg1": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_body1": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_outerhand": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_innerfinger1": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				]
+			},
+			"CrazyDave_outerfinger1": {
 				"color": [
 					{ "time": 0.9, "color": "ffffffff" },
 					{ "time": 1.2333, "color": "ffffff00" }
@@ -559,29 +599,13 @@
 					{ "time": 1.2333, "color": "ffffff00" }
 				]
 			},
-			"righthand": {
+			"CrazyDave_beard": {
 				"color": [
 					{ "time": 0.9, "color": "ffffffff" },
 					{ "time": 1.2333, "color": "ffffff00" }
 				]
 			},
-			"CrazyDave_outerarm": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_mouth": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				],
-				"attachment": [
-					{ "name": "CrazyDave_mouth4" },
-					{ "time": 0.8, "name": "CrazyDave_mouth2" }
-				]
-			},
-			"rightleg2": {
+			"CrazyDave_innerfinger4": {
 				"color": [
 					{ "time": 0.9, "color": "ffffffff" },
 					{ "time": 1.2333, "color": "ffffff00" }
@@ -599,53 +623,19 @@
 					{ "time": 1.2333, "color": "ffffff00" }
 				]
 			},
-			"CrazyDave_beard": {
+			"body": {
 				"color": [
 					{ "time": 0.9, "color": "ffffffff" },
 					{ "time": 1.2333, "color": "ffffff00" }
 				]
 			},
-			"CrazyDave_head": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1, "color": "ffffff4d" },
-					{ "time": 1.1667, "color": "ffffffff" }
-				],
-				"attachment": [
-					{ "time": 1.0333, "name": "brain" }
-				]
-			},
-			"CrazyDave_outerfinger2": {
+			"righthand": {
 				"color": [
 					{ "time": 0.9, "color": "ffffffff" },
 					{ "time": 1.2333, "color": "ffffff00" }
 				]
 			},
-			"CrazyDave_outerfinger4": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_foot2": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_foot1": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_body1": {
-				"color": [
-					{ "time": 0.9, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" }
-				]
-			},
-			"CrazyDave_innerfinger1": {
+			"CrazyDave_outerarm": {
 				"color": [
 					{ "time": 0.9, "color": "ffffffff" },
 					{ "time": 1.2333, "color": "ffffff00" }
@@ -657,7 +647,17 @@
 					{ "time": 1.2333, "color": "ffffff00" }
 				]
 			},
-			"rightleg1": {
+			"CrazyDave_mouth": {
+				"color": [
+					{ "time": 0.9, "color": "ffffffff" },
+					{ "time": 1.2333, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": "CrazyDave_mouth4" },
+					{ "time": 0.8, "name": "CrazyDave_mouth2" }
+				]
+			},
+			"CrazyDave_foot1": {
 				"color": [
 					{ "time": 0.9, "color": "ffffffff" },
 					{ "time": 1.2333, "color": "ffffff00" }
@@ -1225,11 +1225,6 @@
 	},
 	"MainAchievement": {
 		"slots": {
-			"Zombie_jaw": {
-				"attachment": [
-					{ "name": "Zombie_jaw" }
-				]
-			},
 			"Zombie_head": {
 				"attachment": [
 					{ "name": "Zombie_head" }
@@ -1238,6 +1233,11 @@
 			"CrazyDave_mouth": {
 				"attachment": [
 					{ "name": "CrazyDave_mouth1" }
+				]
+			},
+			"Zombie_jaw": {
+				"attachment": [
+					{ "name": "Zombie_jaw" }
 				]
 			}
 		},
@@ -1482,11 +1482,6 @@
 	},
 	"MainMenuIdel": {
 		"slots": {
-			"Zombie_jaw": {
-				"attachment": [
-					{ "name": "Zombie_jaw" }
-				]
-			},
 			"Zombie_head": {
 				"attachment": [
 					{ "name": "Zombie_head" }
@@ -1497,6 +1492,11 @@
 					{ "name": "CrazyDave_mouth1" },
 					{ "time": 0.1667, "name": "CrazyDave_mouth4" },
 					{ "time": 0.8333, "name": "CrazyDave_mouth1" }
+				]
+			},
+			"Zombie_jaw": {
+				"attachment": [
+					{ "name": "Zombie_jaw" }
 				]
 			}
 		},
@@ -1692,12 +1692,6 @@
 	},
 	"MainMenuSelect": {
 		"slots": {
-			"Zombie_jaw": {
-				"attachment": [
-					{ "name": "Zombie_jaw" },
-					{ "time": 1.1667, "name": null }
-				]
-			},
 			"Zombie_head": {
 				"attachment": [
 					{ "name": "Zombie_head" },
@@ -1709,6 +1703,12 @@
 					{ "name": "CrazyDave_mouth1" },
 					{ "time": 0.1667, "name": "CrazyDave_mouth4" },
 					{ "time": 0.8333, "name": "CrazyDave_mouth1" }
+				]
+			},
+			"Zombie_jaw": {
+				"attachment": [
+					{ "name": "Zombie_jaw" },
+					{ "time": 1.1667, "name": null }
 				]
 			}
 		},
@@ -1947,6 +1947,218 @@
 			"leftleg": {
 				"rotate": [
 					{ "time": 1.3333, "angle": -7.44 }
+				]
+			}
+		}
+	},
+	"RollingSprint": {
+		"bones": {
+			"body": {
+				"rotate": [
+					{ "curve": 0.721, "c3": 0.75 },
+					{ "time": 0.1667, "angle": -37.98 },
+					{ "time": 0.3333, "angle": -52.39 },
+					{ "time": 0.5, "angle": -69.85 },
+					{ "time": 0.6667, "angle": -83.25 },
+					{ "time": 0.8333, "angle": -143.74 },
+					{ "time": 1, "angle": 124.61 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{ "curve": 0.721, "c3": 0.75 },
+					{ "time": 0.1667, "y": 72.79 },
+					{ "time": 0.3333, "y": 79.58 },
+					{ "time": 0.5, "y": 24.22 },
+					{ "time": 0.6667, "y": -41.62 },
+					{ "time": 0.8333, "y": 215.87 },
+					{ "time": 1, "y": -141.83 },
+					{ "time": 1.3333 }
+				]
+			},
+			"rightleg2": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": -14.46 },
+					{ "time": 0.3333, "angle": -19.57 },
+					{ "time": 0.5, "angle": -23.36, "curve": "stepped" },
+					{ "time": 0.6667, "angle": -23.36 },
+					{ "time": 0.8333, "angle": 6.57 },
+					{ "time": 1, "angle": 52.63 },
+					{ "time": 1.3333 }
+				]
+			},
+			"rightleg1": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": -26.5 },
+					{ "time": 0.5, "angle": -39.02, "curve": "stepped" },
+					{ "time": 0.6667, "angle": -39.02 },
+					{ "time": 0.8333, "angle": -72.82 },
+					{ "time": 1, "angle": -85.9 },
+					{ "time": 1.3333 }
+				]
+			},
+			"leftleg2": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": -19.48 },
+					{ "time": 0.3333, "angle": -16.04 },
+					{ "time": 0.5, "angle": -25.6, "curve": "stepped" },
+					{ "time": 0.6667, "angle": -25.6 },
+					{ "time": 0.8333, "angle": 14.69 },
+					{ "time": 1, "angle": 56.48 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.1667, "x": 5.14, "y": 2.5 },
+					{ "time": 0.3333, "x": -5.35, "y": 15.39, "curve": "stepped" },
+					{ "time": 0.6667, "x": -5.35, "y": 15.39 },
+					{ "time": 1.3333 }
+				]
+			},
+			"leftleg": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": -18.05 },
+					{ "time": 0.3333, "angle": -22.5 },
+					{ "time": 0.5, "angle": -19.78, "curve": "stepped" },
+					{ "time": 0.6667, "angle": -19.78 },
+					{ "time": 0.8333, "angle": -52.71 },
+					{ "time": 1, "angle": -65.5 },
+					{ "time": 1.3333 }
+				]
+			},
+			"lefthand": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": 32.62 },
+					{ "time": 0.3333, "angle": 112.55 },
+					{ "time": 0.5, "angle": 104.9 },
+					{ "time": 0.6667, "angle": 99.12, "curve": "stepped" },
+					{ "time": 0.8333, "angle": 99.12 },
+					{ "time": 1, "angle": 40.12 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{ "time": 0.5 },
+					{ "time": 0.6667, "x": -13.68, "y": 31.06 },
+					{ "time": 1.3333 }
+				]
+			},
+			"CrazyDave_innerarm": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": 49.7 },
+					{ "time": 0.6667, "angle": 37.36 },
+					{ "time": 1.3333 }
+				]
+			},
+			"righthand": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": 49.85 },
+					{ "time": 0.3333, "angle": 101.29 },
+					{ "time": 0.5, "angle": 119.79 },
+					{ "time": 0.6667, "angle": 117.02, "curve": "stepped" },
+					{ "time": 0.8333, "angle": 117.02 },
+					{ "time": 1, "angle": 55.36 },
+					{ "time": 1.3333 }
+				]
+			},
+			"CrazyDave_outerarm": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": -66.14 },
+					{ "time": 0.3333, "angle": -68.33 },
+					{ "time": 0.6667, "angle": -79.62 },
+					{ "time": 1.3333 }
+				]
+			},
+			"CrazyDave_outerhand": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": -16.59 },
+					{ "time": 0.3333, "angle": -38.94 },
+					{ "time": 1.3333 }
+				]
+			},
+			"CrazyDave_body1": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": 6.53 },
+					{ "time": 0.3333, "angle": -19.29 },
+					{ "time": 0.5, "angle": -32.31 },
+					{ "time": 0.6667, "angle": -34.88 },
+					{ "time": 0.8333, "angle": -29.27 },
+					{ "time": 1, "angle": -48.97 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{ "time": 0.6667 },
+					{ "time": 0.8333, "x": -11.66, "y": 11.47 },
+					{ "time": 1, "x": -40.74, "y": 4.02 },
+					{ "time": 1.3333 }
+				]
+			},
+			"CrazyDave_pot": {
+				"rotate": [
+					{},
+					{ "time": 0.1667, "angle": 28.03 },
+					{ "time": 0.3333, "angle": 52.1 },
+					{ "time": 0.5, "angle": 74.4 },
+					{ "time": 0.6667, "angle": 70.58 },
+					{ "time": 0.8333, "angle": 14.62 },
+					{ "time": 1, "angle": -3.13 },
+					{ "time": 1.3333 }
+				],
+				"translate": [
+					{},
+					{ "time": 0.1667, "x": 41.36, "y": 51.86 },
+					{ "time": 0.3333, "x": -0.89, "y": 52.01 },
+					{ "time": 0.5, "x": -17.5, "y": 90.86 },
+					{ "time": 0.6667, "x": -37.65, "y": 63.32 },
+					{ "time": 0.8333, "x": 4.55, "y": 15.31 },
+					{ "time": 1, "x": 25.05, "y": -13.93 },
+					{ "time": 1.3333 }
+				]
+			},
+			"CrazyDave_head": {
+				"rotate": [
+					{},
+					{ "time": 0.3333, "angle": -7.67 },
+					{ "time": 0.5, "angle": 12.17 },
+					{ "time": 0.6667, "angle": -20.53 },
+					{ "time": 1, "angle": -39.45 },
+					{ "time": 1.3333 }
+				]
+			},
+			"CrazyDave_innerhand": {
+				"rotate": [
+					{ "time": 0.1667 },
+					{ "time": 0.3333, "angle": 54.15 },
+					{ "time": 1.3333 }
+				]
+			},
+			"Shadow": {
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": 79.81 },
+					{ "time": 0.5, "x": 81.97 },
+					{ "time": 0.6667, "x": 125.11, "y": -75.49 },
+					{ "time": 0.8333, "x": 94.91, "y": -66.87 },
+					{ "time": 1, "x": -62.55, "y": -90.59 },
+					{ "time": 1.3333 }
+				],
+				"scale": [
+					{},
+					{ "time": 0.1667, "x": 2.316, "y": 0.569 },
+					{ "time": 0.3333, "x": 2.784, "y": 0.495 },
+					{ "time": 0.5, "x": 2.543, "y": 0.495 },
+					{ "time": 0.6667, "x": 2.575, "y": 0.634 },
+					{ "time": 0.8333, "x": 1.161, "y": 0.634 },
+					{ "time": 1, "x": 2.463, "y": 0.675 },
+					{ "time": 1.3333 }
 				]
 			}
 		}

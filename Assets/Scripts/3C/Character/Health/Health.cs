@@ -74,6 +74,11 @@ namespace TopDownPlate
         private float timer;
         private int defaultMaxHealth;
 
+        /// <summary>
+        /// 是否无敌
+        /// </summary>
+        public bool isInvincible { get; set; }
+
         private void Start()
         {
             character = this.GetComponent<Character>();
@@ -140,6 +145,8 @@ namespace TopDownPlate
             else
             {
                 if (Time.time - lastInjuryTime < InvincibleTime)
+                    return;
+                if (isInvincible)
                     return;
                 lastInjuryTime = Time.time;
                 damage -= Mathf.RoundToInt(damage * finalArmor);

@@ -22,6 +22,8 @@ public class BattlePanel : BasePanel
     public PlantCardPage plantCardPage;
     [Tooltip("击杀头")]
     public Text GrowText;
+    [Tooltip("冲刺冷却条")]
+    public Slider DashBar;
 
     float defualtRunWidth;
 
@@ -80,6 +82,34 @@ public class BattlePanel : BasePanel
         if (defualtRunWidth == 0)
             defualtRunWidth = RunBar.transform.GetComponent<RectTransform>().sizeDelta.x;
         RunBar.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(defualtRunWidth * value, RunBar.transform.GetComponent<RectTransform>().sizeDelta.y);
+    }
+
+    public void SetDashSlider(int count, float value, int remainCount)
+    {
+        if (count == 1)
+        {
+            DashBar.value = value;
+        }
+        else
+        {
+            if (DashBar.transform.parent.childCount < count)
+            {
+                for (int i = count - DashBar.transform.parent.childCount; i < count; i++)
+                {
+                    var dashSlider = GameObject.Instantiate(DashBar, DashBar.transform.parent);
+                }
+            }
+            for (int i = 0; i < remainCount; i++)
+            {
+                var dashSlider = DashBar.transform.parent.GetChild(i).GetComponent<Slider>();
+                dashSlider.value = 1;
+            }
+            if (remainCount != count)
+            {
+                var dashSlider = DashBar.transform.parent.GetChild(remainCount + 1).GetComponent<Slider>();
+                dashSlider.value = value;
+            }
+        }
     }
 
     public void GetGold()

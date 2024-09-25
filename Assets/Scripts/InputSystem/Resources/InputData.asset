@@ -18,6 +18,11 @@ MonoBehaviour:
     keyType: 1
     enable: 1
     IsDown: 0
+  - name: Dash
+    keyCode: 32
+    keyType: 0
+    enable: 1
+    IsDown: 0
   valueKeys: []
   axisKeys:
   - name: Movement

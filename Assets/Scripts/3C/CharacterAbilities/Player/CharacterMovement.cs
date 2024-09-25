@@ -159,35 +159,38 @@ namespace TopDownPlate
         public override void UpdateAnimator()
         {
             base.UpdateAnimator();
-            if (speed == 0)
+            if (!character.FindAbility<CharacterDash>().isDashing)
             {
-                character.CharacterAnimationState = "EnterIdel";
-                WalkAudio.Stop();
-            }
-            else
-            {
-                character.CharacterAnimationState = "Run";
-                if (character.NowTrackEntry != null)
+                if (speed == 0)
                 {
-                    if (character.State.PlayerStateType == PlayerStateType.Attack && speed < 0.5f)
-                        character.NowTrackEntry.TimeScale = 1;
-                    else
-                        character.NowTrackEntry.TimeScale = speed;
-                }
-
-                if (!WalkAudio.isPlaying)
-                {
-                    int index = Random.Range(0, WalkClips.Count);
-                    WalkAudio.clip = WalkClips[index];
-                    WalkAudio.Play();
-                }
-                if (runKeyDown)
-                {
-                    WalkAudio.pitch = runSpeedMultiple * finalMoveSpeed / moveSpeed;
+                    character.CharacterAnimationState = "EnterIdel";
+                    WalkAudio.Stop();
                 }
                 else
                 {
-                    WalkAudio.pitch = 1 * finalMoveSpeed / moveSpeed;
+                    character.CharacterAnimationState = "Run";
+                    if (character.NowTrackEntry != null)
+                    {
+                        if (character.State.PlayerStateType == PlayerStateType.Attack && speed < 0.5f)
+                            character.NowTrackEntry.TimeScale = 1;
+                        else
+                            character.NowTrackEntry.TimeScale = speed;
+                    }
+
+                    if (!WalkAudio.isPlaying)
+                    {
+                        int index = Random.Range(0, WalkClips.Count);
+                        WalkAudio.clip = WalkClips[index];
+                        WalkAudio.Play();
+                    }
+                    if (runKeyDown)
+                    {
+                        WalkAudio.pitch = runSpeedMultiple * finalMoveSpeed / moveSpeed;
+                    }
+                    else
+                    {
+                        WalkAudio.pitch = 1 * finalMoveSpeed / moveSpeed;
+                    }
                 }
             }
         }
