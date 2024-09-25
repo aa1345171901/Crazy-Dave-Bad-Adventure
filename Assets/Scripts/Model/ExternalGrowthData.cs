@@ -47,7 +47,14 @@ public enum GrowType
     /// 跑步时间
     /// </summary>
     RunTime,
-
+    /// <summary>
+    /// 冲刺次数
+    /// </summary>
+    DashTime,
+    /// <summary>
+    /// 冲刺恢复
+    /// </summary>
+    DashRecovery,
 }
 
 public class ExternalGrowthData

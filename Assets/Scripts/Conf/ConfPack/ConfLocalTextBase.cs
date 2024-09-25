@@ -385,6 +385,10 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(333, "mainmenu_grow22", "强化增加{0}%奔跑的体力恢复速率，当前等级{1},总共增加{2}%体力恢复速率。", "Enhanced: Increases the speed of physical recovery while running by {0}%, current level {1}, total increase of physical recovery by {2}%."));
 		AddItem(new ConfLocalTextItem(334, "grow_runTime", "体力", "Stamina"));
 		AddItem(new ConfLocalTextItem(335, "mainmenu_grow23", "强化增加{0}秒奔跑的体力，当前等级{1},总共增加{2}秒奔跑体力。", "Enhanced to increase running stamina by {0} seconds, current level {1}, total increase of running stamina by {2} seconds."));
+		AddItem(new ConfLocalTextItem(336, "grow_dashTime", "翻滚", "Rolling"));
+		AddItem(new ConfLocalTextItem(337, "grow_dashRecovery", "翻滚体力", "Rolling Stamina"));
+		AddItem(new ConfLocalTextItem(338, "mainmenu_grow24", "强化增加{0}翻滚次数，当前等级{1},总共增加{2}翻滚次数。灵活的翻滚能躲避僵尸的攻击。", "Enhanced: Increases the number of rolls by {0}, current level {1}, total increase of {2} rolls. Flexible rolling can dodge zombie attacks."));
+		AddItem(new ConfLocalTextItem(339, "mainmenu_grow25", "强化增加{0}%翻滚的体力恢复速率，当前等级{1},总共增加{2}%翻滚体力恢复速率。", "Enhanced: Increases the stamina recovery rate of rolling by {0}%, current level {1}, total increase of {2}% stamina recovery rate of rolling."));
 	}
 
 	public override void AddItem(ConfBaseItem item)

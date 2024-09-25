@@ -24,7 +24,7 @@ public class LoadingScene : MonoBehaviour
         void SetProcess(float value)
         {
             process.value = value;
-            process.handleRect.localScale = Mathf.Max((1 - value), 0.7f) * Vector3.one;
+            process.handleRect.localScale = Mathf.Max((1 - value), 0.5f) * Vector3.one;
             process.handleRect.rotation = Quaternion.Euler(0, 0, -value * 720);
         }
         float nowProgress = 0;

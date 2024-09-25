@@ -98,16 +98,24 @@ public class BattlePanel : BasePanel
                 {
                     var dashSlider = GameObject.Instantiate(DashBar, DashBar.transform.parent);
                 }
+                return;
             }
-            for (int i = 0; i < remainCount; i++)
+            for (int i = 0; i < DashBar.transform.parent.childCount; i++)
             {
                 var dashSlider = DashBar.transform.parent.GetChild(i).GetComponent<Slider>();
-                dashSlider.value = 1;
+                dashSlider.value = i < remainCount ? 1 : 0;
+                dashSlider.handleRect.gameObject.SetActive(false);
             }
             if (remainCount != count)
             {
-                var dashSlider = DashBar.transform.parent.GetChild(remainCount + 1).GetComponent<Slider>();
+                var dashSlider = DashBar.transform.parent.GetChild(remainCount).GetComponent<Slider>();
                 dashSlider.value = value;
+                dashSlider.handleRect.gameObject.SetActive(true);
+            }
+            else
+            {
+                var dashSlider = DashBar.transform.parent.GetChild(DashBar.transform.parent.childCount - 1).GetComponent<Slider>();
+                dashSlider.handleRect.gameObject.SetActive(true);
             }
         }
     }

@@ -107,6 +107,8 @@ public class ConfExternlGrowBase : ConfBase<ConfExternlGrowItem>
 		AddItem(new ConfExternlGrowItem(21, "curse", "grow_curse", new int[]{ 100, 222, 444, 888, 1444 }, new int[]{ 10, 10, 10, 10, 10 }, "mainmenu_grow21", "UI/GrowItem/Grow-21", 8));
 		AddItem(new ConfExternlGrowItem(22, "physicalRecovery", "grow_physicalRecovery", new int[]{ 111, 222, 333, 444, 555 }, new int[]{ 20, 30, 40, 50, 60 }, "mainmenu_grow22", "UI/GrowItem/Grow-22", 9));
 		AddItem(new ConfExternlGrowItem(23, "runTime", "grow_runTime", new int[]{ 200, 400, 666, 1111 }, new int[]{ 1, 1, 1, 1 }, "mainmenu_grow23", "UI/GrowItem/Grow-23", 10));
+		AddItem(new ConfExternlGrowItem(24, "dashTime", "grow_dashTime", new int[]{ 111, 444, 888, 1666 }, new int[]{ 1, 1, 1, 1 }, "mainmenu_grow24", "UI/GrowItem/Grow-24", 11));
+		AddItem(new ConfExternlGrowItem(25, "dashRecovery", "grow_dashRecovery", new int[]{ 111, 222, 444, 666, 888 }, new int[]{ 10, 10, 10, 20, 20 }, "mainmenu_grow25", "UI/GrowItem/Grow-25", 12));
 	}
 
 	public override void AddItem(ConfBaseItem item)

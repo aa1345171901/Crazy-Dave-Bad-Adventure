@@ -44,9 +44,10 @@ namespace TopDownPlate
         {
             base.Reuse();
             finalDashSpeed = dashSpeed * (100 + GameManager.Instance.UserData.Speed) / 100;
-            dashCount = defaultDashCount;
+            dashCount = defaultDashCount + SaveManager.Instance.externalGrowthData.GetGrowSumValueByKey("dashTime");
             maxDashCount = dashCount;
-            dashCoolTime = defaultDashCoolTime;
+            var mulCool = defaultDashCoolTime * (SaveManager.Instance.externalGrowthData.GetGrowSumValueByKey("dashRecovery")) / 100;
+            dashCoolTime = defaultDashCoolTime - mulCool;
             lastDashTime = -dashCoolTime;
         }
 
@@ -73,7 +74,10 @@ namespace TopDownPlate
                 if (Time.time - lastDashTime > dashCoolTime)
                 {
                     if (dashCount < maxDashCount)
+                    {
+                        lastDashTime = Time.time;
                         dashCount++;
+                    }
                 }
                 GameManager.Instance.SetDashSlider(maxDashCount, (Time.time - lastDashTime) / dashCoolTime, dashCount);
 
@@ -83,8 +87,9 @@ namespace TopDownPlate
 
                 if (isDashKeyDown)
                 {
+                    if (dashCount == maxDashCount)
+                        lastDashTime = Time.time;
                     dashCount--;
-                    lastDashTime = Time.time;
                     isDashKeyDown = false;
                     isDashing = true;
                     if (!DashAudio.isPlaying)
