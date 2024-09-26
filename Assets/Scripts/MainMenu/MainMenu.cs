@@ -120,7 +120,7 @@ public class MainMenu : MonoBehaviour
         SettingPage.SetActive(true);
     }
 
-    public void Achievement()
+    public void BossMode()
     {
         if (isLoadScene)
             return;
