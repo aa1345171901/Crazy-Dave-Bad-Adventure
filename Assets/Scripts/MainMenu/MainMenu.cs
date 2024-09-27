@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
     public Animator animator;
     public ParticleSystem particleSystem1;
     public GameObject SettingPage;
-    public GameObject AchievementPage;
+    public AchievementPage AchievementPage;
     public GameObject StartGamePage;
     public GameObject GrowPage;
     public Button btnGrow;
@@ -127,10 +127,12 @@ public class MainMenu : MonoBehaviour
         // 打打僵王
         SaveManager.Instance.SetSpecialMode(BattleMode.BossMode);
         PlayStartGameAnim();
+    }
 
-        // 成就暂时不开放
-        //AchievementPage.SetActive(true);
-        //Dave.AnimationState.SetAnimation(0, "MainAchievement", true);
+    public void Achievement()
+    {
+        AchievementPage.OnEnter();
+        Dave.AnimationState.SetAnimation(0, "MainAchievement", true);
     }
 
     public void ExitGame()
