@@ -17,19 +17,26 @@ public class AchievementItem : MonoBehaviour
 
     public void InitData(ConfAchievementItem confItem)
     {
+        this.confItem = confItem;
+        ConfManager.Instance.languageChange += ChangeText;
         Sprite sprite = Resources.Load<Sprite>(confItem.imgPath);
         img.sprite = sprite;
-        title.text = confItem.title;
-        if (confItem.process != 0)
+        if (confItem.process != 0 && confItem.process != 1)
         {
             title.text += $"(0/{confItem.process})";
         }
-        info.text = confItem.desc;
-        lockText.text = confItem.lockText;
+        ChangeText();
 
         bool isLock = confItem.id % 2 == 1;
         float alpha = isLock ? 1.0f : 0.5f;
         img.color = new Color(1, 1, 1, alpha);
         board.color = new Color(1, 1, 1, alpha);
+    }
+
+    void ChangeText()
+    {
+        title.text = GameTool.LocalText(confItem.title);
+        info.text = GameTool.LocalText(confItem.desc);
+        lockText.text = GameTool.LocalText(confItem.lockText);
     }
 }
