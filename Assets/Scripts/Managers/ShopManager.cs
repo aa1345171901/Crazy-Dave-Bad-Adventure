@@ -76,8 +76,10 @@ public class ShopManager : BaseManager<ShopManager>
         LoadShopItemsConf();
     }
 
-    public void PurchaseProp(PropCard propCard, int price, Action<AttributeType, int> call = null)
+    public void PurchaseProp(PropCard propCard, int price, Action<AttributeType, int> call = null, bool isLoad = false)
     {
+        if (!isLoad)
+            AchievementManager.Instance.SetAchievementType6(propCard.propName);
         PurchasedProps.Add(propCard);
         Money -= price;
         SetPropEffect(propCard);

@@ -56,6 +56,7 @@ namespace TopDownPlate
                         AudioManager.Instance.StopBackMusic();
                         AudioManager.Instance.PlayEffectSoundByName("GameOver");
                         SaveManager.Instance.DeleteUserData();  // 死亡需要删档
+                        AchievementManager.Instance.SetAchievementType4();
                     }
                 }
             }
@@ -141,6 +142,7 @@ namespace TopDownPlate
             {
                 headNum = value;
                 battlePanel?.SetGrowText();
+                AchievementManager.Instance.SetAchievementType3(headNum);
             }
         }
 
@@ -153,7 +155,6 @@ namespace TopDownPlate
 
         private void Start()
         {
-            LevelManager.Instance.Init();
             UIManager.Instance.ClearDict();  // 到主菜单后UIManager由于不是MonoBehaviour所以需要手动进行字典清空
             LoadData();
         }
@@ -167,10 +168,13 @@ namespace TopDownPlate
         private void LoadData()
         {
             nowMode = SaveManager.Instance.LoadSpecialData();
+            LevelManager.Instance.Init();
             ExternlGrow();
             switch (nowMode)
             {
                 case BattleMode.None:
+                    if (!SaveManager.Instance.IsLoadUserData)
+                        AchievementManager.Instance.SetAchievementType1();
                     IntoNormalMode();
                     break;
                 case BattleMode.BossMode:
@@ -211,7 +215,7 @@ namespace TopDownPlate
                             {
                                 var list = ShopManager.Instance.PropDicts[level];
                                 var propCard = list[Random.Range(0, list.Count)];
-                                ShopManager.Instance.PurchaseProp(propCard, 0);
+                                ShopManager.Instance.PurchaseProp(propCard, 0, null, true);
                             }
                             break;
                         case GrowType.StartPlant:
@@ -232,7 +236,7 @@ namespace TopDownPlate
                             {
                                 var plantCard = targetList[index];
                                 var plantAttribute = new PlantAttribute(plantCard);
-                                plantAttribute.CultivatePlant();
+                                plantAttribute.CultivatePlant(true);
                                 GardenManager.Instance.PlantAttributes.Add(plantAttribute);
                                 GardenManager.Instance.FlowerPotCount++;
                                 if (plantAttribute.isManual)
@@ -399,6 +403,12 @@ namespace TopDownPlate
             AudioManager.Instance.PlayBackMusic(2);
             AudioManager.Instance.PlayEffectSoundByName("startWave");
             GardenManager.Instance.PlantsGoToWar();
+            foreach (var item in typeof(UserData).GetFields())
+            {
+                var value = (int)item.GetValue(UserData);
+                AchievementManager.Instance.SetAchievementType10(item.Name, value);
+            }
+            AchievementManager.Instance.SaveData();
             battlePanel.UpdatePlantPage();
             Reuse();
         }

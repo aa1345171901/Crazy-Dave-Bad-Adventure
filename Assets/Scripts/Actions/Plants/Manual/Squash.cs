@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class Squash : ManualPlant
 {
-    [Tooltip("Ñô¹âÔ¤ÖªÌå£¬×ª»»µÄÑô¹âÖ±½ÓÊÕ¼¯")]
+    [Tooltip("é˜³å…‰é¢„çŸ¥ä½“ï¼Œè½¬æ¢çš„é˜³å…‰ç›´æ¥æ”¶é›†")]
     public Sun sun;
     public AudioClip sit;
     public AudioClip boom;
 
-    private float sunConversionRate;  // Ñô¹â×ª»»ÂÊ
-    private float immediateMortalityRate; // ÆÕÍ¨½©Ê¬¼´ËÀÂÊ
-    private float increasedInjury; // ´óĞÍ½©Ê¬ÔöÉË
+    private float sunConversionRate;  // é˜³å…‰è½¬æ¢ç‡
+    private float immediateMortalityRate; // æ™®é€šåƒµå°¸å³æ­»ç‡
+    private float increasedInjury; // å¤§å‹åƒµå°¸å¢ä¼¤
     private float finalSittingRate;
 
     private readonly int LevelBasicDamage = 5;
@@ -30,38 +30,38 @@ public class Squash : ManualPlant
 
     public override void InitPlant(Card card, int sun)
     {
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalDamage = Damage;
         finalCoolTime = CoolTime;
         finalSittingRate = 0;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 0 »ù´¡ÉËº¦
+                // 0 åŸºç¡€ä¼¤å®³
                 case 0:
                     finalDamage = (int)fieldInfo.GetValue(plantAttribute) * LevelBasicDamage + finalDamage;
                     break;
-                // 1 °Ù·Ö±ÈÉËº¦
+                // 1 ç™¾åˆ†æ¯”ä¼¤å®³
                 case 1:
                     finalDamage = (int)(finalDamage * ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100);
                     break;
-                // 2 ÀäÈ´Ê±¼ä
+                // 2 å†·å´æ—¶é—´
                 case 2:
                     finalCoolTime = CoolTime - (int)fieldInfo.GetValue(plantAttribute) * LevelCoolTime;
                     break;
-                // 3 Ñô¹â×ª»»ÂÊ
+                // 3 é˜³å…‰è½¬æ¢ç‡
                 case 3:
                     sunConversionRate = (int)fieldInfo.GetValue(plantAttribute) * LevelPercentage / 100;
                     break;
-                // 4ÆÕÍ¨½©Ê¬¼´ËÀÂÊ
+                // 4æ™®é€šåƒµå°¸å³æ­»ç‡
                 case 4:
                     immediateMortalityRate = (int)fieldInfo.GetValue(plantAttribute) * LevelImmediateMortality;
                     break;
-                // ´óĞÍ½©Ê¬ÔöÉË
+                // å¤§å‹åƒµå°¸å¢ä¼¤
                 case 5:
                     increasedInjury = (int)fieldInfo.GetValue(plantAttribute) * LevelIncreasedInjury + 1;
                     break;
@@ -174,11 +174,11 @@ public class Squash : ManualPlant
                 if (health)
                 {
                     float random = Random.Range(0, 1f);
-                    // Á¢¼´ËÀÍö
+                    // ç«‹å³æ­»äº¡
                     if (random < immediateMortalityRate && item.tag != "BigZombie")
                     {
                         sumHealth += health.maxHealth;
-                        health.DoDamage(health.maxHealth, DamageType.Bomb, true);
+                        health.DoDamage(health.maxHealth, DamageType.Squash, true);
                     }
                     else
                     {
@@ -186,12 +186,12 @@ public class Squash : ManualPlant
                         {
                             int damage = (int)(finalDamage * increasedInjury);
                             sumHealth += damage > health.health ? health.health : damage;
-                            health.DoDamage(damage, DamageType.Bomb);
+                            health.DoDamage(damage, DamageType.Squash);
                         }
                         else
                         {
                             sumHealth += finalDamage > health.health ? health.health : finalDamage;
-                            health.DoDamage(finalDamage, DamageType.Bomb);
+                            health.DoDamage(finalDamage, DamageType.Squash);
                         }
                     }
                 }

@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class AchievementItemData
 {
     public string key;
@@ -21,7 +23,19 @@ public class AchievementData
     private static readonly string achievementDataPath = Application.persistentDataPath + "/SaveData/Achievement.data";
 
     public List<AchievementItemData> lists = new List<AchievementItemData>();
+
+    /// <summary>
+    /// 冒险次数
+    /// </summary>
+    public int adventureCount;
+
+    /// <summary>
+    /// 死亡次数
+    /// </summary>
+    public int deadCount;
+
     public Dictionary<string, AchievementItemData> dicts = new Dictionary<string, AchievementItemData>();
+    public Dictionary<int, List<AchievementItemData>> typeDicts = new Dictionary<int, List<AchievementItemData>>(); 
 
     public int GetProcess(string key)
     {
@@ -52,11 +66,16 @@ public class AchievementData
         bool isReach = false;
         if (dicts.ContainsKey(key))
         {
-            dicts[key].process = process;
-            var confItem = ConfManager.Instance.confMgr.achievement.GetItemByKey(key);
-            if (confItem != null) 
+            if (dicts[key].process <= process)
             {
-                isReach = process >= confItem.process;
+                var confItem = ConfManager.Instance.confMgr.achievement.GetItemByKey(key);
+                if (confItem != null)
+                {
+                    isReach = process >= confItem.process;
+                }
+                dicts[key].process = process;
+                if (!dicts[key].isReach)
+                    dicts[key].isReach = isReach;
             }
         }
         else
@@ -69,7 +88,10 @@ public class AchievementData
     public void SetReach(string key)
     {
         if (dicts.ContainsKey(key))
-            dicts[key].isReach = true;
+        {
+            if (!dicts[key].isReach)
+                dicts[key].isReach = true;
+        }
         else
         {
             Debug.LogError("没有找到成就：" + key);
@@ -86,16 +108,27 @@ public class AchievementData
             achievementData = JsonUtility.FromJson<AchievementData>(achievementDataStr);
             foreach (var item in achievementData.lists)
             {
+                var confItem = ConfManager.Instance.confMgr.achievement.GetItemByKey(item.key);
                 achievementData.dicts[item.key] = item;
-            }
-            foreach (var item in ConfManager.Instance.confMgr.achievement.items)
-            {
-                if (!achievementData.dicts.ContainsKey(item.achievementId))
+                if (!achievementData.typeDicts.ContainsKey(confItem.type))
                 {
-                    var achievementItem = new AchievementItemData(item.achievementId, 0, false);
-                    achievementData.lists.Add(achievementItem);
-                    achievementData.dicts[achievementItem.key] = achievementItem;
+                    achievementData.typeDicts[confItem.type] = new List<AchievementItemData>();
                 }
+                achievementData.typeDicts[confItem.type].Add(item);
+            }
+        }
+        foreach (var item in ConfManager.Instance.confMgr.achievement.items)
+        {
+            if (!achievementData.dicts.ContainsKey(item.achievementId))
+            {
+                var achievementItem = new AchievementItemData(item.achievementId, 0, false);
+                achievementData.lists.Add(achievementItem);
+                achievementData.dicts[achievementItem.key] = achievementItem;
+                if (!achievementData.typeDicts.ContainsKey(item.type))
+                {
+                    achievementData.typeDicts[item.type] = new List<AchievementItemData>();
+                }
+                achievementData.typeDicts[item.type].Add(achievementItem);
             }
         }
         return achievementData;

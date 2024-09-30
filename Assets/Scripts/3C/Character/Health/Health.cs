@@ -21,16 +21,16 @@ namespace TopDownPlate
         ZombieHurEachOther,  // 游戏结束后互相伤害
         PlantBullet,  // 豌豆
         Chomper,   // 大嘴花
-        Cactus,
-        Bomb,
-        Cornpult,
-        FumeShroom,
-        Gravebuster,
+        Cactus,  // 香蒲
+        Bomb,   // 灰烬伤害
+        Cornpult,  // 玉米投手
+        FumeShroom,  // 喷菇
+        Gravebuster,  // 墓碑吞噬者
         ScaredyShroom,  // 胆小菇扎
-        Spikeweed,
-        TallNut,
-        WallNut,
-        Squash,
+        Spikeweed,    // 地刺
+        TallNut,   // 高坚果
+        WallNut,  // 坚果
+        Squash,  // 窝瓜
     }
 
     public class HUDPos

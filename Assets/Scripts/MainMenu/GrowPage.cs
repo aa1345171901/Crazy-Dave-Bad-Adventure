@@ -26,7 +26,7 @@ public class GrowPage : MonoBehaviour
         btnGrow.transform.parent.gameObject.SetActive(false);
         dialog.gameObject.SetActive(false);
         btnMenu.onClick.AddListener(OnMainMenu);
-        GrowText.text = SaveManager.Instance.externalGrowthData.headNum.ToString();
+        GrowText.text = SaveManager.Instance.externalGrowthData.HeadNum.ToString();
         btnGrow.onClick.AddListener(OnGrow);
         btnReduction.onClick.AddListener(OnReduction);
         UpdateUI();
@@ -83,7 +83,7 @@ public class GrowPage : MonoBehaviour
         }
         btnGrow.gameObject.SetActive(!isFull);
         var cost = isFull ? 0 : nowSelect.cost[level];
-        var headNum = SaveManager.Instance.externalGrowthData.headNum;
+        var headNum = SaveManager.Instance.externalGrowthData.HeadNum;
         bool canLevel = headNum >= cost;
         btnGrow.interactable = canLevel;
         levelText.text = string.Format("{0}</color>/{1}", canLevel ? "<color=#00ff00>" + headNum : "<color=#ff0000>" + headNum, cost);
@@ -99,9 +99,9 @@ public class GrowPage : MonoBehaviour
         if (isFull)
             return;
         var cost = nowSelect.cost[level];
-        if (SaveManager.Instance.externalGrowthData.headNum < cost)
+        if (SaveManager.Instance.externalGrowthData.HeadNum < cost)
             return;
-        SaveManager.Instance.externalGrowthData.headNum -= cost;
+        SaveManager.Instance.externalGrowthData.HeadNum -= cost;
         SaveManager.Instance.externalGrowthData.SetGrowLevel(nowSelect.key, level + 1);
         nowSelectGrow.UpdateLevel(level + 1, true);
         OnSelect(nowSelect.key, nowSelectGrow);
@@ -111,7 +111,7 @@ public class GrowPage : MonoBehaviour
 
     private void UpdateHeadNum()
     {
-        GrowText.text = SaveManager.Instance.externalGrowthData.headNum.ToString();
+        GrowText.text = SaveManager.Instance.externalGrowthData.HeadNum.ToString();
         var animator = GrowText.transform.parent.GetComponent<Animator>();
         animator.Play("GrowMoney", 0, 0);
     }

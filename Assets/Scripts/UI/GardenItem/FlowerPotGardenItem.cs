@@ -256,8 +256,10 @@ public class PlantAttribute
         }
     }
 
-    public void CultivatePlant()
+    public void CultivatePlant(bool isLoad = false)
     {
+        if (!isLoad)
+            AchievementManager.Instance.SetAchievementType5((int)plantCard.plantType);
         if (!isCultivate)
         {
             // 培育成型设置培养的属性

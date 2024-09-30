@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class ManualPlant : Plant
 {
-    [Tooltip("¹¥»÷ÉËº¦")]
+    [Tooltip("æ”»å‡»ä¼¤å®³")]
     public int Damage = 50;
-    [Tooltip("ÀäÈ´Ê±¼ä")]
+    [Tooltip("å†·å´æ—¶é—´")]
     public float CoolTime = 15f;
-    [Tooltip("¹¥»÷Ä¿±ê")]
+    [Tooltip("æ”»å‡»ç›®æ ‡")]
     public LayerMask TargetLayer;
-    [Tooltip("ÔÚÊÖÉÏÊ±Ò»Ö±¸ú×ÅÊó±êµÄÍ¼Æ¬")]
+    [Tooltip("åœ¨æ‰‹ä¸Šæ—¶ä¸€ç›´è·Ÿç€é¼ æ ‡çš„å›¾ç‰‡")]
     public SpriteRenderer image;
-    [Tooltip("²¥·ÅÖ²Îï¶¯»­µÄÍ¼Æ¬")]
+    [Tooltip("æ’­æ”¾æ¤ç‰©åŠ¨ç”»çš„å›¾ç‰‡")]
     public SpriteRenderer plant;
 
     public AudioSource audioSource;
@@ -25,7 +25,7 @@ public class ManualPlant : Plant
     protected Card card;
 
     /// <summary>
-    /// ÊÇ·ñ»¹ÔÚÊÖÉÏ
+    /// æ˜¯å¦è¿˜åœ¨æ‰‹ä¸Š
     /// </summary>
     public bool IsManual { get; protected set; } = true;
 
@@ -48,7 +48,7 @@ public class ManualPlant : Plant
         {
             PlacePlant();
         }
-        // Êó±êÓÒ¼üÈ¡Ïû
+        // é¼ æ ‡å³é”®å–æ¶ˆ
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1) && IsManual)
         {
             GameObject.Destroy(this.gameObject);
@@ -79,7 +79,7 @@ public class ManualPlant : Plant
             {
                 var targetPos = Camera.main.ScreenToWorldPoint(touchPos);
                 float x = targetPos.x - targetPos.x % 0.5f;
-                // 0.5 ¸ÕºÃÕ¾ÔÚ¸ñ×ÓÉÏ
+                // 0.5 åˆšå¥½ç«™åœ¨æ ¼å­ä¸Š
                 float y = targetPos.y - targetPos.y % 0.5f;
                 this.transform.position = new Vector3(x, y, 0);
                 int sortingOrder = (int)((-y + 10) * 10);
@@ -93,7 +93,7 @@ public class ManualPlant : Plant
         {
             var targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float x = targetPos.x - targetPos.x % 0.5f;
-            // 0.5 ¸ÕºÃÕ¾ÔÚ¸ñ×ÓÉÏ
+            // 0.5 åˆšå¥½ç«™åœ¨æ ¼å­ä¸Š
             float y = targetPos.y - targetPos.y % 0.5f;
             this.transform.position = new Vector3(x, y, 0);
             int sortingOrder = (int)((-y + 10) * 10);
@@ -120,5 +120,6 @@ public class ManualPlant : Plant
         image.gameObject.SetActive(false);
         plant.color = Color.white;
         card.PlacePlant();
+        AchievementManager.Instance.SetAchievementType9((int)plantAttribute.plantCard.plantType);
     }
 }

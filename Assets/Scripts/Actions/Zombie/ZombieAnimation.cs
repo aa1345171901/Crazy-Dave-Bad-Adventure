@@ -237,8 +237,11 @@ public class ZombieAnimation : MonoBehaviour
 
         if (zombieType == ZombieType.Gargantuan)
             GargantuanDead();
+
         GameManager.Instance.HeadNum += ConfManager.Instance.confMgr.growParam.GetGrowPrice((int)zombieType);
-        SaveManager.Instance.externalGrowthData.headNum += ConfManager.Instance.confMgr.growParam.GetGrowPrice((int)zombieType);
+        SaveManager.Instance.externalGrowthData.HeadNum += ConfManager.Instance.confMgr.growParam.GetGrowPrice((int)zombieType);
+        AchievementManager.Instance.SetAchievementType7((int)damageType);
+        AchievementManager.Instance.SetAchievementType8((int)zombieType);
     }
 
     /// <summary>

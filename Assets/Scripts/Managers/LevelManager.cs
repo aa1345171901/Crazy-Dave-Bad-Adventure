@@ -10,18 +10,57 @@ namespace TopDownPlate
     [Serializable]
     public enum ZombieType
     {
+        /// <summary>
+        /// 普通
+        /// </summary>
         Normal,
+        /// <summary>
+        /// 路障
+        /// </summary>
         Cone,
+        /// <summary>
+        /// 铁桶
+        /// </summary>
         Bucket,
+        /// <summary>
+        /// 铁栅栏
+        /// </summary>
         Screendoor,
+        /// <summary>
+        /// 旗帜
+        /// </summary>
         Flag,
+        /// <summary>
+        /// 橄榄球
+        /// </summary>
         Football,
+        /// <summary>
+        /// 读报
+        /// </summary>
         Paper,
+        /// <summary>
+        /// 撑杆跳
+        /// </summary>
         Polevaulter,
+        /// <summary>
+        /// 气球
+        /// </summary>
         Balloon,
+        /// <summary>
+        /// 冰车
+        /// </summary>
         Zamboni,
+        /// <summary>
+        /// 投篮
+        /// </summary>
         Catapult,
+        /// <summary>
+        /// 巨人
+        /// </summary>
         Gargantuan,
+        /// <summary>
+        /// 僵王
+        /// </summary>
         Boss,
     }
 

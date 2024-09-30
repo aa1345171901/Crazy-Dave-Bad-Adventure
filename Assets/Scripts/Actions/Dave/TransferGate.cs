@@ -77,6 +77,7 @@ public class TransferGate : BaseProp
         TransferGateEnable(false);
         timer = Time.time;
         isCooling = true;
+        AchievementManager.Instance.SetAchievementType9(1001);
     }
 
     private void TransferGateEnable(bool enable)

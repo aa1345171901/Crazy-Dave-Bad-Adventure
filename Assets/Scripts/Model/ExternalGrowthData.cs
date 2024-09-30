@@ -63,6 +63,18 @@ public class ExternalGrowthData
     /// 现在head的数量
     /// </summary>
     public int headNum;
+    public int HeadNum
+    {
+        get
+        {
+            return headNum;
+        }
+        set
+        {
+            headNum = value;
+            AchievementManager.Instance.SetAchievementType2(GetSumHeadCount());
+        }
+    }
 
     /// <summary>
     /// 成长升级
@@ -91,6 +103,8 @@ public class ExternalGrowthData
         {
             levels[index] = level;
         }
+        if (AllLevelMax())
+            AchievementManager.Instance.SetReach("10038");
     }
 
     public int GetGrowSumValueByKey(string key)
@@ -121,6 +135,46 @@ public class ExternalGrowthData
         headNum += sum;
         levels.Clear();
         keys.Clear();
+    }
+
+    public int GetSumHeadCount()
+    {
+        int sum = 0;
+        foreach (var item in keys)
+        {
+            var confItem = ConfManager.Instance.confMgr.externlGrow.GetItemByKey(item);
+            int index = keys.IndexOf(item);
+            int level = levels[index];
+            for (int i = 0; i < level; i++)
+            {
+                sum += confItem.cost[i];
+            }
+        }
+        return sum + headNum;
+    }
+
+    public bool AllLevelMax()
+    {
+        bool result = true;
+        foreach (var item in ConfManager.Instance.confMgr.externlGrow.items)
+        {
+            if (keys.Contains(item.key))
+            {
+                int index = keys.IndexOf(item.key);
+                int level = levels[index];
+                if (level < item.cost.Length)
+                {
+                    result = false;
+                    break;
+                }
+            }
+            else
+            {
+                result = false;
+                break;
+            }
+        }
+        return result;
     }
 
     private static readonly string externalGrowthPath = Application.persistentDataPath + "/SaveData/ExternalGrowthData.data";
