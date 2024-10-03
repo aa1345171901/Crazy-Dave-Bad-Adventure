@@ -201,10 +201,16 @@ public class ShopManager : BaseManager<ShopManager>
             {
                 PropDicts[item.quality] = new List<PropCard>();
             }
+
+            // 成就判断是否解锁
+            var achievementItem = ConfManager.Instance.confMgr.data.achievement.GetPropItemByName(item.propName);
+            if (achievementItem == null || AchievementManager.Instance.GetReach(achievementItem.achievementId))
+            {
 #if UNITY_ANDROID
             if (item.propName != "magnetic" && item.propName != "blackhole")
 #endif
-                PropDicts[item.quality].Add(item);                                                                                  
+                PropDicts[item.quality].Add(item);
+            }                                                                                 
         }
 
         PlantLists = new List<PlantCard>();
@@ -212,7 +218,6 @@ public class ShopManager : BaseManager<ShopManager>
         var plantCards = ConfManager.Instance.confMgr.data.plantCards.PlantCards;
         foreach (var item in plantCards)
         {
-            PlantLists.Add(item);
             switch (item.plantType)
             {
                 case PlantType.Repeater:
@@ -221,9 +226,25 @@ public class ShopManager : BaseManager<ShopManager>
                 case PlantType.GloomShroom:
                 case PlantType.TwinSunflower:
                 case PlantType.Spikerock:
-                    PlantEvolutionDict.Add(item.plantType, item);
+                    // 成就判断是否解锁
+                    var achievementItem = ConfManager.Instance.confMgr.data.achievement.GetPlantItemByPlantType((int)item.plantType);
+                    if (achievementItem == null || AchievementManager.Instance.GetReach(achievementItem.achievementId))
+                    {
+                        PlantEvolutionDict.Add(item.plantType, item);
+                    }
                     break;
                 default:
+                    if (item.plantType == PlantType.DoomShroom)
+                    {
+                        // 成就判断是否解锁
+                        var achievementItem2 = ConfManager.Instance.confMgr.data.achievement.GetPlantItemByPlantType((int)item.plantType);
+                        if (achievementItem2 == null || AchievementManager.Instance.GetReach(achievementItem2.achievementId))
+                        {
+                            PlantLists.Add(item);
+                        }
+                    }
+                    else
+                        PlantLists.Add(item);
                     break;
             }
         }
@@ -334,7 +355,7 @@ public class ShopManager : BaseManager<ShopManager>
         int count = 0;
         if (PurchasedPlantEvolutionDicts.ContainsKey(plantType))
             count = PurchasedPlantEvolutionDicts[plantType];
-        if (value > count)
+        if (value > count && PlantEvolutionDict.ContainsKey(plantType))
             PlantLists.Add(PlantEvolutionDict[plantType]);
     }
 }

@@ -221,7 +221,10 @@ namespace TopDownPlate
             foreach (var confWave in ConfManager.Instance.confMgr.waveTimer.items)
             {
                 var waveData = new Wave();
-                waveData.DurationPerWave = confWave.waveTime;
+                if (confWave.waveTime == 0)
+                    waveData.DurationPerWave = int.MaxValue;
+                else
+                    waveData.DurationPerWave = confWave.waveTime;
                 waveData.zombieData = new List<ZombieData>();
                 var confZombieWave = ConfManager.Instance.confMgr.wave.waves[confWave.id];
                 foreach (var confZombie in confZombieWave)
