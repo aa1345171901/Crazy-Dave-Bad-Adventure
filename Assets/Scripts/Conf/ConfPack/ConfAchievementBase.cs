@@ -90,9 +90,9 @@ public class ConfAchievementBase : ConfBase<ConfAchievementItem>
 		AddItem(new ConfAchievementItem(2, "20001", "achievement_title2", "UI/Achievement/20001", "achievement_info2", "", 300, 2, "", ""));
 		AddItem(new ConfAchievementItem(3, "20002", "achievement_title3", "UI/Achievement/20002", "achievement_info3", "", 2000, 2, "", ""));
 		AddItem(new ConfAchievementItem(4, "20003", "achievement_title4", "UI/Achievement/20003", "achievement_info4", "", 10000, 2, "", ""));
-		AddItem(new ConfAchievementItem(5, "30001", "achievement_title5", "UI/Achievement/30001", "achievement_info5", "", 50, 3, "", ""));
-		AddItem(new ConfAchievementItem(6, "30002", "achievement_title6", "UI/Achievement/30002", "achievement_info6", "", 200, 3, "", ""));
-		AddItem(new ConfAchievementItem(7, "30003", "achievement_title7", "UI/Achievement/30003", "achievement_info7", "", 500, 3, "", ""));
+		AddItem(new ConfAchievementItem(5, "30001", "achievement_title5", "UI/Achievement/30001", "achievement_info5", "", 100, 3, "", ""));
+		AddItem(new ConfAchievementItem(6, "30002", "achievement_title6", "UI/Achievement/30002", "achievement_info6", "", 500, 3, "", ""));
+		AddItem(new ConfAchievementItem(7, "30003", "achievement_title7", "UI/Achievement/30003", "achievement_info7", "", 1000, 3, "", ""));
 		AddItem(new ConfAchievementItem(8, "40001", "achievement_title8", "UI/Achievement/40001", "achievement_info8", "", 1, 4, "", ""));
 		AddItem(new ConfAchievementItem(9, "50001", "achievement_title9", "UI/Achievement/50001", "achievement_info9", "achievement_lock9", 4, 5, "1", "1_2"));
 		AddItem(new ConfAchievementItem(10, "50002", "achievement_title10", "UI/Achievement/50002", "achievement_info10", "achievement_lock10", 2, 5, "2", "1_11"));
