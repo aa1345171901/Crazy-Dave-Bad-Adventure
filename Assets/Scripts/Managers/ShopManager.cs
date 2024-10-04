@@ -160,6 +160,7 @@ public class ShopManager : BaseManager<ShopManager>
             case PlantType.GloomShroom:
             case PlantType.TwinSunflower:
             case PlantType.Spikerock:
+            case PlantType.CobCannon:
                 DicExistJudge(PurchasedPlantEvolutionDicts, plantCard.plantType);
                 Money -= price;
                 result = true;
@@ -226,6 +227,7 @@ public class ShopManager : BaseManager<ShopManager>
                 case PlantType.GloomShroom:
                 case PlantType.TwinSunflower:
                 case PlantType.Spikerock:
+                case PlantType.CobCannon:
                     // 成就判断是否解锁
                     var achievementItem = ConfManager.Instance.confMgr.data.achievement.GetPlantItemByPlantType((int)item.plantType);
                     if (achievementItem == null || AchievementManager.Instance.GetReach(achievementItem.achievementId))
@@ -329,8 +331,7 @@ public class ShopManager : BaseManager<ShopManager>
                     PlantListsAddEvolution(PlantType.GatlingPea, item.Value);
                     break;
                 case PlantType.Cornpult:
-                    // todo 加农炮
-                    // PlantListsAddEvolution(PlantType.GloomShroom, item.Value);
+                    PlantListsAddEvolution(PlantType.CobCannon, item.Value);
                     break;
                 case PlantType.FumeShroom:
                     PlantListsAddEvolution(PlantType.GloomShroom, item.Value);

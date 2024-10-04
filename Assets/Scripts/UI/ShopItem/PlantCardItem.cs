@@ -164,6 +164,10 @@ public enum PlantType
     /// 土豆雷
     /// </summary>
     PotatoMine,
+    /// <summary>
+    /// 玉米加农炮
+    /// </summary>
+    CobCannon
 }
 
 [Serializable]

@@ -23,8 +23,8 @@ public class EvolutionItem : MonoBehaviour
         if (sunPrice <= GardenManager.Instance.Sun)
         {
             AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
-
-            // ÄÜÕ¹Ê¾ÔòÒ»¶¨ÓÐ¹ºÂò£¬²»ÐèÒªÅÐ¶Ï
+            GardenManager.Instance.Sun -= sunPrice;
+            // èƒ½å±•ç¤ºåˆ™ä¸€å®šæœ‰è´­ä¹°ï¼Œä¸éœ€è¦åˆ¤æ–­
             ShopManager.Instance.PurchasedPlantEvolutionDicts[targetPlant.plantType]--;
             flowerPotGardenItem.Evolution(targetPlant);
         }

@@ -44,25 +44,25 @@ public class ConfWaveTimerBase : ConfBase<ConfWaveTimerItem>
 
 	private void Init1()
 	{
-		AddItem(new ConfWaveTimerItem(1, 1, 45));
-		AddItem(new ConfWaveTimerItem(2, 2, 45));
-		AddItem(new ConfWaveTimerItem(3, 3, 45));
-		AddItem(new ConfWaveTimerItem(4, 4, 45));
+		AddItem(new ConfWaveTimerItem(1, 1, 50));
+		AddItem(new ConfWaveTimerItem(2, 2, 50));
+		AddItem(new ConfWaveTimerItem(3, 3, 50));
+		AddItem(new ConfWaveTimerItem(4, 4, 50));
 		AddItem(new ConfWaveTimerItem(5, 5, 50));
 		AddItem(new ConfWaveTimerItem(6, 6, 50));
 		AddItem(new ConfWaveTimerItem(7, 7, 50));
 		AddItem(new ConfWaveTimerItem(8, 8, 50));
 		AddItem(new ConfWaveTimerItem(9, 9, 60));
 		AddItem(new ConfWaveTimerItem(10, 10, 120));
-		AddItem(new ConfWaveTimerItem(11, 11, 45));
-		AddItem(new ConfWaveTimerItem(12, 12, 45));
-		AddItem(new ConfWaveTimerItem(13, 13, 45));
-		AddItem(new ConfWaveTimerItem(14, 14, 45));
+		AddItem(new ConfWaveTimerItem(11, 11, 50));
+		AddItem(new ConfWaveTimerItem(12, 12, 50));
+		AddItem(new ConfWaveTimerItem(13, 13, 50));
+		AddItem(new ConfWaveTimerItem(14, 14, 50));
 		AddItem(new ConfWaveTimerItem(15, 15, 120));
-		AddItem(new ConfWaveTimerItem(16, 16, 45));
-		AddItem(new ConfWaveTimerItem(17, 17, 45));
-		AddItem(new ConfWaveTimerItem(18, 18, 45));
-		AddItem(new ConfWaveTimerItem(19, 19, 45));
+		AddItem(new ConfWaveTimerItem(16, 16, 50));
+		AddItem(new ConfWaveTimerItem(17, 17, 50));
+		AddItem(new ConfWaveTimerItem(18, 18, 50));
+		AddItem(new ConfWaveTimerItem(19, 19, 50));
 		AddItem(new ConfWaveTimerItem(20, 20, 0));
 	}
 

@@ -8,15 +8,15 @@ public class CarFall : MonoBehaviour
     public Animator animator;
     public AudioSource audioSource;
 
-    [Tooltip("µôÂäÊ±µÄ³µ")]
+    [Tooltip("æ‰è½æ—¶çš„è½¦")]
     public GameObject car1;
-    [Tooltip("µôÂäºóµÄ³µ")]
+    [Tooltip("æ‰è½åçš„è½¦")]
     public GameObject car2;
-    [Tooltip("·¶Î§ºì")]
+    [Tooltip("èŒƒå›´çº¢")]
     public SpriteRenderer range;
-    [Tooltip("µôÂäºóµÄÁÑ·ì")]
+    [Tooltip("æ‰è½åçš„è£‚ç¼")]
     public GameObject crack;
-    [Tooltip("µôÂäÊ±µÄÄàÍÁÌØĞ§")]
+    [Tooltip("æ‰è½æ—¶çš„æ³¥åœŸç‰¹æ•ˆ")]
     public ParticleSystem earth;
 
     public float triggerRange = 1.5f;
@@ -38,6 +38,7 @@ public class CarFall : MonoBehaviour
         startPos = car1.transform.position;
         animator.speed = 2;
         animator.Play("AttackRange");
+        audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
     }
 
     public void Resume()

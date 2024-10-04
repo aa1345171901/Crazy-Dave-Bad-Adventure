@@ -128,7 +128,7 @@ Animator:
   m_GameObject: {fileID: 6651558513236289383}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 81d2d688f22de6a46ae2998a898a2078, type: 2}
+  m_Controller: {fileID: 9100000, guid: 605817028dd0378479c0f6a9f3715a6d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -159,7 +159,6 @@ MonoBehaviour:
       defaultSun: 0
       info: 
       plantType: 1
-      plantTypeString: Peashooter
     isCultivate: 0
     level1: 0
     level2: 0

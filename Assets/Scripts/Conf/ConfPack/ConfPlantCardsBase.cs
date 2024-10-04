@@ -113,6 +113,7 @@ public class ConfPlantCardsBase : ConfBase<ConfPlantCardsItem>
 		AddItem(new ConfPlantCardsItem(37, "plantName_DoomShroom", "Shop/Plants/normalBg", "Shop/Plants/DoomShroom", 120, 125, "plantInfo_DoomShroom", 37));
 		AddItem(new ConfPlantCardsItem(38, "plantName_Squash", "Shop/Plants/normalBg", "Shop/Plants/Squash", 30, 50, "plantInfo_Squash", 38));
 		AddItem(new ConfPlantCardsItem(39, "plantName_PotatoMine", "Shop/Plants/normalBg", "Shop/Plants/PotatoMine", 30, 25, "plantInfo_PotatoMine", 39));
+		AddItem(new ConfPlantCardsItem(40, "plantName_CobCannon", "Shop/Plants/strongBg", "Shop/Plants/CobCannon", 150, 500, "plantInfo_CobCannon", 40));
 	}
 
 	public override void AddItem(ConfBaseItem item)

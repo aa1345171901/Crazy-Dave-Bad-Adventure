@@ -77,6 +77,7 @@ public class PlantAttribute
             case PlantType.Jalapeno:
             case PlantType.DoomShroom:
             case PlantType.PotatoMine:
+            case PlantType.CobCannon:
                 if (attribute[index] == 5)
                 {
                     GameManager.Instance.UserData.Adrenaline++;
@@ -364,6 +365,9 @@ public class PlantAttribute
                     break;
                 case PlantType.PotatoMine:
                     SetAttribute(10);
+                    break;
+                case PlantType.CobCannon:
+                    SetAttribute(8);
                     break;
                 default:
                     break;

@@ -1582,6 +1582,8 @@ MonoBehaviour:
     plantPrefab: {fileID: 5419482068675955797, guid: f2e9691e411e583418d9e1610dffcfcc, type: 3}
   - plantType: 39
     plantPrefab: {fileID: 7534690133100930344, guid: 8f1e9126e7506994cbce01bd301a523c, type: 3}
+  - plantType: 40
+    plantPrefab: {fileID: 11533248497180104, guid: 05d49528755fe5641b66793b706fa994, type: 3}
   PlantPrefabInfos:
   - plantType: 1
     plant: {fileID: 3255321644512461494, guid: 6c788df13532deb46869e64fe461b6d3, type: 3}
@@ -1653,6 +1655,8 @@ MonoBehaviour:
     plant: {fileID: 1281473322033867815, guid: a8dce2ccb74916d48b261f949c93ca7b, type: 3}
   - plantType: 39
     plant: {fileID: 191898710562161628, guid: df39ff404158a2945ae5cde340b1522c, type: 3}
+  - plantType: 40
+    plant: {fileID: 459283339472631515, guid: 8e51ed7b9e5cc6b45a7a98a3b9414305, type: 3}
   Crater: {fileID: 456797528486058293, guid: e62e9ddab74d2ed43a44b34cff82707d, type: 3}
 --- !u!1 &968511682
 GameObject:
