@@ -6,17 +6,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// 实现鼠标悬停触发
+/// 瀹炵幇榧犳爣鎮仠瑙﹀彂
 /// </summary>
 public class ShopItem : MonoBehaviour
 {
-    [Header("商品基础信息")]
+    [Header("鍟嗗搧鍩虹淇℃伅")]
     public string Info;
     public int Price;
     public Text PriceText;
 
     private Button button;
-    public bool isDown { get; protected set; }  // 判断鼠标是否在按钮上
+    public bool isDown { get; protected set; }  // 鍒ゆ柇榧犳爣鏄惁鍦ㄦ寜閽笂
     private Camera UICamera;
     private RectTransform rectTransform;
 
@@ -33,7 +33,9 @@ public class ShopItem : MonoBehaviour
 
     private void Update()
     {
-        // 判断鼠标是否在按钮范围内
+        if (Time.timeScale == 0)
+            return;
+        // 鍒ゆ柇榧犳爣鏄惁鍦ㄦ寜閽寖鍥村唴
         if (BoundsUtils.GetSceneRect(UICamera, rectTransform).Contains(Input.mousePosition))
         {
             if (!isDown)

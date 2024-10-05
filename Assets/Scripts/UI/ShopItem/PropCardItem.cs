@@ -51,6 +51,8 @@ public class PropCardItem : ShopItem
 
     public Action CanNotPurchaseWaterPot;
 
+    public Transform effectRoot;
+
     private PropCard propCard;
 
     public void SetProp(PropCard propCard)
@@ -87,7 +89,17 @@ public class PropCardItem : ShopItem
 
         this.AttributeDicts = propCard.attributes;
 
+        SetQualityEffect();
+
         UpdateMoney();
+    }
+
+    void SetQualityEffect()
+    {
+        effectRoot.DestroyChild();
+        var effect = Resources.Load("Prefabs/Effects/UI/guangzhu_" + propCard.quality);
+        if (effect != null)
+            GameObject.Instantiate(effect, effectRoot);
     }
 
     public override void SetInfo()

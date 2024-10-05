@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TopDownPlate;
 using UnityEngine;
 
@@ -72,13 +73,13 @@ public class PlantAttribute
                     GameManager.Instance.UserData.LifeRecovery++;
                 }
                 break;
-            // 樱桃炸弹 属性5 为肾上腺素
+            // 樱桃炸弹 属性4 为肾上腺素
             case PlantType.CherryBomb:
             case PlantType.Jalapeno:
             case PlantType.DoomShroom:
             case PlantType.PotatoMine:
             case PlantType.CobCannon:
-                if (attribute[index] == 5)
+                if (attribute[index] == 4)
                 {
                     GameManager.Instance.UserData.Adrenaline++;
                 }
@@ -480,6 +481,16 @@ public class FlowerPotGardenItem : MonoBehaviour
         GameObject.Destroy(targetPlant);
         animator.Play("Idel", 0, 0);
         targetPlant = GameObject.Instantiate(targetPlantPrefab, this.transform);
+        // 进化改变属性
+        if (plantCard.plantType == PlantType.CobCannon)
+        {
+            for (int i = 0; i < PlantAttribute.attribute.Length; i++)
+            {
+                var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
+                var value = (int)fieldInfo.GetValue(PlantAttribute);
+                GameManager.Instance.UserData.LifeRecovery += value;
+            }
+        }
         PlantAttribute.plantCard = plantCard;
         plantCultivationPage.SetPlantAttribute(this);
         UpdateSunPrice();
