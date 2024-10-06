@@ -90,7 +90,7 @@ namespace TopDownPlate
             // canMove为是否收到外界力，收到力时不进行输入控制
             if (canMove)
             {
-                if (!character.IsDead && !GameManager.Instance.IsDaytime)
+                if (!character.IsDead && GameManager.Instance.PlayerEnable)
                 {
                     vectorInput.x = InputManager.GetAxis("Movement");
                     vectorInput.y = InputManager.GetAxis("Vertical");

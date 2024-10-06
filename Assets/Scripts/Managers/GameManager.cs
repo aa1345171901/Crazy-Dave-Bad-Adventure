@@ -96,11 +96,13 @@ namespace TopDownPlate
                     }
                     else
                     {
+                        PlayerEnable = !isDaytime;
                         SceneTransition.TransitionToNight();
                     }
                 }
             }
         }
+        public bool PlayerEnable { get; set; } = true;
 
         public Transform BrainPos { get; set; }   // 死后脑子位置
 
@@ -195,13 +197,13 @@ namespace TopDownPlate
         /// </summary>
         void ExternlGrow()
         {
-            var plantCard1 = ConfManager.Instance.confMgr.data.plantCards.PlantCards.Last();
-            var plantAttribute1 = new PlantAttribute(plantCard1);
-            plantAttribute1.CultivatePlant(true);
-            GardenManager.Instance.PlantAttributes.Add(plantAttribute1);
-            GardenManager.Instance.FlowerPotCount++;
-            GardenManager.Instance.IsLoadPlantData = true;
-            GardenManager.Instance.PlantsGoToWar();
+            //var plantCard1 = ConfManager.Instance.confMgr.data.plantCards.PlantCards.Last();
+            //var plantAttribute1 = new PlantAttribute(plantCard1);
+            //plantAttribute1.CultivatePlant(true);
+            //GardenManager.Instance.PlantAttributes.Add(plantAttribute1);
+            //GardenManager.Instance.FlowerPotCount++;
+            //GardenManager.Instance.IsLoadPlantData = true;
+            //GardenManager.Instance.PlantsGoToWar();
 
             // 特殊模式或者没有读取存档增加局外成长属性
             if (nowMode != BattleMode.None || !SaveManager.Instance.IsLoadUserData)
@@ -442,6 +444,7 @@ namespace TopDownPlate
 
         private void OpenShop()
         {
+            PlayerEnable = !IsDaytime;
             UIManager.Instance.PushPanel(UIPanelType.ShopingPanel);
             AudioManager.Instance.StopBackMusic();
             AudioManager.Instance.PlayEffectSoundByName("zamboni");

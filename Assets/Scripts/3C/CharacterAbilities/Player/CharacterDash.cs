@@ -69,7 +69,7 @@ namespace TopDownPlate
 
         public override void ProcessAbility()
         {
-            if (!character.IsDead && !GameManager.Instance.IsDaytime)
+            if (!character.IsDead && GameManager.Instance.PlayerEnable)
             {
                 if (Time.time - lastDashTime > dashCoolTime)
                 {

@@ -26,7 +26,7 @@ namespace TopDownPlate
         public override void ProcessAbility()
         {
             base.ProcessAbility();
-            if (character.IsDead || GameManager.Instance.IsDaytime)
+            if (character.IsDead || !GameManager.Instance.PlayerEnable)
                 return;
             var colliders = Physics2D.OverlapCircleAll(this.transform.position, pickRange, moneyClickLayer);
             foreach (var item in colliders)

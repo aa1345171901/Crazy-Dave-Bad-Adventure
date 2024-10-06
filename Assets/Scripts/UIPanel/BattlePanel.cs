@@ -84,6 +84,8 @@ public class BattlePanel : BasePanel
         RunBar.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(defualtRunWidth * value, RunBar.transform.GetComponent<RectTransform>().sizeDelta.y);
     }
 
+    bool isInit;
+
     public void SetDashSlider(int count, float value, int remainCount)
     {
         if (count == 1)
@@ -92,13 +94,18 @@ public class BattlePanel : BasePanel
         }
         else
         {
-            if (DashBar.transform.parent.childCount < count)
+            if (!isInit)
             {
-                for (int i = count - DashBar.transform.parent.childCount; i < count; i++)
+                if (DashBar.transform.parent.childCount < count)
                 {
-                    var dashSlider = GameObject.Instantiate(DashBar, DashBar.transform.parent);
+
+                    for (int i = DashBar.transform.parent.childCount; i < count; i++)
+                    {
+                        var dashSlider = GameObject.Instantiate(DashBar, DashBar.transform.parent);
+                    }
+                    isInit = true;
+                    return;
                 }
-                return;
             }
             for (int i = 0; i < DashBar.transform.parent.childCount; i++)
             {
@@ -106,7 +113,7 @@ public class BattlePanel : BasePanel
                 dashSlider.value = i < remainCount ? 1 : 0;
                 dashSlider.handleRect.gameObject.SetActive(false);
             }
-            if (remainCount != count)
+            if (remainCount != count && remainCount < DashBar.transform.parent.childCount)
             {
                 var dashSlider = DashBar.transform.parent.GetChild(remainCount).GetComponent<Slider>();
                 dashSlider.value = value;

@@ -39,7 +39,7 @@ namespace TopDownPlate
         public override void ProcessAbility()
         {
             base.ProcessAbility();
-            if (character.IsDead || GameManager.Instance.IsDaytime)
+            if (character.IsDead || !GameManager.Instance.PlayerEnable)
                 return;
             if (purchaseFireCount > 0)
             {
