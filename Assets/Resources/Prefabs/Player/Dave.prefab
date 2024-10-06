@@ -8180,7 +8180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   maxHealth: 30
-  InvincibleTime: 0.2
+  InvincibleTime: 0.5
   Injured:
     m_PersistentCalls:
       m_Calls:
@@ -8211,7 +8211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd25fcfb7a03d4440be9a786ffb9cf39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 3.5
   runSpeedMultiple: 1.5
   MaximumRunningTime: 5
   RunningRecoveryEfficiency: 5
@@ -8330,7 +8330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4d69d32200fbc42800eaa874959bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defualtPickRange: 0.2
+  defualtPickRange: 0.5
   moneyClickLayer:
     serializedVersion: 2
     m_Bits: 8192
@@ -8347,6 +8347,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashSpeed: 6
+  defaultDashCoolTime: 10
+  defaultDashCount: 1
   DashAudio: {fileID: 4533724744657863312}
 --- !u!1 &7533888858074177110
 GameObject:

@@ -352,11 +352,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 0
-  AttackProbability: 0.5
+  AttackProbability: 0.05
   AttackJudgmentTime: 1
   realDamage: 0
   realAttackProbability: 0
-  AttackRange: 20
+  AttackRange: 10
   AttackAnimation: Attack
   AttackAfterAnimation: Attack_After
   basketballPos: {fileID: 8186093807420824460}

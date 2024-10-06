@@ -11,7 +11,7 @@ public class Basketball : MonoBehaviour
     public AudioSource audioSource;
 
     private float timer;
-    public float upTimer;  // ¼ÆËãÉÏÉýÊ±¼ä£¬´óÖÂÎª³õÊ¼Ê±µ½Ä¿±êµØµÄÒ»°ëÊ±¼ä
+    public float upTimer;  // è®¡ç®—ä¸Šå‡æ—¶é—´ï¼Œå¤§è‡´ä¸ºåˆå§‹æ—¶åˆ°ç›®æ ‡åœ°çš„ä¸€åŠæ—¶é—´
     private Vector3 startPos;
     private float upSpeed;
     private float fallSpeed;
@@ -51,13 +51,9 @@ public class Basketball : MonoBehaviour
                 {
                     transform.Translate(Vector3.up * upSpeed * Time.deltaTime);
                 }
-                else
-                {
-                    transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
-                }
                 float process = timer / (upTimer * 2);
                 var lerp = Vector3.Lerp(startPos, new Vector3(Target.transform.position.x, Target.transform.position.y, Target.transform.position.z), process);
-                transform.position = transform.position = new Vector3(lerp.x, transform.position.y, 0);
+                transform.position = transform.position = new Vector3(lerp.x, timer > upTimer ? lerp.y : transform.position.y, 0);
 
                 timer += Time.deltaTime;
             }
@@ -72,6 +68,7 @@ public class Basketball : MonoBehaviour
                 height = Random.Range(0.3f, 0.6f);
                 time = Random.Range(0.4f, 0.6f);
                 offsetSpeed = offset / time;
+                startPos = this.transform.position;
                 Invoke("DestroyDelay", time + 1);
                 timer = 0;
             }
@@ -81,7 +78,7 @@ public class Basketball : MonoBehaviour
             if (timer < time)
             {
                 timer += Time.deltaTime;
-                Vector3 newPos = this.transform.position + offsetSpeed * timer;
+                Vector3 newPos = startPos + offsetSpeed * timer;
                 newPos.y += Mathf.Cos(timer / time * Mathf.PI - Mathf.PI / 2) * height;
                 newPos.z = offsetSpeed.z;
                 transform.position = newPos;

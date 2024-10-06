@@ -38,7 +38,8 @@ public class CarFall : MonoBehaviour
         startPos = car1.transform.position;
         animator.speed = 2;
         animator.Play("AttackRange");
-        audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
+        if (audioSource != null)
+            audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
     }
 
     public void Resume()
@@ -71,7 +72,8 @@ public class CarFall : MonoBehaviour
             range.enabled = false;
             car2.SetActive(true);
             crack.SetActive(true);
-            audioSource.Play();
+            if (audioSource != null)
+                audioSource.Play();
             earth.Play();
             JudgeTrigger();
             StartCoroutine(DelayDestroy());

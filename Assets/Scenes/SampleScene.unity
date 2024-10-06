@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 76798647}
   - component: {fileID: 76798648}
+  - component: {fileID: 76798649}
   m_Layer: 0
   m_Name: Zombie1 (4)
   m_TagString: Untagged
@@ -251,6 +252,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &76798649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76798646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38b7827bbe5dab45b41a573f771a469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoPlay: 0
 --- !u!1001 &228834596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -884,6 +898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 573502898}
   - component: {fileID: 573502899}
+  - component: {fileID: 573502900}
   m_Layer: 0
   m_Name: Zombie1 (1)
   m_TagString: Untagged
@@ -1002,6 +1017,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &573502900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573502897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38b7827bbe5dab45b41a573f771a469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoPlay: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,6 +1151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 726242846}
   - component: {fileID: 726242847}
+  - component: {fileID: 726242848}
   m_Layer: 0
   m_Name: Zombie1 (3)
   m_TagString: Untagged
@@ -1241,6 +1270,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &726242848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726242845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38b7827bbe5dab45b41a573f771a469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoPlay: 0
 --- !u!1 &905482772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,6 +1380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 947051817}
   - component: {fileID: 947051818}
+  - component: {fileID: 947051819}
   m_Layer: 0
   m_Name: Zombie1
   m_TagString: Untagged
@@ -1456,6 +1499,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &947051819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947051816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38b7827bbe5dab45b41a573f771a469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoPlay: 0
 --- !u!1 &955123076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,6 +1890,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1074102255}
   - component: {fileID: 1074102256}
+  - component: {fileID: 1074102257}
   m_Layer: 0
   m_Name: Zombie1 (2)
   m_TagString: Untagged
@@ -1952,6 +2009,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1074102257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074102254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38b7827bbe5dab45b41a573f771a469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoPlay: 0
 --- !u!1 &1090127231
 GameObject:
   m_ObjectHideFlags: 0
@@ -2172,6 +2242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1226140565}
   - component: {fileID: 1226140566}
+  - component: {fileID: 1226140567}
   m_Layer: 0
   m_Name: Zombie1 (5)
   m_TagString: Untagged
@@ -2290,6 +2361,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1226140567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226140564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38b7827bbe5dab45b41a573f771a469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoPlay: 0
 --- !u!4 &1240957482 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5953563102313299107, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}

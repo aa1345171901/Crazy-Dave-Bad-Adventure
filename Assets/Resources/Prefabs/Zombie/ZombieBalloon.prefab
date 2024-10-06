@@ -691,7 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c397d540017044f9b5f1650209fba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.5
+  moveSpeed: 1.2
   moveAnimationName: run
   HeadPos: {fileID: 0}
   BodyPos: {fileID: 0}
@@ -816,11 +816,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 2
-  AttackProbability: 0.22
+  AttackProbability: 0.1
   AttackJudgmentTime: 1
   realDamage: 0
   realAttackProbability: 0
-  RushSpeedMul: 4
+  RushSpeedMul: 2.5
   AttackRange: 5
   AttackBeforeAnimation: Attack_Before
   AttackAnimation: Attack

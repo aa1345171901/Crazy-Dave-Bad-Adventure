@@ -140,7 +140,8 @@ namespace TopDownPlate
             }
             if (damageType == DamageType.Fire)
             {
-                health -= damage;
+                if (health > 0)
+                    health -= damage;
             }
             else
             {

@@ -7,7 +7,7 @@ public class GargantuanMove : AIMove
 {
     [Space(10)]
     [Header("SoundEffect")]
-    [Tooltip("²¥·Å×ßÂ·ÉùÒôµÄAudioSource")]
+    [Tooltip("æ’­æ”¾èµ°è·¯å£°éŸ³çš„AudioSource")]
     public AudioSource WalkAudio;
 
     private void OnEnable()
@@ -19,7 +19,7 @@ public class GargantuanMove : AIMove
     public override void UpdateAnimator()
     {
         base.UpdateAnimator();
-        if (finalMoveSpeed == 0 || !canMove || isSwoop)
+        if (finalMoveSpeed == 0 || !canMove || isSwoop || Time.timeScale == 0)
         {
             WalkAudio.Stop();
         }
