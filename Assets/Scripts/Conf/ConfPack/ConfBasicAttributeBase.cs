@@ -5,25 +5,109 @@ using System.Collections.Generic;
 public class ConfBasicAttributeItem : ConfBaseItem
 {
 	/// <summary>
-	/// 属性
+	/// 角色
 	/// </summary>
-	public string attribute;
+	public string character;
 
 	/// <summary>
-	/// 基础数值
+	/// 最大生命值
 	/// </summary>
-	public int value;
+	public int MaximumHP;
+
+	/// <summary>
+	/// 生命恢复
+	/// </summary>
+	public int LifeRecovery;
+
+	/// <summary>
+	/// 肾上腺素
+	/// </summary>
+	public int Adrenaline;
+
+	/// <summary>
+	/// 力量
+	/// </summary>
+	public int Power;
+
+	/// <summary>
+	/// 伤害
+	/// </summary>
+	public int PercentageDamage;
+
+	/// <summary>
+	/// 攻击速度
+	/// </summary>
+	public int AttackSpeed;
+
+	/// <summary>
+	/// 范围
+	/// </summary>
+	public int Range;
+
+	/// <summary>
+	/// 暴击率
+	/// </summary>
+	public int CriticalHitRate;
+
+	/// <summary>
+	/// 暴击伤害
+	/// </summary>
+	public int CriticalDamage;
+
+	/// <summary>
+	/// 移动速度
+	/// </summary>
+	public int Speed;
+
+	/// <summary>
+	/// 护甲
+	/// </summary>
+	public int Armor;
+
+	/// <summary>
+	/// 幸运
+	/// </summary>
+	public int Lucky;
+
+	/// <summary>
+	/// 阳光
+	/// </summary>
+	public int Sunshine;
+
+	/// <summary>
+	/// 金币
+	/// </summary>
+	public int GoldCoins;
+
+	/// <summary>
+	/// 植物学
+	/// </summary>
+	public int Botany;
 
 
 	public ConfBasicAttributeItem()
 	{
 	}
 
-	public ConfBasicAttributeItem(int id, string attribute, int value)
+	public ConfBasicAttributeItem(int id, string character, int MaximumHP, int LifeRecovery, int Adrenaline, int Power, int PercentageDamage, int AttackSpeed, int Range, int CriticalHitRate, int CriticalDamage, int Speed, int Armor, int Lucky, int Sunshine, int GoldCoins, int Botany)
 	{
 		this.id = id;
-		this.attribute = attribute;
-		this.value = value;
+		this.character = character;
+		this.MaximumHP = MaximumHP;
+		this.LifeRecovery = LifeRecovery;
+		this.Adrenaline = Adrenaline;
+		this.Power = Power;
+		this.PercentageDamage = PercentageDamage;
+		this.AttackSpeed = AttackSpeed;
+		this.Range = Range;
+		this.CriticalHitRate = CriticalHitRate;
+		this.CriticalDamage = CriticalDamage;
+		this.Speed = Speed;
+		this.Armor = Armor;
+		this.Lucky = Lucky;
+		this.Sunshine = Sunshine;
+		this.GoldCoins = GoldCoins;
+		this.Botany = Botany;
 	}	
 
 	public ConfBasicAttributeItem Clone()
@@ -44,20 +128,7 @@ public class ConfBasicAttributeBase : ConfBase<ConfBasicAttributeItem>
 
 	private void Init1()
 	{
-		AddItem(new ConfBasicAttributeItem(1, "maximumhp", 20));
-		AddItem(new ConfBasicAttributeItem(2, "liferecovery", 0));
-		AddItem(new ConfBasicAttributeItem(3, "adrenaline", 0));
-		AddItem(new ConfBasicAttributeItem(4, "power", 0));
-		AddItem(new ConfBasicAttributeItem(5, "percentagedamage", 0));
-		AddItem(new ConfBasicAttributeItem(6, "attackspeed", 0));
-		AddItem(new ConfBasicAttributeItem(7, "range", 0));
-		AddItem(new ConfBasicAttributeItem(8, "criticalhitrate", 0));
-		AddItem(new ConfBasicAttributeItem(9, "movespeed", 0));
-		AddItem(new ConfBasicAttributeItem(10, "armor", 0));
-		AddItem(new ConfBasicAttributeItem(11, "lucky", 0));
-		AddItem(new ConfBasicAttributeItem(12, "sunshine", 0));
-		AddItem(new ConfBasicAttributeItem(13, "goldcoins", 0));
-		AddItem(new ConfBasicAttributeItem(14, "botany", 0));
+		AddItem(new ConfBasicAttributeItem(1, "dave", 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
 	}
 
 	public override void AddItem(ConfBaseItem item)

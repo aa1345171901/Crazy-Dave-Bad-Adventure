@@ -11,6 +11,7 @@ public enum AttributeType
     AttackSpeed,
     Range,
     CriticalHitRate,
+    CriticalDamage,
     Speed,
     Armor,
     Lucky,
@@ -63,6 +64,11 @@ public class UserData
     public int CriticalHitRate;
 
     /// <summary>
+    /// 暴击伤害
+    /// </summary>
+    public int CriticalDamage;
+
+    /// <summary>
     /// 移动速度
     /// </summary>
     public int Speed;
@@ -92,24 +98,30 @@ public class UserData
     /// </summary>
     public int Botany;
 
-    public UserData()
+    public string characterName;
+
+    public UserData(string characterName)
     {
         if (ConfManager.Instance == null)
             return;
-        MaximumHP = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("maximumhp").value;
-        LifeRecovery = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("liferecovery").value;
-        Adrenaline = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("adrenaline").value;
-        Power = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("power").value;
-        PercentageDamage = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("percentagedamage").value;
-        AttackSpeed = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("attackspeed").value;
-        Range = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("range").value;
-        CriticalHitRate = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("criticalhitrate").value;
-        Speed = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("movespeed").value;
-        Armor = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("armor").value;
-        Lucky = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("lucky").value;
-        Sunshine = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("sunshine").value;
-        GoldCoins = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("goldcoins").value;
-        Botany = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey("botany").value;
+
+        this.characterName = characterName;
+        var confItem = ConfManager.Instance.confMgr.basicAttribute.GetItemByKey(characterName);
+        MaximumHP = confItem.MaximumHP;
+        LifeRecovery = confItem.LifeRecovery;
+        Adrenaline = confItem.Adrenaline;
+        Power = confItem.Power;
+        PercentageDamage = confItem.PercentageDamage;
+        AttackSpeed = confItem.AttackSpeed;
+        Range = confItem.Range;
+        CriticalHitRate = confItem.CriticalHitRate;
+        CriticalDamage = confItem.CriticalDamage;
+        Speed = confItem.Speed;
+        Armor = confItem.Armor;
+        Lucky = confItem.Lucky;
+        Sunshine = confItem.Sunshine;
+        GoldCoins = confItem.GoldCoins;
+        Botany = confItem.Botany;
     }
 
     public void AddValue(string key, int value)
@@ -139,6 +151,9 @@ public class UserData
                 break;
             case "criticalhitrate":
                 CriticalHitRate += value;
+                break;
+            case "criticaldamage":
+                CriticalDamage += value;
                 break;
             case "speed":
                 Speed += value;

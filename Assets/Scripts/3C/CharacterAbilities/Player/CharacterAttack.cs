@@ -9,28 +9,28 @@ namespace TopDownPlate
     [AddComponentMenu("TopDownPlate/Character/Ability/Attack")]
     public class CharacterAttack : CharacterAbility
     {
-        [Tooltip("¹¥»÷ÉËº¦")]
+        [Tooltip("æ”»å‡»ä¼¤å®³")]
         public int Damage = 5;
 
-        [Tooltip("¹¥»÷·¶Î§£¬·¶Î§ÄÚ×Ô¶¯¹¥»÷")]
+        [Tooltip("æ”»å‡»èŒƒå›´ï¼ŒèŒƒå›´å†…è‡ªåŠ¨æ”»å‡»")]
         public float AttackRange = 2;
 
-        [Tooltip("¹¥»÷ËÙ¶È")]
+        [Tooltip("æ”»å‡»é€Ÿåº¦")]
         public float AttackSpeed = 10;
 
-        [Tooltip("»÷ÍËµÄÁ¦")]
+        [Tooltip("å‡»é€€çš„åŠ›")]
         public float RepulsiveForce = 2;
 
-        [Tooltip("ÎäÆ÷µÄ¹Ç÷À,Æ½µ×¹ø")]
+        [Tooltip("æ­¦å™¨çš„éª¨éª¼,å¹³åº•é”…")]
         public SkeletonUtilityBone WeaponPot;
 
-        [Tooltip("¹¥»÷¶¯»­Ãû,ÓÒ±ß")]
+        [Tooltip("æ”»å‡»åŠ¨ç”»å,å³è¾¹")]
         public string AttackRightAnimation = "AttackRight";
 
-        [Tooltip("¹¥»÷¶¯»­Ãû£¬×ó±ß")]
+        [Tooltip("æ”»å‡»åŠ¨ç”»åï¼Œå·¦è¾¹")]
         public string AttackLeftAnimation = "AttackLeft";
 
-        [Tooltip("»ñÈ¡¹øµÄ¶¯»­")]
+        [Tooltip("è·å–é”…çš„åŠ¨ç”»")]
         public string GetPotAnimation = "GetPot";
 
         private GameObject Pot;
@@ -56,10 +56,11 @@ namespace TopDownPlate
         private float finalRepulsiveForce;
         private float finalRange;
         private int finalCriticalHitRate;
+        private float finalCriticalDamage;
 
         private float planternAttackSpeed;
         /// <summary>
-        /// Â·µÆ¸½½üÌá¹©µÄ¹¥ËÙ
+        /// è·¯ç¯é™„è¿‘æä¾›çš„æ”»é€Ÿ
         /// </summary>
         public float PlanternAttackSpeed
         {
@@ -79,7 +80,7 @@ namespace TopDownPlate
 
         private float planternDamage;
         /// <summary>
-        /// Â·µÆ¸½½üÌáÉıµÄÉËº¦
+        /// è·¯ç¯é™„è¿‘æå‡çš„ä¼¤å®³
         /// </summary>
         public float PlanternDamage
         {
@@ -99,7 +100,7 @@ namespace TopDownPlate
 
         private float iceShroomAttackSpeed;
         /// <summary>
-        /// º®±ù¹½Ìá¹©µÄ¹¥ËÙ
+        /// å¯’å†°è‡æä¾›çš„æ”»é€Ÿ
         /// </summary>
         public float IceShroomAttackSpeed
         {
@@ -136,6 +137,7 @@ namespace TopDownPlate
             finalCriticalHitRate = userData.CriticalHitRate;
             finalAttackRecovery = userData.Adrenaline;
             finalDamage = (int)(finalDamage * GardenManager.Instance.GravebusterDamage);
+            finalCriticalDamage = (150 + userData.CriticalDamage) / 100f;
 
             int spinaciaCount = ShopManager.Instance.PurchasePropCount("Spinacia");
             spinaciaCount = spinaciaCount > 4 ? 4 : spinaciaCount;
@@ -148,7 +150,7 @@ namespace TopDownPlate
             if (character.IsDead)
                 return;
 
-            // ¹¥»÷Ö±ÏßÎ»ÒÆ
+            // æ”»å‡»ç›´çº¿ä½ç§»
             if (isInFlight)
             {
                 direction = targetPos.position - Pot.transform.position;
@@ -164,7 +166,7 @@ namespace TopDownPlate
                     }
                     bool isCriticalHitRate = Random.Range(0, 101) < finalCriticalHitRate;
                     if (isCriticalHitRate)
-                        target.Health.DoDamage(Mathf.RoundToInt(finalDamage * 1.5f), DamageType.Pot, true);
+                        target.Health.DoDamage((int)(finalDamage * finalCriticalDamage) + 1, DamageType.Pot, true);
                     else
                         target.Health.DoDamage(finalDamage, DamageType.Pot);
 
@@ -187,7 +189,7 @@ namespace TopDownPlate
                 }
             }
 
-            // »Ø³ÌÊ¹ÓÃ±´Èû¶ûÇúÏß
+            // å›ç¨‹ä½¿ç”¨è´å¡å°”æ›²çº¿
             if (bezierInit)
             {
                 BezierMove();
@@ -195,7 +197,7 @@ namespace TopDownPlate
 
             if (!isAttacking && GameManager.Instance.CanAttack)
             {
-                // ´Ó¼¯ºÏÖĞÑ°ÕÒÎ»ÖÃ×î½üµÄµĞÈË
+                // ä»é›†åˆä¸­å¯»æ‰¾ä½ç½®æœ€è¿‘çš„æ•Œäºº
                 target = LevelManager.Instance.GetRecentlyEnemy(out bool isRight, finalRange);
                 character.State.PlayerStateType = PlayerStateType.Attack;
                 if (target != null)
@@ -241,11 +243,11 @@ namespace TopDownPlate
         }
 
         /// <summary>
-        /// ·µ»ØÁ½µã0.1Î»ÖÃ´¹ÏßËæ»úÒÆ¶¯µÄ¿ØÖÆµã
+        /// è¿”å›ä¸¤ç‚¹0.1ä½ç½®å‚çº¿éšæœºç§»åŠ¨çš„æ§åˆ¶ç‚¹
         /// </summary>
-        /// <param name="startPos">ÆğÊ¼Î»ÖÃ</param>
-        /// <param name="endPos">Ä¿±êÎ»ÖÃ</param>
-        /// <returns>±´Èû¶ûÇúÏß¿ØÖÆµã</returns>
+        /// <param name="startPos">èµ·å§‹ä½ç½®</param>
+        /// <param name="endPos">ç›®æ ‡ä½ç½®</param>
+        /// <returns>è´å¡å°”æ›²çº¿æ§åˆ¶ç‚¹</returns>
         private Vector3 GetControlPoint(Vector3 startPos, Vector3 endPos)
         {
             Vector3 m = Vector3.Lerp(startPos, endPos, 0.1f);

@@ -11,7 +11,7 @@ public class ConfBasicAttribute : ConfBasicAttributeBase
         base.OnInit();
         foreach (var item in items)
         {
-            dict[item.attribute] = item;
+            dict[item.character] = item;
         }
     }
 

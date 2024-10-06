@@ -98,6 +98,7 @@ public class CobCannon : Plant
         }
         finalDamage = (int)(finalDamage * (GameManager.Instance.UserData.Botany * 2 + 100) / 100f);
         this.transform.localScale = Vector3.one * finalRange / Range;
+        timer = Time.time - finalCoolTime * 3 / 4;
 
         audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
     }

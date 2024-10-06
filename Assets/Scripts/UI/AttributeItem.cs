@@ -75,6 +75,9 @@ public class AttributeItem : MonoBehaviour
             case AttributeType.CriticalHitRate:
                 info = string.Format(GameTool.LocalText("property_CriticalHitRate_info"), colorStr + value);
                 break;
+            case AttributeType.CriticalDamage:
+                info = string.Format(GameTool.LocalText("property_CriticalDamage_info"), colorStr + (150 + value));
+                break;
             case AttributeType.Speed:
                 info = string.Format(GameTool.LocalText("property_MoveSpeed_info"), colorStr + value);
                 break;

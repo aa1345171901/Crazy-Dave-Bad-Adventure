@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,7 +33,7 @@ namespace TopDownPlate
 
         public Character Player { get; protected set; }
 
-        public UserData UserData { get; set; } = new UserData();
+        public UserData UserData { get; set; }
 
         private bool isEnd;
         /// <summary>
@@ -168,6 +169,7 @@ namespace TopDownPlate
         private void LoadData()
         {
             nowMode = SaveManager.Instance.LoadSpecialData();
+            UserData = new UserData("dave");
             LevelManager.Instance.Init();
             ExternlGrow();
             switch (nowMode)
@@ -193,6 +195,14 @@ namespace TopDownPlate
         /// </summary>
         void ExternlGrow()
         {
+            var plantCard1 = ConfManager.Instance.confMgr.data.plantCards.PlantCards.Last();
+            var plantAttribute1 = new PlantAttribute(plantCard1);
+            plantAttribute1.CultivatePlant(true);
+            GardenManager.Instance.PlantAttributes.Add(plantAttribute1);
+            GardenManager.Instance.FlowerPotCount++;
+            GardenManager.Instance.IsLoadPlantData = true;
+            GardenManager.Instance.PlantsGoToWar();
+
             // 特殊模式或者没有读取存档增加局外成长属性
             if (nowMode != BattleMode.None || !SaveManager.Instance.IsLoadUserData)
             {
@@ -405,8 +415,11 @@ namespace TopDownPlate
             GardenManager.Instance.PlantsGoToWar();
             foreach (var item in typeof(UserData).GetFields())
             {
-                var value = (int)item.GetValue(UserData);
-                AchievementManager.Instance.SetAchievementType10(item.Name, value);
+                if (item.FieldType == typeof(int))
+                {
+                    var value = (int)item.GetValue(UserData);
+                    AchievementManager.Instance.SetAchievementType10(item.Name, value);
+                }
             }
             AchievementManager.Instance.SaveData();
             battlePanel.UpdatePlantPage();

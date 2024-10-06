@@ -325,7 +325,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1186057816}
   m_HandleRect: {fileID: 1186057815}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -683,6 +683,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7873676407142932845}
   - component: {fileID: 4076989445600522377}
+  - component: {fileID: 1772898681621352724}
+  - component: {fileID: 45319813752095078}
   m_Layer: 5
   m_Name: BagPanel
   m_TagString: Untagged
@@ -727,3 +729,50 @@ MonoBehaviour:
   InfoText: {fileID: 1769945817623064441}
   content: {fileID: 1636015719}
   propBagItem: {fileID: 4634764374553075603, guid: eebd0b3b96674c14f95f273c0e84e771, type: 3}
+--- !u!223 &1772898681621352724
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7909218686981390575}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 1
+  m_TargetDisplay: 0
+--- !u!61 &45319813752095078
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7909218686981390575}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 250, y: 1080}
+  m_EdgeRadius: 0
