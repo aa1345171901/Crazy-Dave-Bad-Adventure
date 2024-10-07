@@ -143,6 +143,38 @@ public class ConfPropCardsBase : ConfBase<ConfPropCardsItem>
 		AddItem(new ConfPropCardsItem(55, "lights", "Shop/Props/lights", 255, "propInfo_lights", 4, 4, 0, 0, "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"20\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"20\"},{\"attributeTypeString\":\"Sunshine\",\"increment\":\"100\"},{\"attributeTypeString\":\"AttackSpeed\",\"increment\":\"20\"},{\"attributeTypeString\":\"Range\",\"increment\":\"5\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"-10\"}]"));
 		AddItem(new ConfPropCardsItem(56, "mic", "Shop/Props/mic", 325, "propInfo_mic", 4, 4, 0, 0, "[{\"attributeTypeString\":\"Adrenaline\",\"increment\":\"20\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"10\"},{\"attributeTypeString\":\"GoldCoins\",\"increment\":\"100\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"10\"},{\"attributeTypeString\":\"Speed\",\"increment\":\"10\"},{\"attributeTypeString\":\"Power\",\"increment\":\"-5\"}]"));
 		AddItem(new ConfPropCardsItem(57, "speaker", "Shop/Props/speaker", 340, "propInfo_speaker", 4, 4, 0, 0, "[{\"attributeTypeString\":\"Range\",\"increment\":\"20\"},{\"attributeTypeString\":\"Power\",\"increment\":\"10\"},{\"attributeTypeString\":\"Armor\",\"increment\":\"5\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"20\"},{\"attributeTypeString\":\"AttackSpeed\",\"increment\":\"20\"},{\"attributeTypeString\":\"Speed\",\"increment\":\"-10\"}]"));
+		AddItem(new ConfPropCardsItem(58, "brokenEggshell", "Shop/Props/brokenEggshell", 25, "propInfo_brokenEggshell", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(59, "dangerReminder", "Shop/Props/dangerReminder", 22, "propInfo_dangerReminder", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(60, "goggles", "Shop/Props/goggles", 20, "propInfo_goggles", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(61, "staff", "Shop/Props/staff", 28, "propInfo_staff", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(62, "shell", "Shop/Props/shell", 22, "propInfo_shell", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(63, "gong", "Shop/Props/gong", 24, "propInfo_gong", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(64, "gongStick", "Shop/Props/gongStick", 24, "propInfo_gongStick", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(65, "ignitedBomb", "Shop/Props/ignitedBomb", 25, "propInfo_ignitedBomb", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(66, "pumpkin", "Shop/Props/pumpkin", 30, "propInfo_pumpkin", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(67, "wing", "Shop/Props/wing", 24, "propInfo_wing", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(68, "pennant", "Shop/Props/pennant", 55, "propInfo_pennant", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(69, "damagedSkateboard", "Shop/Props/damagedSkateboard", 22, "propInfo_damagedSkateboard", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(70, "butter", "Shop/Props/butter", 20, "propInfo_butter", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(71, "actionBars", "Shop/Props/actionBars", 22, "propInfo_actionBars", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(72, "recorder", "Shop/Props/recorder", 50, "propInfo_recorder", 2, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(73, "mask", "Shop/Props/mask", 70, "propInfo_mask", 2, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(74, "drumsticks", "Shop/Props/drumsticks", 66, "propInfo_drumsticks", 2, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(75, "cloud", "Shop/Props/cloud", 45, "propInfo_cloud", 2, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(76, "iceCake", "Shop/Props/iceCake", 50, "propInfo_iceCake", 2, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(77, "batWings", "Shop/Props/batWings", 45, "propInfo_batWings", 2, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(78, "hemline", "Shop/Props/hemline", 47, "propInfo_hemline", 2, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(79, "umbrella", "Shop/Props/umbrella", 52, "propInfo_umbrella", 2, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(80, "brokenHat", "Shop/Props/brokenHat", 26, "propInfo_brokenHat", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(81, "pinecone", "Shop/Props/pinecone", 150, "propInfo_pinecone", 3, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(82, "zombieRightHand", "Shop/Props/zombieRightHand", 120, "propInfo_zombieRightHand", 3, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(83, "zombieLeftHand", "Shop/Props/zombieLeftHand", 120, "propInfo_zombieLeftHand", 3, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(84, "imitator", "Shop/Props/imitator", 300, "propInfo_imitator", 4, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(85, "base", "Shop/Props/base", 16, "propInfo_base", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(86, "zombieBanOrder", "Shop/Props/zombieBanOrder", 15, "propInfo_zombieBanOrder", 1, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(87, "PoleVaulting", "Shop/Props/PoleVaulting", 130, "propInfo_PoleVaulting", 2, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(88, "cart", "Shop/Props/cart", 45, "propInfo_cart", 2, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(89, "unknownButton", "Shop/Props/unknownButton", 56, "propInfo_unknownButton", 2, 0, 0, 0, ""));
 	}
 
 	public override void AddItem(ConfBaseItem item)
