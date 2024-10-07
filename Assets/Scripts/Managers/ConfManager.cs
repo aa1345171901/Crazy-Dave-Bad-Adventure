@@ -53,9 +53,14 @@ public class ConfManager : BaseManager<ConfManager>
     public string CriticalHitRate = GameTool.LocalText("property_CriticalHitRate");
 
     /// <summary>
+    /// 暴击伤害
+    /// </summary>
+    public string CriticalDamage = GameTool.LocalText("property_CriticalDamage");
+
+    /// <summary>
     /// 移动速度
     /// </summary>
-    public string Speed = GameTool.LocalText("property_Speed");
+    public string Speed = GameTool.LocalText("property_MoveSpeed");
 
     /// <summary>
     /// 护甲
@@ -102,7 +107,8 @@ public class ConfManager : BaseManager<ConfManager>
         AttackSpeed = GameTool.LocalText("property_AttackSpeed");
         Range = GameTool.LocalText("property_Range");
         CriticalHitRate = GameTool.LocalText("property_CriticalHitRate");
-        Speed = GameTool.LocalText("property_Speed");
+        CriticalDamage = GameTool.LocalText("property_CriticalDamage");
+        Speed = GameTool.LocalText("property_MoveSpeed");
         Armor = GameTool.LocalText("property_Armor");
         Lucky = GameTool.LocalText("property_Lucky");
         Sunshine = GameTool.LocalText("property_Sunshine");

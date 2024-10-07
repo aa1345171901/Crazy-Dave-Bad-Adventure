@@ -170,8 +170,8 @@ namespace TopDownPlate
 
         private void LoadData()
         {
-            nowMode = SaveManager.Instance.LoadSpecialData();
             UserData = new UserData("dave");
+            nowMode = SaveManager.Instance.LoadSpecialData();
             LevelManager.Instance.Init();
             ExternlGrow();
             switch (nowMode)
@@ -458,11 +458,12 @@ namespace TopDownPlate
                 case PropDamageType.None:
                     break;
                 case PropDamageType.LawnMower:
-                    LawnMower.DefaultDamage = defaultDamage;
-                    LawnMower.DefaultAttackCoolingTime = coolingTime;
-                    LawnMower.gameObject.SetActive(true);
-                    if (!specialPropLists.Contains(LawnMower))
-                        specialPropLists.Add(LawnMower);
+                    var lawnMower = GameObject.Instantiate(LawnMower);
+                    lawnMower.DefaultDamage = defaultDamage;
+                    lawnMower.DefaultAttackCoolingTime = coolingTime;
+                    lawnMower.gameObject.SetActive(true);
+                    if (!specialPropLists.Contains(lawnMower))
+                        specialPropLists.Add(lawnMower);
                     break;
                 case PropDamageType.Hammer:
                     Hammer.DefaultDamage = defaultDamage;
@@ -492,7 +493,7 @@ namespace TopDownPlate
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && !isEnd)
             {
                 if (pausePanel != null && pausePanel.gameObject.activeSelf)
                 {

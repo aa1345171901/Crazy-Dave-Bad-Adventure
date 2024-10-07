@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class LawnMower : BaseProp
 {
-    [Tooltip("小推车默认速度")]
+    [Tooltip("灏忔帹杞﹂粯璁ら�熷害")]
     public float defaultSpeed = 6;
 
-    [Tooltip("造成伤害的LayerMask")]
+    [Tooltip("閫犳垚浼ゅ鐨凩ayerMask")]
     public LayerMask triggerLayer;
 
     public AudioSource audioSource;
@@ -18,11 +18,6 @@ public class LawnMower : BaseProp
     private float finalAttackCoolingTime;
 
     private float timer;
-
-    private void Start()
-    {
-        this.gameObject.SetActive(false);
-    }
 
     public override void Reuse()
     {
@@ -42,7 +37,7 @@ public class LawnMower : BaseProp
     public override void ProcessAbility()
     {
         base.ProcessAbility();
-        if (GameManager.Instance.IsDaytime)
+        if (GameManager.Instance.IsDaytime || Time.timeScale == 0)
             return;
         timer += Time.deltaTime;
         if (timer > finalAttackCoolingTime)

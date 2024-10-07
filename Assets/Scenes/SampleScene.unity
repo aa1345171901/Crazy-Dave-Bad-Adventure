@@ -2230,7 +2230,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1846486698}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1226140564
 GameObject:
@@ -2374,22 +2374,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPlay: 0
---- !u!4 &1240957482 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5953563102313299107, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-  m_PrefabInstance: {fileID: 5953563103512116873}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1240957483 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5953563102313299106, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-  m_PrefabInstance: {fileID: 5953563103512116873}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8c1681671734a848b096bbbb5a458f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1278052821
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,7 +2948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pot: {fileID: 979283058}
   Hammer: {fileID: 2118146358}
-  LawnMower: {fileID: 1240957483}
+  LawnMower: {fileID: 5953563102313299106, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
   TransferGate: {fileID: 2010886774}
   IceGroundContent: {fileID: 1160317497}
   specialPropLists: []
@@ -3260,7 +3244,6 @@ Transform:
   - {fileID: 1101367309}
   - {fileID: 979283059}
   - {fileID: 2118146357}
-  - {fileID: 1240957482}
   - {fileID: 2010886773}
   - {fileID: 1160317497}
   m_Father: {fileID: 0}
@@ -3652,64 +3635,3 @@ PrefabInstance:
       objectReference: {fileID: 1555975435}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fc7c003a6e936645b3f31f30fb2d3f2, type: 3}
---- !u!1001 &5953563103512116873
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1846486698}
-    m_Modifications:
-    - target: {fileID: 4817122822124027301, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953563102313299104, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-      propertyPath: m_Name
-      value: LawnMower
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953563102313299107, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953563102313299107, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 14.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953563102313299107, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953563102313299107, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.03646136
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953563102313299107, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953563102313299107, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953563102313299107, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953563102313299107, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953563102313299107, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953563102313299107, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953563102313299107, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
