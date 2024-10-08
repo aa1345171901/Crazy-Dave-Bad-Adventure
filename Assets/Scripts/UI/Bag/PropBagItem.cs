@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TopDownPlate;
@@ -30,6 +31,21 @@ public class PropBagItem : MonoBehaviour
     {
         AudioManager.Instance.PlayEffectSoundByName("shopItem");
         BagPanel.NowShowPropCard = PropCard;
+    }
+
+    private void OnMouseUp()
+    {
+        if (BagPanel.AutoClose)
+        {
+            AudioManager.Instance.PlayEffectSoundByName("btnPressed");
+            BagPanel.sellPage.SetActive(true);
+            BagPanel.sellPage.transform.position = this.transform.position;
+            BagPanel.sellAll.gameObject.SetActive(count > 1);
+            int nowPrice = Mathf.RoundToInt(PropCard.GetNowPrice() * ConfManager.Instance.confMgr.gameIntParam.GetItemByKey("sellRate").value / 100f);
+            BagPanel.sellOneText.text = nowPrice.ToString();
+            BagPanel.sellAllText.text = (nowPrice * count).ToString();
+            BagPanel.sellProp = PropCard;
+        }
     }
 
     private void OnMouseExit()

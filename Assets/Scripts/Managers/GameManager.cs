@@ -127,6 +127,8 @@ namespace TopDownPlate
 
         private BattlePanel battlePanel;
         private PausePanel pausePanel;
+        public AttributePanel attributePanel { get; private set; }
+
         private VocalConcert vocalConcert;
 
         public PumpkinHead pumpkinHead { get; private set; }
@@ -478,10 +480,94 @@ namespace TopDownPlate
             }
         }
 
+        public void RemoveProp(PropCard propCard, bool isSellAll, int sellCount)
+        {
+            if (propCard.propType == PropType.None)
+            {
+                int count = ShopManager.Instance.PurchasePropCount(propCard.propName);
+                switch (propCard.propName)
+                {
+                    case "PortalCard":
+                        if (count == 0)
+                            RemoveTransferGate();
+                        break;
+                    case "Spinacia":
+                        if (count == 0)
+                            IsZombieShock = false;
+                        break;
+                    case "magnetic":
+                        if (count == 0)
+                            HaveMagnetic = false;
+                        break;
+                    case "blackhole":
+                        if (count == 0)
+                            HaveBlackHole = false;
+                        break;
+                    case "cardSlot":
+                        int slotNum = GardenManager.Instance.SlotNum -= sellCount;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                switch (propCard.propType)
+                {
+                    case PropType.LawnMower:
+                        var lawnMowerList = new List<LawnMower>();
+                        foreach (var item in GameManager.Instance.specialPropLists)
+                        {
+                            if (item is LawnMower lawnMower)
+                            {
+                                lawnMowerList.Add(lawnMower);
+                            }
+                        }
+                        if (isSellAll)
+                        {
+                            foreach (var item in lawnMowerList)
+                            {
+                                GameManager.Instance.specialPropLists.Remove(item);
+                            }
+                            foreach (var item in lawnMowerList)
+                            {
+                                GameObject.Destroy(item);
+                            }
+                        }
+                        else
+                        {
+                            var lawnMower = lawnMowerList.First();
+                            GameManager.Instance.specialPropLists.Remove(lawnMower);
+                            GameObject.Destroy(lawnMower);
+                        }
+                        break;
+                    case PropType.Fire:
+                        break;
+                    case PropType.Hammer:
+                        if (specialPropLists.Contains(Hammer))
+                            specialPropLists.Remove(Hammer);
+                        break;
+                    case PropType.VocalConcert:
+                        break;
+                    case PropType.ZombieChange:
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
         public void SetTransferGate()
         {
+            TransferGate.gameObject.SetActive(true);
             TransferGate.SetTransferGate();
             specialPropLists.Add(TransferGate);
+        }
+
+        public void RemoveTransferGate()
+        {
+            TransferGate.gameObject.SetActive(false);
+            specialPropLists.Remove(TransferGate);
         }
 
         public void Victory()
@@ -489,6 +575,12 @@ namespace TopDownPlate
             LevelManager.Instance.Victory();
             isEnd = true;
             UIManager.Instance.PushPanel(UIPanelType.VictoryPanel);
+        }
+
+        public AttributePanel GetAttributePanel()
+        {
+            attributePanel = UIManager.Instance.PushPanel(UIPanelType.AttributePanel) as AttributePanel;
+            return attributePanel;
         }
 
         private void Update()

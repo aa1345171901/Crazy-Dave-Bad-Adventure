@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TopDownPlate;
 using UnityEngine;
 
@@ -289,6 +290,45 @@ public class ShopManager : BaseManager<ShopManager>
         {
             PurchasedProps.Remove(propCard);
         }
+    }
+
+    public void SellProp(PropCard propCard, bool isSellAll)
+    {
+        if (propCard == null)
+            return;
+        var list = new List<PropCard>();
+        foreach (var item in PurchasedProps)
+        {
+            if (item == propCard)
+            {
+                list.Add(item);
+            }
+        }
+        int nowPrice = Mathf.RoundToInt(propCard.GetNowPrice() * ConfManager.Instance.confMgr.gameIntParam.GetItemByKey("sellRate").value / 100f);
+        var userData = GameManager.Instance.UserData;
+        void SellItem(PropCard propCard)
+        {
+            PurchasedProps.Remove(propCard);
+            Money += nowPrice;
+            foreach (var item in propCard.attributes)
+            {
+                var fieldInfo = typeof(UserData).GetField(Enum.GetName(typeof(AttributeType), item.attributeType));
+                fieldInfo.SetValue(userData, (int)fieldInfo.GetValue(userData) - item.increment);
+                GameManager.Instance.attributePanel.SetAttribute(item.attributeType, (int)fieldInfo.GetValue(userData));
+            }
+        }
+        if (isSellAll)
+        {
+            foreach (var item in list)
+            {
+                SellItem(item);
+            }
+        }
+        else
+        {
+            SellItem(list.First());
+        }
+        GameManager.Instance.RemoveProp(propCard, isSellAll, isSellAll ? list.Count : 1);
     }
 
     public void UpdateCardPool()

@@ -324,7 +324,7 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
         else
         {
             // 从花园进入
-            attributePanel = UIManager.Instance.PushPanel(UIPanelType.AttributePanel) as AttributePanel;
+            attributePanel = GameManager.Instance.GetAttributePanel();
             attributePanel.ShoppingPanel = this;
         }
     }
@@ -334,7 +334,7 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
         if (this.gameObject.activeSelf)
         {
             BtnRenovate.gameObject.SetActive(true);
-            attributePanel = UIManager.Instance.PushPanel(UIPanelType.AttributePanel) as AttributePanel;
+            attributePanel = GameManager.Instance.GetAttributePanel();
             attributePanel.ShoppingPanel = this;
             Money.text = ShopManager.Instance.Money.ToString();
             renovateCount = 0;

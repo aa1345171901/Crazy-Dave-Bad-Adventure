@@ -49,6 +49,32 @@ public class PropCard
     /// </summary>
     public int value1;
     public float coolingTime;
+
+    public int GetNowPrice()
+    {
+        int price = defaultPrice;
+        int wave = LevelManager.Instance.IndexWave;
+        // 商品价格设置   每波过后道具价格膨胀率， 白色为 波数 / 3  蓝色为 波数 / 5  紫色为 波数 / 6  红色为 波数 / 8
+        switch (quality)
+        {
+            case 1:
+                price = (int)(defaultPrice * (wave / 3 < 1 ? 1 : wave / 3));
+                break;
+            case 2:
+                price = (int)(defaultPrice * (wave / 5 < 1 ? 1 : wave / 5));
+                break;
+            case 3:
+                price = (int)(defaultPrice * (wave / 6 < 1 ? 1 : wave / 6));
+                break;
+            case 4:
+                price = (int)(defaultPrice * (wave / 8 < 1 ? 1 : wave / 8));
+                break;
+            default:
+                price = defaultPrice;
+                break;
+        }
+        return price;
+    }
 }
 
 [Serializable]
@@ -82,26 +108,7 @@ public class PropCardItem : ShopItem
         Sprite image = Resources.Load<Sprite>(propCard.propImagePath);
         this.Prop.sprite = image;
 
-        // 商品价格设置   每波过后道具价格膨胀率， 白色为 波数 / 3  蓝色为 波数 / 5  紫色为 波数 / 6  红色为 波数 / 8
-        float wave = LevelManager.Instance.IndexWave;
-        switch (propCard.quality)
-        {
-            case 1:
-                this.Price = (int)(propCard.defaultPrice * (wave / 3 < 1 ? 1 : wave / 3));
-                break;
-            case 2:
-                this.Price = (int)(propCard.defaultPrice * (wave / 5 < 1 ? 1 : wave / 5));
-                break;
-            case 3:
-                this.Price = (int)(propCard.defaultPrice * (wave / 6 < 1 ? 1 : wave / 6));
-                break;
-            case 4:
-                this.Price = (int)(propCard.defaultPrice * (wave / 8 < 1 ? 1 : wave / 8));
-                break;
-            default:
-                this.Price = propCard.defaultPrice;
-                break;
-        }
+        this.Price = propCard.GetNowPrice();
         this.PriceText.text = this.Price.ToString();
         this.Info = GameTool.LocalText(propCard.info);
         SetInfo();

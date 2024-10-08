@@ -545,6 +545,8 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(493, "achievement_title80009", "撑杆跳杆", "Pole vault"));
 		AddItem(new ConfLocalTextItem(494, "achievement_info80009", "累计击杀20次撑杆跳僵尸", "Kill 20 pole vault zombies cumulatively"));
 		AddItem(new ConfLocalTextItem(495, "achievement_lock80009", "解锁道具撑杆跳杆", "Unlock the pole vault prop"));
+		AddItem(new ConfLocalTextItem(496, "sell_one", "出售一个", "Sell ​​one"));
+		AddItem(new ConfLocalTextItem(497, "sell_all", "出售全部", "Sell all"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

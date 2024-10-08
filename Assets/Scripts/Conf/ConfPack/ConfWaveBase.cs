@@ -171,7 +171,7 @@ public class ConfWaveBase : ConfBase<ConfWaveItem>
 		AddItem(new ConfWaveItem(2009, 20, 9, new int[]{ 1, 1, 1 }, new float[]{ 30f, 15f, 15f }, 16));
 		AddItem(new ConfWaveItem(2010, 20, 10, new int[]{ 1, 1, 1 }, new float[]{ 30f, 20f, 20f }, 20));
 		AddItem(new ConfWaveItem(2011, 20, 11, new int[]{ 1, 1, 1 }, new float[]{ 90f, 90f, 90f }, 45));
-		AddItem(new ConfWaveItem(2022, 20, 12, new int[]{ 1, 1, 1 }, new float[]{ 999999f, 999999f, 999999f }, 0));
+		AddItem(new ConfWaveItem(2022, 20, 12, new int[]{ 1, 1, 1 }, new float[]{ 99999999f, 99999999f, 99999999f }, -99999999));
 	}
 
 	public override void AddItem(ConfBaseItem item)

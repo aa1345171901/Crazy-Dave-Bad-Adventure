@@ -9,10 +9,17 @@ public class BagPanel : BasePanel
     public Text InfoText;
     public GameObject content;
     public PropBagItem propBagItem;
+    public GameObject sellPage;
+    public Button sellOne;
+    public Button sellAll;
+    public Text sellOneText;
+    public Text sellAllText;
 
     public bool AutoClose { get; set; }
 
     public ShoppingPanel ShoppingPanel { get; set; }
+
+    public PropCard sellProp { get; set; }
 
     private PropCard nowShowPropCard;
     public PropCard NowShowPropCard 
@@ -81,11 +88,15 @@ public class BagPanel : BasePanel
     private Dictionary<string, PropBagItem> propDicts = new Dictionary<string, PropBagItem>();
     private Camera UICamera;
     private RectTransform rectTransform;
+    private RectTransform rectSellPage;
 
     private void Start()
     {
         UICamera = UIManager.Instance.UICamera;
         rectTransform = GetComponent<RectTransform>();
+        rectSellPage = sellPage.GetComponent<RectTransform>();
+        sellAll.onClick.AddListener(() =>{ ShopManager.Instance.SellProp(sellProp, true); UpdateUI(); });
+        sellOne.onClick.AddListener(() => { ShopManager.Instance.SellProp(sellProp, false); UpdateUI(); });
     }
 
     private void Update()
@@ -95,6 +106,10 @@ public class BagPanel : BasePanel
         {
             UIManager.Instance.PopPanel();
         }
+        if (Input.GetMouseButtonUp(0) && AutoClose && !BoundsUtils.GetSceneRect(UICamera, rectSellPage).Contains(Input.mousePosition))
+        {
+            sellPage.SetActive(false);
+        }
     }
 
     public override void OnEnter()
@@ -102,12 +117,19 @@ public class BagPanel : BasePanel
         base.OnEnter();
         this.gameObject.SetActive(true);
         this.transform.SetSiblingIndex(this.transform.parent.childCount - 1);  // 设置最后一个渲染
+        UpdateUI();
+    }
+
+    void UpdateUI()
+    {
+        sellPage.SetActive(false);
         // 先将已有的道具数目清零
         foreach (var item in propDicts)
         {
             item.Value.Count = 0;
+            item.Value.gameObject.SetActive(false);
         }
-        
+
         // 再增加数目或生成预制体
         var purchasedProps = ShopManager.Instance.PurchasedProps;
         foreach (var item in purchasedProps)
@@ -115,6 +137,7 @@ public class BagPanel : BasePanel
             if (propDicts.ContainsKey(item.propName))
             {
                 propDicts[item.propName].Count++;
+                propDicts[item.propName].gameObject.SetActive(true);
             }
             else
             {
@@ -122,7 +145,7 @@ public class BagPanel : BasePanel
                 bagItem.SetPropCard(item);
                 bagItem.Count = 1;
                 bagItem.BagPanel = this;
-                propDicts.Add(item.propName, bagItem) ;
+                propDicts.Add(item.propName, bagItem);
             }
         }
     }
