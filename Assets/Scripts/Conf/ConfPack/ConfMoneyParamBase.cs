@@ -56,7 +56,7 @@ public class ConfMoneyParamBase : ConfBase<ConfMoneyParamItem>
 
 	private void Init1()
 	{
-		AddItem(new ConfMoneyParamItem(1, "sliverCoin", 10, 150, 15f));
+		AddItem(new ConfMoneyParamItem(1, "sliverCoin", 10, 120, 15f));
 		AddItem(new ConfMoneyParamItem(2, "goldCoin", 50, 5, 20f));
 		AddItem(new ConfMoneyParamItem(3, "diamond", 150, 1, 25f));
 		AddItem(new ConfMoneyParamItem(4, "sun", 25, 100, 15f));

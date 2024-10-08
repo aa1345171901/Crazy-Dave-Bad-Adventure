@@ -91,7 +91,7 @@ public class BagPanel : BasePanel
     private void Update()
     {
         // 判断鼠标是否在按钮范围内
-        if (AutoClose && !BoundsUtils.GetSceneRect(UICamera, rectTransform).Contains(Input.mousePosition))
+        if (AutoClose && !BoundsUtils.GetSceneRect(UICamera, rectTransform, rectTransform.sizeDelta.x).Contains(Input.mousePosition))
         {
             UIManager.Instance.PopPanel();
         }

@@ -182,10 +182,10 @@ namespace TopDownPlate
                     IntoNormalMode();
                     break;
                 case BattleMode.BossMode:
-                    IntoNormalMode();
                     ShopManager.Instance.Money = 100000;
                     GardenManager.Instance.Sun = 2500000;
                     LevelManager.Instance.IndexWave = 18;
+                    IntoNormalMode();
                     break;
                 default:
                     break;
@@ -501,6 +501,8 @@ namespace TopDownPlate
                 }
                 else
                 {
+                    if (UIManager.Instance.TopPanel is BagPanel)
+                        UIManager.Instance.PopPanel();
                     Pause();
                 }
             }
