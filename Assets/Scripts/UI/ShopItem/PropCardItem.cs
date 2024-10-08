@@ -6,13 +6,29 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable]
-public enum PropDamageType
+public enum PropType
 {
     None,
-    LawnMower,  // 小推车
+    /// <summary>
+    /// 小推车
+    /// </summary>
+    LawnMower,
+    /// <summary>
+    /// 火焰
+    /// </summary>
     Fire,  // 火焰
+    /// <summary>
+    /// 木槌
+    /// </summary>
     Hammer,
+    /// <summary>
+    /// 演唱会
+    /// </summary>
     VocalConcert,
+    /// <summary>
+    /// 僵尸数量改变
+    /// </summary>
+    ZombieChange
 }
 
 [Serializable]
@@ -27,8 +43,11 @@ public class PropCard
 
     // 以下为可选
     public string preconditions;  // 解锁的前置条件的成就名称
-    public PropDamageType propDamageType;
-    public int defalutDamage;
+    public PropType propType;
+    /// <summary>
+    /// 伤害以及增减幅数量
+    /// </summary>
+    public int value1;
     public float coolingTime;
 }
 
@@ -104,33 +123,33 @@ public class PropCardItem : ShopItem
 
     public override void SetInfo()
     {
-        if (propCard.propDamageType != PropDamageType.None)
+        if (propCard.propType != PropType.None)
         {
             var userData = GameManager.Instance.UserData;
             int finalDamage;
             float finalAttackCoolingTime;
             var textConf = ConfManager.Instance;
-            switch (propCard.propDamageType)
+            switch (propCard.propType)
             {
-                case PropDamageType.LawnMower:
-                    finalDamage = Mathf.RoundToInt((userData.Power + propCard.defalutDamage) * (100f + userData.PercentageDamage) / 100);
+                case PropType.LawnMower:
+                    finalDamage = Mathf.RoundToInt((userData.Power + propCard.value1) * (100f + userData.PercentageDamage) / 100);
                     finalAttackCoolingTime = propCard.coolingTime * (1 - userData.Speed / (100f + userData.Speed));
                     this.Info = string.Format(GameTool.LocalText(this.propCard.info),
-                        "<color=#ff0000>" + finalDamage + $"</color><color=#9932CD>（(100%{textConf.Power}+" + propCard.defalutDamage + $") * {textConf.PercentageDamage}）</color>",
+                        "<color=#ff0000>" + finalDamage + $"</color><color=#9932CD>（(100%{textConf.Power}+" + propCard.value1 + $") * {textConf.PercentageDamage}）</color>",
                         "<color=#ff0000>" + (int)finalAttackCoolingTime + "</color><color=#9932CD>（" + propCard.coolingTime + "*（1-速度/（速度+100））</color>");
                     break;
-                case PropDamageType.Fire:
-                    this.Info = string.Format(GameTool.LocalText(this.propCard.info), propCard.defalutDamage);
+                case PropType.Fire:
+                    this.Info = string.Format(GameTool.LocalText(this.propCard.info), propCard.value1);
                     break;
-                case PropDamageType.Hammer:
-                    finalDamage = Mathf.RoundToInt((userData.Power * 1.5f + propCard.defalutDamage) * (100f + userData.PercentageDamage) / 100);
+                case PropType.Hammer:
+                    finalDamage = Mathf.RoundToInt((userData.Power * 1.5f + propCard.value1) * (100f + userData.PercentageDamage) / 100);
                     finalAttackCoolingTime = propCard.coolingTime - userData.AttackSpeed / 100f;
                     finalAttackCoolingTime = finalAttackCoolingTime < 0.5f ? 0.5f : finalAttackCoolingTime;
                     this.Info = string.Format(GameTool.LocalText(this.propCard.info),
-                        "<color=#ff0000>" + finalDamage + $"</color><color=#9932CD>（(150%{textConf.Power}+" + propCard.defalutDamage + $") * {textConf.PercentageDamage}）</color>",
+                        "<color=#ff0000>" + finalDamage + $"</color><color=#9932CD>（(150%{textConf.Power}+" + propCard.value1 + $") * {textConf.PercentageDamage}）</color>",
                         "<color=#ff0000>" + (int)finalAttackCoolingTime + "</color><color=#9932CD>（" + propCard.coolingTime + $"-{textConf.AttackSpeed}）</color>");
                     break;
-                case PropDamageType.VocalConcert:
+                case PropType.VocalConcert:
                     break;
                 default:
                     break;

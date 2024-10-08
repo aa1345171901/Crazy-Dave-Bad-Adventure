@@ -32,8 +32,8 @@ public class ConfPropCards : ConfPropCardsBase
                     propCard.attributes.Add(attributeIncrement);
                 }
             }
-            propCard.propDamageType = (PropDamageType)item.propDamageType;
-            propCard.defalutDamage = item.defalutDamage;
+            propCard.propType = (PropType)item.propType;
+            propCard.value1 = item.value1;
             propCard.coolingTime = item.coolingTime;
             PropCards.Add(propCard);
         }

@@ -418,7 +418,7 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(366, "achievement_title21", "报纸", "Newspapers"));
 		AddItem(new ConfLocalTextItem(367, "achievement_title22", "路障", "Roadblocks"));
 		AddItem(new ConfLocalTextItem(368, "achievement_title23", "铁栅栏", "Iron fences"));
-		AddItem(new ConfLocalTextItem(369, "achievement_title24", "轮胎", "Zamboni"));
+		AddItem(new ConfLocalTextItem(369, "achievement_title24", "冰车轮胎", "Zamboni Tire"));
 		AddItem(new ConfLocalTextItem(370, "achievement_title25", "冰碎", "Ice shatters"));
 		AddItem(new ConfLocalTextItem(371, "achievement_title26", "火焰", "Flames"));
 		AddItem(new ConfLocalTextItem(372, "achievement_title27", "买买买", "Buy, buy, buy"));
@@ -450,15 +450,15 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(398, "achievement_info15", "累计培养4次地刺", "Cultivated 4 times of ground spikes"));
 		AddItem(new ConfLocalTextItem(399, "achievement_info16", "累计使用灰烬植物击杀10只僵尸", "Killed 10 enemies with ash plants Zombies"));
 		AddItem(new ConfLocalTextItem(400, "achievement_info17", "首次击杀投篮僵尸", "Killed a basketball zombie for the first time"));
-		AddItem(new ConfLocalTextItem(401, "achievement_info18", "首次击杀铁桶僵尸", "Killed a barrel zombie for the first time"));
-		AddItem(new ConfLocalTextItem(402, "achievement_info19", "首次击杀橄榄球僵尸", "Killed a football zombie for the first time"));
+		AddItem(new ConfLocalTextItem(401, "achievement_info18", "累计击杀铁桶僵尸10只", "Killed a barrel zombie for the first time"));
+		AddItem(new ConfLocalTextItem(402, "achievement_info19", "累计击杀橄榄球僵尸10只", "Killed a football zombie for the first time"));
 		AddItem(new ConfLocalTextItem(403, "achievement_info20", "首次击杀巨人僵尸", "Killed a giant zombie for the first time"));
-		AddItem(new ConfLocalTextItem(404, "achievement_info21", "首次击杀读报僵尸", "Killed a newspaper zombie for the first time"));
-		AddItem(new ConfLocalTextItem(405, "achievement_info22", "首次击杀路障僵尸", "Killed a roadblock zombie for the first time"));
-		AddItem(new ConfLocalTextItem(406, "achievement_info23", "首次击杀铁栅栏僵尸", "Killed a fence zombie for the first time"));
+		AddItem(new ConfLocalTextItem(404, "achievement_info21", "累计击杀读报僵尸10只", "Killed a newspaper zombie for the first time"));
+		AddItem(new ConfLocalTextItem(405, "achievement_info22", "累计击杀路障僵尸20只", "Killed a roadblock zombie for the first time"));
+		AddItem(new ConfLocalTextItem(406, "achievement_info23", "累计击杀铁栅栏僵尸10只", "Killed a fence zombie for the first time"));
 		AddItem(new ConfLocalTextItem(407, "achievement_info24", "首次击杀冰车僵尸", "Kill the Ice Truck Zombie for the first time"));
-		AddItem(new ConfLocalTextItem(408, "achievement_info25", "首次使用寒冰菇", "Used ice mushrooms for the first time"));
-		AddItem(new ConfLocalTextItem(409, "achievement_info26", "首次使用火爆辣椒", "Used flaming peppers for the first time"));
+		AddItem(new ConfLocalTextItem(408, "achievement_info25", "累计使用寒冰菇20次", "Used ice mushrooms for the first time"));
+		AddItem(new ConfLocalTextItem(409, "achievement_info26", "累计使用火爆辣椒20次", "Used flaming peppers for the first time"));
 		AddItem(new ConfLocalTextItem(410, "achievement_info27", "首次购物", "First purchase"));
 		AddItem(new ConfLocalTextItem(411, "achievement_info28", "使用菠菜的飞头攻击累计击杀10只僵尸", "Killed 10 zombies with Spinach's flying head attack"));
 		AddItem(new ConfLocalTextItem(412, "achievement_info29", "首次使用传送门", "Used a portal for the first time"));
@@ -494,7 +494,7 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(442, "achievement_lock21", "解锁道具报纸", "Unlock Prop Newspapers"));
 		AddItem(new ConfLocalTextItem(443, "achievement_lock22", "解锁道具路障", "Unlock Prop Roadblocks"));
 		AddItem(new ConfLocalTextItem(444, "achievement_lock23", "解锁道具铁栅栏", "Unlock Prop Fences"));
-		AddItem(new ConfLocalTextItem(445, "achievement_lock24", "解锁道具扶梯", "Unlock Prop Escalators"));
+		AddItem(new ConfLocalTextItem(445, "achievement_lock24", "解锁道具冰车轮胎", "Unlock prop zamboni tire"));
 		AddItem(new ConfLocalTextItem(446, "achievement_lock25", "解锁道具冰碎", "Unlock Prop Ice Crusher"));
 		AddItem(new ConfLocalTextItem(447, "achievement_lock26", "解锁道具火焰", "Unlock Prop Flames"));
 		AddItem(new ConfLocalTextItem(448, "achievement_lock27", "解锁道具车钥匙", "Unlock Prop Car Keys"));
@@ -541,6 +541,10 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(489, "propInfo_PoleVaulting", "<color=#0000ff>撑杆跳杆</color>\r\n<color=#00ff00>+5力量</color>\r\n<color=#00ff00>+5生命恢复</color>\r\n<color=#00ff00>+5范围</color>\r\n<color=#00ff00>+5攻击速度</color>\r\n撑杆跳僵尸的杆杆", "<color=#0000ff>Pole Vault</color>\r\n<color=#00ff00>+5 Strength</color>\r\n<color=#00ff00>+5 Health Recovery</color>\r\n<color=#00ff00>+5 Range</color>\r\n<color=#00ff00>+5 Attack Speed</color>\r\nPole Vault Zombie Rod"));
 		AddItem(new ConfLocalTextItem(490, "propInfo_cart", "<color=#0000ff>小推车</color>\r\n<color=#00ff00>+2力量</color>\r\n<color=#00ff00>+5速度</color>\r\n火焰皮肤的小推车", "<color=#0000ff>Cart</color>\r\n<color=#00ff00>+2 Strength</color>\r\n<color=#00ff00>+5 Speed</color>\r\nCart with flame skin"));
 		AddItem(new ConfLocalTextItem(491, "propInfo_unknownButton", "<color=#0000ff>未知按钮</color>\r\n<color=#00ff00>+10肾上腺素</color>\r\n<color=#00ff00>+5伤害</color>\r\n<color=#00ff00>+2幸运</color>\r\n不知道控制什么的按钮，刺激", "<color=#0000ff>Unknown button</color>\r\n<color=#00ff00>+10 Adrenaline</color>\r\n<color=#00ff00>+5 Damage</color>\r\n<color=#00ff00>+2 Luck</color>\r\nI don't know what the button controls, exciting"));
+		AddItem(new ConfLocalTextItem(492, "propInfo_zamboni", "<color=#0000ff>冰车轮胎</color>\r\n<color=#00ff00>+10速度</color>\r\n<color=#00ff00>+10生命恢复</color>\r\n<color=#00ff00>+5攻击速度</color>\r\n从冰车上写下来的轮胎", "<color=#0000ff>Zamboni Tire</color>\r\n<color=#00ff00>+10 Speed</color>\r\n<color=#00ff00>+10 Health Recovery</color>\r\n<color=#00ff00>+5 Attack Speed</color>\r\nTire written from the zamboni"));
+		AddItem(new ConfLocalTextItem(493, "achievement_title80009", "撑杆跳杆", "Pole vault"));
+		AddItem(new ConfLocalTextItem(494, "achievement_info80009", "累计击杀20次撑杆跳僵尸", "Kill 20 pole vault zombies cumulatively"));
+		AddItem(new ConfLocalTextItem(495, "achievement_lock80009", "解锁道具撑杆跳杆", "Unlock the pole vault prop"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

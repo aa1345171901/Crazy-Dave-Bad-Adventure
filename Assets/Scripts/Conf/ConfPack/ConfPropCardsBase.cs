@@ -30,14 +30,14 @@ public class ConfPropCardsItem : ConfBaseItem
 	public int quality;
 
 	/// <summary>
-	/// 伤害类型
+	/// 道具类型
 	/// </summary>
-	public int propDamageType;
+	public int propType;
 
 	/// <summary>
-	/// 默认伤害
+	/// 默认参数1
 	/// </summary>
-	public int defalutDamage;
+	public int value1;
 
 	/// <summary>
 	/// 冷却时间
@@ -54,7 +54,7 @@ public class ConfPropCardsItem : ConfBaseItem
 	{
 	}
 
-	public ConfPropCardsItem(int id, string propName, string propImagePath, int defaultPrice, string info, int quality, int propDamageType, int defalutDamage, int coolingTime, string attributes)
+	public ConfPropCardsItem(int id, string propName, string propImagePath, int defaultPrice, string info, int quality, int propType, int value1, int coolingTime, string attributes)
 	{
 		this.id = id;
 		this.propName = propName;
@@ -62,8 +62,8 @@ public class ConfPropCardsItem : ConfBaseItem
 		this.defaultPrice = defaultPrice;
 		this.info = info;
 		this.quality = quality;
-		this.propDamageType = propDamageType;
-		this.defalutDamage = defalutDamage;
+		this.propType = propType;
+		this.value1 = value1;
 		this.coolingTime = coolingTime;
 		this.attributes = attributes;
 	}	
@@ -143,38 +143,39 @@ public class ConfPropCardsBase : ConfBase<ConfPropCardsItem>
 		AddItem(new ConfPropCardsItem(55, "lights", "Shop/Props/lights", 255, "propInfo_lights", 4, 4, 0, 0, "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"20\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"20\"},{\"attributeTypeString\":\"Sunshine\",\"increment\":\"100\"},{\"attributeTypeString\":\"AttackSpeed\",\"increment\":\"20\"},{\"attributeTypeString\":\"Range\",\"increment\":\"5\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"-10\"}]"));
 		AddItem(new ConfPropCardsItem(56, "mic", "Shop/Props/mic", 325, "propInfo_mic", 4, 4, 0, 0, "[{\"attributeTypeString\":\"Adrenaline\",\"increment\":\"20\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"10\"},{\"attributeTypeString\":\"GoldCoins\",\"increment\":\"100\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"10\"},{\"attributeTypeString\":\"Speed\",\"increment\":\"10\"},{\"attributeTypeString\":\"Power\",\"increment\":\"-5\"}]"));
 		AddItem(new ConfPropCardsItem(57, "speaker", "Shop/Props/speaker", 340, "propInfo_speaker", 4, 4, 0, 0, "[{\"attributeTypeString\":\"Range\",\"increment\":\"20\"},{\"attributeTypeString\":\"Power\",\"increment\":\"10\"},{\"attributeTypeString\":\"Armor\",\"increment\":\"5\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"20\"},{\"attributeTypeString\":\"AttackSpeed\",\"increment\":\"20\"},{\"attributeTypeString\":\"Speed\",\"increment\":\"-10\"}]"));
-		AddItem(new ConfPropCardsItem(58, "brokenEggshell", "Shop/Props/brokenEggshell", 25, "propInfo_brokenEggshell", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(59, "dangerReminder", "Shop/Props/dangerReminder", 22, "propInfo_dangerReminder", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(60, "goggles", "Shop/Props/goggles", 20, "propInfo_goggles", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(61, "staff", "Shop/Props/staff", 28, "propInfo_staff", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(62, "shell", "Shop/Props/shell", 22, "propInfo_shell", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(63, "gong", "Shop/Props/gong", 24, "propInfo_gong", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(64, "gongStick", "Shop/Props/gongStick", 24, "propInfo_gongStick", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(65, "ignitedBomb", "Shop/Props/ignitedBomb", 25, "propInfo_ignitedBomb", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(66, "pumpkin", "Shop/Props/pumpkin", 30, "propInfo_pumpkin", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(67, "wing", "Shop/Props/wing", 24, "propInfo_wing", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(68, "pennant", "Shop/Props/pennant", 55, "propInfo_pennant", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(69, "damagedSkateboard", "Shop/Props/damagedSkateboard", 22, "propInfo_damagedSkateboard", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(70, "butter", "Shop/Props/butter", 20, "propInfo_butter", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(71, "actionBars", "Shop/Props/actionBars", 22, "propInfo_actionBars", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(72, "recorder", "Shop/Props/recorder", 50, "propInfo_recorder", 2, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(73, "mask", "Shop/Props/mask", 70, "propInfo_mask", 2, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(74, "drumsticks", "Shop/Props/drumsticks", 66, "propInfo_drumsticks", 2, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(75, "cloud", "Shop/Props/cloud", 45, "propInfo_cloud", 2, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(76, "iceCake", "Shop/Props/iceCake", 50, "propInfo_iceCake", 2, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(77, "batWings", "Shop/Props/batWings", 45, "propInfo_batWings", 2, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(78, "hemline", "Shop/Props/hemline", 47, "propInfo_hemline", 2, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(79, "umbrella", "Shop/Props/umbrella", 52, "propInfo_umbrella", 2, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(80, "brokenHat", "Shop/Props/brokenHat", 26, "propInfo_brokenHat", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(81, "pinecone", "Shop/Props/pinecone", 150, "propInfo_pinecone", 3, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(82, "zombieRightHand", "Shop/Props/zombieRightHand", 120, "propInfo_zombieRightHand", 3, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(83, "zombieLeftHand", "Shop/Props/zombieLeftHand", 120, "propInfo_zombieLeftHand", 3, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(84, "imitator", "Shop/Props/imitator", 300, "propInfo_imitator", 4, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(85, "base", "Shop/Props/base", 16, "propInfo_base", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(86, "zombieBanOrder", "Shop/Props/zombieBanOrder", 15, "propInfo_zombieBanOrder", 1, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(87, "PoleVaulting", "Shop/Props/PoleVaulting", 130, "propInfo_PoleVaulting", 2, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(88, "cart", "Shop/Props/cart", 45, "propInfo_cart", 2, 0, 0, 0, ""));
-		AddItem(new ConfPropCardsItem(89, "unknownButton", "Shop/Props/unknownButton", 56, "propInfo_unknownButton", 2, 0, 0, 0, ""));
+		AddItem(new ConfPropCardsItem(58, "brokenEggshell", "Shop/Props/brokenEggshell", 25, "propInfo_brokenEggshell", 1, 0, 0, 0, "[{\"attributeTypeString\":\"Power\",\"increment\":\"2\"},{\"attributeTypeString\":\"Lucky\",\"increment\":\"2\"},{\"attributeTypeString\":\"Armor\",\"increment\":\"-2\"}]"));
+		AddItem(new ConfPropCardsItem(59, "dangerReminder", "Shop/Props/dangerReminder", 22, "propInfo_dangerReminder", 1, 0, 0, 0, "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"5\"},{\"attributeTypeString\":\"Adrenaline\",\"increment\":\"5\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"-5\"}]"));
+		AddItem(new ConfPropCardsItem(60, "goggles", "Shop/Props/goggles", 20, "propInfo_goggles", 1, 0, 0, 0, "[{\"attributeTypeString\":\"Range\",\"increment\":\"5\"},{\"attributeTypeString\":\"Lucky\",\"increment\":\"2\"},{\"attributeTypeString\":\"CriticalDamage\",\"increment\":\"4\"},{\"attributeTypeString\":\"Power\",\"increment\":\"-1\"}]"));
+		AddItem(new ConfPropCardsItem(61, "staff", "Shop/Props/staff", 28, "propInfo_staff", 1, 0, 0, 0, "[{\"attributeTypeString\":\"CriticalDamage\",\"increment\":\"15\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"-3\"}]"));
+		AddItem(new ConfPropCardsItem(62, "shell", "Shop/Props/shell", 22, "propInfo_shell", 1, 0, 0, 0, "[{\"attributeTypeString\":\"Armor\",\"increment\":\"4\"},{\"attributeTypeString\":\"Speed\",\"increment\":\"-3\"}]"));
+		AddItem(new ConfPropCardsItem(63, "gong", "Shop/Props/gong", 24, "propInfo_gong", 1, 5, 5, 0, "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"4\"},{\"attributeTypeString\":\"Adrenaline\",\"increment\":\"5\"},{\"attributeTypeString\":\"CriticalDamage\",\"increment\":\"4\"},{\"attributeTypeString\":\"Speed\",\"increment\":\"-3\"}]"));
+		AddItem(new ConfPropCardsItem(64, "gongStick", "Shop/Props/gongStick", 24, "propInfo_gongStick", 1, 5, 5, 0, "[{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"3\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"6\"},{\"attributeTypeString\":\"CriticalDamage\",\"increment\":\"4\"},{\"attributeTypeString\":\"Botany\",\"increment\":\"-3\"}]"));
+		AddItem(new ConfPropCardsItem(65, "ignitedBomb", "Shop/Props/ignitedBomb", 25, "propInfo_ignitedBomb", 1, 0, 0, 0, "[{\"attributeTypeString\":\"Adrenaline\",\"increment\":\"4\"},{\"attributeTypeString\":\"Power\",\"increment\":\"2\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"2\"},{\"attributeTypeString\":\"CriticalDamage\",\"increment\":\"3\"},{\"attributeTypeString\":\"Lucky\",\"increment\":\"-5\"}]"));
+		AddItem(new ConfPropCardsItem(66, "pumpkin", "Shop/Props/pumpkin", 30, "propInfo_pumpkin", 1, 0, 0, 0, "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"4\"},{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"2\"},{\"attributeTypeString\":\"Lucky\",\"increment\":\"1\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"-1\"}]"));
+		AddItem(new ConfPropCardsItem(67, "wing", "Shop/Props/wing", 24, "propInfo_wing", 1, 0, 0, 0, "[{\"attributeTypeString\":\"Speed\",\"increment\":\"5\"},{\"attributeTypeString\":\"Armor\",\"increment\":\"2\"},{\"attributeTypeString\":\"CriticalDamage\",\"increment\":\"4\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"-2\"}]"));
+		AddItem(new ConfPropCardsItem(68, "pennant", "Shop/Props/pennant", 55, "propInfo_pennant", 1, 5, 10, 0, "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"5\"},{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"4\"},{\"attributeTypeString\":\"Speed\",\"increment\":\"4\"},{\"attributeTypeString\":\"Lucky\",\"increment\":\"2\"}]"));
+		AddItem(new ConfPropCardsItem(69, "damagedSkateboard", "Shop/Props/damagedSkateboard", 22, "propInfo_damagedSkateboard", 1, 0, 0, 0, "[{\"attributeTypeString\":\"Speed\",\"increment\":\"5\"},{\"attributeTypeString\":\"Power\",\"increment\":\"1\"},{\"attributeTypeString\":\"Lucky\",\"increment\":\"-2\"}]"));
+		AddItem(new ConfPropCardsItem(70, "butter", "Shop/Props/butter", 20, "propInfo_butter", 1, 0, 0, 0, "[{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"4\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"2\"},{\"attributeTypeString\":\"Speed\",\"increment\":\"2\"},{\"attributeTypeString\":\"CriticalDamage\",\"increment\":\"-10\"}]"));
+		AddItem(new ConfPropCardsItem(71, "actionBars", "Shop/Props/actionBars", 22, "propInfo_actionBars", 1, 0, 0, 0, "[{\"attributeTypeString\":\"Speed\",\"increment\":\"4\"},{\"attributeTypeString\":\"AttackSpeed\",\"increment\":\"4\"},{\"attributeTypeString\":\"Lucky\",\"increment\":\"-2\"}]"));
+		AddItem(new ConfPropCardsItem(72, "recorder", "Shop/Props/recorder", 50, "propInfo_recorder", 2, 0, 0, 0, "[{\"attributeTypeString\":\"Lucky\",\"increment\":\"5\"},{\"attributeTypeString\":\"Armor\",\"increment\":\"2\"},{\"attributeTypeString\":\"GoldCoins\",\"increment\":\"5\"},{\"attributeTypeString\":\"Botany\",\"increment\":\"5\"},{\"attributeTypeString\":\"Power\",\"increment\":\"-2\"}]"));
+		AddItem(new ConfPropCardsItem(73, "mask", "Shop/Props/mask", 70, "propInfo_mask", 2, 0, 0, 0, "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"10\"},{\"attributeTypeString\":\"Adrenaline\",\"increment\":\"10\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"5\"},{\"attributeTypeString\":\"AttackSpeed\",\"increment\":\"5\"},{\"attributeTypeString\":\"Speed\",\"increment\":\"5\"},{\"attributeTypeString\":\"Range\",\"increment\":\"-10\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"-5\"}]"));
+		AddItem(new ConfPropCardsItem(74, "drumsticks", "Shop/Props/drumsticks", 66, "propInfo_drumsticks", 2, 0, 0, 0, "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"8\"},{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"8\"}]"));
+		AddItem(new ConfPropCardsItem(75, "cloud", "Shop/Props/cloud", 45, "propInfo_cloud", 2, 0, 0, 0, "[{\"attributeTypeString\":\"Speed\",\"increment\":\"6\"},{\"attributeTypeString\":\"Range\",\"increment\":\"6\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"5\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"-1\"}]"));
+		AddItem(new ConfPropCardsItem(76, "iceCake", "Shop/Props/iceCake", 50, "propInfo_iceCake", 2, 0, 0, 0, "[{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"5\"},{\"attributeTypeString\":\"Power\",\"increment\":\"2\"},{\"attributeTypeString\":\"Adrenaline\",\"increment\":\"5\"}]"));
+		AddItem(new ConfPropCardsItem(77, "batWings", "Shop/Props/batWings", 45, "propInfo_batWings", 2, 0, 0, 0, "[{\"attributeTypeString\":\"Speed\",\"increment\":\"10\"},{\"attributeTypeString\":\"Range\",\"increment\":\"5\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"5\"},{\"attributeTypeString\":\"Power\",\"increment\":\"-2\"}]"));
+		AddItem(new ConfPropCardsItem(78, "hemline", "Shop/Props/hemline", 47, "propInfo_hemline", 2, 0, 0, 0, "[{\"attributeTypeString\":\"Armor\",\"increment\":\"5\"},{\"attributeTypeString\":\"Lucky\",\"increment\":\"4\"},{\"attributeTypeString\":\"Speed\",\"increment\":\"-5\"}]"));
+		AddItem(new ConfPropCardsItem(79, "umbrella", "Shop/Props/umbrella", 52, "propInfo_umbrella", 2, 0, 0, 0, "[{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"5\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"5\"},{\"attributeTypeString\":\"Lucky\",\"increment\":\"4\"},{\"attributeTypeString\":\"Range\",\"increment\":\"-5\"}]"));
+		AddItem(new ConfPropCardsItem(80, "brokenHat", "Shop/Props/brokenHat", 26, "propInfo_brokenHat", 1, 0, 0, 0, "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"5\"},{\"attributeTypeString\":\"Armor\",\"increment\":\"1\"},{\"attributeTypeString\":\"Power\",\"increment\":\"1\"},{\"attributeTypeString\":\"Range\",\"increment\":\"-10\"}]"));
+		AddItem(new ConfPropCardsItem(81, "pinecone", "Shop/Props/pinecone", 150, "propInfo_pinecone", 3, 0, 0, 0, "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"20\"},{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"10\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"10\"},{\"attributeTypeString\":\"Speed\",\"increment\":\"10\"},{\"attributeTypeString\":\"AttackSpeed\",\"increment\":\"-10\"},{\"attributeTypeString\":\"Armor\",\"increment\":\"-5\"}]"));
+		AddItem(new ConfPropCardsItem(82, "zombieRightHand", "Shop/Props/zombieRightHand", 120, "propInfo_zombieRightHand", 3, 0, 0, 0, "[{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"10\"},{\"attributeTypeString\":\"CriticalDamage\",\"increment\":\"20\"},{\"attributeTypeString\":\"Adrenaline\",\"increment\":\"-10\"},{\"attributeTypeString\":\"Lucky\",\"increment\":\"-5\"}]"));
+		AddItem(new ConfPropCardsItem(83, "zombieLeftHand", "Shop/Props/zombieLeftHand", 120, "propInfo_zombieLeftHand", 3, 0, 0, 0, "[{\"attributeTypeString\":\"Power\",\"increment\":\"8\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"20\"},{\"attributeTypeString\":\"Adrenaline\",\"increment\":\"-10\"},{\"attributeTypeString\":\"Lucky\",\"increment\":\"-5\"}]"));
+		AddItem(new ConfPropCardsItem(84, "imitator", "Shop/Props/imitator", 300, "propInfo_imitator", 4, 0, 0, 0, "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"50\"},{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"10\"}]"));
+		AddItem(new ConfPropCardsItem(85, "base", "Shop/Props/base", 16, "propInfo_base", 1, 0, 0, 0, "[{\"attributeTypeString\":\"Power\",\"increment\":\"1\"}]"));
+		AddItem(new ConfPropCardsItem(86, "zombieBanOrder", "Shop/Props/zombieBanOrder", 15, "propInfo_zombieBanOrder", 1, 5, -10, 0, "[{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"5\"},{\"attributeTypeString\":\"Power\",\"increment\":\"-1\"}]"));
+		AddItem(new ConfPropCardsItem(87, "PoleVaulting", "Shop/Props/PoleVaulting", 130, "propInfo_PoleVaulting", 3, 0, 0, 0, "[{\"attributeTypeString\":\"Power\",\"increment\":\"5\"},{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"5\"},{\"attributeTypeString\":\"Range\",\"increment\":\"5\"},{\"attributeTypeString\":\"AttackSpeed\",\"increment\":\"5\"}]"));
+		AddItem(new ConfPropCardsItem(88, "cart", "Shop/Props/cart", 45, "propInfo_cart", 2, 0, 0, 0, "[{\"attributeTypeString\":\"Power\",\"increment\":\"2\"},{\"attributeTypeString\":\"Speed\",\"increment\":\"5\"}]"));
+		AddItem(new ConfPropCardsItem(89, "unknownButton", "Shop/Props/unknownButton", 56, "propInfo_unknownButton", 2, 0, 0, 0, "[{\"attributeTypeString\":\"Adrenaline\",\"increment\":\"10\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"5\"},{\"attributeTypeString\":\"Lucky\",\"increment\":\"2\"}]"));
+		AddItem(new ConfPropCardsItem(90, "zamboni", "Shop/Props/zamboni", 100, "propInfo_zamboni", 3, 0, 0, 0, "[{\"attributeTypeString\":\"Speed\",\"increment\":\"10\"},{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"10\"},{\"attributeTypeString\":\"AttackSpeed\",\"increment\":\"5\"}]"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

@@ -37,34 +37,34 @@ public class BagPanel : BasePanel
                     InfoText.transform.parent.gameObject.SetActive(true);
                     InfoText.text = GameTool.LocalText(nowShowPropCard.info);
                     var textConf = ConfManager.Instance;
-                    if (nowShowPropCard.propDamageType != PropDamageType.None)
+                    if (nowShowPropCard.propType != PropType.None)
                     {
                         var userData = GameManager.Instance.UserData;
                         int finalDamage;
                         float finalAttackCoolingTime;
-                        switch (nowShowPropCard.propDamageType)
+                        switch (nowShowPropCard.propType)
                         {
-                            case PropDamageType.LawnMower:
-                                finalDamage = Mathf.RoundToInt((userData.Power + nowShowPropCard.defalutDamage) * (100f + userData.PercentageDamage) / 100);
+                            case PropType.LawnMower:
+                                finalDamage = Mathf.RoundToInt((userData.Power + nowShowPropCard.value1) * (100f + userData.PercentageDamage) / 100);
                                 finalAttackCoolingTime = nowShowPropCard.coolingTime * (1 - userData.Speed / (100f + userData.Speed));
                                 finalAttackCoolingTime.ToString("F2");
                                 InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info),
-                                    "<color=#ff0000>" + finalDamage + $"</color><color=#9932CD>（(100%{textConf.Power}+" + nowShowPropCard.defalutDamage + $") * {textConf.PercentageDamage}）</color>",
+                                    "<color=#ff0000>" + finalDamage + $"</color><color=#9932CD>（(100%{textConf.Power}+" + nowShowPropCard.value1 + $") * {textConf.PercentageDamage}）</color>",
                                     "<color=#ff0000>" + finalAttackCoolingTime + "</color><color=#9932CD>（" + nowShowPropCard.coolingTime + $"*（1-{textConf.Speed}/（{textConf.Speed}+100））</color>");
                                 break;
-                            case PropDamageType.Fire:
-                                InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info), nowShowPropCard.defalutDamage);
+                            case PropType.Fire:
+                                InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info), nowShowPropCard.value1);
                                 break;
-                            case PropDamageType.Hammer:
-                                finalDamage = Mathf.RoundToInt((userData.Power * 1.5f + nowShowPropCard.defalutDamage) * (100f + userData.PercentageDamage) / 100);
+                            case PropType.Hammer:
+                                finalDamage = Mathf.RoundToInt((userData.Power * 1.5f + nowShowPropCard.value1) * (100f + userData.PercentageDamage) / 100);
                                 finalAttackCoolingTime = nowShowPropCard.coolingTime - userData.AttackSpeed / 100f;
                                 finalAttackCoolingTime.ToString("F2");
                                 finalAttackCoolingTime = finalAttackCoolingTime < 0.5f ? 0.5f : finalAttackCoolingTime;
                                 InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info),
-                                    "<color=#ff0000>" + finalDamage + $"</color><color=#9932CD>（(150%{textConf.Power}+" + nowShowPropCard.defalutDamage + $") * {textConf.PercentageDamage}）</color>",
+                                    "<color=#ff0000>" + finalDamage + $"</color><color=#9932CD>（(150%{textConf.Power}+" + nowShowPropCard.value1 + $") * {textConf.PercentageDamage}）</color>",
                                     "<color=#ff0000>" + finalAttackCoolingTime + "</color><color=#9932CD>（" + nowShowPropCard.coolingTime + $"-{textConf.AttackSpeed}）</color>");
                                 break;
-                            case PropDamageType.VocalConcert:
+                            case PropType.VocalConcert:
                                 finalDamage = Mathf.RoundToInt(10 * 5 * (100f + userData.PercentageDamage) / 100);
                                 float range = 2 * (100 + userData.Range) / 100f;
                                 InfoText.text += "\n" + string.Format(GameTool.LocalText("battle_vocalconcert"), range, finalDamage);

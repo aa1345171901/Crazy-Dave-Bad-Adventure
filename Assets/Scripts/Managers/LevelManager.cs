@@ -208,6 +208,11 @@ namespace TopDownPlate
 
         private Wave nowWave;
 
+        /// <summary>
+        /// 僵尸增量
+        /// </summary>
+        private float zombieIncrement;
+
         public float DurationPerWave = 60;
 
         private readonly float MaxEnemyCount = 80;
@@ -257,6 +262,12 @@ namespace TopDownPlate
             }
             course = 0;
             DurationPerWave = nowWave.DurationPerWave;
+
+            // 计算僵尸增量
+            float increment = SaveManager.Instance.externalGrowthData.GetGrowSumValueByKey("curse");  // 成就诅咒增量
+            increment += ShopManager.Instance.GetPurchaseTypeList(PropType.ZombieChange).Sum((e)=> e.value1); // 道具的增量
+            increment /= 100f;
+            zombieIncrement = Mathf.Atan(increment);  // 无限趋近 1.5f
         }
 
         public void LoadTimer()
@@ -286,7 +297,7 @@ namespace TopDownPlate
                         var zombie = nowWave.zombieData[i];
                         var realIntervalTime = zombie.IntervalTime[course];
                         // 受到诅咒影响，间隔时间缩短
-                        realIntervalTime -= (realIntervalTime / 2) * SaveManager.Instance.externalGrowthData.GetGrowSumValueByKey("curse") / 100f;
+                        realIntervalTime -= (realIntervalTime / 2) * zombieIncrement;
                         if (timer - realIntervalTime >= zombie.lastGenerateTime)
                         {
                             if (zombie.ZombieType == ZombieType.Gargantuan)

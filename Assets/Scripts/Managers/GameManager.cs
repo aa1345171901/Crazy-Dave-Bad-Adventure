@@ -307,8 +307,8 @@ namespace TopDownPlate
             var purchasedProps = ShopManager.Instance.PurchasedProps;
             foreach (var item in purchasedProps)
             {
-                if (item.propDamageType != PropDamageType.None)
-                    SetPropDamage(item.propDamageType, item.defalutDamage, item.coolingTime);
+                if (item.propType != PropType.None)
+                    SetPropDamage(item.propType, item.value1, item.coolingTime);
                 else
                 {
                     switch (item.propName)
@@ -451,13 +451,13 @@ namespace TopDownPlate
             AudioManager.Instance.PlayShoppingMusic(2.5f);
         }
 
-        public void SetPropDamage(PropDamageType propDamageType, int defaultDamage, float coolingTime)
+        public void SetPropDamage(PropType propDamageType, int defaultDamage, float coolingTime)
         {
             switch (propDamageType)
             {
-                case PropDamageType.None:
+                case PropType.None:
                     break;
-                case PropDamageType.LawnMower:
+                case PropType.LawnMower:
                     var lawnMower = GameObject.Instantiate(LawnMower);
                     lawnMower.DefaultDamage = defaultDamage;
                     lawnMower.DefaultAttackCoolingTime = coolingTime;
@@ -465,13 +465,13 @@ namespace TopDownPlate
                     if (!specialPropLists.Contains(lawnMower))
                         specialPropLists.Add(lawnMower);
                     break;
-                case PropDamageType.Hammer:
+                case PropType.Hammer:
                     Hammer.DefaultDamage = defaultDamage;
                     Hammer.DefaultAttackCoolingTime = coolingTime;
                     if (!specialPropLists.Contains(Hammer))
                         specialPropLists.Add(Hammer);
                     break;
-                case PropDamageType.VocalConcert:
+                case PropType.VocalConcert:
                     break;
                 default:
                     break;

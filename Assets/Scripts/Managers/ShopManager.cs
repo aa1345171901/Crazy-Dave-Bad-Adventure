@@ -85,7 +85,7 @@ public class ShopManager : BaseManager<ShopManager>
         SetPropEffect(propCard);
         
         // 组合中的卡，获取到在组合成功前不再刷新
-        if (propCard.propDamageType == PropDamageType.VocalConcert && !GameManager.Instance.IsOpenVocalConcert)
+        if (propCard.propType == PropType.VocalConcert && !GameManager.Instance.IsOpenVocalConcert)
         {
             PropDicts[propCard.quality].Remove(propCard);
             VocalConcert.Add(propCard);
@@ -102,8 +102,8 @@ public class ShopManager : BaseManager<ShopManager>
 
     private void SetPropEffect(PropCard propCard)
     {
-        if (propCard.propDamageType != PropDamageType.None)
-            GameManager.Instance.SetPropDamage(propCard.propDamageType, propCard.defalutDamage, propCard.coolingTime);
+        if (propCard.propType != PropType.None)
+            GameManager.Instance.SetPropDamage(propCard.propType, propCard.value1, propCard.coolingTime);
         else
         {
             switch (propCard.propName)
@@ -263,6 +263,17 @@ public class ShopManager : BaseManager<ShopManager>
         return count;
     }
 
+    public List<PropCard> GetPurchaseTypeList(PropType propType)
+    {
+        var list = new List<PropCard>();
+        foreach (var item in PurchasedProps)
+        {
+            if (item.propType == propType)
+                list.Add(item);
+        }
+        return list;
+    }
+
     public void RemovePurchasePropByName(string name)
     {
         PropCard propCard = null;
@@ -275,7 +286,9 @@ public class ShopManager : BaseManager<ShopManager>
             }
         }
         if (propCard != null)
+        {
             PurchasedProps.Remove(propCard);
+        }
     }
 
     public void UpdateCardPool()
