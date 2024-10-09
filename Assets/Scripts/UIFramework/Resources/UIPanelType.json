@@ -44,6 +44,11 @@
         {
             "panelTypeString": "VictoryPanel",
             "path": "UIPanel/VictoryPanel"
-        }        
+        },   
+
+        {
+            "panelTypeString": "IllustrationsPanel",
+            "path": "UIPanel/IllustrationsPanel"
+        }     
     ]
 }

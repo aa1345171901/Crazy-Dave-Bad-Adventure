@@ -159,5 +159,8 @@ public class UIManager {
         {
             panelDict.Clear();
         }
+        canvasTransform = null;
+        uiCamera = null;
+        canvasScaleFactor = 0;
     }
 }

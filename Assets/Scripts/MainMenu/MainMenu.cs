@@ -167,6 +167,21 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(delaySet());
     }
 
+    public void OnIllustrationsOpen()
+    {
+        Dave.AnimationState.SetAnimation(0, "Idel", true);
+        playAudio = false;
+        var panle = UIManager.Instance.PushPanel(UIPanelType.IllustrationsPanel) as IllustrationsPanel;
+        panle.mainMenu = this;
+    }
+
+    public void OnEnterMainMenu()
+    {
+        animator.Play("Enter", 0, 0);
+        Dave.AnimationState.SetAnimation(0, "MainMenuIdel", true);
+        playAudio = true;
+    }
+
     private void Exit()
     {
 #if UNITY_EDITOR
