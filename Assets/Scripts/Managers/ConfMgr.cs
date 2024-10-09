@@ -8,6 +8,8 @@ public class ConfMgr
     {
 		public ConfPlantCards plantCards = new ConfPlantCards();
 		public ConfPropCards propCards = new ConfPropCards();
+		public ConfPlantIllustrations plantIllustrations = new ConfPlantIllustrations();
+		public ConfZombieIllustrations zombieIllustrations = new ConfZombieIllustrations();
 		public ConfBasicAttribute basicAttribute = new ConfBasicAttribute();
 		public ConfExternlGrow externlGrow = new ConfExternlGrow();
 		public ConfAchievement achievement = new ConfAchievement();
@@ -26,6 +28,8 @@ public class ConfMgr
 	
 	public ConfPlantCards plantCards { get { return data.plantCards; } }		//商店配置表.xlsx
 	public ConfPropCards propCards { get { return data.propCards; } }		//商店配置表.xlsx
+	public ConfPlantIllustrations plantIllustrations { get { return data.plantIllustrations; } }		//图鉴配置表.xlsx
+	public ConfZombieIllustrations zombieIllustrations { get { return data.zombieIllustrations; } }		//图鉴配置表.xlsx
 	public ConfBasicAttribute basicAttribute { get { return data.basicAttribute; } }		//基础属性表.xlsx
 	public ConfExternlGrow externlGrow { get { return data.externlGrow; } }		//局外养成配置表.xlsx
 	public ConfAchievement achievement { get { return data.achievement; } }		//成就配置表.xlsx
@@ -40,6 +44,8 @@ public class ConfMgr
     {
 		plantCards.Init();
 		propCards.Init();
+		plantIllustrations.Init();
+		zombieIllustrations.Init();
 		basicAttribute.Init();
 		externlGrow.Init();
 		achievement.Init();
@@ -55,6 +61,8 @@ public class ConfMgr
 	
 		plantCards.OnInit();
 		propCards.OnInit();
+		plantIllustrations.OnInit();
+		zombieIllustrations.OnInit();
 		basicAttribute.OnInit();
 		externlGrow.OnInit();
 		achievement.OnInit();

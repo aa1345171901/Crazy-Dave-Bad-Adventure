@@ -142,7 +142,7 @@ public class MainMenu : MonoBehaviour
         track.Complete += (e) =>
         {
             animator.SetTrigger("Exit");
-            var track =  Dave.AnimationState.SetAnimation(0, "Dead", false);
+            var track = Dave.AnimationState.SetAnimation(0, "Dead", false);
             track.Delay = 0.3f;
             particleSystem1.Play();
             int index = Random.Range(1, 7);

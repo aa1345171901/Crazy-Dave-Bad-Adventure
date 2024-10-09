@@ -35,14 +35,14 @@ TextureImporter:
     serializedVersion: 2
     filterMode: 1
     aniso: 1
-    mipBias: 0
+    mipBias: -0.5
     wrapU: 1
     wrapV: 1
     wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -101,9 +101,861 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Shadow
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 396
+        width: 62
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2ca37a0132271630800000000000000
+      internalID: 3897621596536548394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_body1
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 315
+        width: 50
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cdb9396d0c7a2810800000000000000
+      internalID: 1741340602973928896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_body2
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 396
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f439ecd8ded90b310800000000000000
+      internalID: 1418807526233641807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_bottom
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 610
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 566528554b8e1bf00800000000000000
+      internalID: 1130940842673067621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_hat
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 396
+        width: 16
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 248842f871e556f00800000000000000
+      internalID: 1109396338495490114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_head
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 259
+        width: 50
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3f80a917e002d9a0800000000000000
+      internalID: -6209899943623094465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_innerarm_lower
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 453
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7251532348ef58a40800000000000000
+      internalID: 5369977974440662311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_innerarm_upper
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 360
+        width: 14
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 473a13893efa82440800000000000000
+      internalID: 4911368785693352820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_innerleg_foot
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 467
+        width: 21
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73d680bcd4944d350800000000000000
+      internalID: 6040533598678314295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_innerleg_lower
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 396
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a01cb2cb01ad1350800000000000000
+      internalID: 5989120151356444835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_innerleg_upper
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 569
+        width: 18
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e4e487aed2781390800000000000000
+      internalID: -7847396050074278681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_jaw
+      rect:
+        serializedVersion: 2
+        x: 1395
+        y: 624
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed06beb96a86ed20800000000000000
+      internalID: 3307483163126009323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_outerarm_lower
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 437
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 624cc73ada86ea440800000000000000
+      internalID: 4949008135508247590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_outerarm_upper
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 523
+        width: 18
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8531769b28df1760800000000000000
+      internalID: 7430895591903802766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_outerleg_FOOT
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 396
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80b56fceafb042cb0800000000000000
+      internalID: -4889770123072218360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_outerleg_lower
+      rect:
+        serializedVersion: 2
+        x: 1370
+        y: 624
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb76887ee07f52620800000000000000
+      internalID: 2748874790965635007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_outerleg_upper
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 437
+        width: 27
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87bf5110e4c0a6ec0800000000000000
+      internalID: -3573029825199867016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_pop1
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 325
+        width: 87
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 932c5390088e81b10800000000000000
+      internalID: 1952566075073086009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_pop2
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 259
+        width: 98
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 618e2445f99214160800000000000000
+      internalID: 7007928259455412246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_propeller
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 396
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eebeca20864554f90800000000000000
+      internalID: -6970072042587755538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_propeller2
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 360
+        width: 13
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bef6af1516b448d0800000000000000
+      internalID: -2862963261259186505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_balloon_top
+      rect:
+        serializedVersion: 2
+        x: 1628
+        y: 259
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69f11b53ebdc206d0800000000000000
+      internalID: -3025629782811271274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 267
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1622a0bb627d7e770800000000000000
+      internalID: 8640110971480318561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred10
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 112
+        width: 377
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 288897a8867d3e2d0800000000000000
+      internalID: -3250517662031574910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred2
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 2
+        width: 275
+        height: 425
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4da7b6e72f115ac40800000000000000
+      internalID: 5522840251240512212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred3
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 2
+        width: 217
+        height: 433
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d68bcc3f8f1d29de0800000000000000
+      internalID: -1327768072948500371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred4
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 429
+        width: 413
+        height: 217
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1988efec021c8b60800000000000000
+      internalID: 7749588905571682590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred5
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 437
+        width: 398
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 868738b46a8d9bba0800000000000000
+      internalID: -6072584413789325208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred6
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 2
+        width: 202
+        height: 392
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c0225ba618d31ba0800000000000000
+      internalID: -6119309876791205690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred7
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 2
+        width: 184
+        height: 389
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21417a77f12989ac0800000000000000
+      internalID: -3848165217739009006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred8
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 2
+        width: 156
+        height: 381
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19d9e571b82ae5dc0800000000000000
+      internalID: -3648299929847292527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred9
+      rect:
+        serializedVersion: 2
+        x: 1370
+        y: 259
+        width: 156
+        height: 363
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2e2c527e04ae8940800000000000000
+      internalID: 5300354193416793645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred_eyes1
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 331
+        width: 79
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc8a074d4ce6b0140800000000000000
+      internalID: 4686961628865931468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred_eyes2
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 410
+        width: 79
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13db70a6bf71f9df0800000000000000
+      internalID: -171391892233667279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred_head
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 428
+        width: 221
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d213a568636039a0800000000000000
+      internalID: -6255390582384684336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred_pile1
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 2
+        width: 379
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12e356c25a76a1690800000000000000
+      internalID: -7630672659513786847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred_pile2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 454
+        width: 304
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5d7f550556c6fb30800000000000000
+      internalID: 4320858960973233501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_charred_tail
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 393
+        width: 375
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f202a0c6e86d77270800000000000000
+      internalID: 8248297149738655791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_innerarm_hand
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 498
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3efd8648c220fad30800000000000000
+      internalID: 4444773747461251043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_outerarm_hand
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 396
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 688e0cc8dd1674400800000000000000
+      internalID: 308322703675287686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +966,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Zombie_charred_head: -6255390582384684336
+      Shadow: 3897621596536548394
+      Zombie_innerarm_hand: 4444773747461251043
+      Zombie_balloon_innerarm_lower: 5369977974440662311
+      Zombie_balloon_outerarm_upper: 7430895591903802766
+      Zombie_balloon_head: -6209899943623094465
+      Zombie_balloon_innerleg_upper: -7847396050074278681
+      Zombie_balloon_jaw: 3307483163126009323
+      Zombie_balloon_outerarm_lower: 4949008135508247590
+      Zombie_balloon_outerleg_upper: -3573029825199867016
+      Zombie_balloon_top: -3025629782811271274
+      Zombie_charred1: 8640110971480318561
+      Zombie_charred6: -6119309876791205690
+      Zombie_balloon_innerleg_foot: 6040533598678314295
+      Zombie_charred_eyes2: -171391892233667279
+      Zombie_charred_eyes1: 4686961628865931468
+      Zombie_charred_pile2: 4320858960973233501
+      Zombie_balloon_propeller: -6970072042587755538
+      Zombie_charred8: -3648299929847292527
+      Zombie_outerarm_hand: 308322703675287686
+      Zombie_balloon_outerleg_lower: 2748874790965635007
+      Zombie_balloon_innerleg_lower: 5989120151356444835
+      Zombie_balloon_bottom: 1130940842673067621
+      Zombie_charred2: 5522840251240512212
+      Zombie_charred10: -3250517662031574910
+      Zombie_charred4: 7749588905571682590
+      Zombie_balloon_pop1: 1952566075073086009
+      Zombie_charred9: 5300354193416793645
+      Zombie_charred_pile1: -7630672659513786847
+      Zombie_charred3: -1327768072948500371
+      Zombie_balloon_outerleg_FOOT: -4889770123072218360
+      Zombie_charred_tail: 8248297149738655791
+      Zombie_charred7: -3848165217739009006
+      Zombie_balloon_propeller2: -2862963261259186505
+      Zombie_balloon_body1: 1741340602973928896
+      Zombie_balloon_hat: 1109396338495490114
+      Zombie_charred5: -6072584413789325208
+      Zombie_balloon_body2: 1418807526233641807
+      Zombie_balloon_innerarm_upper: 4911368785693352820
+      Zombie_balloon_pop2: 7007928259455412246
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

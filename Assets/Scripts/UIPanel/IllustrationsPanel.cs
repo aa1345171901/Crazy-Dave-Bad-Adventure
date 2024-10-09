@@ -33,6 +33,36 @@ public class IllustrationsPanel : BasePanel
         this.gameObject.SetActive(true);
         animator = GetComponent<Animator>();
         animator.Play("show");
+
+        UpdateUI();
+    }
+
+    void UpdateUI()
+    {
+        CreatePlant();
+        CreateZombie();
+    }
+
+    void CreatePlant()
+    {
+        plantRoot.DestroyChild();
+        var index = Random.Range(0, ConfManager.Instance.confMgr.plantIllustrations.items.Count);
+        var confPlant = ConfManager.Instance.confMgr.plantIllustrations.items[index];
+        var plantGo = Resources.Load(confPlant.prefabPath);
+        if (plantGo == null)
+        {
+            Debug.Log(confPlant.prefabPath);
+        }
+        GameObject.Instantiate(plantGo, plantRoot);
+    }
+
+    void CreateZombie()
+    {
+        zombieRoot.DestroyChild();
+        var index = Random.Range(0, ConfManager.Instance.confMgr.zombieIllustrations.items.Count);
+        var confZombie = ConfManager.Instance.confMgr.zombieIllustrations.items[index];
+        var zombieGo = Resources.Load(confZombie.prefabPath);
+        GameObject.Instantiate(zombieGo, zombieRoot);
     }
 
     public override void OnExit()
