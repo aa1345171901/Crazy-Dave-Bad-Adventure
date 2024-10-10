@@ -78,7 +78,6 @@ public class PlantAttribute
             case PlantType.Jalapeno:
             case PlantType.DoomShroom:
             case PlantType.PotatoMine:
-            case PlantType.CobCannon:
                 if (attribute[index] == 4)
                 {
                     GameManager.Instance.UserData.Adrenaline++;
@@ -368,7 +367,7 @@ public class PlantAttribute
                     SetAttribute(10);
                     break;
                 case PlantType.CobCannon:
-                    SetAttribute(8);
+                    SetAttribute(7);
                     break;
                 default:
                     break;
@@ -481,16 +480,6 @@ public class FlowerPotGardenItem : MonoBehaviour
         GameObject.Destroy(targetPlant);
         animator.Play("Idel", 0, 0);
         targetPlant = GameObject.Instantiate(targetPlantPrefab, this.transform);
-        // 进化改变属性
-        if (plantCard.plantType == PlantType.CobCannon)
-        {
-            for (int i = 0; i < PlantAttribute.attribute.Length; i++)
-            {
-                var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
-                var value = (int)fieldInfo.GetValue(PlantAttribute);
-                GameManager.Instance.UserData.LifeRecovery += value;
-            }
-        }
         PlantAttribute.plantCard = plantCard;
         plantCultivationPage.SetPlantAttribute(this);
         UpdateSunPrice();

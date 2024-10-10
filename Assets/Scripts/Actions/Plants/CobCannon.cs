@@ -80,16 +80,16 @@ public class CobCannon : Plant
                 case 3:
                     sunConversionRate = (int)fieldInfo.GetValue(plantAttribute) * LevelPercentage / 100;
                     break;
-                // 4肾上腺，5普通僵尸即死率
-                case 5:
+                // 4普通僵尸即死率
+                case 4:
                     immediateMortalityRate = (int)fieldInfo.GetValue(plantAttribute) * LevelImmediateMortality;
                     break;
                 // 大型僵尸增伤
-                case 6:
+                case 5:
                     increasedInjury = (int)fieldInfo.GetValue(plantAttribute) * LevelIncreasedInjury + 1;
                     break;
                 //  爆炸范围
-                case 7:
+                case 6:
                     finalRange = finalRange * (((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100);
                     break;
                 default:

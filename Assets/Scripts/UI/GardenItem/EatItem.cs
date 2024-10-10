@@ -10,11 +10,6 @@ public class EatItem : MonoBehaviour
 
     private FlowerPotGardenItem flowerPotGardenItem;
 
-    private readonly int CoffeeBeanReducedHp = 8;
-    private readonly int CoffeeBeanReducedArmor = 5;
-    private readonly int GralicReducedDamage = 10;
-    private readonly int GralicReducedLuck = 5;
-
     private void OnMouseEnter()
     {
         AudioManager.Instance.PlayEffectSoundByName("btnHighlight", Random.Range(0.8f, 1.2f));
@@ -40,92 +35,85 @@ public class EatItem : MonoBehaviour
         switch (flowerPotGardenItem.PlantAttribute.plantCard.plantType)
         {
             case PlantType.CoffeeBean:
-                if (userData.MaximumHP > CoffeeBeanReducedHp)
+                AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
+                result = true;
+                for (int i = 0; i < attributes.Length; i++)
                 {
-                    AudioManager.Instance.PlayEffectSoundByName("PlantLevelUp", Random.Range(0.8f, 1.2f));
-                    result = true;
-                    userData.MaximumHP -= CoffeeBeanReducedHp;
-                    userData.Armor -= CoffeeBeanReducedArmor;
-                    for (int i = 0; i < attributes.Length; i++)
+                    // å­—æ®µæ˜ å°„
+                    var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
+                    switch (attributes[i])
                     {
-                        // ×Ö¶ÎÓ³Éä
-                        var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
-                        switch (attributes[i])
-                        {
-                            // 0 ÉöÉÏÏÙËØ
-                            case 0:
-                                userData.Adrenaline += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
-                                break;
-                            // 1 ÐÒÔË
-                            case 1:
-                                userData.Lucky += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
-                                break;
-                            // 2 Ö²ÎïÑ§
-                            case 2:
-                                userData.Botany += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
-                                break;
-                            // 3 ·¶Î§
-                            case 3:
-                                userData.Range += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
-                                break;
-                            // 4 ÉËº¦
-                            case 4:
-                                userData.PercentageDamage += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
-                                break;
-                            // ¹¥»÷ËÙ¶È
-                            case 5:
-                                userData.AttackSpeed += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
-                                break;
-                            // ËÙ¶È
-                            case 6:
-                                userData.Speed += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
-                                break;
-                            // Á¦Á¿
-                            case 7:
-                                userData.Power += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
-                                break;
-                            default:
-                                break;
-                        }
+                        // 0 è‚¾ä¸Šè…ºç´ 
+                        case 0:
+                            userData.Adrenaline += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
+                            break;
+                        // 1 å¹¸è¿
+                        case 1:
+                            userData.Lucky += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
+                            break;
+                        // 2 æ¤ç‰©å­¦
+                        case 2:
+                            userData.Botany += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
+                            break;
+                        // 3 èŒƒå›´
+                        case 3:
+                            userData.Range += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
+                            break;
+                        // 4 ä¼¤å®³
+                        case 4:
+                            userData.PercentageDamage += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
+                            break;
+                        // æ”»å‡»é€Ÿåº¦
+                        case 5:
+                            userData.AttackSpeed += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
+                            break;
+                        // é€Ÿåº¦
+                        case 6:
+                            userData.Speed += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
+                            break;
+                        // åŠ›é‡
+                        case 7:
+                            userData.Power += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
+                            break;
+                        default:
+                            break;
                     }
                 }
                 break;
             case PlantType.Gralic:
                 AudioManager.Instance.PlayEffectSoundByName("Eat", Random.Range(0.8f, 1.2f));
                 result = true;
-                userData.PercentageDamage -= GralicReducedDamage;
-                userData.Lucky -= GralicReducedLuck;
                 for (int i = 0; i < attributes.Length; i++)
                 {
-                    // ×Ö¶ÎÓ³Éä
+                    // å­—æ®µæ˜ å°„
                     var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
                     switch (attributes[i])
                     {
-                        // 0 ÉúÃü»Ö¸´
+                        // 0 ç”Ÿå‘½æ¢å¤
                         case 0:
                             userData.LifeRecovery += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
                             break;
-                        // 1 ÉöÉÏÏÙËØ
+                        // 1 è‚¾ä¸Šè…ºç´ 
                         case 1:
                             userData.Adrenaline += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
                             break;
-                        // 2 ·¶Î§
+                        // 2 èŒƒå›´
                         case 2:
                             userData.Range += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
                             break;
-                        // 3 Ö²ÎïÑ§
+                        // 3 æ¤ç‰©å­¦
                         case 3:
                             userData.Botany += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
                             break;
-                        // 4 ×î´óÉúÃüÖµ
+                        // 4 æœ€å¤§ç”Ÿå‘½å€¼
                         case 4:
                             userData.MaximumHP += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
                             break;
-                        // ¹¥»÷ËÙ¶È
+                        // æ”»å‡»é€Ÿåº¦
                         case 5:
                             userData.AttackSpeed += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
                             break;
-                        // ËÙ¶È
+                        // é€Ÿåº¦
                         case 6:
                             userData.Speed += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
                             break;
@@ -147,12 +135,12 @@ public class EatItem : MonoBehaviour
         this.Info.color = Color.black;
         switch (flowerPotGardenItem.PlantAttribute.plantCard.plantType)
         {
-            case PlantType.CoffeeBean:
-                if (GameManager.Instance.UserData.MaximumHP <= CoffeeBeanReducedHp)
-                {
-                    this.Info.color = Color.red;
-                }
-                break;
+            //case PlantType.CoffeeBean:
+            //    if (GameManager.Instance.UserData.MaximumHP <= CoffeeBeanReducedHp)
+            //    {
+            //        this.Info.color = Color.red;
+            //    }
+            //    break;
             default:
                 break;
         }
