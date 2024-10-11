@@ -426,6 +426,7 @@ namespace TopDownPlate
                     gravebuster.transform.position = new Vector3(randomX, randomY + 1, 0);
                     gravebuster.SetLayer(randomY, health.maxHealth);
                 }
+                SaveManager.Instance.externalGrowthData.AddZombieCount((int)zombieData.ZombieType);
                 yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
             }
         }
@@ -470,6 +471,8 @@ namespace TopDownPlate
 
         public void GameOver()
         {
+            SaveManager.Instance.SaveExternalGrowData();
+            AchievementManager.Instance.SaveData();
             foreach (var item in Enemys)
             {
                 foreach (var zombie in item.Zombies)

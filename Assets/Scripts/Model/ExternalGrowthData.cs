@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -55,6 +57,19 @@ public enum GrowType
     /// 冲刺恢复
     /// </summary>
     DashRecovery,
+}
+
+[Serializable]
+public class TypeIntData
+{
+    public int key;
+    public int value;
+
+    public TypeIntData(int key, int value)
+    {
+        this.key = key;
+        this.value = value;
+    }
 }
 
 public class ExternalGrowthData
@@ -175,6 +190,66 @@ public class ExternalGrowthData
             }
         }
         return result;
+    }
+
+    /// <summary>
+    /// 培养的植物类型
+    /// </summary>
+    public List<TypeIntData> plantType = new List<TypeIntData>();
+
+    /// <summary>
+    /// 遇到僵尸类型
+    /// </summary>
+    public List<TypeIntData> zombieType = new List<TypeIntData>();
+
+    /// <summary>
+    /// 获取植物培养类型数量
+    /// </summary>
+    /// <returns></returns>
+    public int GetPlantCount(int type)
+    {
+        var list = plantType.Where((e) => e.key == type);
+        var data = list.Count() == 0 ? null : list.First();
+        return data != null ? data.value : 0;
+    }
+
+    public void AddPlantCount(int type)
+    {
+        var list = plantType.Where((e) => e.key == type);
+        var data = list.Count() == 0 ? null : list.First();
+        if (data == null)
+        {
+            plantType.Add(new TypeIntData(type, 1));
+        }
+        else
+        {
+            data.value++;
+        }
+    }
+
+    /// <summary>
+    /// 获取僵尸击杀类型数量
+    /// </summary>
+    /// <returns></returns>
+    public int GetZombieCount(int type)
+    {
+        var list = zombieType.Where((e) => e.key == type);
+        var data = list.Count() == 0 ? null : list.First();
+        return data != null ? data.value : 0;
+    }
+
+    public void AddZombieCount(int type)
+    {
+        var list = zombieType.Where((e) => e.key == type);
+        var data = list.Count() == 0 ? null : list.First();
+        if (data == null)
+        {
+            zombieType.Add(new TypeIntData(type, 1));
+        }
+        else
+        {
+            data.value++;
+        }
     }
 
     private static readonly string externalGrowthPath = Application.persistentDataPath + "/SaveData/ExternalGrowthData.data";

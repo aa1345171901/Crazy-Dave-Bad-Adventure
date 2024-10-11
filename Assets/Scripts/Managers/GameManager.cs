@@ -168,6 +168,7 @@ namespace TopDownPlate
         {
             SaveManager.Instance.SaveUserData();  // 每波结束时保存
             SaveManager.Instance.SaveExternalGrowData();
+            AchievementManager.Instance.SaveData();
         }
 
         private void LoadData()
@@ -425,7 +426,7 @@ namespace TopDownPlate
                     AchievementManager.Instance.SetAchievementType10(item.Name, value);
                 }
             }
-            AchievementManager.Instance.SaveData();
+            SaveData();
             battlePanel.UpdatePlantPage();
             Reuse();
         }

@@ -482,6 +482,8 @@ public class FlowerPotGardenItem : MonoBehaviour
         targetPlant = GameObject.Instantiate(targetPlantPrefab, this.transform);
         PlantAttribute.plantCard = plantCard;
         plantCultivationPage.SetPlantAttribute(this);
+        // 进化培养
+        AchievementManager.Instance.SetAchievementType5((int)plantCard.plantType);
         UpdateSunPrice();
     }
 

@@ -112,6 +112,7 @@ public class AchievementManager
     /// </summary>
     public void SetAchievementType5(int type)
     {
+        SaveManager.Instance.externalGrowthData.AddPlantCount(type);
         if (_data.typeDicts.ContainsKey(5))
         {
             foreach (var itemData in _data.typeDicts[5])

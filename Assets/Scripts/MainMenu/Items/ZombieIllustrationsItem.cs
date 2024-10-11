@@ -27,7 +27,8 @@ public class ZombieIllustrationsItem : MonoBehaviour
         this.confItem = confItem;
         this.onClick = call;
 
-        Sprite plantImage = Resources.Load<Sprite>(confItem.zombieImagePath);
+        var path = SaveManager.Instance.externalGrowthData.GetZombieCount(confItem.zombieType) > 0 ? confItem.zombieImagePath : confItem.zombieImagePath + "_1";
+        Sprite plantImage = Resources.Load<Sprite>(path);
         this.zombieImg.sprite = plantImage;
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TopDownPlate;
 using UnityEngine;
 using UnityEngine.UI;
@@ -68,7 +69,7 @@ public class IllustrationsPanel : BasePanel
         {
             foreach (var item in ConfManager.Instance.confMgr.plantIllustrations.items)
             {
-                if (selectPlant == null)
+                if (selectPlant == null && SaveManager.Instance.externalGrowthData.GetPlantCount(item.plantType) > 0)
                 {
                     selectPlant = item;
                     OnPlantSelect(selectPlant);
@@ -78,16 +79,28 @@ public class IllustrationsPanel : BasePanel
                 plantGo.InitData(item, OnPlantSelect);
             }
         }
+        if (selectPlant == null)
+            OnPlantSelect(ConfManager.Instance.confMgr.plantIllustrations.items.First());
     }
 
     void OnPlantSelect(ConfPlantIllustrationsItem confItem)
     {
         selectPlant = confItem;
         var confCardItem = ConfManager.Instance.confMgr.plantCards.GetPlantCardByType(confItem.plantType);
-        plantCostMoney.text = GameTool.LocalText("tujian_huafei") + confCardItem.defaultPrice;
-        plantCostSun.text = GameTool.LocalText("tujian_xiaohao") + confCardItem.defaultSun;
-        plantInfo.text = GameTool.LocalText(confItem.info);
-        plantName.text = GameTool.LocalText(confCardItem.plantName);
+        if (SaveManager.Instance.externalGrowthData.GetPlantCount(confItem.plantType) > 0)
+        {
+            plantName.text = GameTool.LocalText(confCardItem.plantName);
+            plantInfo.text = GameTool.LocalText(confItem.info);
+            plantCostMoney.text = GameTool.LocalText("tujian_huafei") + confCardItem.defaultPrice;
+            plantCostSun.text = GameTool.LocalText("tujian_xiaohao") + confCardItem.defaultSun;
+        }
+        else
+        {
+            plantName.text = "? ? ?";
+            plantInfo.text = "? ? ?\r\n" + GameTool.LocalText("tujian_plant");
+            plantCostMoney.text = GameTool.LocalText("tujian_huafei") + "? ?";
+            plantCostSun.text = GameTool.LocalText("tujian_xiaohao") + "? ?";
+        }
         plantPage_plantRoot.DestroyChild();
         var plantGo = Resources.Load(confItem.prefabPath);
         GameObject.Instantiate(plantGo, plantPage_plantRoot);
@@ -101,7 +114,7 @@ public class IllustrationsPanel : BasePanel
         {
             foreach (var item in ConfManager.Instance.confMgr.zombieIllustrations.items)
             {
-                if (selectZombie == null)
+                if (selectZombie == null && SaveManager.Instance.externalGrowthData.GetZombieCount(item.zombieType) > 0)
                 {
                     selectZombie = item;
                     OnZombieSelect(selectZombie);
@@ -118,24 +131,34 @@ public class IllustrationsPanel : BasePanel
                 }
             }
         }
+        if (selectZombie == null)
+            OnZombieSelect(ConfManager.Instance.confMgr.zombieIllustrations.items.First());
     }
 
     void OnZombieSelect(ConfZombieIllustrationsItem confItem)
     {
         selectZombie = confItem;
-
-        zombieInfo.text = GameTool.LocalText(confItem.info);
-        zombieName.text = GameTool.LocalText(confItem.zombieName);
-        if (SaveManager.Instance.systemData.language == "cn")
-            zombieInfo.resizeTextForBestFit = (confItem.zombieType == (int)ZombieType.Boss || confItem.zombieType == (int)ZombieType.Gargantuan);
-
         zombieBossRoot.DestroyChild();
         zombieNormalRoot.DestroyChild();
-        var zombieGo = Resources.Load(confItem.prefabPath);
-        if (confItem.zombieType == (int)ZombieType.Boss)
-            GameObject.Instantiate(zombieGo, zombieBossRoot);
+
+        if (SaveManager.Instance.externalGrowthData.GetZombieCount(confItem.zombieType) > 0)
+        {
+            zombieInfo.text = GameTool.LocalText(confItem.info);
+            zombieName.text = GameTool.LocalText(confItem.zombieName);
+            if (SaveManager.Instance.systemData.language == "cn")
+                zombieInfo.resizeTextForBestFit = (confItem.zombieType == (int)ZombieType.Boss || confItem.zombieType == (int)ZombieType.Gargantuan);
+
+            var zombieGo = Resources.Load(confItem.prefabPath);
+            if (confItem.zombieType == (int)ZombieType.Boss)
+                GameObject.Instantiate(zombieGo, zombieBossRoot);
+            else
+                GameObject.Instantiate(zombieGo, zombieNormalRoot);
+        }
         else
-            GameObject.Instantiate(zombieGo, zombieNormalRoot);
+        {
+            zombieInfo.text = "? ? ?\r\n" + GameTool.LocalText("tujian_zombie");
+            zombieName.text = "? ? ?";
+        }    
     }
 
     public override void OnEnter()

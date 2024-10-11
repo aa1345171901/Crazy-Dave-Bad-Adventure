@@ -10,6 +10,7 @@ public class PlantIllustrationsItem : MonoBehaviour
     public Image plantImg;
     public Text sunCost;
     public Text moneyCost;
+    public GameObject mask;
 
     ConfPlantIllustrationsItem confItem;
 
@@ -37,7 +38,17 @@ public class PlantIllustrationsItem : MonoBehaviour
         Sprite plantImage = Resources.Load<Sprite>(confCardItem.plantImagePath);
         this.plantImg.sprite = plantImage;
 
-        this.sunCost.text = confCardItem.defaultSun.ToString();
-        this.moneyCost.text = "$" + confCardItem.defaultPrice.ToString();
+        if (SaveManager.Instance.externalGrowthData.GetPlantCount(confItem.plantType) > 0)
+        {
+            this.sunCost.text = confCardItem.defaultSun.ToString();
+            this.moneyCost.text = "$" + confCardItem.defaultPrice.ToString();
+            mask.SetActive(false);
+        }
+        else
+        {
+            this.sunCost.text = "? ?";
+            this.moneyCost.text = "? ?";
+            mask.SetActive(true);
+        }
     }
 }
