@@ -22,28 +22,41 @@ public class IllustrationsPanel : BasePanel
     public Transform plantContent;
     public PlantIllustrationsItem plantIllustrationsItem;
 
+    public GameObject zombiePage;
+    public Transform zombieNormalRoot;
+    public Transform zombieBossRoot;
+    public Text zombieInfo;
+    public Text zombieName;
+    public Transform zombieContent;
+    public ZombieIllustrationsItem zombieIllustrationsItem;
+    public ZombieIllustrationsItem zombieBoss;
+
     private Animator animator;
 
     public MainMenu mainMenu { get; set; }
 
     ConfPlantIllustrationsItem selectPlant;
+    ConfZombieIllustrationsItem selectZombie;
 
     private void Start()
     {
         btnClose.onClick.AddListener(OnClose);
         btnReturn.onClick.AddListener(OnReturn);
         btnLookPlant.onClick.AddListener(OnLookPlant);
+        btnLookZombie.onClick.AddListener(OnLookZombie);
     }
 
     void OnClose()
     {
         UIManager.Instance.PopPanel();
         mainMenu.OnEnterMainMenu();
+        OnReturn();
     }
 
     void OnReturn()
     {
         plantPage.SetActive(false);
+        zombiePage.SetActive(false);
         btnReturn.gameObject.SetActive(false);
     }
 
@@ -80,6 +93,51 @@ public class IllustrationsPanel : BasePanel
         GameObject.Instantiate(plantGo, plantPage_plantRoot);
     }
 
+    void OnLookZombie()
+    {
+        zombiePage.SetActive(true);
+        btnReturn.gameObject.SetActive(true);
+        if (zombieContent.transform.childCount < ConfManager.Instance.confMgr.zombieIllustrations.items.Count)
+        {
+            foreach (var item in ConfManager.Instance.confMgr.zombieIllustrations.items)
+            {
+                if (selectZombie == null)
+                {
+                    selectZombie = item;
+                    OnZombieSelect(selectZombie);
+                }
+                if (item.zombieType == (int)ZombieType.Boss)
+                {
+                    zombieBoss.InitData(item, OnZombieSelect);
+                }
+                else
+                {
+                    var zombieGo = GameObject.Instantiate(zombieIllustrationsItem, zombieContent);
+                    zombieGo.gameObject.SetActive(true);
+                    zombieGo.InitData(item, OnZombieSelect);
+                }
+            }
+        }
+    }
+
+    void OnZombieSelect(ConfZombieIllustrationsItem confItem)
+    {
+        selectZombie = confItem;
+
+        zombieInfo.text = GameTool.LocalText(confItem.info);
+        zombieName.text = GameTool.LocalText(confItem.zombieName);
+        if (SaveManager.Instance.systemData.language == "cn")
+            zombieInfo.resizeTextForBestFit = (confItem.zombieType == (int)ZombieType.Boss || confItem.zombieType == (int)ZombieType.Gargantuan);
+
+        zombieBossRoot.DestroyChild();
+        zombieNormalRoot.DestroyChild();
+        var zombieGo = Resources.Load(confItem.prefabPath);
+        if (confItem.zombieType == (int)ZombieType.Boss)
+            GameObject.Instantiate(zombieGo, zombieBossRoot);
+        else
+            GameObject.Instantiate(zombieGo, zombieNormalRoot);
+    }
+
     public override void OnEnter()
     {
         base.OnEnter();
@@ -95,7 +153,10 @@ public class IllustrationsPanel : BasePanel
         CreatePlant();
         CreateZombie();
         plantPage.SetActive(false);
+        zombiePage.SetActive(false);
         plantInfo.resizeTextForBestFit = SaveManager.Instance.systemData.language != "cn";
+        zombieInfo.resizeTextForBestFit = SaveManager.Instance.systemData.language != "cn";
+        zombieInfo.resizeTextMinSize = SaveManager.Instance.systemData.language != "cn" ? 15 : 20;
     }
 
     void CreatePlant()
