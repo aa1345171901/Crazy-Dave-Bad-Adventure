@@ -49,6 +49,11 @@
         {
             "panelTypeString": "IllustrationsPanel",
             "path": "UIPanel/IllustrationsPanel"
+        },     
+
+        {
+            "panelTypeString": "ExternalGardenPanel",
+            "path": "UIPanel/ExternalGardenPanel"
         }     
     ]
 }

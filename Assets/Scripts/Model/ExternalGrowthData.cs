@@ -321,6 +321,7 @@ public class ExternalGrowthData
             return false;
         }
         plantPlace.Add(new TypeIntData(pos, type));
+        data.value--;
         return true;
     }
 

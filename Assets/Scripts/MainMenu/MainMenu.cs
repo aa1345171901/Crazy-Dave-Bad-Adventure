@@ -175,6 +175,14 @@ public class MainMenu : MonoBehaviour
         panle.mainMenu = this;
     }
 
+    public void OnGardenOpen()
+    {
+        Dave.AnimationState.SetAnimation(0, "Idel", true);
+        playAudio = false;
+        var panle = UIManager.Instance.PushPanel(UIPanelType.ExternalGardenPanel) as ExternalGardenPanel;
+        panle.mainMenu = this;
+    }
+
     public void OnEnterMainMenu()
     {
         animator.Play("Enter", 0, 0);

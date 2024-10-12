@@ -4,51 +4,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlantIllustrationsItem : MonoBehaviour
+public class ExternalGardenSeedItem : MonoBehaviour
 {
     public Image bg;
     public Image plantImg;
-    public Text sunCost;
-    public Text moneyCost;
-    public GameObject mask;
-
-    ConfPlantIllustrationsItem confItem;
+    public Text seedNum;
 
     Button button;
-    Action<ConfPlantIllustrationsItem> onClick;
+
+    int plantType;
+    Action<int, ExternalGardenSeedItem> onClick;
 
     private void Start()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(() => 
         { 
-            onClick?.Invoke(confItem); 
+            onClick?.Invoke(plantType, this); 
         });
     }
 
-    public void InitData(ConfPlantIllustrationsItem confItem, Action<ConfPlantIllustrationsItem> call)
+    public void InitData(int plantType, Action<int, ExternalGardenSeedItem> call)
     {
-        this.confItem = confItem;
+        this.plantType = plantType;
         this.onClick = call;
 
-        var confCardItem = ConfManager.Instance.confMgr.plantCards.GetPlantCardByType(confItem.plantType);
+        var confCardItem = ConfManager.Instance.confMgr.plantCards.GetPlantCardByType(plantType);
         Sprite bg = Resources.Load<Sprite>(confCardItem.plantBgImagePath);
         this.bg.sprite = bg;
 
         Sprite plantImage = Resources.Load<Sprite>(confCardItem.plantImagePath);
         this.plantImg.sprite = plantImage;
 
-        if (SaveManager.Instance.externalGrowthData.GetPlantCount(confItem.plantType) > 0)
-        {
-            this.sunCost.text = confCardItem.defaultSun.ToString();
-            this.moneyCost.text = "$" + confCardItem.defaultPrice.ToString();
-            mask.SetActive(false);
-        }
-        else
-        {
-            this.sunCost.text = "? ?";
-            this.moneyCost.text = "? ?";
-            mask.SetActive(true);
-        }
+        this.seedNum.text = "x" + SaveManager.Instance.externalGrowthData.GetPlantSeedCount(plantType);
     }
 }

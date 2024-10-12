@@ -14,4 +14,5 @@ public enum UIPanelType
     BagPanel,
     VictoryPanel,
     IllustrationsPanel,
+    ExternalGardenPanel,
 }
