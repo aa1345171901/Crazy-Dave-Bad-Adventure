@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 namespace TopDownPlate
 {
@@ -35,10 +36,16 @@ namespace TopDownPlate
 
     public class HUDPos
     {
+        public Vector3 originPos;  // 文本的位置
         public Vector3 targetPos;  // 文本的位置
         public Vector3 screenPos; // 转换的屏幕坐标
         public Vector3 guiPos; // Gui的显示位置
         public Vector3 offset;
+
+        public float curTime;
+        public float time;
+        public float height;
+
         public string hudValue;
         public bool isRecovery;
         public bool isCriticalHit;
@@ -68,7 +75,7 @@ namespace TopDownPlate
 
         private float finalArmor;
         private List<HUDPos> hudLists = new List<HUDPos>();  // 文本的位置
-        private float hudShowTime = 1f;
+        private float hudShowTime = 1.05f;
         private int fontSize;
 
         private float timer;
@@ -207,15 +214,20 @@ namespace TopDownPlate
             if (hudValue > 0)
             {
                 hudPos.isRecovery = true;
-                hudPos.targetPos = this.transform.position + Vector3.up * UnityEngine.Random.Range(0.3f, 0.6f) + Vector3.left * 0.1f;
+                hudPos.originPos = this.transform.position + Vector3.up * UnityEngine.Random.Range(0.75f, 1.25f) + Vector3.left * 0.1f;
             }
             else
             {
-                hudPos.targetPos = this.transform.position + Vector3.up * UnityEngine.Random.Range(0.3f, 0.6f);
+                hudPos.originPos = this.transform.position + Vector3.up * UnityEngine.Random.Range(0.75f, 1.25f);
             }
             hudPos.isCriticalHit = isCriticalHit;
             hudPos.hudValue = hudValue > 0 ? "+" + hudValue.ToString() : hudValue.ToString();
-            hudPos.offset = Vector3.up * Time.deltaTime * UnityEngine.Random.Range(0.3f, 0.6f);
+
+            var offset = new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(-0.3f, 0.3f), hudPos.originPos.z);
+            hudPos.height = Random.Range(0.15f, 0.3f);
+            hudPos.time = Random.Range(0.3f, 0.5f);
+            hudPos.offset = offset / hudPos.time;
+
             hudLists.Add(hudPos);
             StartCoroutine(CloseHUD(hudPos));
             timer = 0;
@@ -225,10 +237,15 @@ namespace TopDownPlate
         {
             HUDPos hudPos = new HUDPos();
             hudPos.isRecovery = true;
-            hudPos.targetPos = this.transform.position + Vector3.up * UnityEngine.Random.Range(0.3f, 0.6f) + Vector3.left * 0.1f;
+            hudPos.originPos = this.transform.position + Vector3.up * UnityEngine.Random.Range(0.75f, 1.25f) + Vector3.left * 0.1f;
             hudPos.isCriticalHit = false;
             hudPos.hudValue = text;
-            hudPos.offset = Vector3.up * Time.deltaTime * UnityEngine.Random.Range(0.3f, 0.6f);
+
+            var offset = new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(-0.3f, 0.3f), hudPos.originPos.z);
+            hudPos.height = Random.Range(0.15f, 0.3f);
+            hudPos.time = Random.Range(0.3f, 0.5f);
+            hudPos.offset = offset / hudPos.time;
+
             hudLists.Add(hudPos);
             StartCoroutine(CloseHUD(hudPos));
             timer = 0;
@@ -244,7 +261,13 @@ namespace TopDownPlate
         {
             foreach (var item in hudLists)
             {
-                item.targetPos += item.offset;
+                item.curTime += Time.deltaTime;
+                if (item.curTime < item.time)
+                {
+                    Vector3 newPos = item.originPos + item.offset * item.curTime;
+                    newPos.y += Mathf.Cos(item.curTime / item.time * Mathf.PI - Mathf.PI / 2) * item.height;
+                    item.targetPos = newPos;
+                }
 
                 // 屏幕坐标左上为0，0 右下为 screen.width, height
                 item.screenPos = Camera.main.WorldToScreenPoint(item.targetPos);
