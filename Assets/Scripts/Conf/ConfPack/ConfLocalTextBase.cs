@@ -625,6 +625,7 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(573, "zombieInfo_ZombieBoss", "<color=#2F3759>僵尸似乎靠体积大小确定臣服关系，僵王博士的机器人非常巨大，统治所有的僵尸，</color>\r\n强度：<color=#ff0000>高</color>\r\n速度：<color=#ff0000>低</color>\r\n血量：<color=#ff0000>极高</color>\r\n当你收到僵王博士的来信时，你就得准备迎接他的打击了，对于他来说这只是一个游戏\r\n当你距离僵王博士过远时他会一直向你投掷车辆进行范围打击\r\n当你在他的视野范围内时，他可能会向你投掷火球或者冰球，留下火道（扣除生命值）和冰道（减速），也得小心他会像踩死蚂蚁一样踩死你，或者拍苍蝇一样拍你", "<color=#2F3759>Zombies seem to determine their submission by their size. Dr. Zombie King's robot is very huge and dominates all zombies.</color>\r\nStrength: <color=#ff0000>High</color>\r\nSpeed: <color=#ff0000>Low</color>\r\nHP: <color=#ff0000>Extremely High</color>\r\nWhen you receive a letter from Dr. Zombie King, you must be prepared for his attack. For him, this is just a game.\r\nWhen you are too far away from Dr. Zombie King, he will keep throwing vehicles at you for range attacks.\r\nWhen you are within his field of vision, he may throw fireballs or iceballs at you, leaving behind fire trails (deducting health points) and ice trails (slowing down). Be careful that he may crush you like an ant, or swat you like a fly."));
 		AddItem(new ConfLocalTextItem(574, "tujian_zombie", "首次遇见后解锁图鉴", "Unlock the illustrated book after first encounter"));
 		AddItem(new ConfLocalTextItem(575, "tujian_plant", "首次培养后解锁图鉴", "Unlock the illustrated book after first training"));
+		AddItem(new ConfLocalTextItem(576, "getSeed", "获得{0}种子", "Get {0} seeds"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

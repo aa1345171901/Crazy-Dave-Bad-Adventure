@@ -28,7 +28,7 @@ namespace TopDownPlate
             base.ProcessAbility();
             if (character.IsDead || !GameManager.Instance.PlayerEnable)
                 return;
-            var colliders = Physics2D.OverlapCircleAll(this.transform.position, pickRange, moneyClickLayer);
+            var colliders = Physics2D.OverlapCircleAll(this.transform.position + Vector3.up / 2, pickRange, moneyClickLayer);
             foreach (var item in colliders)
             {
                 if (item.isTrigger)

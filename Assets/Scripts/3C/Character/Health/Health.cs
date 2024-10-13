@@ -75,7 +75,7 @@ namespace TopDownPlate
 
         private float finalArmor;
         private List<HUDPos> hudLists = new List<HUDPos>();  // 文本的位置
-        private float hudShowTime = 1.05f;
+        private float hudShowTime = 1.25f;
         private int fontSize;
 
         private float timer;
@@ -233,7 +233,7 @@ namespace TopDownPlate
             timer = 0;
         }
 
-        void SetHUDText(string text)
+        public void SetHUDText(string text)
         {
             HUDPos hudPos = new HUDPos();
             hudPos.isRecovery = true;

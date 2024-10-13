@@ -30,7 +30,7 @@ public class ExternalGardenSeedItem : MonoBehaviour
         this.onClick = call;
 
         var confCardItem = ConfManager.Instance.confMgr.plantCards.GetPlantCardByType(plantType);
-        Sprite bg = Resources.Load<Sprite>(confCardItem.plantBgImagePath);
+        Sprite bg = Resources.Load<Sprite>(confCardItem.plantBgImagePath.Replace("Shop/Plants/", "UI/ExternalGardenPanel/").Replace("Bg", "Seed"));
         this.bg.sprite = bg;
 
         Sprite plantImage = Resources.Load<Sprite>(confCardItem.plantImagePath);

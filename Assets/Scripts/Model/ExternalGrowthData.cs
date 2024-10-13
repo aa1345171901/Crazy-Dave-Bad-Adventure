@@ -293,7 +293,7 @@ public class ExternalGrowthData
         var data = list.Count() == 0 ? null : list.First();
         if (data == null)
         {
-            plantType.Add(new TypeIntData(type, 1));
+            plantSeeds.Add(new TypeIntData(type, 1));
         }
         else
         {

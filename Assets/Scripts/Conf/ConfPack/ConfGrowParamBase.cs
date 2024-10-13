@@ -45,18 +45,18 @@ public class ConfGrowParamBase : ConfBase<ConfGrowParamItem>
 	private void Init1()
 	{
 		AddItem(new ConfGrowParamItem(1, 0, 1));
-		AddItem(new ConfGrowParamItem(2, 1, 1));
-		AddItem(new ConfGrowParamItem(3, 2, 2));
-		AddItem(new ConfGrowParamItem(4, 3, 2));
-		AddItem(new ConfGrowParamItem(5, 4, 1));
-		AddItem(new ConfGrowParamItem(6, 5, 2));
-		AddItem(new ConfGrowParamItem(7, 6, 1));
+		AddItem(new ConfGrowParamItem(2, 1, 3));
+		AddItem(new ConfGrowParamItem(3, 2, 4));
+		AddItem(new ConfGrowParamItem(4, 3, 4));
+		AddItem(new ConfGrowParamItem(5, 4, 2));
+		AddItem(new ConfGrowParamItem(6, 5, 5));
+		AddItem(new ConfGrowParamItem(7, 6, 2));
 		AddItem(new ConfGrowParamItem(8, 7, 1));
-		AddItem(new ConfGrowParamItem(9, 8, 2));
-		AddItem(new ConfGrowParamItem(10, 9, 2));
-		AddItem(new ConfGrowParamItem(11, 10, 3));
-		AddItem(new ConfGrowParamItem(12, 11, 5));
-		AddItem(new ConfGrowParamItem(13, 12, 10));
+		AddItem(new ConfGrowParamItem(9, 8, 1));
+		AddItem(new ConfGrowParamItem(10, 9, 5));
+		AddItem(new ConfGrowParamItem(11, 10, 5));
+		AddItem(new ConfGrowParamItem(12, 11, 50));
+		AddItem(new ConfGrowParamItem(13, 12, 100));
 	}
 
 	public override void AddItem(ConfBaseItem item)

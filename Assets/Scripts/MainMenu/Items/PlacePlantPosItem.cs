@@ -43,12 +43,12 @@ public class PlacePlantPosItem : MonoBehaviour
     {
         if (plantType == 0 && externalGardenPanel.selectSeed != 0 && plantRoot.childCount == 0)
         {
-            var confCardItem = ConfManager.Instance.confMgr.plantIllustrations.GetPlantItemType(plantType);
+            var confCardItem = ConfManager.Instance.confMgr.plantIllustrations.GetPlantItemType(externalGardenPanel.selectSeed);
 
             var plantGo = Resources.Load<GameObject>(confCardItem.prefabPath);
             var newGo = GameObject.Instantiate(plantGo, plantRoot);
             var image = newGo.GetComponent<Image>();
-            image.color = new Color(0, 0, 0, 0.54f);
+            image.color = new Color(0.8f, 0.8f, 0.8f, 0.7f);
         }
     }
 
@@ -82,7 +82,7 @@ public class PlacePlantPosItem : MonoBehaviour
             plantRoot.DestroyChild();
             plantType = externalGardenPanel.selectSeed;
             externalGardenPanel.PlacePlantSeed(pos);
-            var confCardItem = ConfManager.Instance.confMgr.plantIllustrations.GetPlantItemType(externalGardenPanel.selectSeed);
+            var confCardItem = ConfManager.Instance.confMgr.plantIllustrations.GetPlantItemType(plantType);
 
             var plantGo = Resources.Load(confCardItem.prefabPath);
             GameObject.Instantiate(plantGo, plantRoot);

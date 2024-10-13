@@ -28,6 +28,8 @@ public class CoinJump : MonoBehaviour
     public GameObject Diamond;
     public GameObject Sun;
 
+    PlantSeed plantSpeed;
+
     private float curTime;
 
     [Range(0, 2)]
@@ -72,12 +74,30 @@ public class CoinJump : MonoBehaviour
             CreateCoin(Diamond);
         }
 
+        CreateSun();
+        CreateSeed();
         curTime = 0;
+    }
 
+    private void CreateCoin(GameObject gameObject)
+    {
+        var targetCoin = GameObject.Instantiate(gameObject).GetComponent<MoneyClick>();
+        targetCoin.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, targetCoin.transform.position.z);
+        ItemJump itemJump = new ItemJump(targetCoin);
+        // 掉落在僵尸周围范围
+        Vector3 offset = new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), targetCoin.transform.position.z);
+        itemJump.height = Random.Range(0.3f, 0.6f);
+        itemJump.time = Random.Range(0.4f, 0.6f);
+        itemJump.offsetSpeed = offset / itemJump.time;
+        targets.Add(itemJump);
+    }
+
+    private void CreateSun()
+    {
         /* 阳光掉落，更加幸运决定
-         * 掉落阳光数量1-6个不等，根据幸运决定数量， 幸运小于10掉1，到60最大
-         */
-
+ * 掉落阳光数量1-6个不等，根据幸运决定数量， 幸运小于10掉1，到60最大
+ */
+        int lucky = GameManager.Instance.UserData.Lucky;
         int sunCount = lucky / 10 + 1;
         sunCount = sunCount > 6 ? 6 : sunCount;
         sunCount = Random.Range(1, sunCount + 1);
@@ -95,17 +115,25 @@ public class CoinJump : MonoBehaviour
         }
     }
 
-    private void CreateCoin(GameObject gameObject)
+    private void CreateSeed()
     {
-        var targetCoin = GameObject.Instantiate(gameObject).GetComponent<MoneyClick>();
-        targetCoin.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, targetCoin.transform.position.z);
-        ItemJump itemJump = new ItemJump(targetCoin);
-        // 掉落在僵尸周围范围
-        Vector3 offset = new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), targetCoin.transform.position.z);
-        itemJump.height = Random.Range(0.3f, 0.6f);
-        itemJump.time = Random.Range(0.4f, 0.6f);
-        itemJump.offsetSpeed = offset / itemJump.time;
-        targets.Add(itemJump);
+        var confSeedWeightItem = ConfManager.Instance.confMgr.seedWeight.GetPlantSeedRandom();
+
+        if (confSeedWeightItem.plantType != 0)
+        {
+            plantSpeed = Resources.Load<PlantSeed>("Prefabs/Effects/plantSeed");
+            var newPlantSpeed = GameObject.Instantiate(plantSpeed);
+            newPlantSpeed.plantType = confSeedWeightItem.plantType;
+            newPlantSpeed.quality = confSeedWeightItem.quality;
+            newPlantSpeed.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, newPlantSpeed.transform.position.z);
+            ItemJump itemJump = new ItemJump(newPlantSpeed);
+            // 掉落在僵尸周围范围
+            Vector3 offset = new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), newPlantSpeed.transform.position.z);
+            itemJump.height = Random.Range(0.3f, 0.6f);
+            itemJump.time = Random.Range(0.4f, 0.6f);
+            itemJump.offsetSpeed = offset / itemJump.time;
+            targets.Add(itemJump);
+        }
     }
 
     void Update()

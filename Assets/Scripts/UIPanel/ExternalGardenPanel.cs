@@ -25,6 +25,8 @@ public class ExternalGardenPanel : BasePanel
 
     public MainMenu mainMenu { get; set; }
 
+    int seedSumCache;
+
     private void Start()
     {
         for (int i = 0; i < plantPosParent.childCount; i++)
@@ -32,6 +34,7 @@ public class ExternalGardenPanel : BasePanel
             var posT = plantPosParent.GetChild(i);
             var newPlaceItem = GameObject.Instantiate(placePlantPosItem, posT);
             newPlaceItem.gameObject.SetActive(true);
+            newPlaceItem.transform.localPosition = new Vector3(0, 28f, 0);
 
             int pos = i + 1;
             var posList = SaveManager.Instance.externalGrowthData.plantPlace.Where((e) => e.key == pos);
@@ -81,7 +84,7 @@ public class ExternalGardenPanel : BasePanel
 
     void UpdataUI()
     {
-        int seedSum = 0;
+        seedSumCache = 0;
         seedContent.DestroyChild();
         foreach (var item in SaveManager.Instance.externalGrowthData.plantSeeds)
         {
@@ -90,10 +93,11 @@ public class ExternalGardenPanel : BasePanel
                 var seedItem = GameObject.Instantiate(externalGardenSeedItem, seedContent);
                 seedItem.gameObject.SetActive(true);
                 seedItem.InitData(item.key, SelectSeed);
-                seedSum += item.value;
+                seedSumCache += item.value;
             }
         }
-        this.seedSum.text = seedSum.ToString();
+        GameObjectEx.UpdateLayout(btnShovel.transform.parent.gameObject);
+        this.seedSum.text = seedSumCache.ToString();
     }
 
     void SelectSeed(int type, ExternalGardenSeedItem selectSeedItem)
@@ -117,6 +121,7 @@ public class ExternalGardenPanel : BasePanel
     public void PlacePlantSeed(int pos)
     {
         SaveManager.Instance.externalGrowthData.PlacePlantSeed(pos, selectSeed);
+        this.seedSum.text = (seedSumCache - 1).ToString();
         SelectSeed(selectSeed, selectSeedItem);
     }
 
@@ -124,6 +129,7 @@ public class ExternalGardenPanel : BasePanel
     {
         SaveManager.Instance.externalGrowthData.ShovelPlantSeed(pos);
         isShovel = false;
+        shovel.transform.localPosition = Vector3.zero;
     }
 
     public override void OnEnter()
