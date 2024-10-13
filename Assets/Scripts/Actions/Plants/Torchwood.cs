@@ -8,6 +8,7 @@ public class Torchwood : Plant
     public override PlantType PlantType => PlantType.Torchwood;
 
     private readonly float LevelAdd = 0.1f;
+    private readonly float defaultDamageAdd = 1f;  // è±Œè±†ä¼¤å®³é»˜è®¤ç¿»å€
 
     public override void Reuse()
     {
@@ -16,32 +17,32 @@ public class Torchwood : Plant
 
         var levelBounds = LevelManager.Instance.LevelBounds;
         float x = levelBounds.max.x;
-        // 0.5 ¸ÕºÃÕ¾ÔÚ¸ñ×ÓÉÏ
+        // 0.5 åˆšå¥½ç«™åœ¨æ ¼å­ä¸Š
         float randomY = (int)Random.Range(levelBounds.min.y, levelBounds.max.y - 0.5f) + 0.5f;
         this.transform.position = new Vector3(x, randomY, 0);
         int y = (int)((-randomY + 10) * 10);
         spriteRenderer.sortingOrder = y;
         FacingDirections = FacingDirections.Left;
 
-        float finalDamageAdd = GardenManager.Instance.TorchwoodEffect.DamageAdd;
+        float finalDamageAdd = defaultDamageAdd + GardenManager.Instance.TorchwoodEffect.DamageAdd;
         float finalSplashDamage = GardenManager.Instance.TorchwoodEffect.SplashDamage;
         float finalPeaSpeed = GardenManager.Instance.TorchwoodEffect.PeaSpeed;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 0 ÔöÉË
+                // 0 å¢ä¼¤
                 case 0:
                     finalDamageAdd += (int)fieldInfo.GetValue(plantAttribute) * LevelAdd;
                     break;
-                // 1 ½¦ÉäÉËº¦
+                // 1 æº…å°„ä¼¤å®³
                 case 1:
                     finalSplashDamage += (int)fieldInfo.GetValue(plantAttribute) * LevelAdd;
                     break;
-                // 2 ËÙ¶È
+                // 2 é€Ÿåº¦
                 case 2:
                     finalPeaSpeed += (int)fieldInfo.GetValue(plantAttribute) * LevelAdd;
                     break;

@@ -264,6 +264,10 @@ public class GardenManager : BaseManager<GardenManager>
         foreach (var item in destroyPlants)
         {
             PlantDict.Remove(item.Key);
+            if (item.Key.plantCard.plantType == PlantType.Gravebuster)
+            {
+                Gravebusters.Remove(item.Value as Gravebuster);
+            }
             GameObject.Destroy(item.Value.gameObject);
         }
         destroyPlants.Clear();

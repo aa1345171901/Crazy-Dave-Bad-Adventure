@@ -68,7 +68,7 @@ namespace TopDownPlate
 
         private float finalArmor;
         private List<HUDPos> hudLists = new List<HUDPos>();  // 文本的位置
-        private float hudShowTime = 0.5f;
+        private float hudShowTime = 1f;
         private int fontSize;
 
         private float timer;

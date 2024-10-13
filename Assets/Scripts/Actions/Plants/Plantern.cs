@@ -8,7 +8,7 @@ public class Plantern : Plant
 {
     public override PlantType PlantType => PlantType.Plantern;
     
-    [Tooltip("¼ì²â·¶Î§")]
+    [Tooltip("æ£€æµ‹èŒƒå›´")]
     public float Range = 1.5f;
     public float RangeAttackSpeed = 1.1f;
 
@@ -25,34 +25,36 @@ public class Plantern : Plant
     private readonly int LevelLife = 1;
     private readonly float LevelDamage = 0.1f;
 
+    private readonly float defaultDamage = 1.5f;  // é»˜è®¤ä¼¤å®³
+
     public override void Reuse()
     {
         base.Reuse();
 
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalRange = Range;
         finalRangeAttackSpeed = RangeAttackSpeed;
-        finalRangeDamage = 1;
+        finalRangeDamage = defaultDamage;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 0 ¹¥»÷·¶Î§
+                // 0 æ”»å‡»èŒƒå›´
                 case 0:
                     finalRange += (int)fieldInfo.GetValue(plantAttribute) * LevelRange;
                     break;
-                // 1 ·¶Î§¹¥ËÙ
+                // 1 èŒƒå›´æ”»é€Ÿ
                 case 1:
                     finalRangeAttackSpeed += (int)fieldInfo.GetValue(plantAttribute) * LevelRangeAttackSpeed;
                     break;
-                // 2 ·¶Î§ÉúÃü»Ö¸´
+                // 2 èŒƒå›´ç”Ÿå‘½æ¢å¤
                 case 2:
                     finalRangeLifeResume = (int)fieldInfo.GetValue(plantAttribute) * LevelLife;
                     break;
-                // 3 ·¶Î§ÉËº¦
+                // 3 èŒƒå›´ä¼¤å®³
                 case 3:
                     finalRangeDamage += (int)fieldInfo.GetValue(plantAttribute) * LevelDamage;
                     break;

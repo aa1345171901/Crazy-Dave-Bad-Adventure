@@ -15,6 +15,8 @@ public class ExternalGardenPanel : BasePanel
     public Button btnShovel;
     public Image shovel;
 
+    public Button btnMainmenu;
+
     public int selectSeed { get; private set; }
     public bool isShovel { get; private set; }
     public bool isItemDown { get; set; }
@@ -39,6 +41,7 @@ public class ExternalGardenPanel : BasePanel
 
         UpdataUI();
         btnShovel.onClick.AddListener(OnShovelClick);
+        btnMainmenu.onClick.AddListener(OnClose);
     }
 
     void OnClose()

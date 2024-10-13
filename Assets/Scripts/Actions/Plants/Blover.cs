@@ -9,6 +9,7 @@ public class Blover : Plant
 
     private readonly float LevelWindSpeed = 0.1f;
     private readonly int LevelWindResume = 1;
+    private readonly int defaultWindSpeed = 1; // é»˜è®¤é£é€Ÿ
 
     public override void Reuse()
     {
@@ -17,24 +18,24 @@ public class Blover : Plant
 
         var levelBounds = LevelManager.Instance.LevelBounds;
         float x = levelBounds.min.x;
-        // 0.5 ¸ÕºÃÕ¾ÔÚ¸ñ×ÓÉÏ
+        // 0.5 åˆšå¥½ç«™åœ¨æ ¼å­ä¸Š
         float randomY = (int)Random.Range(levelBounds.min.y, levelBounds.max.y - 0.5f) + 0.5f;
         this.transform.position = new Vector3(x, randomY, 0);
         int y = (int)((-randomY + 10) * 10);
         spriteRenderer.sortingOrder = y;
         FacingDirections = FacingDirections.Right;
 
-        float finalWindSpeed = GardenManager.Instance.BloverEffect.Windspeed;
+        float finalWindSpeed = defaultWindSpeed + GardenManager.Instance.BloverEffect.Windspeed;
         int finalResume = GardenManager.Instance.BloverEffect.BloverResume;
         float finalWindage = GardenManager.Instance.BloverEffect.Windage;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 2 ·çËÙ
+                // 2 é£é€Ÿ
                 case 2:
                     finalWindSpeed += (int)fieldInfo.GetValue(plantAttribute) * LevelWindSpeed;
                     if (finalWindage > 1)
@@ -42,11 +43,11 @@ public class Blover : Plant
                         finalWindage = 1 + (finalWindage - 1) / 5;
                     }
                     break;
-                // 3 »Ö¸´
+                // 3 æ¢å¤
                 case 3:
                     finalResume += (int)fieldInfo.GetValue(plantAttribute) * LevelWindResume;
                     break;
-                // 4 ·ç×è
+                // 4 é£é˜»
                 case 4:
                     finalWindage += (int)fieldInfo.GetValue(plantAttribute) * LevelWindSpeed;
                     if (finalWindage > 1)
