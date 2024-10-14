@@ -15,26 +15,26 @@ public class SnowPea : PeaShooter
     private readonly float LeverDecelerationPercentage = 0.03f;
     private readonly float LeverDecelerationTime = 0.5f;
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
 
         finalDecelerationPercentage = DecelerationPercentage;
         finalDecelerationTime = DecelerationTime;
 
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // ¼õËÙ°Ù·Ö±È
+                // å‡é€Ÿç™¾åˆ†æ¯”
                 case 6:
                     finalDecelerationPercentage += (int)fieldInfo.GetValue(plantAttribute) * LeverDecelerationPercentage;
                     break;
-                // ¼õËÙÊ±¼ä
+                // å‡é€Ÿæ—¶é—´
                 case 7:
                     finalDecelerationTime += (int)fieldInfo.GetValue(plantAttribute) * LeverDecelerationTime;
                     break;

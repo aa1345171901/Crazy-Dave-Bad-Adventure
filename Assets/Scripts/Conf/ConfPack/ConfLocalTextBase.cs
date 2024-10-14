@@ -626,6 +626,8 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(574, "tujian_zombie", "首次遇见后解锁图鉴", "Unlock the illustrated book after first encounter"));
 		AddItem(new ConfLocalTextItem(575, "tujian_plant", "首次培养后解锁图鉴", "Unlock the illustrated book after first training"));
 		AddItem(new ConfLocalTextItem(576, "getSeed", "获得{0}种子", "Get {0} seeds"));
+		AddItem(new ConfLocalTextItem(577, "garden_cooltimeTips", "种植的植物越多，冒险中出现植物卡片的间隔时间越短\r\n当前时间{0}", "The more plants you plant, the shorter the interval between plant cards appearing during the adventure\r\nCurrent time {0}"));
+		AddItem(new ConfLocalTextItem(578, "garden_getTips", "温馨提示！\r\n植物种子可能出现在僵尸身上", "Warm reminder! \r\nPlant seeds may appear on zombies"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class IceShroom : ManualPlant
 {
-    [Tooltip("±ù¶³Ê±¼ä")]
+    [Tooltip("å†°å†»æ—¶é—´")]
     public float FrostTime = 3;
 
     public AudioClip frost;
@@ -15,31 +15,31 @@ public class IceShroom : ManualPlant
 
     private readonly float LevelCoolTime = 0.8f;
     private readonly float LevelFrostTime = 0.5f;
-    private readonly float LevelFrostAttackSpeed = 0.1f;
+    private readonly float LevelFrostAttackSpeed = 0.003f;
 
     public override void InitPlant(Card card, int sun)
     {
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalDamage = Damage;
         finalCoolTime = CoolTime;
         finalFrostTime = FrostTime;
-        finalFrostAttackSpeed = 1;
+        finalFrostAttackSpeed = 0;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 0 ±ù¶³Ê±¼ä
+                // 0 å†°å†»æ—¶é—´
                 case 0:
                     finalFrostTime += LevelFrostTime * (int)fieldInfo.GetValue(plantAttribute);
                     break;
-                // 1 ÀäÈ´Ê±¼ä
+                // 1 å†·å´æ—¶é—´
                 case 1:
                     finalCoolTime = CoolTime - (int)fieldInfo.GetValue(plantAttribute) * LevelCoolTime;
                     break;
-                // 3 ±ù¶³ÆÚ¼ä¹¥ËÙÔö¼Ó
+                // 3 å†°å†»æœŸé—´æ”»é€Ÿå¢åŠ 
                 case 3:
                     finalFrostAttackSpeed += (int)fieldInfo.GetValue(plantAttribute) * LevelFrostAttackSpeed;
                     break;

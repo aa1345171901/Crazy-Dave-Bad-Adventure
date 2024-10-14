@@ -7,16 +7,16 @@ public class Cornpult : Plant
 {
     public override PlantType PlantType => PlantType.Cornpult;
 
-    [Tooltip("¹¥»÷ÉËº¦")]
+    [Tooltip("æ”»å‡»ä¼¤å®³")]
     public int Damage = 5;
-    [Tooltip("¹¥»÷ÀäÈ´Ê±¼ä")]
+    [Tooltip("æ”»å‡»å†·å´æ—¶é—´")]
     public float CoolTime = 2f;
-    [Tooltip("¹¥»÷Ä¿±ê")]
+    [Tooltip("æ”»å‡»ç›®æ ‡")]
     public LayerMask TargetLayer;
 
-    [Tooltip("×Óµ¯·¢ÉäÎ»ÖÃ")]
+    [Tooltip("å­å¼¹å‘å°„ä½ç½®")]
     public Transform BulletPos;
-    [Tooltip("×Óµ¯Ô¤ÖÆÌå")]
+    [Tooltip("å­å¼¹é¢„åˆ¶ä½“")]
     public CornBullet CornBullet;
 
     private float timer;
@@ -33,42 +33,42 @@ public class Cornpult : Plant
     private readonly float LevelButterControlTime = 0.2f;
     private readonly int LevelButterRate = 3;
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
 
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalDamage = Damage;
         finalCoolTime = CoolTime;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 0 ×î´óÉúÃüÖµ£¬ 1Îª»ù´¡ÉËº¦
+                // 0 æœ€å¤§ç”Ÿå‘½å€¼ï¼Œ 1ä¸ºåŸºç¡€ä¼¤å®³
                 case 1:
                     finalDamage = (int)fieldInfo.GetValue(plantAttribute) * LevelBasicDamage + finalDamage;
                     break;
-                // 2 Îª°Ù·Ö±ÈÉËº¦
+                // 2 ä¸ºç™¾åˆ†æ¯”ä¼¤å®³
                 case 2:
                     finalDamage = (int)(finalDamage * ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100);
                     break;
-                // 3 »ÆÓÍ¸ÅÂÊ
+                // 3 é»„æ²¹æ¦‚ç‡
                 case 3:
                     finalButterRate = 5 + (int)fieldInfo.GetValue(plantAttribute) * LevelButterRate;
                     break;
-                // 4 ÀäÈ´Ê±¼ä
+                // 4 å†·å´æ—¶é—´
                 case 4:
                     finalCoolTime = CoolTime - (int)fieldInfo.GetValue(plantAttribute) * LevelCoolTime;
                     finalAttackAnimSpeed += (int)fieldInfo.GetValue(plantAttribute) * LevelCoolTime * 2;
                     break;
-                // ×Óµ¯ËÙ¶È
+                // å­å¼¹é€Ÿåº¦
                 case 5:
                     bulletSpeedMul = ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100;
                     break;
-                // »ÆÓÍ¿ØÖÆÊ±¼ä
+                // é»„æ²¹æ§åˆ¶æ—¶é—´
                 case 6:
                     finalButterControlTime = 2 + (int)fieldInfo.GetValue(plantAttribute) * LevelButterControlTime;
                     break;
@@ -84,7 +84,7 @@ public class Cornpult : Plant
         if (Time.time - timer > finalCoolTime)
         {
             var direction = FacingDirections == FacingDirections.Right ? Vector2.right : Vector2.left;
-            // 30¸ö¸ñ×ÓÎª×î´ó¿í¶È
+            // 30ä¸ªæ ¼å­ä¸ºæœ€å¤§å®½åº¦
             var hit = Physics2D.Raycast(this.transform.position, direction, 30, TargetLayer);
             if (hit)
             {

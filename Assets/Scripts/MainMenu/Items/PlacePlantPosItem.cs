@@ -23,6 +23,12 @@ public class PlacePlantPosItem : MonoBehaviour
         uiEventListener.onPointDown.AddListener(OnDown);
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+            MouseExit();
+    }
+
     public void InitData(int pos, int plantType, ExternalGardenPanel externalGardenPanel)
     {
         this.pos = pos;

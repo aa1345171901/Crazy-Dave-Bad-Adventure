@@ -7,11 +7,11 @@ public class GoldMagent : Plant
 {
     public override PlantType PlantType => PlantType.GoldMagent;
 
-    [Tooltip("ÎüÈ¡½ğ±ÒÄ¬ÈÏ¸öÊı")]
+    [Tooltip("å¸å–é‡‘å¸é»˜è®¤ä¸ªæ•°")]
     public int CoinGoldCount = 4;
-    [Tooltip("ÎüÊÕÀäÈ´Ê±¼ä")]
+    [Tooltip("å¸æ”¶å†·å´æ—¶é—´")]
     public float CoolTime = 4f;
-    [Tooltip("ÎüÊÕ³ÖĞøÊ±¼ä")]
+    [Tooltip("å¸æ”¶æŒç»­æ—¶é—´")]
     public float DurationTime = 2f;
 
     public AudioSource audioSource;
@@ -33,30 +33,30 @@ public class GoldMagent : Plant
         AudioManager.Instance.AudioLists.Add(audioSource);
     }
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
 
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalCoolTime = CoolTime;
         finalCount = CoinGoldCount;
         finalDurationTime = DurationTime;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 3 ÎªÎüÈ¡¸öÊı
+                // 3 ä¸ºå¸å–ä¸ªæ•°
                 case 3:
                     finalCount += (int)fieldInfo.GetValue(plantAttribute) * LevelCoinCount;
                     break;
-                // 4 ÀäÈ´Ê±¼ä
+                // 4 å†·å´æ—¶é—´
                 case 4:
                     finalCoolTime -= (int)fieldInfo.GetValue(plantAttribute) * LevelTime;
                     break;
-                // 5 ³ÖĞøÊ±¼ä
+                // 5 æŒç»­æ—¶é—´
                 case 5:
                     finalDurationTime += (int)fieldInfo.GetValue(plantAttribute) * LevelTime;
                     break;

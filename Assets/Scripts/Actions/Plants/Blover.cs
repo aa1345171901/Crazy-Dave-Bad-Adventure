@@ -11,19 +11,22 @@ public class Blover : Plant
     private readonly int LevelWindResume = 1;
     private readonly int defaultWindSpeed = 1; // 默认风速
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
         if (spriteRenderer == null)
             spriteRenderer = this.GetComponent<SpriteRenderer>();
 
-        var levelBounds = LevelManager.Instance.LevelBounds;
-        float x = levelBounds.min.x;
-        // 0.5 刚好站在格子上
-        float randomY = (int)Random.Range(levelBounds.min.y, levelBounds.max.y - 0.5f) + 0.5f;
-        this.transform.position = new Vector3(x, randomY, 0);
-        int y = (int)((-randomY + 10) * 10);
-        spriteRenderer.sortingOrder = y;
-        FacingDirections = FacingDirections.Right;
+        if (randomPos)
+        {
+            var levelBounds = LevelManager.Instance.LevelBounds;
+            float x = levelBounds.min.x;
+            // 0.5 刚好站在格子上
+            float randomY = (int)Random.Range(levelBounds.min.y, levelBounds.max.y - 0.5f) + 0.5f;
+            this.transform.position = new Vector3(x, randomY, 0);
+            int y = (int)((-randomY + 10) * 10);
+            spriteRenderer.sortingOrder = y;
+            FacingDirections = FacingDirections.Right;
+        }
 
         float finalWindSpeed = defaultWindSpeed + GardenManager.Instance.BloverEffect.Windspeed;
         int finalResume = GardenManager.Instance.BloverEffect.BloverResume;

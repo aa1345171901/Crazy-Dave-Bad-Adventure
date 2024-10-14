@@ -9,21 +9,21 @@ public class Chomper : Plant
 
     public AudioSource audioSource;
 
-    [Tooltip("Ïû»¯Ê±¼ä£¬ËÙ¶È")]
+    [Tooltip("æ¶ˆåŒ–æ—¶é—´ï¼Œé€Ÿåº¦")]
     public float DigestSpeed = 8;
-    [Tooltip("¹¥»÷·¶Î§")]
+    [Tooltip("æ”»å‡»èŒƒå›´")]
     public float Range = 1;
-    [Tooltip("Ò»´ÎĞÔÍÌÊÉ¸öÊı")]
+    [Tooltip("ä¸€æ¬¡æ€§åå™¬ä¸ªæ•°")]
     public int SwallowCount = 1;
-    [Tooltip("»ù´¡ÉËº¦£¬½©Íõ¾ŞÈË²»ÄÜÍÌ")]
+    [Tooltip("åŸºç¡€ä¼¤å®³ï¼Œåƒµç‹å·¨äººä¸èƒ½å")]
     public int Damage = 5;
 
-    [Tooltip("Ñô¹âÔ¤ÖªÌå£¬×ª»»µÄÑô¹âÖ±½ÓÊÕ¼¯")]
+    [Tooltip("é˜³å…‰é¢„çŸ¥ä½“ï¼Œè½¬æ¢çš„é˜³å…‰ç›´æ¥æ”¶é›†")]
     public Sun sun;
-    [Tooltip("Ç®±ÒÔ¤ÖªÌå£¬×ª»»µÄÇ®±ÒÖ±½ÓÊÕ¼¯")]
+    [Tooltip("é’±å¸é¢„çŸ¥ä½“ï¼Œè½¬æ¢çš„é’±å¸ç›´æ¥æ”¶é›†")]
     public Coin Coin;
 
-    [Tooltip("ÍÌÊÉÄ¿±ê, ÓÅÏÈÍÌÊÉÔÙ¹¥»÷")]
+    [Tooltip("åå™¬ç›®æ ‡, ä¼˜å…ˆåå™¬å†æ”»å‡»")]
     public LayerMask AttackLayer;
 
     private float timer;
@@ -31,8 +31,8 @@ public class Chomper : Plant
     private float finalDigestSpeed;
     private float finalRage;
     private int finalSwallowCount;
-    private float coinConversionRate;  // ½ğ±Ò×ª»»ÂÊ
-    private float sunConversionRate;  // Ñô¹â×ª»»ÂÊ
+    private float coinConversionRate;  // é‡‘å¸è½¬æ¢ç‡
+    private float sunConversionRate;  // é˜³å…‰è½¬æ¢ç‡
     private int finalDamage;
 
     private List<Health> targetHealthList = new List<Health>();
@@ -49,11 +49,11 @@ public class Chomper : Plant
         AudioManager.Instance.AudioLists.Add(audioSource);
     }
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
 
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalDigestSpeed = DigestSpeed;
         finalRage = Range;
         finalSwallowCount = SwallowCount;
@@ -61,35 +61,35 @@ public class Chomper : Plant
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 0 Ïû»¯ËÙ¶È
+                // 0 æ¶ˆåŒ–é€Ÿåº¦
                 case 0:
                     finalDigestSpeed += (int)fieldInfo.GetValue(plantAttribute) * LevelDigestSpeed;
                     break;
-                // 1 ¹¥»÷¼ì²â·¶Î§
+                // 1 æ”»å‡»æ£€æµ‹èŒƒå›´
                 case 1:
                     finalRage = Range * ((int)fieldInfo.GetValue(plantAttribute) * LevelRange + 100) / 100;
                     break;
-                // Ò»´ÎĞÔÍÌÊÉ¸öÊı
+                // ä¸€æ¬¡æ€§åå™¬ä¸ªæ•°
                 case 2:
                     finalSwallowCount += (int)fieldInfo.GetValue(plantAttribute);
                     break;
-                // ½ğ±Ò×ª»»ÂÊ
+                // é‡‘å¸è½¬æ¢ç‡
                 case 3:
                     coinConversionRate = (int)fieldInfo.GetValue(plantAttribute) * LevelPercentage / 100;
                     break;
-                // Ñô¹â×ª»»ÂÊ
+                // é˜³å…‰è½¬æ¢ç‡
                 case 4:
                     sunConversionRate = (int)fieldInfo.GetValue(plantAttribute) * LevelPercentage / 100;
                     break;
-                // »ù´¡ÉËº¦
+                // åŸºç¡€ä¼¤å®³
                 case 5:
                     finalDamage = (int)fieldInfo.GetValue(plantAttribute) * LevelBasicDamage + finalDamage;
                     break;
-                // °Ù·Ö±ÈÉËº¦
+                // ç™¾åˆ†æ¯”ä¼¤å®³
                 case 6:
                     finalDamage = (int)(finalDamage * ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100);
                     break;
@@ -109,7 +109,7 @@ public class Chomper : Plant
         if (Time.time - timer > finalDigestSpeed)
         {
             animator.SetBool("IsDigest", false);
-            // Ïû»¯Íê±Ï£¬×ª»»Ñô¹âºÍ½ğ±Ò
+            // æ¶ˆåŒ–å®Œæ¯•ï¼Œè½¬æ¢é˜³å…‰å’Œé‡‘å¸
             if (targetHealthList.Count > 0)
             {
                 if (lastIsSwallow)
@@ -139,8 +139,8 @@ public class Chomper : Plant
                 targetHealthList.Clear();
             }
 
-            int count = 0; // ¹¥»÷»òÍÌÊÉµÄ¸öÊı
-            // ÓÅÏÈ¼ì²âÍÌÊÉÄ¿±ê£¬Ã»ÓĞÔò¼ì²â¹¥»÷Ä¿±ê¾ŞÈË£¬½©Íõ  // todo 
+            int count = 0; // æ”»å‡»æˆ–åå™¬çš„ä¸ªæ•°
+            // ä¼˜å…ˆæ£€æµ‹åå™¬ç›®æ ‡ï¼Œæ²¡æœ‰åˆ™æ£€æµ‹æ”»å‡»ç›®æ ‡å·¨äººï¼Œåƒµç‹  // todo 
             OverlapBox(ref count);
             if (count != 0)
             {
@@ -153,7 +153,7 @@ public class Chomper : Plant
                 OverlapBox(ref count, false);
                 if (count != 0)
                 {
-                    timer = Time.time - finalDigestSpeed + 1;  // ¹¥»÷Ö»ÓĞ1sÀäÈ´
+                    timer = Time.time - finalDigestSpeed + 1;  // æ”»å‡»åªæœ‰1så†·å´
                     animator.SetTrigger("Attack");
                     StartCoroutine("Attack", false);
                 }
@@ -187,7 +187,7 @@ public class Chomper : Plant
         audioSource.Play();
         animator.SetBool("IsDigest", isSwallow);
         lastIsSwallow = isSwallow;
-        // ¼ì²âµ½µÄÊıÄ¿²»×ãÔÙ´Î½øĞĞ¼ì²â
+        // æ£€æµ‹åˆ°çš„æ•°ç›®ä¸è¶³å†æ¬¡è¿›è¡Œæ£€æµ‹
         if (targetHealthList.Count < SwallowCount)
         {
             int count = targetHealthList.Count;

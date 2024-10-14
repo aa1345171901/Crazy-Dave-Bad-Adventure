@@ -156,6 +156,11 @@ namespace TopDownPlate
             GameManager.Instance.SetRunSlider(value);
         }
 
+        public void EatFood()
+        {
+            runTimer = realMaxRunTime;
+        }
+
         public override void UpdateAnimator()
         {
             base.UpdateAnimator();

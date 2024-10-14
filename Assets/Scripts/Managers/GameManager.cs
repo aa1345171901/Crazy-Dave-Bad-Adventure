@@ -125,6 +125,11 @@ namespace TopDownPlate
 
         public List<Coin> Coins { get; set; } = new List<Coin>();  // 用于吸金菇吸收，在金币生成时加入，消失时Remove
 
+        /// <summary>
+        /// 局外花园种子的植物只在当波有效
+        /// </summary>
+        public List<Plant> plantSeedCard { get; set; } = new List<Plant>();
+
         private BattlePanel battlePanel;
         private PausePanel pausePanel;
         public AttributePanel attributePanel { get; private set; }
@@ -162,6 +167,7 @@ namespace TopDownPlate
         {
             UIManager.Instance.ClearDict();  // 到主菜单后UIManager由于不是MonoBehaviour所以需要手动进行字典清空
             LoadData();
+            StartCoroutine(CreateSeedCard());
         }
 
         private void SaveData()
@@ -428,6 +434,7 @@ namespace TopDownPlate
             }
             SaveData();
             battlePanel.UpdatePlantPage();
+            ClearSeedCards();
             Reuse();
         }
 
@@ -611,6 +618,53 @@ namespace TopDownPlate
         public void Pause()
         {
             pausePanel = UIManager.Instance.PushPanel(UIPanelType.PausePanel) as PausePanel;
+        }
+
+        /// <summary>
+        /// 每波结束，清理外部花园种植的植物
+        /// </summary>
+        public void ClearSeedCards()
+        {
+            while(plantSeedCard.Count > 0)
+            {
+                var plant = plantSeedCard[0];
+                if (plant.plantAttribute.plantCard.plantType == PlantType.Gravebuster)
+                {
+                    GardenManager.Instance.Gravebusters.Remove(plant as Gravebuster);
+                }
+                plantSeedCard.RemoveAt(0);
+                GameObject.Destroy(plant.gameObject);
+            }
+        }
+
+        /// <summary>
+        /// 周期生成外部花园植物卡片
+        /// </summary>
+        IEnumerator CreateSeedCard()
+        {
+            float loopTime = ConfManager.Instance.confMgr.gameIntParam.GetItemByKey("seedCardDefaultTime").value;
+            List<int> placePlants = new List<int>();
+            foreach (var item in SaveManager.Instance.externalGrowthData.plantPlace)
+            {
+                if (item.value != 0)
+                    placePlants.Add(item.value);
+            }
+            loopTime -= placePlants.Count * ConfManager.Instance.confMgr.gameIntParam.GetItemByKey("seedCardReduceTime").value;
+            Debug.Log(loopTime);
+            while (true)
+            {
+                yield return new WaitForSeconds(loopTime);
+                if (isDaytime)
+                    continue;
+                int random = Random.Range(0, placePlants.Count);
+                var plantType = placePlants[random];
+                var seedCardGo = Resources.Load<PlantSeedCard>("Prefabs/Plants/PlantSeedCard/PlantSeedCard");
+                var seedCard = GameObject.Instantiate(seedCardGo);
+                seedCard.plantType = plantType;
+                Vector3 offset = new Vector3(Random.Range(-4, 4f), Random.Range(-2f, 1f), 0);
+                seedCard.targetPos = Player.transform.position + offset;
+                seedCard.transform.position = new Vector3(seedCard.targetPos.x, Player.transform.position.y + 3, seedCard.transform.position.z);
+            }
         }
     }
 }

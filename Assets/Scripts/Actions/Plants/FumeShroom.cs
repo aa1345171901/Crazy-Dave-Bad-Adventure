@@ -7,15 +7,15 @@ public class FumeShroom : Plant
 {
     public override PlantType PlantType => PlantType.FumeShroom;
 
-    [Tooltip("¹¥»÷ÉËº¦")]
+    [Tooltip("æ”»å‡»ä¼¤å®³")]
     public int Damage = 5;
-    [Tooltip("¹¥»÷·¶Î§")]
+    [Tooltip("æ”»å‡»èŒƒå›´")]
     public float Range = 3.5f;
-    [Tooltip("¹¥»÷ÀäÈ´Ê±¼ä")]
+    [Tooltip("æ”»å‡»å†·å´æ—¶é—´")]
     public float CoolTime = 2;
-    [Tooltip("¹¥»÷Ä¿±ê")]
+    [Tooltip("æ”»å‡»ç›®æ ‡")]
     public LayerMask TargetLayer;
-    [Tooltip("¹¥»÷Ö¡¶¯»­")]
+    [Tooltip("æ”»å‡»å¸§åŠ¨ç”»")]
     public SpriteRenderer AttackImage;
 
     public AudioSource audioSource;
@@ -40,46 +40,46 @@ public class FumeShroom : Plant
         AudioManager.Instance.AudioLists.Add(this.audioSource);
     }
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
 
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalDamage = Damage;
         finalRage = Range;
         finalCoolTime = CoolTime;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 0 Îª»ù´¡ÉËº¦
+                // 0 ä¸ºåŸºç¡€ä¼¤å®³
                 case 0:
                     finalDamage = (int)fieldInfo.GetValue(plantAttribute) * LevelBasicDamage + finalDamage;
                     break;
-                // 1 Îª°Ù·Ö±ÈÉËº¦
+                // 1 ä¸ºç™¾åˆ†æ¯”ä¼¤å®³
                 case 1:
                     finalDamage = (int)(finalDamage * ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100);
                     break;
-                // ¼ì²â·¶Î§
+                // æ£€æµ‹èŒƒå›´
                 case 2:
                     finalRage = Range * ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100;
                     break;
-                // ÀäÈ´Ê±¼ä
+                // å†·å´æ—¶é—´
                 case 3:
                     finalCoolTime = CoolTime - (int)fieldInfo.GetValue(plantAttribute) * LevelCoolTime;
                     break;
-                // ±©»÷ÂÊ
+                // æš´å‡»ç‡
                 case 4:
                     finalCriticalHitRate = (int)fieldInfo.GetValue(plantAttribute) * LevelCriticalHitRate;
                     break;
-                // ±©»÷ÉËº¦
+                // æš´å‡»ä¼¤å®³
                 case 5:
                     finalCriticalHitDamage = 1.5f + (int)fieldInfo.GetValue(plantAttribute) * LevelCoolTime;
                     break;
-                // ÉËº¦¶ÎÊı·­±¶¸ÅÂÊ
+                // ä¼¤å®³æ®µæ•°ç¿»å€æ¦‚ç‡
                 case 6:
                     finalDoubleDamageRate = (int)fieldInfo.GetValue(plantAttribute) * LevelDoubleDamageRate;
                     break;

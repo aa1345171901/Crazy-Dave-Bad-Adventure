@@ -7,16 +7,16 @@ public class MagnetShroom : Plant
 {
     public override PlantType PlantType => PlantType.MagentShroom;
 
-    [Tooltip("ÎüÈ¡ÌúÖÆÆ·Ä¬ÈÏ¸öÊı")]
+    [Tooltip("å¸å–é“åˆ¶å“é»˜è®¤ä¸ªæ•°")]
     public int CutterCount = 1;
-    [Tooltip("ÎüÊÕÀäÈ´Ê±¼ä")]
+    [Tooltip("å¸æ”¶å†·å´æ—¶é—´")]
     public float CoolTime = 12f;
-    [Tooltip("ÎüÊÕ³ÖĞøÊ±¼ä")]
+    [Tooltip("å¸æ”¶æŒç»­æ—¶é—´")]
     public float DurationTime = 2f;
     public AudioSource audioSource;
 
     private float timer;
-    private bool isAbsorbing;  // ÕıÔÚÎüÈ¡
+    private bool isAbsorbing;  // æ­£åœ¨å¸å–
 
     private int finalCount;
     private float finalCoolTime;
@@ -35,11 +35,11 @@ public class MagnetShroom : Plant
         AudioManager.Instance.AudioLists.Add(audioSource);
     }
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
 
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalCoolTime = CoolTime;
         finalCount = CutterCount;
         finalDurationTime = DurationTime;
@@ -47,26 +47,26 @@ public class MagnetShroom : Plant
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 2 ÀäÈ´Ê±¼ä
+                // 2 å†·å´æ—¶é—´
                 case 2:
                     finalCoolTime -= (int)fieldInfo.GetValue(plantAttribute) * LevelTime;
                     break;
-                // 3 »»È¡½ğ±ÒÊı
+                // 3 æ¢å–é‡‘å¸æ•°
                 case 3:
                     finalChangeCoin += (int)fieldInfo.GetValue(plantAttribute) * LevelCoin;
                     break;
-                // 4 ÎüÈ¡¸öÊı
+                // 4 å¸å–ä¸ªæ•°
                 case 4:
                     int level = (int)fieldInfo.GetValue(plantAttribute);
                     finalCount += (int)(level * LevelCutterCount);
                     if (level == 10)
                         finalCount = 5;
                     break;
-                // 5 ³ÖĞøÊ±¼ä
+                // 5 æŒç»­æ—¶é—´
                 case 5:
                     finalDurationTime += (int)fieldInfo.GetValue(plantAttribute) * LevelTime / 2;
                     break;
@@ -107,7 +107,7 @@ public class MagnetShroom : Plant
         }
         if (isAbsorbing)
         {
-            // Ôö¼ÓÌúÖÆÆ·
+            // å¢åŠ é“åˆ¶å“
             if (targets.Count < finalCount)
             {
                 JudgeAttack();

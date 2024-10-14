@@ -17,6 +17,8 @@ public class ExternalGardenPanel : BasePanel
 
     public Button btnMainmenu;
 
+    public Text tips;
+
     public int selectSeed { get; private set; }
     public bool isShovel { get; private set; }
     public bool isItemDown { get; set; }
@@ -26,9 +28,11 @@ public class ExternalGardenPanel : BasePanel
     public MainMenu mainMenu { get; set; }
 
     int seedSumCache;
+    int placeNum;
 
     private void Start()
     {
+        placeNum = 0;
         for (int i = 0; i < plantPosParent.childCount; i++)
         {
             var posT = plantPosParent.GetChild(i);
@@ -40,11 +44,20 @@ public class ExternalGardenPanel : BasePanel
             var posList = SaveManager.Instance.externalGrowthData.plantPlace.Where((e) => e.key == pos);
             var data = posList.Count() == 0 ? null : posList.First();
             newPlaceItem.InitData(pos, data == null ? 0 : data.value, this);
+            if (data != null)
+                placeNum++;
         }
-
         UpdataUI();
         btnShovel.onClick.AddListener(OnShovelClick);
         btnMainmenu.onClick.AddListener(OnClose);
+        UpdateCoolTips();
+    }
+
+    void UpdateCoolTips()
+    {
+        float loopTime = ConfManager.Instance.confMgr.gameIntParam.GetItemByKey("seedCardDefaultTime").value;
+        loopTime -= placeNum * ConfManager.Instance.confMgr.gameIntParam.GetItemByKey("seedCardReduceTime").value;
+        tips.text = string.Format(GameTool.LocalText("garden_cooltimeTips"), loopTime);
     }
 
     void OnClose()
@@ -55,7 +68,7 @@ public class ExternalGardenPanel : BasePanel
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0) && !isItemDown)
+        if ((Input.GetMouseButtonUp(0) && !isItemDown) || Input.GetMouseButtonDown(1))
         {
             if (isShovel)
             {
@@ -64,6 +77,8 @@ public class ExternalGardenPanel : BasePanel
                 AudioManager.Instance.PlayEffectSoundByName("BtnGarden");
             }
         }
+        if (Input.GetMouseButtonDown(1))
+            selectSeed = 0;
         if (isShovel)
         {
             var mousePos = GameTool.GetMouseWorldPosi(UIManager.Instance.UICamera);
@@ -123,6 +138,8 @@ public class ExternalGardenPanel : BasePanel
         SaveManager.Instance.externalGrowthData.PlacePlantSeed(pos, selectSeed);
         this.seedSum.text = (seedSumCache - 1).ToString();
         SelectSeed(selectSeed, selectSeedItem);
+        placeNum++;
+        UpdateCoolTips();
     }
 
     public void ShovelPlant(int pos)
@@ -130,6 +147,8 @@ public class ExternalGardenPanel : BasePanel
         SaveManager.Instance.externalGrowthData.ShovelPlantSeed(pos);
         isShovel = false;
         shovel.transform.localPosition = Vector3.zero;
+        placeNum--;
+        UpdateCoolTips();
     }
 
     public override void OnEnter()

@@ -7,18 +7,18 @@ public class PuffShroom : Plant
 {
     public override PlantType PlantType => PlantType.PuffShroom;
 
-    [Tooltip("¹¥»÷ÉËº¦")]
+    [Tooltip("æ”»å‡»ä¼¤å®³")]
     public int Damage = 3;
-    [Tooltip("¹¥»÷·¶Î§")]
+    [Tooltip("æ”»å‡»èŒƒå›´")]
     public float Range = 3;
-    [Tooltip("¹¥»÷ÀäÈ´Ê±¼ä")]
+    [Tooltip("æ”»å‡»å†·å´æ—¶é—´")]
     public float CoolTime = 2;
-    [Tooltip("¹¥»÷Ä¿±ê")]
+    [Tooltip("æ”»å‡»ç›®æ ‡")]
     public LayerMask TargetLayer;
 
-    [Tooltip("×Óµ¯·¢ÉäÎ»ÖÃ")]
+    [Tooltip("å­å¼¹å‘å°„ä½ç½®")]
     public Transform BulletPos;
-    [Tooltip("×Óµ¯Ô¤ÖÆÌå")]
+    [Tooltip("å­å¼¹é¢„åˆ¶ä½“")]
     public ShroomBullet ShroomBullet;
 
     protected float timer;
@@ -34,11 +34,11 @@ public class PuffShroom : Plant
     protected readonly float LevelPercentage = 10;
     protected readonly float LevelCoolTime = 0.1f;
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
 
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalDamage = Damage;
         finalRage = Range;
         finalCoolTime = CoolTime;
@@ -46,41 +46,41 @@ public class PuffShroom : Plant
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 0 Îª»ù´¡ÉËº¦
+                // 0 ä¸ºåŸºç¡€ä¼¤å®³
                 case 0:
                     finalDamage = (int)fieldInfo.GetValue(plantAttribute) * LevelBasicDamage + finalDamage;
                     break;
-                // 1 Îª°Ù·Ö±ÈÉËº¦
+                // 1 ä¸ºç™¾åˆ†æ¯”ä¼¤å®³
                 case 1:
                     finalDamage = (int)(finalDamage * ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100);
                     break;
-                // ¼ì²â·¶Î§
+                // æ£€æµ‹èŒƒå›´
                 case 2:
                     finalRage = Range * ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100;
                     break;
-                // ÀäÈ´Ê±¼ä
+                // å†·å´æ—¶é—´
                 case 3:
                     finalCoolTime = CoolTime - (int)fieldInfo.GetValue(plantAttribute) * LevelCoolTime;
                     break;
-                // ×Óµ¯ËÙ¶È
+                // å­å¼¹é€Ÿåº¦
                 case 4:
                     bulletSpeedMul = ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100;
                     break;
-                // ½¦ÉäÉËº¦
+                // æº…å°„ä¼¤å®³
                 case 5:
                     splashPercentage = (int)fieldInfo.GetValue(plantAttribute) * LevelPercentage;
                     break;
-                // ×Óµ¯±ä¶à¸ÅÂÊ
+                // å­å¼¹å˜å¤šæ¦‚ç‡
                 case 6:
                     bulletAddRate = ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100;
                     break;
-                // ×Óµ¯´óĞ¡
+                // å­å¼¹å¤§å°
                 case 7:
-                    bulletSize += ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100;
+                    bulletSize += ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage) / 100;
                     break;
                 default:
                     break;

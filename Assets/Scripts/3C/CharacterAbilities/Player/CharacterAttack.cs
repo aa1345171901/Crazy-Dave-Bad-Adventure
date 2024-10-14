@@ -58,7 +58,7 @@ namespace TopDownPlate
         private int finalCriticalHitRate;
         private float finalCriticalDamage;
 
-        private float planternAttackSpeed;
+        private float planternAttackSpeed = 1;
         /// <summary>
         /// 路灯附近提供的攻速
         /// </summary>
@@ -70,15 +70,13 @@ namespace TopDownPlate
             }
             set
             {
-                if (value == 0)
-                    finalAttackSpped = finalAttackSpped / planternAttackSpeed;
                 planternAttackSpeed = value;
                 if (planternAttackSpeed != 0)
                     finalAttackSpped = finalAttackSpped * planternAttackSpeed;
             }
         }
 
-        private float planternDamage;
+        private float planternDamage = 1;
         /// <summary>
         /// 路灯附近提升的伤害
         /// </summary>
@@ -90,15 +88,13 @@ namespace TopDownPlate
             }
             set
             {
-                if (value == 0)
-                    finalDamage = (int)(finalDamage / planternDamage);
                 planternDamage = value;
                 if (planternDamage != 0)
                     finalDamage = (int)(finalDamage * planternDamage);
             }
         }
 
-        private float iceShroomAttackSpeed;
+        private float iceShroomAttackSpeed = 1;
         /// <summary>
         /// 寒冰菇提供的攻速
         /// </summary>
@@ -110,8 +106,6 @@ namespace TopDownPlate
             }
             set
             {
-                if (value == 0)
-                    finalAttackSpped = finalAttackSpped / iceShroomAttackSpeed;
                 iceShroomAttackSpeed = value;
                 if (iceShroomAttackSpeed != 0)
                     finalAttackSpped = finalAttackSpped * iceShroomAttackSpeed;
@@ -132,7 +126,7 @@ namespace TopDownPlate
             var userData = GameManager.Instance.UserData;
             finalDamage = Mathf.RoundToInt((userData.Power + Damage) * (100f + userData.PercentageDamage) / 100);
             finalRepulsiveForce = RepulsiveForce + (userData.Power / 10f);
-            finalAttackSpped = AttackSpeed * (100 + userData.AttackSpeed) / 100;
+            finalAttackSpped = AttackSpeed * (400 + userData.AttackSpeed) / 400;
             finalRange = AttackRange * (100 + userData.Range) / 100;
             finalCriticalHitRate = userData.CriticalHitRate;
             finalAttackRecovery = userData.Adrenaline;

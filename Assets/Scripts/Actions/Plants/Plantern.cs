@@ -10,7 +10,6 @@ public class Plantern : Plant
     
     [Tooltip("检测范围")]
     public float Range = 1.5f;
-    public float RangeAttackSpeed = 1.1f;
 
     public Light2D light2D;
     public CircleCollider2D circleCollider2D;
@@ -20,20 +19,21 @@ public class Plantern : Plant
     private int finalRangeLifeResume;
     private float finalRangeDamage;
 
-    private readonly float LevelRangeAttackSpeed = 0.05f;
+    private readonly float LevelRangeAttackSpeed = 0.003f;
     private readonly float LevelRange = 0.15f;
     private readonly int LevelLife = 1;
     private readonly float LevelDamage = 0.1f;
 
-    private readonly float defaultDamage = 1.5f;  // 默认伤害
+    private readonly float defaultDamage = 0.1f;  // 默认伤害
+    private float defaultRangeAttackSpeed = 0.003f;
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
 
         // 属性顺序需要与PlantCultivationPage设计的文字相对应
         finalRange = Range;
-        finalRangeAttackSpeed = RangeAttackSpeed;
+        finalRangeAttackSpeed = defaultRangeAttackSpeed;
         finalRangeDamage = defaultDamage;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)

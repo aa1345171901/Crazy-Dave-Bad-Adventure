@@ -7,14 +7,14 @@ public class Starfruit : Plant
 {
     public override PlantType PlantType => PlantType.Starfruit;
 
-    [Tooltip("¹¥»÷ÉËº¦")]
+    [Tooltip("æ”»å‡»ä¼¤å®³")]
     public int Damage = 5;
-    [Tooltip("¹¥»÷ÀäÈ´Ê±¼ä")]
+    [Tooltip("æ”»å‡»å†·å´æ—¶é—´")]
     public float CoolTime = 2;
 
-    [Tooltip("×Óµ¯·¢ÉäÎ»ÖÃ")]
+    [Tooltip("å­å¼¹å‘å°„ä½ç½®")]
     public List<Transform> BulletPos;
-    [Tooltip("×Óµ¯Ô¤ÖÆÌå")]
+    [Tooltip("å­å¼¹é¢„åˆ¶ä½“")]
     public StarBullet StarBullet;
 
     private float timer;
@@ -27,37 +27,37 @@ public class Starfruit : Plant
     private readonly float LevelPercentage = 10;
     private readonly float LevelCoolTime = 0.1f;
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
 
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalDamage = Damage;
         finalCoolTime = CoolTime;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 0 Îª»ù´¡ÉËº¦
+                // 0 ä¸ºåŸºç¡€ä¼¤å®³
                 case 0:
                     finalDamage = (int)fieldInfo.GetValue(plantAttribute) * LevelBasicDamage + finalDamage;
                     break;
-                // 1 Îª°Ù·Ö±ÈÉËº¦
+                // 1 ä¸ºç™¾åˆ†æ¯”ä¼¤å®³
                 case 1:
                     finalDamage = (int)(finalDamage * ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100);
                     break;
-                // ÀäÈ´Ê±¼ä
+                // å†·å´æ—¶é—´
                 case 2:
                     finalCoolTime = CoolTime - (int)fieldInfo.GetValue(plantAttribute) * LevelCoolTime;
                     break;
-                // ×Óµ¯ËÙ¶È
+                // å­å¼¹é€Ÿåº¦
                 case 3:
                     bulletSpeedMul = ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100;
                     break;
-                // ½¦ÉäÉËº¦
+                // æº…å°„ä¼¤å®³
                 case 4:
                     splashPercentage = (int)fieldInfo.GetValue(plantAttribute) * LevelPercentage;
                     break;

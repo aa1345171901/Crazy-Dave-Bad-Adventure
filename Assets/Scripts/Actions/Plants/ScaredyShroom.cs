@@ -9,13 +9,13 @@ public class ScaredyShroom : PuffShroom
 
     public AudioSource audioSource;
 
-    private Dictionary<Collider2D, float> colliderDict = new Dictionary<Collider2D, float>();  // 僵尸以及僵尸上传受伤时间
+    private Dictionary<Collider2D, float> colliderDict = new Dictionary<Collider2D, float>();  // 鍍靛案浠ュ強鍍靛案涓婁紶鍙椾激鏃堕棿
 
     private bool isCrying;
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
         colliderDict.Clear();
     }
 
@@ -56,7 +56,7 @@ public class ScaredyShroom : PuffShroom
     {
         if (colliderDict.ContainsKey(collision))
         {
-            // 每秒造成伤害
+            // 姣忕閫犳垚浼ゅ
             if (Time.time - colliderDict[collision] > 1)
             {
                 var health = collision.GetComponent<Health>();

@@ -7,9 +7,9 @@ public class GloomShoom : FumeShroom
 {
     public override PlantType PlantType => PlantType.GloomShroom;
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
         AttackImage.transform.localScale = new Vector3(finalRage / Range, finalRage / Range, finalRage / Range);
     }
 

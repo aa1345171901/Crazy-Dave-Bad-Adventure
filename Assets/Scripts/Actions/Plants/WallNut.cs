@@ -7,13 +7,13 @@ public class WallNut : Plant
 {
     public override PlantType PlantType => PlantType.WallNut;
 
-    [Tooltip("攻击伤害")]
+    [Tooltip("鏀诲嚮浼ゅ")]
     public int Damage = 5;
-    [Tooltip("攻击冷却时间")]
+    [Tooltip("鏀诲嚮鍐峰嵈鏃堕棿")]
     public float CoolTime = 12;
-    [Tooltip("滚动速度")]
+    [Tooltip("婊氬姩閫熷害")]
     public float Speed = 6;
-    [Tooltip("攻击目标")]
+    [Tooltip("鏀诲嚮鐩爣")]
     public LayerMask TargetLayer;
 
     public Collider2D Collider2D;
@@ -34,7 +34,7 @@ public class WallNut : Plant
     private readonly float LevelCoolTime = 0.6f;
     private readonly float LevelBoomRate = 0.03f;
 
-    private Vector3 direction; // 前景方向
+    private Vector3 direction; // 鍓嶆櫙鏂瑰悜
     private Bounds levelBounds;
     private bool isBoomWallNut;
 
@@ -44,40 +44,45 @@ public class WallNut : Plant
         AudioManager.Instance.AudioLists.Add(audioSource);
     }
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
+        if (!randomPos)
+        {
+            direction = Vector3.right;
+            timer = Time.time;
+        }
         if (spriteRenderer == null)
             spriteRenderer = this.GetComponent<SpriteRenderer>();
         levelBounds = LevelManager.Instance.LevelBounds;
 
-        // 属性顺序需要与PlantCultivationPage设计的文字相对应
+        // 灞炴�ч『搴忛渶瑕佷笌PlantCultivationPage璁捐鐨勬枃瀛楃浉瀵瑰簲
         finalDamage = Damage;
         finalBoomNutRate = 0;
         finalCoolTime = CoolTime;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // 字段映射
+            // 瀛楁鏄犲皠
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 0 为基础伤害
+                // 0 涓哄熀纭�浼ゅ
                 case 0:
                     finalDamage = (int)fieldInfo.GetValue(plantAttribute) * LevelBasicDamage + finalDamage;
                     break;
-                // 1 为百分比伤害
+                // 1 涓虹櫨鍒嗘瘮浼ゅ
                 case 1:
                     finalDamage = (int)(finalDamage * ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100);
                     break;
-                // 滚动速度
+                // 婊氬姩閫熷害
                 case 2:
                     bulletSpeedMul = ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100;
                     break;
-                // 冷却时间
+                // 鍐峰嵈鏃堕棿
                 case 3:
                     finalCoolTime = CoolTime - (int)fieldInfo.GetValue(plantAttribute) * LevelCoolTime;
                     break;
-                // 溅射伤害
+                // 婧呭皠浼ゅ
                 case 4:
                     finalBoomNutRate = (int)fieldInfo.GetValue(plantAttribute) * LevelBoomRate;
                     break;

@@ -26,9 +26,9 @@ public class HypnoShroom : Plant
         AudioManager.Instance.AudioLists.Add(audioSource);
     }
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
         this.gameObject.SetActive(true);
         boxCollider.enabled = true;
         this.spriteRenderer.enabled = true;

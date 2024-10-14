@@ -9,13 +9,13 @@ public class SpikeWeed : Plant
 
     public AudioSource audioSource;
 
-    private Dictionary<Collider2D, float> colliderDict = new Dictionary<Collider2D, float>();  // ½©Ê¬ÒÔ¼°½©Ê¬ÉÏciÊÜÉËÊ±¼ä
+    private Dictionary<Collider2D, float> colliderDict = new Dictionary<Collider2D, float>();  // åƒµå°¸ä»¥åŠåƒµå°¸ä¸Šciå—ä¼¤æ—¶é—´
 
-    [Tooltip("¹¥»÷ÉËº¦")]
+    [Tooltip("æ”»å‡»ä¼¤å®³")]
     public int Damage = 5;
-    [Tooltip("¿ÉÆÆ»µÔØ¾ßÊıÁ¿")]
+    [Tooltip("å¯ç ´åè½½å…·æ•°é‡")]
     public int DestroyingVehiclesCount = 1;
-    [Tooltip("Ã¿¼¶Ôö¼ÓÆÆ»µÔØ¾ßÊıÁ¿")]
+    [Tooltip("æ¯çº§å¢åŠ ç ´åè½½å…·æ•°é‡")]
     public float LevelCutterCount = 0.34f;
     public float DecelerationPercentage = 0.2f;
     public float DecelerationTime = 0.5f;
@@ -23,7 +23,7 @@ public class SpikeWeed : Plant
 
     public bool isSpikeRock;
 
-    [Tooltip("¹¥»÷Ä¿±ê")]
+    [Tooltip("æ”»å‡»ç›®æ ‡")]
     public LayerMask TargetLayer;
 
     private int finalDamage;
@@ -40,11 +40,11 @@ public class SpikeWeed : Plant
     private readonly int LevelBasicDamage = 1;
     private readonly float LevelPercentage = 10;
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
         colliderDict.Clear();
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalDamage = Damage;
         finalDestroyingVehiclesCount = DestroyingVehiclesCount;
         finalDecelerationPercentage = DecelerationPercentage;
@@ -53,30 +53,30 @@ public class SpikeWeed : Plant
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 0 Îª»ù´¡ÉËº¦
+                // 0 ä¸ºåŸºç¡€ä¼¤å®³
                 case 0:
                     finalDamage = (int)fieldInfo.GetValue(plantAttribute) * LevelBasicDamage + finalDamage;
                     break;
-                // 1 Îª°Ù·Ö±ÈÉËº¦
+                // 1 ä¸ºç™¾åˆ†æ¯”ä¼¤å®³
                 case 1:
                     finalDamage = (int)(finalDamage * ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100);
                     break;
-                // ¿ÉÆÆ»µÔØ¾ßÊıÁ¿
+                // å¯ç ´åè½½å…·æ•°é‡
                 case 2:
                     int level = (int)fieldInfo.GetValue(plantAttribute);
                     finalDestroyingVehiclesCount += (int)(level * LevelCutterCount);
                     if (level == 10 && isSpikeRock)
                             finalDestroyingVehiclesCount = 5;
                     break;
-                // ¼õËÙ°Ù·Ö±È
+                // å‡é€Ÿç™¾åˆ†æ¯”
                 case 3:
                     finalDecelerationPercentage += (int)fieldInfo.GetValue(plantAttribute) * LeverDecelerationPercentage;
                     break;
-                // ¼õËÙÊ±¼ä
+                // å‡é€Ÿæ—¶é—´
                 case 4:
                     finalDecelerationTime += (int)fieldInfo.GetValue(plantAttribute) * LeverDecelerationTime;
                     break;
@@ -93,7 +93,7 @@ public class SpikeWeed : Plant
             return;
         if (colliderDict.ContainsKey(collision))
         {
-            // Ã¿ÃëÔì³ÉÉËº¦
+            // æ¯ç§’é€ æˆä¼¤å®³
             if (Time.time - colliderDict[collision] > coolTimer)
             {
                 var health = collision.GetComponent<Health>();

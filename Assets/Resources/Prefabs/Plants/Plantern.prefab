@@ -49,7 +49,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -99,7 +99,7 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
+  m_PointLightInnerRadius: 0.5
   m_PointLightOuterRadius: 1
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
@@ -240,7 +240,6 @@ MonoBehaviour:
       defaultSun: 0
       info: 
       plantType: 1
-      plantTypeString: Peashooter
     isCultivate: 0
     level1: 0
     level2: 0
@@ -251,7 +250,6 @@ MonoBehaviour:
     isGoToWar: 0
   animator: {fileID: 6894739337920951807}
   Range: 1.5
-  RangeAttackSpeed: 1.1
   light2D: {fileID: 4460099851148268117}
   circleCollider2D: {fileID: 435443594537476609}
 --- !u!58 &435443594537476609

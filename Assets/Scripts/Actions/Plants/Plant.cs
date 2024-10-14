@@ -11,7 +11,7 @@ public class Plant : MonoBehaviour
     public virtual PlantType PlantType => PlantType.None;
 
     protected SpriteRenderer spriteRenderer;
-    // ¼ì²â·¶Î§¼°Î»ÖÃ
+    // æ£€æµ‹èŒƒå›´åŠä½ç½®
     protected float realRange;
     protected Vector2 pos;
     protected Vector2 size;
@@ -36,22 +36,25 @@ public class Plant : MonoBehaviour
         }
     }
 
-    public virtual void Reuse()
+    public virtual void Reuse(bool randomPos = true)
     {
         if (spriteRenderer == null)
             spriteRenderer = this.GetComponent<SpriteRenderer>();
 
-        var levelBounds = LevelManager.Instance.LevelBounds;
-        float randomX = Random.Range(levelBounds.min.x, levelBounds.max.x);
-        // 0.5 ¸ÕºÃÕ¾ÔÚ¸ñ×ÓÉÏ
-        float randomY = (int)Random.Range(levelBounds.min.y, levelBounds.max.y - 0.5f) + 0.5f;
-        this.transform.position = new Vector3(randomX, randomY, 0);
-        int y = (int)((-randomY + 10) * 10);
-        spriteRenderer.sortingOrder = y;
-        // Èç¹ûÔÚÓÒ°ë²¿·ÖÔòÃæÏò×ó
-        if (randomX > levelBounds.center.x)
-            FacingDirections = FacingDirections.Left;
-        else
-            FacingDirections = FacingDirections.Right;
+        if (randomPos)
+        {
+            var levelBounds = LevelManager.Instance.LevelBounds;
+            float randomX = Random.Range(levelBounds.min.x, levelBounds.max.x);
+            // 0.5 åˆšå¥½ç«™åœ¨æ ¼å­ä¸Š
+            float randomY = (int)Random.Range(levelBounds.min.y, levelBounds.max.y - 0.5f) + 0.5f;
+            this.transform.position = new Vector3(randomX, randomY, 0);
+            int y = (int)((-randomY + 10) * 10);
+            spriteRenderer.sortingOrder = y;
+            // å¦‚æœåœ¨å³åŠéƒ¨åˆ†åˆ™é¢å‘å·¦
+            if (randomX > levelBounds.center.x)
+                FacingDirections = FacingDirections.Left;
+            else
+                FacingDirections = FacingDirections.Right;
+        }
     }
 }

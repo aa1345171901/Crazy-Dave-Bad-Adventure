@@ -10,19 +10,22 @@ public class Torchwood : Plant
     private readonly float LevelAdd = 0.1f;
     private readonly float defaultDamageAdd = 1f;  // 豌豆伤害默认翻倍
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
         if (spriteRenderer == null)
             spriteRenderer = this.GetComponent<SpriteRenderer>();
 
-        var levelBounds = LevelManager.Instance.LevelBounds;
-        float x = levelBounds.max.x;
-        // 0.5 刚好站在格子上
-        float randomY = (int)Random.Range(levelBounds.min.y, levelBounds.max.y - 0.5f) + 0.5f;
-        this.transform.position = new Vector3(x, randomY, 0);
-        int y = (int)((-randomY + 10) * 10);
-        spriteRenderer.sortingOrder = y;
-        FacingDirections = FacingDirections.Left;
+        if (randomPos)
+        {
+            var levelBounds = LevelManager.Instance.LevelBounds;
+            float x = levelBounds.max.x;
+            // 0.5 刚好站在格子上
+            float randomY = (int)Random.Range(levelBounds.min.y, levelBounds.max.y - 0.5f) + 0.5f;
+            this.transform.position = new Vector3(x, randomY, 0);
+            int y = (int)((-randomY + 10) * 10);
+            spriteRenderer.sortingOrder = y;
+            FacingDirections = FacingDirections.Left;
+        }
 
         float finalDamageAdd = defaultDamageAdd + GardenManager.Instance.TorchwoodEffect.DamageAdd;
         float finalSplashDamage = GardenManager.Instance.TorchwoodEffect.SplashDamage;

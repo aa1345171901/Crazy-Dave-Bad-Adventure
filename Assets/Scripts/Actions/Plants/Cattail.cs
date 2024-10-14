@@ -7,14 +7,14 @@ public class Cattail : Plant
 {
     public override PlantType PlantType => PlantType.Cattail;
 
-    [Tooltip("¹¥»÷ÉËº¦")]
+    [Tooltip("æ”»å‡»ä¼¤å®³")]
     public int Damage = 8;
-    [Tooltip("¹¥»÷ÀäÈ´Ê±¼ä")]
+    [Tooltip("æ”»å‡»å†·å´æ—¶é—´")]
     public float CoolTime = 1.6f;
 
-    [Tooltip("×Óµ¯·¢ÉäÎ»ÖÃ")]
+    [Tooltip("å­å¼¹å‘å°„ä½ç½®")]
     public Transform BulletPos;
-    [Tooltip("×Óµ¯Ô¤ÖÆÌå")]
+    [Tooltip("å­å¼¹é¢„åˆ¶ä½“")]
     public CattailSpikeBullet CattailSpikeBullet;
 
     private float timer;
@@ -30,42 +30,42 @@ public class Cattail : Plant
     private readonly float LevelCoolTime = 0.1f;
     private readonly float CriticalRate = 30;
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
 
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalDamage = Damage;
         finalCoolTime = CoolTime;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 0 Îª»ù´¡ÉËº¦
+                // 0 ä¸ºåŸºç¡€ä¼¤å®³
                 case 0:
                     finalDamage = (int)fieldInfo.GetValue(plantAttribute) * LevelBasicDamage + finalDamage;
                     break;
-                // 1 Îª°Ù·Ö±ÈÉËº¦
+                // 1 ä¸ºç™¾åˆ†æ¯”ä¼¤å®³
                 case 1:
                     finalDamage = (int)(finalDamage * ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100);
                     break;
-                // 2 ´©Í¸¸öÊı
+                // 2 ç©¿é€ä¸ªæ•°
                 case 2:
                     finalPenetrationCount = (int)fieldInfo.GetValue(plantAttribute) + 1;
                     break;
-                // 3 ±©»÷ÉËº¦
+                // 3 æš´å‡»ä¼¤å®³
                 case 3:
                     finalCriticalDamage = 2f + 2 * (int)fieldInfo.GetValue(plantAttribute) * LevelPercentage / 100f;
                     break;
-                // 4 ÀäÈ´Ê±¼ä
+                // 4 å†·å´æ—¶é—´
                 case 4:
                     finalCoolTime = CoolTime - (int)fieldInfo.GetValue(plantAttribute) * LevelCoolTime;
                     finalAttackAnimSpeed += (int)fieldInfo.GetValue(plantAttribute) * LevelCoolTime * 2;
                     break;
-                // ×Óµ¯ËÙ¶È
+                // å­å¼¹é€Ÿåº¦
                 case 5:
                     bulletSpeedMul = ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100;
                     break;

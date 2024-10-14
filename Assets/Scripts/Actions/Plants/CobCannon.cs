@@ -49,9 +49,9 @@ public class CobCannon : Plant
         AudioManager.Instance.AudioLists.Remove(audioSource);
     }
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
 
         // 属性顺序需要与PlantCultivationPage设计的文字相对应
         finalDamage = Damage;

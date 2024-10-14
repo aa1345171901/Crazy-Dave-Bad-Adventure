@@ -7,11 +7,11 @@ public class Gravebuster : Plant
 {
     public override PlantType PlantType => PlantType.Gravebuster;
 
-    [Tooltip("¹¥»÷ÀäÈ´Ê±¼ä")]
+    [Tooltip("æ”»å‡»å†·å´æ—¶é—´")]
     public float CoolTime = 12f;
-    [Tooltip("Ä¬ÈÏÍÌÊÉ¸ÅÂÊ")]
+    [Tooltip("é»˜è®¤åå™¬æ¦‚ç‡")]
     public int SwallowRate = 10;
-    [Tooltip("Ç®±ÒÔ¤ÖªÌå£¬×ª»»µÄÇ®±ÒÖ±½ÓÊÕ¼¯")]
+    [Tooltip("é’±å¸é¢„çŸ¥ä½“ï¼Œè½¬æ¢çš„é’±å¸ç›´æ¥æ”¶é›†")]
     public Coin Coin;
     public AudioSource audioSource;
     public GameObject Grave;
@@ -32,7 +32,7 @@ public class Gravebuster : Plant
         AudioManager.Instance.AudioLists.Add(audioSource);
     }
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -42,23 +42,23 @@ public class Gravebuster : Plant
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 0 ÍÌÊÉ¸ÅÂÊ
+                // 0 åå™¬æ¦‚ç‡
                 case 0:
                     finalSwallowRate += (int)fieldInfo.GetValue(plantAttribute) * LevelRate;
                     break;
-                // 1 ÔöÉË
+                // 1 å¢ä¼¤
                 case 1:
                     finalDamage += (int)fieldInfo.GetValue(plantAttribute) * LevelDamage;
                     break;
-                // ½ğ±Ò×ª»»ÂÊ
+                // é‡‘å¸è½¬æ¢ç‡
                 case 2:
                     coinConversionRate = (int)fieldInfo.GetValue(plantAttribute) * LevelPercentage;
                     break;
-                // 6 ÀäÈ´Ê±¼ä
+                // 6 å†·å´æ—¶é—´
                 case 6:
                     finalCoolTime -= (int)fieldInfo.GetValue(plantAttribute) * LevelCoolTime;
                     break;
@@ -72,7 +72,7 @@ public class Gravebuster : Plant
     }
 
     /// <summary>
-    /// ³ö½©Ê¬Ê±ÅĞ¶ÏÄÜ²»ÄÜÍÌÊÉ
+    /// å‡ºåƒµå°¸æ—¶åˆ¤æ–­èƒ½ä¸èƒ½åå™¬
     /// </summary>
     public bool CanSwallow()
     {

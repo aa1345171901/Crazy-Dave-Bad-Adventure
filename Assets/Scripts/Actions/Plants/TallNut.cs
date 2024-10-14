@@ -7,7 +7,7 @@ public class TallNut : Plant
 {
     public override PlantType PlantType => PlantType.TallNut;
 
-    [Tooltip("ÉúÃüÖµ")]
+    [Tooltip("ç”Ÿå‘½å€¼")]
     public int Health = 30;
 
     public LayerMask TargetLayer;
@@ -33,7 +33,7 @@ public class TallNut : Plant
     private readonly float BoomDamage = 0.5f;
 
     private Dictionary<Character, float> zombieDict = new Dictionary<Character, float>();
-    private float coolTimer = 1; //  Ã¿Ö»½©Ê¬µ¥¶ÀÉèÖÃÎŞµĞÊ±¼ä
+    private float coolTimer = 1; //  æ¯åªåƒµå°¸å•ç‹¬è®¾ç½®æ— æ•Œæ—¶é—´
 
     private void Start()
     {
@@ -41,12 +41,12 @@ public class TallNut : Plant
         AudioManager.Instance.AudioLists.Add(audioSource);
     }
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
 
         this.gameObject.SetActive(true);
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalBoomRate = 0;
         finalCounterInjury = 1;
         finalCounterInjuryRate = 0.1f;
@@ -54,23 +54,23 @@ public class TallNut : Plant
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // ×î´óÉúÃüÖµ
+                // æœ€å¤§ç”Ÿå‘½å€¼
                 case 0:
                     finalHealth += (int)((int)fieldInfo.GetValue(plantAttribute) * LevelHealth * GameManager.Instance.UserData.Botany);
                     break;
-                // ±¬Õ¨¸ÅÂÊ
+                // çˆ†ç‚¸æ¦‚ç‡
                 case 1:
                     finalBoomRate += (int)fieldInfo.GetValue(plantAttribute) * LevelRate;
                     break;
-                // ·´ÉËÉËº¦
+                // åä¼¤ä¼¤å®³
                 case 2:
                     finalCounterInjury += (int)fieldInfo.GetValue(plantAttribute) * LevelCounterInjury;
                     break;
-                // ·´ÉË¸ÅÂÊ
+                // åä¼¤æ¦‚ç‡
                 case 3:
                     finalCounterInjuryRate += (int)fieldInfo.GetValue(plantAttribute) * LevelCounterInjuryRate;
                     break;
@@ -145,7 +145,7 @@ public class TallNut : Plant
         this.finalHealth -= damage;
         if (finalHealth <= 0)
         {
-            // ±¬Õ¨
+            // çˆ†ç‚¸
             if (Random.Range(0, 1f) < finalBoomRate)
             {
                 audioSource.clip = boomClip;
@@ -181,7 +181,7 @@ public class TallNut : Plant
 
             audioSource.Play();
 
-            // ·´ÉË
+            // åä¼¤
             if (Random.Range(0, 1f) < finalCounterInjuryRate)
             {
                 character.Health.DoDamage((int)(damage * finalCounterInjury), DamageType.TallNut);

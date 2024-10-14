@@ -33,7 +33,8 @@ public class ManualPlant : Plant
     {
         this.card = card;
         this.sunPrice = sun;
-        card.coolTimer = finalCoolTime;
+        if (card != null)
+            card.coolTimer = finalCoolTime;
         audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
     }
 
@@ -112,6 +113,16 @@ public class ManualPlant : Plant
         return new Rect(screenPos, new Vector2(500, 500));
     }
 
+    /// <summary>
+    /// 种子植物卡片调用直接放植物
+    /// </summary>
+    public override void Reuse(bool randomPos = true)
+    {
+        base.Reuse(randomPos);
+        InitPlant(null, 0);
+        PlacePlant();
+    }
+
     protected virtual void PlacePlant()
     {
         audioSource.Play();
@@ -119,7 +130,7 @@ public class ManualPlant : Plant
         GardenManager.Instance.Sun -= sunPrice;
         image.gameObject.SetActive(false);
         plant.color = Color.white;
-        card.PlacePlant();
+        card?.PlacePlant();
         AchievementManager.Instance.SetAchievementType9((int)plantAttribute.plantCard.plantType);
     }
 }

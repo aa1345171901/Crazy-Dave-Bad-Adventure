@@ -6,12 +6,12 @@ public class SplitPea : PeaShooter
 {
     public override PlantType PlantType => PlantType.SplitPea;
 
-    [Tooltip("反向子弹发射位置")]
+    [Tooltip("鍙嶅悜瀛愬脊鍙戝皠浣嶇疆")]
     public Transform BulletPos2;
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
 
         pos = this.transform.position;
         size = new Vector2(finalRage * 2, 1);

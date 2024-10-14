@@ -101,6 +101,12 @@ namespace TopDownPlate
             }
         }
 
+        public void EatFood()
+        {
+            lastDashTime = Time.time - dashCoolTime;
+            dashCount = maxDashCount;
+        }
+
         IEnumerator Dash()
         {
             Vector2 vectorInput;

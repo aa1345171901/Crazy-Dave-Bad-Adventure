@@ -47,6 +47,8 @@ public class ConfGameIntParamBase : ConfBase<ConfGameIntParamItem>
 		AddItem(new ConfGameIntParamItem(1, "maxSlot", 10));
 		AddItem(new ConfGameIntParamItem(2, "defaultSolt", 2));
 		AddItem(new ConfGameIntParamItem(3, "sellRate", 70));
+		AddItem(new ConfGameIntParamItem(4, "seedCardDefaultTime", 22));
+		AddItem(new ConfGameIntParamItem(5, "seedCardReduceTime", 2));
 	}
 
 	public override void AddItem(ConfBaseItem item)

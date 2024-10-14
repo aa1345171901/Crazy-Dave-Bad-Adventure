@@ -6,12 +6,12 @@ public class Threepeater : PeaShooter
 {
     public override PlantType PlantType => PlantType.Threepeater;
 
-    [Tooltip("×Óµ¯·¢ÉäÎ»ÖÃ")]
+    [Tooltip("å­å¼¹å‘å°„ä½ç½®")]
     public List<Transform> BulletPoses;
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
 
         pos = this.transform.position;
         size = new Vector2(finalRage * 2, 3);

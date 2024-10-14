@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 0
-  AttackProbability: 0.05
+  AttackProbability: 0.02
   AttackJudgmentTime: 1
   realDamage: 0
   realAttackProbability: 0

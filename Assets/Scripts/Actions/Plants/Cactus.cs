@@ -7,16 +7,16 @@ public class Cactus : Plant
 {
     public override PlantType PlantType => PlantType.Cactus;
 
-    [Tooltip("¹¥»÷ÉËº¦")]
+    [Tooltip("æ”»å‡»ä¼¤å®³")]
     public int Damage = 5;
-    [Tooltip("¹¥»÷ÀäÈ´Ê±¼ä")]
+    [Tooltip("æ”»å‡»å†·å´æ—¶é—´")]
     public float CoolTime = 1.2f;
-    [Tooltip("¹¥»÷Ä¿±ê")]
+    [Tooltip("æ”»å‡»ç›®æ ‡")]
     public LayerMask TargetLayer;
 
-    [Tooltip("×Óµ¯·¢ÉäÎ»ÖÃ")]
+    [Tooltip("å­å¼¹å‘å°„ä½ç½®")]
     public Transform BulletPos;
-    [Tooltip("×Óµ¯Ô¤ÖÆÌå")]
+    [Tooltip("å­å¼¹é¢„åˆ¶ä½“")]
     public SpikeBullet SpikeBullet;
 
     private float timer;
@@ -32,43 +32,43 @@ public class Cactus : Plant
     private readonly float LevelCoolTime = 0.1f;
     private readonly float CriticalRate = 20;
 
-    public override void Reuse()
+    public override void Reuse(bool randomPos = true)
     {
-        base.Reuse();
+        base.Reuse(randomPos);
 
-        // ÊôĞÔË³ĞòĞèÒªÓëPlantCultivationPageÉè¼ÆµÄÎÄ×ÖÏà¶ÔÓ¦
+        // å±æ€§é¡ºåºéœ€è¦ä¸PlantCultivationPageè®¾è®¡çš„æ–‡å­—ç›¸å¯¹åº”
         finalDamage = Damage;
         finalCoolTime = CoolTime;
         finalCriticalDamage = 1.5f;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
-            // ×Ö¶ÎÓ³Éä
+            // å­—æ®µæ˜ å°„
             var fieldInfo = typeof(PlantAttribute).GetField("level" + (i + 1));
             switch (attributes[i])
             {
-                // 0 ´©Í¸¸öÊı
+                // 0 ç©¿é€ä¸ªæ•°
                 case 0:
                     finalPenetrationCount = (int)fieldInfo.GetValue(plantAttribute) + 1;
                     break;
-                // 1 ÀäÈ´Ê±¼ä
+                // 1 å†·å´æ—¶é—´
                 case 1:
                     finalCoolTime = CoolTime - (int)fieldInfo.GetValue(plantAttribute) * LevelCoolTime;
                     finalAttackAnimSpeed += (int)fieldInfo.GetValue(plantAttribute) * LevelCoolTime * 2;
                     break;
-                // 2 Îª»ù´¡ÉËº¦
+                // 2 ä¸ºåŸºç¡€ä¼¤å®³
                 case 2:
                     finalDamage = (int)fieldInfo.GetValue(plantAttribute) * LevelBasicDamage + finalDamage;
                     break;
-                // 3 Îª°Ù·Ö±ÈÉËº¦
+                // 3 ä¸ºç™¾åˆ†æ¯”ä¼¤å®³
                 case 3:
                     finalDamage = (int)(finalDamage * ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100);
                     break;
-                // ×Óµ¯ËÙ¶È
+                // å­å¼¹é€Ÿåº¦
                 case 4:
                     bulletSpeedMul = ((int)fieldInfo.GetValue(plantAttribute) * LevelPercentage + 100) / 100;
                     break;
-                // ±©»÷ÉËº¦
+                // æš´å‡»ä¼¤å®³
                 case 6:
                     finalCriticalDamage += 2 * (int)fieldInfo.GetValue(plantAttribute) * LevelPercentage / 100f;
                     break;
@@ -84,7 +84,7 @@ public class Cactus : Plant
         if (Time.time - timer > finalCoolTime)
         {
             var direction = FacingDirections == FacingDirections.Right ? Vector2.right : Vector2.left;
-            // 30¸ö¸ñ×ÓÎª×î´ó¿í¶È
+            // 30ä¸ªæ ¼å­ä¸ºæœ€å¤§å®½åº¦
             var hit = Physics2D.Raycast(this.transform.position, direction, 30, TargetLayer);
             if (hit)
             {

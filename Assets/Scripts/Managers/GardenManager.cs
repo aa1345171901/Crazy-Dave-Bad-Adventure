@@ -69,11 +69,11 @@ public class TorchwoodEffect
         DamageAdd = SplashDamage = PeaSpeed = 1;
     }
 
-    public float DamageAdd { get; set; }
+    public float DamageAdd { get; set; } = 1;
 
-    public float SplashDamage { get; set; }
+    public float SplashDamage { get; set; } = 1;
 
-    public float PeaSpeed { get; set; }
+    public float PeaSpeed { get; set; } = 1;
 }
 
 [Serializable]
