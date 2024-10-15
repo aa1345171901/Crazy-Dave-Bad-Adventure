@@ -32,13 +32,6 @@ public class CobCannon : Plant
     private readonly float LevelImmediateMortality = 0.05f;
     private readonly float LevelIncreasedInjury = 0.2f;
 
-#if UNITY_EDITOR
-    private void Start()
-    {
-        Reuse();
-    }
-#endif
-
     private void Awake()
     {
         AudioManager.Instance.AudioLists.Add(audioSource);

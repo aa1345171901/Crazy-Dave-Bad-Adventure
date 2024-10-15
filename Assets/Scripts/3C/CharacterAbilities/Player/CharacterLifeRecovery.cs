@@ -59,7 +59,18 @@ namespace TopDownPlate
             if (lifeRecoveryValue > 0)
             {
                 lifeRecoveryTimer += Time.deltaTime;
-                if (lifeRecoveryTimer >= howManySecondsRecoverty / lifeRecoveryValue)
+                float unitTime = howManySecondsRecoverty / lifeRecoveryValue;
+                int mul = 1;
+                if (unitTime < 1)
+                {
+                    mul = Mathf.CeilToInt(1 / unitTime);
+                    if (lifeRecoveryTimer >= 1)
+                    {
+                        lifeRecoveryTimer = 0;
+                        GameManager.Instance.AddHP(1 * mul);
+                    }
+                }
+                else if (lifeRecoveryTimer >= unitTime)
                 {
                     lifeRecoveryTimer = 0;
                     GameManager.Instance.AddHP(1);

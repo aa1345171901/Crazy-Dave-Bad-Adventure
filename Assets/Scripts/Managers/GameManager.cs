@@ -418,6 +418,7 @@ namespace TopDownPlate
 
         public void NextWave()
         {
+            SaveData();
             IsDaytime = false;
             LevelManager.Instance.IndexWave++;
             LevelManager.Instance.Init();
@@ -432,7 +433,6 @@ namespace TopDownPlate
                     AchievementManager.Instance.SetAchievementType10(item.Name, value);
                 }
             }
-            SaveData();
             battlePanel.UpdatePlantPage();
             ClearSeedCards();
             Reuse();
@@ -650,7 +650,6 @@ namespace TopDownPlate
                     placePlants.Add(item.value);
             }
             loopTime -= placePlants.Count * ConfManager.Instance.confMgr.gameIntParam.GetItemByKey("seedCardReduceTime").value;
-            Debug.Log(loopTime);
             while (true)
             {
                 yield return new WaitForSeconds(loopTime);

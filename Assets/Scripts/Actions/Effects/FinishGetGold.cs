@@ -17,12 +17,17 @@ public class FinishGetGold : MonoBehaviour
     private int gold;
     private int finishGold;
 
-    private readonly int MaxAudioCount = 4;  // ×î¶à²¥·Å4´Î
+    private readonly int MaxAudioCount = 4;  // æœ€å¤šæ’­æ”¾4æ¬¡
 
     private void Start()
     {
         AudioManager.Instance.AudioLists.Add(this.audioSource);
         this.audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
+    }
+
+    private void OnDestroy()
+    {
+        AudioManager.Instance.AudioLists.Remove(this.audioSource);
     }
 
     public void GetGold()

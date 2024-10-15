@@ -34,6 +34,11 @@ public class MainMenu : MonoBehaviour
         btnGrow.onClick.AddListener(GrowOpen);
     }
 
+    private void OnDestroy()
+    {
+        AudioManager.Instance.AudioLists.Remove(this.audioSource);
+    }
+
     private void PlayPotAudio(TrackEntry e)
     {
         if (!playAudio)

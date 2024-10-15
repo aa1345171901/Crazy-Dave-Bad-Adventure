@@ -307,9 +307,11 @@ namespace TopDownPlate
             if (health + value > maxHealth)
                 health = maxHealth;
             else
+            {
+                if (SaveManager.Instance.systemData.IsHUD)
+                    SetHUD(value);
                 health += value;
-            if (SaveManager.Instance.systemData.IsHUD)
-                SetHUD(value);
+            }
         }
     }
 }

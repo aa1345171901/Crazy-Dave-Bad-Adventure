@@ -94,9 +94,9 @@ public class ConfWaveBase : ConfBase<ConfWaveItem>
 		AddItem(new ConfWaveItem(903, 9, 7, new int[]{ 1, 1, 2 }, new float[]{ 8f, 8f, 7f }, 2));
 		AddItem(new ConfWaveItem(904, 9, 4, new int[]{ 1, 1, 1 }, new float[]{ 8f, 8f, 7f }, 2));
 		AddItem(new ConfWaveItem(905, 9, 2, new int[]{ 1, 1, 1 }, new float[]{ 15f, 15f, 8f }, 8));
-		AddItem(new ConfWaveItem(1001, 10, 0, new int[]{ 1, 1, 1 }, new float[]{ 6f, 6f, 6f }, 0));
-		AddItem(new ConfWaveItem(1002, 10, 1, new int[]{ 1, 1, 1 }, new float[]{ 8f, 8f, 8f }, 1));
-		AddItem(new ConfWaveItem(1003, 10, 4, new int[]{ 1, 1, 1 }, new float[]{ 10f, 10f, 8f }, 2));
+		AddItem(new ConfWaveItem(1001, 10, 0, new int[]{ 3, 3, 3 }, new float[]{ 4f, 4f, 3.5f }, 0));
+		AddItem(new ConfWaveItem(1002, 10, 1, new int[]{ 1, 1, 2 }, new float[]{ 8f, 5f, 6f }, 1));
+		AddItem(new ConfWaveItem(1003, 10, 4, new int[]{ 1, 1, 2 }, new float[]{ 8f, 5f, 6f }, 2));
 		AddItem(new ConfWaveItem(1004, 10, 11, new int[]{ 1, 1, 1 }, new float[]{ 2000f, 2000f, 2000f }, 0));
 		AddItem(new ConfWaveItem(1101, 11, 0, new int[]{ 2, 2, 2 }, new float[]{ 4f, 3f, 2f }, 0));
 		AddItem(new ConfWaveItem(1102, 11, 1, new int[]{ 1, 1, 1 }, new float[]{ 6f, 5f, 4f }, 1));
@@ -129,8 +129,8 @@ public class ConfWaveBase : ConfBase<ConfWaveItem>
 		AddItem(new ConfWaveItem(1407, 14, 8, new int[]{ 1, 1, 1 }, new float[]{ 10f, 8f, 6f }, 2));
 		AddItem(new ConfWaveItem(1408, 14, 5, new int[]{ 1, 1, 1 }, new float[]{ 6f, 6f, 4f }, 0));
 		AddItem(new ConfWaveItem(1409, 14, 10, new int[]{ 1, 1, 1 }, new float[]{ 6f, 6f, 6f }, 8));
-		AddItem(new ConfWaveItem(1501, 15, 0, new int[]{ 1, 1, 1 }, new float[]{ 6f, 6f, 6f }, 0));
-		AddItem(new ConfWaveItem(1502, 15, 3, new int[]{ 1, 1, 1 }, new float[]{ 8f, 8f, 8f }, 8));
+		AddItem(new ConfWaveItem(1501, 15, 0, new int[]{ 2, 2, 2 }, new float[]{ 4f, 4f, 3f }, 0));
+		AddItem(new ConfWaveItem(1502, 15, 3, new int[]{ 1, 1, 1 }, new float[]{ 6f, 6f, 6f }, 8));
 		AddItem(new ConfWaveItem(1503, 15, 6, new int[]{ 1, 1, 1 }, new float[]{ 8f, 8f, 8f }, 4));
 		AddItem(new ConfWaveItem(1504, 15, 7, new int[]{ 1, 1, 1 }, new float[]{ 6f, 6f, 6f }, 6));
 		AddItem(new ConfWaveItem(1505, 15, 9, new int[]{ 1, 1, 1 }, new float[]{ 10f, 10f, 10f }, 2));
@@ -160,18 +160,19 @@ public class ConfWaveBase : ConfBase<ConfWaveItem>
 		AddItem(new ConfWaveItem(1901, 19, 1, new int[]{ 4, 4, 4 }, new float[]{ 3f, 3f, 2f }, 0));
 		AddItem(new ConfWaveItem(1902, 19, 7, new int[]{ 2, 2, 2 }, new float[]{ 3f, 3f, 2f }, 8));
 		AddItem(new ConfWaveItem(1903, 19, 6, new int[]{ 3, 3, 3 }, new float[]{ 3f, 3f, 3f }, 2));
-		AddItem(new ConfWaveItem(2001, 20, 1, new int[]{ 1, 1, 1 }, new float[]{ 6f, 8f, 6f }, 0));
-		AddItem(new ConfWaveItem(2002, 20, 2, new int[]{ 1, 1, 1 }, new float[]{ 12f, 10f, 10f }, 8));
-		AddItem(new ConfWaveItem(2003, 20, 3, new int[]{ 1, 1, 1 }, new float[]{ 10f, 10f, 10f }, 16));
-		AddItem(new ConfWaveItem(2004, 20, 4, new int[]{ 1, 1, 1 }, new float[]{ 14f, 10f, 10f }, 20));
-		AddItem(new ConfWaveItem(2005, 20, 5, new int[]{ 1, 1, 1 }, new float[]{ 20f, 15f, 15f }, 24));
-		AddItem(new ConfWaveItem(2006, 20, 6, new int[]{ 1, 1, 1 }, new float[]{ 12f, 10f, 10f }, 8));
-		AddItem(new ConfWaveItem(2007, 20, 7, new int[]{ 1, 1, 1 }, new float[]{ 16f, 10f, 10f }, 16));
-		AddItem(new ConfWaveItem(2008, 20, 8, new int[]{ 1, 1, 1 }, new float[]{ 15f, 10f, 10f }, 12));
-		AddItem(new ConfWaveItem(2009, 20, 9, new int[]{ 1, 1, 1 }, new float[]{ 30f, 15f, 15f }, 16));
-		AddItem(new ConfWaveItem(2010, 20, 10, new int[]{ 1, 1, 1 }, new float[]{ 30f, 20f, 20f }, 20));
-		AddItem(new ConfWaveItem(2011, 20, 11, new int[]{ 1, 1, 1 }, new float[]{ 90f, 90f, 90f }, 45));
-		AddItem(new ConfWaveItem(2022, 20, 12, new int[]{ 1, 1, 1 }, new float[]{ 99999999f, 99999999f, 99999999f }, -99999999));
+		AddItem(new ConfWaveItem(2001, 20, 0, new int[]{ 1, 1, 1 }, new float[]{ 3f, 3f, 3f }, 0));
+		AddItem(new ConfWaveItem(2002, 20, 1, new int[]{ 1, 1, 1 }, new float[]{ 6f, 8f, 6f }, 0));
+		AddItem(new ConfWaveItem(2003, 20, 2, new int[]{ 1, 1, 1 }, new float[]{ 10f, 10f, 10f }, 8));
+		AddItem(new ConfWaveItem(2004, 20, 3, new int[]{ 1, 1, 1 }, new float[]{ 10f, 10f, 10f }, 16));
+		AddItem(new ConfWaveItem(2005, 20, 4, new int[]{ 1, 1, 1 }, new float[]{ 10f, 10f, 10f }, 20));
+		AddItem(new ConfWaveItem(2006, 20, 5, new int[]{ 1, 1, 1 }, new float[]{ 15f, 15f, 15f }, 24));
+		AddItem(new ConfWaveItem(2007, 20, 6, new int[]{ 1, 1, 1 }, new float[]{ 10f, 10f, 10f }, 8));
+		AddItem(new ConfWaveItem(2008, 20, 7, new int[]{ 1, 1, 1 }, new float[]{ 10f, 10f, 10f }, 16));
+		AddItem(new ConfWaveItem(2009, 20, 8, new int[]{ 1, 1, 1 }, new float[]{ 10f, 10f, 10f }, 12));
+		AddItem(new ConfWaveItem(2010, 20, 9, new int[]{ 1, 1, 1 }, new float[]{ 15f, 15f, 15f }, 16));
+		AddItem(new ConfWaveItem(2011, 20, 10, new int[]{ 1, 1, 1 }, new float[]{ 20f, 20f, 20f }, 20));
+		AddItem(new ConfWaveItem(2022, 20, 11, new int[]{ 1, 1, 1 }, new float[]{ 60f, 60f, 60f }, 45));
+		AddItem(new ConfWaveItem(2033, 20, 12, new int[]{ 1, 1, 1 }, new float[]{ 99999999f, 99999999f, 99999999f }, -99999999));
 	}
 
 	public override void AddItem(ConfBaseItem item)

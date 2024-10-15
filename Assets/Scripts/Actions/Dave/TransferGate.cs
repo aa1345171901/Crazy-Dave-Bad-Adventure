@@ -34,6 +34,11 @@ public class TransferGate : BaseProp
         }
     }
 
+    private void OnDisable()
+    {
+        AudioManager.Instance.AudioLists.Remove(this.audioSource);
+    }
+
     public override void Reuse()
     {
         base.Reuse();

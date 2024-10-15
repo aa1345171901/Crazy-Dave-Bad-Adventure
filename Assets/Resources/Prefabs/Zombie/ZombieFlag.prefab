@@ -6003,7 +6003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c397d540017044f9b5f1650209fba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 2.2
   moveAnimationName: run_normal
   HeadPos: {fileID: 1328244619421123993}
   BodyPos: {fileID: 1328244619976288599}

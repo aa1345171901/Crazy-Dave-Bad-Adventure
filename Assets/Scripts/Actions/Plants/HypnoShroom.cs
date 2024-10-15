@@ -20,10 +20,17 @@ public class HypnoShroom : Plant
     private readonly int LevelBasicDamage = 1;
     private readonly float LevelPercentage = 0.1f;
 
+    bool canTrigger = true;
+
     private void Start()
     {
         audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
         AudioManager.Instance.AudioLists.Add(audioSource);
+    }
+
+    private void OnDestroy()
+    {
+        AudioManager.Instance.AudioLists.Remove(this.audioSource);
     }
 
     public override void Reuse(bool randomPos = true)
@@ -68,6 +75,8 @@ public class HypnoShroom : Plant
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!canTrigger)
+            return;
         var aiMove = collision.GetComponent<AIMove>();
         if (aiMove)
         {
@@ -85,16 +94,18 @@ public class HypnoShroom : Plant
                 default:
                     break;
             }
-            if (canEnchanted && !aiMove.IsEnchanted)
+            if (canEnchanted && !aiMove.IsEnchanted && canTrigger)
             {
                 audioSource.Play();
                 aiMove.BeEnchanted(finalAttackCount, finalPercentageDamage, finalDamage);
+                canTrigger = false;
                 bool canContinue = Random.Range(0, 1f) < finalContinueRate ? true : false;
                 if (!canContinue)
                 {
                     boxCollider.enabled = false;
                     this.spriteRenderer.enabled = false;
                     StartCoroutine(DelayHide());
+                    canTrigger = true;
                 }
             }
         }

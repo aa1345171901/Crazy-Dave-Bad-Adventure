@@ -31,6 +31,11 @@ public class SunFlower : Plant
         AudioManager.Instance.AudioLists.Add(audioSource);
     }
 
+    private void OnDestroy()
+    {
+        AudioManager.Instance.AudioLists.Remove(this.audioSource);
+    }
+
     public override void Reuse(bool randomPos = true)
     {
         base.Reuse(randomPos);

@@ -9,7 +9,7 @@ public class Blover : Plant
 
     private readonly float LevelWindSpeed = 0.1f;
     private readonly int LevelWindResume = 1;
-    private readonly int defaultWindSpeed = 1; // 默认风速
+    private readonly float defaultWindSpeed = 0.2f; // 默认风速
 
     public override void Reuse(bool randomPos = true)
     {

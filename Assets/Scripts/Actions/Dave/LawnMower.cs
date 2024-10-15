@@ -34,6 +34,11 @@ public class LawnMower : BaseProp
         }
     }
 
+    private void OnDisable()
+    {
+        AudioManager.Instance.AudioLists.Remove(this.audioSource);
+    }
+
     public override void ProcessAbility()
     {
         base.ProcessAbility();

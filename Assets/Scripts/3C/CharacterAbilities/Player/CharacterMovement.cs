@@ -63,7 +63,7 @@ namespace TopDownPlate
             SetRuntimer();
             recoveryTimer = 0;
 
-            finalMoveSpeed = moveSpeed * (100 + GameManager.Instance.UserData.Speed) / 100;
+            finalMoveSpeed = moveSpeed * (200 + GameManager.Instance.UserData.Speed) / 200;
         }
 
         private void OnEnable()
@@ -76,6 +76,7 @@ namespace TopDownPlate
 
         private void OnDisable()
         {
+            AudioManager.Instance.AudioLists.Remove(WalkAudio);
             var key = InputManager.GetKey("Run");
             key.Down -= SetCancel;
         }
@@ -159,6 +160,7 @@ namespace TopDownPlate
         public void EatFood()
         {
             runTimer = realMaxRunTime;
+            SetRuntimer();
         }
 
         public override void UpdateAnimator()

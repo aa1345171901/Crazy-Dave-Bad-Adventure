@@ -19,6 +19,11 @@ public class GravebusterSeed : MonoBehaviour
         Grave.transform.localPosition = new Vector3(0, -0.844f, 0);
     }
 
+    private void OnDestroy()
+    {
+        AudioManager.Instance.AudioLists.Remove(this.audioSource);
+    }
+
     private void Update()
     {
         this.transform.Translate(Vector3.down * 0.6f * Time.deltaTime);

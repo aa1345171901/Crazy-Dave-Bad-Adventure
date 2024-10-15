@@ -112,10 +112,6 @@ public class SettingPage : MonoBehaviour
     public void EffectVolumeChanged(float value)
     {
         AudioManager.Instance.ChangeEffectVolume(value);
-        foreach (var item in AudioManager.Instance.AudioLists)
-        {
-            item.volume = value;
-        }
     }
 
     public void Return()

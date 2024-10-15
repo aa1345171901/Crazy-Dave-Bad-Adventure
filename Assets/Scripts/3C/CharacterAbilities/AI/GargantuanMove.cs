@@ -16,6 +16,11 @@ public class GargantuanMove : AIMove
         WalkAudio.volume = AudioManager.Instance.EffectPlayer.volume;
     }
 
+    private void OnDisable()
+    {
+        AudioManager.Instance.AudioLists.Remove(WalkAudio);
+    }
+
     public override void UpdateAnimator()
     {
         base.UpdateAnimator();

@@ -10,25 +10,25 @@ public class BossAttack : AIAttack
 {
     [Space(10)]
 
-    [Tooltip("¾àÀëÐ¡ÓÚ¸ÃÖµ²Å»áÊ¹ÓÃ½ÅºÍÊÖ¹¥»÷")]
+    [Tooltip("è·ç¦»å°äºŽè¯¥å€¼æ‰ä¼šä½¿ç”¨è„šå’Œæ‰‹æ”»å‡»")]
     public float AttackRange = 2.5f;
 
     public string FireBallAttackAnimation = "FireBallAttack";
     public BossBall fireBall;
     public string IceBallAttackAnimation = "IceBallAttack";
     public BossBall iceBall;
-    public int ballCoolTime = 20; // Çò¹¥»÷ÀäÈ´£¬²»È»»áÈ«ÆÁ
+    public int ballCoolTime = 20; // çƒæ”»å‡»å†·å´ï¼Œä¸ç„¶ä¼šå…¨å±
     private float lastBallTimer;
 
     public string SmashingCarAttackAnimation = "SmashingCar";
-    [Tooltip("Á¬ÐøÈÓ³µÊýÁ¿")]
+    [Tooltip("è¿žç»­æ‰”è½¦æ•°é‡")]
     public int carCount = 5;
-    [Tooltip("³µÔ¤ÖÆÌå")]
+    [Tooltip("è½¦é¢„åˆ¶ä½“")]
     public CarFall carFall;
     public string SmashingCar2AttackAnimation = "SmashingCar2";
-    [Tooltip("³µ×éÔ¤ÖÆÌå")]
+    [Tooltip("è½¦ç»„é¢„åˆ¶ä½“")]
     public CarGroup carGroupPrefab;
-    [Tooltip("ÈÓºÜ¶àÊ±ÀäÈ´Ê±¼ä")]
+    [Tooltip("æ‰”å¾ˆå¤šæ—¶å†·å´æ—¶é—´")]
     public int coolTimer = 2;
 
     public string HandLeftAttackAnimation = "HandLeftAttack";
@@ -64,7 +64,7 @@ public class BossAttack : AIAttack
     private Trigger2D legLeftAttackBoxColider;
     private Trigger2D legRightAttackBoxColider;
 
-    private int resumeCount; // Ê£Óà³µÊýÁ¿
+    private int resumeCount; // å‰©ä½™è½¦æ•°é‡
     private CarGroup carGroup;
     private bool canSmashingCar = true;
 
@@ -85,6 +85,13 @@ public class BossAttack : AIAttack
         AttackLegAfter.volume = AudioManager.Instance.EffectPlayer.volume;
         AudioManager.Instance.AudioLists.Add(AttackHandAfter);
         AttackHandAfter.volume = AudioManager.Instance.EffectPlayer.volume;
+    }
+
+    private void OnDisable()
+    {
+        AudioManager.Instance.AudioLists.Remove(AttackAudio);
+        AudioManager.Instance.AudioLists.Remove(AttackLegAfter);
+        AudioManager.Instance.AudioLists.Remove(AttackHandAfter);
     }
 
     public override void Reuse()
@@ -143,17 +150,17 @@ public class BossAttack : AIAttack
         if (trackEntry != null)
             return;
 
-        // ÅÐ¶Ï´ËÊ±ÊÇ·ñ¹¥»÷
+        // åˆ¤æ–­æ­¤æ—¶æ˜¯å¦æ”»å‡»
         float random = Random.Range(0, 1f);
         if (random > realAttackProbability)
             return;
 
         if (aiMove.AIParameter.Distance < AttackRange)
         {
-            // Ê¹ÓÃÊÖ»¹ÊÇ½Å
+            // ä½¿ç”¨æ‰‹è¿˜æ˜¯è„š
             if (Random.Range(0, 2) == 0)
             {
-                // ÏÈÊ¹ÓÃ×ó±ß»¹ÊÇÓÒ±ß
+                // å…ˆä½¿ç”¨å·¦è¾¹è¿˜æ˜¯å³è¾¹
                 if (Random.Range(0, 2) == 0)
                     AttackHandLeg(HandLeftBeforeAttackAnimation, HandLeftAttackAnimation, HandLeftAfterAttackAnimation, HandLeftAttackBoxColider,
                         HandRightBeforeAttackAnimation, HandRightAttackAnimation, HandRightAfterAttackAnimation, HandRightAttackBoxColider, AttackHandAfter);
@@ -173,10 +180,10 @@ public class BossAttack : AIAttack
         }
         else
         {
-            // ÈÓ³µ»¹ÊÇÍÂ»ðÇò
+            // æ‰”è½¦è¿˜æ˜¯åç«çƒ
             if (Random.Range(0, 2) == 0 && canSmashingCar)
             {
-                // Ò»Á¾Ò»Á¾ÈÓ»¹ÊÇÒ»ÏÂÈÓ
+                // ä¸€è¾†ä¸€è¾†æ‰”è¿˜æ˜¯ä¸€ä¸‹æ‰”
                 if (Random.Range(0, 2) == 0)
                 {
                     resumeCount = carCount;
@@ -198,7 +205,7 @@ public class BossAttack : AIAttack
 
     private void JudgeTrigger(Trigger2D trigger2D, Collider2D boxCollider2D)
     {
-        // ½ÇÉ«ÔÚ¹¥»÷´¥·¢Æ÷ÖÐÇÒ´¥·¢Æ÷´ò¿ª
+        // è§’è‰²åœ¨æ”»å‡»è§¦å‘å™¨ä¸­ä¸”è§¦å‘å™¨æ‰“å¼€
         if (boxCollider2D.enabled && trigger2D.IsTrigger)
         {
             if (GameManager.Instance.IsEnd)

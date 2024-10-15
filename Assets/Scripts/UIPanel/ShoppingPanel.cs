@@ -91,6 +91,11 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
         };
     }
 
+    private void OnDestroy()
+    {
+        AudioManager.Instance.AudioLists.Remove(this.audioSource);
+    }
+
     private void MoneyChanged()
     {
         foreach (var item in shopItems)

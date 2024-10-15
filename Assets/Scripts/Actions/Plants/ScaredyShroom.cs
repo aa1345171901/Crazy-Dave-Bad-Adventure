@@ -25,6 +25,11 @@ public class ScaredyShroom : PuffShroom
         AudioManager.Instance.AudioLists.Add(audioSource);
     }
 
+    private void OnDestroy()
+    {
+        AudioManager.Instance.AudioLists.Remove(this.audioSource);
+    }
+
     private void Update()
     {
         var hit = Physics2D.OverlapCircle(this.transform.position, 2, TargetLayer);

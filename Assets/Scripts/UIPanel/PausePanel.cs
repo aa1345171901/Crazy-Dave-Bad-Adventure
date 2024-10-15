@@ -22,8 +22,8 @@ public class PausePanel : BasePanel
         Time.timeScale = 0;
         AudioManager.Instance.PlayEffectSoundByName("pause");
         AudioManager.Instance.PlayMenuMusic(0.2f);
-        musicSlider.value = AudioManager.Instance.BackmusicPlayer.volume;
-        effectSoundSlider.value = AudioManager.Instance.EffectPlayer.volume;
+        musicSlider.value = SaveManager.Instance.systemData.MusicVolume;
+        effectSoundSlider.value = SaveManager.Instance.systemData.SoundEffectVolume;
         UIManager.Instance.PushPanel(UIPanelType.AttributePanel);
         BagPanel bagpanel = UIManager.Instance.PushPanel(UIPanelType.BagPanel) as BagPanel;
         bagpanel.AutoClose = false;
@@ -52,10 +52,6 @@ public class PausePanel : BasePanel
     public void EffectVolumeChanged(float value)
     {
         AudioManager.Instance.ChangeEffectVolume(value);
-        foreach (var item in AudioManager.Instance.AudioLists)
-        {
-            item.volume = value;
-        }
     }
 
     public void ReStartGame()

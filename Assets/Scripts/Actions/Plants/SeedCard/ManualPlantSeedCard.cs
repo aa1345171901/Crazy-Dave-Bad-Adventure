@@ -175,8 +175,8 @@ private Rect GetBounds()
             {
                 var go = Resources.Load<GameObject>("Prefabs/Plants/PlantSeedCard/" + name);
                 AudioManager.Instance.PlayEffectSoundByName("Eat");
-                var newGo = GameObject.Instantiate(go);
-                newGo.transform.position = this.transform.position;
+                var newGo = GameObject.Instantiate(go, GameManager.Instance.Player.transform);
+                newGo.transform.position = GameManager.Instance.Player.transform.position + Vector3.up;
                 GameManager.Instance.Player.FindAbility<CharacterMovement>().EatFood();
                 GameManager.Instance.Player.FindAbility<CharacterDash>().EatFood();
             }

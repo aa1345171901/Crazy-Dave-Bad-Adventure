@@ -8,31 +8,31 @@ using UnityEngine;
 public class PolevaulterAttack : AIAttack
 {
     [Space(10)]
-    [Tooltip("»á·¢¶¯½üÕ½¹¥»÷µÄ¾àÀë£¬´óÓÚÊ±Ê¹ÓÃÔ¶³Ì")]
+    [Tooltip("ä¼šå‘åŠ¨è¿‘æˆ˜æ”»å‡»çš„è·ç¦»ï¼Œå¤§äºæ—¶ä½¿ç”¨è¿œç¨‹")]
     public float AttackRange = 3f;
 
-    [Tooltip("¸Ã½©Ê¬Ô¶³Ì¹¥»÷Ç°Ò¡¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸è¿œç¨‹æ”»å‡»å‰æ‘‡åŠ¨ç”»å")]
     public string AttackBeforeAnimation = "Attack_Before";
-    [Tooltip("¸Ã½©Ê¬Ô¶³Ì¹¥»÷¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸è¿œç¨‹æ”»å‡»åŠ¨ç”»å")]
     public string AttackAnimation = "Attack";
-    [Tooltip("¸Ã½©Ê¬Ô¶³ÌºóÒ¡¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸è¿œç¨‹åæ‘‡åŠ¨ç”»å")]
     public string AttackAfterAnimation = "Attack_After";
 
-    [Tooltip("¸Ã½©Ê¬½üÕ½¹¥»÷Ç°Ò¡¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸è¿‘æˆ˜æ”»å‡»å‰æ‘‡åŠ¨ç”»å")]
     public string AttackMeleeBeforeAnimation = "MeleeAttack_Before";
-    [Tooltip("¸Ã½©Ê¬½üÕ½¹¥»÷¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸è¿‘æˆ˜æ”»å‡»åŠ¨ç”»å")]
     public string AttackMeleeAnimation = "MeleeAttack";
 
-    [Tooltip("±êÇ¹Ô¤ÖÆÌå")]
+    [Tooltip("æ ‡æªé¢„åˆ¶ä½“")]
     public ZombiePole Pole;
-    [Tooltip("±êÇ¹·¢ÉäÎ»ÖÃ")]
+    [Tooltip("æ ‡æªå‘å°„ä½ç½®")]
     public Transform PolePos;
-    [Tooltip("Ô¶³Ì¹¥»÷µÄÉäÏß")]
+    [Tooltip("è¿œç¨‹æ”»å‡»çš„å°„çº¿")]
     public LineRenderer lineRenderer;
 
-    [Tooltip("¹¥»÷µÄ´¥·¢Æ÷")]
+    [Tooltip("æ”»å‡»çš„è§¦å‘å™¨")]
     public BoxCollider2D AttackBoxColider;
-    [Tooltip("¹¥»÷µÄÍÏÎ²")]
+    [Tooltip("æ”»å‡»çš„æ‹–å°¾")]
     public List<GameObject> Trails;
 
     [ReadOnly]
@@ -124,7 +124,7 @@ public class PolevaulterAttack : AIAttack
         timer = Time.time;
         if (trackEntry != null)
             return;
-        // ÅĞ¶Ï´ËÊ±ÊÇ·ñ¹¥»÷
+        // åˆ¤æ–­æ­¤æ—¶æ˜¯å¦æ”»å‡»
         float random = Random.Range(0, 1f);
         float nowAttackProbability = aiMove.AIParameter.Distance < AttackRange ? realAttackProbability : realAttackProbability * 2;
         if (random > nowAttackProbability)
@@ -141,7 +141,7 @@ public class PolevaulterAttack : AIAttack
 
     private void JudgeTrigger(Trigger2D trigger2D, BoxCollider2D boxCollider2D)
     {
-        // ½ÇÉ«ÔÚ¹¥»÷´¥·¢Æ÷ÖĞÇÒ´¥·¢Æ÷´ò¿ª
+        // è§’è‰²åœ¨æ”»å‡»è§¦å‘å™¨ä¸­ä¸”è§¦å‘å™¨æ‰“å¼€
         if (trigger2D.IsTrigger && boxCollider2D.enabled)
         {
             if (GameManager.Instance.IsEnd || aiMove.IsEnchanted)
@@ -163,10 +163,10 @@ public class PolevaulterAttack : AIAttack
     private void MelleAttack()
     {
         healths.Clear();
-        // Ç°Ò¡Ê±Ëæ»úÑ¡Ôñ½©Ê¬AudioSource,Èç¹ûÃ»ÔÚ²¥·ÅÔò²¥·Å
+        // å‰æ‘‡æ—¶éšæœºé€‰æ‹©åƒµå°¸AudioSource,å¦‚æœæ²¡åœ¨æ’­æ”¾åˆ™æ’­æ”¾
         audioSource = AudioManager.Instance.RandomPlayZombieSounds();
         isRushAttack = true;
-        // ¹¥»÷Ç°Ò¡£¬³å´Ì
+        // æ”»å‡»å‰æ‘‡ï¼Œå†²åˆº
         aiMove.MoveSpeed *= 2;
         controller.BoxCollider.enabled = false;
         SetTrailAndColliderActive(true, false, AttackBoxColider);
@@ -179,14 +179,14 @@ public class PolevaulterAttack : AIAttack
 
     private void Attack()
     {
-        // ¹¥»÷Ç°Ò¡ÍêÁË¹¥»÷£¬ ËÙ¶ÈÎª0
+        // æ”»å‡»å‰æ‘‡å®Œäº†æ”»å‡»ï¼Œ é€Ÿåº¦ä¸º0
         aiMove.MoveSpeed = 0;
         controller.BoxCollider.enabled = true;
         trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackMeleeAnimation, false);
         SetTrailAndColliderActive(true, true, AttackBoxColider);
         trackEntry.Complete += (e) =>
         {
-            // ÷È»ó¹¥»÷´ÎÊıÅĞ¶Ï
+            // é­…æƒ‘æ”»å‡»æ¬¡æ•°åˆ¤æ–­
             if (aiMove.IsEnchanted)
             {
                 if (attackCount > 0)
@@ -199,7 +199,7 @@ public class PolevaulterAttack : AIAttack
             }
 
             isRushAttack = false;
-            // ¹¥»÷Íê½©Ö±0.2sÉèÖÃÒÆ¶¯
+            // æ”»å‡»å®Œåƒµç›´0.2sè®¾ç½®ç§»åŠ¨
             Invoke("SpeedRecovery", 0.2f);
             SetTrailAndColliderActive(false, false, AttackBoxColider);
             trackEntry = null;
@@ -214,7 +214,7 @@ public class PolevaulterAttack : AIAttack
         isAttacking = true;
         audioSource = AudioManager.Instance.RandomPlayZombieSounds();
 
-        // ¹¥»÷Ç°Ò¡£¬ĞîÁ¦Ê±»­ÉäÏß
+        // æ”»å‡»å‰æ‘‡ï¼Œè“„åŠ›æ—¶ç”»å°„çº¿
         aiMove.MoveSpeed = 0;
         trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackBeforeAnimation, false);
         trackEntry.Complete += (e) =>
@@ -232,7 +232,8 @@ public class PolevaulterAttack : AIAttack
                 pole.IsEnchanted = aiMove.IsEnchanted;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 pole.transform.rotation = Quaternion.Euler(0, 0, angle);
-                // ÷È»ó¹¥»÷´ÎÊıÅĞ¶Ï
+
+                // é­…æƒ‘æ”»å‡»æ¬¡æ•°åˆ¤æ–­
                 if (aiMove.IsEnchanted)
                 {
                     if (attackCount > 0)
@@ -243,20 +244,22 @@ public class PolevaulterAttack : AIAttack
                         character.Health.DoDamage(character.Health.maxHealth, DamageType.Zombie);
                     }
                 }
-                else
+
+                trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackAfterAnimation, false);
+                trackEntry.Complete += (e) =>
                 {
-                    trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackAfterAnimation, false);
-                    trackEntry.Complete += (e) =>
+                    audioSource = null;
+                    trackEntry = null;
+                    aiMove.SpeedRecovery();
+                    isAttacking = false;
+                    attackDirection = Vector3.zero;
+                    lineRenderer.SetPositions(new Vector3[2] { Vector3.zero, Vector3.zero });
+                    skeletonAnimation.AnimationState.ClearTrack(1);
+                    if (aiMove.IsEnchanted)
                     {
-                        audioSource = null;
-                        trackEntry = null;
-                        aiMove.SpeedRecovery();
-                        isAttacking = false;
-                        attackDirection = Vector3.zero;
-                        lineRenderer.SetPositions(new Vector3[2] { Vector3.zero, Vector3.zero });
-                        skeletonAnimation.AnimationState.ClearTrack(1);
-                    };
-                }
+                        aiMove.hurtFlash.BeEnchanted();
+                    }
+                };
             };
         };
     }

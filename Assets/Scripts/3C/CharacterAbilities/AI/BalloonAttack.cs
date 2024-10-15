@@ -8,22 +8,22 @@ using UnityEngine;
 public class BalloonAttack : AIAttack
 {
     [Space(10)]
-    [Tooltip("¸Ã½©Ê¬¹¥»÷Ç°Ò¡³å´ÌËÙ¶È±¶ÂÊ")]
+    [Tooltip("è¯¥åƒµå°¸æ”»å‡»å‰æ‘‡å†²åˆºé€Ÿåº¦å€ç‡")]
     public float RushSpeedMul = 2f;
 
-    [Tooltip("»á·¢¶¯¹¥»÷µÄ¾àÀë")]
+    [Tooltip("ä¼šå‘åŠ¨æ”»å‡»çš„è·ç¦»")]
     public float AttackRange = 5f;
 
-    [Tooltip("¸Ã½©Ê¬¹¥»÷Ç°Ò¡¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸æ”»å‡»å‰æ‘‡åŠ¨ç”»å")]
     public string AttackBeforeAnimation = "Attack_Before";
-    [Tooltip("¸Ã½©Ê¬¹¥»÷¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸æ”»å‡»åŠ¨ç”»å")]
     public string AttackAnimation = "Attack";
-    [Tooltip("¸Ã½©Ê¬Ç°ÆË¹¥»÷½áÊø¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸å‰æ‰‘æ”»å‡»ç»“æŸåŠ¨ç”»å")]
     public string AttackAfterAnimation = "Attack_After";
 
-    [Tooltip("¹¥»÷µÄ´¥·¢Æ÷")]
+    [Tooltip("æ”»å‡»çš„è§¦å‘å™¨")]
     public BoxCollider2D AttackBoxColider;
-    [Tooltip("¹¥»÷µÄÍÏÎ²")]
+    [Tooltip("æ”»å‡»çš„æ‹–å°¾")]
     public List<GameObject> Trails;
 
     private TrackEntry trackEntry;
@@ -92,7 +92,7 @@ public class BalloonAttack : AIAttack
         timer = Time.time;
         if (trackEntry != null)
             return;
-        // ÅĞ¶Ï´ËÊ±ÊÇ·ñ¹¥»÷
+        // åˆ¤æ–­æ­¤æ—¶æ˜¯å¦æ”»å‡»
         float random = Random.Range(0, 1f);
         if (random > realAttackProbability)
             return;
@@ -102,7 +102,7 @@ public class BalloonAttack : AIAttack
 
     private void JudgeTrigger(Trigger2D trigger2D, BoxCollider2D boxCollider2D)
     {
-        // ½ÇÉ«ÔÚ¹¥»÷´¥·¢Æ÷ÖĞÇÒ´¥·¢Æ÷´ò¿ª
+        // è§’è‰²åœ¨æ”»å‡»è§¦å‘å™¨ä¸­ä¸”è§¦å‘å™¨æ‰“å¼€
         if (trigger2D.IsTrigger && boxCollider2D.enabled)
         {
             if (GameManager.Instance.IsEnd || aiMove.IsEnchanted)
@@ -127,7 +127,7 @@ public class BalloonAttack : AIAttack
         float distance = aiMove.AIParameter.Distance;
         if (distance < realAttackRange)
         {
-            // Ç°Ò¡Ê±Ëæ»úÑ¡Ôñ½©Ê¬AudioSource,Èç¹ûÃ»ÔÚ²¥·ÅÔò²¥·Å
+            // å‰æ‘‡æ—¶éšæœºé€‰æ‹©åƒµå°¸AudioSource,å¦‚æœæ²¡åœ¨æ’­æ”¾åˆ™æ’­æ”¾
             audioSource = AudioManager.Instance.RandomPlayZombieSounds();
 
             aiMove.isSwoop = true;
@@ -141,7 +141,7 @@ public class BalloonAttack : AIAttack
                 SetTrailAndColliderActive(true, true, AttackBoxColider);
                 trackEntry.Complete += (e) =>
                 {
-                    // ÷È»ó¹¥»÷´ÎÊıÅĞ¶Ï
+                    // é­…æƒ‘æ”»å‡»æ¬¡æ•°åˆ¤æ–­
                     if (aiMove.IsEnchanted)
                     {
                         if (attackCount > 0)
@@ -152,16 +152,15 @@ public class BalloonAttack : AIAttack
                             character.Health.DoDamage(character.Health.maxHealth, DamageType.Zombie);
                         }
                     }
-                    else
+
+                    trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackAfterAnimation, false);
+                    trackEntry.Complete += (e) =>
                     {
-                        trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackAfterAnimation, false);
-                        trackEntry.Complete += (e) =>
-                        {
-                            skeletonAnimation.AnimationState.ClearTrack(1);
-                            trackEntry = null;
-                            aiMove.SpeedRecovery();
-                        };
-                    }
+                        skeletonAnimation.AnimationState.ClearTrack(1);
+                        trackEntry = null;
+                        aiMove.SpeedRecovery();
+                    };
+
                     aiMove.MoveSpeed = 0;
                     SetTrailAndColliderActive(false, false, AttackBoxColider);
                     audioSource = null;

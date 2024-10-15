@@ -434,12 +434,12 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(382, "achievement_title37", "吉人天相", "Lucky people"));
 		AddItem(new ConfLocalTextItem(383, "achievement_title38", "厚积薄发", "Solid accumulation"));
 		AddItem(new ConfLocalTextItem(384, "achievement_info1", "第一次开始冒险", "First adventure"));
-		AddItem(new ConfLocalTextItem(385, "achievement_info2", "总共收集300个僵尸头", "Collect 30 in total 0 zombie heads"));
-		AddItem(new ConfLocalTextItem(386, "achievement_info3", "总共收集2000个僵尸头", "Collected 2,000 zombie heads in total"));
-		AddItem(new ConfLocalTextItem(387, "achievement_info4", "总共收集10000个僵尸头", "Collected 10,000 zombie heads in total"));
-		AddItem(new ConfLocalTextItem(388, "achievement_info5", "一局冒险中收集100个僵尸头", "Collected 100 zombie heads in one adventure"));
-		AddItem(new ConfLocalTextItem(389, "achievement_info6", "一局冒险中收集500个僵尸头", "Collected 500 zombie heads in one adventure"));
-		AddItem(new ConfLocalTextItem(390, "achievement_info7", "一局冒险中收集1000个僵尸头", "Collected 1000 zombie heads in one adventure"));
+		AddItem(new ConfLocalTextItem(385, "achievement_info2", "总共收集5000个僵尸头", "Collect 30 in total 0 zombie heads"));
+		AddItem(new ConfLocalTextItem(386, "achievement_info3", "总共收集10000个僵尸头", "Collected 2,000 zombie heads in total"));
+		AddItem(new ConfLocalTextItem(387, "achievement_info4", "总共收集40000个僵尸头", "Collected 10,000 zombie heads in total"));
+		AddItem(new ConfLocalTextItem(388, "achievement_info5", "一局冒险中收集200个僵尸头", "Collected 100 zombie heads in one adventure"));
+		AddItem(new ConfLocalTextItem(389, "achievement_info6", "一局冒险中收集1000个僵尸头", "Collected 500 zombie heads in one adventure"));
+		AddItem(new ConfLocalTextItem(390, "achievement_info7", "一局冒险中收集2000个僵尸头", "Collected 1000 zombie heads in one adventure"));
 		AddItem(new ConfLocalTextItem(391, "achievement_info8", "首次被僵尸吃掉脑子", "First time having your brain eaten by a zombie"));
 		AddItem(new ConfLocalTextItem(392, "achievement_info9", "累计培养4次豌豆射手", "Cultivated 4 times of pea shooters"));
 		AddItem(new ConfLocalTextItem(393, "achievement_info10", "累计进化过2次双发射手", "Cultivated 2 times of dual shooters"));
@@ -628,6 +628,8 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(576, "getSeed", "获得{0}种子", "Get {0} seeds"));
 		AddItem(new ConfLocalTextItem(577, "garden_cooltimeTips", "种植的植物越多，冒险中出现植物卡片的间隔时间越短\r\n当前时间{0}", "The more plants you plant, the shorter the interval between plant cards appearing during the adventure\r\nCurrent time {0}"));
 		AddItem(new ConfLocalTextItem(578, "garden_getTips", "温馨提示！\r\n植物种子可能出现在僵尸身上", "Warm reminder! \r\nPlant seeds may appear on zombies"));
+		AddItem(new ConfLocalTextItem(579, "achievement_title100009", "百发百中", "Hit the target every time"));
+		AddItem(new ConfLocalTextItem(580, "achievement_info100009", "暴击率达到100", "Critical hit rate reaches 100"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

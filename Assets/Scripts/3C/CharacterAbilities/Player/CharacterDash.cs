@@ -59,6 +59,7 @@ namespace TopDownPlate
 
         private void OnDisable()
         {
+            AudioManager.Instance.AudioLists.Remove(DashAudio);
         }
 
         private void OnDashDown()

@@ -17,7 +17,7 @@ public class Hammer : BaseProp
     private int finalDamage;
     private float finalAttackCoolingTime;
 
-    private readonly float AttackAnimTime = 0.33f; // 攻击动画0.33f
+    private readonly float AttackAnimTime = 0.33f; // 鏀诲嚮鍔ㄧ敾0.33f
 
     private void Start()
     {
@@ -39,6 +39,11 @@ public class Hammer : BaseProp
             AudioManager.Instance.AudioLists.Add(this.audioSource);
             this.audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
         }
+    }
+
+    private void OnDisable()
+    {
+        AudioManager.Instance.AudioLists.Remove(this.audioSource);
     }
 
     public override void ProcessAbility()
@@ -72,7 +77,7 @@ public class Hammer : BaseProp
             {
                 health.DoDamage(finalDamage, DamageType.Hammer);
             }
-            // 只对一只僵尸造成伤害
+            // 鍙涓�鍙兊灏搁�犳垚浼ゅ
             trigger2D.enabled = false;
         }
     }

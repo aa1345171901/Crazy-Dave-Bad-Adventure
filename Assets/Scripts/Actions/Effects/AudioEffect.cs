@@ -28,7 +28,7 @@ public class AudioEffect : MonoBehaviour
                 audioSource.PlayOneShot(impact);
                 break;
         }
-        // Ä¬ÈÏimpact´ó¸Å0.3f s
+        // é»˜è®¤impactå¤§æ¦‚0.3f s
         PotReturnPlay();
     }
 
@@ -49,6 +49,11 @@ public class AudioEffect : MonoBehaviour
     {
         AudioManager.Instance.AudioLists.Add(audioSource);
         audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
+    }
+
+    private void OnDestroy()
+    {
+        AudioManager.Instance.AudioLists.Remove(this.audioSource);
     }
 
     public void PlayAudio()

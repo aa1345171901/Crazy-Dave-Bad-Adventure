@@ -26,11 +26,12 @@ public class TallNut : Plant
     private int maxHealth;
 
     private readonly float LevelRate = 0.03f;
-    private readonly float LevelHealth = 0.1f;
+    private readonly float LevelHealth = 0.2f;
     private readonly float LevelCounterInjury = 0.1f;
     private readonly float LevelCounterInjuryRate = 0.04f;
 
     private readonly float BoomDamage = 0.5f;
+    private readonly float defaultHealthMul = 0.5f;
 
     private Dictionary<Character, float> zombieDict = new Dictionary<Character, float>();
     private float coolTimer = 1; //  每只僵尸单独设置无敌时间
@@ -39,6 +40,11 @@ public class TallNut : Plant
     {
         audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
         AudioManager.Instance.AudioLists.Add(audioSource);
+    }
+
+    private void OnDestroy()
+    {
+        AudioManager.Instance.AudioLists.Remove(this.audioSource);
     }
 
     public override void Reuse(bool randomPos = true)
@@ -50,7 +56,7 @@ public class TallNut : Plant
         finalBoomRate = 0;
         finalCounterInjury = 1;
         finalCounterInjuryRate = 0.1f;
-        finalHealth = Health;
+        finalHealth = Health + (int)(defaultHealthMul * GameManager.Instance.UserData.Botany);
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {

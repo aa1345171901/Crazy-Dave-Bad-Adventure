@@ -17,6 +17,11 @@ public class AudioItem : MonoBehaviour
         AudioManager.Instance.AudioLists.Add(audioSource);
     }
 
+    private void OnDestroy()
+    {
+        AudioManager.Instance.AudioLists.Remove(this.audioSource);
+    }
+
     private void OnEnable()
     {
         if (!autoPlay)
