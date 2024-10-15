@@ -19,6 +19,7 @@ public class ConfPlantCards : ConfPlantCardsBase
             platCard.defaultPrice = item.defaultPrice;
             platCard.defaultSun = item.defaultSun;
             platCard.info = item.info;
+            platCard.quality = item.quality;
             platCard.plantType = (PlantType)item.plantType;
             PlantCards.Add(platCard);
             plantDict[item.plantType] = platCard;

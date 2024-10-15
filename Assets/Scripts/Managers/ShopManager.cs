@@ -54,6 +54,8 @@ public class ShopManager : BaseManager<ShopManager>
     /// </summary>
     public List<PlantCard> PlantLists { get; protected set; }
 
+    public Dictionary<int, List<PlantCard>> PlantDicts { get; protected set; }
+
     /// <summary>
     /// 需要进化的卡片
     /// </summary>
@@ -216,6 +218,7 @@ public class ShopManager : BaseManager<ShopManager>
         }
 
         PlantLists = new List<PlantCard>();
+        PlantDicts = new Dictionary<int, List<PlantCard>>();
         PlantEvolutionDict = new Dictionary<PlantType, PlantCard>();
         var plantCards = ConfManager.Instance.confMgr.data.plantCards.PlantCards;
         foreach (var item in plantCards)
@@ -244,10 +247,18 @@ public class ShopManager : BaseManager<ShopManager>
                         if (achievementItem2 == null || AchievementManager.Instance.GetReach(achievementItem2.achievementId))
                         {
                             PlantLists.Add(item);
+                            if (!PlantDicts.ContainsKey(item.quality))
+                                PlantDicts[item.quality] = new List<PlantCard>();
+                            PlantDicts[item.quality].Add(item);
                         }
                     }
                     else
+                    {
                         PlantLists.Add(item);
+                        if (!PlantDicts.ContainsKey(item.quality))
+                            PlantDicts[item.quality] = new List<PlantCard>();
+                        PlantDicts[item.quality].Add(item);
+                    }
                     break;
             }
         }
@@ -346,6 +357,7 @@ public class ShopManager : BaseManager<ShopManager>
             if (PlantLists.Contains(item.Value))
             {
                 PlantLists.Remove(item.Value);
+                PlantDicts[item.Value.quality].Remove(item.Value);
             }
         }
         // 检测现有植物添加后置卡数量
@@ -410,7 +422,10 @@ public class ShopManager : BaseManager<ShopManager>
         if (PurchasedPlantEvolutionDicts.ContainsKey(plantType))
             count = PurchasedPlantEvolutionDicts[plantType];
         if (value > count && PlantEvolutionDict.ContainsKey(plantType))
+        {
             PlantLists.Add(PlantEvolutionDict[plantType]);
+            PlantDicts[PlantEvolutionDict[plantType].quality].Remove(PlantEvolutionDict[plantType]);
+        }
     }
 }
 

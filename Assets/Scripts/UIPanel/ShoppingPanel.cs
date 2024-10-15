@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using TopDownPlate;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
 {
@@ -279,15 +280,41 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
             }
         }
 
-        // 植物 todo
-        var plantCards = ShopManager.Instance.PlantLists;
-        hashSet = RandomUtils.RandomCreateNumber(plantCards.Count, 4);
-        index = 0;
-        foreach (var item in hashSet)
+        propDicts.Clear();
+        // 植物 
+        for (int i = 0; i < 4; i++)
         {
-            plantCardItems[index].gameObject.SetActive(true);
-            plantCardItems[index].SetPlant(plantCards[item]);
-            index++;
+            int random = Random.Range(0, 101);
+            int quality = 1;
+            if (random > 40 && random <= 70)
+            {
+                quality = 2;
+            }
+            if (random > 70 && random <= 90)
+            {
+                quality = 3;
+            }
+            if (random > 90 && random <= 100)
+            {
+                quality = 4;
+            }
+            if (!propDicts.ContainsKey(quality))
+                propDicts[quality] = 0;
+            propDicts[quality]++;
+        }
+        index = 0;
+        foreach (var item in propDicts)
+        {
+            var plantCards = ShopManager.Instance.PlantDicts[1];
+            if (ShopManager.Instance.PlantDicts.ContainsKey(item.Key))
+                plantCards = ShopManager.Instance.PlantDicts[item.Key];
+            HashSet<int> propHashSet = RandomUtils.RandomCreateNumber(plantCards.Count, item.Value);
+            foreach (var hash in propHashSet)
+            {
+                plantCardItems[index].gameObject.SetActive(true);
+                plantCardItems[index].SetPlant(plantCards[index]);
+                index++;
+            }
         }
 
         if (freeRefreshCount > 0)
@@ -312,7 +339,6 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
             RenovateMoney = (renovateCount + 1) * (autoRefreshWave + 1) + (renovateCount + 1) * renovateCount / 2;
             renovateCount++;
         }
-
     }
 
     public override void OnEnter()

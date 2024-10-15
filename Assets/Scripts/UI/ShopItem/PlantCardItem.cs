@@ -178,6 +178,7 @@ public class PlantCard
     public string plantImagePath;
     public int defaultPrice;
     public int defaultSun;
+    public int quality;
     public string info;
     public PlantType plantType;
 }
