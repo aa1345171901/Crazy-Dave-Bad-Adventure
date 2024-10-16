@@ -71,8 +71,6 @@ public class ShopManager : BaseManager<ShopManager>
     /// </summary>
     public List<PropCard> PurchasedProps { get; set; } = new List<PropCard>();
 
-    private List<PropCard> VocalConcert = new List<PropCard>();  // 演唱会卡片组合
-
     protected override void Initialize()
     {
         base.Initialize();
@@ -86,13 +84,6 @@ public class ShopManager : BaseManager<ShopManager>
         PurchasedProps.Add(propCard);
         Money -= price;
         SetPropEffect(propCard);
-        
-        // 组合中的卡，获取到在组合成功前不再刷新
-        if (propCard.propType == PropType.VocalConcert && !GameManager.Instance.IsOpenVocalConcert)
-        {
-            PropDicts[propCard.quality].Remove(propCard);
-            VocalConcert.Add(propCard);
-        }
 
         var userData = GameManager.Instance.UserData;
         foreach (var item in propCard.attributes)
@@ -119,12 +110,9 @@ public class ShopManager : BaseManager<ShopManager>
                     break;
                 case "magnetic":
                     GameManager.Instance.HaveMagnetic = true;
-                    // 由于是降属性的，所以解锁完能力后不再刷新
-                    PropDicts[propCard.quality].Remove(propCard);
                     break;
                 case "blackhole":
                     GameManager.Instance.HaveBlackHole = true;
-                    PropDicts[propCard.quality].Remove(propCard);
                     break;
                 case "Pot_Water":
                     GardenManager.Instance.NotPlacedWaterFlowerPotCount++;
@@ -344,11 +332,24 @@ public class ShopManager : BaseManager<ShopManager>
 
     public void UpdateCardPool()
     {
-        // 组合成功后，将所有该组合卡加入
-        if (GameManager.Instance.IsOpenVocalConcert && VocalConcert.Count > 0)
+        // 判断有最大限制的道具，达到最大数量时去掉
+        foreach (var item in ConfManager.Instance.confMgr.propCards.maxNumLimit)
         {
-            PropDicts[VocalConcert[0].quality].AddRange(VocalConcert);
-            VocalConcert.Clear();
+            var count = PurchasePropCount(item.Value.propName);
+            if (count < item.Key.maxNum)
+            {
+                if (PropDicts.ContainsKey(item.Value.quality) && !PropDicts[item.Value.quality].Contains(item.Value))
+                {
+                    PropDicts[item.Value.quality].Add(item.Value);
+                }
+            }
+            else
+            {
+                if (PropDicts.ContainsKey(item.Value.quality) && PropDicts[item.Value.quality].Contains(item.Value))
+                {
+                    PropDicts[item.Value.quality].Remove(item.Value);
+                }
+            }
         }
 
         // 先去掉所有后置卡

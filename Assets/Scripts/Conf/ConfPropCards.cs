@@ -7,6 +7,8 @@ using UnityEngine;
 public class ConfPropCards : ConfPropCardsBase
 {
     public List<PropCard> PropCards = new List<PropCard>();
+    public Dictionary<ConfPropCardsItem, PropCard> maxNumLimit = new Dictionary<ConfPropCardsItem, PropCard>();
+
     public override void OnInit()
     {
         base.OnInit();
@@ -36,6 +38,11 @@ public class ConfPropCards : ConfPropCardsBase
             propCard.value1 = item.value1;
             propCard.coolingTime = item.coolingTime;
             PropCards.Add(propCard);
+
+            if (item.maxNum != 0)
+            {
+                maxNumLimit[item] = propCard;
+            }
         }
     }
 }
