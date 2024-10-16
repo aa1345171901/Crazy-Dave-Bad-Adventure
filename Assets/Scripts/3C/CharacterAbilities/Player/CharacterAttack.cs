@@ -115,7 +115,8 @@ namespace TopDownPlate
         protected override void Initialization()
         {
             base.Initialization();
-            Pot = GameManager.Instance.Pot;
+            var prefab = Resources.Load<GameObject>("Prefabs/Props/Pot");
+            Pot = GameObject.Instantiate(prefab);
             potAudio = Pot.GetComponent<AudioEffect>();
             Reuse();
         }

@@ -300,7 +300,12 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
             }
             if (!propDicts.ContainsKey(quality))
                 propDicts[quality] = 0;
-            propDicts[quality]++;
+            if (quality == 4 && propDicts[quality] == 3)
+            {
+                propDicts[3] = 1;
+            }
+            else
+                propDicts[quality]++;
         }
         index = 0;
         foreach (var item in propDicts)

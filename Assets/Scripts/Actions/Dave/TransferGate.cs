@@ -34,7 +34,7 @@ public class TransferGate : BaseProp
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         AudioManager.Instance.AudioLists.Remove(this.audioSource);
     }

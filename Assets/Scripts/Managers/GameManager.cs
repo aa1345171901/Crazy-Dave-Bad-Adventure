@@ -8,16 +8,6 @@ namespace TopDownPlate
 {
     public class GameManager : BaseManager<GameManager>
     {
-        [Header("道具")]
-        [Tooltip("平底锅")]
-        public GameObject Pot;
-        [Tooltip("木槌")]
-        public Hammer Hammer;
-        [Tooltip("小推车")]
-        public LawnMower LawnMower;
-        [Tooltip("传送门")]
-        public TransferGate TransferGate;
-
         [Tooltip("冰面的父物体")]
         public Transform IceGroundContent;
 
@@ -468,7 +458,8 @@ namespace TopDownPlate
                 case PropType.None:
                     break;
                 case PropType.LawnMower:
-                    var lawnMower = GameObject.Instantiate(LawnMower);
+                    var lawnMowerPrefab = Resources.Load<LawnMower>("Prefabs/Props/LawnMower");
+                    var lawnMower = GameObject.Instantiate(lawnMowerPrefab);
                     lawnMower.DefaultDamage = defaultDamage;
                     lawnMower.DefaultAttackCoolingTime = coolingTime;
                     lawnMower.gameObject.SetActive(true);
@@ -476,10 +467,15 @@ namespace TopDownPlate
                         specialPropLists.Add(lawnMower);
                     break;
                 case PropType.Hammer:
-                    Hammer.DefaultDamage = defaultDamage;
-                    Hammer.DefaultAttackCoolingTime = coolingTime;
-                    if (!specialPropLists.Contains(Hammer))
-                        specialPropLists.Add(Hammer);
+                    bool haveHammer = specialPropLists.Contains<Hammer>();
+                    if (!haveHammer)
+                    {
+                        var hammerPrefab = Resources.Load<Hammer>("Prefabs/Props/Hammer");
+                        var hammer = GameObject.Instantiate(hammerPrefab);
+                        hammer.DefaultDamage = defaultDamage;
+                        hammer.DefaultAttackCoolingTime = coolingTime;
+                        specialPropLists.Add(hammer);
+                    }
                     break;
                 case PropType.VocalConcert:
                     break;
@@ -490,9 +486,9 @@ namespace TopDownPlate
 
         public void RemoveProp(PropCard propCard, bool isSellAll, int sellCount)
         {
+            int count = ShopManager.Instance.PurchasePropCount(propCard.propName);
             if (propCard.propType == PropType.None)
             {
-                int count = ShopManager.Instance.PurchasePropCount(propCard.propName);
                 switch (propCard.propName)
                 {
                     case "PortalCard":
@@ -524,7 +520,7 @@ namespace TopDownPlate
                 {
                     case PropType.LawnMower:
                         var lawnMowerList = new List<LawnMower>();
-                        foreach (var item in GameManager.Instance.specialPropLists)
+                        foreach (var item in specialPropLists)
                         {
                             if (item is LawnMower lawnMower)
                             {
@@ -535,25 +531,32 @@ namespace TopDownPlate
                         {
                             foreach (var item in lawnMowerList)
                             {
-                                GameManager.Instance.specialPropLists.Remove(item);
+                                specialPropLists.Remove(item);
                             }
                             foreach (var item in lawnMowerList)
                             {
-                                GameObject.Destroy(item);
+                                GameObject.Destroy(item.gameObject);
                             }
                         }
                         else
                         {
                             var lawnMower = lawnMowerList.First();
-                            GameManager.Instance.specialPropLists.Remove(lawnMower);
-                            GameObject.Destroy(lawnMower);
+                            specialPropLists.Remove(lawnMower);
+                            GameObject.Destroy(lawnMower.gameObject);
                         }
                         break;
                     case PropType.Fire:
                         break;
                     case PropType.Hammer:
-                        if (specialPropLists.Contains(Hammer))
-                            specialPropLists.Remove(Hammer);
+                        if (count == 0)
+                        {
+                            var hammer = specialPropLists.GetValue<Hammer>();
+                            if (hammer != null)
+                            {
+                                specialPropLists.Remove(hammer);
+                                GameObject.Destroy(hammer.gameObject);
+                            }
+                        }
                         break;
                     case PropType.VocalConcert:
                         break;
@@ -567,15 +570,29 @@ namespace TopDownPlate
 
         public void SetTransferGate()
         {
-            TransferGate.gameObject.SetActive(true);
-            TransferGate.SetTransferGate();
-            specialPropLists.Add(TransferGate);
+            bool haveTransferGate = specialPropLists.Contains<TransferGate>();
+            if (!haveTransferGate)
+            {
+                var transferGatePrefab = Resources.Load<TransferGate>("Prefabs/Props/TransferGates");
+                var transferGate = GameObject.Instantiate(transferGatePrefab);
+                specialPropLists.Add(transferGate);
+                transferGate.gameObject.SetActive(true);
+                transferGate.SetTransferGate();
+            }
         }
 
         public void RemoveTransferGate()
         {
-            TransferGate.gameObject.SetActive(false);
-            specialPropLists.Remove(TransferGate);
+            int count = ShopManager.Instance.PurchasePropCount("PortalCard");
+            if (count == 0)
+            {
+                var transferGate = specialPropLists.GetValue<TransferGate>();
+                if (transferGate != null)
+                {
+                    specialPropLists.Remove(transferGate);
+                    GameObject.Destroy(transferGate.gameObject);
+                }
+            }
         }
 
         public void Victory()

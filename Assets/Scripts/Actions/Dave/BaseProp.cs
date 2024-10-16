@@ -22,3 +22,34 @@ public class BaseProp : MonoBehaviour
 
     }
 }
+
+public static class PropsExpand
+{
+    public static bool Contains<T>(this List<BaseProp> list) where T : BaseProp
+    {
+        bool contains = false;
+        foreach (var item in list)
+        {
+            if (item is T)
+            {
+                contains = true;
+                break;
+            }
+        }
+        return contains;
+    }
+
+    public static T GetValue<T>(this List<BaseProp> list) where T : BaseProp
+    {
+        T baseProp = null;
+        foreach (var item in list)
+        {
+            if (item is T target)
+            {
+                baseProp = target;
+                break;
+            }
+        }
+        return baseProp;
+    }
+}

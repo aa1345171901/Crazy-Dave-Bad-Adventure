@@ -44,6 +44,10 @@ public class TipsPanel : BasePanel
                 Approaching.gameObject.SetActive(false);
                 FinalWave.gameObject.SetActive(false);
                 targetTips = GameOverTips;
+
+                UIManager.Instance.PushPanel(UIPanelType.AttributePanel);
+                BagPanel bagpanel = UIManager.Instance.PushPanel(UIPanelType.BagPanel) as BagPanel;
+                bagpanel.AutoClose = false;
                 break;
             case TipsType.Approaching:
                 GameOverTips.gameObject.SetActive(false);

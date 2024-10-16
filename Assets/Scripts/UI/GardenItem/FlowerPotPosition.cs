@@ -6,18 +6,18 @@ using UnityEngine.UI;
 
 public class FlowerPotPosition : MonoBehaviour
 {
-    [Tooltip("»¨ÅèÔ¤ÖÆÌå")]
+    [Tooltip("èŠ±ç›†é¢„åˆ¶ä½“")]
     public FlowerPotGardenItem flowerPot;
-    [Tooltip("Ë®»¨ÅèÔ¤ÖÆÌå")]
+    [Tooltip("æ°´èŠ±ç›†é¢„åˆ¶ä½“")]
     public FlowerPotGardenItem waterFlowerPot;
 
-    [Tooltip("ÄàÍÁ")]
+    [Tooltip("æ³¥åœŸ")]
     public GameObject earth;
-    [Tooltip("ÊÇ·ñÓĞÄàÍÁ¸²¸Ç")]
+    [Tooltip("æ˜¯å¦æœ‰æ³¥åœŸè¦†ç›–")]
     public bool HaveEarth;
 
     /// <summary>
-    /// ¸ÃÎ»ÖÃÉÏµÄ»¨Åè
+    /// è¯¥ä½ç½®ä¸Šçš„èŠ±ç›†
     /// </summary>
     public FlowerPotGardenItem FlowerPot { get; set; }
 
@@ -90,7 +90,7 @@ public class FlowerPotPosition : MonoBehaviour
             GardenManager.Instance.WaterFlowerPotCount--;
         else
             GardenManager.Instance.FlowerPotCount--;
-        Destroy(FlowerPot);
+        Destroy(FlowerPot.gameObject);
         FlowerPot = null;
         AudioManager.Instance.PlayEffectSoundByName("PlacePlant");
     }
@@ -99,7 +99,7 @@ public class FlowerPotPosition : MonoBehaviour
     {
         if (isShowPrice && FlowerPot != null)
         {
-            // gui×ø±ê×óÏÂÎª0£¬0 ÓÒÉÏÎª screen.width, height
+            // guiåæ ‡å·¦ä¸‹ä¸º0ï¼Œ0 å³ä¸Šä¸º screen.width, height
             var guiPos = new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y);
 
             GUI.skin.label.fontSize = 25;
