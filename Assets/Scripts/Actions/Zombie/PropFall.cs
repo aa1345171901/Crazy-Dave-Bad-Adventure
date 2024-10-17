@@ -18,7 +18,7 @@ public class PropFall : MonoBehaviour
 
     private Vector3 direction;
     private float angle;
-    private bool isTrigger;  // ÊÇ·ñÒÑ¾­´¥·¢Åö×²
+    private bool isTrigger;  // æ˜¯å¦å·²ç»è§¦å‘ç¢°æ’
     private float speed;
     private float LiveTime = 2;
     private readonly float flyTime = 0.3f;
@@ -55,13 +55,13 @@ public class PropFall : MonoBehaviour
         {
             if (curTime < time)
             {
-                if (GameManager.Instance.IsZombieShock && damageType == DamageType.Pot)
+                if (GameManager.Instance.IsZombieShock && damageType == DamageType.Player)
                 {
                     float process = 1 - curTime / time;
 
                     Trigger(trigger2D);
 
-                    // Åö×²ÁË¾ÍÍù·´Ïò·ÉÊ£Óà¾àÀë
+                    // ç¢°æ’äº†å°±å¾€åå‘é£å‰©ä½™è·ç¦»
                     if (!isTrigger)
                     {
                         transform.Translate(direction * speed * process * Time.deltaTime, Space.World);

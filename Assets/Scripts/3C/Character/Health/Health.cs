@@ -12,26 +12,102 @@ namespace TopDownPlate
     /// </summary>
     public enum DamageType
     {
+        /// <summary>
+        /// 僵尸
+        /// </summary>
         Zombie,
-        Pot,
+        /// <summary>
+        /// 角色的攻击
+        /// </summary>
+        Player,
+        /// <summary>
+        /// 木槌
+        /// </summary>
         Hammer,
+        /// <summary>
+        /// 小推车
+        /// </summary>
         LawnMower,
+        /// <summary>
+        /// 音乐会
+        /// </summary>
         VocalConcert,
+        /// <summary>
+        /// 火焰
+        /// </summary>
         Fire,
+        /// <summary>
+        /// 僵尸残骸
+        /// </summary>
         ZombieFly,
-        ZombieHurEachOther,  // 游戏结束后互相伤害
-        PlantBullet,  // 豌豆
-        Chomper,   // 大嘴花
-        Cactus,  // 香蒲
-        Bomb,   // 灰烬伤害
-        Cornpult,  // 玉米投手
-        FumeShroom,  // 喷菇
-        Gravebuster,  // 墓碑吞噬者
-        ScaredyShroom,  // 胆小菇扎
-        Spikeweed,    // 地刺
-        TallNut,   // 高坚果
-        WallNut,  // 坚果
-        Squash,  // 窝瓜
+        /// <summary>
+        /// 游戏结束后互相伤害
+        /// </summary>
+        ZombieHurEachOther,
+        /// <summary>
+        /// 豌豆
+        /// </summary>
+        PeaBullet,
+        /// <summary>
+        /// 杨桃子弹
+        /// </summary>
+        StarBullet,
+        /// <summary>
+        /// 胆小菇，小喷菇毒弹
+        /// </summary>
+        ShroomBullet,
+        /// <summary>
+        /// 寒冰豌豆
+        /// </summary>
+        SnowBullet,
+        /// <summary>
+        /// 大嘴花
+        /// </summary>
+        Chomper,
+        /// <summary>
+        /// 香蒲和仙人掌的刺
+        /// </summary>
+        Spike,
+        /// <summary>
+        /// 灰烬伤害
+        /// </summary>
+        Bomb,
+        /// <summary>
+        /// 玉米投手
+        /// </summary>
+        Cornpult,
+        /// <summary>
+        /// 大喷菇，曾哥
+        /// </summary>
+        FumeShroom,
+        /// <summary>
+        /// 墓碑吞噬者
+        /// </summary>
+        Gravebuster,
+        /// <summary>
+        /// 胆小菇扎
+        /// </summary>
+        ScaredyShroom,
+        /// <summary>
+        /// 地刺
+        /// </summary>
+        Spikeweed,
+        /// <summary>
+        /// 高坚果
+        /// </summary>
+        TallNut,
+        /// <summary>
+        /// 坚果
+        /// </summary>
+        WallNut,
+        /// <summary>
+        /// 窝瓜
+        /// </summary>
+        Squash,
+        /// <summary>
+        /// 臭屁
+        /// </summary>
+        SmellyFart,
     }
 
     public class HUDPos

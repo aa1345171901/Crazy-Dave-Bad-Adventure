@@ -453,10 +453,9 @@ namespace TopDownPlate
 
         public void SetPropDamage(PropType propDamageType, int defaultDamage, float coolingTime)
         {
+            SetPropDamage<SmellyFart>(defaultDamage, coolingTime, true);
             switch (propDamageType)
             {
-                case PropType.None:
-                    break;
                 case PropType.LawnMower:
                     var lawnMowerPrefab = Resources.Load<LawnMower>("Prefabs/Props/LawnMower");
                     var lawnMower = GameObject.Instantiate(lawnMowerPrefab);
@@ -467,20 +466,30 @@ namespace TopDownPlate
                         specialPropLists.Add(lawnMower);
                     break;
                 case PropType.Hammer:
-                    bool haveHammer = specialPropLists.Contains<Hammer>();
-                    if (!haveHammer)
-                    {
-                        var hammerPrefab = Resources.Load<Hammer>("Prefabs/Props/Hammer");
-                        var hammer = GameObject.Instantiate(hammerPrefab);
-                        hammer.DefaultDamage = defaultDamage;
-                        hammer.DefaultAttackCoolingTime = coolingTime;
-                        specialPropLists.Add(hammer);
-                    }
+                    SetPropDamage<Hammer>(defaultDamage, coolingTime);
                     break;
-                case PropType.VocalConcert:
+                case PropType.SmellyFart:
+                    SetPropDamage<SmellyFart>(defaultDamage, coolingTime, true);
                     break;
                 default:
                     break;
+            }
+        }
+
+        void SetPropDamage<T>(int defaultDamage, float coolingTime, bool isPlayerParent = false) where T : BaseProp
+        {
+            bool haveProp = specialPropLists.Contains<T>();
+            if (!haveProp)
+            {
+                var prefab = Resources.Load<T>("Prefabs/Props/" + typeof(T).Name);
+                var propGo = GameObject.Instantiate(prefab);
+                if (isPlayerParent)
+                {
+                    propGo.transform.SetParent(Player.transform, false);
+                }
+                propGo.DefaultDamage = defaultDamage;
+                propGo.DefaultAttackCoolingTime = coolingTime;
+                specialPropLists.Add(propGo);
             }
         }
 
@@ -545,25 +554,27 @@ namespace TopDownPlate
                             GameObject.Destroy(lawnMower.gameObject);
                         }
                         break;
-                    case PropType.Fire:
-                        break;
                     case PropType.Hammer:
-                        if (count == 0)
-                        {
-                            var hammer = specialPropLists.GetValue<Hammer>();
-                            if (hammer != null)
-                            {
-                                specialPropLists.Remove(hammer);
-                                GameObject.Destroy(hammer.gameObject);
-                            }
-                        }
+                        RemoveProp<Hammer>(count);
                         break;
-                    case PropType.VocalConcert:
-                        break;
-                    case PropType.ZombieChange:
+                    case PropType.SmellyFart:
+                        RemoveProp<SmellyFart>(count);
                         break;
                     default:
                         break;
+                }
+            }
+        }
+
+        void RemoveProp<T>(int count) where T : BaseProp
+        {
+            if (count == 0)
+            {
+                var prop = specialPropLists.GetValue<T>();
+                if (prop != null)
+                {
+                    specialPropLists.Remove(prop);
+                    GameObject.Destroy(prop.gameObject);
                 }
             }
         }

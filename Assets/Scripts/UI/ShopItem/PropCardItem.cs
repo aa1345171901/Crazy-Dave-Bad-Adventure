@@ -28,7 +28,11 @@ public enum PropType
     /// <summary>
     /// 僵尸数量改变
     /// </summary>
-    ZombieChange
+    ZombieChange,
+    /// <summary>
+    /// 大蒜、臭屁
+    /// </summary>
+    SmellyFart,
 }
 
 [Serializable]

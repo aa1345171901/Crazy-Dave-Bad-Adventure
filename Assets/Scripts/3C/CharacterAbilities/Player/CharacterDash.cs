@@ -135,7 +135,8 @@ namespace TopDownPlate
             if (isDashing)
             {
                 character.CharacterAnimationState = "RollingSprint";
-                character.NowTrackEntry.TimeScale = speed;
+                if (character.NowTrackEntry != null)
+                    character.NowTrackEntry.TimeScale = speed;
             }
         }
     }

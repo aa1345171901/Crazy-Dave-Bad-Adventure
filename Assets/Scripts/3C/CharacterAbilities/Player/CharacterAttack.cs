@@ -161,9 +161,9 @@ namespace TopDownPlate
                     }
                     bool isCriticalHitRate = Random.Range(0, 101) < finalCriticalHitRate;
                     if (isCriticalHitRate)
-                        target.Health.DoDamage((int)(finalDamage * finalCriticalDamage) + 1, DamageType.Pot, true);
+                        target.Health.DoDamage((int)(finalDamage * finalCriticalDamage) + 1, DamageType.Player, true);
                     else
-                        target.Health.DoDamage(finalDamage, DamageType.Pot);
+                        target.Health.DoDamage(finalDamage, DamageType.Player);
 
                     bool isAttackRecovery = Random.Range(0, 101) < finalAttackRecovery;
                     if (isAttackRecovery)

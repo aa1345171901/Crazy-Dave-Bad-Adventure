@@ -14,6 +14,7 @@ public enum BulletType
 public class PeaBullet : MonoBehaviour
 {
     public virtual BulletType BulletType => BulletType.Pea;
+    public virtual DamageType damageType => DamageType.PeaBullet;
 
     public float Speed;
     public int Damage = 5;
@@ -91,14 +92,14 @@ public class PeaBullet : MonoBehaviour
             audioSource.clip = Random.Range(0, 2) == 0 ? hit1 : hit2;
             audioSource.Play();
 
-            // ½¦Éä´óÓÚ0Ôò´¥·¢
+            // æº…å°„å¤§äº0åˆ™è§¦å‘
             if (SplashPercentage > 0)
             {
-                // ÒòÎªÇ°ÃæµÄ1*1Ãæ»ıÊÇ´ó¸ÅÂÊÃ»ÈËµÄ, ËùÓĞÊÇ¶Ô¸ÃÎ»ÖÃµÄºó1*1·½¸ñÔì³ÉÉËº¦£¬
+                // å› ä¸ºå‰é¢çš„1*1é¢ç§¯æ˜¯å¤§æ¦‚ç‡æ²¡äººçš„, æ‰€æœ‰æ˜¯å¯¹è¯¥ä½ç½®çš„å1*1æ–¹æ ¼é€ æˆä¼¤å®³ï¼Œ
                 var colliders = Physics2D.OverlapBoxAll(this.transform.position, new Vector2(SplashSizeX, SplashSizeY), 0, TargetLayer);
                 foreach (var item in colliders)
                 {
-                    // ½©Ê¬ÓĞÁ½¸öcollider£¬Ö»¶ÔtriggerÄÇ¸öÔì³ÉÉËº¦
+                    // åƒµå°¸æœ‰ä¸¤ä¸ªcolliderï¼Œåªå¯¹triggeré‚£ä¸ªé€ æˆä¼¤å®³
                     if (item != collision && item.isTrigger)
                     {
                         var health2 = item.GetComponent<Health>();
@@ -111,7 +112,7 @@ public class PeaBullet : MonoBehaviour
 
     protected virtual void DoDamage(Health health, int damage)
     {
-        health.DoDamage(Damage, DamageType.PlantBullet);
+        health.DoDamage(Damage, damageType);
     }
 
     protected virtual void DestroyPeaBullet()

@@ -22,7 +22,7 @@ public class Cattail : Plant
     private float finalCoolTime;
     private int finalDamage;
     private float bulletSpeedMul = 1;
-    private float finalCriticalDamage;
+    private float finalCriticalDamage = 2;
     private float finalAttackAnimSpeed = 1;
 
     private readonly int LevelBasicDamage = 1;

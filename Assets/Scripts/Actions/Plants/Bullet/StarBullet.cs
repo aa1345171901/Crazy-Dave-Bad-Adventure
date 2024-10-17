@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TopDownPlate;
 using UnityEngine;
 
 public class StarBullet : PeaBullet
 {
     public override BulletType BulletType => BulletType.Star;
+    public override DamageType damageType => DamageType.StarBullet;
 
     public Vector3 StarfruitPos;
     public bool isRight;

@@ -6,6 +6,7 @@ using UnityEngine;
 public class SnowPeaBullet : PeaBullet
 {
     public override BulletType BulletType => BulletType.Snow;
+    public override DamageType damageType => DamageType.SnowBullet;
 
     public float DecelerationPercentage = 0.2f;
     public float DecelerationTime = 3f;

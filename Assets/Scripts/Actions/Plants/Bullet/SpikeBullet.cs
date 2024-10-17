@@ -14,7 +14,7 @@ public class SpikeBullet : MonoBehaviour
     public AudioClip hit2;
 
     /// <summary>
-    /// 目标Health以及上次受伤时间
+    /// 鐩爣Health浠ュ強涓婃鍙椾激鏃堕棿
     /// </summary>
     private Dictionary<Health, float> healths = new Dictionary<Health, float>();
     public bool isCritical;
@@ -62,7 +62,7 @@ public class SpikeBullet : MonoBehaviour
 
     private void DoDamage(Health health)
     {
-        health.DoDamage(Damage, DamageType.Cactus, isCritical);
+        health.DoDamage(Damage, DamageType.Spike, isCritical);
         audioSource.clip = Random.Range(0, 2) == 0 ? hit1 : hit2;
         audioSource.Play();
         damageCount++;

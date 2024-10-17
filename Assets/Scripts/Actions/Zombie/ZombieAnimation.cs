@@ -196,7 +196,7 @@ public class ZombieAnimation : MonoBehaviour
             bool isBodyFly = false;
             bool isZombieShock = GameManager.Instance.IsZombieShock;
 
-            if (damageType == DamageType.Pot && isZombieShock)
+            if (damageType == DamageType.Player && isZombieShock)
             {
                 if (aiMove.AIParameter.attackPos == AIParameter.AttackPos.Body)
                 {
