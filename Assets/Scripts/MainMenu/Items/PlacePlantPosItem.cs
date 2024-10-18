@@ -40,8 +40,9 @@ public class PlacePlantPosItem : MonoBehaviour
             plantRoot.DestroyChild();
             var confCardItem = ConfManager.Instance.confMgr.plantIllustrations.GetPlantItemType(plantType);
 
-            var plantGo = Resources.Load(confCardItem.prefabPath);
-            GameObject.Instantiate(plantGo, plantRoot);
+            var plantGo = Resources.Load<GameObject>(confCardItem.prefabPath);
+            var newGo = GameObject.Instantiate(plantGo, plantRoot);
+            newGo.GetComponent<Image>().raycastTarget = false;
         }
     }
 
@@ -55,6 +56,13 @@ public class PlacePlantPosItem : MonoBehaviour
             var newGo = GameObject.Instantiate(plantGo, plantRoot);
             var image = newGo.GetComponent<Image>();
             image.color = new Color(0.8f, 0.8f, 0.8f, 0.7f);
+            image.raycastTarget = false;
+        }
+        if (externalGardenPanel.isShovel && plantRoot.childCount != 0)
+        {
+            var plant = plantRoot.GetChild(0);
+            var image = plant.GetComponent<Image>();
+            image.color = new Color(0.8f, 0.8f, 0.8f, 0.7f); 
         }
     }
 
@@ -63,6 +71,12 @@ public class PlacePlantPosItem : MonoBehaviour
         if (plantType == 0)
         {
             plantRoot.DestroyChild();
+        }
+        if (plantRoot.childCount != 0)
+        {
+            var plant = plantRoot.GetChild(0);
+            var image = plant.GetComponent<Image>();
+            image.color = Color.white;
         }
     }
 
@@ -90,8 +104,9 @@ public class PlacePlantPosItem : MonoBehaviour
             externalGardenPanel.PlacePlantSeed(pos);
             var confCardItem = ConfManager.Instance.confMgr.plantIllustrations.GetPlantItemType(plantType);
 
-            var plantGo = Resources.Load(confCardItem.prefabPath);
-            GameObject.Instantiate(plantGo, plantRoot);
+            var plantGo = Resources.Load<GameObject>(confCardItem.prefabPath);
+            var newGo = GameObject.Instantiate(plantGo, plantRoot);
+            newGo.GetComponent<Image>().raycastTarget = false;
             AudioManager.Instance.PlayEffectSoundByName("PlacePlant");
         }
     }

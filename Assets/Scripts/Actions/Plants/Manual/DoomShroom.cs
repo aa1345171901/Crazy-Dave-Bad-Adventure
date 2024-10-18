@@ -6,8 +6,14 @@ using UnityEngine;
 public class DoomShroom : AshPlant
 {
     private bool canPlace;
-
+    bool isSeed;
     private CraterPos craterPos;
+
+    public override void Reuse(bool randomPos = true)
+    {
+        isSeed = !randomPos;
+        base.Reuse(randomPos);
+    }
 
     protected override void Processblity()
     {
@@ -39,7 +45,7 @@ public class DoomShroom : AshPlant
 
     protected override void PlacePlant()
     {
-        if (canPlace)
+        if (canPlace || isSeed)
             base.PlacePlant();
     }
 
@@ -55,7 +61,7 @@ public class DoomShroom : AshPlant
             {
                 var health = zombie.Health;
                 float random = Random.Range(0, 1f);
-                // ¡¢º¥À¿Õˆ
+                // Á´ãÂç≥Ê≠ª‰∫°
                 if (random < immediateMortalityRate && zombie.tag != "BigZombie")
                 {
                     sumHealth += health.maxHealth;

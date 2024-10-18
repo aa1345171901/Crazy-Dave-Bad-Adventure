@@ -224,6 +224,7 @@ namespace TopDownPlate
                         case GrowType.StartProp:
                             if (level != 0)
                             {
+                                ShopManager.Instance.UpdateCardPool();
                                 var list = ShopManager.Instance.PropDicts[level];
                                 var propCard = list[Random.Range(0, list.Count)];
                                 ShopManager.Instance.PurchaseProp(propCard, 0, null, true);
@@ -303,6 +304,7 @@ namespace TopDownPlate
         /// </summary>
         private void LoadPropMsg()
         {
+            SetPropDamage<SmellyFart>(1, 1, true);
             var purchasedProps = ShopManager.Instance.PurchasedProps;
             foreach (var item in purchasedProps)
             {
@@ -453,7 +455,6 @@ namespace TopDownPlate
 
         public void SetPropDamage(PropType propDamageType, int defaultDamage, float coolingTime)
         {
-            SetPropDamage<SmellyFart>(defaultDamage, coolingTime, true);
             switch (propDamageType)
             {
                 case PropType.LawnMower:

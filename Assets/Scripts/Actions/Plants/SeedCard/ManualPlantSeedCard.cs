@@ -167,7 +167,19 @@ private Rect GetBounds()
                 newPlant.FacingDirections = FacingDirections.Right;
             }
 
-            GameManager.Instance.plantSeedCard.Add(newPlant);
+            switch (plantCard.plantType)
+            {
+                case PlantType.CherryBomb:
+                case PlantType.IceShroom:
+                case PlantType.Jalapeno:
+                case PlantType.DoomShroom:
+                case PlantType.Squash:
+                case PlantType.PotatoMine:
+                    break;
+                default:
+                    GameManager.Instance.plantSeedCard.Add(newPlant);
+                    break;
+            }
         }
         else
         {
