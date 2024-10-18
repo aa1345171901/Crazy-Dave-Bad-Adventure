@@ -305,6 +305,7 @@ namespace TopDownPlate
         private void LoadPropMsg()
         {
             SetPropDamage<SmellyFart>(1, 1, true);
+            SetPropDamage<FireElf>(1, 1);
             var purchasedProps = ShopManager.Instance.PurchasedProps;
             foreach (var item in purchasedProps)
             {
@@ -472,6 +473,9 @@ namespace TopDownPlate
                 case PropType.SmellyFart:
                     SetPropDamage<SmellyFart>(defaultDamage, coolingTime, true);
                     break;
+                case PropType.FireElf:
+                    SetPropDamage<FireElf>(defaultDamage, coolingTime);
+                    break;
                 default:
                     break;
             }
@@ -560,6 +564,9 @@ namespace TopDownPlate
                         break;
                     case PropType.SmellyFart:
                         RemoveProp<SmellyFart>(count);
+                        break;
+                    case PropType.FireElf:
+                        RemoveProp<FireElf>(count);
                         break;
                     default:
                         break;

@@ -296,13 +296,14 @@ public class GardenManager : BaseManager<GardenManager>
         return count;
     }
 
-    public void CreateCrater(float x, float y)
+    public void CreateCrater(float x, float y, bool isAdd = true)
     {
         var crater = GameObject.Instantiate(Crater);
         crater.transform.position = new Vector3(x, y, 0);
         int sortingOrder = (int)((-y + 10) * 10);
         crater.GetComponent<SpriteRenderer>().sortingOrder = sortingOrder;
-        CraterPoses.Add(new CraterPos(x, y));
+        if (isAdd)
+            CraterPoses.Add(new CraterPos(x, y));
     }
 
     public void LoadCrater()
@@ -310,7 +311,7 @@ public class GardenManager : BaseManager<GardenManager>
         var craterPos = new List<CraterPos>(CraterPoses);
         foreach (var item in craterPos)
         {
-            CreateCrater(item.x, item.y);
+            CreateCrater(item.x, item.y, false);
         }
     }
 }

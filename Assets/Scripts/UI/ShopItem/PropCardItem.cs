@@ -33,6 +33,14 @@ public enum PropType
     /// 大蒜、臭屁
     /// </summary>
     SmellyFart,
+    /// <summary>
+    /// 火精灵
+    /// </summary>
+    FireElf,
+    /// <summary>
+    /// 水精灵
+    /// </summary>
+    WaterElf,
 }
 
 [Serializable]

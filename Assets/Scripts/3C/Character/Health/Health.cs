@@ -108,6 +108,10 @@ namespace TopDownPlate
         /// 臭屁
         /// </summary>
         SmellyFart,
+        /// <summary>
+        /// 火精灵
+        /// </summary>
+        FireElf,
     }
 
     public class HUDPos

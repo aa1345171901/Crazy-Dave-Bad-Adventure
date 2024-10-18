@@ -20,7 +20,9 @@ namespace TopDownPlate
         public List<string> tags;
         public LayerMask layerMasks;
 
-        public bool IsTrigger;
+        public bool IsTrigger { get; private set; }
+        public Action<Collider2D> OnTriggerEnter;
+        public Action<Collider2D> OnTriggerExit;
 
         public GameObject Target;
 
@@ -60,6 +62,7 @@ namespace TopDownPlate
         private void Trigger(Collider2D collision)
         {
             IsTrigger = true;
+            OnTriggerEnter?.Invoke(collision);
             Target = collision.gameObject;
         }
 
@@ -67,6 +70,7 @@ namespace TopDownPlate
         {
             IsTrigger = false;
             Target = null;
+            OnTriggerExit?.Invoke(collision);
         }
 
         private bool ListTags(string tag)
