@@ -24,17 +24,21 @@ public class BaseElf : BaseProp
     private float lastAttackTimer;
     private float realSpeed;
     private float realRange;
+    /// <summary>
+    /// 正在攻击，不移动
+    /// </summary>
+    bool isAttack;
 
     SpriteRenderer spriteRenderer;
     CharacterProp characterProp;
+    protected Animator animator;
 
     private void Start()
     {
         Trigger.OnTriggerEnter += TriggerEnter2D;
         Trigger.OnTriggerExit += TriggerExit2D;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-
-        Reuse();
+        animator = GetComponent<Animator>();
     }
 
     private void TriggerEnter2D(Collider2D collider2D)
@@ -72,7 +76,7 @@ public class BaseElf : BaseProp
         Vector2 direction = Vector2.zero;
         Vector3 targetPos;
         realSpeed = speed;
-        if (isPursuit && Time.time - lastAttackTimer > DefaultAttackCoolingTime && target.gameObject.activeSelf)
+        if (!isAttack && isPursuit && Time.time - lastAttackTimer > DefaultAttackCoolingTime && target.gameObject.activeSelf)
         {
             // 追击敌人
             targetPos = target.transform.position;
@@ -81,27 +85,40 @@ public class BaseElf : BaseProp
             // 发动攻击
             if (colliders.Length > 0)
             {
-                lastAttackTimer = Time.time;
-                var health = colliders[0].GetComponent<Health>();
-                health.DoDamage(5, DamageType.FireElf, true);
-
-                isPursuit = false;
-                characterProp.targets.Remove(target);
-                target = null;
+                isAttack = true;
+                StartCoroutine(Attack(colliders));
             }
         }
         else if (targetPlayerPos != null)
         {
             targetPos = targetPlayerPos.position;
             direction = (targetPos - this.transform.position).normalized;
-            if ((targetPos - this.transform.position).magnitude < 0.25f)
+            if ((targetPos - this.transform.position).magnitude < 0.2f)
             {
                 realSpeed = 0;
             }
+            if ((targetPos - this.transform.position).magnitude > 2)
+            {
+                realSpeed *= 2;
+            }
         }
+        if(isAttack)
+            realSpeed = 0;
         transform.Translate(direction * Time.deltaTime * realSpeed);
+        transform.localScale = new Vector3(GameManager.Instance.Player.FacingDirection == FacingDirections.Right ? 1 : -1, 1, 1);
         int y = (int)((-this.transform.position.y + 1f + 10) * 10);
         spriteRenderer.sortingOrder = y;
+    }
+
+    public virtual IEnumerator Attack(Collider2D[] colliders)
+    {
+        yield return null;
+
+        lastAttackTimer = Time.time;
+        isPursuit = false;
+        characterProp.targets.Remove(target);
+        target = null;
+        isAttack = false;
     }
 
     public override void DayEnd()

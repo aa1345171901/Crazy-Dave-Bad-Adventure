@@ -304,7 +304,6 @@ namespace TopDownPlate
         /// </summary>
         private void LoadPropMsg()
         {
-            SetPropDamage<SmellyFart>(1, 1, true);
             SetPropDamage<FireElf>(1, 1);
             var purchasedProps = ShopManager.Instance.PurchasedProps;
             foreach (var item in purchasedProps)
