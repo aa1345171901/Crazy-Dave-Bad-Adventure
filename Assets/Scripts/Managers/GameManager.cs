@@ -305,6 +305,7 @@ namespace TopDownPlate
         private void LoadPropMsg()
         {
             SetPropDamage<FireElf>(1, 1);
+            SetPropDamage<WaterElf>(1, 1);
             var purchasedProps = ShopManager.Instance.PurchasedProps;
             foreach (var item in purchasedProps)
             {
@@ -475,6 +476,9 @@ namespace TopDownPlate
                 case PropType.FireElf:
                     SetPropDamage<FireElf>(defaultDamage, coolingTime);
                     break;
+                case PropType.WaterElf:
+                    SetPropDamage<WaterElf>(defaultDamage, coolingTime);
+                    break;
                 default:
                     break;
             }
@@ -566,6 +570,9 @@ namespace TopDownPlate
                         break;
                     case PropType.FireElf:
                         RemoveProp<FireElf>(count);
+                        break;
+                    case PropType.WaterElf:
+                        RemoveProp<WaterElf>(count);
                         break;
                     default:
                         break;

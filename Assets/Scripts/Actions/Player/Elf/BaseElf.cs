@@ -29,8 +29,8 @@ public class BaseElf : BaseProp
     /// </summary>
     bool isAttack;
 
-    SpriteRenderer spriteRenderer;
-    CharacterProp characterProp;
+    protected SpriteRenderer spriteRenderer;
+    protected CharacterProp characterProp;
     protected Animator animator;
 
     private void Start()
@@ -108,6 +108,12 @@ public class BaseElf : BaseProp
         transform.localScale = new Vector3(GameManager.Instance.Player.FacingDirection == FacingDirections.Right ? 1 : -1, 1, 1);
         int y = (int)((-this.transform.position.y + 1f + 10) * 10);
         spriteRenderer.sortingOrder = y;
+        Update2();
+    }
+
+    public virtual void Update2()
+    {
+
     }
 
     public virtual IEnumerator Attack(Collider2D[] colliders)

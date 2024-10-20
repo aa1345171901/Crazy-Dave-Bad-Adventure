@@ -73,7 +73,7 @@ public class PlantSeedCard : MonoBehaviour
         }
     }
 
-    private void OnMouseUp()
+    private void OnMouseDown()
     {
         isSelect = true;
         isMove = false;
