@@ -146,6 +146,7 @@ public class PropCardItem : ShopItem
         {
             var userData = GameManager.Instance.UserData;
             int finalDamage;
+            int finalCount;
             float finalAttackCoolingTime;
             var textConf = ConfManager.Instance;
             switch (propCard.propType)
@@ -171,8 +172,21 @@ public class PropCardItem : ShopItem
                 case PropType.VocalConcert:
                     break;
                 case PropType.SmellyFart:
-                    finalDamage = Mathf.RoundToInt((userData.Botany / 25f + propCard.value1) * (100f + userData.PercentageDamage) / 100);
+                    finalDamage = Mathf.RoundToInt((userData.Botany / 5f + propCard.value1) * (100f + userData.PercentageDamage) / 100);
                     this.Info = string.Format(GameTool.LocalText(this.propCard.info), finalDamage);
+                    break;
+                case PropType.FireElf:
+                    if (propCard.propName == "fireElf")
+                    {
+                        finalDamage = Mathf.RoundToInt((userData.CriticalHitRate * 2 + propCard.value1) * (100f + userData.CriticalDamage) / 100) * 2;
+                        finalCount = 1 + Mathf.RoundToInt(userData.CriticalDamage / 50);
+                        this.Info = string.Format(GameTool.LocalText(this.propCard.info), finalCount, finalDamage);
+                    }
+                    else
+                    {
+                        finalDamage = Mathf.RoundToInt((userData.CriticalHitRate + propCard.value1) * (100f + userData.CriticalDamage) / 100);
+                        this.Info = string.Format(GameTool.LocalText(this.propCard.info), finalDamage);
+                    }
                     break;
                 default:
                     break;

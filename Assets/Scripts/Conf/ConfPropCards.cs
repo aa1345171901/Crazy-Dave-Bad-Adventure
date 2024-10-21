@@ -10,6 +10,7 @@ public class ConfPropCards : ConfPropCardsBase
     public Dictionary<ConfPropCardsItem, PropCard> maxNumLimit = new Dictionary<ConfPropCardsItem, PropCard>();
     public Dictionary<ConfPropCardsItem, PropCard> frontLimit = new Dictionary<ConfPropCardsItem, PropCard>();
     Dictionary<string, ConfPropCardsItem> dicts = new Dictionary<string, ConfPropCardsItem>();
+    Dictionary<int, List<ConfPropCardsItem>> typeDicts = new Dictionary<int, List<ConfPropCardsItem>>();
 
     public override void OnInit()
     {
@@ -49,6 +50,11 @@ public class ConfPropCards : ConfPropCardsBase
             {
                 frontLimit[item] = propCard;
             }
+            if (!typeDicts.ContainsKey(item.propType))
+            {
+                typeDicts[item.propType] = new List<ConfPropCardsItem>();
+            }
+            typeDicts[item.propType].Add(item);
 
             dicts[item.propName] = item;
         }
@@ -58,6 +64,19 @@ public class ConfPropCards : ConfPropCardsBase
     {
         if (dicts.ContainsKey(name))
             return dicts[name];
+        return null;
+    }
+
+    public ConfPropCardsItem GetItemByTypeLevel(int propType, int level)
+    {
+        if (typeDicts.ContainsKey(propType))
+        {
+            foreach (var item in typeDicts[propType])
+            {
+                if (item.quality == level)
+                    return item;
+            }
+        }
         return null;
     }
 }

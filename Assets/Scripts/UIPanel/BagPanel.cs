@@ -48,6 +48,7 @@ public class BagPanel : BasePanel
                     {
                         var userData = GameManager.Instance.UserData;
                         int finalDamage;
+                        int finalCount;
                         float finalAttackCoolingTime;
                         switch (nowShowPropCard.propType)
                         {
@@ -77,8 +78,21 @@ public class BagPanel : BasePanel
                                 InfoText.text += "\n" + string.Format(GameTool.LocalText("battle_vocalconcert"), range, finalDamage);
                                 break;
                             case PropType.SmellyFart:
-                                finalDamage = Mathf.RoundToInt((userData.Botany / 25f + nowShowPropCard.value1) * (100f + userData.PercentageDamage) / 100);
+                                finalDamage = Mathf.RoundToInt((userData.Botany / 5f + nowShowPropCard.value1) * (100f + userData.PercentageDamage) / 100);
                                 InfoText.text = string.Format(GameTool.LocalText(nowShowPropCard.info), finalDamage);
+                                break;
+                            case PropType.FireElf:
+                                if (nowShowPropCard.propName == "fireElf")
+                                {
+                                    finalDamage = Mathf.RoundToInt((userData.CriticalHitRate * 2 + nowShowPropCard.value1) * (100f + userData.CriticalDamage) / 100) * 2;
+                                    finalCount = 1 + Mathf.RoundToInt(userData.CriticalDamage / 50);
+                                    InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info), finalCount, finalDamage);
+                                }
+                                else
+                                {
+                                    finalDamage = Mathf.RoundToInt((userData.CriticalHitRate + nowShowPropCard.value1) * (100f + userData.CriticalDamage) / 100);
+                                    InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info), finalDamage);
+                                }
                                 break;
                             default:
                                 break;

@@ -298,7 +298,7 @@ public class ShopManager : BaseManager<ShopManager>
         var list = new List<PropCard>();
         foreach (var item in PurchasedProps)
         {
-            if (item == propCard)
+            if (item.propName == propCard.propName)
             {
                 list.Add(item);
             }

@@ -304,8 +304,6 @@ namespace TopDownPlate
         /// </summary>
         private void LoadPropMsg()
         {
-            SetPropDamage<FireElf>(1, 1);
-            SetPropDamage<WaterElf>(1, 1);
             var purchasedProps = ShopManager.Instance.PurchasedProps;
             foreach (var item in purchasedProps)
             {
@@ -569,6 +567,7 @@ namespace TopDownPlate
                         RemoveProp<SmellyFart>(count);
                         break;
                     case PropType.FireElf:
+                        count = ShopManager.Instance.GetPurchaseTypeList(propCard.propType).Count;
                         RemoveProp<FireElf>(count);
                         break;
                     case PropType.WaterElf:

@@ -28,7 +28,8 @@ public class LoadingScene : MonoBehaviour
             process.handleRect.rotation = Quaternion.Euler(0, 0, -value * 720);
         }
         float nowProgress = 0;
-        while (asyncOperation.progress < 0.9f && !asyncOperation.isDone)
+        SetProcess(nowProgress);
+        while (asyncOperation.progress < 0.9f)
         {
             while (nowProgress < asyncOperation.progress)
             {
@@ -38,6 +39,7 @@ public class LoadingScene : MonoBehaviour
                 SetProcess(nowProgress);
                 yield return new WaitForEndOfFrame();
             }
+            yield return new WaitForEndOfFrame();
         }
         nowProgress = 0.9f;
         while (nowProgress < 1)

@@ -25,7 +25,7 @@ public class SmellyFart : BaseProp
     {
         base.Reuse();
         var userData = GameManager.Instance.UserData;
-        finalDamage = Mathf.RoundToInt((userData.Botany / 25f + DefaultDamage) * (100f + userData.PercentageDamage) / 100);
+        finalDamage = Mathf.RoundToInt((userData.Botany / 5f + DefaultDamage) * (100f + userData.PercentageDamage) / 100);
         finalDecelerated = 0;
         var lifeTime = ShopManager.Instance.PurchasePropCount("purpleGarlic");
         var confMint = ConfManager.Instance.confMgr.propCards.GetItemByName("mint");
