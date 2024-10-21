@@ -630,6 +630,8 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(578, "garden_getTips", "温馨提示！\r\n植物种子可能出现在僵尸身上", "Warm reminder! \r\nPlant seeds may appear on zombies"));
 		AddItem(new ConfLocalTextItem(579, "achievement_title100009", "百发百中", "Hit the target every time"));
 		AddItem(new ConfLocalTextItem(580, "achievement_info100009", "暴击率达到100", "Critical hit rate reaches 100"));
+		AddItem(new ConfLocalTextItem(581, "propInfo_purpleGarlic", "紫皮大蒜\r\n<color=#00ff00>+5速度</color>\r\n<color=#00ff00>+4伤害</color>\r\n<color=#ff0000>-2幸运</color>\r\n<color=#ff0000>自身每秒-1生命值</color>\r\n吃了一直放屁，感觉中毒了\r\n<color=#00ff00>每个使屁持续时机增加1s\r\n对屁中的僵尸造成{0}((1+植物学/25)*伤害%)伤害</color>", "Purple Garlic\r\n<color=#00ff00>+5 Speed</color>\r\n<color=#00ff00>+4 Damage</color>\r\n<color=#ff0000>-2 Luck</color>\r\n<color=#ff0000>-1 HP per second</color>\r\nAfter eating, you will fart constantly, feeling poisoned\r\n<color=#00ff00>Each fart will last 1s longer\r\nDeal {0}((1+Botany/25)*Damage%) damage to zombies in the fart</color>"));
+		AddItem(new ConfLocalTextItem(582, "propInfo_mint", "<color=#0000ff>薄荷</color>\r\n<color=#00ff00>+5最大生命值</color>\r\n<color=#00ff00>+4生命恢复</color>\r\n吃了感觉凉凉的\r\n使<color=#00ff00>紫皮大蒜</color>的臭屁附带<color=#00ff00>8%减速效果</color>，可叠加", "<color=#0000ff>Mint</color>\r\n<color=#00ff00>+5 Max HP</color>\r\n<color=#00ff00>+4 HP Recovery</color>\r\nFeels cool after eating\r\nMakes the fart of <color=#00ff00>Purple Garlic</color> have <color=#00ff00>8% Slowdown Effect</color>, which can be stacked"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

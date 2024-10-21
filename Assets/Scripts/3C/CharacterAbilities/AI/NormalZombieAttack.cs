@@ -8,35 +8,35 @@ using UnityEngine;
 public class NormalZombieAttack : AIAttack
 {
     [Space(10)]
-    [Tooltip("¸Ã½©Ê¬¹¥»÷Ç°Ò¡³å´ÌËÙ¶È±¶ÂÊ")]
+    [Tooltip("è¯¥åƒµå°¸æ”»å‡»å‰æ‘‡å†²åˆºé€Ÿåº¦å€ç‡")]
     public float RushSpeedMul = 2f;
 
-    [Tooltip("¸Ã½©Ê¬¹¥»÷Ç°ÆËËÙ¶È±¶ÂÊ")]
+    [Tooltip("è¯¥åƒµå°¸æ”»å‡»å‰æ‰‘é€Ÿåº¦å€ç‡")]
     public float SwoopSpeedMul = 4f;
 
-    [Tooltip("»á·¢¶¯¹¥»÷µÄ¾àÀë")]
+    [Tooltip("ä¼šå‘åŠ¨æ”»å‡»çš„è·ç¦»")]
     public float AttackRange = 5f;
 
-    [Tooltip("¸Ã½©Ê¬¹¥»÷Ç°Ò¡¶¯»­Ãû")]
-    public string AttackBeforeAnimation = "Attack/Attack_Before";   // ÔÚÎÄ¼ş¼ĞÖĞ£¬ĞèÒª¼ÓÉÏÎÄ¼ş¼Ğ
-    [Tooltip("¸Ã½©Ê¬¹¥»÷¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸æ”»å‡»å‰æ‘‡åŠ¨ç”»å")]
+    public string AttackBeforeAnimation = "Attack/Attack_Before";   // åœ¨æ–‡ä»¶å¤¹ä¸­ï¼Œéœ€è¦åŠ ä¸Šæ–‡ä»¶å¤¹
+    [Tooltip("è¯¥åƒµå°¸æ”»å‡»åŠ¨ç”»å")]
     public string AttackAnimation = "Attack/Attack";
 
-    [Tooltip("¸Ã½©Ê¬Ç°ÆË¹¥»÷Ç°Ò¡¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸å‰æ‰‘æ”»å‡»å‰æ‘‡åŠ¨ç”»å")]
     public string AttackSwoopBeforeAnimation = "Attack/AttackSwoop_Before";
-    [Tooltip("¸Ã½©Ê¬Ç°ÆË¹¥»÷¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸å‰æ‰‘æ”»å‡»åŠ¨ç”»å")]
     public string AttackSwoopAnimation = "Attack/AttackSwoop";
-    [Tooltip("¸Ã½©Ê¬Ç°ÆË¹¥»÷½áÊø¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸å‰æ‰‘æ”»å‡»ç»“æŸåŠ¨ç”»å")]
     public string AttackSwoopAfterAnimation = "Attack/AttackSwoop_After";
 
-    [Tooltip("¹¥»÷µÄ´¥·¢Æ÷")]
+    [Tooltip("æ”»å‡»çš„è§¦å‘å™¨")]
     public BoxCollider2D AttackBoxColider;
-    [Tooltip("Ç°ÆË¹¥»÷µÄ´¥·¢Æ÷")]
+    [Tooltip("å‰æ‰‘æ”»å‡»çš„è§¦å‘å™¨")]
     public BoxCollider2D AttackSwoopBoxColider;
-    [Tooltip("¹¥»÷µÄÍÏÎ²")]
+    [Tooltip("æ”»å‡»çš„æ‹–å°¾")]
     public List<GameObject> Trails;
 
-    [Tooltip("ÊÇ·ñÄÜÊ¹ÓÃ·ÉÆË£¬ÌúÃÅÒÔ¼°ÆìÖÄ½©Ê¬²»ÄÜÊ¹ÓÃ")]
+    [Tooltip("æ˜¯å¦èƒ½ä½¿ç”¨é£æ‰‘ï¼Œé“é—¨ä»¥åŠæ——å¸œåƒµå°¸ä¸èƒ½ä½¿ç”¨")]
     public bool CanSwoop = true;
 
     private TrackEntry trackEntry;
@@ -121,12 +121,12 @@ public class NormalZombieAttack : AIAttack
         timer = Time.time;
         if (trackEntry != null)
             return;
-        // ÅĞ¶Ï´ËÊ±ÊÇ·ñ¹¥»÷
+        // åˆ¤æ–­æ­¤æ—¶æ˜¯å¦æ”»å‡»
         float random = Random.Range(0, 1f);
         if (random > realAttackProbability)
             return;
 
-        // Ëæ»úÑ¡Ôñ¹¥»÷·½Ê½
+        // éšæœºé€‰æ‹©æ”»å‡»æ–¹å¼
         if (zombieAnimation.zombieType == ZombieType.Paper && realCanSwoop)
             AttackSwoop();
         else if (!realCanSwoop || Random.Range(0, 2) == 0)
@@ -137,7 +137,7 @@ public class NormalZombieAttack : AIAttack
 
     private void JudgeTrigger(Trigger2D trigger2D, BoxCollider2D boxCollider2D)
     {
-        // ½ÇÉ«ÔÚ¹¥»÷´¥·¢Æ÷ÖĞÇÒ´¥·¢Æ÷´ò¿ª
+        // è§’è‰²åœ¨æ”»å‡»è§¦å‘å™¨ä¸­ä¸”è§¦å‘å™¨æ‰“å¼€
         if (trigger2D.IsTrigger && boxCollider2D.enabled)
         {
             if (GameManager.Instance.IsEnd || aiMove.IsEnchanted)
@@ -162,11 +162,11 @@ public class NormalZombieAttack : AIAttack
         float distance = aiMove.AIParameter.Distance;
         if (distance < realAttackRange)
         {
-            // Ç°Ò¡Ê±Ëæ»úÑ¡Ôñ½©Ê¬AudioSource,Èç¹ûÃ»ÔÚ²¥·ÅÔò²¥·Å
+            // å‰æ‘‡æ—¶éšæœºé€‰æ‹©åƒµå°¸AudioSource,å¦‚æœæ²¡åœ¨æ’­æ”¾åˆ™æ’­æ”¾
             audioSource = AudioManager.Instance.RandomPlayZombieSounds();
 
             isRushAttack = true;
-            // ¹¥»÷Ç°Ò¡£¬³å´Ì
+            // æ”»å‡»å‰æ‘‡ï¼Œå†²åˆº
             aiMove.MoveSpeed *= RushSpeedMul;
             controller.BoxCollider.enabled = false;
             SetTrailAndColliderActive(true, false, AttackBoxColider);
@@ -180,14 +180,14 @@ public class NormalZombieAttack : AIAttack
 
     private void Attack()
     {
-        // ¹¥»÷Ç°Ò¡ÍêÁË¹¥»÷£¬ ËÙ¶ÈÎª0
+        // æ”»å‡»å‰æ‘‡å®Œäº†æ”»å‡»ï¼Œ é€Ÿåº¦ä¸º0
         aiMove.MoveSpeed = 0;
         controller.BoxCollider.enabled = true;
         trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackAnimation, false);
         SetTrailAndColliderActive(true, true, AttackBoxColider);
         trackEntry.Complete += (e) =>
         {
-            // ÷È»ó¹¥»÷´ÎÊıÅĞ¶Ï
+            // é­…æƒ‘æ”»å‡»æ¬¡æ•°åˆ¤æ–­
             if (aiMove.IsEnchanted)
             {
                 if (attackCount > 0)
@@ -200,7 +200,7 @@ public class NormalZombieAttack : AIAttack
             }
 
             isRushAttack = false;
-            // ¹¥»÷Íê½©Ö±0.2sÉèÖÃÒÆ¶¯
+            // æ”»å‡»å®Œåƒµç›´0.2sè®¾ç½®ç§»åŠ¨
             Invoke("SpeedRecovery", 0.2f);
             SetTrailAndColliderActive(false, false, AttackBoxColider);
             trackEntry = null;
@@ -215,10 +215,10 @@ public class NormalZombieAttack : AIAttack
         float distance = aiMove.AIParameter.Distance;
         if (distance < realAttackRange)
         {
-            // Ç°Ò¡Ê±Ëæ»úÑ¡Ôñ½©Ê¬AudioSource,Èç¹ûÃ»ÔÚ²¥·ÅÔò²¥·Å
+            // å‰æ‘‡æ—¶éšæœºé€‰æ‹©åƒµå°¸AudioSource,å¦‚æœæ²¡åœ¨æ’­æ”¾åˆ™æ’­æ”¾
             audioSource = AudioManager.Instance.RandomPlayZombieSounds();
 
-            // ¹¥»÷Ç°Ò¡£¬ĞîÁ¦
+            // æ”»å‡»å‰æ‘‡ï¼Œè“„åŠ›
             aiMove.MoveSpeed = 0;
             aiMove.isSwoop = true;
             trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackSwoopBeforeAnimation, false);
@@ -230,7 +230,7 @@ public class NormalZombieAttack : AIAttack
                 SetTrailAndColliderActive(true, true, AttackSwoopBoxColider);
                 trackEntry.Complete += (e) =>
                 {
-                    // ÷È»ó¹¥»÷´ÎÊıÅĞ¶Ï
+                    // é­…æƒ‘æ”»å‡»æ¬¡æ•°åˆ¤æ–­
                     if (aiMove.IsEnchanted)
                     {
                         if (attackCount > 0)
@@ -241,16 +241,19 @@ public class NormalZombieAttack : AIAttack
                             character.Health.DoDamage(character.Health.maxHealth, DamageType.Zombie);
                         }
                     }
-                    else
+
+                    trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackSwoopAfterAnimation, false);
+                    trackEntry.Complete += (e) =>
                     {
-                        trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackSwoopAfterAnimation, false);
-                        trackEntry.Complete += (e) =>
+                        trackEntry = null;
+                        skeletonAnimation.AnimationState.ClearTrack(1);
+                        aiMove.SpeedRecovery();
+                        if (aiMove.IsEnchanted)
                         {
-                            trackEntry = null;
-                            skeletonAnimation.AnimationState.ClearTrack(1);
-                            aiMove.SpeedRecovery();
-                        };
-                    }
+                            aiMove.hurtFlash.BeEnchanted();
+                        }
+                    };
+
                     aiMove.MoveSpeed = 0;
                     SetTrailAndColliderActive(false, false, AttackSwoopBoxColider);
                     audioSource = null;

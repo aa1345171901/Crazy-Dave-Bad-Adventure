@@ -13,10 +13,12 @@ namespace TopDownPlate
         private float lifeRecoveryTimer;
 
         private int purchaseFireCount;
-        private float fireTimer;
+        private int purpleGarlicCount;
+        private float timer;
 
         private readonly float howManySecondsRecoverty = 10;
         private readonly string fireName = "fire";
+        private readonly string purpleGarlicName = "purpleGarlic";
 
         public int PlanternLifeRecovery{ get; set; }
 
@@ -31,9 +33,10 @@ namespace TopDownPlate
             base.Reuse();
             lifeRecoveryValue = GameManager.Instance.UserData.LifeRecovery;
             purchaseFireCount = ShopManager.Instance.PurchasePropCount(fireName);
+            purpleGarlicCount = ShopManager.Instance.PurchasePropCount(purpleGarlicName);
             fire.SetActive(purchaseFireCount > 0);
             lifeRecoveryTimer = 0;
-            fireTimer = 0;
+            timer = 0;
         }
 
         public override void ProcessAbility()
@@ -41,13 +44,20 @@ namespace TopDownPlate
             base.ProcessAbility();
             if (character.IsDead || !GameManager.Instance.PlayerEnable)
                 return;
-            if (purchaseFireCount > 0)
+
+            timer += Time.deltaTime;
+            if (timer >= 1f)
             {
-                fireTimer += Time.deltaTime;
-                if (fireTimer >= 1f / purchaseFireCount)
+                timer = 0;
+                if (purchaseFireCount > 0)
                 {
-                    fireTimer = 0;
-                    GameManager.Instance.DoDamage(1, DamageType.Fire);
+                    var finalDamage = character.Health.health - purchaseFireCount <= 0 ? character.Health.health - 1: purchaseFireCount;
+                    GameManager.Instance.DoDamage(finalDamage, DamageType.Fire);
+                }
+                if (purpleGarlicCount > 0)
+                {
+                    var finalDamage = character.Health.health - purpleGarlicCount <= 0 ? character.Health.health - 1 : purpleGarlicCount;
+                    GameManager.Instance.DoDamage(finalDamage, DamageType.Fire);
                 }
             }
 
@@ -64,7 +74,7 @@ namespace TopDownPlate
                 if (unitTime < 1)
                 {
                     mul = Mathf.CeilToInt(1 / unitTime);
-                    if (lifeRecoveryTimer >= 1)
+                    if (lifeRecoveryTimer >= 1 / unitTime)
                     {
                         lifeRecoveryTimer = 0;
                         GameManager.Instance.AddHP(1 * mul);

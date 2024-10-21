@@ -128,6 +128,7 @@ private Rect GetBounds()
 
     protected virtual void PlacePlant()
     {
+        IsManual = false;
         AchievementManager.Instance.SetAchievementType9(plantType);
         AudioManager.Instance.PlayEffectSoundByName("PlacePlant");
         var info = GardenManager.Instance.PlantPrefabInfos.GetPlantInfo((PlantType)plantType);

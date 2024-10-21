@@ -292,9 +292,9 @@ namespace TopDownPlate
                 GardenManager.Instance.LoadCrater();
 
                 SceneTransition.TransitionToDaytime();
-                OpenShop();
                 LevelManager.Instance.LoadTimer();
                 isDaytime = true;
+                OpenShop();
                 SaveManager.Instance.IsLoadUserData = false;
             }
         }

@@ -332,27 +332,58 @@ public class ShopManager : BaseManager<ShopManager>
 
     public void UpdateCardPool()
     {
+        // 判断要加的卡
+        List<PropCard> tempAddPropDicts = new List<PropCard>();
+        // 判断要去掉的卡
+        HashSet<PropCard> tempRemovePropDicts = new HashSet<PropCard>();
+
+        // 判断前置卡片，有前置卡片才加入可刷出字典
+        foreach (var item in ConfManager.Instance.confMgr.propCards.frontLimit)
+        {
+            var frontCount = PurchasePropCount(item.Key.frontProp);
+            if (frontCount > 0)
+            {
+                tempAddPropDicts.Add(item.Value);
+            }
+            else
+            {
+                tempRemovePropDicts.Add(item.Value);
+            }
+        }
+
         // 判断有最大限制的道具，达到最大数量时去掉
         foreach (var item in ConfManager.Instance.confMgr.propCards.maxNumLimit)
         {
             var count = PurchasePropCount(item.Value.propName);
             if (count < item.Key.maxNum)
             {
-                if (PropDicts.ContainsKey(item.Value.quality) && !PropDicts[item.Value.quality].Contains(item.Value))
-                {
-                    PropDicts[item.Value.quality].Add(item.Value);
-                }
+                tempAddPropDicts.Add(item.Value);
             }
             else
             {
-                if (PropDicts.ContainsKey(item.Value.quality) && PropDicts[item.Value.quality].Contains(item.Value))
-                {
-                    PropDicts[item.Value.quality].Remove(item.Value);
-                }
+                tempRemovePropDicts.Add(item.Value);
             }
         }
+        // 先加需要加的有条件限制的卡
+        foreach (var item in tempAddPropDicts)
+        {
+            if (!tempRemovePropDicts.Contains(item) && PropDicts.ContainsKey(item.quality) && !PropDicts[item.quality].Contains(item))
+            {
+                PropDicts[item.quality].Add(item);
+            }
+        }
+        // 去掉条件不满足的
+        foreach (var item in tempRemovePropDicts)
+        {
+            if (PropDicts.ContainsKey(item.quality) && PropDicts[item.quality].Contains(item))
+            {
+                PropDicts[item.quality].Remove(item);
+            }
+        }
+        tempAddPropDicts.Clear();
+        tempRemovePropDicts.Clear();
 
-        // 先去掉所有后置卡
+        // 先去掉所有后置植物卡
         foreach (var item in PlantEvolutionDict)
         {
             if (PlantLists.Contains(item.Value))

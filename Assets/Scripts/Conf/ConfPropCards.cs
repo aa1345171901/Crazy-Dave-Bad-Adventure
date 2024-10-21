@@ -8,6 +8,8 @@ public class ConfPropCards : ConfPropCardsBase
 {
     public List<PropCard> PropCards = new List<PropCard>();
     public Dictionary<ConfPropCardsItem, PropCard> maxNumLimit = new Dictionary<ConfPropCardsItem, PropCard>();
+    public Dictionary<ConfPropCardsItem, PropCard> frontLimit = new Dictionary<ConfPropCardsItem, PropCard>();
+    Dictionary<string, ConfPropCardsItem> dicts = new Dictionary<string, ConfPropCardsItem>();
 
     public override void OnInit()
     {
@@ -43,6 +45,19 @@ public class ConfPropCards : ConfPropCardsBase
             {
                 maxNumLimit[item] = propCard;
             }
+            if (!string.IsNullOrEmpty(item.frontProp))
+            {
+                frontLimit[item] = propCard;
+            }
+
+            dicts[item.propName] = item;
         }
+    }
+
+    public ConfPropCardsItem GetItemByName(string name)
+    {
+        if (dicts.ContainsKey(name))
+            return dicts[name];
+        return null;
     }
 }

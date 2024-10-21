@@ -76,6 +76,10 @@ public class BagPanel : BasePanel
                                 float range = 2 * (100 + userData.Range) / 100f;
                                 InfoText.text += "\n" + string.Format(GameTool.LocalText("battle_vocalconcert"), range, finalDamage);
                                 break;
+                            case PropType.SmellyFart:
+                                finalDamage = Mathf.RoundToInt((userData.Botany / 25f + nowShowPropCard.value1) * (100f + userData.PercentageDamage) / 100);
+                                InfoText.text = string.Format(GameTool.LocalText(nowShowPropCard.info), finalDamage);
+                                break;
                             default:
                                 break;
                         }

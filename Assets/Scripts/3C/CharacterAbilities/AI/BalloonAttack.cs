@@ -159,6 +159,10 @@ public class BalloonAttack : AIAttack
                         skeletonAnimation.AnimationState.ClearTrack(1);
                         trackEntry = null;
                         aiMove.SpeedRecovery();
+                        if (aiMove.IsEnchanted)
+                        {
+                            aiMove.hurtFlash.BeEnchanted();
+                        }
                     };
 
                     aiMove.MoveSpeed = 0;

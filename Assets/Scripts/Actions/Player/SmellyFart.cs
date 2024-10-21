@@ -11,9 +11,10 @@ public class SmellyFart : BaseProp
     public AudioSource audioSource;
 
     private int finalDamage;
+    private float finalDecelerated;
 
     private float timer;
-    private bool haveDecelerated = true;
+    private bool haveDecelerated;
 
     /// <summary>
     /// 当前造成伤害的时间以及对应的目标Key
@@ -24,12 +25,19 @@ public class SmellyFart : BaseProp
     {
         base.Reuse();
         var userData = GameManager.Instance.UserData;
-        finalDamage = Mathf.RoundToInt(DefaultDamage * (100f + userData.PercentageDamage) / 100);
-
+        finalDamage = Mathf.RoundToInt((userData.Botany / 25f + DefaultDamage) * (100f + userData.PercentageDamage) / 100);
+        finalDecelerated = 0;
+        var lifeTime = ShopManager.Instance.PurchasePropCount("purpleGarlic");
+        var confMint = ConfManager.Instance.confMgr.propCards.GetItemByName("mint");
+        if (confMint != null)
+        {
+            finalDecelerated = (ShopManager.Instance.PurchasePropCount("mint") * confMint.value1) / 100f;
+        }
+        haveDecelerated = finalDecelerated > 0;
         foreach (var item in GetComponentsInChildren<ParticleSystem>())
         {
             ParticleSystem.MainModule mainModule = item.main;
-            mainModule.startLifetime = 2;
+            mainModule.startLifetime = lifeTime;
         }
     }
 
@@ -70,7 +78,7 @@ public class SmellyFart : BaseProp
                                     if (haveDecelerated)
                                     {
                                         var zombie = collider.GetComponent<AIMove>();
-                                        zombie.BeDecelerated(0.7f, 1);
+                                        zombie.BeDecelerated(finalDecelerated, 1);
                                     }
                                 }
 

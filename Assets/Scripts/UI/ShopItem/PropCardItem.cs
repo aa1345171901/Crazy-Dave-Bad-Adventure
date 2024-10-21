@@ -170,6 +170,10 @@ public class PropCardItem : ShopItem
                     break;
                 case PropType.VocalConcert:
                     break;
+                case PropType.SmellyFart:
+                    finalDamage = Mathf.RoundToInt((userData.Botany / 25f + propCard.value1) * (100f + userData.PercentageDamage) / 100);
+                    this.Info = string.Format(GameTool.LocalText(this.propCard.info), finalDamage);
+                    break;
                 default:
                     break;
             }
