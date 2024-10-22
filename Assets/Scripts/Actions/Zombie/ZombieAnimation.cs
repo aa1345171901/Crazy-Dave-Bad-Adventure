@@ -178,7 +178,7 @@ public class ZombieAnimation : MonoBehaviour
             LevelManager.Instance.CacheEnemys.Add(zombieType, character);
             character.SkeletonAnimation.GetComponent<MeshRenderer>().sortingOrder = -1;
         }
-        else if (zombieType == ZombieType.Balloon || zombieType == ZombieType.Catapult || zombieType == ZombieType.Zamboni || zombieType == ZombieType.Gargantuan)
+        else if (zombieType == ZombieType.Catapult || zombieType == ZombieType.Zamboni || zombieType == ZombieType.Gargantuan)
         {
             var entry = character.SkeletonAnimation.AnimationState.SetAnimation(0, DeadAnimation, false);
             Invoke("DelayDeadAudio", 2.16f);
@@ -242,6 +242,7 @@ public class ZombieAnimation : MonoBehaviour
         SaveManager.Instance.externalGrowthData.HeadNum += ConfManager.Instance.confMgr.growParam.GetGrowPrice((int)zombieType);
         AchievementManager.Instance.SetAchievementType7((int)damageType);
         AchievementManager.Instance.SetAchievementType8((int)zombieType);
+        GameManager.Instance.KillZombie(damageType);
     }
 
     /// <summary>

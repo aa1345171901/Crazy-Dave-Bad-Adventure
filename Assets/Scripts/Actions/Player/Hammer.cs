@@ -41,7 +41,7 @@ public class Hammer : BaseProp
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         AudioManager.Instance.AudioLists.Remove(this.audioSource);
     }
@@ -57,10 +57,10 @@ public class Hammer : BaseProp
 
         if (hasDown && Time.time - lastAttackTimer >= finalAttackCoolingTime)
         {
+            this.gameObject.SetActive(true);
             audioSource.pitch = Random.Range(0.9f, 1.1f);
             audioSource.Play();
             lastAttackTimer = Time.time;
-            this.gameObject.SetActive(true);
             damageTrigger.enabled = true;
             trigger2D.enabled = true;
             var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

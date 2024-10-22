@@ -92,6 +92,12 @@ public class ShopManager : BaseManager<ShopManager>
             fieldInfo.SetValue(userData, (int)fieldInfo.GetValue(userData) + item.increment);
             call?.Invoke(item.attributeType, (int)fieldInfo.GetValue(userData));
         }
+
+        if (propCard.propName == "vampireScepter" && userData.MaximumHP > 1)
+        {
+            userData.MaximumHP /= 2;
+            call?.Invoke(AttributeType.MaximumHP, userData.MaximumHP);
+        }
     }
 
     private void SetPropEffect(PropCard propCard)

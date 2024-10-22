@@ -7,12 +7,12 @@ using UnityEngine;
 [AddComponentMenu("TopDownPlate/AI/Ability/Attack/Catapult Attack")]
 public class CatapultAttack : AIAttack
 {
-    [Tooltip("»á·¢¶¯¹¥»÷µÄ¾àÀë")]
+    [Tooltip("ä¼šå‘åŠ¨æ”»å‡»çš„è·ç¦»")]
     public float AttackRange = 5f;
 
-    [Tooltip("¸Ã½©Ê¬¹¥»÷¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸æ”»å‡»åŠ¨ç”»å")]
     public string AttackAnimation = "Attack";
-    [Tooltip("¸Ã½©Ê¬¹¥»÷½áÊø³äÄÜ¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸æ”»å‡»ç»“æŸå……èƒ½åŠ¨ç”»å")]
     public string AttackAfterAnimation = "Attack_After";
 
     public Transform basketballPos;
@@ -30,7 +30,31 @@ public class CatapultAttack : AIAttack
         trackEntry = null;
         int waveIndex = LevelManager.Instance.IndexWave + 1;
         this.realAttackRange = AttackRange + waveIndex / 10f;
-        // ²»ÄÜÔì³ÉÉËº¦£¬»áÊ¹²»ÄÜÊ¹ÓÃÆÕÍ¨¹¥»÷
+        // ä¸èƒ½é€ æˆä¼¤å®³ï¼Œä¼šä½¿ä¸èƒ½ä½¿ç”¨æ™®é€šæ”»å‡»,æœ‰é“å…·æ—¶èƒ½æ”»å‡»
+        if (waveIndex < 4)
+        {
+            this.realDamage = Damage;
+        }
+        else if (waveIndex < 9)
+        {
+            this.realDamage = (int)((Damage + 1.5f) * (waveIndex / 4f));
+        }
+        else if (waveIndex < 13)
+        {
+            this.realDamage = (int)((Damage + 2.5f) * (waveIndex / 3f));
+        }
+        else if (waveIndex < 17)
+        {
+            this.realDamage = (int)((Damage + 3.5f) * (waveIndex / 1.5f));
+        }
+        else if (waveIndex < 21)
+        {
+            this.realDamage = (int)((Damage + 4.5f) * waveIndex);
+        }
+        else
+        {
+            this.realDamage = (int)((Damage + 5.5f) * waveIndex * 1.5f);
+        }
     }
 
     public override void ProcessAbility()
@@ -49,7 +73,7 @@ public class CatapultAttack : AIAttack
         timer = Time.time;
         if (trackEntry != null)
             return;
-        // ÅĞ¶Ï´ËÊ±ÊÇ·ñ¹¥»÷
+        // åˆ¤æ–­æ­¤æ—¶æ˜¯å¦æ”»å‡»
         float random = Random.Range(0, 1f);
         if (random > realAttackProbability)
             return;

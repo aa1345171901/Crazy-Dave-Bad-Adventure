@@ -195,15 +195,19 @@ public class PropCardItem : ShopItem
                 case PropType.WaterElf:
                     if (propCard.propName == "waterElf")
                     {
-                        finalDamage = Mathf.RoundToInt((userData.MaximumHP / 6 + userData.LifeRecovery / 5 + propCard.value1));
+                        finalDamage = Mathf.RoundToInt((userData.MaximumHP / 3 + userData.LifeRecovery / 2.5f + propCard.value1));
                         finalCount = 1 + Mathf.RoundToInt(userData.MaximumHP / 100);
                         this.Info = string.Format(GameTool.LocalText(this.propCard.info), finalCount, finalDamage);
                     }
                     else
                     {
-                        finalDamage = Mathf.RoundToInt((userData.MaximumHP / 3 + userData.LifeRecovery / 2.5f + propCard.value1));
+                        finalDamage = Mathf.RoundToInt((userData.MaximumHP / 6 + userData.LifeRecovery / 5f + propCard.value1));
                         this.Info = string.Format(GameTool.LocalText(this.propCard.info), finalDamage);
                     }
+                    break;
+                case PropType.DarkCloud:
+                    finalDamage = Mathf.RoundToInt((userData.Adrenaline / 5f + propCard.value1) * (100f + userData.CriticalDamage) / 100);
+                    this.Info = string.Format(GameTool.LocalText(this.propCard.info), finalDamage);
                     break;
                 default:
                     break;

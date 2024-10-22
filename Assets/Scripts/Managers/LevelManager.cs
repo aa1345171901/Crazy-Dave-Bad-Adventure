@@ -442,7 +442,7 @@ namespace TopDownPlate
         /// </summary>
         /// <param name="distance">在距离内才返回</param>
         /// <returns></returns>
-        public Character GetRecentlyEnemy(out bool direction, float range = 0)
+        public Character GetRecentlyEnemy(out bool direction, float range, bool haveAlloyEye)
         {
             direction = false;
             if (Enemys.Count() <= 0)
@@ -452,7 +452,7 @@ namespace TopDownPlate
             foreach (var item in Enemys)
             {
                 // 平底锅不能打到气球僵尸
-                if (item.ZombieType != ZombieType.Balloon)
+                if (item.ZombieType != ZombieType.Balloon || haveAlloyEye)
                 {
                     foreach (var zombie in item.Zombies)
                     {

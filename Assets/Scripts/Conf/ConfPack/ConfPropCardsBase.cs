@@ -198,6 +198,10 @@ public class ConfPropCardsBase : ConfBase<ConfPropCardsItem>
 		AddItem(new ConfPropCardsItem(98, "waterBead", "Shop/Props/waterBead", 64, "propInfo_waterBead", 2, 8, 3, 6, 1, "waterDroplet", "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"4\"},{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"4\"}]"));
 		AddItem(new ConfPropCardsItem(99, "waterSplash", "Shop/Props/waterSplash", 124, "propInfo_waterSplash", 3, 8, 5, 4, 1, "waterBead", "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"10\"},{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"10\"}]"));
 		AddItem(new ConfPropCardsItem(100, "waterElf", "Shop/Props/waterElf", 284, "propInfo_waterElf", 4, 8, 10, 2, 1, "waterSplash", "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"20\"},{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"20\"}]"));
+		AddItem(new ConfPropCardsItem(101, "darkCloud", "Shop/Props/darkCloud", 144, "propInfo_darkCloud", 3, 9, 5, 6, 4, "", "[{\"attributeTypeString\":\"Adrenaline\",\"increment\":\"25\"},{\"attributeTypeString\":\"CriticalDamage\",\"increment\":\"10\"},{\"attributeTypeString\":\"Sunshine\",\"increment\":\"100\"},{\"attributeTypeString\":\"Lucky\",\"increment\":\"-2\"},{\"attributeTypeString\":\"Armor\",\"increment\":\"-1\"}]"));
+		AddItem(new ConfPropCardsItem(102, "vampireScepter", "Shop/Props/vampireScepter", 34, "propInfo_vampireScepter", 1, 0, 1, 0, 10, "", ""));
+		AddItem(new ConfPropCardsItem(103, "alloyHelmet", "Shop/Props/alloyHelmet", 99, "propInfo_alloyHelmet", 2, 0, 0, 0, 1, "", "[{\"attributeTypeString\":\"Armor\",\"increment\":\"4\"},{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"10\"},{\"attributeTypeString\":\"Range\",\"increment\":\"-5\"}]"));
+		AddItem(new ConfPropCardsItem(104, "alloyEye", "Shop/Props/alloyEye", 88, "propInfo_alloyEye", 2, 0, 0, 0, 1, "", "[{\"attributeTypeString\":\"Range\",\"increment\":\"10\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"2\"},{\"attributeTypeString\":\"Armor\",\"increment\":\"2\"},{\"attributeTypeString\":\"Speed\",\"increment\":\"-5\"}]"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

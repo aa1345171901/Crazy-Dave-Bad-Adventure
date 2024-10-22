@@ -76,7 +76,6 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 64
-  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &619950131301105326
 GameObject:
@@ -351,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fcff66ac0387041832dbcfe22bae2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 2
   AttackProbability: 0.02
   AttackJudgmentTime: 1
   realDamage: 0

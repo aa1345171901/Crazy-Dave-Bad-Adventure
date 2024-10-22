@@ -112,6 +112,10 @@ namespace TopDownPlate
             }
         }
 
+        bool isVampireScepter;
+        bool haveAlloyHelmet;  // 是否有钛合金头盔
+        bool haveAlloyEye;  // 是否有钛合金眼
+
         protected override void Initialization()
         {
             base.Initialization();
@@ -133,6 +137,12 @@ namespace TopDownPlate
             finalAttackRecovery = userData.Adrenaline;
             finalDamage = (int)(finalDamage * GardenManager.Instance.GravebusterDamage);
             finalCriticalDamage = (150 + userData.CriticalDamage) / 100f;
+
+            isVampireScepter = ShopManager.Instance.PurchasePropCount("vampireScepter") > 0;
+            Pot.GetComponent<SpriteRenderer>().color = isVampireScepter ? Color.red : Color.white;
+
+            haveAlloyHelmet = ShopManager.Instance.PurchasePropCount("alloyHelmet") > 0;
+            haveAlloyEye = ShopManager.Instance.PurchasePropCount("alloyEye") > 0;
 
             int spinaciaCount = ShopManager.Instance.PurchasePropCount("Spinacia");
             spinaciaCount = spinaciaCount > 4 ? 4 : spinaciaCount;
@@ -190,10 +200,10 @@ namespace TopDownPlate
                 BezierMove();
             }
 
-            if (!isAttacking && GameManager.Instance.CanAttack)
+            if (!isAttacking && (GameManager.Instance.CanAttack || haveAlloyHelmet))
             {
                 // 从集合中寻找位置最近的敌人
-                target = LevelManager.Instance.GetRecentlyEnemy(out bool isRight, finalRange);
+                target = LevelManager.Instance.GetRecentlyEnemy(out bool isRight, finalRange, haveAlloyEye);
                 character.State.PlayerStateType = PlayerStateType.Attack;
                 if (target != null)
                 {
@@ -296,6 +306,8 @@ namespace TopDownPlate
                 {
                     int index = Random.Range(0, 8);
                     targetPos = targetAIMove.AIParameter.HeadPos.transform;
+                    if (targetAIMove.BodyPos == targetAIMove.HeadPos)
+                        index = 0;
                     targetAIMove.AIParameter.attackPos = AIParameter.AttackPos.Head;
                     if (index <= 3)
                     {

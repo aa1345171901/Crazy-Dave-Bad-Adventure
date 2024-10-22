@@ -10,6 +10,7 @@ Material:
   m_Name: guang
   m_Shader: {fileID: 4800000, guid: 0406db5a14f94604a8c57ccfbc9f3b46, type: 3}
   m_ValidKeywords:
+  - _COLORCOLOR_ON
   - _EMISSION
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords:
@@ -31,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 5ea4b6857921ed64badfe37e7c5df0d9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 476cf92c897ff544e8d15e5294fba3b4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -71,7 +72,7 @@ Material:
     - _CameraFadingEnabled: 0
     - _CameraFarFadeDistance: 2
     - _CameraNearFadeDistance: 1
-    - _ColorMode: 0
+    - _ColorMode: 4
     - _Cull: 2
     - _Cutoff: 0.5
     - _DistortionBlend: 0.5

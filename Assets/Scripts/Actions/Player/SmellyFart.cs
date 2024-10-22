@@ -78,7 +78,8 @@ public class SmellyFart : BaseProp
                                     if (haveDecelerated)
                                     {
                                         var zombie = collider.GetComponent<AIMove>();
-                                        zombie.BeDecelerated(finalDecelerated, 1);
+                                        if (zombie)
+                                            zombie.BeDecelerated(finalDecelerated, 1);
                                     }
                                 }
 

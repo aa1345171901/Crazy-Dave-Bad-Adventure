@@ -146,6 +146,8 @@ namespace TopDownPlate
             }
         }
 
+        public int killNum { get; set; }
+
         /// <summary>
         /// 已经使用的复活次数
         /// </summary>
@@ -457,13 +459,7 @@ namespace TopDownPlate
             switch (propDamageType)
             {
                 case PropType.LawnMower:
-                    var lawnMowerPrefab = Resources.Load<LawnMower>("Prefabs/Props/LawnMower");
-                    var lawnMower = GameObject.Instantiate(lawnMowerPrefab);
-                    lawnMower.DefaultDamage = defaultDamage;
-                    lawnMower.DefaultAttackCoolingTime = coolingTime;
-                    lawnMower.gameObject.SetActive(true);
-                    if (!specialPropLists.Contains(lawnMower))
-                        specialPropLists.Add(lawnMower);
+                    SetAddPropDamage<LawnMower>(defaultDamage, coolingTime);
                     break;
                 case PropType.Hammer:
                     SetPropDamage<Hammer>(defaultDamage, coolingTime);
@@ -477,11 +473,17 @@ namespace TopDownPlate
                 case PropType.WaterElf:
                     SetPropDamage<WaterElf>(defaultDamage, coolingTime);
                     break;
+                case PropType.DarkCloud:
+                    SetAddPropDamage<DarkCloud>(defaultDamage, coolingTime);
+                    break;
                 default:
                     break;
             }
         }
 
+        /// <summary>
+        /// 全局只有一个
+        /// </summary>
         void SetPropDamage<T>(int defaultDamage, float coolingTime, bool isPlayerParent = false) where T : BaseProp
         {
             bool haveProp = specialPropLists.Contains<T>();
@@ -497,6 +499,20 @@ namespace TopDownPlate
                 propGo.DefaultAttackCoolingTime = coolingTime;
                 specialPropLists.Add(propGo);
             }
+        }
+
+        /// <summary>
+        /// 可以有多个
+        /// </summary>
+        void SetAddPropDamage<T>(int defaultDamage, float coolingTime) where T : BaseProp
+        {
+            var prefab = Resources.Load<T>("Prefabs/Props/" + typeof(T).Name);
+            var target = GameObject.Instantiate(prefab);
+            target.DefaultDamage = defaultDamage;
+            target.DefaultAttackCoolingTime = coolingTime;
+            target.gameObject.SetActive(true);
+            if (!specialPropLists.Contains(target))
+                specialPropLists.Add(target);
         }
 
         public void RemoveProp(PropCard propCard, bool isSellAll, int sellCount)
@@ -534,31 +550,7 @@ namespace TopDownPlate
                 switch (propCard.propType)
                 {
                     case PropType.LawnMower:
-                        var lawnMowerList = new List<LawnMower>();
-                        foreach (var item in specialPropLists)
-                        {
-                            if (item is LawnMower lawnMower)
-                            {
-                                lawnMowerList.Add(lawnMower);
-                            }
-                        }
-                        if (isSellAll)
-                        {
-                            foreach (var item in lawnMowerList)
-                            {
-                                specialPropLists.Remove(item);
-                            }
-                            foreach (var item in lawnMowerList)
-                            {
-                                GameObject.Destroy(item.gameObject);
-                            }
-                        }
-                        else
-                        {
-                            var lawnMower = lawnMowerList.First();
-                            specialPropLists.Remove(lawnMower);
-                            GameObject.Destroy(lawnMower.gameObject);
-                        }
+                        RemoveProp<LawnMower>(count, isSellAll);
                         break;
                     case PropType.Hammer:
                         RemoveProp<Hammer>(count);
@@ -571,7 +563,11 @@ namespace TopDownPlate
                         RemoveProp<FireElf>(count);
                         break;
                     case PropType.WaterElf:
+                        count = ShopManager.Instance.GetPurchaseTypeList(propCard.propType).Count;
                         RemoveProp<WaterElf>(count);
+                        break;
+                    case PropType.DarkCloud:
+                        RemoveProp<DarkCloud>(count, isSellAll);
                         break;
                     default:
                         break;
@@ -579,6 +575,9 @@ namespace TopDownPlate
             }
         }
 
+        /// <summary>
+        /// 全局只有一个的特殊道具，全卖了才删
+        /// </summary>
         void RemoveProp<T>(int count) where T : BaseProp
         {
             if (count == 0)
@@ -589,6 +588,38 @@ namespace TopDownPlate
                     specialPropLists.Remove(prop);
                     GameObject.Destroy(prop.gameObject);
                 }
+            }
+        }
+
+        /// <summary>
+        /// 全局可以有多个的道具，卖一个删一个
+        /// </summary>
+        void RemoveProp<T>(int count, bool isSellAll) where T : BaseProp
+        {
+            var targetPropList = new List<T>();
+            foreach (var item in specialPropLists)
+            {
+                if (item is T target)
+                {
+                    targetPropList.Add(target);
+                }
+            }
+            if (isSellAll)
+            {
+                foreach (var item in targetPropList)
+                {
+                    specialPropLists.Remove(item);
+                }
+                foreach (var item in targetPropList)
+                {
+                    GameObject.Destroy(item.gameObject);
+                }
+            }
+            else
+            {
+                var target = targetPropList.First();
+                specialPropLists.Remove(target);
+                GameObject.Destroy(target.gameObject);
             }
         }
 
@@ -704,6 +735,22 @@ namespace TopDownPlate
                 Vector3 offset = new Vector3(Random.Range(-4, 4f), Random.Range(-2f, 1f), 0);
                 seedCard.targetPos = Player.transform.position + offset;
                 seedCard.transform.position = new Vector3(seedCard.targetPos.x, Player.transform.position.y + 3, seedCard.transform.position.z);
+            }
+        }
+
+        public void KillZombie(DamageType damageType)
+        {
+            if (damageType == DamageType.Player)
+            {
+                killNum++;
+                if (killNum >= 4)
+                {
+                    killNum = 0;
+                    var vampireScepterCount = ShopManager.Instance.PurchasePropCount("vampireScepter");
+                    UserData.MaximumHP += vampireScepterCount;
+                    Player.Health.maxHealth += vampireScepterCount;
+                    battlePanel?.SetHPBar(Player.Health.health, Player.Health.maxHealth);
+                }
             }
         }
     }

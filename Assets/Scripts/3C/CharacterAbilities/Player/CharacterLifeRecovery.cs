@@ -74,7 +74,7 @@ namespace TopDownPlate
                 if (unitTime < 1)
                 {
                     mul = Mathf.CeilToInt(1 / unitTime);
-                    if (lifeRecoveryTimer >= 1 / unitTime)
+                    if (lifeRecoveryTimer >= 1)
                     {
                         lifeRecoveryTimer = 0;
                         GameManager.Instance.AddHP(1 * mul);

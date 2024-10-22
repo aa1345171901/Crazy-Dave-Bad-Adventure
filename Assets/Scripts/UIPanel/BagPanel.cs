@@ -107,6 +107,10 @@ public class BagPanel : BasePanel
                                     InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info), finalDamage);
                                 }
                                 break;
+                            case PropType.DarkCloud:
+                                finalDamage = Mathf.RoundToInt((userData.Adrenaline / 5f + nowShowPropCard.value1) * (100f + userData.CriticalDamage) / 100);
+                                InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info), finalDamage);
+                                break;
                             default:
                                 break;
                         }

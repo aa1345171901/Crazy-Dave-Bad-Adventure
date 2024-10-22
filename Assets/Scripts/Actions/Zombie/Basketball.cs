@@ -24,6 +24,9 @@ public class Basketball : MonoBehaviour
 
     private readonly float MaxLiveTime = 15;
 
+    public int damage { get; set; }
+    bool canDodamage;
+
     private void Start()
     {
         Invoke("DestroyDelay", MaxLiveTime);
@@ -39,6 +42,8 @@ public class Basketball : MonoBehaviour
             upSpeed = (5 + speedOffset) / upTimer;
         else
             fallSpeed = (5 - speedOffset) / upTimer;
+
+        canDodamage = ShopManager.Instance.PurchasePropCount("alloyHelmet") > 0;
     }
 
     private void Update()
@@ -63,6 +68,8 @@ public class Basketball : MonoBehaviour
                 GameManager.Instance.balls.Remove(this.gameObject);
                 audioSource.Play();
                 isJump = true;
+                if (canDodamage)
+                    GameManager.Instance.DoDamage(damage);
 
                 Vector3 offset = new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), transform.position.z);
                 height = Random.Range(0.3f, 0.6f);

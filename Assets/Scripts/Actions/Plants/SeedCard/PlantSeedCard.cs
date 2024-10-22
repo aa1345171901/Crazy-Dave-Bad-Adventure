@@ -24,6 +24,7 @@ public class PlantSeedCard : MonoBehaviour
     /// 存在时间
     /// </summary>
     readonly float lifeTime = 15f;
+    bool isDestroy;
 
     private void Start()
     {
@@ -46,9 +47,11 @@ public class PlantSeedCard : MonoBehaviour
         yield return new WaitForSeconds(lifeTime - 3);
         animator.enabled = true;
         yield return new WaitForSeconds(3);
-        if (nowPlantCard != null )
+        if (nowPlantCard != null)
             nowPlantCard.plantSeedCard = null;
-        GameObject.Destroy(this.gameObject);
+        if (!isDestroy)
+            GameObject.Destroy(this.gameObject);
+        isDestroy = true;
     }
 
     private void Update()
@@ -88,6 +91,8 @@ public class PlantSeedCard : MonoBehaviour
 
     public void PlaceSeed()
     {
-        GameObject.Destroy(this.gameObject);
+        if (!isDestroy)
+            GameObject.Destroy(this.gameObject);
+        isDestroy = true;
     }
 }
