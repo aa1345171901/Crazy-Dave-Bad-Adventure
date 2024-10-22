@@ -58,7 +58,19 @@ public class FireElf : BaseElf
     {
         animator.Play(animStr + "Attack", 0, 0);
         yield return new WaitForSeconds(0.33f);
-        // todo 释放攻击
+        // 释放攻击
+        for (int i = 0; i < finalCount; i++)
+        {
+            var prefab = Resources.Load<GameObject>("Prefabs/Props/FireElf_Bullet");
+            var propGo = GameObject.Instantiate(prefab);
+            if (level == 4)
+                propGo.transform.localScale = Vector3.one * 1.5f;
+            if (colliders.Length < i)
+                propGo.transform.position = colliders[i].transform.position;
+            else
+                propGo.transform.position = colliders[0].transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 2));
+        }        
+
         yield return new WaitForSeconds(0.33f);
         animator.Play(animStr + "Idel", 0, 0);
         yield return base.Attack(colliders);

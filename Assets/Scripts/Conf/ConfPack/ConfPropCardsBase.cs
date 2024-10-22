@@ -194,6 +194,10 @@ public class ConfPropCardsBase : ConfBase<ConfPropCardsItem>
 		AddItem(new ConfPropCardsItem(94, "fireSeed", "Shop/Props/fireSeed", 66, "propInfo_fireSeed", 2, 7, 3, 4, 1, "fireStar", "[{\"attributeTypeString\":\"CriticalDamage\",\"increment\":\"4\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"2\"}]"));
 		AddItem(new ConfPropCardsItem(95, "fireBall", "Shop/Props/fireBall", 144, "propInfo_fireBall", 3, 7, 5, 3, 1, "fireSeed", "[{\"attributeTypeString\":\"CriticalDamage\",\"increment\":\"8\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"4\"}]"));
 		AddItem(new ConfPropCardsItem(96, "fireElf", "Shop/Props/fireElf", 299, "propInfo_fireElf", 4, 7, 10, 2, 1, "fireBall", "[{\"attributeTypeString\":\"CriticalDamage\",\"increment\":\"20\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"10\"}]"));
+		AddItem(new ConfPropCardsItem(97, "waterDroplet", "Shop/Props/waterDroplet", 22, "propInfo_waterDroplet", 1, 8, 1, 8, 1, "", "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"2\"},{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"2\"}]"));
+		AddItem(new ConfPropCardsItem(98, "waterBead", "Shop/Props/waterBead", 64, "propInfo_waterBead", 2, 8, 3, 6, 1, "waterDroplet", "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"4\"},{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"4\"}]"));
+		AddItem(new ConfPropCardsItem(99, "waterSplash", "Shop/Props/waterSplash", 124, "propInfo_waterSplash", 3, 8, 5, 4, 1, "waterBead", "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"10\"},{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"10\"}]"));
+		AddItem(new ConfPropCardsItem(100, "waterElf", "Shop/Props/waterElf", 284, "propInfo_waterElf", 4, 8, 10, 2, 1, "waterSplash", "[{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"20\"},{\"attributeTypeString\":\"LifeRecovery\",\"increment\":\"20\"}]"));
 	}
 
 	public override void AddItem(ConfBaseItem item)
