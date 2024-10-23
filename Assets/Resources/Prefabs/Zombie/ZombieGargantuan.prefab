@@ -76,7 +76,6 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
-  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &2453528021586957390
 GameObject:
@@ -154,7 +153,6 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 64
-  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &3038825160147756704
 GameObject:
@@ -233,7 +231,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -259,7 +257,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.072838604, y: 1.347993}
+  m_Offset: {x: -0.072838604, y: 0.9}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -929,7 +927,6 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
-  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &6083210063438555681
 GameObject:
@@ -1142,7 +1139,6 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
-  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!58 &6083210065262884589
 CircleCollider2D:
@@ -1192,7 +1188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6206592897694158496}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

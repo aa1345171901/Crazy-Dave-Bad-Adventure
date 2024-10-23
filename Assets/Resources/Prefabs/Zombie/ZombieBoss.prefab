@@ -29,7 +29,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4525690670517152873}
   - {fileID: 4289174326566162946}
   m_Father: {fileID: 6578795131519439290}
   m_RootOrder: 0
@@ -86,7 +85,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7784168693303770784}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4963745619094508963
 BoxCollider2D:
@@ -131,7 +130,6 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 64
-  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &2117504012892882149
 GameObject:
@@ -315,37 +313,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &3435339851053948751
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4525690670517152873}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4525690670517152873
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3435339851053948751}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.84, y: -0.38, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7784168693303770784}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3999426938497890218
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,7 +825,6 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
-  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!61 &4356292078583731036
 BoxCollider2D:
@@ -1078,7 +1044,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4191297464877340490}
   - {fileID: 7283201898238832474}
   m_Father: {fileID: 4356292079411782871}
   m_RootOrder: 0
@@ -1154,7 +1119,6 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
-  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!61 &4356292079890364622
 BoxCollider2D:
@@ -1232,7 +1196,6 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
-  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!58 &4356292080094589173
 CircleCollider2D:
@@ -1391,8 +1354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   moveAnimationName: Run
-  HeadPos: {fileID: 4191297464877340490}
-  BodyPos: {fileID: 4525690670517152873}
+  HeadPos: {fileID: 9185489150806714820}
+  BodyPos: {fileID: 9185489150806714820}
   realSpeed: 0
   canMove: 0
   AIParameter:
@@ -1630,7 +1593,6 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
-  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!58 &5042218387358142432
 CircleCollider2D:
@@ -1868,37 +1830,6 @@ Transform:
   m_Father: {fileID: 4035486084982803448}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5440014779753878666
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4191297464877340490}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4191297464877340490
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5440014779753878666}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.79, y: -0.63, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4356292079645324171}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5489462235699024146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,7 +1861,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4356292079645324171}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3436447821547609487
 BoxCollider2D:
@@ -1975,7 +1906,6 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 64
-  IsTrigger: 0
   Target: {fileID: 0}
 --- !u!1 &5619366789119161263
 GameObject:

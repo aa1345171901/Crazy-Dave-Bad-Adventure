@@ -89,7 +89,12 @@ public class ShopManager : BaseManager<ShopManager>
         foreach (var item in propCard.attributes)
         {
             var fieldInfo = typeof(UserData).GetField(Enum.GetName(typeof(AttributeType), item.attributeType));
-            fieldInfo.SetValue(userData, (int)fieldInfo.GetValue(userData) + item.increment);
+            int value = (int)fieldInfo.GetValue(userData) + item.increment;
+            if (item.attributeType == AttributeType.MaximumHP && value < 0)
+            {
+                value = 1;
+            }
+            fieldInfo.SetValue(userData, value);
             call?.Invoke(item.attributeType, (int)fieldInfo.GetValue(userData));
         }
 
