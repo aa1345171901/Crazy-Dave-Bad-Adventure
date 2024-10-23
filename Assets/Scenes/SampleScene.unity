@@ -2746,10 +2746,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62949e95bf2cc5842a56c549aa6aa835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pot: {fileID: 5552020464408785353, guid: 0f577c737e5104643a224add51099f7a, type: 3}
-  Hammer: {fileID: 4280164561373784938, guid: 0fc7c003a6e936645b3f31f30fb2d3f2, type: 3}
-  LawnMower: {fileID: 5953563102313299106, guid: 622cb6c69dea3ce468f47b6bd76c4957, type: 3}
-  TransferGate: {fileID: 3801651022256689315, guid: 9c5212398395afa4b94e9cdbbb84936c, type: 3}
   IceGroundContent: {fileID: 1160317497}
   specialPropLists: []
   SceneTransition: {fileID: 1101367310}
@@ -2968,7 +2964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594620385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11, y: 17.98, z: -0.1022403}
+  m_LocalPosition: {x: -33.11, y: 17.98, z: -0.1022403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
