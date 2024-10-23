@@ -202,6 +202,7 @@ public class ConfPropCardsBase : ConfBase<ConfPropCardsItem>
 		AddItem(new ConfPropCardsItem(102, "vampireScepter", "Shop/Props/vampireScepter", 34, "propInfo_vampireScepter", 1, 0, 1, 0, 10, "", ""));
 		AddItem(new ConfPropCardsItem(103, "alloyHelmet", "Shop/Props/alloyHelmet", 99, "propInfo_alloyHelmet", 2, 0, 0, 0, 1, "", "[{\"attributeTypeString\":\"Armor\",\"increment\":\"4\"},{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"10\"},{\"attributeTypeString\":\"Range\",\"increment\":\"-5\"}]"));
 		AddItem(new ConfPropCardsItem(104, "alloyEye", "Shop/Props/alloyEye", 88, "propInfo_alloyEye", 2, 0, 0, 0, 1, "", "[{\"attributeTypeString\":\"Range\",\"increment\":\"10\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"2\"},{\"attributeTypeString\":\"Armor\",\"increment\":\"2\"},{\"attributeTypeString\":\"Speed\",\"increment\":\"-5\"}]"));
+		AddItem(new ConfPropCardsItem(105, "deathGod", "Shop/Props/deathGod", 66, "propInfo_deathGod", 2, 10, 10, 0, 1, "", "[{\"attributeTypeString\":\"Adrenaline\",\"increment\":\"10\"},{\"attributeTypeString\":\"CriticalDamage\",\"increment\":\"5\"},{\"attributeTypeString\":\"CriticalHitRate\",\"increment\":\"2\"},{\"attributeTypeString\":\"PercentageDamage\",\"increment\":\"5\"},{\"attributeTypeString\":\"MaximumHP\",\"increment\":\"-20\"}]"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

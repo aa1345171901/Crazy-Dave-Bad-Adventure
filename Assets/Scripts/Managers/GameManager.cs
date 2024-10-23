@@ -476,6 +476,9 @@ namespace TopDownPlate
                 case PropType.DarkCloud:
                     SetAddPropDamage<DarkCloud>(defaultDamage, coolingTime);
                     break;
+                case PropType.DeathGod:
+                    SetPropDamage<DeathGod>(defaultDamage, coolingTime);
+                    break;
                 default:
                     break;
             }
@@ -568,6 +571,9 @@ namespace TopDownPlate
                         break;
                     case PropType.DarkCloud:
                         RemoveProp<DarkCloud>(count, isSellAll);
+                        break;
+                    case PropType.DeathGod:
+                        RemoveProp<DeathGod>(count);
                         break;
                     default:
                         break;

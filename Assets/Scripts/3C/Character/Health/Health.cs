@@ -112,6 +112,18 @@ namespace TopDownPlate
         /// 火精灵
         /// </summary>
         FireElf,
+        /// <summary>
+        /// 水精灵
+        /// </summary>
+        WaterElf,
+        /// <summary>
+        /// 乌云
+        /// </summary>
+        DarkCloud,
+        /// <summary>
+        /// 死神
+        /// </summary>
+        DeathGod,
     }
 
     public class HUDPos

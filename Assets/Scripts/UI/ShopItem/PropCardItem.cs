@@ -45,6 +45,10 @@ public enum PropType
     /// 乌云
     /// </summary>
     DarkCloud,
+    /// <summary>
+    /// 死神
+    /// </summary>
+    DeathGod,
 }
 
 [Serializable]
