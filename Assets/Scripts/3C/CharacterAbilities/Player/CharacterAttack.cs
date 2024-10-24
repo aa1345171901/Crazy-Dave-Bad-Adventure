@@ -132,7 +132,7 @@ namespace TopDownPlate
             finalDamage = Mathf.RoundToInt((userData.Power + Damage) * (100f + userData.PercentageDamage) / 100);
             finalRepulsiveForce = RepulsiveForce + (userData.Power / 10f);
             finalAttackSpped = AttackSpeed * (400 + userData.AttackSpeed) / 400;
-            finalRange = AttackRange * (100 + userData.Range) / 100;
+            finalRange = AttackRange * (200 + userData.Range) / 200;
             finalCriticalHitRate = userData.CriticalHitRate;
             finalAttackRecovery = userData.Adrenaline;
             finalDamage = (int)(finalDamage * GardenManager.Instance.GravebusterDamage);

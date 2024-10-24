@@ -479,6 +479,19 @@ namespace TopDownPlate
                 case PropType.DeathGod:
                     SetPropDamage<DeathGod>(defaultDamage, coolingTime);
                     break;
+                case PropType.Gun:
+                    var countDict = new Dictionary<string, int>();
+                    foreach (var item in ShopManager.Instance.GetPurchaseTypeList(propDamageType))
+                    {
+                        if (!countDict.ContainsKey(item.propName))
+                            countDict[item.propName] = 0;
+                        countDict[item.propName]++;
+                    }
+                    var count = countDict.Values.Max();
+                    var haveCount = specialPropLists.Select((e)=> e is Gun).Count();
+                    if (count > haveCount)
+                        SetAddPropDamage<Gun>(defaultDamage, coolingTime);
+                    break;
                 default:
                     break;
             }
@@ -574,6 +587,17 @@ namespace TopDownPlate
                         break;
                     case PropType.DeathGod:
                         RemoveProp<DeathGod>(count);
+                        break;
+                    case PropType.Gun:
+                        var countDict = new Dictionary<string, int>();
+                        foreach (var item in ShopManager.Instance.GetPurchaseTypeList(propCard.propType))
+                        {
+                            if (!countDict.ContainsKey(item.propName))
+                                countDict[item.propName] = 0;
+                            countDict[item.propName]++;
+                        }
+                        count = countDict.Values.Max();
+                        RemoveProp<Gun>(count, isSellAll);
                         break;
                     default:
                         break;

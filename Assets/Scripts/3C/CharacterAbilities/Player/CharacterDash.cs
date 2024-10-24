@@ -43,7 +43,7 @@ namespace TopDownPlate
         public override void Reuse()
         {
             base.Reuse();
-            finalDashSpeed = dashSpeed * (100 + GameManager.Instance.UserData.Speed) / 100;
+            finalDashSpeed = dashSpeed * (200 + GameManager.Instance.UserData.Speed) / 200;
             dashCount = defaultDashCount + SaveManager.Instance.externalGrowthData.GetGrowSumValueByKey("dashTime");
             maxDashCount = dashCount;
             var mulCool = defaultDashCoolTime * (SaveManager.Instance.externalGrowthData.GetGrowSumValueByKey("dashRecovery")) / 100;

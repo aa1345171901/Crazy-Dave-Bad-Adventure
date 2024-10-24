@@ -49,6 +49,10 @@ public enum PropType
     /// 死神
     /// </summary>
     DeathGod,
+    /// <summary>
+    /// 枪
+    /// </summary>
+    Gun,
 }
 
 [Serializable]
@@ -212,6 +216,18 @@ public class PropCardItem : ShopItem
                 case PropType.DarkCloud:
                     finalDamage = Mathf.RoundToInt((userData.Adrenaline / 5f + propCard.value1) * (100f + userData.CriticalDamage) / 100);
                     this.Info = string.Format(GameTool.LocalText(this.propCard.info), finalDamage);
+                    break;
+                case PropType.Gun:
+                    if (propCard.propName == "pistol")
+                    {
+                        finalDamage = Mathf.RoundToInt((userData.Power / 2f + propCard.value1) * (100f + userData.PercentageDamage) / 100);
+                        this.Info = string.Format(GameTool.LocalText(this.propCard.info), finalDamage);
+                    }
+                    else
+                    {
+                        finalDamage = Mathf.RoundToInt((userData.Power + propCard.value1) * (100f + userData.PercentageDamage) / 100);
+                        this.Info = string.Format(GameTool.LocalText(this.propCard.info), finalDamage);
+                    }
                     break;
                 default:
                     break;

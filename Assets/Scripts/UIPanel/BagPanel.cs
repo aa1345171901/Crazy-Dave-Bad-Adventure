@@ -111,6 +111,18 @@ public class BagPanel : BasePanel
                                 finalDamage = Mathf.RoundToInt((userData.Adrenaline / 5f + nowShowPropCard.value1) * (100f + userData.CriticalDamage) / 100);
                                 InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info), finalDamage);
                                 break;
+                            case PropType.Gun:
+                                if (nowShowPropCard.propName == "pistol")
+                                {
+                                    finalDamage = Mathf.RoundToInt((userData.Power / 2f + nowShowPropCard.value1) * (100f + userData.PercentageDamage) / 100);
+                                    InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info), finalDamage);
+                                }
+                                else
+                                {
+                                    finalDamage = Mathf.RoundToInt((userData.Power + nowShowPropCard.value1) * (100f + userData.PercentageDamage) / 100);
+                                    InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info), finalDamage);
+                                }
+                                break;
                             default:
                                 break;
                         }

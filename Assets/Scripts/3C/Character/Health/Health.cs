@@ -124,6 +124,10 @@ namespace TopDownPlate
         /// 死神
         /// </summary>
         DeathGod,
+        /// <summary>
+        /// 枪
+        /// </summary>
+        Gun,
     }
 
     public class HUDPos

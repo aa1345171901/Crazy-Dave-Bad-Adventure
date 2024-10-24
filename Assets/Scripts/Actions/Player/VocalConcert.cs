@@ -90,7 +90,7 @@ public class VocalConcert : BaseProp
 
         var userData = GameManager.Instance.UserData;
         finalDamage = Mathf.RoundToInt(DefaultDamage * 5 * (100f + userData.PercentageDamage) / 100);
-        incrementRange =  (100 + userData.Range) / 100f;
+        incrementRange =  (200 + userData.Range) / 200f;
     }
 
     public override void ProcessAbility()
