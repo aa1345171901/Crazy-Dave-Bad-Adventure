@@ -242,7 +242,7 @@ public class ZombieAnimation : MonoBehaviour
         SaveManager.Instance.externalGrowthData.HeadNum += ConfManager.Instance.confMgr.growParam.GetGrowPrice((int)zombieType);
         AchievementManager.Instance.SetAchievementType7((int)damageType);
         AchievementManager.Instance.SetAchievementType8((int)zombieType);
-        GameManager.Instance.KillZombie(damageType);
+        GameManager.Instance.KillZombie(damageType, this.transform.position);
     }
 
     /// <summary>

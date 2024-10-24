@@ -94,7 +94,7 @@ public class PropFall : MonoBehaviour
     {
         if (GameManager.Instance.IsZombieShock && trigger.IsTrigger && !isTrigger && curTime < flyTime * 2)
         {
-            Character zombie = trigger.Target.GetComponent<Character>();
+            Character zombie = trigger.GetFirst(false)?.GetComponent<Character>();
             if (zombie != null && zombie != character)
             {
                 zombie.Health.DoDamage(GameManager.Instance.ZombieFlyDamage, DamageType.ZombieFly);

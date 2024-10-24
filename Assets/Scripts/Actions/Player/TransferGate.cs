@@ -65,11 +65,11 @@ public class TransferGate : BaseProp
 
             if (transferGateTrigger1.IsTrigger)
             {
-                Transmit(transferGateTrigger1.Target, transferGate2);
+                Transmit(transferGateTrigger1.GetFirst(true), transferGate2);
             }
             if (transferGateTrigger2.IsTrigger)
             {
-                Transmit(transferGateTrigger2.Target, transferGate1);
+                Transmit(transferGateTrigger2.GetFirst(true), transferGate1);
             }
         }
     }

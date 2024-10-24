@@ -24,6 +24,7 @@ namespace TopDownPlate
         public Action<Collider2D> OnTriggerEnter;
         public Action<Collider2D> OnTriggerExit;
 
+        public List<GameObject> Targets;
         public GameObject Target;
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -63,14 +64,21 @@ namespace TopDownPlate
         {
             IsTrigger = true;
             OnTriggerEnter?.Invoke(collision);
+            Targets.Add(collision.gameObject);
             Target = collision.gameObject;
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
             IsTrigger = false;
+            Targets.Remove(collision.gameObject);
             Target = null;
             OnTriggerExit?.Invoke(collision);
+        }
+
+        private void OnDisable()
+        {
+            Targets.Clear();
         }
 
         private bool ListTags(string tag)
@@ -85,6 +93,25 @@ namespace TopDownPlate
                 }
             }
             return result;
+        }
+
+        public GameObject GetFirst(bool isPlayer)
+        {
+            foreach (var item in Targets)
+            {
+                if (isPlayer)
+                {
+                    if (item == GameManager.Instance.Player.gameObject)
+                        return item;
+                    else
+                        continue;
+                }
+                else
+                {
+                    return item;
+                }
+            }
+            return null;
         }
     }
 }

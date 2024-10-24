@@ -72,7 +72,7 @@ public class Hammer : BaseProp
         if (trigger2D.IsTrigger && trigger2D.enabled)
         {
             audioSource.PlayOneShot(hammerTrue);
-            var health = trigger2D.Target.GetComponent<Health>();
+            var health = trigger2D.GetFirst(false)?.GetComponent<Health>();
             if (health)
             {
                 health.DoDamage(finalDamage, DamageType.Hammer);

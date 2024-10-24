@@ -9,45 +9,45 @@ using UnityEngine.Events;
 public class GargantuanAttack : AIAttack
 {
     [Space(10)]
-    [Tooltip("¸Ã½©Ê¬¹¥»÷Ç°Ò¡³å´ÌËÙ¶È±¶ÂÊ")]
+    [Tooltip("è¯¥åƒµå°¸æ”»å‡»å‰æ‘‡å†²åˆºé€Ÿåº¦å€ç‡")]
     public float RushSpeedMul = 2f;
 
-    [Tooltip("¸Ã½©Ê¬¹¥»÷Ç°ÆËËÙ¶È±¶ÂÊ")]
+    [Tooltip("è¯¥åƒµå°¸æ”»å‡»å‰æ‰‘é€Ÿåº¦å€ç‡")]
     public float SwoopSpeedMul = 4f;
 
-    [Tooltip("³å´Ì¹¥»÷¾àÀë")]
+    [Tooltip("å†²åˆºæ”»å‡»è·ç¦»")]
     public float AttackRange = 3f;
-    [Tooltip("³å´ÌÇ°ÆË¹¥»÷¾àÀë")]
+    [Tooltip("å†²åˆºå‰æ‰‘æ”»å‡»è·ç¦»")]
     public float AttackSwoopRange = 5f;
-    [Tooltip("³å´ÌÌøÔ¾¹¥»÷¾àÀë£¬´óÓÚ´ËÖµ±Ø¶¨ÊÍ·Å")]
+    [Tooltip("å†²åˆºè·³è·ƒæ”»å‡»è·ç¦»ï¼Œå¤§äºæ­¤å€¼å¿…å®šé‡Šæ”¾")]
     public float AttackFallRange = 7f;
 
-    [Tooltip("¸Ã½©Ê¬¹¥»÷Ç°Ò¡¶¯»­Ãû")]
-    public string AttackBeforeAnimation = "Attack_Before";   // ÔÚÎÄ¼ş¼ĞÖĞ£¬ĞèÒª¼ÓÉÏÎÄ¼ş¼Ğ
-    [Tooltip("¸Ã½©Ê¬¹¥»÷¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸æ”»å‡»å‰æ‘‡åŠ¨ç”»å")]
+    public string AttackBeforeAnimation = "Attack_Before";   // åœ¨æ–‡ä»¶å¤¹ä¸­ï¼Œéœ€è¦åŠ ä¸Šæ–‡ä»¶å¤¹
+    [Tooltip("è¯¥åƒµå°¸æ”»å‡»åŠ¨ç”»å")]
     public string AttackAnimation = "Attack";
 
-    [Tooltip("¸Ã½©Ê¬Ç°ÆË¹¥»÷Ç°Ò¡¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸å‰æ‰‘æ”»å‡»å‰æ‘‡åŠ¨ç”»å")]
     public string AttackSwoopBeforeAnimation = "AttackSwoop_Before";
-    [Tooltip("¸Ã½©Ê¬Ç°ÆË¹¥»÷¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸å‰æ‰‘æ”»å‡»åŠ¨ç”»å")]
     public string AttackSwoopAnimation = "AttackSwoop";
-    [Tooltip("¸Ã½©Ê¬Ç°ÆË¹¥»÷½áÊø¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸å‰æ‰‘æ”»å‡»ç»“æŸåŠ¨ç”»å")]
     public string AttackSwoopAfterAnimation = "AttackSwoop_After";
 
-    [Tooltip("´ÓÌì¶ø½µµÄ¹¥»÷Ç°Ò¡")]
+    [Tooltip("ä»å¤©è€Œé™çš„æ”»å‡»å‰æ‘‡")]
     public string AttackFallBeforeAnimation = "FallingSkyAttack_Before";
-    [Tooltip("´ÓÌì¶ø½µµÄ¹¥»÷")]
+    [Tooltip("ä»å¤©è€Œé™çš„æ”»å‡»")]
     public string AttackFallAnimation = "FallingSkyAttack";
-    [Tooltip("´ÓÌì¶ø½µµÄ¹¥»÷houÒ¡")]
+    [Tooltip("ä»å¤©è€Œé™çš„æ”»å‡»houæ‘‡")]
     public string AttackFallAfterAnimation = "FallingSkyAttack_After";
 
-    [Tooltip("¹¥»÷µÄ´¥·¢Æ÷")]
+    [Tooltip("æ”»å‡»çš„è§¦å‘å™¨")]
     public BoxCollider2D AttackBoxColider;
-    [Tooltip("Ç°ÆË¹¥»÷µÄ´¥·¢Æ÷")]
+    [Tooltip("å‰æ‰‘æ”»å‡»çš„è§¦å‘å™¨")]
     public BoxCollider2D AttackSwoopBoxColider;
-    [Tooltip("´ÓÌì¶ø½µ¹¥»÷µÄ´¥·¢Æ÷")]
+    [Tooltip("ä»å¤©è€Œé™æ”»å‡»çš„è§¦å‘å™¨")]
     public CircleCollider2D AttackFallBoxColider;
-    [Tooltip("´ÓÌì¶ø½µ¹¥»÷ĞèÒªÒş²ØµÄ")]
+    [Tooltip("ä»å¤©è€Œé™æ”»å‡»éœ€è¦éšè—çš„")]
     public List<BoxCollider2D> colliders;
 
     public GameObject crack;
@@ -138,7 +138,7 @@ public class GargantuanAttack : AIAttack
             AttackFallingSky();
         }
 
-        // ÅĞ¶Ï´ËÊ±ÊÇ·ñ¹¥»÷
+        // åˆ¤æ–­æ­¤æ—¶æ˜¯å¦æ”»å‡»
         float random = Random.Range(0, 1f);
         if (random > realAttackProbability)
             return;
@@ -158,19 +158,19 @@ public class GargantuanAttack : AIAttack
 
     private void JudgeTrigger(Trigger2D trigger2D, Collider2D boxCollider2D)
     {
-        // ½ÇÉ«ÔÚ¹¥»÷´¥·¢Æ÷ÖĞÇÒ´¥·¢Æ÷´ò¿ª
+        // è§’è‰²åœ¨æ”»å‡»è§¦å‘å™¨ä¸­ä¸”è§¦å‘å™¨æ‰“å¼€
         if (boxCollider2D.enabled && trigger2D.IsTrigger)
         {
             if (GameManager.Instance.IsEnd)
             {
-                var target = trigger2D.Target.GetComponent<Character>();
+                var target = trigger2D.GetFirst(false)?.GetComponent<Character>();
                 if (target != null && !healths.Contains(target.Health))
                 {
                     target.Health.DoDamage(realDamage, DamageType.ZombieHurEachOther);
                     healths.Add(target.Health);
                 }
             }
-            else if (trigger2D.Target == GameManager.Instance.Player.gameObject)
+            else if (trigger2D.GetFirst(true) != null)
             {
                 GameManager.Instance.DoDamage(realDamage);
                 boxCollider2D.enabled = false;
@@ -181,10 +181,10 @@ public class GargantuanAttack : AIAttack
     private void Attack_Before()
     {
         healths.Clear();
-        // Ç°Ò¡Ê±Ëæ»úÑ¡Ôñ½©Ê¬AudioSource,Èç¹ûÃ»ÔÚ²¥·ÅÔò²¥·Å
+        // å‰æ‘‡æ—¶éšæœºé€‰æ‹©åƒµå°¸AudioSource,å¦‚æœæ²¡åœ¨æ’­æ”¾åˆ™æ’­æ”¾
         audioSource = AudioManager.Instance.RandomPlayZombieSounds();
         isRushAttack = true;
-        // ¹¥»÷Ç°Ò¡£¬³å´Ì
+        // æ”»å‡»å‰æ‘‡ï¼Œå†²åˆº
         aiMove.MoveSpeed *= RushSpeedMul;
         controller.BoxCollider.enabled = false;
         trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackBeforeAnimation, false);
@@ -196,7 +196,7 @@ public class GargantuanAttack : AIAttack
 
     private void Attack()
     {
-        // ¹¥»÷Ç°Ò¡ÍêÁË¹¥»÷£¬ ËÙ¶ÈÎª0
+        // æ”»å‡»å‰æ‘‡å®Œäº†æ”»å‡»ï¼Œ é€Ÿåº¦ä¸º0
         aiMove.MoveSpeed = 0;
         controller.BoxCollider.enabled = true;
         trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackAnimation, false);
@@ -204,7 +204,7 @@ public class GargantuanAttack : AIAttack
         trackEntry.Complete += (e) =>
         {
             isRushAttack = false;
-            // ¹¥»÷Íê½©Ö±0.2sÉèÖÃÒÆ¶¯
+            // æ”»å‡»å®Œåƒµç›´0.2sè®¾ç½®ç§»åŠ¨
             Invoke("SpeedRecovery", 0.2f);
             AttackBoxColider.enabled = false;
             trackEntry = null;
@@ -216,9 +216,9 @@ public class GargantuanAttack : AIAttack
     private void AttackSwoop()
     {
         healths.Clear();
-        // Ç°Ò¡Ê±Ëæ»úÑ¡Ôñ½©Ê¬AudioSource,Èç¹ûÃ»ÔÚ²¥·ÅÔò²¥·Å
+        // å‰æ‘‡æ—¶éšæœºé€‰æ‹©åƒµå°¸AudioSource,å¦‚æœæ²¡åœ¨æ’­æ”¾åˆ™æ’­æ”¾
         audioSource = AudioManager.Instance.RandomPlayZombieSounds();
-        // ¹¥»÷Ç°Ò¡£¬ĞîÁ¦
+        // æ”»å‡»å‰æ‘‡ï¼Œè“„åŠ›
         aiMove.MoveSpeed = 0;
         aiMove.isSwoop = true;
         trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackSwoopBeforeAnimation, false);
@@ -250,9 +250,9 @@ public class GargantuanAttack : AIAttack
     private void AttackFallingSky()
     {
         healths.Clear();
-        // Ç°Ò¡Ê±Ëæ»úÑ¡Ôñ½©Ê¬AudioSource,Èç¹ûÃ»ÔÚ²¥·ÅÔò²¥·Å
+        // å‰æ‘‡æ—¶éšæœºé€‰æ‹©åƒµå°¸AudioSource,å¦‚æœæ²¡åœ¨æ’­æ”¾åˆ™æ’­æ”¾
         audioSource = AudioManager.Instance.RandomPlayZombieSounds();
-        // ¹¥»÷Ç°Ò¡£¬ĞîÁ¦
+        // æ”»å‡»å‰æ‘‡ï¼Œè“„åŠ›
         aiMove.canMove = false;
         trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackFallBeforeAnimation, false);
         trackEntry.Complete += (e) =>

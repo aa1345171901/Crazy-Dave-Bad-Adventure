@@ -210,14 +210,14 @@ public class BossAttack : AIAttack
         {
             if (GameManager.Instance.IsEnd)
             {
-                var target = trigger2D.Target.GetComponent<Character>();
+                var target = trigger2D.GetFirst(false)?.GetComponent<Character>();
                 if (target != null && !healths.Contains(target.Health))
                 {
                     target.Health.DoDamage(realDamage, DamageType.ZombieHurEachOther);
                     healths.Add(target.Health);
                 }
             }
-            else if (trigger2D.Target == GameManager.Instance.Player.gameObject)
+            else if (trigger2D.GetFirst(true) != null)
             {
                 GameManager.Instance.DoDamage(realDamage);
                 boxCollider2D.enabled = false;

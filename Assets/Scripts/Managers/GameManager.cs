@@ -477,7 +477,7 @@ namespace TopDownPlate
                     SetAddPropDamage<DarkCloud>(defaultDamage, coolingTime);
                     break;
                 case PropType.DeathGod:
-                    SetPropDamage<DeathGod>(defaultDamage, coolingTime);
+                    SetPropDamage<DeathGod>(defaultDamage, coolingTime, true);
                     break;
                 case PropType.Gun:
                     var countDict = new Dictionary<string, int>();
@@ -717,11 +717,11 @@ namespace TopDownPlate
             }
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(9, 3).propName), 1);
+                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(10, 2).propName), 1);
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(8, 2).propName), 1);
+                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(3, 4).propName), 1);
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
@@ -784,7 +784,7 @@ namespace TopDownPlate
             }
         }
 
-        public void KillZombie(DamageType damageType)
+        public void KillZombie(DamageType damageType, Vector3 deadPos)
         {
             if (damageType == DamageType.Player)
             {
@@ -793,11 +793,31 @@ namespace TopDownPlate
                 {
                     killNum = 0;
                     var vampireScepterCount = ShopManager.Instance.PurchasePropCount("vampireScepter");
-                    UserData.MaximumHP += vampireScepterCount;
-                    Player.Health.maxHealth += vampireScepterCount;
-                    battlePanel?.SetHPBar(Player.Health.health, Player.Health.maxHealth);
+                    CreateEnergyBall(vampireScepterCount, deadPos);
                 }
             }
+            else if (damageType == DamageType.DeathGod)
+            {
+                CreateEnergyBall(1, deadPos);
+            }
+        }
+
+        /// <summary>
+        /// 创建增加最大生命值能量球
+        /// </summary>
+        void CreateEnergyBall(int addValue, Vector3 startPos)
+        {
+            var energyBall = Resources.Load<EnergyBall>("Prefabs/Props/EnergyBall");
+            var energyBallGo = GameObject.Instantiate(energyBall);
+            energyBallGo.addMaxHealthValue = addValue;
+            energyBallGo.transform.position = startPos;
+        }
+
+        public void AddMaxHealth(int addValue)
+        {
+            UserData.MaximumHP += addValue;
+            Player.Health.maxHealth += addValue;
+            battlePanel?.SetHPBar(Player.Health.health, Player.Health.maxHealth);
         }
     }
 }
