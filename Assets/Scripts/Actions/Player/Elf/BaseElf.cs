@@ -102,10 +102,13 @@ public class BaseElf : BaseProp
                 realSpeed *= 2;
             }
         }
-        if(isAttack)
+        if (isAttack)
             realSpeed = 0;
+        else if (isPursuit)
+            transform.localScale = new Vector3(direction.x > 0 ? 1 : -1, 1, 1);
+        else
+            transform.localScale = new Vector3(GameManager.Instance.Player.FacingDirection == FacingDirections.Right ? 1 : -1, 1, 1);
         transform.Translate(direction * Time.deltaTime * realSpeed);
-        transform.localScale = new Vector3(GameManager.Instance.Player.FacingDirection == FacingDirections.Right ? 1 : -1, 1, 1);
         int y = (int)((-this.transform.position.y + 1f + 10) * 10);
         spriteRenderer.sortingOrder = y;
         Update2();

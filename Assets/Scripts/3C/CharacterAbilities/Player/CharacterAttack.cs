@@ -166,7 +166,7 @@ namespace TopDownPlate
                         var aiMove = targetAIMove as AIMove;
                         if (aiMove)
                         {
-                            aiMove.SetRepulsiveForce(finalRepulsiveForce);
+                            aiMove.SetRepulsiveForce(finalRepulsiveForce, Vector3.zero);
                         }
                     }
                     bool isCriticalHitRate = Random.Range(0, 101) < finalCriticalHitRate;

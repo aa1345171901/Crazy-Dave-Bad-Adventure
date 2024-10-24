@@ -8478,7 +8478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 5
-  AttackRange: 3
+  AttackRange: 2
   AttackSpeed: 10
   RepulsiveForce: 2
   WeaponPot: {fileID: 7885227597936610782}
@@ -8545,6 +8545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elfRoot: {fileID: 3480968936812456509}
+  targets: []
 --- !u!1 &7533888858074177110
 GameObject:
   m_ObjectHideFlags: 0

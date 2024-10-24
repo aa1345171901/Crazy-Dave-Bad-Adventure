@@ -97,13 +97,13 @@ public class BagPanel : BasePanel
                             case PropType.WaterElf:
                                 if (nowShowPropCard.propName == "waterElf")
                                 {
-                                    finalDamage = Mathf.RoundToInt((userData.MaximumHP / 6 + userData.LifeRecovery / 5 + nowShowPropCard.value1));
+                                    finalDamage = Mathf.RoundToInt((userData.MaximumHP / 3 + userData.LifeRecovery / 2.5f + nowShowPropCard.value1));
                                     finalCount = 1 + Mathf.RoundToInt(userData.MaximumHP / 100);
                                     InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info), finalCount, finalDamage);
                                 }
                                 else
                                 {
-                                    finalDamage = Mathf.RoundToInt((userData.MaximumHP / 3 + userData.LifeRecovery / 2.5f + nowShowPropCard.value1));
+                                    finalDamage = Mathf.RoundToInt((userData.MaximumHP / 6 + userData.LifeRecovery / 5 + nowShowPropCard.value1));
                                     InfoText.text = string.Format(GameTool.LocalText(this.nowShowPropCard.info), finalDamage);
                                 }
                                 break;

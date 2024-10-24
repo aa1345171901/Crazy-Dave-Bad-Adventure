@@ -7,7 +7,7 @@ public class FireElf : BaseElf
 {
     string animStr;
 
-    public int level { get; set; }
+    int level;
 
     private int finalDamage;
     private int finalCount;
@@ -35,6 +35,8 @@ public class FireElf : BaseElf
         animator.Play(animStr + "Idel", 0, 0);
 
         finalCount = 1;
+        finalDamage = DefaultDamage;
+
         var confItem = ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel((int)PropType.FireElf, level);
         if (confItem != null)
         {
@@ -51,7 +53,6 @@ public class FireElf : BaseElf
             DefaultDamage = confItem.value1;
             DefaultAttackCoolingTime = confItem.coolingTime;
         }
-        finalDamage = DefaultDamage;
     }
 
     public override IEnumerator Attack(Collider2D[] colliders)
@@ -61,14 +62,17 @@ public class FireElf : BaseElf
         // 释放攻击
         for (int i = 0; i < finalCount; i++)
         {
-            var prefab = Resources.Load<GameObject>("Prefabs/Props/FireElf_Bullet");
-            var propGo = GameObject.Instantiate(prefab);
+            var prefab = Resources.Load<FireElfBullet>("Prefabs/Props/FireElf_Bullet");
+            var fireElf = GameObject.Instantiate(prefab);
+            fireElf.level = level;
+            fireElf.damage = finalDamage;
+            fireElf.range = level == 4 ? 1.5f : 1f;
             if (level == 4)
-                propGo.transform.localScale = Vector3.one * 1.5f;
-            if (colliders.Length < i)
-                propGo.transform.position = colliders[i].transform.position;
+                fireElf.transform.localScale = Vector3.one * 1.5f;
+            if (i < colliders.Length)
+                fireElf.transform.position = colliders[i].transform.position;
             else
-                propGo.transform.position = colliders[0].transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 2));
+                fireElf.transform.position = colliders[0].transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 2));
         }        
 
         yield return new WaitForSeconds(0.33f);

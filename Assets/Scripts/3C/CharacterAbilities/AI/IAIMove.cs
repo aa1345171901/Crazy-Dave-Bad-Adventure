@@ -25,19 +25,21 @@ public class IAIMove : CharacterAbility
     [Header("MoveParameter")]
     public float moveSpeed = 2f;
 
-    [Tooltip("¸Ã½©Ê¬ÒÆ¶¯¶¯»­Ãû")]
+    [Tooltip("è¯¥åƒµå°¸ç§»åŠ¨åŠ¨ç”»å")]
     public string moveAnimationName = "run_normal";
 
     public Transform HeadPos;
     public Transform BodyPos;
 
-    public float MoveSpeed { get; set; } // ÉèÖÃµ±Ç°ÒÆ¶¯ËÙ¶È
+    public float MoveSpeed { get; set; } // è®¾ç½®å½“å‰ç§»åŠ¨é€Ÿåº¦
 
     [ReadOnly]
-    public float realSpeed;  // Êµ¼Ê³õÊ¼ËÙ¶ÈËÙ¶È
+    public float realSpeed;  // å®é™…åˆå§‹é€Ÿåº¦é€Ÿåº¦
     [ReadOnly]
-    public bool canMove = false;  // ³õÊ¼»¯Ê±²»ÄÜÒÆ¶¯
-    [Tooltip("ÒÆ¶¯Ê±¼ÆËãÓëÖ÷½ÇµÄ¾àÀë")]
+    public bool canMove = false;  // åˆå§‹åŒ–æ—¶ä¸èƒ½ç§»åŠ¨
+    [ReadOnly]
+    public bool isRepulsive = false;  // æ˜¯å¦å‡»é€€çŠ¶æ€
+    [Tooltip("ç§»åŠ¨æ—¶è®¡ç®—ä¸ä¸»è§’çš„è·ç¦»")]
     [ReadOnly]
     public AIParameter AIParameter;
     [ReadOnly]

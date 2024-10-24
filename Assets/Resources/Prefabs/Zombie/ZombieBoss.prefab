@@ -1358,6 +1358,7 @@ MonoBehaviour:
   BodyPos: {fileID: 9185489150806714820}
   realSpeed: 0
   canMove: 0
+  isRepulsive: 0
   AIParameter:
     Distance: 0
     IsPlayerRight: 0
@@ -1384,7 +1385,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 3.5
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0

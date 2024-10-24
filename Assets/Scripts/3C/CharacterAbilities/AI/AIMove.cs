@@ -7,13 +7,13 @@ namespace TopDownPlate
     [AddComponentMenu("TopDownPlate/AI/Ability/AIMove")]
     public class AIMove : IAIMove
     {
-        [Tooltip("½©Ê¬ÊÜ¹¥»÷±»»÷ÍËµÄÊ±¼ä")]
+        [Tooltip("åƒµå°¸å—æ”»å‡»è¢«å‡»é€€çš„æ—¶é—´")]
         public float RepulsiveTime = 0.2f;
 
-        [Tooltip("±»÷È»ó±äÑÕÉ«")]
+        [Tooltip("è¢«é­…æƒ‘å˜é¢œè‰²")]
         public HurtFlash hurtFlash;
 
-        [Tooltip("±»º®±ù¹½¶³×¡ºóµÄ±ù¿é")]
+        [Tooltip("è¢«å¯’å†°è‡å†»ä½åçš„å†°å—")]
         public GameObject Ice;
 
         public float RepulsiveForce { get; set; }
@@ -21,18 +21,18 @@ namespace TopDownPlate
         protected Transform Target;
 
         /// <summary>
-        /// ÊÇ·ñ±»÷È»ó
+        /// æ˜¯å¦è¢«é­…æƒ‘
         /// </summary>
         public bool IsEnchanted { get; set; }
-        protected Character target;  // ±»÷È»óËæ»ú¹¥»÷µÄÄ¿±ê
+        protected Character target;  // è¢«é­…æƒ‘éšæœºæ”»å‡»çš„ç›®æ ‡
 
-        public float decelerationPercentage = 1; // ¼õËÙ°Ù·Ö±È
-        private float decelerationTime;  // ¼õËÙÊ±¼ä
-        private float decelerationTimer;  // ¼õËÙÊ±¿Ì
+        public float decelerationPercentage = 1; // å‡é€Ÿç™¾åˆ†æ¯”
+        private float decelerationTime;  // å‡é€Ÿæ—¶é—´
+        private float decelerationTimer;  // å‡é€Ÿæ—¶åˆ»
         protected float finalMoveSpeed;
 
         [ReadOnly]
-        public bool isSwoop;  // ÕıÔÚ·ÉÆË,²»¸Ä±äÒÆ¶¯·½Ïò
+        public bool isSwoop;  // æ­£åœ¨é£æ‰‘,ä¸æ”¹å˜ç§»åŠ¨æ–¹å‘
         [ReadOnly]
         public Vector3 direction;
 
@@ -77,7 +77,11 @@ namespace TopDownPlate
                 controller.Rigidbody.velocity = Vector2.zero;
                 return;
             }
-            if (canMove)
+            if (isRepulsive)
+            {
+                AIParameter.Distance = (Target.position - this.transform.position).magnitude;
+            }
+            else if (canMove)
             {
                 if (IsEnchanted && (target == null || target.IsDead))
                 {
@@ -106,11 +110,11 @@ namespace TopDownPlate
                 }
 
                 AIParameter.Distance = (Target.position - this.transform.position).magnitude;
-                // Ã»ÓĞµÄÎªboss
+                // æ²¡æœ‰çš„ä¸ºboss
                 if (zombieAnimation == null)
                     AIParameter.Distance -= 2f;
                 else
-                // ²¿·Ö½©Ê¬Ä£ĞÍ½Ï´ó£¬ĞèÒª¼õÈ¥´¥·¢¹¥»÷µÄ¿í´øµÄÒ»°ë
+                // éƒ¨åˆ†åƒµå°¸æ¨¡å‹è¾ƒå¤§ï¼Œéœ€è¦å‡å»è§¦å‘æ”»å‡»çš„å®½å¸¦çš„ä¸€åŠ
                 switch (zombieAnimation.zombieType)
                 {
                     case ZombieType.Zamboni:
@@ -131,7 +135,7 @@ namespace TopDownPlate
                     AIParameter.IsPlayerRight = character.FacingDirection == FacingDirections.Right ? true : false ;
                     //this.transform.Translate(direction * moveSpeed * Time.deltaTime);
 
-                    // ÈıÒ¶²İ·ç×è
+                    // ä¸‰å¶è‰é£é˜»
                     finalMoveSpeed = character.FacingDirection == FacingDirections.Right ? MoveSpeed - GardenManager.Instance.BloverEffect.Windage : MoveSpeed;
 
                     if (decelerationPercentage != 1 && Time.time - decelerationTimer > decelerationTime)
@@ -146,7 +150,7 @@ namespace TopDownPlate
                         if (IsEnchanted)
                             hurtFlash.BeEnchanted();
                     }
-                    // ¼õËÙ
+                    // å‡é€Ÿ
                     finalMoveSpeed *= decelerationPercentage;
                     controller.Rigidbody.velocity = direction * finalMoveSpeed;
                 }
@@ -178,37 +182,43 @@ namespace TopDownPlate
         }
 
         /// <summary>
-        /// ÉèÖÃ»÷ÍË
+        /// è®¾ç½®å‡»é€€
         /// </summary>
-        public void SetRepulsiveForce(float force)
+        public void SetRepulsiveForce(float force, Vector3 attackPos)
         {
             if (zombieAnimation == null)
                 return;
-            canMove = false;
+            if (force > 20)
+                force = 20;
+            isRepulsive = true;
             switch (zombieAnimation.zombieType)
             {
                 case ZombieType.Normal:
                 case ZombieType.Flag:
+                case ZombieType.Balloon:
+                case ZombieType.Polevaulter:
                     RepulsiveForce = force;
                     break;
                 case ZombieType.Cone:
                 case ZombieType.Bucket:
-                    RepulsiveForce = force / 2;
+                case ZombieType.Paper:
+                    RepulsiveForce = force / 1.5f;
                     break;
                 case ZombieType.Screendoor:
-                    RepulsiveForce = force / 4;
+                case ZombieType.Football:
+                    RepulsiveForce = force / 2f;
                     break;
                 default:
                     break;
             }
-            StartCoroutine(Repulsive());
+            StartCoroutine(Repulsive(attackPos == Vector3.zero ? Target.position : attackPos));
         }
 
-        IEnumerator Repulsive()
+        IEnumerator Repulsive(Vector3 attackPos)
         {
-            controller.Rigidbody.AddForce((this.transform.position - Target.position).normalized * RepulsiveForce, ForceMode2D.Impulse);
+            controller.Rigidbody.AddForce((this.transform.position - attackPos).normalized * RepulsiveForce, ForceMode2D.Impulse);
             yield return new WaitForSeconds(RepulsiveTime);
-            canMove = true;
+            isRepulsive = false;
         }
 
         public void SpeedRecovery()

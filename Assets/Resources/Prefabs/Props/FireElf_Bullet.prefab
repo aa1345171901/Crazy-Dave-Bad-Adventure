@@ -24251,6 +24251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5953563102313299107}
+  - component: {fileID: 2440509397762231338}
   m_Layer: 0
   m_Name: FireElf_Bullet
   m_TagString: Untagged
@@ -24274,6 +24275,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2440509397762231338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953563102313299104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4298b6deadab68046b4e844c73c68505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  range: 1
+  level: 1
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 2176
+  level1: {fileID: 1297128911152853632}
+  level2: {fileID: 1502434182764609650}
+  level3: {fileID: 3619086879832855574}
+  level4: {fileID: 8971548699861228325}
 --- !u!1 &7841852099922793729
 GameObject:
   m_ObjectHideFlags: 0
