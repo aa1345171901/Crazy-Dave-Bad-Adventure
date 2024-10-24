@@ -65,7 +65,7 @@ public class BaseElf : BaseProp
     {
         base.Reuse();
         characterProp = GameManager.Instance.Player.FindAbility<CharacterProp>();
-        targetPlayerPos = characterProp.GetRandomPos();
+        targetPlayerPos = characterProp.GetElfRandomPos();
         if (targetPlayerPos != null)
             this.transform.position = targetPlayerPos.position;
         realRange = range;

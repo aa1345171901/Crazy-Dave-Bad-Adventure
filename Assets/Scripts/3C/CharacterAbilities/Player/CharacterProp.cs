@@ -9,6 +9,9 @@ namespace TopDownPlate
 
         List<Transform> elfPos = new List<Transform>();
 
+        /// <summary>
+        /// 不攻击同一个目标
+        /// </summary>
         public List<GameObject> targets = new List<GameObject>();
 
         protected override void Initialization()
@@ -21,7 +24,7 @@ namespace TopDownPlate
             }
         }
 
-        public Transform GetRandomPos()
+        public Transform GetElfRandomPos()
         {
             if (elfPos.Count == 0)
                 return null;

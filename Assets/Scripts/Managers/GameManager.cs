@@ -717,7 +717,7 @@ namespace TopDownPlate
             }
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(8, 1).propName), 1);
+                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(9, 3).propName), 1);
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
