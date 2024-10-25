@@ -19,6 +19,7 @@ public class EnergyBall : MonoBehaviour
 
     private bool isEnd;
     private bool isInit;
+    AudioSource audioSource;
 
     private void InitBezier()
     {
@@ -29,6 +30,8 @@ public class EnergyBall : MonoBehaviour
         percentSpeed = 1 / (direction.magnitude / speed);
         currentPercent = 0;
         angle = this.transform.eulerAngles.z;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
     }
 
     /// <summary>
@@ -69,7 +72,18 @@ public class EnergyBall : MonoBehaviour
         {
             isEnd = true;
             GameManager.Instance.AddMaxHealth(addMaxHealthValue);
-            GameObject.Destroy(gameObject);
+            audioSource.Play();
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+            StartCoroutine(DelayDestroy());
         }
+    }
+
+    IEnumerator DelayDestroy()
+    {
+        yield return new WaitForSeconds(1);
+        GameObject.Destroy(gameObject);
     }
 }

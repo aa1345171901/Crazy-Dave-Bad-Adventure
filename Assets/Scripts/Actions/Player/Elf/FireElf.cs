@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class FireElf : BaseElf
 {
+    public AudioClip clip1;
+    public AudioClip clip2;
+
     string animStr;
 
     int level;
@@ -73,8 +76,9 @@ public class FireElf : BaseElf
                 fireElf.transform.position = colliders[i].transform.position;
             else
                 fireElf.transform.position = colliders[0].transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 2));
-        }        
-
+        }
+        audioSource.clip = level >= 4 ? clip2 : clip1;
+        audioSource.Play();
         yield return new WaitForSeconds(0.33f);
         animator.Play(animStr + "Idel", 0, 0);
         yield return base.Attack(colliders);

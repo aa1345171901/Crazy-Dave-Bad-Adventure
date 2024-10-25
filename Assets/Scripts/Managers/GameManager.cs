@@ -723,19 +723,19 @@ namespace TopDownPlate
             }
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(11, 2).propName), 1);
+                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(11, 1).propName), 1);
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(11, 3).propName), 1);
+                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(11, 2).propName), 1);
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(11, 1).propName), 1);
+                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(11, 3).propName), 1);
             }
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
-                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(8, 4).propName), 1);
+                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(10, 2).propName), 1);
             }
         }
 
@@ -824,7 +824,7 @@ namespace TopDownPlate
         {
             UserData.MaximumHP += addValue;
             Player.Health.maxHealth += addValue;
-            battlePanel?.SetHPBar(Player.Health.health, Player.Health.maxHealth);
+            AddHP(addValue);
         }
     }
 }

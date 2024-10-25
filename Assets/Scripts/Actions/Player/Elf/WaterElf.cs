@@ -96,6 +96,7 @@ public class WaterElf : BaseElf
                 waterElfBullet.targetPos = colliders[0].transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 2));
             waterElfBullet.transform.position = transform.position;
         }
+        audioSource.Play();
 
         yield return new WaitForSeconds(0.33f);
         animator.Play(animStr + "Idel", 0, 0);

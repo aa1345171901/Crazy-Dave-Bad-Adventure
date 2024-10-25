@@ -9,11 +9,20 @@ public class DarkCloud : BaseRandomRoaming
     public GameObject hit;
 
     protected SpriteRenderer spriteRenderer;
+    protected AudioSource audioSource;
 
     protected override void Init()
     {
         base.Init();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        audioSource = GetComponentInChildren<AudioSource>();
+        audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
+        AudioManager.Instance.AudioLists.Add(audioSource);
+    }
+
+    private void OnDestroy()
+    {
+        AudioManager.Instance.AudioLists.Remove(audioSource);
     }
 
     public override void Reuse()
@@ -62,6 +71,7 @@ public class DarkCloud : BaseRandomRoaming
                 }
             }
         }
+        audioSource.Play();
         yield return new WaitForSeconds(0.5f);
         yield return base.Attack();
         hit.SetActive(false);

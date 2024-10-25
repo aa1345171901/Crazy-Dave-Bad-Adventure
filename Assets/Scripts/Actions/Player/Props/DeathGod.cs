@@ -10,12 +10,21 @@ public class DeathGod : BaseProp
 
     private float lastAttackTimer;
     Animator animator;
+    AudioSource audioSource;
     Character player;
     bool isAttack;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
+        AudioManager.Instance.AudioLists.Add(audioSource);
+    }
+
+    private void OnDestroy()
+    {
+        AudioManager.Instance.AudioLists.Remove(audioSource);
     }
 
     public override void Reuse()
@@ -39,6 +48,7 @@ public class DeathGod : BaseProp
                     player.Health.DoDamage(Mathf.RoundToInt(player.Health.maxHealth * 3f / 10), DamageType.DeathGod);
                     isAttack = true;
                     animator.Play("Attack");
+                    audioSource.Play();
                     StartCoroutine(Attack());
                 }
             }
@@ -53,6 +63,7 @@ public class DeathGod : BaseProp
         {
             item.sortingOrder = player.LayerOrder + 1;
         }
+        transform.localScale = new Vector3(GameManager.Instance.Player.FacingDirection == FacingDirections.Right ? 1 : -1, 1, 1);
     }
 
     IEnumerator Attack()
@@ -69,7 +80,8 @@ public class DeathGod : BaseProp
                 {
                     var damage = player.Health.maxHealth * 3; // 消耗血量 * 10
                     health.DoDamage(damage, DamageType.DeathGod);
-                    player.Health.AddHealth(Mathf.RoundToInt(player.Health.maxHealth * 3f / 10 / 6));
+                    var addMax = Mathf.RoundToInt(player.Health.maxHealth * 3f / 10 / 6);
+                    player.Health.AddHealth(addMax == 0 ? 1 : addMax);
                     count++;
                     yield return new WaitForSeconds(0.01f);
                 }

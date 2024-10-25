@@ -14,11 +14,15 @@ public class GunBullet : MonoBehaviour
     public LayerMask targetLayer;
     public SpriteRenderer spriteRenderer;
 
+    AudioSource audioSource;
+
     private void Start()
     {
         StartCoroutine(DelayDoDamage());
 
         transform.rotation = rotation;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
     }
 
     private void Update()

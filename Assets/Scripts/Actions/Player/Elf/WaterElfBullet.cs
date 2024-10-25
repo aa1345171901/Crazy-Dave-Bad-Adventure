@@ -16,6 +16,8 @@ public class WaterElfBullet : MonoBehaviour
     public GameObject level2;
     public GameObject level3;
     public GameObject level4;
+    public AudioSource audioSource;
+    public AudioSource audioSource2;
 
     /// <summary>
     /// 只能造成一次伤害
@@ -41,6 +43,8 @@ public class WaterElfBullet : MonoBehaviour
         level2.gameObject.SetActive(level >= 2);
         level3.gameObject.SetActive(level >= 3);
         level4.gameObject.SetActive(level >= 4);
+        audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
+        audioSource2.volume = AudioManager.Instance.EffectPlayer.volume;
     }
 
     private void Update()
@@ -66,6 +70,7 @@ public class WaterElfBullet : MonoBehaviour
                 {
                     healths.Add(health);
                     health.DoDamage(damage, DamageType.WaterElf);
+                    audioSource2.Play();
                     var aiMove = collision.GetComponent<Character>().FindAbility<AIMove>();
                     if (aiMove)
                     {

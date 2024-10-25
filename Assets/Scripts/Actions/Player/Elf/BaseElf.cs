@@ -12,6 +12,8 @@ public class BaseElf : BaseProp
     /// </summary>
     public Trigger2D Trigger;
 
+    public AudioSource audioSource;
+
     /// <summary>
     /// 是否追击，没有追击就跟随玩家
     /// </summary>
@@ -39,6 +41,13 @@ public class BaseElf : BaseProp
         Trigger.OnTriggerExit += TriggerExit2D;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        audioSource.volume = AudioManager.Instance.EffectPlayer.volume;
+        AudioManager.Instance.AudioLists.Add(audioSource);
+    }
+
+    private void OnDestroy()
+    {
+        AudioManager.Instance.AudioLists.Remove(audioSource);
     }
 
     private void TriggerEnter2D(Collider2D collider2D)
