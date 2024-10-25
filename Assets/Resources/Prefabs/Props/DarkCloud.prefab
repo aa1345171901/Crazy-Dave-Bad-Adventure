@@ -19546,6 +19546,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2176
+  Targets: []
   Target: {fileID: 0}
 --- !u!1 &4162676344338196956
 GameObject:
@@ -34168,9 +34169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
+  offset: {x: 2, y: 4}
+  Trigger: {fileID: 471918772237186862}
   range: 1.25
   hit: {fileID: 4187229190471027426}
-  Trigger: {fileID: 471918772237186862}
 --- !u!1 &6685162906757650028
 GameObject:
   m_ObjectHideFlags: 0

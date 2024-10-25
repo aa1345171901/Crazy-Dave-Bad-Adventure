@@ -29,7 +29,7 @@ namespace TopDownPlate
         /// <summary>
         /// 游戏是否结束
         /// </summary>
-        public bool IsEnd 
+        public bool IsEnd
         {
             get
             {
@@ -110,7 +110,7 @@ namespace TopDownPlate
 
         public float DecelerationRatio { get; set; } = 1; // 在冰面上的减速比例
 
-        public bool CanAttack  => balls.Count == 0; // 投篮僵尸是否在攻击
+        public bool CanAttack => balls.Count == 0; // 投篮僵尸是否在攻击
         public List<GameObject> balls = new List<GameObject>(); // 正在攻击的篮球
 
         public List<Coin> Coins { get; set; } = new List<Coin>();  // 用于吸金菇吸收，在金币生成时加入，消失时Remove
@@ -488,7 +488,7 @@ namespace TopDownPlate
                         countDict[item.propName]++;
                     }
                     var count = countDict.Values.Max();
-                    var haveCount = specialPropLists.Select((e)=> e is Gun).Count();
+                    var haveCount = specialPropLists.Where((e) => e is Gun).Count();
                     if (count > haveCount)
                         SetAddPropDamage<Gun>(defaultDamage, coolingTime);
                     break;
@@ -596,7 +596,8 @@ namespace TopDownPlate
                                 countDict[item.propName] = 0;
                             countDict[item.propName]++;
                         }
-                        count = countDict.Values.Max();
+                        if (countDict.Values.Count != 0)
+                            count = countDict.Values.Max();
                         RemoveProp<Gun>(count, isSellAll);
                         break;
                     default:
@@ -717,15 +718,15 @@ namespace TopDownPlate
             }
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(10, 2).propName), 1);
+                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(11, 2).propName), 1);
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(3, 4).propName), 1);
+                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(11, 3).propName), 1);
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(8, 3).propName), 1);
+                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(11, 1).propName), 1);
             }
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
@@ -743,7 +744,7 @@ namespace TopDownPlate
         /// </summary>
         public void ClearSeedCards()
         {
-            while(plantSeedCard.Count > 0)
+            while (plantSeedCard.Count > 0)
             {
                 var plant = plantSeedCard[0];
                 if (plant.plantAttribute.plantCard.plantType == PlantType.Gravebuster)
@@ -793,7 +794,8 @@ namespace TopDownPlate
                 {
                     killNum = 0;
                     var vampireScepterCount = ShopManager.Instance.PurchasePropCount("vampireScepter");
-                    CreateEnergyBall(vampireScepterCount, deadPos);
+                    if (vampireScepterCount > 0)
+                        CreateEnergyBall(vampireScepterCount, deadPos);
                 }
             }
             else if (damageType == DamageType.DeathGod)

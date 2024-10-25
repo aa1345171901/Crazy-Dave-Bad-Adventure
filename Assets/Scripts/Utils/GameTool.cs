@@ -201,4 +201,19 @@ public static class GameTool
         float percentageValue = value * 100;
         return percentageValue.ToString("F2");
     }
+
+    public static float GetLengthByName(this Animator animator, string name)
+    {
+        float length = 0;
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            if (clip.name.Equals(name))
+            {
+                length = clip.length;
+                break;
+            }
+        }
+        return length;
+    }
 }

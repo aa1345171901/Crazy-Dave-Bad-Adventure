@@ -8,6 +8,7 @@ namespace TopDownPlate
         public Transform elfRoot;
 
         List<Transform> elfPos = new List<Transform>();
+        int gunNum;
 
         /// <summary>
         /// 不攻击同一个目标
@@ -17,7 +18,7 @@ namespace TopDownPlate
         protected override void Initialization()
         {
             base.Initialization();
-            
+
             for (int i = 0; i < elfRoot.childCount; i++)
             {
                 elfPos.Add(elfRoot.GetChild(i));
@@ -32,6 +33,35 @@ namespace TopDownPlate
             var pos = elfPos[index];
             elfPos.RemoveAt(index);
             return pos;
+        }
+
+        public override void Reuse()
+        {
+            base.Reuse();
+            gunNum = 0;
+        }
+
+        public int GetGunLevel()
+        {
+            int level = 1;
+            var countDict = new Dictionary<int, int>();
+            foreach (var item in ShopManager.Instance.GetPurchaseTypeList(PropType.Gun))
+            {
+                if (!countDict.ContainsKey(item.quality))
+                    countDict[item.quality] = 0;
+                countDict[item.quality]++;
+            }
+            if (countDict.ContainsKey(3) && countDict[3] > gunNum)
+            {
+                gunNum++;
+                return 3;
+            }
+            if (countDict.ContainsKey(2) && countDict[2] > gunNum)
+            {
+                gunNum++;
+                return 2;
+            }
+            return level;
         }
     }
 }

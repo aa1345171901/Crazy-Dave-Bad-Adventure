@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using TopDownPlate;
 using UnityEngine;
 
-public class DarkCloud : BaseProp
+/// <summary>
+/// 在角色附近随机找位置漫游
+/// </summary>
+public class BaseRandomRoaming : BaseProp
 {
     public float speed;
-    public float range;
-    public GameObject hit;
+    [Tooltip("漫游在角色周围的随机位置")]
+    public Vector2 offset;
 
     /// <summary>
     /// 攻击范围检测
@@ -25,23 +28,29 @@ public class DarkCloud : BaseProp
     /// <summary>
     /// 随机的玩家附近的一个点，到达后更换漫游点
     /// </summary>
-    protected Vector3 targetPlayerPos;
+    protected Vector3 targetPlayerPosOffset;
     private float lastAttackTimer;
-    private float realSpeed;
-    private int finalDamage;
+    protected float realSpeed;
+
+    protected int finalDamage;
+
     /// <summary>
     /// 正在攻击，不移动
     /// </summary>
-    bool isAttack;
+    protected bool isAttack;
 
-    protected SpriteRenderer spriteRenderer;
     protected CharacterProp characterProp;
 
     private void Start()
     {
         Trigger.OnTriggerEnter += TriggerEnter2D;
         Trigger.OnTriggerExit += TriggerExit2D;
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        Init();
+    }
+
+    protected virtual void Init()
+    {
+
     }
 
     private void TriggerEnter2D(Collider2D collider2D)
@@ -68,9 +77,7 @@ public class DarkCloud : BaseProp
     {
         base.Reuse();
         characterProp = GameManager.Instance.Player.FindAbility<CharacterProp>();
-        targetPlayerPos = GameManager.Instance.Player.transform.position + new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), 0);
-        var userData = GameManager.Instance.UserData;
-        finalDamage = Mathf.RoundToInt((userData.Adrenaline / 5 + DefaultDamage) * (100f + userData.CriticalDamage) / 100);
+        targetPlayerPosOffset = new Vector3(Random.Range(-offset.x, offset.x), Random.Range(-offset.y, offset.y), 0);
     }
 
     private void Update()
@@ -84,20 +91,15 @@ public class DarkCloud : BaseProp
             targetPos = target.transform.position;
             direction = (targetPos - this.transform.position).normalized;
             realSpeed *= 2;
-            // 发动攻击
-            if ((targetPos - this.transform.position).magnitude < 0.2f)
-            {
-                isAttack = true;
-                StartCoroutine(Attack());
-            }
+            AttackTrigger(targetPos);
         }
-        else if (targetPlayerPos != null)
+        else
         {
-            targetPos = targetPlayerPos;
+            targetPos = GameManager.Instance.Player.transform.position + targetPlayerPosOffset;
             direction = (targetPos - this.transform.position).normalized;
             if ((targetPos - this.transform.position).magnitude < 0.2f)
             {
-                targetPlayerPos = GameManager.Instance.Player.transform.position + new Vector3(Random.Range(-2f, 2f), Random.Range(-4f, 2f), 0);
+                targetPlayerPosOffset = new Vector3(Random.Range(-offset.x, offset.x), Random.Range(-offset.y, offset.y), 0);
             }
             if ((targetPos - this.transform.position).magnitude > 2)
             {
@@ -108,38 +110,27 @@ public class DarkCloud : BaseProp
             realSpeed = 0;
 
         transform.Translate(direction * Time.deltaTime * realSpeed);
-        int y = (int)((-this.transform.position.y + 11f) * 10);
-        foreach (var item in GetComponentsInChildren<ParticleSystem>())
-        {
-            var renderer = item.GetComponent<ParticleSystemRenderer>();
-            if (renderer != null)
-                renderer.sortingOrder = y;
-        }
-        spriteRenderer.sortingOrder = y;
+        SetSortingOrder(direction);
+    }
+
+    protected virtual void AttackTrigger(Vector3 targetPos)
+    {
+
+    }
+
+    protected virtual void SetSortingOrder(Vector3 direction)
+    {
+
     }
 
     public virtual IEnumerator Attack()
     {
-        hit.SetActive(true);
-        var colliders = Physics2D.OverlapCircleAll(this.transform.position, range, Trigger.layerMasks);
-        foreach (var item in colliders)
-        {
-            if (item.isTrigger)
-            {
-                var health = item.GetComponent<Health>();
-                if (health)
-                {
-                    health.DoDamage(finalDamage, DamageType.DarkCloud);
-                }
-            }
-        }
-        yield return new WaitForSeconds(0.45f);
-        hit.SetActive(false);
         lastAttackTimer = Time.time;
         isPursuit = false;
         characterProp.targets.Remove(target);
         target = null;
         isAttack = false;
+        yield return null;
     }
 
     public override void DayEnd()
