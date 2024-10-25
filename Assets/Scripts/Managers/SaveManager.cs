@@ -140,7 +140,7 @@ public class SaveManager
                 break;
             case BattleMode.BossMode:
                 // 打打僵王模式不进行数据读取
-                SetSpecialMode(BattleMode.None);
+                //SetSpecialMode(BattleMode.None);
                 IsLoadUserData = true;
                 break;
             default:
@@ -217,6 +217,8 @@ public class SaveManager
     /// </summary>
     public void SaveUserData()
     {
+        if (specialData.battleMode != BattleMode.None)
+            return;
         string userDataStr = JsonUtility.ToJson(GameManager.Instance.UserData);
         Debug.Log("userDataStr:" + userDataStr);
         FileTool.WriteText(userDataPath, userDataStr);

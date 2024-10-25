@@ -77,6 +77,7 @@ namespace TopDownPlate
                         SceneTransition.TransitionToDaytime();
 
                         Invoke("OpenShop", SceneTransition.TransitionTime * 2);
+                        ClearHpBar();
                         battlePanel.GetGold();
                         AudioManager.Instance.PlayEffectSoundByName("winmusic");
 
@@ -154,6 +155,11 @@ namespace TopDownPlate
         public int resurrection { get; set; }
 
         public BattleMode nowMode { get; set; }
+
+        /// <summary>
+        /// 有血条的僵尸统一管理
+        /// </summary>
+        public HashSet<Health> haveHpBarZombie { get; set; } = new HashSet<Health>();
 
         private void Start()
         {
@@ -825,6 +831,28 @@ namespace TopDownPlate
             UserData.MaximumHP += addValue;
             Player.Health.maxHealth += addValue;
             AddHP(addValue);
+        }
+
+        public void AddHpBarZombie(Health health, ZombieType zombieType)
+        {
+            if (zombieType == ZombieType.Gargantuan || zombieType == ZombieType.Boss)
+            {
+                if (!haveHpBarZombie.Contains(health))
+                    haveHpBarZombie.Add(health);
+                battlePanel.AddZombieHpBar(health, zombieType);
+            }
+        }
+
+        public void RemoveHpBarZombie(Health health)
+        {
+            haveHpBarZombie.Remove(health);
+            battlePanel.RemoveZombieHpBar(health);
+        }
+
+        public void ClearHpBar()
+        {
+            haveHpBarZombie.Clear();
+            battlePanel.ClearZombieHpBar();
         }
     }
 }

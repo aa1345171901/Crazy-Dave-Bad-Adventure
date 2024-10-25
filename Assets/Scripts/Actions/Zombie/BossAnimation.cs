@@ -32,5 +32,6 @@ public class BossAnimation : MonoBehaviour
         };
         LevelManager.Instance.CacheEnemys.Remove(ZombieType.Boss, character);
         GameManager.Instance.Victory();
+        GameManager.Instance.RemoveHpBarZombie(character.Health);
     }
 }

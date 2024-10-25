@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a46789f0e8140b48b586804f824b238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   damage: 1
   boom: {fileID: 7645774103876615215}
   trail: {fileID: 7152722549723468696}

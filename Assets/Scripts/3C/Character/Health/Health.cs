@@ -165,6 +165,7 @@ namespace TopDownPlate
         [Tooltip("死亡事件")]
         public UnityEvent<DamageType> Dead;   // DamageType判断伤害来源
         public Action DeadAction;
+        public Action InjuredAction;
 
         private Character character;
         private float lastInjuryTime = float.MinValue;
@@ -301,6 +302,7 @@ namespace TopDownPlate
             else
             {
                 Injured?.Invoke(damageType);
+                InjuredAction?.Invoke();
             }
         }
 

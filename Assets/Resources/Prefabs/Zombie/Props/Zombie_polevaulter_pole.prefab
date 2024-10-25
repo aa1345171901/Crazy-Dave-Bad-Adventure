@@ -127,7 +127,7 @@ MonoBehaviour:
   zombie:
     serializedVersion: 2
     m_Bits: 2176
-  Speed: 10
+  Speed: 6
   spriteRenderer: {fileID: 8536067820473224492}
   IsEnchanted: 0
   character: {fileID: 0}

@@ -26,8 +26,11 @@ public class BattlePanel : BasePanel
     public Slider DashBar;
     [Tooltip("关闭攻击标记")]
     public GameObject CloseAttack;
+    public HpBarItem HpBarItem;
+    public Transform HpBarRoot;
 
     float defualtRunWidth;
+    Dictionary<Health, HpBarItem> hpBarDicts = new Dictionary<Health, HpBarItem>();
 
     private void Start()
     {
@@ -155,5 +158,33 @@ public class BattlePanel : BasePanel
     public void SetCloseAttack(bool isCloseAttack)
     {
         CloseAttack.SetActive(isCloseAttack);
+    }
+
+    public void AddZombieHpBar(Health health, ZombieType zombieType)
+    {
+        var confItem = ConfManager.Instance.confMgr.zombieIllustrations.GetItemByType((int)zombieType);
+        var hpBarItem = GameObject.Instantiate(HpBarItem, HpBarRoot);
+        hpBarItem.gameObject.SetActive(true);
+        hpBarItem.InitData(GameTool.LocalText(confItem.zombieName), health.maxHealth);
+        health.InjuredAction += () =>
+        {
+            hpBarItem.SetHp(health.health, health.maxHealth);
+        };
+        hpBarDicts.Add(health, hpBarItem);
+    }
+
+    public void RemoveZombieHpBar(Health health)
+    {
+        if (hpBarDicts.ContainsKey(health))
+        {
+            hpBarDicts[health].gameObject.SetActive(false);
+            health.InjuredAction = null;
+        }
+    }
+
+    public void ClearZombieHpBar()
+    {
+        HpBarRoot.DestroyChild();
+        hpBarDicts.Clear();
     }
 }

@@ -426,6 +426,7 @@ namespace TopDownPlate
                     gravebuster.transform.position = new Vector3(randomX, randomY + 1, 0);
                     gravebuster.SetLayer(randomY, health.maxHealth);
                 }
+                GameManager.Instance.AddHpBarZombie(health, zombieData.ZombieType);
                 SaveManager.Instance.externalGrowthData.AddZombieCount((int)zombieData.ZombieType);
                 yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
             }

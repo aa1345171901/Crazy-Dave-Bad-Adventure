@@ -243,6 +243,8 @@ public class ZombieAnimation : MonoBehaviour
         AchievementManager.Instance.SetAchievementType7((int)damageType);
         AchievementManager.Instance.SetAchievementType8((int)zombieType);
         GameManager.Instance.KillZombie(damageType, this.transform.position);
+        if (zombieType == ZombieType.Gargantuan)
+            GameManager.Instance.RemoveHpBarZombie(character.Health);
     }
 
     /// <summary>
