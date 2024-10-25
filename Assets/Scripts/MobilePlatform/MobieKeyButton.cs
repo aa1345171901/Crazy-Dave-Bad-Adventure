@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using TopDownPlate;
 using UnityEngine;
 
-public class RunButton : MonoBehaviour
+public class MobieKeyButton : MonoBehaviour
 {
+    public string keyName;
     private Camera UICamera;
     private RectTransform rectTransform;
     private Rect bounds;
@@ -35,12 +36,12 @@ public class RunButton : MonoBehaviour
 
         if (isDown)
         {
-            InputManager.GetKey("Run").IsDown = true;
-            InputManager.GetKey("Run").Down?.Invoke();
+            InputManager.GetKey(keyName).IsDown = true;
+            InputManager.GetKey(keyName).Down?.Invoke();
         }
         else
         {
-            InputManager.GetKey("Run").IsDown = false;
+            InputManager.GetKey(keyName).IsDown = false;
         }
     }
 }

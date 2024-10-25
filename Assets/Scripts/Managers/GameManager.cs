@@ -409,6 +409,11 @@ namespace TopDownPlate
             battlePanel?.SetDashSlider(count, value, remainCount);
         }
 
+        public void SetCloseAttack(bool isCloseAttack)
+        {
+            battlePanel.SetCloseAttack(isCloseAttack);
+        }
+
         public void NextWave()
         {
             SaveData();

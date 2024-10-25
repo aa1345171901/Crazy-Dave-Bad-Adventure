@@ -23,6 +23,11 @@ MonoBehaviour:
     keyType: 0
     enable: 1
     IsDown: 0
+  - name: CloseAttack
+    keyCode: 101
+    keyType: 0
+    enable: 1
+    IsDown: 0
   valueKeys: []
   axisKeys:
   - name: Movement

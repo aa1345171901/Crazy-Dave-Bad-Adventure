@@ -112,6 +112,8 @@ namespace TopDownPlate
             }
         }
 
+        public bool canAttack { get; private set; } = true;
+
         bool isVampireScepter;
         bool haveAlloyHelmet;  // 是否有钛合金头盔
         bool haveAlloyEye;  // 是否有钛合金眼
@@ -123,6 +125,22 @@ namespace TopDownPlate
             Pot = GameObject.Instantiate(prefab);
             potAudio = Pot.GetComponent<AudioEffect>();
             Reuse();
+        }
+
+        private void OnEnable()
+        {
+            InputManager.GetKey("CloseAttack").Down += OnKeyDown;
+        }
+
+        void OnKeyDown()
+        {
+            canAttack = !canAttack;
+            GameManager.Instance.SetCloseAttack(!canAttack);
+        }
+
+        private void OnDisable()
+        {
+            InputManager.GetKey("CloseAttack").Down -= OnKeyDown;
         }
 
         public override void Reuse()
@@ -152,7 +170,7 @@ namespace TopDownPlate
         public override void ProcessAbility()
         {
             base.ProcessAbility();
-            if (character.IsDead)
+            if (character.IsDead || !canAttack)
                 return;
 
             // 攻击直线位移

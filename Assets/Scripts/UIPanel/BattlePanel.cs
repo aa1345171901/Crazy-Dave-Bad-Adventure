@@ -24,6 +24,8 @@ public class BattlePanel : BasePanel
     public Text GrowText;
     [Tooltip("冲刺冷却条")]
     public Slider DashBar;
+    [Tooltip("关闭攻击标记")]
+    public GameObject CloseAttack;
 
     float defualtRunWidth;
 
@@ -37,6 +39,7 @@ public class BattlePanel : BasePanel
         {
             SunText.text = GardenManager.Instance.Sun.ToString();
         };
+        CloseAttack.SetActive(false);
     }
 
     public override void OnEnter()
@@ -147,5 +150,10 @@ public class BattlePanel : BasePanel
     public void Pause()
     {
         GameManager.Instance.Pause();
+    }
+
+    public void SetCloseAttack(bool isCloseAttack)
+    {
+        CloseAttack.SetActive(isCloseAttack);
     }
 }
