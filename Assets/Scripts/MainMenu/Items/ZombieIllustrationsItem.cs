@@ -16,10 +16,13 @@ public class ZombieIllustrationsItem : MonoBehaviour
     private void Start()
     {
         button = GetComponent<Button>();
-        button.onClick.AddListener(() => 
-        { 
-            onClick?.Invoke(confItem); 
-        });
+        if (button != null)
+        {
+            button.onClick.AddListener(() =>
+            {
+                onClick?.Invoke(confItem);
+            });
+        }
     }
 
     public void InitData(ConfZombieIllustrationsItem confItem, Action<ConfZombieIllustrationsItem> call)

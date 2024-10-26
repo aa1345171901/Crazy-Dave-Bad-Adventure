@@ -9,10 +9,13 @@ public class GardenPanel : BasePanel
     public PlantConent plantConent;
     public PlantCardPage PlantCardPage;
 
-
     public Text SunText;
 
     public Text NowWave;
+
+    public Transform nextZombieRoot;
+    public ZombieIllustrationsItem zombieItem;
+    public GameObject bossItem;
 
     private void Start()
     {
@@ -30,6 +33,30 @@ public class GardenPanel : BasePanel
         Invoke("CreateFlowerPat", Time.deltaTime);
         SunText.text = GardenManager.Instance.Sun.ToString();
         NowWave.text = string.Format(GameTool.LocalText("garden_wave"), (LevelManager.Instance.IndexWave + 1));
+        CreateZombieType();
+    }
+
+    public void CreateZombieType()
+    {
+        nextZombieRoot.DestroyChild();
+        if (ConfManager.Instance.confMgr.wave.waves.ContainsKey(LevelManager.Instance.IndexWave + 2))
+        {
+            foreach (var item in ConfManager.Instance.confMgr.wave.waves[LevelManager.Instance.IndexWave + 2])
+            {
+                if (item.zombieType == (int)ZombieType.Boss)
+                {
+                    var bossItemGo = GameObject.Instantiate(bossItem, nextZombieRoot);
+                    bossItemGo.SetActive(true);
+                }
+                else
+                {
+                    var zombieItemGo = GameObject.Instantiate(zombieItem, nextZombieRoot);
+                    zombieItemGo.gameObject.SetActive(true);
+                    var confItem = ConfManager.Instance.confMgr.zombieIllustrations.GetItemByType(item.zombieType);
+                    zombieItemGo.InitData(confItem, null);
+                }
+            }
+        }
     }
 
     public override void OnExit()

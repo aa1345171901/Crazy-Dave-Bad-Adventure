@@ -68,7 +68,9 @@ public class PlantSeedCard : MonoBehaviour
         {
             curTimer += Time.deltaTime;
             var process = curTimer / time;
-            this.transform.position = Vector3.Lerp(startPos, targetPos, process);
+            var target = Vector3.Lerp(startPos, targetPos, process);
+            target.z = startPos.z;
+            this.transform.position = target;
 
             int sortingOrder = (int)((-transform.position.y + 10) * 10);
             plant.sortingOrder = sortingOrder + 1;
