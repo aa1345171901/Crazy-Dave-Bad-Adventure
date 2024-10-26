@@ -328,7 +328,7 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
             FlowerPotItem.SetActive();
             if (freeRefreshCount == 0)
             {
-                RenovateMoney = (renovateCount + 1) * (autoRefreshWave + 1) + (renovateCount + 1) * renovateCount / 2;
+                RenovateMoney = (renovateCount + 1) * (autoRefreshWave + 1) + (renovateCount + 1) * renovateCount / 4;
                 renovateCount++;
             }
         }
@@ -341,7 +341,7 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
             }
             // 刷新设置花盆
             FlowerPotItem.SetActive();
-            RenovateMoney = (renovateCount + 1) * (autoRefreshWave + 1) + (renovateCount + 1) * renovateCount / 2;
+            RenovateMoney = (renovateCount + 1) * (autoRefreshWave + 1) + (renovateCount + 1) * renovateCount / 4;
             renovateCount++;
         }
     }

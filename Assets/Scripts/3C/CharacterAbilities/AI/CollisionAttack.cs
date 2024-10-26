@@ -51,7 +51,9 @@ namespace TopDownPlate
         {
             if (trigger2D.IsTrigger && trigger2D.Target == GameManager.Instance.Player.gameObject)
             {
-                GameManager.Instance.DoDamage(realDamage);
+                ZombieAnimation zombieAnimation= GetComponentInChildren<ZombieAnimation>();
+                var zombieType = zombieAnimation == null ? ZombieType.Normal : zombieAnimation.zombieType;
+                GameManager.Instance.DoDamage(realDamage, zombieType);
             }
         }
     }

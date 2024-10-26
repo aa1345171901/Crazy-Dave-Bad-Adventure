@@ -172,7 +172,7 @@ public class GargantuanAttack : AIAttack
             }
             else if (trigger2D.GetFirst(true) != null)
             {
-                GameManager.Instance.DoDamage(realDamage);
+                GameManager.Instance.DoDamage(realDamage, ZombieType.Gargantuan);
                 boxCollider2D.enabled = false;
             }
         }

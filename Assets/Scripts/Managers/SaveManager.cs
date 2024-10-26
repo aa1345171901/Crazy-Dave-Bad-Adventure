@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TopDownPlate;
 using UnityEngine;
 
@@ -33,6 +34,16 @@ public class PurchasedPropsAndPlants
     /// 已经使用的复活次数
     /// </summary>
     public int resurrection;
+
+    /// <summary>
+    /// 伤害统计， key damageType，伤害类型， value 数值
+    /// </summary>
+    public List<TypeIntData> damageStatistics;
+
+    /// <summary>
+    /// 承受伤害统计， key < 1000 zombieType，僵尸伤害，>1000 damageType + 1000  value 数值
+    /// </summary>
+    public List<TypeIntData> takingDamageStatistics;
 }
 
 public class SaveManager
@@ -69,7 +80,7 @@ public class SaveManager
     public bool IsLoadUserData { get; set; }
 
     private readonly string userDataPath = Application.persistentDataPath + "/SaveData/UserData.data";
-    private readonly string itemsDataPath = Application.persistentDataPath + "/SaveData/ItemsData.data";
+    private readonly string battleDataPath = Application.persistentDataPath + "/SaveData/BattleData.data";
 
     private SaveManager()
     {
@@ -113,8 +124,8 @@ public class SaveManager
         if (specialData.battleMode != BattleMode.None)
             return;
         // 备份战斗存档上一次的一份
-        FileTool.FileMove(userDataPath, userDataPath.Replace("UserData.data", "UserData1.data"));
-        FileTool.FileMove(itemsDataPath, itemsDataPath.Replace("ItemsData.data", "ItemsData1.data"));
+        FileTool.FileMove(userDataPath, userDataPath.Replace("UserData.data", "UserData_(beifen).data"));
+        FileTool.FileMove(battleDataPath, battleDataPath.Replace("BattleData.data", "BattleData_(beifen).data"));
     }
 
     /// <summary>
@@ -162,7 +173,7 @@ public class SaveManager
             IsLoadUserData = true;
         }
 
-        string saveDataStructStr = FileTool.ReadText(itemsDataPath);
+        string saveDataStructStr = FileTool.ReadText(battleDataPath);
         Debug.Log("read saveDataStructStr:" + saveDataStructStr);
         if (!string.IsNullOrEmpty(saveDataStructStr))
         {
@@ -195,6 +206,9 @@ public class SaveManager
             }
 
             GameManager.Instance.resurrection = saveDataStruct.resurrection;
+            
+            damageStatistics = saveDataStruct.damageStatistics;
+            takingDamageStatistics = saveDataStruct.takingDamageStatistics;
         }
     }
 
@@ -261,8 +275,51 @@ public class SaveManager
 
         saveDataStruct.resurrection = GameManager.Instance.resurrection;
 
-        string itemsDataStr = JsonUtility.ToJson(saveDataStruct);
-        Debug.Log("itemsDataStr:" + itemsDataStr);
-        FileTool.WriteText(itemsDataPath, itemsDataStr);
+        saveDataStruct.damageStatistics = damageStatistics;
+        saveDataStruct.takingDamageStatistics = takingDamageStatistics;
+
+        string battleDataPathStr = JsonUtility.ToJson(saveDataStruct);
+        Debug.Log("battleDataPathStr:" + battleDataPathStr);
+        FileTool.WriteText(battleDataPath, battleDataPathStr);
     }
+
+    #region 伤害统计
+    /// <summary>
+    /// 伤害统计， key damageType，伤害类型， value 数值
+    /// </summary>
+    public List<TypeIntData> damageStatistics = new List<TypeIntData>();
+
+    /// <summary>
+    /// 承受伤害统计， key < 1000 zombieType，僵尸伤害，>1000 damageType + 1000  value 数值
+    /// </summary>
+    public List<TypeIntData> takingDamageStatistics = new List<TypeIntData>();
+
+    public void AddDamageValue(int damageType, int value)
+    {
+        var list = damageStatistics.Where((e) => e.key == damageType);
+        var data = list.Count() == 0 ? null : list.First();
+        if (data == null)
+        {
+            damageStatistics.Add(new TypeIntData(damageType, value));
+        }
+        else
+        {
+            data.value += value;
+        }
+    }
+
+    public void AddTakingDamageValue(int zombieType, int value)
+    {
+        var list = takingDamageStatistics.Where((e) => e.key == zombieType);
+        var data = list.Count() == 0 ? null : list.First();
+        if (data == null)
+        {
+            takingDamageStatistics.Add(new TypeIntData(zombieType, value));
+        }
+        else
+        {
+            data.value += value;
+        }
+    }
+    #endregion
 }

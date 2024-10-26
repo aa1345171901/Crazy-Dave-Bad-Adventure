@@ -82,7 +82,7 @@ public class AttributeItem : MonoBehaviour
                 info = string.Format(GameTool.LocalText("property_MoveSpeed_info"), colorStr + value);
                 break;
             case AttributeType.Armor:
-                float finalArmor = GameManager.Instance.UserData.Armor / (100f + GameManager.Instance.UserData.Armor);
+                float finalArmor = GameManager.Instance.UserData.Armor / (50f + GameManager.Instance.UserData.Armor);
                 finalArmor = finalArmor > 0.9f ? 0.9f : finalArmor;
                 info = string.Format(GameTool.LocalText("property_Armor_info"), colorStr + (int)(finalArmor * 100));
                 break;

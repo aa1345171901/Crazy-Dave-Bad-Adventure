@@ -62,6 +62,7 @@ public class PlantSeedCard : MonoBehaviour
 
             plant.color = Color.white;
             bg.color = Color.white;
+            nowPlantCard = null;
         }
 
         if (isMove)
@@ -86,9 +87,12 @@ public class PlantSeedCard : MonoBehaviour
         plant.color = Color.gray;
         bg.color = Color.gray;
 
-        nowPlantCard = GameObject.Instantiate(this.manualPlant);
-        nowPlantCard.plantType = plantType;
-        nowPlantCard.plantSeedCard = this;
+        if (nowPlantCard == null)
+        {
+            nowPlantCard = GameObject.Instantiate(this.manualPlant);
+            nowPlantCard.plantType = plantType;
+            nowPlantCard.plantSeedCard = this;
+        }
     }
 
     public void PlaceSeed()

@@ -10,12 +10,12 @@ public class ZombiePole : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     /// <summary>
-    ///  ÊÇ·ñ±»÷È»ó
+    ///  æ˜¯å¦è¢«é­…æƒ‘
     /// </summary>
     [ReadOnly]
     public bool IsEnchanted;
     /// <summary>
-    /// Í¶Éä±êÇ¹µÄÄ¿±ê
+    /// æŠ•å°„æ ‡æªçš„ç›®æ ‡
     /// </summary>
     [ReadOnly]
     public Character character;
@@ -64,7 +64,7 @@ public class ZombiePole : MonoBehaviour
         {
             if (collision.gameObject == GameManager.Instance.Player.gameObject)
             {
-                GameManager.Instance.DoDamage(Damage);
+                GameManager.Instance.DoDamage(Damage, ZombieType.Polevaulter);
                 hasDamage = true;
             }
         }

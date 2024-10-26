@@ -375,11 +375,16 @@ namespace TopDownPlate
             AudioManager.Instance.PlayBackMusic(2);
         }
 
-        public void DoDamage(int damage, DamageType damageType = DamageType.Zombie)
+        public void DoDamage(int damage, ZombieType zombieType, DamageType damageType = DamageType.Zombie)
         {
             if (IsEnd)
                 return;
+            int beforeHp = Player.Health.health;
             Player.Health.DoDamage(damage, damageType);
+            if (damageType == DamageType.Zombie)
+            {
+                SaveManager.Instance.AddTakingDamageValue((int)zombieType, beforeHp - Player.Health.health);
+            }
             battlePanel?.SetHPBar(Player.Health.health, Player.Health.maxHealth);
         }
 

@@ -10,18 +10,19 @@ public class VictoryPanel : BasePanel
     {
         base.OnEnter();
         this.gameObject.SetActive(true);
-        this.transform.SetSiblingIndex(this.transform.parent.childCount - 1);  // ÉèÖÃ×îºóÒ»¸öäÖÈ¾
+        this.transform.SetSiblingIndex(this.transform.parent.childCount - 1);  // è®¾ç½®æœ€åä¸€ä¸ªæ¸²æŸ“
         AudioManager.Instance.PlayMenuMusic(0.2f);
         UIManager.Instance.PushPanel(UIPanelType.AttributePanel);
         BagPanel bagpanel = UIManager.Instance.PushPanel(UIPanelType.BagPanel) as BagPanel;
         bagpanel.AutoClose = false;
+        UIManager.Instance.PushPanel(UIPanelType.DamageStatisticsPanel);
     }
 
     public override void OnExit()
     {
         base.OnExit();
         this.gameObject.SetActive(false);
-        AudioManager.Instance.SaveVolumeData();  // Ö»ÔÚÍË³ö½çÃæÊ±±£´æÒôÁ¿Êı¾İ
+        AudioManager.Instance.SaveVolumeData();  // åªåœ¨é€€å‡ºç•Œé¢æ—¶ä¿å­˜éŸ³é‡æ•°æ®
         AudioManager.Instance.ResumeMusic();
     }
 

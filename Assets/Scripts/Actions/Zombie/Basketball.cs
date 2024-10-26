@@ -69,7 +69,7 @@ public class Basketball : MonoBehaviour
                 audioSource.Play();
                 isJump = true;
                 if (canDodamage)
-                    GameManager.Instance.DoDamage(damage);
+                    GameManager.Instance.DoDamage(damage, ZombieType.Catapult);
 
                 Vector3 offset = new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), transform.position.z);
                 height = Random.Range(0.3f, 0.6f);

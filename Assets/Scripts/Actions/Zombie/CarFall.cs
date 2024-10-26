@@ -96,7 +96,7 @@ public class CarFall : MonoBehaviour
             }
             else if (item.gameObject == GameManager.Instance.Player.gameObject)
             {
-                GameManager.Instance.DoDamage(Damage);
+                GameManager.Instance.DoDamage(Damage, ZombieType.Boss);
             }
         }
     }

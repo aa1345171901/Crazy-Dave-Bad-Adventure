@@ -197,7 +197,7 @@ namespace TopDownPlate
             if (character.CharacterType == CharacterTypes.Player)
             {
                 this.maxHealth = GameManager.Instance.UserData.MaximumHP;
-                finalArmor = GameManager.Instance.UserData.Armor / (100f + GameManager.Instance.UserData.Armor);
+                finalArmor = GameManager.Instance.UserData.Armor / (50f + GameManager.Instance.UserData.Armor);
                 finalArmor = finalArmor > 0.9f ? 0.9f : finalArmor;
             }
             else
@@ -256,6 +256,15 @@ namespace TopDownPlate
                 lastInjuryTime = Time.time;
                 damage -= Mathf.RoundToInt(damage * finalArmor);
                 health -= damage;
+            }
+
+            if (character != GameManager.Instance.Player)
+            {
+                SaveManager.Instance.AddDamageValue((int)damageType, damage);
+            }
+            else if (damageType == DamageType.Fire || damageType == DamageType.DeathGod)
+            {
+                SaveManager.Instance.AddTakingDamageValue((int)damageType + 1000, damage);
             }
 
             // 伤害hud

@@ -48,6 +48,7 @@ public class TipsPanel : BasePanel
                 UIManager.Instance.PushPanel(UIPanelType.AttributePanel);
                 BagPanel bagpanel = UIManager.Instance.PushPanel(UIPanelType.BagPanel) as BagPanel;
                 bagpanel.AutoClose = false;
+                UIManager.Instance.PushPanel(UIPanelType.DamageStatisticsPanel);
                 break;
             case TipsType.Approaching:
                 GameOverTips.gameObject.SetActive(false);

@@ -151,7 +151,7 @@ public class NormalZombieAttack : AIAttack
             }
             else if (trigger2D.GetFirst(true) != null)
             {
-                GameManager.Instance.DoDamage(realDamage);
+                GameManager.Instance.DoDamage(realDamage, zombieAnimation.zombieType);
             }
         }
     }
@@ -195,7 +195,7 @@ public class NormalZombieAttack : AIAttack
                 else
                 {
                     LevelManager.Instance.EnchantedEnemys.Remove(zombieAnimation.zombieType, this.character);
-                    character.Health.DoDamage(character.Health.maxHealth, DamageType.Zombie);
+                    character.Health.DoDamage(character.Health.maxHealth, DamageType.ZombieHurEachOther);
                 }
             }
 
@@ -238,7 +238,7 @@ public class NormalZombieAttack : AIAttack
                         else
                         {
                             LevelManager.Instance.EnchantedEnemys.Remove(zombieAnimation.zombieType, this.character);
-                            character.Health.DoDamage(character.Health.maxHealth, DamageType.Zombie);
+                            character.Health.DoDamage(character.Health.maxHealth, DamageType.ZombieHurEachOther);
                         }
                     }
 

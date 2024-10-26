@@ -54,6 +54,11 @@
         {
             "panelTypeString": "ExternalGardenPanel",
             "path": "UIPanel/ExternalGardenPanel"
-        }     
+        },   
+
+        {
+            "panelTypeString": "DamageStatisticsPanel",
+            "path": "UIPanel/DamageStatisticsPanel"
+        } 
     ]
 }

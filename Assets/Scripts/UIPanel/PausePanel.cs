@@ -14,6 +14,8 @@ public class PausePanel : BasePanel
     public GameObject mainMenuPage;
     public GameObject restartPage;
 
+    DamageStatisticsPanel damageStatisticsPanel;
+
     public override void OnEnter()
     {
         base.OnEnter();
@@ -67,6 +69,18 @@ public class PausePanel : BasePanel
         SceneManager.LoadScene(0);
     }
 
+    public void OpenDamageStatistics()
+    {
+        if (damageStatisticsPanel == null || !damageStatisticsPanel.gameObject.activeSelf)
+        {
+            damageStatisticsPanel = UIManager.Instance.PushPanel(UIPanelType.DamageStatisticsPanel) as DamageStatisticsPanel;
+        }
+        else
+        {
+            UIManager.Instance.PopPanel();
+        }
+    }
+
     public void SetHUD(bool value)
     {
         SaveManager.Instance.systemData.IsHUD = value;
@@ -81,6 +95,8 @@ public class PausePanel : BasePanel
         }
         else
         {
+            if (damageStatisticsPanel != null && damageStatisticsPanel.gameObject.activeSelf)
+                UIManager.Instance.PopPanel();
             UIManager.Instance.PopPanel();
             UIManager.Instance.PopPanel();
         }

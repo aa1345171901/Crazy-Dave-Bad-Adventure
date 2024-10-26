@@ -52,12 +52,12 @@ namespace TopDownPlate
                 if (purchaseFireCount > 0)
                 {
                     var finalDamage = character.Health.health - purchaseFireCount <= 0 ? character.Health.health - 1: purchaseFireCount;
-                    GameManager.Instance.DoDamage(finalDamage, DamageType.Fire);
+                    GameManager.Instance.DoDamage(finalDamage, ZombieType.Normal, DamageType.Fire);
                 }
                 if (purpleGarlicCount > 0)
                 {
                     var finalDamage = character.Health.health - purpleGarlicCount <= 0 ? character.Health.health - 1 : purpleGarlicCount;
-                    GameManager.Instance.DoDamage(finalDamage, DamageType.Fire);
+                    GameManager.Instance.DoDamage(finalDamage, ZombieType.Normal, DamageType.Fire);
                 }
             }
 

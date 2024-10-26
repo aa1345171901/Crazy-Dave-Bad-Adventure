@@ -16,7 +16,7 @@ public class CatapultAttack : AIAttack
     public string AttackAfterAnimation = "Attack_After";
 
     public Transform basketballPos;
-    public GameObject basketball;
+    public Basketball basketball;
 
     private TrackEntry trackEntry;
     private float timer;
@@ -94,7 +94,8 @@ public class CatapultAttack : AIAttack
             {
                 var ball = GameObject.Instantiate(basketball);
                 ball.transform.position = basketballPos.position;
-                GameManager.Instance.balls.Add(ball);
+                GameManager.Instance.balls.Add(ball.gameObject);
+                ball.damage = realDamage;
                 trackEntry = skeletonAnimation.AnimationState.SetAnimation(1, AttackAfterAnimation, false);
                 trackEntry.Complete += (e) =>
                 {

@@ -219,7 +219,7 @@ public class BossAttack : AIAttack
             }
             else if (trigger2D.GetFirst(true) != null)
             {
-                GameManager.Instance.DoDamage(realDamage);
+                GameManager.Instance.DoDamage(realDamage, ZombieType.Boss);
                 boxCollider2D.enabled = false;
             }
         }

@@ -7,10 +7,10 @@ public class FireGround : MonoBehaviour
 {
     public int damage = 1;
 
-    [Tooltip("存在时间")]
+    [Tooltip("瀛樺湪鏃堕棿")]
     public float liveTime = 20;
 
-    private float lastTimer;  // 上次受伤时间
+    private float lastTimer;  // 涓婃鍙椾激鏃堕棿
 
     private void Start()
     {
@@ -30,7 +30,7 @@ public class FireGround : MonoBehaviour
         if (collision.gameObject == GameManager.Instance.Player.gameObject)
         {
             lastTimer = Time.time;
-            GameManager.Instance.DoDamage(damage, DamageType.Fire);
+            GameManager.Instance.DoDamage(damage, ZombieType.Boss);
         }
     }
 }
