@@ -51,7 +51,7 @@ public class CoinJump : MonoBehaviour
         */
         // 幸运*30增加精度
         targets.Clear();
-        int lucky = GameManager.Instance.UserData.Lucky;
+        int lucky = GameManager.Instance.UserData.LuckyProperties;
         int random = Random.Range(0, 3001);
         ExplosionGO = null;
         if (random < 30 * ConfManager.Instance.confMgr.moneyParam.GetWeightByKey("diamond") * lucky / 30)
@@ -97,7 +97,7 @@ public class CoinJump : MonoBehaviour
         /* 阳光掉落，更加幸运决定
  * 掉落阳光数量1-6个不等，根据幸运决定数量， 幸运小于10掉1，到60最大
  */
-        int lucky = GameManager.Instance.UserData.Lucky;
+        int lucky = GameManager.Instance.UserData.LuckyProperties;
         int sunCount = lucky / 10 + 1;
         sunCount = sunCount > 6 ? 6 : sunCount;
         sunCount = Random.Range(1, sunCount + 1);

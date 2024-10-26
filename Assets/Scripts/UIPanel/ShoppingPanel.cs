@@ -225,7 +225,7 @@ public class ShoppingPanel : BasePanel,EventListener<PropPurchaseEvent>
         audioSource.Play();
         animator.SetTrigger("refresh");
 
-        float lucky = GameManager.Instance.UserData.Lucky;
+        float lucky = GameManager.Instance.UserData.LuckyProperties;
         /*
          * 出现白色品质的概率为100-蓝紫红  
          * 蓝色概率为 幸运40前 （20+幸运) 40-50(固定60) 50以上为（100-白色（10） - 紫色-红色）   

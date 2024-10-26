@@ -447,6 +447,11 @@ namespace TopDownPlate
         /// </summary>
         private void Reuse()
         {
+            if (ShopManager.Instance.GetPurchaseTypeList(PropType.DeathGod).Count > 0)
+            {
+                var maxHp = Mathf.RoundToInt(UserData.MaximumHP * 0.9f);
+                UserData.MaximumHP = maxHp <= 0 ? 1 : maxHp;
+            }
             Player.Reuse();
             Player.Health.Reuse();
             battlePanel.SetHPBar(Player.Health.health, Player.Health.maxHealth);
@@ -695,6 +700,10 @@ namespace TopDownPlate
         public void Victory()
         {
             LevelManager.Instance.Victory();
+            ClearHpBar();
+            SaveManager.Instance.DeleteUserData();
+            SaveManager.Instance.SaveExternalGrowData();
+            AchievementManager.Instance.SaveData();
             isEnd = true;
             UIManager.Instance.PushPanel(UIPanelType.VictoryPanel);
         }

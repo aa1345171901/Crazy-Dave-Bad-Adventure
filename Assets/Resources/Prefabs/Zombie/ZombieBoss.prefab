@@ -130,6 +130,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 64
+  Targets: []
   Target: {fileID: 0}
 --- !u!1 &2117504012892882149
 GameObject:
@@ -825,6 +826,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
+  Targets: []
   Target: {fileID: 0}
 --- !u!61 &4356292078583731036
 BoxCollider2D:
@@ -1119,6 +1121,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
+  Targets: []
   Target: {fileID: 0}
 --- !u!61 &4356292079890364622
 BoxCollider2D:
@@ -1196,6 +1199,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
+  Targets: []
   Target: {fileID: 0}
 --- !u!58 &4356292080094589173
 CircleCollider2D:
@@ -1385,7 +1389,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3.5
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -1594,6 +1598,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 2240
+  Targets: []
   Target: {fileID: 0}
 --- !u!58 &5042218387358142432
 CircleCollider2D:
@@ -1907,6 +1912,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 64
+  Targets: []
   Target: {fileID: 0}
 --- !u!1 &5619366789119161263
 GameObject:

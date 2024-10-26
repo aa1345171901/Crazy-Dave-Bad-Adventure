@@ -76,6 +76,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 64
+  Targets: []
   Target: {fileID: 0}
 --- !u!1 &619950131301105326
 GameObject:
@@ -223,6 +224,7 @@ MonoBehaviour:
   BodyPos: {fileID: 8550672456498653514}
   realSpeed: 0
   canMove: 0
+  isRepulsive: 0
   AIParameter:
     Distance: 0
     IsPlayerRight: 0

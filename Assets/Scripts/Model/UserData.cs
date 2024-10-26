@@ -84,6 +84,28 @@ public class UserData
     public int Lucky;
 
     /// <summary>
+    /// 幸运
+    /// </summary>
+    public int LuckyProperties
+    {
+        get
+        {
+            return Lucky;
+        }
+        set
+        {
+            if (ShopManager.Instance.GetPurchaseTypeList(PropType.DeathGod).Count > 0)
+            {
+                Lucky = 6;
+            }
+            else
+            {
+                Lucky = value;
+            }
+        }
+    }
+
+    /// <summary>
     /// 阳光
     /// </summary>
     public int Sunshine;
@@ -118,7 +140,7 @@ public class UserData
         CriticalDamage = confItem.CriticalDamage;
         Speed = confItem.Speed;
         Armor = confItem.Armor;
-        Lucky = confItem.Lucky;
+        LuckyProperties = confItem.Lucky;
         Sunshine = confItem.Sunshine;
         GoldCoins = confItem.GoldCoins;
         Botany = confItem.Botany;
@@ -162,7 +184,7 @@ public class UserData
                 Armor += value;
                 break;
             case "lucky":
-                Lucky += value;
+                LuckyProperties += value;
                 break;
             case "sunshine":
                 Sunshine += value;

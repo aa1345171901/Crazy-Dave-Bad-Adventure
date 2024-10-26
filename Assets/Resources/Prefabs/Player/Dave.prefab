@@ -8362,7 +8362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   maxHealth: 30
-  InvincibleTime: 0.4
+  InvincibleTime: 0.25
   Injured:
     m_PersistentCalls:
       m_Calls:

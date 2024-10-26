@@ -107,6 +107,7 @@ MonoBehaviour:
   layerMasks:
     serializedVersion: 2
     m_Bits: 64
+  Targets: []
   Target: {fileID: 0}
 --- !u!1 &2928815628894516177
 GameObject:
@@ -5191,7 +5192,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2977567272358016415}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -5266,6 +5267,7 @@ MonoBehaviour:
   BodyPos: {fileID: 6296850037234426491}
   realSpeed: 0
   canMove: 0
+  isRepulsive: 0
   AIParameter:
     Distance: 0
     IsPlayerRight: 0

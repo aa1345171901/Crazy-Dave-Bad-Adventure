@@ -140,15 +140,14 @@ namespace TopDownPlate
 
                     if (decelerationPercentage != 1 && Time.time - decelerationTimer > decelerationTime)
                     {
-                        decelerationPercentage = 1;
                         hurtFlash.BeResume();
                         if (Ice != null)
                         {
                             Ice.SetActive(false);
-                            controller.BoxCollider.enabled = true;
                         }
                         if (IsEnchanted)
                             hurtFlash.BeEnchanted();
+                        decelerationPercentage = 1;
                     }
                     // 减速
                     finalMoveSpeed *= decelerationPercentage;
@@ -202,10 +201,14 @@ namespace TopDownPlate
                 case ZombieType.Cone:
                 case ZombieType.Bucket:
                 case ZombieType.Paper:
+                case ZombieType.Gargantuan:
                     RepulsiveForce = force / 1.5f;
                     break;
                 case ZombieType.Screendoor:
                 case ZombieType.Football:
+                case ZombieType.Boss:
+                case ZombieType.Catapult:
+                case ZombieType.Zamboni:
                     RepulsiveForce = force / 2f;
                     break;
                 default:
@@ -251,7 +254,6 @@ namespace TopDownPlate
             {
                 Ice.SetActive(true);
                 Ice.GetComponent<SpriteRenderer>().sortingOrder = character.LayerOrder + 1;
-                controller.BoxCollider.enabled = false;
             }
             this.decelerationPercentage = 1 - decelerationPercentage;
             this.decelerationTime = decelerationTime;

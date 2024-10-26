@@ -49,7 +49,7 @@ public class EatItem : MonoBehaviour
                             break;
                         // 1 幸运
                         case 1:
-                            userData.Lucky += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
+                            userData.LuckyProperties += (int)fieldInfo.GetValue(flowerPotGardenItem.PlantAttribute);
                             break;
                         // 2 植物学
                         case 2:

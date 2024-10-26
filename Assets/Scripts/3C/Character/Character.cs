@@ -11,13 +11,13 @@ namespace TopDownPlate
     public enum FacingDirections { Right, Left }
 
     /// <summary>
-    /// ¿ØÖÆ½ÇÉ«µÄ¸÷ÏîÄÜÁ¦Ö´ĞĞÒÔ¼°¶¯»­ÏµÍ³
+    /// æ§åˆ¶è§’è‰²çš„å„é¡¹èƒ½åŠ›æ‰§è¡Œä»¥åŠåŠ¨ç”»ç³»ç»Ÿ
     /// </summary>
     [AddComponentMenu("TopDownPlate/Character/Core/Character")]
     public class Character : MonoBehaviour
     {
         [Header("Animator")]
-        [Tooltip("Ö¸¶¨²¥·ÅµÄAnimator,Îªnull²»²¥·Å¶¯»­")]
+        [Tooltip("æŒ‡å®šæ’­æ”¾çš„Animator,ä¸ºnullä¸æ’­æ”¾åŠ¨ç”»")]
         public SkeletonAnimation SkeletonAnimation;
 
         [Space(10)]
@@ -83,7 +83,7 @@ namespace TopDownPlate
                     }
                     else
                     {
-                         // ½©Ê¬¶ÔÏó³ØÖØĞÂÀûÓÃ
+                         // åƒµå°¸å¯¹è±¡æ± é‡æ–°åˆ©ç”¨
                         previousAnimationState = "";
                     }
                 }
@@ -173,7 +173,7 @@ namespace TopDownPlate
 
         public void SetLayer()
         {
-            // Ê¹ÏÂÃæµÄµ²×¡ÉÏÃæµÄĞèÒª½«yÈ¡¸ººÅ£¬ËùÓĞÖµ´óÓÚ0ĞèÒª¼Ó¸öÖµ,layerÖ»ÄÜÉèÖÃÎªint£¬ËùÒÔ*10Ê¹¾«¶È±ä¸ßÔÙÈ¡Õû
+            // ä½¿ä¸‹é¢çš„æŒ¡ä½ä¸Šé¢çš„éœ€è¦å°†yå–è´Ÿå·ï¼Œæ‰€æœ‰å€¼å¤§äº0éœ€è¦åŠ ä¸ªå€¼,layeråªèƒ½è®¾ç½®ä¸ºintï¼Œæ‰€ä»¥*10ä½¿ç²¾åº¦å˜é«˜å†å–æ•´
 
             int y = (int)((-this.transform.position.y + 10) * 10);
             if (y != LayerOrder)
@@ -218,7 +218,7 @@ namespace TopDownPlate
                     if (CharacterAnimationState == "EnterIdel")
                     {
                         var enterIdel = SkeletonAnimation.AnimationState.SetAnimation(0, CharacterAnimationState, false);
-                        SkeletonAnimation.AnimationState.AddAnimation(0, "Idel", true, 0);   // ÔÚ²¥·ÅÍêEnterIdelÖ®ºó½øÈëIdel¶¯»­
+                        SkeletonAnimation.AnimationState.AddAnimation(0, "Idel", true, 0);   // åœ¨æ’­æ”¾å®ŒEnterIdelä¹‹åè¿›å…¥IdelåŠ¨ç”»
                     }
                     else
                     {

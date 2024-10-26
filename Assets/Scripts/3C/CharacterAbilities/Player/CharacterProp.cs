@@ -39,6 +39,11 @@ namespace TopDownPlate
         {
             base.Reuse();
             gunNum = 0;
+            elfPos.Clear();
+            for (int i = 0; i < elfRoot.childCount; i++)
+            {
+                elfPos.Add(elfRoot.GetChild(i));
+            }
         }
 
         public int GetGunLevel()

@@ -178,6 +178,7 @@ public class BattlePanel : BasePanel
         if (hpBarDicts.ContainsKey(health))
         {
             hpBarDicts[health].gameObject.SetActive(false);
+            hpBarDicts.Remove(health);
             health.InjuredAction = null;
         }
     }

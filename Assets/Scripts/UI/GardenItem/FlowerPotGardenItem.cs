@@ -58,7 +58,7 @@ public class PlantAttribute
             case PlantType.Blover:
                 if (attribute[index] == 0)
                 {
-                    GameManager.Instance.UserData.Lucky++;
+                    GameManager.Instance.UserData.LuckyProperties++;
                 }
 
                 if (attribute[index] == 1)
@@ -98,7 +98,7 @@ public class PlantAttribute
                 }
                 if (attribute[index] == 1)
                 {
-                    GameManager.Instance.UserData.Lucky++;
+                    GameManager.Instance.UserData.LuckyProperties++;
                 }
                 if (attribute[index] == 2)
                 {
@@ -124,7 +124,7 @@ public class PlantAttribute
             case PlantType.HypnoShroom:
                 if (attribute[index] == 4)
                 {
-                    GameManager.Instance.UserData.Lucky++;
+                    GameManager.Instance.UserData.LuckyProperties++;
                 }
                 break;
             // 磁力菇 属性0 为金币,1为幸运
@@ -135,7 +135,7 @@ public class PlantAttribute
                 }
                 if (attribute[index] == 1)
                 {
-                    GameManager.Instance.UserData.Lucky++;
+                    GameManager.Instance.UserData.LuckyProperties++;
                 }
                 break;
             // 金盏花 属性0 为金币,1为幸运
@@ -146,7 +146,7 @@ public class PlantAttribute
                 }
                 if (attribute[index] == 1)
                 {
-                    GameManager.Instance.UserData.Lucky++;
+                    GameManager.Instance.UserData.LuckyProperties++;
                 }
                 break;
             // 路灯 属性4 攻击速度,5为范围
@@ -187,7 +187,7 @@ public class PlantAttribute
             case PlantType.Starfruit:
                 if (attribute[index] == 5)
                 {
-                    GameManager.Instance.UserData.Lucky++;
+                    GameManager.Instance.UserData.LuckyProperties++;
                 }
                 break;
             // 向日葵 属性0 为阳光,1为幸运
@@ -198,7 +198,7 @@ public class PlantAttribute
                 }
                 if (attribute[index] == 1)
                 {
-                    GameManager.Instance.UserData.Lucky++;
+                    GameManager.Instance.UserData.LuckyProperties++;
                 }
                 break;
             // 双子向日葵 属性0 为阳光,1为幸运
@@ -209,7 +209,7 @@ public class PlantAttribute
                 }
                 if (attribute[index] == 1)
                 {
-                    GameManager.Instance.UserData.Lucky++;
+                    GameManager.Instance.UserData.LuckyProperties++;
                 }
                 break;
             // 高坚果 属性4 为最大生命值,5为护甲
@@ -245,7 +245,7 @@ public class PlantAttribute
             case PlantType.IceShroom:
                 if (attribute[index] == 3)
                 {
-                    GameManager.Instance.UserData.Lucky++;
+                    GameManager.Instance.UserData.LuckyProperties++;
                 }
                 if (attribute[index] == 4)
                 {

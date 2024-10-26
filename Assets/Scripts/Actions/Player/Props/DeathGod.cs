@@ -78,8 +78,8 @@ public class DeathGod : BaseProp
                 var health = item.GetComponent<Health>();
                 if (health)
                 {
-                    var damage = player.Health.maxHealth * 3; // 消耗血量 * 10
-                    health.DoDamage(damage, DamageType.DeathGod);
+                    var damage = Mathf.RoundToInt(player.Health.maxHealth * 3f / 2); // 消耗血量 * 5
+                    health.DoDamage(damage == 0 ? 1 : damage, DamageType.DeathGod);
                     var addMax = Mathf.RoundToInt(player.Health.maxHealth * 3f / 10 / 6);
                     player.Health.AddHealth(addMax == 0 ? 1 : addMax);
                     count++;

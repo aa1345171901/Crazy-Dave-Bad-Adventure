@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "ChMF1AzBTY5ZpzVO0D+TvJI4ggw",
+	"hash": "jSvwkYyux5/LEws+neG1WVquwaA",
 	"spine": "3.8",
 	"x": -102.78,
 	"y": 26.74,
@@ -887,31 +887,7 @@
 	},
 	"Dead": {
 		"slots": {
-			"Zombie_gargantuar_outerleg_lower": {
-				"color": [
-					{ "time": 2.5, "color": "ffffffff" },
-					{ "time": 3.5, "color": "ffffff00" }
-				]
-			},
-			"Zombie_gargantuar_body1": {
-				"color": [
-					{ "time": 2.5, "color": "ffffffff" },
-					{ "time": 3.5, "color": "ffffff00" }
-				]
-			},
-			"Zombie_gargantuar_head": {
-				"color": [
-					{ "time": 2.5, "color": "ffffffff" },
-					{ "time": 3.5, "color": "ffffff00" }
-				]
-			},
-			"Zombie_charred_gargantuar1": {
-				"color": [
-					{ "time": 2.3333, "color": "ffffffff" },
-					{ "time": 3.3333, "color": "ffffff00" }
-				]
-			},
-			"Zombie_gargantuar_innerleg_lower": {
+			"Zombie_gargantuar_rope": {
 				"color": [
 					{ "time": 2.5, "color": "ffffffff" },
 					{ "time": 3.5, "color": "ffffff00" }
@@ -923,13 +899,13 @@
 					{ "time": 3.5, "color": "ffffff00" }
 				]
 			},
-			"Zombie_charred_gargantuar_blink1": {
+			"Zombie_charred_gargantuar_head": {
 				"color": [
 					{ "time": 2.3333, "color": "ffffffff" },
 					{ "time": 3.3333, "color": "ffffff00" }
 				]
 			},
-			"Zombie_gargantuar_zombie": {
+			"Zombie_gargantuar_innerleg_lower": {
 				"color": [
 					{ "time": 2.5, "color": "ffffffff" },
 					{ "time": 3.5, "color": "ffffff00" }
@@ -941,25 +917,13 @@
 					{ "time": 3.5, "color": "ffffff00" }
 				]
 			},
-			"Zombie_charred_gargantuar_head": {
-				"color": [
-					{ "time": 2.3333, "color": "ffffffff" },
-					{ "time": 3.3333, "color": "ffffff00" }
-				]
-			},
-			"Zombie_gargantuar_trashcan2": {
+			"Zombie_gargantuar_innerarm_lower": {
 				"color": [
 					{ "time": 2.5, "color": "ffffffff" },
 					{ "time": 3.5, "color": "ffffff00" }
 				]
 			},
-			"Zombie_gargantuar_foot": {
-				"color": [
-					{ "time": 2.5, "color": "ffffffff" },
-					{ "time": 3.5, "color": "ffffff00" }
-				]
-			},
-			"Zombie_gargantuar_innerarm_upper": {
+			"Zombie_gargantuar_body1": {
 				"color": [
 					{ "time": 2.5, "color": "ffffffff" },
 					{ "time": 3.5, "color": "ffffff00" }
@@ -971,7 +935,73 @@
 					{ "time": 3.5, "color": "ffffff00" }
 				]
 			},
+			"Zombie_gargantuar_outerarm_hand": {
+				"color": [
+					{ "time": 2.5, "color": "ffffffff" },
+					{ "time": 3.5, "color": "ffffff00" }
+				]
+			},
+			"Zombie_gargantuar_trashcan2": {
+				"color": [
+					{ "time": 2.5, "color": "ffffffff" },
+					{ "time": 3.5, "color": "ffffff00" }
+				]
+			},
+			"Zombie_gargantuar_innerarm_upper": {
+				"color": [
+					{ "time": 2.5, "color": "ffffffff" },
+					{ "time": 3.5, "color": "ffffff00" }
+				]
+			},
+			"Zombie_gargantuar_head": {
+				"color": [
+					{ "time": 2.5, "color": "ffffffff" },
+					{ "time": 3.5, "color": "ffffff00" }
+				]
+			},
+			"Zombie_gargantuar_foot": {
+				"color": [
+					{ "time": 2.5, "color": "ffffffff" },
+					{ "time": 3.5, "color": "ffffff00" }
+				]
+			},
+			"Zombie_gargantuar_outerleg_upper": {
+				"color": [
+					{ "time": 2.5, "color": "ffffffff" },
+					{ "time": 3.5, "color": "ffffff00" }
+				]
+			},
+			"Zombie_gargantuar_outerleg_lower": {
+				"color": [
+					{ "time": 2.5, "color": "ffffffff" },
+					{ "time": 3.5, "color": "ffffff00" }
+				]
+			},
+			"Zombie_gargantuar_innerleg_upper": {
+				"color": [
+					{ "time": 2.5, "color": "ffffffff" },
+					{ "time": 3.5, "color": "ffffff00" }
+				]
+			},
+			"Zombie_charred_gargantuar1": {
+				"color": [
+					{ "time": 2.3333, "color": "ffffffff" },
+					{ "time": 3.3333, "color": "ffffff00" }
+				]
+			},
+			"Zombie_charred_gargantuar_blink1": {
+				"color": [
+					{ "time": 2.3333, "color": "ffffffff" },
+					{ "time": 3.3333, "color": "ffffff00" }
+				]
+			},
 			"Zombie_gargantuar_innerarm_hand": {
+				"color": [
+					{ "time": 2.5, "color": "ffffffff" },
+					{ "time": 3.5, "color": "ffffff00" }
+				]
+			},
+			"Zombie_gargantuar_body2": {
 				"color": [
 					{ "time": 2.5, "color": "ffffffff" },
 					{ "time": 3.5, "color": "ffffff00" }
@@ -989,37 +1019,7 @@
 					{ "time": 3.5, "color": "ffffff00" }
 				]
 			},
-			"Zombie_gargantuar_body2": {
-				"color": [
-					{ "time": 2.5, "color": "ffffffff" },
-					{ "time": 3.5, "color": "ffffff00" }
-				]
-			},
-			"Zombie_gargantuar_outerarm_hand": {
-				"color": [
-					{ "time": 2.5, "color": "ffffffff" },
-					{ "time": 3.5, "color": "ffffff00" }
-				]
-			},
-			"Zombie_gargantuar_innerleg_upper": {
-				"color": [
-					{ "time": 2.5, "color": "ffffffff" },
-					{ "time": 3.5, "color": "ffffff00" }
-				]
-			},
-			"Zombie_gargantuar_innerarm_lower": {
-				"color": [
-					{ "time": 2.5, "color": "ffffffff" },
-					{ "time": 3.5, "color": "ffffff00" }
-				]
-			},
-			"Zombie_gargantuar_outerleg_upper": {
-				"color": [
-					{ "time": 2.5, "color": "ffffffff" },
-					{ "time": 3.5, "color": "ffffff00" }
-				]
-			},
-			"Zombie_gargantuar_rope": {
+			"Zombie_gargantuar_zombie": {
 				"color": [
 					{ "time": 2.5, "color": "ffffffff" },
 					{ "time": 3.5, "color": "ffffff00" }
@@ -1941,25 +1941,25 @@
 	},
 	"worn": {
 		"slots": {
-			"Zombie_gargantuar_head": {
+			"Zombie_gargantuar_body1": {
 				"attachment": [
-					{ "name": "Zombie_gargantuar_head2" }
+					{ "name": "Zombie_gargantuar_body1_2" }
 				]
 			},
 			"Zombie_gargantuar_outerarm_lower": {
 				"attachment": [
 					{ "name": "Zombie_gargantuar_outerarm_lower2" }
 				]
-			},
-			"Zombie_gargantuar_body1": {
-				"attachment": [
-					{ "name": "Zombie_gargantuar_body1_2" }
-				]
 			}
 		}
 	},
 	"worn2": {
 		"slots": {
+			"Zombie_gargantuar_body1": {
+				"attachment": [
+					{ "name": "Zombie_gargantuar_body1_3" }
+				]
+			},
 			"Zombie_gargantuar_head": {
 				"attachment": [
 					{ "name": "Zombie_gargantuar_head2" }
@@ -1973,11 +1973,6 @@
 			"Zombie_gargantuar_outerarm_lower": {
 				"attachment": [
 					{ "name": "Zombie_gargantuar_outerarm_lower2" }
-				]
-			},
-			"Zombie_gargantuar_body1": {
-				"attachment": [
-					{ "name": "Zombie_gargantuar_body1_3" }
 				]
 			}
 		}

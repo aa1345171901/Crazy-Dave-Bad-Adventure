@@ -172,7 +172,7 @@ namespace TopDownPlate
 
         private float finalArmor;
         private List<HUDPos> hudLists = new List<HUDPos>();  // 文本的位置
-        private float hudShowTime = 1.25f;
+        private float hudShowTime = 2f;
         private int fontSize;
 
         private float timer;
@@ -197,7 +197,7 @@ namespace TopDownPlate
             if (character.CharacterType == CharacterTypes.Player)
             {
                 this.maxHealth = GameManager.Instance.UserData.MaximumHP;
-                finalArmor = GameManager.Instance.UserData.Armor / (50f + GameManager.Instance.UserData.Armor);
+                finalArmor = GameManager.Instance.UserData.Armor / (100f + GameManager.Instance.UserData.Armor);
                 finalArmor = finalArmor > 0.9f ? 0.9f : finalArmor;
             }
             else

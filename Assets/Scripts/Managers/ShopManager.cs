@@ -88,6 +88,16 @@ public class ShopManager : BaseManager<ShopManager>
         var userData = GameManager.Instance.UserData;
         foreach (var item in propCard.attributes)
         {
+            if (item.attributeType == AttributeType.Lucky)
+            {
+                // 死神锁定幸运为6
+                if (GetPurchaseTypeList(PropType.DeathGod).Count > 0)
+                {
+                    userData.Lucky = 6;
+                    call?.Invoke(item.attributeType, 6);
+                    continue;
+                }
+            }
             var fieldInfo = typeof(UserData).GetField(Enum.GetName(typeof(AttributeType), item.attributeType));
             int value = (int)fieldInfo.GetValue(userData) + item.increment;
             if (item.attributeType == AttributeType.MaximumHP && value < 0)
