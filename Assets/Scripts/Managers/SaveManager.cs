@@ -124,8 +124,19 @@ public class SaveManager
         if (specialData.battleMode != BattleMode.None)
             return;
         // 备份战斗存档上一次的一份
+        if (FileTool.FileExists(userDataPath))
+            GameManager.Instance.canBackInTime = true;
         FileTool.FileMove(userDataPath, userDataPath.Replace("UserData.data", "UserData_(beifen).data"));
         FileTool.FileMove(battleDataPath, battleDataPath.Replace("BattleData.data", "BattleData_(beifen).data"));
+    }
+
+    /// <summary>
+    /// 回档
+    /// </summary>
+    public void BackInTime()
+    {
+        FileTool.FileMove(userDataPath.Replace("UserData.data", "UserData_(beifen).data"), userDataPath);
+        FileTool.FileMove(battleDataPath.Replace("BattleData.data", "BattleData_(beifen).data"), battleDataPath);
     }
 
     /// <summary>

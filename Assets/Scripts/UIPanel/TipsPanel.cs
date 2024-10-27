@@ -17,12 +17,18 @@ public class TipsPanel : BasePanel
     public Image GameOverTips;
     public Image Approaching;
     public Image FinalWave;
+    public UIButton btnBackInTime;
 
     private Image targetTips;
     private readonly float fadeTimer = 0.1f;
     private readonly float showTimer = 3f;
 
     DamageStatisticsPanel damageStatisticsPanel;
+
+    private void Start()
+    {
+        btnBackInTime.OnClick.AddListener(OnBackInTime);
+    }
 
     public override void OnEnter()
     {
@@ -50,6 +56,8 @@ public class TipsPanel : BasePanel
                 UIManager.Instance.PushPanel(UIPanelType.AttributePanel);
                 BagPanel bagpanel = UIManager.Instance.PushPanel(UIPanelType.BagPanel) as BagPanel;
                 bagpanel.AutoClose = false;
+
+                btnBackInTime.gameObject.SetActive(GameManager.Instance.canBackInTime);
                 break;
             case TipsType.Approaching:
                 GameOverTips.gameObject.SetActive(false);
@@ -112,5 +120,12 @@ public class TipsPanel : BasePanel
         {
             UIManager.Instance.PopPanel();
         }
+    }
+
+    void OnBackInTime()
+    {
+        // 回档
+        SaveManager.Instance.BackInTime();
+        ReStartGame();
     }
 }

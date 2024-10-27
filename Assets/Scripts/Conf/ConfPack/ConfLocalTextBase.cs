@@ -693,6 +693,9 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(641, "TakingDamageStatistics12", "被僵王博士拍了，砸了，踩了", "Shot, smashed, stepped on by Dr. Zombie King"));
 		AddItem(new ConfLocalTextItem(642, "damage_cause", "造成伤害", "Cause damage"));
 		AddItem(new ConfLocalTextItem(643, "damage_taking", "承受伤害", "Take damage"));
+		AddItem(new ConfLocalTextItem(644, "backInTime", "时间回溯", "Back in time"));
+		AddItem(new ConfLocalTextItem(645, "TakingDamageStatistics1005", "臭屁中毒，火焰吞噬", "Poisoned by farts, devoured by flames"));
+		AddItem(new ConfLocalTextItem(646, "TakingDamageStatistics1027", "献祭给死神", "Sacrificed to the god of death"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

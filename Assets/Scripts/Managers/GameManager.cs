@@ -42,11 +42,11 @@ namespace TopDownPlate
                     isEnd = value;
                     if (isEnd)
                     {
+                        SaveManager.Instance.DeleteUserData();  // 死亡需要删档
                         LevelManager.Instance.GameOver();
                         ShowTipsPanel(TipsType.GameOver);
                         AudioManager.Instance.StopBackMusic();
                         AudioManager.Instance.PlayEffectSoundByName("GameOver");
-                        SaveManager.Instance.DeleteUserData();  // 死亡需要删档
                         AchievementManager.Instance.SetAchievementType4();
                     }
                 }
@@ -155,6 +155,11 @@ namespace TopDownPlate
         public int resurrection { get; set; }
 
         public BattleMode nowMode { get; set; }
+
+        /// <summary>
+        /// 是否能时间回溯，本局删档了可以
+        /// </summary>
+        public bool canBackInTime { get; set; }
 
         /// <summary>
         /// 有血条的僵尸统一管理
