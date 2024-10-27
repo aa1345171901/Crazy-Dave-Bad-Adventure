@@ -35,7 +35,7 @@ public class BaseElf : BaseProp
     protected CharacterProp characterProp;
     protected Animator animator;
 
-    private void Start()
+    private void Awake()
     {
         Trigger.OnTriggerEnter += TriggerEnter2D;
         Trigger.OnTriggerExit += TriggerExit2D;

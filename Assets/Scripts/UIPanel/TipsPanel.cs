@@ -44,6 +44,8 @@ public class TipsPanel : BasePanel
 
     public void SetTips(TipsType tipsType)
     {
+        if (GameManager.Instance.IsEnd && tipsType != TipsType.GameOver)
+            return;
         StopCoroutine(FadeInOut());
         switch (tipsType)
         {

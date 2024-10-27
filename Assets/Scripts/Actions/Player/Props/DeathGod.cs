@@ -11,7 +11,6 @@ public class DeathGod : BaseProp
     private float lastAttackTimer;
     Animator animator;
     AudioSource audioSource;
-    Character player;
     bool isAttack;
 
     private void Start()
@@ -27,16 +26,11 @@ public class DeathGod : BaseProp
         AudioManager.Instance.AudioLists.Remove(audioSource);
     }
 
-    public override void Reuse()
-    {
-        base.Reuse();
-        player = GameManager.Instance.Player;
-    }
-
     public override void ProcessAbility()
     {
         base.ProcessAbility();
 
+        var player = GameManager.Instance.Player;
         if (Time.time - lastAttackTimer > DefaultAttackCoolingTime && !isAttack)
         {
             var lifeRate = (float)player.Health.health / player.Health.maxHealth;
@@ -69,6 +63,7 @@ public class DeathGod : BaseProp
     IEnumerator Attack()
     {
         yield return new WaitForSeconds(0.32f);
+        var player = GameManager.Instance.Player;
         var colliders = Physics2D.OverlapCircleAll(transform.position, range, layerMask);
         int count = 0;
         foreach (var item in colliders)

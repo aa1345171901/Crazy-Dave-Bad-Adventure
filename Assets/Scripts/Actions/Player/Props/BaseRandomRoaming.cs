@@ -41,7 +41,7 @@ public class BaseRandomRoaming : BaseProp
 
     protected CharacterProp characterProp;
 
-    private void Start()
+    private void Awake()
     {
         Trigger.OnTriggerEnter += TriggerEnter2D;
         Trigger.OnTriggerExit += TriggerExit2D;

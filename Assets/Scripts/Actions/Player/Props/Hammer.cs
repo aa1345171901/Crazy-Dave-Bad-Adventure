@@ -19,7 +19,7 @@ public class Hammer : BaseProp
 
     private readonly float AttackAnimTime = 0.33f; // 攻击动画0.33f
 
-    private void Start()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
         damageTrigger = GetComponent<BoxCollider2D>();

@@ -361,7 +361,7 @@ MonoBehaviour:
   AttackAnimation: Attack
   AttackAfterAnimation: Attack_After
   basketballPos: {fileID: 8186093807420824460}
-  basketball: {fileID: 8150592471429885812, guid: 97faa72dd7fcee9479828db09311c0b6, type: 3}
+  basketball: {fileID: 4387950597662280916, guid: 97faa72dd7fcee9479828db09311c0b6, type: 3}
   realAttackRange: 0
 --- !u!114 &4572271678096432290
 MonoBehaviour:

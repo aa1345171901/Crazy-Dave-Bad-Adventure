@@ -51,7 +51,7 @@ public class VocalConcert : BaseProp
     private float[] spectrum = new float[64];
     private readonly float FogDuration = 5;
 
-    private void Start()
+    private void Awake()
     {
         Fogmachine.SetActive(false);
         Mic.SetActive(false);

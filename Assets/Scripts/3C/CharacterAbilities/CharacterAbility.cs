@@ -11,7 +11,7 @@ namespace TopDownPlate
 
         public bool IsInit { get; set; }
 
-        private void Start()
+        private void Awake()
         {
             Initialization();
         }
@@ -28,7 +28,7 @@ namespace TopDownPlate
         }
 
         /// <summary>
-        /// 能力执行，每帧通过Character调用
+        /// 鑳藉姏鎵ц锛屾瘡甯ч�氳繃Character璋冪敤
         /// </summary>
         public virtual void ProcessAbility()
         {
@@ -36,7 +36,7 @@ namespace TopDownPlate
         }
 
         /// <summary>
-        /// 更新动画
+        /// 鏇存柊鍔ㄧ敾
         /// </summary>
         public virtual void UpdateAnimator()
         {
@@ -45,7 +45,7 @@ namespace TopDownPlate
         }
 
         /// <summary>
-        /// 对象池初始化
+        /// 瀵硅薄姹犲垵濮嬪寲
         /// </summary>
         public virtual void Reuse()
         {
