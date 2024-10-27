@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TopDownPlate;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,8 @@ public class DamageShowItem : MonoBehaviour
     {
         string path = isTaking ? "TakingDamageStatistics" : "DamageStatistics";
         path += type;
+        if (!isTaking && type == 1)
+            path = "DamageStatistics_" + GameManager.Instance.UserData.characterName;
         Sprite sprite = Resources.Load<Sprite>("UI/DamageStatistics/" + path);
         bg.sprite = sprite;
 
@@ -29,5 +32,6 @@ public class DamageShowItem : MonoBehaviour
     {
         slider.maxValue = maxValue;
         slider.value = value;
+        this.value.text = value + "/" + maxValue;
     }
 }

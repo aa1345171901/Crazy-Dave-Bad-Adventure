@@ -22,6 +22,8 @@ public class TipsPanel : BasePanel
     private readonly float fadeTimer = 0.1f;
     private readonly float showTimer = 3f;
 
+    DamageStatisticsPanel damageStatisticsPanel;
+
     public override void OnEnter()
     {
         base.OnEnter();
@@ -48,7 +50,6 @@ public class TipsPanel : BasePanel
                 UIManager.Instance.PushPanel(UIPanelType.AttributePanel);
                 BagPanel bagpanel = UIManager.Instance.PushPanel(UIPanelType.BagPanel) as BagPanel;
                 bagpanel.AutoClose = false;
-                UIManager.Instance.PushPanel(UIPanelType.DamageStatisticsPanel);
                 break;
             case TipsType.Approaching:
                 GameOverTips.gameObject.SetActive(false);
@@ -99,5 +100,17 @@ public class TipsPanel : BasePanel
     public void ReturnMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void OpenDamageStatistics()
+    {
+        if (damageStatisticsPanel == null || !damageStatisticsPanel.gameObject.activeSelf)
+        {
+            damageStatisticsPanel = UIManager.Instance.PushPanel(UIPanelType.DamageStatisticsPanel) as DamageStatisticsPanel;
+        }
+        else
+        {
+            UIManager.Instance.PopPanel();
+        }
     }
 }

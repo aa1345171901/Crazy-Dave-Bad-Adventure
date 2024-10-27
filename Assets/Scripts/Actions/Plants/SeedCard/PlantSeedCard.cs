@@ -72,10 +72,6 @@ public class PlantSeedCard : MonoBehaviour
             var target = Vector3.Lerp(startPos, targetPos, process);
             target.z = startPos.z;
             this.transform.position = target;
-
-            int sortingOrder = (int)((-transform.position.y + 10) * 10);
-            plant.sortingOrder = sortingOrder + 1;
-            bg.sortingOrder = sortingOrder;
         }
     }
 

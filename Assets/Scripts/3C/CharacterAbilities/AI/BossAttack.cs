@@ -227,6 +227,7 @@ public class BossAttack : AIAttack
 
     private void AttackHandLeg(string attackBefore, string attack, string attackAfter, Collider2D collider2D1, string doubleHitAttackBefore, string doubleHitAttack, string doubleHitAttackAfter, Collider2D collider2D2, AudioSource audioSource)
     {
+        healths.Clear();
         aiMove.canMove = false;
         AttackAudio.clip = AttackBodyClip;
         AttackAudio.Play();

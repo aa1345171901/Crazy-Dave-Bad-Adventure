@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class VictoryPanel : BasePanel
 {
+    DamageStatisticsPanel damageStatisticsPanel;
+
     public override void OnEnter()
     {
         base.OnEnter();
@@ -15,7 +17,6 @@ public class VictoryPanel : BasePanel
         UIManager.Instance.PushPanel(UIPanelType.AttributePanel);
         BagPanel bagpanel = UIManager.Instance.PushPanel(UIPanelType.BagPanel) as BagPanel;
         bagpanel.AutoClose = false;
-        UIManager.Instance.PushPanel(UIPanelType.DamageStatisticsPanel);
     }
 
     public override void OnExit()
@@ -35,5 +36,17 @@ public class VictoryPanel : BasePanel
     public void ReturnMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void OpenDamageStatistics()
+    {
+        if (damageStatisticsPanel == null || !damageStatisticsPanel.gameObject.activeSelf)
+        {
+            damageStatisticsPanel = UIManager.Instance.PushPanel(UIPanelType.DamageStatisticsPanel) as DamageStatisticsPanel;
+        }
+        else
+        {
+            UIManager.Instance.PopPanel();
+        }
     }
 }

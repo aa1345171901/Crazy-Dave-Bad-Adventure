@@ -651,6 +651,48 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(599, "mainmenu_closeAttack", "关闭攻击", "Close attack"));
 		AddItem(new ConfLocalTextItem(600, "nextzombieInfo", "下一波将出现的僵尸类型", "The next wave of zombies"));
 		AddItem(new ConfLocalTextItem(601, "damageStatistics", "伤害统计", "Damage Statistics"));
+		AddItem(new ConfLocalTextItem(602, "DamageStatistics_dave", "疯狂戴夫甩出的平底锅攻击", "Crazy Dave's pan attack"));
+		AddItem(new ConfLocalTextItem(603, "DamageStatistics2", "道具木槌敲打僵尸", "Hit zombies with a mallet"));
+		AddItem(new ConfLocalTextItem(604, "DamageStatistics3", "小推车推倒僵尸", "Push zombies down with a cart"));
+		AddItem(new ConfLocalTextItem(605, "DamageStatistics4", "音乐会套装", "Concert set"));
+		AddItem(new ConfLocalTextItem(606, "DamageStatistics6", "吃了菠菜后，击飞的僵尸尸体", "Zombie corpses that were knocked away after eating spinach"));
+		AddItem(new ConfLocalTextItem(607, "DamageStatistics7", "被魅惑后的僵尸", "Charmed zombie"));
+		AddItem(new ConfLocalTextItem(608, "DamageStatistics8", "豌豆家族的豌豆", "Peas from the Pea Family"));
+		AddItem(new ConfLocalTextItem(609, "DamageStatistics9", "杨桃大帝的杨桃子弹", "Carambola Bullets from the Starfruit King"));
+		AddItem(new ConfLocalTextItem(610, "DamageStatistics10", "胆小菇和小喷菇的毒弹", "Poisonous Bullets from the Timid Mushroom and the Spray Mushroom"));
+		AddItem(new ConfLocalTextItem(611, "DamageStatistics11", "寒冰豌豆的冰弹", "Ice Bullets from the Ice Peas"));
+		AddItem(new ConfLocalTextItem(612, "DamageStatistics12", "大嘴花吞噬", "Devour from the Big Mouth Flower"));
+		AddItem(new ConfLocalTextItem(613, "DamageStatistics13", "仙人掌和猫尾草的刺弹", "Spiky Bullets from the Cactus and the Cattail Grass"));
+		AddItem(new ConfLocalTextItem(614, "DamageStatistics14", "灰烬家族的灰烬伤害", "Ember Damage from the Ash Family"));
+		AddItem(new ConfLocalTextItem(615, "DamageStatistics15", "玉米和黄油", "Corn and Butter"));
+		AddItem(new ConfLocalTextItem(616, "DamageStatistics16", "大喷菇和多嘴小喷菇的毒雾", "Poisonous Mist from the Spray Mushroom and the Mouthful Spray Mushroom"));
+		AddItem(new ConfLocalTextItem(617, "DamageStatistics17", "咬咬碑的压起身", "Bite Monument's Pressing Up"));
+		AddItem(new ConfLocalTextItem(618, "DamageStatistics18", "胆小菇的缩地顶击", "Timid Mushroom's Shrinking Attack"));
+		AddItem(new ConfLocalTextItem(619, "DamageStatistics19", "地刺王和地刺", "Earth Spike King and Earth Spike"));
+		AddItem(new ConfLocalTextItem(620, "DamageStatistics20", "高坚果的反弹", "Tall Nut's Rebound"));
+		AddItem(new ConfLocalTextItem(621, "DamageStatistics21", "坚果保龄球", "Nut Bowling Ball"));
+		AddItem(new ConfLocalTextItem(622, "DamageStatistics22", "窝瓜压扁", "Squashed by pumpkin"));
+		AddItem(new ConfLocalTextItem(623, "DamageStatistics23", "紫皮大蒜的臭屁攻击", "Fart attack of purple garlic"));
+		AddItem(new ConfLocalTextItem(624, "DamageStatistics24", "火精灵家族的火焰", "Flame of fire elves"));
+		AddItem(new ConfLocalTextItem(625, "DamageStatistics25", "水精灵家族的水流", "Water flow of water elves"));
+		AddItem(new ConfLocalTextItem(626, "DamageStatistics26", "乌云闪电", "Lightning of dark clouds"));
+		AddItem(new ConfLocalTextItem(627, "DamageStatistics27", "死神收割", "Harvest of death"));
+		AddItem(new ConfLocalTextItem(628, "DamageStatistics28", "枪——突突突", "Gun - bang bang bang"));
+		AddItem(new ConfLocalTextItem(629, "TakingDamageStatistics0", "被普通僵尸咬了", "Bitten by ordinary zombies"));
+		AddItem(new ConfLocalTextItem(630, "TakingDamageStatistics1", "被路障僵尸咬了", "Bitten by roadblock zombies"));
+		AddItem(new ConfLocalTextItem(631, "TakingDamageStatistics2", "被铁桶僵尸咬了", "Bitten by barrel zombies"));
+		AddItem(new ConfLocalTextItem(632, "TakingDamageStatistics3", "被铁栅栏僵尸咬了", "Bitten by fence zombies"));
+		AddItem(new ConfLocalTextItem(633, "TakingDamageStatistics4", "被旗帜僵尸咬了", "Bitten by flag zombies"));
+		AddItem(new ConfLocalTextItem(634, "TakingDamageStatistics5", "被橄榄球僵尸咬了", "Bitten by football zombies"));
+		AddItem(new ConfLocalTextItem(635, "TakingDamageStatistics6", "被读报僵尸咬了", "Bitten by newspaper reading zombies"));
+		AddItem(new ConfLocalTextItem(636, "TakingDamageStatistics7", "被撑杆跳僵尸打了", "Hit by pole vault zombies"));
+		AddItem(new ConfLocalTextItem(637, "TakingDamageStatistics8", "被气球僵尸咬了", "Bitten by balloon zombies"));
+		AddItem(new ConfLocalTextItem(638, "TakingDamageStatistics9", "被冰车僵尸撞了", "Bumped by ice cart zombies"));
+		AddItem(new ConfLocalTextItem(639, "TakingDamageStatistics10", "被投篮僵尸砸了和撞了", "Bumped and bumped by basketball shooting zombies"));
+		AddItem(new ConfLocalTextItem(640, "TakingDamageStatistics11", "被巨人僵尸砸了，压了", "Bumped and crushed by giant zombies"));
+		AddItem(new ConfLocalTextItem(641, "TakingDamageStatistics12", "被僵王博士拍了，砸了，踩了", "Shot, smashed, stepped on by Dr. Zombie King"));
+		AddItem(new ConfLocalTextItem(642, "damage_cause", "造成伤害", "Cause damage"));
+		AddItem(new ConfLocalTextItem(643, "damage_taking", "承受伤害", "Take damage"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

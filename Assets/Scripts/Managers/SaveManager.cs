@@ -143,6 +143,9 @@ public class SaveManager
     /// </summary>
     public BattleMode LoadSpecialData()
     {
+        damageStatistics = new List<TypeIntData>();
+        takingDamageStatistics = new List<TypeIntData>();
+
         var nowMode = specialData.battleMode;
         switch (specialData.battleMode)
         {
@@ -287,12 +290,12 @@ public class SaveManager
     /// <summary>
     /// 伤害统计， key damageType，伤害类型， value 数值
     /// </summary>
-    public List<TypeIntData> damageStatistics = new List<TypeIntData>();
+    public List<TypeIntData> damageStatistics;
 
     /// <summary>
     /// 承受伤害统计， key < 1000 zombieType，僵尸伤害，>1000 damageType + 1000  value 数值
     /// </summary>
-    public List<TypeIntData> takingDamageStatistics = new List<TypeIntData>();
+    public List<TypeIntData> takingDamageStatistics;
 
     public void AddDamageValue(int damageType, int value)
     {
