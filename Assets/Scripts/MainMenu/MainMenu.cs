@@ -137,7 +137,7 @@ public class MainMenu : MonoBehaviour
         if (isLoadScene)
             return;
         // 打打僵王
-        SaveManager.Instance.SetSpecialMode(BattleMode.BossMode);
+        SaveManager.Instance.SetSpecialMode(BattleMode.PlayerMode);
         PlayStartGameAnim();
     }
 
@@ -199,6 +199,30 @@ public class MainMenu : MonoBehaviour
     {
         var uiHelp = UIManager.Instance.PushPanel(UIPanelType.HelpPanel) as HelpPanel;
         uiHelp.mainMenu = this;
+    }
+
+    public void OnPropMode()
+    {
+        OnSelectMode(BattleMode.PropMode);
+    }
+
+    public void OnPlantMode()
+    {
+        OnSelectMode(BattleMode.PlantMode);
+    }
+
+    public void OnPlayerMode()
+    {
+        OnSelectMode(BattleMode.PlayerMode);
+    }
+
+    void OnSelectMode(BattleMode battleMode)
+    {
+        if (isLoadScene)
+            return;
+        var uiOtherGameModesPanel = UIManager.Instance.PushPanel(UIPanelType.OtherGameModesPanel) as OtherGameModesPanel;
+        uiOtherGameModesPanel.mainMenu = this;
+        uiOtherGameModesPanel.InitData(battleMode);
     }
     #endregion
 

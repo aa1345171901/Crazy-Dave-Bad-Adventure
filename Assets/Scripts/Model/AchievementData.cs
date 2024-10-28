@@ -108,7 +108,7 @@ public class AchievementData
         {
             if (!item.Value.isReach)
             {
-                result = true;
+                result = false;
                 break;
             }
         }

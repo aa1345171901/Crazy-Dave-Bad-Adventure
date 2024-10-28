@@ -110,7 +110,7 @@ public class ShopManager : BaseManager<ShopManager>
 
         if (propCard.propName == "vampireScepter" && userData.MaximumHP > 1)
         {
-            userData.MaximumHP /= 2;
+            userData.MaximumHP -= userData.MaximumHP / 4;
             call?.Invoke(AttributeType.MaximumHP, userData.MaximumHP);
         }
     }

@@ -64,6 +64,11 @@
         {
             "panelTypeString": "HelpPanel",
             "path": "UIPanel/HelpPanel"
-        } 
+        },
+
+        {
+            "panelTypeString": "OtherGameModesPanel",
+            "path": "UIPanel/OtherGameModesPanel"
+        }  
     ]
 }

@@ -162,7 +162,7 @@ public class SaveManager
             case BattleMode.None:
                 LoadUserData();
                 break;
-            case BattleMode.BossMode:
+            case BattleMode.PlayerMode:
                 // 打打僵王模式不进行数据读取
                 //SetSpecialMode(BattleMode.None);
                 IsLoadUserData = true;

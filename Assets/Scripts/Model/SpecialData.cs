@@ -5,8 +5,22 @@ using UnityEngine;
 /// </summary>
 public enum BattleMode
 {
+    /// <summary>
+    /// 普通冒险模式
+    /// </summary>
     None,
-    BossMode,
+    /// <summary>
+    /// 道具模式
+    /// </summary>
+    PropMode,
+    /// <summary>
+    /// 植物模式
+    /// </summary>
+    PlantMode,
+    /// <summary>
+    /// 角色生存模式
+    /// </summary>
+    PlayerMode,
 }
 
 public class SpecialData
@@ -15,6 +29,10 @@ public class SpecialData
     /// 模式
     /// </summary>
     public int modeInt;
+    /// <summary>
+    /// 模式参数
+    /// </summary>
+    public int modeValue;
 
     public BattleMode battleMode;
 

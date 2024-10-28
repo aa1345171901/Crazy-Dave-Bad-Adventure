@@ -17,4 +17,5 @@ public enum UIPanelType
     ExternalGardenPanel,
     DamageStatisticsPanel,
     HelpPanel,
+    OtherGameModesPanel,
 }

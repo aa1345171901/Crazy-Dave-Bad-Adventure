@@ -193,7 +193,7 @@ namespace TopDownPlate
                         AchievementManager.Instance.SetAchievementType1();
                     IntoNormalMode();
                     break;
-                case BattleMode.BossMode:
+                case BattleMode.PlayerMode:
                     ShopManager.Instance.Money = 100000;
                     GardenManager.Instance.Sun = 2500000;
                     LevelManager.Instance.IndexWave = 18;
