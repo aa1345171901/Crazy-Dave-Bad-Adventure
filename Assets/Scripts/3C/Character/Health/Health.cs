@@ -170,7 +170,6 @@ namespace TopDownPlate
         private Character character;
         private float lastInjuryTime = float.MinValue;
 
-        private float finalArmor;
         private List<HUDPos> hudLists = new List<HUDPos>();  // 文本的位置
         private float hudShowTime = 2f;
         private int fontSize;
@@ -197,8 +196,6 @@ namespace TopDownPlate
             if (character.CharacterType == CharacterTypes.Player)
             {
                 this.maxHealth = GameManager.Instance.UserData.MaximumHP;
-                finalArmor = GameManager.Instance.UserData.Armor / (50f + GameManager.Instance.UserData.Armor);
-                finalArmor = finalArmor > 0.9f ? 0.9f : finalArmor;
             }
             else
             {
@@ -254,6 +251,12 @@ namespace TopDownPlate
                 if (isInvincible)
                     return;
                 lastInjuryTime = Time.time;
+                float finalArmor = 0;
+                if (character.CharacterType == CharacterTypes.Player)
+                {
+                    finalArmor = GameManager.Instance.UserData.Armor / (50f + GameManager.Instance.UserData.Armor);
+                    finalArmor = finalArmor > 0.9f ? 0.9f : finalArmor;
+                }
                 damage -= Mathf.RoundToInt(damage * finalArmor);
                 health -= damage;
             }

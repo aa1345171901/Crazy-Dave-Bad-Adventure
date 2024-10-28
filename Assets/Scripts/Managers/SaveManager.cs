@@ -7,8 +7,10 @@ using UnityEngine;
 /// <summary>
 /// 战斗中除角色外数据
 /// </summary>
-public class PurchasedPropsAndPlants
+public class BattleData
 {
+    public UserData userData;
+
     public int WaveIndex;
     public int Money;
     public int Sun;
@@ -79,7 +81,6 @@ public class SaveManager
     /// </summary>
     public bool IsLoadUserData { get; set; }
 
-    private readonly string userDataPath = Application.persistentDataPath + "/SaveData/UserData.data";
     private readonly string battleDataPath = Application.persistentDataPath + "/SaveData/BattleData.data";
 
     private SaveManager()
@@ -124,9 +125,8 @@ public class SaveManager
         if (specialData.battleMode != BattleMode.None)
             return;
         // 备份战斗存档上一次的一份
-        if (FileTool.FileExists(userDataPath))
+        if (FileTool.FileExists(battleDataPath))
             GameManager.Instance.canBackInTime = true;
-        FileTool.FileMove(userDataPath, userDataPath.Replace("UserData.data", "UserData_(beifen).data"));
         FileTool.FileMove(battleDataPath, battleDataPath.Replace("BattleData.data", "BattleData_(beifen).data"));
     }
 
@@ -135,7 +135,6 @@ public class SaveManager
     /// </summary>
     public void BackInTime()
     {
-        FileTool.FileMove(userDataPath.Replace("UserData.data", "UserData_(beifen).data"), userDataPath);
         FileTool.FileMove(battleDataPath.Replace("BattleData.data", "BattleData_(beifen).data"), battleDataPath);
     }
 
@@ -179,19 +178,15 @@ public class SaveManager
     /// </summary>
     public void LoadUserData()
     {
-        string userDataStr = FileTool.ReadText(userDataPath);
-        Debug.Log("read userDataStr:" + userDataStr);
-        if (!string.IsNullOrEmpty(userDataStr))
-        {
-            GameManager.Instance.UserData = JsonUtility.FromJson<UserData>(userDataStr);
-            IsLoadUserData = true;
-        }
-
         string saveDataStructStr = FileTool.ReadText(battleDataPath);
-        Debug.Log("read saveDataStructStr:" + saveDataStructStr);
+        Debug.Log("read battleDataStructStr:" + saveDataStructStr);
         if (!string.IsNullOrEmpty(saveDataStructStr))
         {
-            PurchasedPropsAndPlants saveDataStruct = JsonUtility.FromJson<PurchasedPropsAndPlants>(saveDataStructStr);
+            BattleData saveDataStruct = JsonUtility.FromJson<BattleData>(saveDataStructStr);
+
+            IsLoadUserData = true;
+            GameManager.Instance.UserData = saveDataStruct.userData;
+
             ShopManager.Instance.PurchasedProps = saveDataStruct.PurchasedProps;
             GardenManager.Instance.PlantAttributes = saveDataStruct.PlantAttributes;
             ShopManager.Instance.Money = saveDataStruct.Money;
@@ -233,7 +228,7 @@ public class SaveManager
     public bool JudgeData()
     {
         bool result = false;
-        if (FileTool.FileExists(userDataPath))
+        if (FileTool.FileExists(battleDataPath))
         {
             result = true;
         }
@@ -247,11 +242,11 @@ public class SaveManager
     {
         if (specialData.battleMode != BattleMode.None)
             return;
-        string userDataStr = JsonUtility.ToJson(GameManager.Instance.UserData);
-        Debug.Log("userDataStr:" + userDataStr);
-        FileTool.WriteText(userDataPath, userDataStr);
 
-        PurchasedPropsAndPlants saveDataStruct = new PurchasedPropsAndPlants();
+        BattleData saveDataStruct = new BattleData();
+
+        saveDataStruct.userData = GameManager.Instance.UserData;
+
         saveDataStruct.PurchasedProps = ShopManager.Instance.PurchasedProps;
         saveDataStruct.PlantAttributes = GardenManager.Instance.PlantAttributes;
         saveDataStruct.Money = ShopManager.Instance.Money;
