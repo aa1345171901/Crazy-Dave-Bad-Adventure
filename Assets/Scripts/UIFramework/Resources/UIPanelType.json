@@ -59,6 +59,11 @@
         {
             "panelTypeString": "DamageStatisticsPanel",
             "path": "UIPanel/DamageStatisticsPanel"
+        },
+
+        {
+            "panelTypeString": "HelpPanel",
+            "path": "UIPanel/HelpPanel"
         } 
     ]
 }

@@ -42,6 +42,14 @@ public class AchievementManager
         _data.SetReach(key);
     }
 
+    /// <summary>
+    /// 达成所有成就
+    /// </summary>
+    public bool AllReach()
+    {
+        return _data.AllReach();
+    }
+
     public void SaveData()
     {
         AchievementData.SaveData(_data);

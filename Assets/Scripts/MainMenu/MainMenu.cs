@@ -19,6 +19,8 @@ public class MainMenu : MonoBehaviour
     public GameObject GrowPage;
     public Button btnGrow;
     public Collider2D collider2d;
+    public Sprite goldSunFlower;
+    public Image achievementImg;
 
     private AsyncOperation asyncOperation;
 
@@ -32,6 +34,10 @@ public class MainMenu : MonoBehaviour
         AudioManager.Instance.AudioLists.Add(audioSource);
         Dave.AnimationState.Complete += PlayPotAudio;
         btnGrow.onClick.AddListener(GrowOpen);
+        if (AchievementManager.Instance.AllReach())
+        {
+            achievementImg.sprite = goldSunFlower;
+        }
     }
 
     private void OnDestroy()
@@ -47,20 +53,6 @@ public class MainMenu : MonoBehaviour
         audioSource.Play();
     }
 
-    public void StartGame()
-    {
-        if (isLoadScene)
-            return;
-        if (SaveManager.Instance.JudgeData())
-        {
-            StartGamePage.SetActive(true);
-        }
-        else
-        {
-            PlayStartGameAnim();
-        }
-    }
-
     IEnumerator LoadLoadingScene()
     {
         if (isLoadScene)
@@ -70,19 +62,6 @@ public class MainMenu : MonoBehaviour
         asyncOperation = SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
         asyncOperation.allowSceneActivation = false; // 如果为true，那么加载结束后直接就会跳转
         yield return null;
-    }
-
-    public void RestartGame()
-    {
-        StartGamePage.SetActive(false);
-        SaveManager.Instance.DeleteUserData();
-        PlayStartGameAnim();
-    }
-
-    public void ContinueGame()
-    {
-        StartGamePage.SetActive(false);
-        PlayStartGameAnim();
     }
 
     private void PlayStartGameAnim()
@@ -117,6 +96,34 @@ public class MainMenu : MonoBehaviour
                 StartGamePage.SetActive(false);
             }
         }
+    }
+
+    #region 按钮事件
+    public void StartGame()
+    {
+        if (isLoadScene)
+            return;
+        if (SaveManager.Instance.JudgeData())
+        {
+            StartGamePage.SetActive(true);
+        }
+        else
+        {
+            PlayStartGameAnim();
+        }
+    }
+
+    public void RestartGame()
+    {
+        StartGamePage.SetActive(false);
+        SaveManager.Instance.DeleteUserData();
+        PlayStartGameAnim();
+    }
+
+    public void ContinueGame()
+    {
+        StartGamePage.SetActive(false);
+        PlayStartGameAnim();
     }
 
     public void Setting()
@@ -187,6 +194,13 @@ public class MainMenu : MonoBehaviour
         var panle = UIManager.Instance.PushPanel(UIPanelType.ExternalGardenPanel) as ExternalGardenPanel;
         panle.mainMenu = this;
     }
+
+    public void OnHelp()
+    {
+        var uiHelp = UIManager.Instance.PushPanel(UIPanelType.HelpPanel) as HelpPanel;
+        uiHelp.mainMenu = this;
+    }
+    #endregion
 
     public void OnEnterMainMenu()
     {

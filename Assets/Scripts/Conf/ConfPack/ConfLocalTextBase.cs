@@ -696,6 +696,12 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(644, "backInTime", "时间回溯", "Back in time"));
 		AddItem(new ConfLocalTextItem(645, "TakingDamageStatistics1005", "臭屁中毒，火焰吞噬", "Poisoned by farts, devoured by flames"));
 		AddItem(new ConfLocalTextItem(646, "TakingDamageStatistics1027", "献祭给死神", "Sacrificed to the god of death"));
+		AddItem(new ConfLocalTextItem(647, "mainmenu_prop", "道 具 模 式", "Prop mode"));
+		AddItem(new ConfLocalTextItem(648, "mainmenu_plant", "植 物 模 式", "Plant mode"));
+		AddItem(new ConfLocalTextItem(649, "mainmenu_player", "生 存 模 式", "Survival mode"));
+		AddItem(new ConfLocalTextItem(650, "mainmenu_select", "选项", "Options"));
+		AddItem(new ConfLocalTextItem(651, "mainmenu_help", "帮助", "Help"));
+		AddItem(new ConfLocalTextItem(652, "mainmenu_exit", "退出", "Exit"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

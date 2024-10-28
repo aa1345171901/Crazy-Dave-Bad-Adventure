@@ -98,6 +98,23 @@ public class AchievementData
         }
     }
 
+    /// <summary>
+    /// 达成所有成就
+    /// </summary>
+    public bool AllReach()
+    {
+        bool result = true;
+        foreach (var item in dicts)
+        {
+            if (!item.Value.isReach)
+            {
+                result = true;
+                break;
+            }
+        }
+        return result;
+    }
+
     public static AchievementData LoadData()
     {
         AchievementData achievementData = new AchievementData();
