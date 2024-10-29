@@ -138,6 +138,6 @@ public class GrowPage : MonoBehaviour
         var animator = mainMenu.btnGrow.GetComponent<Animator>();
         mainMenu.btnGrow.GetComponent<UIEventListener>().enabled = true;
         animator.Play("idel", 0, 0);
-        mainMenu.OnEnterMainMenu();
+        mainMenu.OnEnterMainMenu(false);
     }
 }

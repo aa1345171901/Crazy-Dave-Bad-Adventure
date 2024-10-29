@@ -184,6 +184,7 @@ public class MainMenu : MonoBehaviour
         Dave.AnimationState.SetAnimation(0, "Idel", true);
         playAudio = false;
         var panle = UIManager.Instance.PushPanel(UIPanelType.IllustrationsPanel) as IllustrationsPanel;
+        AudioManager.Instance.PlayMenuMusic(0);
         panle.mainMenu = this;
     }
 
@@ -192,6 +193,7 @@ public class MainMenu : MonoBehaviour
         Dave.AnimationState.SetAnimation(0, "Idel", true);
         playAudio = false;
         var panle = UIManager.Instance.PushPanel(UIPanelType.ExternalGardenPanel) as ExternalGardenPanel;
+        AudioManager.Instance.PlayGardenMusic();
         panle.mainMenu = this;
     }
 
@@ -220,16 +222,21 @@ public class MainMenu : MonoBehaviour
     {
         if (isLoadScene)
             return;
+        Dave.AnimationState.SetAnimation(0, "Idel", true);
+        playAudio = false;
+        AudioManager.Instance.PlayMenuMusic(0);
         var uiOtherGameModesPanel = UIManager.Instance.PushPanel(UIPanelType.OtherGameModesPanel) as OtherGameModesPanel;
         uiOtherGameModesPanel.mainMenu = this;
         uiOtherGameModesPanel.InitData(battleMode);
     }
     #endregion
 
-    public void OnEnterMainMenu()
+    public void OnEnterMainMenu(bool ReplayMusic = true)
     {
         animator.Play("Enter", 0, 0);
         Dave.AnimationState.SetAnimation(0, "MainMenuIdel", true);
+        if (ReplayMusic)
+            AudioManager.Instance.PlayBackMusic();
         playAudio = true;
     }
 

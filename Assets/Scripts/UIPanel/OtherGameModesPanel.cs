@@ -9,6 +9,7 @@ public class OtherGameModesPanel : BasePanel
 {
     public Button btnMainmenu;
     public Text Title;
+    public Text trophyNum;
 
     private Animator animator;
 
