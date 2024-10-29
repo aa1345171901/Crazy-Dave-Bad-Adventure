@@ -703,6 +703,32 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(651, "mainmenu_help", "帮助", "Help"));
 		AddItem(new ConfLocalTextItem(652, "mainmenu_exit", "退出", "Exit"));
 		AddItem(new ConfLocalTextItem(653, "mainmenu_return", "返回菜单", "Back to menu"));
+		AddItem(new ConfLocalTextItem(654, "otherGameModeName_1001", "反复碾压", "Repeatedly crushing"));
+		AddItem(new ConfLocalTextItem(655, "otherGameModeName_1002", "打僵尸", "Fight zombies"));
+		AddItem(new ConfLocalTextItem(656, "otherGameModeName_1003", "斗转星移", "passing of night"));
+		AddItem(new ConfLocalTextItem(657, "otherGameModeName_1004", "要命的歌声", "Deadly singing voice"));
+		AddItem(new ConfLocalTextItem(658, "otherGameModeName_1005", "力气很大", "Very strong"));
+		AddItem(new ConfLocalTextItem(659, "otherGameModeName_1006", "尾气排放", "Exhaust emissions"));
+		AddItem(new ConfLocalTextItem(660, "otherGameModeName_1007", "火焰世界", "Flame World"));
+		AddItem(new ConfLocalTextItem(661, "otherGameModeName_1008", "潮汐奔涌", "Tidal surges"));
+		AddItem(new ConfLocalTextItem(662, "otherGameModeName_1009", "小心闪电", "Be careful of lightning"));
+		AddItem(new ConfLocalTextItem(663, "otherGameModeName_1010", "死神来收人了", "Death has come to collect"));
+		AddItem(new ConfLocalTextItem(664, "otherGameModeName_1011", "碳基生物冷静器", "Carbon based biological cooling device"));
+		AddItem(new ConfLocalTextItem(665, "otherGameModeName_2001", "豌豆下士", "Pea Corporal"));
+		AddItem(new ConfLocalTextItem(666, "otherGameModeName_2002", "气球毁灭者", "Balloon Destroyer"));
+		AddItem(new ConfLocalTextItem(667, "otherGameModeName_2003", "化为灰烬", "Turn into ashes"));
+		AddItem(new ConfLocalTextItem(668, "otherGameModeName_2004", "僵尸杀手", "Zombie Killer "));
+		AddItem(new ConfLocalTextItem(669, "otherGameModeName_2005", "吃掉吃掉", "Eat it, eat it"));
+		AddItem(new ConfLocalTextItem(670, "otherGameModeName_2006", "刮风了", "It's windy"));
+		AddItem(new ConfLocalTextItem(671, "otherGameModeName_2007", "火焰豌豆", "Flame Peas"));
+		AddItem(new ConfLocalTextItem(672, "otherGameModeName_2008", "金牌辅助", "Gold Medal Assistance"));
+		AddItem(new ConfLocalTextItem(673, "otherGameModeName_2009", "舍己为人", "sacrifice oneself to protect others"));
+		AddItem(new ConfLocalTextItem(674, "otherGameModeName_2010", "解除冰面", "Release the ice surface"));
+		AddItem(new ConfLocalTextItem(675, "otherGameModeName_2011", "全面冻结", "Completely freeze"));
+		AddItem(new ConfLocalTextItem(676, "otherGameModeName_2022", "坚果保龄球", "Wall-nut Bowling "));
+		AddItem(new ConfLocalTextItem(677, "otherGameModeName_3001", "生存模式：戴夫/r/n巨人僵尸", "Survival mode: Dave/r/n Giant Zombie"));
+		AddItem(new ConfLocalTextItem(678, "otherGameModeName_3002", "生存模式：戴夫/r/n僵王博士", "Survival mode: Dr. Dave/r/n"));
+		AddItem(new ConfLocalTextItem(679, "otherGameModeName_3003", "生存模式：戴夫/r/n无限", "Survival Mode: Dave/r/n Unlimited"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

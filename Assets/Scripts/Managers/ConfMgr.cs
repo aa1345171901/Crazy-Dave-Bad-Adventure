@@ -6,6 +6,7 @@ public class ConfMgr
 {
     public class Data
     {
+		public ConfOtherGameModes otherGameModes = new ConfOtherGameModes();
 		public ConfPlantCards plantCards = new ConfPlantCards();
 		public ConfPropCards propCards = new ConfPropCards();
 		public ConfPlantIllustrations plantIllustrations = new ConfPlantIllustrations();
@@ -27,6 +28,7 @@ public class ConfMgr
 
     public System.Action onInitCall;
 	
+	public ConfOtherGameModes otherGameModes { get { return data.otherGameModes; } }		//其他游戏模式配置表.xlsx
 	public ConfPlantCards plantCards { get { return data.plantCards; } }		//商店配置表.xlsx
 	public ConfPropCards propCards { get { return data.propCards; } }		//商店配置表.xlsx
 	public ConfPlantIllustrations plantIllustrations { get { return data.plantIllustrations; } }		//图鉴配置表.xlsx
@@ -44,6 +46,7 @@ public class ConfMgr
 	
 	public void Init()
     {
+		otherGameModes.Init();
 		plantCards.Init();
 		propCards.Init();
 		plantIllustrations.Init();
@@ -62,6 +65,7 @@ public class ConfMgr
 		
         onInitCall?.Invoke();
 	
+		otherGameModes.OnInit();
 		plantCards.OnInit();
 		propCards.OnInit();
 		plantIllustrations.OnInit();

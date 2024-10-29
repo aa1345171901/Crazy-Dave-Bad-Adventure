@@ -24981,8 +24981,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17fa316079d3c19409a865df4f3708a8, type: 3}
   Boss: {fileID: 0}
   Shopping: {fileID: 0}
-  Garden: {fileID: 0}
-  Menu: {fileID: 0}
+  Garden: {fileID: 8300000, guid: 62a880793f87a884e97f67365b183669, type: 3}
+  Menu: {fileID: 8300000, guid: 432027e311573514db62beb55b0ccfe6, type: 3}
   ZombieSounds: []
 --- !u!1 &1261003398
 GameObject:

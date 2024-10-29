@@ -188,7 +188,7 @@ namespace TopDownPlate
             defaultMaxHealth = maxHealth;
             Reuse();
             float scale = Screen.height / 1080;
-            fontSize = (int)(scale * 20);
+            fontSize = (int)(scale * 28);
         }
 
         public void Reuse()

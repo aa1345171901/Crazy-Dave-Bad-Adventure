@@ -10,6 +10,7 @@ public class Blover : Plant
     private readonly float LevelWindSpeed = 0.1f;
     private readonly int LevelWindResume = 1;
     private readonly float defaultWindSpeed = 0.2f; // 默认风速
+    private readonly float defaultWindage = 0.2f; // 默认风阻
 
     public override void Reuse(bool randomPos = true)
     {
@@ -30,7 +31,7 @@ public class Blover : Plant
 
         float finalWindSpeed = defaultWindSpeed + GardenManager.Instance.BloverEffect.Windspeed;
         int finalResume = GardenManager.Instance.BloverEffect.BloverResume;
-        float finalWindage = GardenManager.Instance.BloverEffect.Windage;
+        float finalWindage = defaultWindage + GardenManager.Instance.BloverEffect.Windage;
         int[] attributes = plantAttribute.attribute;
         for (int i = 0; i < attributes.Length; i++)
         {
@@ -41,10 +42,6 @@ public class Blover : Plant
                 // 2 风速
                 case 2:
                     finalWindSpeed += (int)fieldInfo.GetValue(plantAttribute) * LevelWindSpeed;
-                    if (finalWindage > 1)
-                    {
-                        finalWindage = 1 + (finalWindage - 1) / 5;
-                    }
                     break;
                 // 3 恢复
                 case 3:

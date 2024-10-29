@@ -19,13 +19,13 @@ public class Plantern : Plant
     private int finalRangeLifeResume;
     private float finalRangeDamage;
 
-    private readonly float LevelRangeAttackSpeed = 0.003f;
+    private readonly float LevelRangeAttackSpeed = 0.01f;
     private readonly float LevelRange = 0.15f;
     private readonly int LevelLife = 1;
     private readonly float LevelDamage = 0.1f;
 
     private readonly float defaultDamage = 0.1f;  // 默认伤害
-    private float defaultRangeAttackSpeed = 0.003f;
+    private float defaultRangeAttackSpeed = 0.01f;
 
     public override void Reuse(bool randomPos = true)
     {

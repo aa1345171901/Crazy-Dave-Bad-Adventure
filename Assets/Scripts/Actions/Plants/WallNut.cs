@@ -151,40 +151,43 @@ public class WallNut : Plant
     {
         if (TargetLayer.Contains(collision.gameObject.layer))
         {
-            if (isBoomWallNut)
+            if (collision.isTrigger)
             {
-                audioSource.clip = boom;
-                audioSource.Play();
-                this.spriteRenderer.enabled = false;
-                colliderParticle.Play();
-                var colliders = Physics2D.OverlapCircleAll(this.transform.position, 3, TargetLayer);
-                foreach (var item in colliders)
+                if (isBoomWallNut)
                 {
-                    if (item.isTrigger)
+                    audioSource.clip = boom;
+                    audioSource.Play();
+                    this.spriteRenderer.enabled = false;
+                    colliderParticle.Play();
+                    var colliders = Physics2D.OverlapCircleAll(this.transform.position, 3, TargetLayer);
+                    foreach (var item in colliders)
                     {
-                        var health = collision.GetComponent<Health>();
-                        health.DoDamage(finalDamage * 5, DamageType.Bomb);
+                        if (item.isTrigger)
+                        {
+                            var health = collision.GetComponent<Health>();
+                            health.DoDamage(finalDamage * 5, DamageType.Bomb);
+                        }
                     }
-                }
-                Collider2D.enabled = false;
-                Invoke("BoomAfter", 1f);
-            }
-            else
-            {
-                StartCoroutine(AudioPlayRoll());
-                var health = collision.GetComponent<Health>();
-                health.DoDamage(finalDamage, DamageType.WallNut);
-                if (direction.y > 0)
-                {
-                    direction.y = -1;
-                }
-                else if (direction.y < 0)
-                {
-                    direction.y = 1;
+                    Collider2D.enabled = false;
+                    Invoke("BoomAfter", 1f);
                 }
                 else
                 {
-                    direction = Random.Range(1, 3) == 1 ? new Vector3(1, -1, 0) : new Vector3(1, 1, 0);
+                    StartCoroutine(AudioPlayRoll());
+                    var health = collision.GetComponent<Health>();
+                    health.DoDamage(finalDamage, DamageType.WallNut);
+                    if (direction.y > 0)
+                    {
+                        direction.y = -1;
+                    }
+                    else if (direction.y < 0)
+                    {
+                        direction.y = 1;
+                    }
+                    else
+                    {
+                        direction = Random.Range(1, 3) == 1 ? new Vector3(1, -1, 0) : new Vector3(1, 1, 0);
+                    }
                 }
             }
         }

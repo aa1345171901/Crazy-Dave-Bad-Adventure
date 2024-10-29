@@ -192,6 +192,10 @@ private Rect GetBounds()
                 newGo.transform.position = GameManager.Instance.Player.transform.position + Vector3.up;
                 GameManager.Instance.Player.FindAbility<CharacterMovement>().EatFood();
                 GameManager.Instance.Player.FindAbility<CharacterDash>().EatFood();
+                if (name == "CoffeeBean")
+                    GameManager.Instance.AddMaxHealth(1);
+                if (name == "Gralic")
+                    GameManager.Instance.AddHP(GameManager.Instance.Player.Health.maxHealth / 10);
             }
             // 大蒜和咖啡豆吃了恢复满奔跑和翻滚体力
             if (plantCard.plantType == PlantType.CoffeeBean)
