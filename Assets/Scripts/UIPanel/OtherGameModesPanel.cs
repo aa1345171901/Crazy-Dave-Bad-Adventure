@@ -10,6 +10,8 @@ public class OtherGameModesPanel : BasePanel
     public Button btnMainmenu;
     public Text Title;
     public Text trophyNum;
+    public Transform itemRoot;
+    public OtherGameModesItem otherGameModesItem;
 
     private Animator animator;
 
@@ -36,6 +38,7 @@ public class OtherGameModesPanel : BasePanel
 
     public void InitData(BattleMode battleMode)
     {
+        itemRoot.DestroyChild();
         switch (battleMode)
         {
             case BattleMode.PropMode:
@@ -49,6 +52,19 @@ public class OtherGameModesPanel : BasePanel
                 break;
             default:
                 break;
+        }
+        CreateItems(battleMode);
+        trophyNum.text = "0" + "/" + ConfManager.Instance.confMgr.otherGameModes.GetItemsByBattleMode(battleMode).Count;
+    }
+
+    void CreateItems(BattleMode battleMode)
+    {
+        var items = ConfManager.Instance.confMgr.otherGameModes.GetItemsByBattleMode(battleMode);
+        foreach (var item in items)
+        {
+            var newItem = GameObject.Instantiate(otherGameModesItem, itemRoot);
+            newItem.gameObject.SetActive(true);
+            newItem.InitData(item);
         }
     }
 

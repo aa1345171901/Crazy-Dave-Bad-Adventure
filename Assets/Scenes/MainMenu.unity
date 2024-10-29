@@ -24979,6 +24979,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ea432c7d12c29ec4886adca36901fbc8, type: 3}
   - {fileID: 8300000, guid: 90487fdd4353082428cfad9db5ef39e9, type: 3}
   - {fileID: 8300000, guid: 17fa316079d3c19409a865df4f3708a8, type: 3}
+  - {fileID: 8300000, guid: a248d7cddb529c74ba0d588acc125ea3, type: 3}
   Boss: {fileID: 0}
   Shopping: {fileID: 0}
   Garden: {fileID: 8300000, guid: 62a880793f87a884e97f67365b183669, type: 3}

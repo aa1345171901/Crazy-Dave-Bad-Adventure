@@ -11,8 +11,15 @@ public class OtherGameModesItem : MonoBehaviour
     public GameObject have;
     public Text nameText;
 
-    public void InitData()
-    {
+    ConfOtherGameModesItem confItem;
 
+    public void InitData(ConfOtherGameModesItem confItem)
+    {
+        this.confItem = confItem;
+
+        Sprite bg = Resources.Load<Sprite>(confItem.imgPath);
+        img.sprite = bg;
+
+        nameText.text = GameTool.LocalText(confItem.name);
     }
 }

@@ -726,9 +726,9 @@ public class ConfLocalTextBase : ConfBase<ConfLocalTextItem>
 		AddItem(new ConfLocalTextItem(674, "otherGameModeName_2010", "解除冰面", "Release the ice surface"));
 		AddItem(new ConfLocalTextItem(675, "otherGameModeName_2011", "全面冻结", "Completely freeze"));
 		AddItem(new ConfLocalTextItem(676, "otherGameModeName_2022", "坚果保龄球", "Wall-nut Bowling "));
-		AddItem(new ConfLocalTextItem(677, "otherGameModeName_3001", "生存模式：戴夫/r/n巨人僵尸", "Survival mode: Dave/r/n Giant Zombie"));
-		AddItem(new ConfLocalTextItem(678, "otherGameModeName_3002", "生存模式：戴夫/r/n僵王博士", "Survival mode: Dr. Dave/r/n"));
-		AddItem(new ConfLocalTextItem(679, "otherGameModeName_3003", "生存模式：戴夫/r/n无限", "Survival Mode: Dave/r/n Unlimited"));
+		AddItem(new ConfLocalTextItem(677, "otherGameModeName_3001", "生存模式：戴夫\r\n巨人僵尸", "Survival mode: Dave\r\n Giant Zombie"));
+		AddItem(new ConfLocalTextItem(678, "otherGameModeName_3002", "生存模式：戴夫\r\n僵王博士", "Survival mode: Dr. Dave\r\n"));
+		AddItem(new ConfLocalTextItem(679, "otherGameModeName_3003", "生存模式：戴夫\r\n无限", "Survival Mode: Dave\r\n Unlimited"));
 	}
 
 	public override void AddItem(ConfBaseItem item)

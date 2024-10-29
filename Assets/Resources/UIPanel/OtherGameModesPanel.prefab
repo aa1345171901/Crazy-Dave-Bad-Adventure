@@ -135,19 +135,7 @@ MonoBehaviour:
       m_Calls: []
   onMouseEnter:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6412678156495517847}
-        m_TargetAssemblyTypeName: PlayAudio, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: btnHighlight
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onMouseExit:
     m_PersistentCalls:
       m_Calls: []
@@ -163,7 +151,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: btnPressed
+          m_StringArgument: buttonClick
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1236281896607423276}
@@ -497,8 +485,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -94, y: 108}
-  m_SizeDelta: {x: 100, y: 80}
+  m_AnchoredPosition: {x: -78.56778, y: 79.35278}
+  m_SizeDelta: {x: 82.8644, y: 77.2944}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2555873923915016813
 CanvasRenderer:
@@ -530,7 +518,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: a3a6c5fb081988a47a2f1e527bdd1fca, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -776,8 +764,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -54}
-  m_SizeDelta: {x: -76, y: -256}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: -76, y: -228}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4326041784191251802
 CanvasRenderer:
@@ -852,8 +840,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -84}
-  m_SizeDelta: {x: 248, y: 84}
+  m_AnchoredPosition: {x: -2, y: -64}
+  m_SizeDelta: {x: 184, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4326041784485060067
 CanvasRenderer:
@@ -889,7 +877,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 14
-    m_MaxSize: 24
+    m_MaxSize: 26
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -933,7 +921,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 308, y: 312}
+  m_SizeDelta: {x: 236, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4326041784497758669
 CanvasRenderer:
@@ -1024,15 +1012,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 64
+    m_Left: 44
     m_Right: 0
-    m_Top: 32
+    m_Top: 4
     m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 308, y: 312}
-  m_Spacing: {x: 44, y: 0}
+  m_CellSize: {x: 240, y: 236}
+  m_Spacing: {x: 60, y: 4}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &4326041784582669381
@@ -1183,7 +1171,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 256, y: -370}
-  m_SizeDelta: {x: 308, y: 312}
+  m_SizeDelta: {x: 240, y: 236}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1073044850883256088
 MonoBehaviour:
@@ -1219,7 +1207,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1229,9 +1217,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: ceeb0e72a27f792418265f46fad4de54, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: ceeb0e72a27f792418265f46fad4de54, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 3a347cd497b500b458cc405bfd8b01cc, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1303,19 +1291,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: enter
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4326041785426668182}
-        m_TargetAssemblyTypeName: PlayAudio, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: btnHighlight
+          m_StringArgument: enter2
           m_BoolArgument: 0
         m_CallState: 2
   onMouseExit:
@@ -1330,7 +1306,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: exit
+          m_StringArgument: exit2
           m_BoolArgument: 0
         m_CallState: 2
   onPointDown:
@@ -1345,12 +1321,24 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: btnPressed
+          m_StringArgument: buttonClick
           m_BoolArgument: 0
         m_CallState: 2
   onPointUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4326041785426668181}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: exit2
+          m_BoolArgument: 0
+        m_CallState: 2
   onPointDoubleClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1389,8 +1377,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 60}
-  m_SizeDelta: {x: 248, y: 180}
+  m_AnchoredPosition: {x: -5, y: 42}
+  m_SizeDelta: {x: 194, y: 142}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4326041785465178801
 CanvasRenderer:
@@ -1671,7 +1659,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   btnMainmenu: {fileID: 1589475038920204177}
   Title: {fileID: 4326041784016414741}
-  trophyNum: {fileID: 0}
+  trophyNum: {fileID: 5705922111604300304}
+  itemRoot: {fileID: 4326041784582669383}
+  otherGameModesItem: {fileID: 1073044850883256088}
 --- !u!225 &6482251855244387786
 CanvasGroup:
   m_ObjectHideFlags: 0
