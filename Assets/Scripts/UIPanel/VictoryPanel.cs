@@ -29,8 +29,8 @@ public class VictoryPanel : BasePanel
 
     public void ReStartGame()
     {
-        SceneManager.LoadScene(1);
         SaveManager.Instance.DeleteUserData();
+        SceneManager.LoadScene(1);
     }
 
     public void ReturnMainMenu()

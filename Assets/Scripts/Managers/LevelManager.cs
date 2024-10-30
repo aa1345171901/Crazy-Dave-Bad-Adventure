@@ -211,7 +211,7 @@ namespace TopDownPlate
 
         public float DurationPerWave = 60;
 
-        private readonly float MaxEnemyCount = 80;
+        private readonly float MaxEnemyCount = 100;
 
         public int IndexWave;
 
@@ -269,9 +269,48 @@ namespace TopDownPlate
         /// <summary>
         /// 初始化其他模式
         /// </summary>
-        public void InitOtherGameModes()
+        public void InitOtherGameModes(int id)
         {
+            CreatePlayer();
+            timer = 0;
+            course = 0;
 
+            var confItem = ConfManager.Instance.confMgr.otherGameModeWavesParam.GetItemById(id);
+            if (confItem != null)
+            {
+                nowWave = new Wave();
+                if (confItem.waveTime == 0)
+                    nowWave.DurationPerWave = int.MaxValue;
+                else
+                    nowWave.DurationPerWave = confItem.waveTime;
+                nowWave.zombieData = new List<ZombieData>();
+                var confZombieWave = ConfManager.Instance.confMgr.otherGameModeWaves.GetListsById(id);
+                foreach (var confZombie in confZombieWave)
+                {
+                    var zombieData = new ZombieData();
+                    zombieData.ZombieType = (ZombieType)confZombie.zombieType;
+                    zombieData.EnemyPrefab = PrefabList[confZombie.zombieType];
+                    zombieData.GenerateCount = confZombie.generateCount.ToList();
+                    zombieData.IntervalTime = confZombie.intervalTime.ToList();
+                    zombieData.lastGenerateTime = confZombie.firstGenerateTime - confZombie.intervalTime[0];
+                    nowWave.zombieData.Add(zombieData);
+                }
+                IEnumerator DelayAddIndex()
+                {
+                    while (true)
+                    {
+                        yield return new WaitForSeconds(confItem.enhanceTime);
+                        IndexWave++;
+                    }
+                }
+                if (confItem.enhanceTime > 0)
+                    StartCoroutine(DelayAddIndex());
+            }
+            else
+            {
+                nowWave = waves[0];
+            }
+            DurationPerWave = nowWave.DurationPerWave;
         }
 
         public void LoadTimer()
@@ -305,7 +344,6 @@ namespace TopDownPlate
                         if (timer - realIntervalTime >= zombie.lastGenerateTime)
                         {
                             if (zombie.ZombieType == ZombieType.Gargantuan)
-                            Debug.Log(zombie.lastGenerateTime);
                             if (Enemys.Count() < MaxEnemyCount)
                             {
                                 zombie.lastGenerateTime = timer;
@@ -315,15 +353,27 @@ namespace TopDownPlate
                     }
 
                     // 如果不是最后一波，留两秒背景音乐淡出
-                    if (IndexWave < waves.Count && timer > DurationPerWave - 1)
+                    if (timer > DurationPerWave - 1)
                     {
                         AudioManager.Instance.FadeOutInBackMusic();
                     }
                 }
                 else
                 {
-                    GameManager.Instance.IsDaytime = true;
-                    WalkOff();
+                    switch (SaveManager.Instance.specialData.battleMode)
+                    {
+                        case BattleMode.None:
+                            GameManager.Instance.IsDaytime = true;
+                            WalkOff();
+                            break;
+                        case BattleMode.PropMode:
+                        case BattleMode.PlantMode:
+                        case BattleMode.PlayerMode:
+                            GameManager.Instance.Victory();
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }

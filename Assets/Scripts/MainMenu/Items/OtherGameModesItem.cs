@@ -34,7 +34,7 @@ public class OtherGameModesItem : MonoBehaviour
 
     void OnEnterGameModes()
     {
-        SaveManager.Instance.SetSpecialMode((BattleMode)confItem.type);
+        SaveManager.Instance.SetSpecialMode((BattleMode)confItem.type, confItem.id);
         SceneManager.LoadScene(2, LoadSceneMode.Additive);
     }
 }

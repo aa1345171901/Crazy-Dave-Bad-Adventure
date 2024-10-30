@@ -59,8 +59,8 @@ public class PausePanel : BasePanel
     public void ReStartGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(1);
         SaveManager.Instance.DeleteUserData();
+        SceneManager.LoadScene(1);
     }
 
     public void ReturnMainMenu()

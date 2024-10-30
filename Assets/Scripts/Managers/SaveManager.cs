@@ -121,13 +121,23 @@ public class SaveManager
     /// </summary>
     public void DeleteUserData()
     {
-        // 打打僵王模式不删除原存档
-        if (specialData.battleMode != BattleMode.None)
-            return;
-        // 备份战斗存档上一次的一份
-        if (FileTool.FileExists(battleDataPath))
-            GameManager.Instance.canBackInTime = true;
-        FileTool.FileMove(battleDataPath, battleDataPath.Replace("BattleData.data", "BattleData_(beifen).data"));
+        switch (specialData.battleMode)
+        {
+            case BattleMode.None:
+                // 备份战斗存档上一次的一份
+                if (FileTool.FileExists(battleDataPath))
+                    GameManager.Instance.canBackInTime = true;
+                FileTool.FileMove(battleDataPath, battleDataPath.Replace("BattleData.data", "BattleData_(beifen).data"));
+                break;
+            case BattleMode.PropMode:
+                break;
+            case BattleMode.PlantMode:
+                break;
+            case BattleMode.PlayerMode:
+                break;
+            default:
+                break;
+        }
     }
 
     /// <summary>
@@ -141,10 +151,11 @@ public class SaveManager
     /// <summary>
     /// 设置游戏模式
     /// </summary>
-    public void SetSpecialMode(BattleMode battleMode)
+    public void SetSpecialMode(BattleMode battleMode, int modeValue = 0)
     {
         specialData.modeInt = (int)battleMode;
         specialData.battleMode = battleMode;
+        specialData.modeValue = modeValue;
         //SpecialData.SaveData(specialData);
     }
 
@@ -157,15 +168,11 @@ public class SaveManager
         takingDamageStatistics = new List<TypeIntData>();
 
         var nowMode = specialData.battleMode;
-        switch (specialData.battleMode)
+        GameManager.Instance.canBackInTime = false;
+        switch (nowMode)
         {
             case BattleMode.None:
                 LoadUserData();
-                break;
-            case BattleMode.PlayerMode:
-                // 打打僵王模式不进行数据读取
-                //SetSpecialMode(BattleMode.None);
-                IsLoadUserData = true;
                 break;
             default:
                 break;

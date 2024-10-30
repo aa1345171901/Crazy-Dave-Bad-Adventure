@@ -154,8 +154,6 @@ namespace TopDownPlate
         /// </summary>
         public int resurrection { get; set; }
 
-        public BattleMode nowMode { get; set; }
-
         /// <summary>
         /// 是否能时间回溯，本局删档了可以
         /// </summary>
@@ -182,7 +180,7 @@ namespace TopDownPlate
         private void LoadData()
         {
             UserData = new UserData("dave");
-            nowMode = SaveManager.Instance.LoadSpecialData();
+            var nowMode = SaveManager.Instance.LoadSpecialData();
             switch (nowMode)
             {
                 case BattleMode.None:
@@ -193,8 +191,10 @@ namespace TopDownPlate
                     IntoNormalMode();
                     StartCoroutine(CreateSeedCard());
                     break;
+                case BattleMode.PropMode:
+                case BattleMode.PlantMode:
                 case BattleMode.PlayerMode:
-                    LevelManager.Instance.InitOtherGameModes();
+                    LevelManager.Instance.InitOtherGameModes(SaveManager.Instance.specialData.modeValue);
                     IntoNormalMode();
                     break;
                 default:

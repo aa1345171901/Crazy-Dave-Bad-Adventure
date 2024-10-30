@@ -103,7 +103,6 @@ public class TipsPanel : BasePanel
     public void ReStartGame()
     {
         // 重新设置模式为当前模式
-        SaveManager.Instance.SetSpecialMode(GameManager.Instance.nowMode);
         SceneManager.LoadScene(1);
     }
 

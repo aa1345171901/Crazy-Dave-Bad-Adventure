@@ -110,9 +110,9 @@ namespace TopDownPlate
 
         System.Collections.IEnumerator Fade()
         {
-            for (int i = 0; i < 35; i++)
+            for (int i = 0; i < 20; i++)
             {
-                BackmusicPlayer.volume = fadeBeforeVolume - i / (fadeBeforeVolume * 35);
+                BackmusicPlayer.volume = fadeBeforeVolume - i / (fadeBeforeVolume * 20);
                 yield return new WaitForSeconds(0.1f);
             }
             BackmusicPlayer.volume = fadeBeforeVolume;

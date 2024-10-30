@@ -66,6 +66,7 @@ public class MainMenu : MonoBehaviour
 
     private void PlayStartGameAnim()
     {
+        SaveManager.Instance.SetSpecialMode(BattleMode.None);
         StartCoroutine(LoadLoadingScene());
         collider2d.enabled = true;
         var track = Dave.AnimationState.SetAnimation(0, "MainMenuSelect", false);
@@ -130,15 +131,6 @@ public class MainMenu : MonoBehaviour
     {
         Time.timeScale = 0;
         SettingPage.SetActive(true);
-    }
-
-    public void BossMode()
-    {
-        if (isLoadScene)
-            return;
-        // 打打僵王
-        SaveManager.Instance.SetSpecialMode(BattleMode.PlayerMode);
-        PlayStartGameAnim();
     }
 
     public void Achievement()
