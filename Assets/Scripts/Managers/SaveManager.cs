@@ -139,7 +139,7 @@ public class SaveManager
     }
 
     /// <summary>
-    /// 设置打打僵王模式
+    /// 设置游戏模式
     /// </summary>
     public void SetSpecialMode(BattleMode battleMode)
     {

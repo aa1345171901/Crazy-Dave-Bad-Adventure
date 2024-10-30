@@ -276,13 +276,35 @@ public class ConfClassName : ConfClassNameBase
 
 					if (value == null || typeof(value) == "undefined")
 					{
-						if (data[0][j].indexOf("支持空字符串") != -1)
+						if (type.indexOf("[][]") != -1)
 						{
-							tempStr += '""';
+							tempStr += StringToArroy2(type, "");
+						}
+						else if (type.indexOf("[]") != -1)
+						{
+							tempStr += StringToArroy1(type, "");
 						}
 						else
 						{
-							tempStr += '""';
+							if (type == "int")
+							{
+								if (value.indexOf("|") != -1)
+								{
+									tempStr += "" + "|error";
+								}
+								else
+								{
+									tempStr += "0";
+								}
+							}
+							else if (type == "string")
+							{
+								tempStr += '"' + '"';
+							}
+							else if (type == "float")
+							{
+								tempStr += "0f";
+							}
 						}
 					}
 					else
@@ -488,12 +510,19 @@ function StringToArroy1(type, strValue, splitChar)
 	{
 		var strValues = strValue.split(splitChar);
 		var csStr = "new " + type + "{ data }";
-		var csDataStr = ValueStrToCsStr(type, strValues[0]);
-		for(var i=1; i<strValues.length; i++)
-		{
-			csDataStr += ", " + ValueStrToCsStr(type, strValues[i]);
+		if (strValues[0].length == 0 && strValues.length == 1)
+		{		
+			csStr = replaceAll(csStr, "data", "");
 		}
-		csStr = replaceAll(csStr, "data", csDataStr);
+		else
+		{
+			var csDataStr = ValueStrToCsStr(type, strValues[0]);
+			for(var i=1; i<strValues.length; i++)
+			{
+				csDataStr += ", " + ValueStrToCsStr(type, strValues[i]);
+			}
+			csStr = replaceAll(csStr, "data", csDataStr);
+		}
 		
 		return csStr;
 	}

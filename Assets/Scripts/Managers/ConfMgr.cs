@@ -7,6 +7,8 @@ public class ConfMgr
     public class Data
     {
 		public ConfOtherGameModes otherGameModes = new ConfOtherGameModes();
+		public ConfOtherGameModeWaves otherGameModeWaves = new ConfOtherGameModeWaves();
+		public ConfOtherGameModeWavesParam otherGameModeWavesParam = new ConfOtherGameModeWavesParam();
 		public ConfPlantCards plantCards = new ConfPlantCards();
 		public ConfPropCards propCards = new ConfPropCards();
 		public ConfPlantIllustrations plantIllustrations = new ConfPlantIllustrations();
@@ -29,6 +31,8 @@ public class ConfMgr
     public System.Action onInitCall;
 	
 	public ConfOtherGameModes otherGameModes { get { return data.otherGameModes; } }		//其他游戏模式配置表.xlsx
+	public ConfOtherGameModeWaves otherGameModeWaves { get { return data.otherGameModeWaves; } }		//其他游戏模式配置表.xlsx
+	public ConfOtherGameModeWavesParam otherGameModeWavesParam { get { return data.otherGameModeWavesParam; } }		//其他游戏模式配置表.xlsx
 	public ConfPlantCards plantCards { get { return data.plantCards; } }		//商店配置表.xlsx
 	public ConfPropCards propCards { get { return data.propCards; } }		//商店配置表.xlsx
 	public ConfPlantIllustrations plantIllustrations { get { return data.plantIllustrations; } }		//图鉴配置表.xlsx
@@ -47,6 +51,8 @@ public class ConfMgr
 	public void Init()
     {
 		otherGameModes.Init();
+		otherGameModeWaves.Init();
+		otherGameModeWavesParam.Init();
 		plantCards.Init();
 		propCards.Init();
 		plantIllustrations.Init();
@@ -66,6 +72,8 @@ public class ConfMgr
         onInitCall?.Invoke();
 	
 		otherGameModes.OnInit();
+		otherGameModeWaves.OnInit();
+		otherGameModeWavesParam.OnInit();
 		plantCards.OnInit();
 		propCards.OnInit();
 		plantIllustrations.OnInit();

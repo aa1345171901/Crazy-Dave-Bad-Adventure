@@ -175,10 +175,6 @@ namespace TopDownPlate
     [AddComponentMenu("TopDownPlate/Managers/LevelManager")]
     public class LevelManager : BaseManager<LevelManager>
     {
-        [Header("Instantiate Characters")]
-        [Tooltip("游戏角色")]
-        public Character PlayerPrefab;
-
         [Space(10)]
         [Header("LevelBounds")]
         [Tooltip("关卡的区域限制")]
@@ -270,6 +266,14 @@ namespace TopDownPlate
             zombieIncrement = Mathf.Atan(increment);  // 无限趋近 1.5f
         }
 
+        /// <summary>
+        /// 初始化其他模式
+        /// </summary>
+        public void InitOtherGameModes()
+        {
+
+        }
+
         public void LoadTimer()
         {
             timer = DurationPerWave + 1;
@@ -353,8 +357,9 @@ namespace TopDownPlate
         {
             if (!isCreatePlayer)
             {
-                Character newPlayer = (Character)Instantiate(PlayerPrefab, PlayerPrefab.transform.position, Quaternion.identity);
-                newPlayer.name = PlayerPrefab.name;
+                var playerPrefab = Resources.Load<Character>("Prefabs/Player/" + GameManager.Instance.UserData.characterName);
+                Character newPlayer = (Character)Instantiate(playerPrefab, playerPrefab.transform.position, Quaternion.identity);
+                newPlayer.name = playerPrefab.name;
                 GameManager.Instance.SetPlayer(newPlayer);
                 isCreatePlayer = true;
             }

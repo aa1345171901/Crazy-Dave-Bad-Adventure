@@ -9,7 +9,7 @@ public class HPBar : MonoBehaviour
     public Text HPText;
     public Slider HPSlider;
 
-    private void Start()
+    private void Awake()
     {
         if (HPText == null)
             HPText = this.GetComponentInChildren<Text>();

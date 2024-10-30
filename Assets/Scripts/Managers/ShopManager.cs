@@ -80,10 +80,12 @@ public class ShopManager : BaseManager<ShopManager>
     public void PurchaseProp(PropCard propCard, int price, Action<AttributeType, int> call = null, bool isLoad = false)
     {
         if (!isLoad)
+        {
+            SetPropEffect(propCard);
             AchievementManager.Instance.SetAchievementType6(propCard.propName);
+        }
         PurchasedProps.Add(propCard);
         Money -= price;
-        SetPropEffect(propCard);
 
         var userData = GameManager.Instance.UserData;
         foreach (var item in propCard.attributes)

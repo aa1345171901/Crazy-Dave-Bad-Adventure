@@ -182,7 +182,7 @@ namespace TopDownPlate
         /// </summary>
         public bool isInvincible { get; set; }
 
-        private void Start()
+        private void Awake()
         {
             character = this.GetComponent<Character>();
             defaultMaxHealth = maxHealth;

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OtherGameModesItem : MonoBehaviour
@@ -11,7 +12,15 @@ public class OtherGameModesItem : MonoBehaviour
     public GameObject have;
     public Text nameText;
 
+    Button button;
+
     ConfOtherGameModesItem confItem;
+
+    private void Start()
+    {
+        button = GetComponent<Button>();
+        button.onClick.AddListener(OnEnterGameModes);
+    }
 
     public void InitData(ConfOtherGameModesItem confItem)
     {
@@ -21,5 +30,11 @@ public class OtherGameModesItem : MonoBehaviour
         img.sprite = bg;
 
         nameText.text = GameTool.LocalText(confItem.name);
+    }
+
+    void OnEnterGameModes()
+    {
+        SaveManager.Instance.SetSpecialMode((BattleMode)confItem.type);
+        SceneManager.LoadScene(2, LoadSceneMode.Additive);
     }
 }

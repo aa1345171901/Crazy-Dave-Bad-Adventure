@@ -170,7 +170,6 @@ namespace TopDownPlate
         {
             UIManager.Instance.ClearDict();  // 到主菜单后UIManager由于不是MonoBehaviour所以需要手动进行字典清空
             LoadData();
-            StartCoroutine(CreateSeedCard());
         }
 
         private void SaveData()
@@ -184,24 +183,92 @@ namespace TopDownPlate
         {
             UserData = new UserData("dave");
             nowMode = SaveManager.Instance.LoadSpecialData();
-            LevelManager.Instance.Init();
-            ExternlGrow();
             switch (nowMode)
             {
                 case BattleMode.None:
+                    LevelManager.Instance.Init();
+                    ExternlGrow();
                     if (!SaveManager.Instance.IsLoadUserData)
                         AchievementManager.Instance.SetAchievementType1();
                     IntoNormalMode();
+                    StartCoroutine(CreateSeedCard());
                     break;
                 case BattleMode.PlayerMode:
-                    ShopManager.Instance.Money = 100000;
-                    GardenManager.Instance.Sun = 2500000;
-                    LevelManager.Instance.IndexWave = 18;
+                    LevelManager.Instance.InitOtherGameModes();
                     IntoNormalMode();
                     break;
                 default:
                     break;
             }
+        }
+
+        public void SetPlayer(Character character)
+        {
+            this.Player = character;
+#if !UNITY_ANDROID
+            battlePanel = UIManager.Instance.PushPanel(UIPanelType.BattlePanel) as BattlePanel;
+#else
+            battlePanel = UIManager.Instance.PushPanel(UIPanelType.MobieBattlePanel) as BattlePanel;
+#endif
+            vocalConcert = Player.GetComponentInChildren<VocalConcert>();
+            pumpkinHead = Player.GetComponentInChildren<PumpkinHead>();
+            pumpkinHead.gameObject.SetActive(false);
+            specialPropLists.Add(vocalConcert);
+            specialPropLists.Add(pumpkinHead);
+            AudioManager.Instance.PlayEffectSoundByName("startWave");
+            AudioManager.Instance.PlayBackMusic(2);
+        }
+
+        public void NextWave()
+        {
+            IsDaytime = false;
+            LevelManager.Instance.IndexWave++;
+            LevelManager.Instance.Init();
+            AudioManager.Instance.PlayBackMusic(2);
+            AudioManager.Instance.PlayEffectSoundByName("startWave");
+            GardenManager.Instance.PlantsGoToWar();
+            foreach (var item in typeof(UserData).GetFields())
+            {
+                if (item.FieldType == typeof(int))
+                {
+                    var value = (int)item.GetValue(UserData);
+                    AchievementManager.Instance.SetAchievementType10(item.Name, value);
+                }
+            }
+            SaveData();
+            battlePanel.UpdatePlantPage();
+            ClearSeedCards();
+
+            // 下一波死神扣血
+            if (ShopManager.Instance.GetPurchaseTypeList(PropType.DeathGod).Count > 0)
+            {
+                var maxHp = Mathf.RoundToInt(UserData.MaximumHP * 0.9f);
+                UserData.MaximumHP = maxHp <= 0 ? 1 : maxHp;
+            }
+            Reuse();
+        }
+
+        /// <summary>
+        /// 每波商店结束调用
+        /// </summary>
+        private void Reuse()
+        {
+            Player.Reuse();
+            Player.Health.Reuse();
+            battlePanel.SetHPBar(Player.Health.health, Player.Health.maxHealth);
+            foreach (var item in specialPropLists)
+            {
+                item.Reuse();
+            }
+        }
+
+        private void OpenShop()
+        {
+            PlayerEnable = !IsDaytime;
+            UIManager.Instance.PushPanel(UIPanelType.ShopingPanel);
+            AudioManager.Instance.StopBackMusic();
+            AudioManager.Instance.PlayEffectSoundByName("zamboni");
+            AudioManager.Instance.PlayShoppingMusic(2.5f);
         }
 
         /// <summary>
@@ -218,7 +285,7 @@ namespace TopDownPlate
             //GardenManager.Instance.PlantsGoToWar();
 
             // 特殊模式或者没有读取存档增加局外成长属性
-            if (nowMode != BattleMode.None || !SaveManager.Instance.IsLoadUserData)
+            if (!SaveManager.Instance.IsLoadUserData)
             {
                 foreach (var item in SaveManager.Instance.externalGrowthData.keys)
                 {
@@ -310,6 +377,8 @@ namespace TopDownPlate
                 OpenShop();
                 SaveManager.Instance.IsLoadUserData = false;
             }
+            else
+                Reuse();
         }
 
         /// <summary>
@@ -363,23 +432,6 @@ namespace TopDownPlate
                 propDictsQuality.Remove(remove);
         }
 
-        public void SetPlayer(Character character)
-        {
-            this.Player = character;
-#if !UNITY_ANDROID
-            battlePanel = UIManager.Instance.PushPanel(UIPanelType.BattlePanel) as BattlePanel;
-#else
-            battlePanel = UIManager.Instance.PushPanel(UIPanelType.MobieBattlePanel) as BattlePanel;
-#endif
-            vocalConcert = Player.GetComponentInChildren<VocalConcert>();
-            pumpkinHead = Player.GetComponentInChildren<PumpkinHead>();
-            pumpkinHead.gameObject.SetActive(false);
-            specialPropLists.Add(vocalConcert);
-            specialPropLists.Add(pumpkinHead);
-            AudioManager.Instance.PlayEffectSoundByName("startWave");
-            AudioManager.Instance.PlayBackMusic(2);
-        }
-
         public void DoDamage(int damage, ZombieType zombieType, DamageType damageType = DamageType.Zombie)
         {
             if (IsEnd)
@@ -428,56 +480,6 @@ namespace TopDownPlate
         public void SetCloseAttack(bool isCloseAttack)
         {
             battlePanel.SetCloseAttack(isCloseAttack);
-        }
-
-        public void NextWave()
-        {
-            SaveData();
-            IsDaytime = false;
-            LevelManager.Instance.IndexWave++;
-            LevelManager.Instance.Init();
-            AudioManager.Instance.PlayBackMusic(2);
-            AudioManager.Instance.PlayEffectSoundByName("startWave");
-            GardenManager.Instance.PlantsGoToWar();
-            foreach (var item in typeof(UserData).GetFields())
-            {
-                if (item.FieldType == typeof(int))
-                {
-                    var value = (int)item.GetValue(UserData);
-                    AchievementManager.Instance.SetAchievementType10(item.Name, value);
-                }
-            }
-            battlePanel.UpdatePlantPage();
-            ClearSeedCards();
-            Reuse();
-        }
-
-        /// <summary>
-        /// 每波商店结束调用
-        /// </summary>
-        private void Reuse()
-        {
-            if (ShopManager.Instance.GetPurchaseTypeList(PropType.DeathGod).Count > 0)
-            {
-                var maxHp = Mathf.RoundToInt(UserData.MaximumHP * 0.9f);
-                UserData.MaximumHP = maxHp <= 0 ? 1 : maxHp;
-            }
-            Player.Reuse();
-            Player.Health.Reuse();
-            battlePanel.SetHPBar(Player.Health.health, Player.Health.maxHealth);
-            foreach (var item in specialPropLists)
-            {
-                item.Reuse();
-            }
-        }
-
-        private void OpenShop()
-        {
-            PlayerEnable = !IsDaytime;
-            UIManager.Instance.PushPanel(UIPanelType.ShopingPanel);
-            AudioManager.Instance.StopBackMusic();
-            AudioManager.Instance.PlayEffectSoundByName("zamboni");
-            AudioManager.Instance.PlayShoppingMusic(2.5f);
         }
 
         public void SetPropDamage(PropType propDamageType, int defaultDamage, float coolingTime)
@@ -746,22 +748,6 @@ namespace TopDownPlate
                     item.ProcessAbility();
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(7, 1).propName), 1);
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(8, 2).propName), 1);
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(9, 3).propName), 1);
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-                ShopManager.Instance.PurchaseProp(ConfManager.Instance.confMgr.propCards.PropCards.Find((e) => e.propName == ConfManager.Instance.confMgr.propCards.GetItemByTypeLevel(10, 2).propName), 1);
-            }
         }
 
         public void Pause()
@@ -872,6 +858,20 @@ namespace TopDownPlate
         {
             haveHpBarZombie.Clear();
             battlePanel.ClearZombieHpBar();
+        }
+
+        /// <summary>
+        /// 获取道具后重新刷新一些所有显示及数值计算
+        /// </summary>
+        public void GetPropReuse()
+        {
+            Player.Reuse();
+            Player.Health.maxHealth = UserData.MaximumHP;
+            battlePanel.SetHPBar(Player.Health.health, Player.Health.maxHealth);
+            foreach (var item in specialPropLists)
+            {
+                item.Reuse();
+            }
         }
     }
 }
